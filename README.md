@@ -12,13 +12,10 @@ Program official forum thread: http://forum.wurmonline.com/index.php?/topic/7935
 2. All libraries and graphics are on Github - if you are using NB everything should be configured correctly by default, using other IDE's you must set libraries and run directory manually.
 
 Code is not documented, but volunteers can document it, though the code should be the best documentation for itself. ;)
+I can document parts of the code on request.
 
 <b>Project goals:</b><br>
 1. Creation of the most advanced, professional-looking deed planner for Wurm Online<br>
-2. Access to the widest possible audience - as little platform-dependend code as possible<br>
+2. Access to the widest possible audience - as little platform-dependent code as possible<br>
 3. The program usage should be as simple as possible<br>
 4. Cooperation with other Wurm-related programs and (possibly in the future) the game itself.
-
-The program main class is located in Form/HouseCalc.java.
-
-The program have modular structure with core in Mapper/Mapper.java.
