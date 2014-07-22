@@ -1,0 +1,735 @@
+<entities>
+	<grounds>
+		<ground name="Grass" shortname="gr">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/grass.jpg"/>
+				<universal season="fall" location="Data/GroundTextures/Fall/grass_fall.jpg"/>
+				<universal season="winter" location="Data/GroundTextures/Winter/winter-grass.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain</category>
+		</ground>
+		<ground name="Dirt" shortname="di">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/dirt.jpg"/>
+				<universal season="fall" location="Data/GroundTextures/Fall/dirt_fall.jpg"/>
+				<universal season="winter" location="Data/GroundTextures/Winter/winter-dirt.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain</category>
+		</ground>
+		<ground name="Packed dirt" shortname="pd">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/packed-dirt.jpg"/>
+				<universal season="fall" location="Data/GroundTextures/Fall/packed_dirt_fall.jpg"/>
+				<universal season="winter" location="Data/GroundTextures/Winter/winter-packed-dirt.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Sand" shortname="sa">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/sand.jpg"/>
+				<universal season="fall" location="Data/GroundTextures/Fall/sand_fall.jpg"/>
+				<universal season="winter" location="Data/GroundTextures/Winter/winter-sand.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain</category>
+		</ground>
+		<ground name="Water" shortname="wa">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/water.png"/>
+			</tex>
+			<noise power="0"/>
+			<category>Natural terrain</category>
+		</ground>
+		<ground name="Forest" shortname="fo">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/forest.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain</category>
+		</ground>
+		<ground name="Marsh" shortname="ma">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/marsh.png"/>
+				<universal season="winter" location="Data/GroundTextures/winter-marsh.png"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain</category>
+		</ground>
+		<ground name="Steppe" shortname="st">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/steppe.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain</category>
+		</ground>
+		<ground name="Tundra" shortname="tu">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/tundra.png"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain</category>
+		</ground>
+		<ground name="Field" shortname="fi">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/farm.jpg"/>
+				<universal season="winter" location="Data/GroundTextures/Winter/winter-farm.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Gravel" shortname="gv">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/gravel.jpg"/>
+				<universal season="fall" location="Data/GroundTextures/Fall/gravel_fall.jpg"/>
+				<universal season="winter" location="Data/GroundTextures/Winter/winter-gravel.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<diagonal/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Cobblestone" shortname="cs">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/cobble.png"/>
+				<universal season="winter" location="Data/GroundTextures/Winter/winter-cobble.png"/>
+			</tex>
+			<noise power="1"/>
+			<diagonal/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Rough Cobblestone" shortname="rcs">
+            <tex>
+                <universal season="all" location="Data/GroundTextures/cobble2.png"/>
+                <universal season="winter" location="Data/GroundTextures/Winter/cobble2_snow.png"/>
+            </tex>
+            <noise power="1"/>
+            <category>Roads</category>
+        </ground>
+        <ground name="Round Cobblestone" shortname="csr">
+            <tex>
+                <universal season="all" location="Data/GroundTextures/cobble3.png"/>
+                <universal season="winter" location="Data/GroundTextures/Winter/cobble3_snow.png"/>
+            </tex>
+            <noise power="1"/>
+            <category>Roads</category>
+        </ground>
+		<ground name="Stone slab" shortname="sl">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/slab.jpg"/>
+				<universal season="winter" location="Data/GroundTextures/Winter/winter-slab.jpg"/>
+			</tex>
+			<noise power="0"/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Marble slab" shortname="msl">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/marbleslab.jpg"/>
+			</tex>
+			<noise power="0"/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Slate slab" shortname="ssl">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/slateslab.jpg"/>
+			</tex>
+			<noise power="0"/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Planks" shortname="pl">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/planks.png"/>
+			</tex>
+			<noise power="0"/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Enchanted forest" shortname="ef">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/enchantedforest.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Enchanted terrain</category>
+		</ground>
+		<ground name="Enchanted grass" shortname="eg">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/enchantedgrass.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Enchanted terrain</category>
+		</ground>
+		<ground name="Wooden cave door" shortname="wcaDoor">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/door-wood.png"/>
+			</tex>
+			<noise power="0"/>
+			<category>Cave doors</category>
+		</ground>
+		<ground name="Metal cave door" shortname="mcaDoor">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/door-metal.png"/>
+			</tex>
+			<noise power="0"/>
+			<category>Cave doors</category>
+		</ground>
+		<ground name="Silver cave door" shortname="scaDoor">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/door-silver.png"/>
+			</tex>
+			<noise power="0"/>
+			<category>Cave doors</category>
+		</ground>
+		<ground name="Golder cave door" shortname="gcaDoor">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/door-gold.png"/>
+			</tex>
+			<noise power="0"/>
+			<category>Cave doors</category>
+		</ground>
+		
+		<ground name="Rock" shortname="ro">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/rock.jpg"/>
+				<universal season="fall" location="Data/GroundTextures/Fall/rock_fall.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain/Mountain</category>
+		</ground>
+		<ground name="Cliff" shortname="cl">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/cliff.jpg"/>
+				<universal season="winter" location="Data/GroundTextures/winter-cliff.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain/Mountain</category>
+		</ground>
+		<ground name="Lava" shortname="la">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/lava.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain/Mountain</category>
+		</ground>
+		<ground name="Clay" shortname="cy">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/clay.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain/Resources</category>
+		</ground>
+		<ground name="Moss" shortname="mo">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/moss.png"/>
+				<universal season="winter" location="Data/GroundTextures/winter-moss.png"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain/Resources</category>
+		</ground>
+		<ground name="Peat" shortname="pe">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/peat.jpg"/>
+				<universal season="winter" location="Data/GroundTextures/winter-peat.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain/Resources</category>
+		</ground>
+		<ground name="Tar" shortname="ta">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/tar.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Natural terrain/Resources</category>
+		</ground>
+	</grounds>
+	
+	
+	
+	
+	
+	<floors>
+		<floor name="Wooden plank floor" shortname="wFloor">
+			<model location="Data/Floors/Floor.dae">
+				<mesh name="floor" tex="Data/Floors/floor.png"/>
+			</model>
+			<category>Floors</category>
+			<category>Materials/Wooden plank</category>
+		</floor>
+		<floor name="Stone brick floor" shortname="sbFloor">
+			<model location="Data/Floors/Floor.dae">
+				<mesh name="floor" tex="Data/Floors/brick_floor.png"/>
+			</model>
+			<category>Floors</category>
+			<category>Materials/Stone brick</category>
+		</floor>
+		<floor name="Pottery brick floor" shortname="pbFloor">
+			<model location="Data/Floors/Floor.dae">
+				<mesh name="floor" tex="Data/Floors/clay_brick.png"/>
+			</model>
+			<category>Floors</category>
+			<category>Materials/Pottery brick</category>
+		</floor>
+		<floor name="Marble slab floor" shortname="mFloor">
+			<model location="Data/Floors/Floor.dae">
+				<mesh name="floor" tex="Data/Floors/marble_floor.png"/>
+			</model>
+			<category>Floors</category>
+			<category>Materials/Marble slab</category>
+		</floor>
+		<floor name="Slate slab floor" shortname="sFloor">
+			<model location="Data/Floors/Floor.dae">
+				<mesh name="floor" tex="Data/Floors/slate_floor.png"/>
+			</model>
+			<category>Floors</category>
+			<category>Materials/Slate slab</category>
+		</floor>
+		<floor name="Stone slab floor" shortname="sFloor2">
+			<model location="Data/Floors/Floor.dae">
+				<mesh name="floor" tex="Data/Floors/slab_floor.png"/>
+			</model>
+			<category>Floors</category>
+			<category>Materials/Stone slab</category>
+		</floor>
+		
+		<floor name="Wooden plank opening" shortname="wOpen">
+			<model location="Data/Floors/Floor_Opening.dae">
+				<mesh name="opening" tex="Data/Floors/floor.png"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+			</model>
+			<opening/>
+			<category>Openings</category>
+			<category>Materials/Wooden plank</category>
+		</floor>
+		<floor name="Stone brick opening" shortname="sbOpen">
+			<model location="Data/Floors/Floor_Opening.dae">
+				<mesh name="opening" tex="Data/Floors/brick_floor.png"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+			</model>
+			<opening/>
+			<category>Openings</category>
+			<category>Materials/Stone brick</category>
+		</floor>
+		<floor name="Pottery brick opening" shortname="pbOpen">
+			<model location="Data/Floors/Floor_Opening.dae">
+				<mesh name="opening" tex="Data/Floors/clay_brick.png"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+			</model>
+			<opening/>
+			<category>Openings</category>
+			<category>Materials/Pottery brick</category>
+		</floor>
+		<floor name="Marble slab opening" shortname="mOpen">
+			<model location="Data/Floors/Floor_Opening.dae">
+				<mesh name="opening" tex="Data/Floors/marble_floor.png"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+			</model>
+			<opening/>
+			<category>Openings</category>
+			<category>Materials/Marble slab</category>
+		</floor>
+		<floor name="Slate slab opening" shortname="sOpen">
+			<model location="Data/Floors/Floor_Opening.dae">
+				<mesh name="opening" tex="Data/Floors/slate_floor.png"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+			</model>
+			<opening/>
+			<category>Openings</category>
+			<category>Materials/Slate slab</category>
+		</floor>
+		<floor name="Stone slab opening" shortname="sOpen2">
+			<model location="Data/Floors/Floor_Opening.dae">
+				<mesh name="opening" tex="Data/Floors/slab_floor.png"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+			</model>
+			<opening/>
+			<category>Openings</category>
+			<category>Materials/Stone slab</category>
+		</floor>
+		
+		<floor name="Unfinished floor" shortname="uFloor">
+			<model location="Data/Floors/Floor_Plan.dae">
+				<mesh name="plan" tex="Data/Floors/floor.png"/>
+			</model>
+			<category>Unfinished</category>
+		</floor>
+	</floors>
+	
+	
+	
+	
+	
+	<walls>
+		<wall name="Wooden wall" shortname="wWall" scale="4">
+			<model location="Data/Walls/Wooden_Wall.dae">
+				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Wooden window" shortname="wWindow" scale="4">
+			<model location="Data/Walls/Wooden_Window.dae">
+				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Wooden arched wall" shortname="wArch" scale="4">
+			<model location="Data/Walls/Wooden_Arched_Door.dae">
+				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Wooden door" shortname="wDoor" scale="4">
+			<model location="Data/Walls/Wooden_Door_Main.dae">
+				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Wooden double door" shortname="wdDoor" scale="4">
+			<model location="Data/Walls/Wooden_Door_Double_Main.dae">
+				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Wood</category>
+		</wall>
+		
+		<wall name="Stone wall" shortname="sWall" scale="1">
+			<model location="Data/Walls/House_Stone_Wall_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Stone window" shortname="sWindow" scale="1">
+			<model location="Data/Walls/House_Stone_Wall_Window_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Stone arched wall" shortname="sArch" scale="1">
+			<model location="Data/Walls/Stone_Arched_Door_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Stone door" shortname="sDoor" scale="1">
+			<model location="Data/Walls/House_Stone_Wall_Door_Main_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Stone double door" shortname="sdDoor" scale="1">
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Main_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		
+		<wall name="Timber wall" shortname="tWall" scale="4">
+			<model location="Data/Walls/timberWall_upper.dae">
+				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Timber</category>
+		</wall>
+		<wall name="Timber window" shortname="tWindow" scale="4">
+			<model location="Data/Walls/timberWallWindow_upper.dae">
+				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Timber</category>
+		</wall>
+		<wall name="Timber arched wall" shortname="tArch" scale="4">
+			<model location="Data/Walls/timberWallArched.dae">
+				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Timber</category>
+		</wall>
+		<wall name="Timber door" shortname="tDoor" scale="4">
+			<model location="Data/Walls/timberWallDoorUpper_Main.dae">
+				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Timber</category>
+		</wall>
+		<wall name="Timber double door" shortname="tdDoor" scale="4">
+			<model location="Data/Walls/timberWallDoubleDoorUpper_Main.dae">
+				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<house/>
+			<category>House walls</category>
+			<category>Materials/Timber</category>
+		</wall>
+		
+		<wall name="Wall plan" shortname="wPlan" scale="4">
+			<model location="Data/Walls/Wall_Plan.dae">
+				<mesh name="plan" tex="Data/Walls/wooden.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<category>House walls</category>
+		</wall>
+		
+		<wall name="Low stone wall" shortname="lsFence" scale="2">
+			<model location="Data/Walls/SmallStone.dae">
+				<mesh name="stone" tex="Data/Walls/SmallStone.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Stone fence" shortname="stFence" scale="1">
+			<model location="Data/Walls/StoneFence.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Tall stone wall" shortname="tsFence" scale="1">
+			<model location="Data/Walls/Tall_Stone_Wall.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Stone</category>
+		</wall>
+		
+		<wall name="Palisade" shortname="pFence" scale="3">
+			<model location="Data/Walls/Palisade.dae">
+				<mesh name="palisade" tex="Data/Walls/palisade.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Palisade gate" shortname="pFenceG" scale="3">
+			<model location="Data/Walls/PalisadeGate_Main.dae">
+				<mesh name="palisade" tex="Data/Walls/palisade.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		
+		<wall name="Wooden parapet" shortname="wPar" scale="4">
+			<model location="Data/Walls/Wooden_Parapet.dae">
+				<mesh name="parapet" tex="Data/Walls/wooden.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<category>Parapets</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Stone parapet" shortname="sPar" scale="2">
+			<model location="Data/Walls/Stone_Parapet.dae">
+				<mesh name="parapet" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<category>Parapets</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Stone and iron parapet" shortname="siPar" scale="2">
+			<model location="Data/Walls/Stone_Iron_Parapet.dae">
+				<mesh name="parapet" tex="Data/Walls/IronFence.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<category>Parapets</category>
+			<category>Materials/Wood</category>
+		</wall>
+		
+		<wall name="Crude wooden fence" shortname="cwFence" scale="4">
+			<model location="Data/Walls/Crude_Wooden_Fence.dae">
+				<mesh name="wooden" tex="Data/Walls/CrudeWoodenFence.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Crude wooden fence gate" shortname="cwFenceG" scale="4">
+			<model location="Data/Walls/Crude_Gate_Main.dae">
+				<mesh name="posts" tex="Data/Walls/CrudeWoodenFence.jpg"/>
+				<mesh name="gate" tex="Data/Walls/CrudeWoodenFence.jpg" type="ladder"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		
+		<wall name="Low roundpole fence" shortname="gFence" scale="12">
+			<model location="Data/Walls/Gardesgard.dae">
+				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Low roundpole gate" shortname="gFenceG" scale="12">
+			<model location="Data/Walls/GardesgardGate_main.dae">
+				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="High roundpole fence" shortname="hgFence" scale="12">
+			<model location="Data/Walls/GardesgardGate_main.dae">
+				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		
+		<wall name="Wooden fence" shortname="wFence" scale="4">
+			<model location="Data/Walls/Wooden_Fence.dae">
+				<mesh name="fence" tex="Data/Walls/WoodenFence.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Wooden fence gate" shortname="wFenceG" scale="2">
+			<model location="Data/Walls/Wooden_Gate_Main.dae">
+				<mesh name="gatemesh" tex="Data/Walls/WoodenFence.jpg"/>
+				<mesh name="posts" tex="Data/Walls/WoodenFence.jpg" type="ladder"/>
+				<mesh name="gate2" tex="Data/Walls/WoodenFence.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		
+		<wall name="Iron fence" shortname="iFence" scale="2">
+			<model location="Data/Walls/IronFence.dae">
+				<mesh name="iron" tex="Data/Walls/IronFence.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Iron fence gate" shortname="iFenceG" scale="2">
+			<model location="Data/Walls/IronFenceGate_Main.dae">
+				<mesh name="gatemesh" tex="Data/Walls/IronFence.png"/>
+				<mesh name="fence" tex="Data/Walls/IronFence.png" type="ladder"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Tall iron fence" shortname="hiFence" scale="2">
+			<model location="Data/Walls/HighIronFence.dae">
+				<mesh name="iron" tex="Data/Walls/IronFence.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Tall iron fence gate" shortname="hiFenceG" scale="2">
+			<model location="Data/Walls/HighIronFenceGate_main.dae">
+				<mesh name="iron" tex="Data/Walls/IronFence.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Chain fence" shortname="icFence" scale="2">
+			<model location="Data/Walls/ChainMediumFence.dae">
+				<mesh name="fence" tex="Data/Walls/IronFence.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		
+		<wall name="Curb" shortname="curb" scale="2">
+			<model location="Data/Walls/Curb.dae">
+				<mesh name="curb" tex="Data/Walls/curb.jpg"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<category>Decorations</category>
+			<category>Materials/Stone</category>
+		</wall>
+		
+		<wall name="Low rope fence" shortname="rFence" scale="15">
+			<model location="Data/Walls/RopeFence.dae">
+				<mesh name="rope" tex="Data/Walls/ropefence.jpg"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Rope</category>
+		</wall>
+		<wall name="High rope fence" shortname="hrFence" scale="15">
+			<model location="Data/Walls/HighRopeFence.dae">
+				<mesh name="rope" tex="Data/Walls/ropefence.jpg"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<category>Fences</category>
+			<category>Materials/Rope</category>
+		</wall>
+	</walls>
+	
+	
+	
+	
+	
+	<roofs>
+		<roof name="Wood shingle roof" shortname="wRoof" tex="Data/Special/wooden.png"/>
+		<roof name="Slate shingle roof" shortname="sRoof" tex="Data/Special/slate.png"/>
+		<roof name="Pottery shingle roof" shortname="pRoof" tex="Data/Special/clay.png"/>
+		<roof name="Thatched roof" shortname="tRoof" tex="Data/Special/thatch.png"/>
+	</roofs>
+	
+	
+	
+	
+	
+	<objects>
+
+	</objects>
+	
+	
+	
+	
+	
+	<cave>
+
+	</cave>
+</entities>
