@@ -71,7 +71,7 @@ public class Planner extends javax.swing.JFrame {
         heightList.setModel(HeightUpdater.createListModel());
         heightList.setSelectedIndex(0);
         
-        roofsList.setModel(Data.roofs);
+        roofsList.setModel(Data.roofsList);
         roofsList.setSelectedIndex(0);
         
         floorsModeCombo.setModel(FloorUpdater.createComboModel());

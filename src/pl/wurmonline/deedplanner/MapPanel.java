@@ -1,13 +1,14 @@
 package pl.wurmonline.deedplanner;
 
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import javax.media.opengl.*;
 import javax.media.opengl.awt.GLJPanel;
 import pl.wurmonline.deedplanner.data.Map;
-import pl.wurmonline.deedplanner.graphics.FPPCamera;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
+import pl.wurmonline.deedplanner.graphics.*;
 import pl.wurmonline.deedplanner.util.jogl.GLInit;
 
-public class MapPanel extends GLJPanel {
+public class MapPanel extends GLJPanel implements ComponentListener {
 
     private Map map;
     
@@ -57,5 +58,16 @@ public class MapPanel extends GLJPanel {
             this.map = map;
         });
     }
+
+    public void componentResized(ComponentEvent e) {
+        Globals.glWindowWidth = getWidth();
+        Globals.glWindowHeight = getHeight();
+    }
+
+    public void componentMoved(ComponentEvent e) {}
+
+    public void componentShown(ComponentEvent e) {}
+
+    public void componentHidden(ComponentEvent e) {}
     
 }

@@ -2,6 +2,7 @@ package pl.wurmonline.deedplanner.data;
 
 import com.jogamp.opengl.util.glsl.ShaderProgram;
 import java.io.*;
+import java.util.Scanner;
 import java.util.Stack;
 import javax.media.opengl.GL2;
 import javax.xml.parsers.*;
@@ -12,6 +13,7 @@ import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.*;
 import pl.wurmonline.deedplanner.logic.Tab;
 import pl.wurmonline.deedplanner.util.*;
@@ -32,11 +34,39 @@ public final class Map {
     private float maxElevation = 5;
     private float diffElevation = 0;
     
-    public Map(String mapData) throws IOException, SAXException, ParserConfigurationException {
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-        Document doc = dBuilder.parse(new ByteArrayInputStream(mapData.getBytes()));
+    public static Map parseMap(byte[] mapData) throws DeedPlannerException {
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(new ByteArrayInputStream(mapData));
+            return new Map(doc);
+        } catch (SAXException | ParserConfigurationException | IOException ex) {
+            Log.out(Map.class, "Unable to load map as a DeedPlanner 2 map, trying to load as WAK map.");
+        }
         
+        try (InputStream is = new ByteArrayInputStream(mapData);
+        LittleEndianDataInputStream dis = new LittleEndianDataInputStream(is);) {
+            return new Map(dis);
+        } catch (IOException ex) {
+            Log.err(ex);
+        } catch (DeedPlannerException ex) {
+            Log.out(Map.class, "Unable to load map as a Wurm Army Knife map, trying to load as old DeedPlanner map.");
+        }
+        
+        try (InputStream is = new ByteArrayInputStream(mapData);
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        Scanner scan = new Scanner(br);) {
+            return new Map(scan);
+        } catch (DeedPlannerException | IOException ex) {
+            Log.out(Map.class, "Unable to load map as a old DeedPlanner map.");
+        }
+        
+        throw new DeedPlannerException("Unable to load map - no known map format is found.");
+    }
+    
+    // <editor-fold defaultstate="collapsed" desc="Map loading backends">
+    
+    private Map(Document doc) {
         Element map = doc.getDocumentElement();
         width = Integer.parseInt(map.getAttribute("width"));
         height = Integer.parseInt(map.getAttribute("height"));
@@ -50,15 +80,203 @@ public final class Map {
             tiles[x][y] = new Tile(this, x, y, tile);
         }
         
-        recalculateHeight();
-        recalculateRoofs();
-        
-        for (int i=0; i<width; i++) {
-            for (int i2=0; i2<height; i2++) {
-                tiles[i][i2].recalculateHeights();
+        createHeightData();
+    }
+    
+    private Map(LittleEndianDataInputStream stream) throws DeedPlannerException, IOException {
+        byte[] wakWordBytes = new byte[3];
+        stream.read(wakWordBytes);
+        String wakWordString = new String(wakWordBytes, "US-ASCII");
+        if (!"WMP".equals(wakWordString)) {
+            throw new DeedPlannerException("Not a WAK map");
+        }
+        stream.skipBytes(20);
+        width = Math.max(stream.readInt(), 50);
+        height = Math.max(stream.readInt(), 50);
+        tiles = new Tile[width+1][height+1];
+        for (int i=0; i<=width; i++) {
+            for (int i2=0; i2<=height; i2++) {
+                tiles[i][i2] = new Tile(this, i, i2);
             }
         }
+        
+        boolean bigMap = width > 255 || height> 255;
+        stream.skipBytes(34);
+        int tileCount = stream.readInt();
+        
+        for (int i=0; i<tileCount; i++) {
+            final int x = readCoordinate(stream, bigMap);
+            final int y = height - readCoordinate(stream, bigMap) - 1;
+            final int layers = stream.read();
+            if (layers==1 || layers==3) {
+                tiles[x][y] = readTile(stream, x, y);
+            }
+            if (layers==2 || layers==3) {
+                readTile(stream, x, y);
+            }
+        }
+        
+        createHeightData();
     }
+    
+    private int readCoordinate(LittleEndianDataInputStream stream, boolean bigMap) throws IOException {
+        if (bigMap) {
+            return stream.readInt();
+        }
+        else {
+            return stream.read();
+        }
+    }
+    
+    private Tile readTile(LittleEndianDataInputStream stream, int x, int y) throws IOException {
+        Tile tile = new Tile(tiles[x][y]);
+        int attributes = stream.read();
+        if (attributes==1 || attributes==3) {
+            //TODO implement after labels are ready
+            int length = stream.read();
+            stream.skipBytes(length+3);
+        }
+        if (attributes==2 || attributes==3) {
+            stream.skipBytes(4);
+        }
+        int terrain = stream.read();
+        GroundData ground = WAKData.grounds.get(terrain);
+        tile.setGround(ground, RoadDirection.CENTER, false);
+        int itemsNumber = stream.readInt();
+        
+        for (int i=0; i<itemsNumber; i++) {
+            readObject(stream, tile);
+        }
+        
+        return tile;
+    }
+    
+    private void readObject(LittleEndianDataInputStream stream, Tile tile) throws IOException {
+        int pos = stream.read();
+        if (pos==2 || pos==10) {
+            int type = stream.read();
+            WallData wallData = WAKData.walls.get(type);
+            if (pos==2) {
+                Tile t = getTile(tile, 0, 1);
+                if (t!=null) {
+                    t.setHorizontalWall(wallData, 0, false);
+                }
+            }
+            if (pos==10) {
+                tile.setVerticalWall(wallData, 0, false);
+            }
+            stream.skipBytes(1);
+        }
+        else {
+            //TODO add objects after implementation
+            stream.skipBytes(2);
+        }
+    }
+    
+    private Map(Scanner scan) throws DeedPlannerException {
+        scan.next();
+        width = Math.max(scan.nextInt(), 50);
+        height = Math.max(scan.nextInt(), 50);
+        tiles = new Tile[width+1][height+1];
+        for (int i=0; i<=width; i++) {
+            for (int i2=0; i2<=height; i2++) {
+                tiles[i][i2] = new Tile(this, i, i2);
+            }
+        }
+        
+        while (scan.hasNext()) {
+            switch (scan.next()) {
+                case "H":
+                    readHeight(scan);
+                    break;
+                case "G":
+                    readGround(scan);
+                    break;
+                case "C":
+                    scan.nextLine();
+                    break;
+                case "O":
+                    scan.nextLine();
+                    break;
+                case "T":
+                    readTile(scan);
+                    break;
+                case "BX":
+                    readHorizontalBorder(scan);
+                    break;
+                case "BY":
+                    readVerticalBorder(scan);
+                    break;
+                case "L":
+                    scan.nextLine();
+                    break;
+                case "W":
+                    scan.nextLine();
+                    break;
+            }
+        }
+        
+        createHeightData();
+    }
+    
+    private void readHeight(Scanner scan) {
+        int x = scan.nextInt();
+        int y = scan.nextInt();
+        int val = scan.nextInt();
+        tiles[x][y].setHeight(val, false);
+    }
+    
+    private void readGround(Scanner scan) {
+        int x = scan.nextInt();
+        int y = scan.nextInt();
+        String shortName = scan.next();
+        GroundData data = Data.grounds.get(shortName);
+        if (data!=null) {
+            tiles[x][y].setGround(data, RoadDirection.CENTER, false);
+        }
+    }
+    
+    private void readHorizontalBorder(Scanner scan) {
+        int x = scan.nextInt() - 1;
+        int y = scan.nextInt();
+        int z = scan.nextInt();
+        String shortName = scan.next();
+        scan.next(); scan.next(); scan.next();
+        WallData data = Data.walls.get(shortName);
+        if (data!=null) {
+            tiles[x][z].setHorizontalWall(data, y, false);
+        }
+    }
+    
+    private void readVerticalBorder(Scanner scan) {
+        int x = scan.nextInt();
+        int y = scan.nextInt();
+        int z = scan.nextInt();
+        String shortName = scan.next();
+        scan.next(); scan.next(); scan.next();
+        WallData data = Data.walls.get(shortName);
+        if (data!=null) {
+            tiles[x][z].setVerticalWall(data, y, false);
+        }
+    }
+    
+    private void readTile(Scanner scan) {
+        int x = scan.nextInt() - 1;
+        int y = scan.nextInt();
+        int z = scan.nextInt();
+        String shortName = scan.next();
+        FloorData floor = Data.floors.get(shortName);
+        if (floor!=null) {
+            tiles[x][z].setTileContent(floor, y, false);
+            return;
+        }
+        RoofData roof = Data.roofs.get(shortName);
+        if (roof!=null) {
+            tiles[x][z].setTileContent(new Roof(roof), y, false);
+        }
+    }
+    
+    // </editor-fold>
     
     public Map(int width, int height) {
         this.width = width;
@@ -92,6 +310,17 @@ public final class Map {
         }
         recalculateHeight();
         recalculateRoofs();
+    }
+    
+    private void createHeightData() {
+        recalculateHeight();
+        recalculateRoofs();
+        
+        for (int i=0; i<width; i++) {
+            for (int i2=0; i2<height; i2++) {
+                tiles[i][i2].recalculateHeights();
+            }
+        }
     }
     
     public void render(GL2 g) {
@@ -349,6 +578,10 @@ public final class Map {
         maxElevation = max;
         minElevation = min;
         diffElevation = max - min;
+    }
+    
+    public String toString() {
+        return "Map";
     }
     
 }

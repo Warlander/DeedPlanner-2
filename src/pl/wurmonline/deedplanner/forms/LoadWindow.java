@@ -9,6 +9,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.MapPanel;
 import pl.wurmonline.deedplanner.data.Map;
+import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 
@@ -24,10 +25,10 @@ public class LoadWindow extends javax.swing.JFrame {
         SwingUtils.centerFrame(this);
     }
     
-    private void loadManager(String toLoad) {
+    private void loadManager(byte[] toLoad) {
         try {
-            panel.setMap(new Map(toLoad));
-        } catch (IOException | SAXException | ParserConfigurationException ex) {
+            panel.setMap(Map.parseMap(toLoad));
+        } catch (DeedPlannerException ex) {
             Log.err(ex);
         }
     }
@@ -62,7 +63,7 @@ public class LoadWindow extends javax.swing.JFrame {
             }
         });
 
-        urlButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        urlButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         urlButton.setText("Load from pastebin.com");
         urlButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +79,7 @@ public class LoadWindow extends javax.swing.JFrame {
             }
         });
 
-        fileButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        fileButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         fileButton.setText("Open from file");
         fileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,15 +91,15 @@ public class LoadWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(fileButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(codeField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(codeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(urlField, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(urlButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -127,7 +128,7 @@ public class LoadWindow extends javax.swing.JFrame {
         if (!codeField.getText().contains("|")) {
             return;
         }
-        loadManager(codeField.getText());
+        loadManager(codeField.getText().getBytes());
         setVisible(false);
         dispose();
     }//GEN-LAST:event_codeButtonActionPerformed
@@ -148,14 +149,9 @@ public class LoadWindow extends javax.swing.JFrame {
             URL uri = new URL(url);
             URLConnection conn = uri.openConnection();
             InputStream in = conn.getInputStream();
-            BufferedReader read = new BufferedReader(new InputStreamReader(in));
-            StringBuilder output=new StringBuilder();
-            String line;
-            while ((line=read.readLine())!=null) {
-                output.append(line).append(endl);
-            }
+            byte[] bytes = getBytesFromInputStream(in);
             in.close();
-            loadManager(output.toString());
+            loadManager(bytes);
         } catch (IOException ex) {
             Logger.getLogger(LoadWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -172,14 +168,10 @@ public class LoadWindow extends javax.swing.JFrame {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             try {
-                BufferedReader read = new BufferedReader(new FileReader(file));
-                StringBuilder output = new StringBuilder();
-                String line;
-                while ((line=read.readLine())!=null) {
-                    output.append(line).append(endl);
-                }
-                read.close();
-                loadManager(output.toString());
+                FileInputStream fis = new FileInputStream(file);
+                byte[] bytes = getBytesFromInputStream(fis);
+                fis.close();
+                loadManager(bytes);
             } catch (IOException ex) {
                 Logger.getLogger(SaveWindow.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -188,6 +180,22 @@ public class LoadWindow extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_fileButtonActionPerformed
 
+    private byte[] getBytesFromInputStream(InputStream is) {
+        try (ByteArrayOutputStream os = new ByteArrayOutputStream();) {
+            byte[] buffer = new byte[0xFFFF];
+
+            for (int len; (len = is.read(buffer)) != -1;)
+                os.write(buffer, 0, len);
+
+            os.flush();
+
+            return os.toByteArray();
+        }
+        catch (IOException e) {
+            return null;
+        }
+    }
+    
     private void urlFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_urlFieldMouseClicked
         urlField.setText("");
     }//GEN-LAST:event_urlFieldMouseClicked

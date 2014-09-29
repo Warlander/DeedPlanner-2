@@ -53,16 +53,7 @@ public class Roof implements TileEntity {
     
     public Roof(Element roof) {
         String shortname = roof.getAttribute("id");
-        
-        RoofData tempData = null;
-        for (int i=0; i<Data.roofs.getSize(); i++) {
-            RoofData data = Data.roofs.get(i);
-            if (data.shortName.equals(shortname)) {
-                tempData = data;
-                break;
-            }
-        }
-        this.data = tempData;
+        this.data = Data.roofs.get(shortname);
     }
     
     public Roof(RoofData data) {

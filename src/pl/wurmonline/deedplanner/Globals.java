@@ -20,4 +20,7 @@ public class Globals {
     public static int visibleDownY;
     public static int visibleUpY;
     
+    public static int glWindowWidth;
+    public static int glWindowHeight;
+    
 }

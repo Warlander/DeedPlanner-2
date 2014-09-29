@@ -158,6 +158,20 @@
 			<noise power="2"/>
 			<category>Enchanted terrain</category>
 		</ground>
+		<ground name="Forest mycelium" shortname="fm">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/forest-Mycelium.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Infected terrain</category>
+		</ground>
+		<ground name="Mycelium" shortname="my">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/mycelium.jpg"/>
+			</tex>
+			<noise power="2"/>
+			<category>Infected terrain</category>
+		</ground>
 		<ground name="Wooden cave door" shortname="wcaDoor">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/door-wood.png"/>
@@ -610,7 +624,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="High roundpole fence" shortname="hgFence" scale="12">
-			<model location="Data/Walls/GardesgardGate_main.dae">
+			<model location="Data/Walls/GardesgardHigh.dae">
 				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
 			</model>
 			<color type="dec" r="1" g="0.5" b="0.5"/>

@@ -2,14 +2,15 @@ package pl.wurmonline.deedplanner.data;
 
 import com.jogamp.common.nio.Buffers;
 import java.nio.FloatBuffer;
-import java.util.Arrays;
+import java.util.*;
+import java.util.Map.Entry;
 import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
+import pl.wurmonline.deedplanner.util.*;
 
-public class Tile implements DataEntity {
+public class Tile implements XMLSerializable {
 
     private final Map map;
     private final int x;
@@ -17,9 +18,7 @@ public class Tile implements DataEntity {
     
     private int height = 5;
     private Ground ground;
-    private final TileEntity[] tiles;
-    private final Wall[] horizontalWalls;
-    private final Wall[] verticalWalls;
+    private final HashMap<EntityData, TileEntity> entities;
     
     private final float[][] heightValues;
     
@@ -29,9 +28,7 @@ public class Tile implements DataEntity {
         this.y = y;
         height = (int) Float.parseFloat(tile.getAttribute("height"));
         ground = new Ground((Element) tile.getElementsByTagName("ground").item(0));
-        tiles = new TileEntity[Constants.FLOORS_LIMIT];
-        horizontalWalls = new Wall[Constants.FLOORS_LIMIT];
-        verticalWalls = new Wall[Constants.FLOORS_LIMIT];
+        entities = new HashMap<>();
         
         heightValues = new float[4][4];
         for (int i=0; i<4; i++) {
@@ -49,16 +46,16 @@ public class Tile implements DataEntity {
                 Element entity = (Element) childNodes.item(i2);
                 switch (entity.getNodeName().toLowerCase()) {
                     case "floor":
-                        tiles[floor] = FloorData.get(entity);
+                        entities.put(new EntityData(floor, EntityType.FLOORROOF), FloorData.get(entity));
                         break;
                     case "hwall":
-                        horizontalWalls[floor] = new Wall(entity);
+                        entities.put(new EntityData(floor, EntityType.HWALL), new Wall(entity));
                         break;
                     case "vwall":
-                        verticalWalls[floor] = new Wall(entity);
+                        entities.put(new EntityData(floor, EntityType.VWALL), new Wall(entity));
                         break;
                     case "roof":
-                        tiles[floor] = new Roof(entity);
+                        entities.put(new EntityData(floor, EntityType.FLOORROOF), new Wall(entity));
                         break;
                 }
             }
@@ -78,11 +75,9 @@ public class Tile implements DataEntity {
         }
         
         if (!Data.grounds.isEmpty()) {
-            ground = new Ground(Data.grounds.get(0));
+            ground = new Ground(Data.grounds.get("gr"));
         }
-        tiles = new TileEntity[Constants.FLOORS_LIMIT];
-        horizontalWalls = new Wall[Constants.FLOORS_LIMIT];
-        verticalWalls = new Wall[Constants.FLOORS_LIMIT];
+        entities = new HashMap<>();
     }
     
     public Tile(Tile tile) {
@@ -97,9 +92,7 @@ public class Tile implements DataEntity {
         this.height = tile.height;
         this.heightValues = tile.heightValues;
         this.ground = tile.ground;
-        this.tiles = Arrays.copyOf(tile.tiles, tile.tiles.length);
-        this.horizontalWalls = Arrays.copyOf(tile.horizontalWalls, tile.horizontalWalls.length);
-        this.verticalWalls = Arrays.copyOf(tile.verticalWalls, tile.verticalWalls.length);
+        this.entities = new HashMap(tile.entities);
     }
     
     public void render3d(GL2 g, boolean edge) {
@@ -130,10 +123,12 @@ public class Tile implements DataEntity {
     }
     
     private void renderEntities(GL2 g) {
-        for (int i=0; i<Constants.FLOORS_LIMIT; i++) {
+        for (Entry<EntityData, TileEntity> e : entities.entrySet()) {
+            EntityData key = e.getKey();
+            final int floor = key.getFloor();
             float colorMod = 1;
             if (Globals.upCamera) {
-                switch (Globals.floor-i) {
+                switch (Globals.floor-floor) {
                     case 0:
                         colorMod = 1;
                         break;
@@ -147,57 +142,54 @@ public class Tile implements DataEntity {
                         continue;
                 }
             }
-            if(tiles[i]!=null) {
-                g.glPushMatrix();
-                    g.glTranslatef(4, 0, 3*i + getFloorHeight()/Constants.HEIGHT_MOD);
-                    g.glColor3f(colorMod, colorMod, colorMod);
-                    tiles[i].render(g, this);
-                g.glPopMatrix();
-            }
+            TileEntity entity = e.getValue();
+            g.glPushMatrix();
+                switch (key.getType()) {
+                    case FLOORROOF:
+                        g.glTranslatef(4, 0, 3*floor + getFloorHeight()/Constants.HEIGHT_MOD);
+                        g.glColor3f(colorMod, colorMod, colorMod);
+                        entity.render(g, this);
+                        break;
+                    case VWALL:
+                        g.glTranslatef(0, 0, 3*floor + getVerticalWallHeight()/Constants.HEIGHT_MOD);
+                        g.glRotatef(90, 0, 0, 1);
+                        float vdiff = getVerticalWallHeightDiff()/47f;
+                        if (vdiff<0) {
+                            g.glTranslatef(0, 0, -vdiff*4f);
+                        }
+                        deform(g, vdiff);
 
-            if (verticalWalls[i]!=null) {
-                g.glPushMatrix();
-                    g.glTranslatef(0, 0, 3*i + getVerticalWallHeight()/Constants.HEIGHT_MOD);
-                    g.glRotatef(90, 0, 0, 1);
-                    float diff = getVerticalWallHeightDiff()/47f;
-                    if (diff<0) {
-                        g.glTranslatef(0, 0, -diff*4f);
-                    }
-                    deform(g, diff);
-                    
-                    Wall wall = verticalWalls[i];
-                    if (Globals.upCamera) {
-                        wall.data.color.use(g, colorMod);
-                    }
-                    else {
+                        Wall vwall = (Wall) entity;
+                        if (Globals.upCamera) {
+                            vwall.data.color.use(g, colorMod);
+                        }
+                        else {
+                            g.glColor3f(1, 1, 1);
+                        }
+                        vwall.render(g, this);
                         g.glColor3f(1, 1, 1);
-                    }
-                    wall.render(g, this);
-                    g.glColor3f(1, 1, 1);
-                g.glPopMatrix();
-            }
-
-            if (horizontalWalls[i]!=null) {
-                g.glPushMatrix();
-                    g.glTranslatef(0, 0, 3*i + getHorizontalWallHeight()/Constants.HEIGHT_MOD);
-                    float diff = getHorizontalWallHeightDiff()/47f;
-                    if (diff<0) {
-                        g.glTranslatef(0, 0, -diff*4f);
-                    }
-                    deform(g, diff);
-                    Wall wall = horizontalWalls[i];
-                    if (Globals.upCamera) {
-                        wall.data.color.use(g, colorMod);
-                    }
-                    else {
+                        break;
+                    case HWALL:
+                        g.glTranslatef(0, 0, 3*floor + getHorizontalWallHeight()/Constants.HEIGHT_MOD);
+                        float hdiff = getHorizontalWallHeightDiff()/47f;
+                        if (hdiff<0) {
+                            g.glTranslatef(0, 0, -hdiff*4f);
+                        }
+                        deform(g, hdiff);
+                        Wall hwall = (Wall) entity;
+                        if (Globals.upCamera) {
+                            hwall.data.color.use(g, colorMod);
+                        }
+                        else {
+                            g.glColor3f(1, 1, 1);
+                        }
+                        hwall.render(g, this);
                         g.glColor3f(1, 1, 1);
-                    }
-                    wall.render(g, this);
-                    g.glColor3f(1, 1, 1);
-                g.glPopMatrix();
-            }
+                        break;
+                }
+            g.glPopMatrix();
+            g.glColor3f(1, 1, 1);
         }
-        g.glColor3f(1, 1, 1);
     }
     
     private float getFloorHeight() {
@@ -244,26 +236,35 @@ public class Tile implements DataEntity {
         root.appendChild(tile);
         
         ground.serialize(doc, tile);
-        for (int i=0; i<Constants.FLOORS_LIMIT; i++) {
-            if (tiles[i]!=null || horizontalWalls[i]!=null || verticalWalls[i]!=null) {
-                Element level = doc.createElement("level");
-                level.setAttribute("value", Integer.toString(i));
-                if (tiles[i]!=null) {
-                    tiles[i].serialize(doc, level);
-                }
-                if (horizontalWalls[i]!=null) {
-                    Element hWall = doc.createElement("hWall");
-                    horizontalWalls[i].serialize(doc, hWall);
-                    level.appendChild(hWall);
-                }
-                if (verticalWalls[i]!=null) {
-                    Element vWall = doc.createElement("vWall");
-                    verticalWalls[i].serialize(doc, vWall);
-                    level.appendChild(vWall);
-                }
+        
+        final HashMap<Integer, Element> levels = new HashMap<>();
+        
+        for (Entry<EntityData, TileEntity> e : entities.entrySet()) {
+            final EntityData key = e.getKey();
+            final TileEntity entity = e.getValue();
+            final int floor = key.getFloor();
+            
+            Element level = levels.get(floor);
+            if (level==null) {
+                level = doc.createElement("level");
                 tile.appendChild(level);
             }
             
+            switch (key.getType()) {
+                case FLOORROOF:
+                    entity.serialize(doc, level);
+                    break;
+                case HWALL:
+                    Element hWall = doc.createElement("hWall");
+                    entity.serialize(doc, hWall);
+                    level.appendChild(hWall);
+                    break;
+                case VWALL:
+                    Element vWall = doc.createElement("vWall");
+                    entity.serialize(doc, vWall);
+                    level.appendChild(vWall);
+                    break;
+            }
         }
     }
     
@@ -392,9 +393,9 @@ public class Tile implements DataEntity {
     }
     
     public boolean isFlat() {
-        return getHeight()==map.getTile(this, 1, 1).getHeight() &&
-               getHeight()==map.getTile(this, 1, 0).getHeight() &&
-               getHeight()==map.getTile(this, 0, 1).getHeight();
+        return map.getTile(this, 1, 1)!=null && getHeight()==map.getTile(this, 1, 1).getHeight() &&
+               map.getTile(this, 1, 0)!=null && getHeight()==map.getTile(this, 1, 0).getHeight() &&
+               map.getTile(this, 0, 1)!=null && getHeight()==map.getTile(this, 0, 1).getHeight();
     }
     
     public void setTileContent(TileEntity entity, int level) {
@@ -407,16 +408,23 @@ public class Tile implements DataEntity {
         }
         
         if (entity instanceof Roof) {
-            for (TileEntity e : tiles) {
+            for (TileEntity e : entities.values()) {
                 if (e instanceof Roof) {
                     return;
                 }
             }
         }
         
-        if (entity!=tiles[level]) {
+        final EntityData entityData = new EntityData(level, EntityType.FLOORROOF);
+        if (entity!=entities.get(entityData)) {
             Tile oldTile = new Tile(this);
-            tiles[level] = entity;
+            
+            if (entity!=null) {
+                entities.put(entityData, entity);
+            }
+            else {
+                entities.remove(entityData);
+            }
 
             if (undo) {
                 map.addUndo(this, oldTile);
@@ -425,7 +433,7 @@ public class Tile implements DataEntity {
     }
     
     public TileEntity getTileContent(int level) {
-        return tiles[level];
+        return entities.get(new EntityData(level, EntityType.FLOORROOF));
     }
     
     public void setHorizontalWall(WallData wall, int level) {
@@ -434,18 +442,19 @@ public class Tile implements DataEntity {
     
     void setHorizontalWall(WallData wall, int level, boolean undo) {
         if (wall!=null && wall.houseWall) {
-            if (!(isFlat() || map.getTile(this, 0, -1).isFlat())) {
+            if (!(isFlat() || (map.getTile(this, 0, -1)!=null && map.getTile(this, 0, -1).isFlat()))) {
                 return;
             }
         }
         
-        if (!(new Wall(wall).equals(horizontalWalls[level]))) {
+        final EntityData entityData = new EntityData(level, EntityType.HWALL);
+        if (!(new Wall(wall).equals(entities.get(entityData)))) {
             Tile oldTile = new Tile(this);
             if (wall!=null) {
-                horizontalWalls[level] = new Wall(wall);
+                entities.put(entityData, new Wall(wall));
             }
             else {
-                horizontalWalls[level] = null;
+                entities.remove(entityData);
             }
 
             if (undo) {
@@ -455,7 +464,7 @@ public class Tile implements DataEntity {
     }
     
     public Wall getHorizontalWall(int level) {
-        return horizontalWalls[level];
+        return (Wall) entities.get(new EntityData(level, EntityType.HWALL));
     }
     
     public void setVerticalWall(WallData wall, int level) {
@@ -469,13 +478,14 @@ public class Tile implements DataEntity {
             }
         }
         
-        if (!(new Wall(wall).equals(verticalWalls[level]))) {
+        final EntityData entityData = new EntityData(level, EntityType.VWALL);
+        if (!(new Wall(wall).equals(entities.get(entityData)))) {
             Tile oldTile = new Tile(this);
             if (wall!=null) {
-                verticalWalls[level] = new Wall(wall);
+                entities.put(entityData, new Wall(wall));
             }
             else {
-                verticalWalls[level] = null;
+                entities.remove(entityData);
             }
 
             if (undo) {
@@ -485,7 +495,7 @@ public class Tile implements DataEntity {
     }
     
     public Wall getVerticalWall(int level) {
-        return verticalWalls[level];
+        return (Wall) entities.get(new EntityData(level, EntityType.VWALL));
     }
     
 }

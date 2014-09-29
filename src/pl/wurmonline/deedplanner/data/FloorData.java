@@ -14,13 +14,7 @@ public final class FloorData implements TileEntity {
     
     public static FloorData get(Element floor) {
         String shortname = floor.getAttribute("id");
-        GroundData tempData = null;
-        for (FloorData data : Data.floors) {
-            if (data.shortName.equals(shortname)) {
-                return data;
-            }
-        }
-        return null;
+        return Data.floors.get(shortname);
     }
     
     public FloorData(Model model, String name, String shortName, boolean opening) {

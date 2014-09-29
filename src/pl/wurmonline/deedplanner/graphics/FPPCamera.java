@@ -6,7 +6,6 @@ import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.Map;
-import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.input.*;
 
 public final class FPPCamera {

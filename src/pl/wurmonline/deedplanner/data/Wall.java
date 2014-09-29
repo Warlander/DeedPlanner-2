@@ -5,21 +5,13 @@ import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.storage.Data;
 
-public class Wall implements DataEntity {
+public class Wall implements TileEntity {
 
     public final WallData data;
     
     public Wall(Element wall) {
         String shortname = wall.getAttribute("id");
-        
-        WallData tempData = null;
-        for (WallData data : Data.walls) {
-            if (data.shortName.equals(shortname)) {
-                tempData = data;
-                break;
-            }
-        }
-        this.data = tempData;
+        this.data = Data.walls.get(shortname);
     }
     
     public Wall(WallData data) {

@@ -3,15 +3,14 @@ package pl.wurmonline.deedplanner.data;
 import com.jogamp.opengl.util.glsl.ShaderProgram;
 import javax.media.opengl.GL2;
 import org.w3c.dom.*;
-import pl.wurmonline.deedplanner.Constants;
-import pl.wurmonline.deedplanner.Globals;
-import pl.wurmonline.deedplanner.Properties;
+import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.graphics.Shaders;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
+import pl.wurmonline.deedplanner.util.XMLSerializable;
 import pl.wurmonline.deedplanner.util.jogl.RenderableEntity;
 
-public class Ground extends RenderableEntity implements DataEntity {
+public class Ground extends RenderableEntity implements XMLSerializable {
     
     private final GroundData data;
     private final RoadDirection dir;
@@ -20,14 +19,7 @@ public class Ground extends RenderableEntity implements DataEntity {
     
     public Ground(Element ground) {
         String shortname = ground.getAttribute("id");
-        GroundData tempData = null;
-        for (GroundData data : Data.grounds) {
-            if (data.shortName.equals(shortname)) {
-                tempData = data;
-                break;
-            }
-        }
-        this.data = tempData;
+        this.data = Data.grounds.get(shortname);
         
         switch (ground.getAttribute("dir")) {
             case "NW":

@@ -74,7 +74,7 @@ public final class DataLoader {
             
             GroundData data = new GroundData(name, shortName, tex, noiseStr, diagonal);
             Log.out(DataLoader.class, "Ground data "+data+" loaded and ready to use!");
-            Data.grounds.add(data);
+            Data.grounds.put(shortName, data);
             addToCategories(Data.groundsTree, categories, data, name);
         }
     }
@@ -114,7 +114,7 @@ public final class DataLoader {
                 
             FloorData data = new FloorData(model, name, shortName, opening);
             Log.out(DataLoader.class, "Floor data "+data+" loaded and ready to use!");
-            Data.floors.add(data);
+            Data.floors.put(shortName, data);
 
             addToCategories(Data.floorsTree, categories, data, name);
         }
@@ -161,7 +161,7 @@ public final class DataLoader {
                 
             WallData data = new WallData(model, name, shortName, color, scale, houseWall);
             Log.out(DataLoader.class, "Wall data "+data+" loaded and ready to use!");
-            Data.walls.add(data);
+            Data.walls.put(shortName, data);
 
             addToCategories(Data.wallsTree, categories, data, name);
         }
@@ -184,7 +184,8 @@ public final class DataLoader {
                 
             RoofData data = new RoofData(name, shortName, tex);
             Log.out(DataLoader.class, "Roof data "+data+" loaded and ready to use!");
-            Data.roofs.addElement(data);
+            Data.roofs.put(shortName, data);
+            Data.roofsList.addElement(data);
         }
     }
     
