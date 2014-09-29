@@ -247,6 +247,8 @@ public class Tile implements XMLSerializable {
             Element level = levels.get(floor);
             if (level==null) {
                 level = doc.createElement("level");
+                level.setAttribute("value", Integer.toString(key.getFloor()));
+                levels.put(key.getFloor(), level);
                 tile.appendChild(level);
             }
             
