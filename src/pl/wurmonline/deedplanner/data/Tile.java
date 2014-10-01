@@ -55,7 +55,7 @@ public class Tile implements XMLSerializable {
                         entities.put(new EntityData(floor, EntityType.VWALL), new Wall(entity));
                         break;
                     case "roof":
-                        entities.put(new EntityData(floor, EntityType.FLOORROOF), new Wall(entity));
+                        entities.put(new EntityData(floor, EntityType.FLOORROOF), new Roof(entity));
                         break;
                 }
             }

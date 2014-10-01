@@ -1,6 +1,5 @@
 package pl.wurmonline.deedplanner.logic.ground;
 
-import java.util.Optional;
 import javax.swing.DefaultComboBoxModel;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
@@ -10,7 +9,9 @@ import pl.wurmonline.deedplanner.input.Mouse;
 public class GroundUpdater {
 
     public static GroundMode currentMode;
-    public static GroundData currentData = Data.grounds.get(0);
+    public static GroundData currentData = Data.grounds.get("gr");
+    
+    private static final GroundData defaultData = Data.grounds.get("gr");
     
     public static void update(Mouse mouse, Map map, UpCamera cam) {
         currentMode.update(mouse, map, cam);
@@ -29,7 +30,7 @@ public class GroundUpdater {
                 }
                 else if (mouse.hold.right) {
                     if (currentData!=null) {
-                        tile.setGround(Data.grounds.get(0));
+                        tile.setGround(defaultData);
                     }
                 }
                 else if (mouse.released.left || mouse.released.right) {
@@ -46,7 +47,7 @@ public class GroundUpdater {
                     floodFill(map, tile, currentData, tile.getGround().getData());
                 }
                 else if (mouse.pressed.right) {
-                    floodFill(map, tile, Data.grounds.get(0), tile.getGround().getData());
+                    floodFill(map, tile, defaultData, tile.getGround().getData());
                 }
                 else if (mouse.released.left || mouse.released.right) {
                     map.newAction();
@@ -85,10 +86,10 @@ public class GroundUpdater {
 
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.hold.left) {
-                    tile.setGround(Data.grounds.get(0));
+                    tile.setGround(defaultData);
                 }
                 else if (mouse.hold.right) {
-                    tile.setGround(Data.grounds.get(0));
+                    tile.setGround(defaultData);
                 }
                 else if (mouse.released.left || mouse.released.right) {
                     map.newAction();

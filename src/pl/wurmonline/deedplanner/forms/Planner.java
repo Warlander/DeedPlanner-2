@@ -24,6 +24,7 @@ public class Planner extends javax.swing.JFrame {
     
     public Planner() {
         initComponents();
+        setTitle(Constants.VERSION_STRING);
         SwingUtils.centerFrame(this);
         mapPanel.grabFocus();
         setVisible(true);
@@ -176,7 +177,6 @@ public class Planner extends javax.swing.JFrame {
         jMenu3.setText("jMenu3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("DeedPlanner 2.0 ALPHA 5");
         setMinimumSize(new java.awt.Dimension(800, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
