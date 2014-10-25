@@ -11,9 +11,6 @@ Program official forum thread: http://forum.wurmonline.com/index.php?/topic/7935
 1. You can use any IDE, but GUI is made in NetBeans, so you need NetBeans if you want to make any changes in it.<br>
 2. All libraries and graphics are on Github - if you are using NB everything should be configured correctly by default, using other IDE's you must set libraries and run directory manually.
 
-Code is not documented, but volunteers can document it, though the code should be the best documentation for itself. ;)
-I can document parts of the code on request.
-
 <b>Project goals:</b><br>
 1. Creation of the most advanced, professional-looking deed planner for Wurm Online<br>
 2. Access to the widest possible audience - as little platform-dependent code as possible<br>
