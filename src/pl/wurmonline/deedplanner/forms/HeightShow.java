@@ -21,7 +21,7 @@ public class HeightShow extends JComponent {
     }
     
     protected void paintComponent(Graphics g) {
-        if (cam!=null) {
+        if (cam!=null && cam.tile!=null) {
             TileFragment frag = TileFragment.calculateTileFragment(cam.xTile, cam.yTile);
             if (!frag.isCorner()) {
                 return;

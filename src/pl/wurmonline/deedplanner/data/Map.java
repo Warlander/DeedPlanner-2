@@ -1,7 +1,9 @@
 package pl.wurmonline.deedplanner.data;
 
 import com.jogamp.opengl.util.glsl.ShaderProgram;
+import java.awt.Font;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 import javax.media.opengl.GL2;
@@ -17,6 +19,7 @@ import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.*;
 import pl.wurmonline.deedplanner.logic.Tab;
 import pl.wurmonline.deedplanner.util.*;
+import pl.wurmonline.deedplanner.util.jogl.Color;
 
 public final class Map {
 
@@ -132,9 +135,12 @@ public final class Map {
         Tile tile = new Tile(tiles[x][y]);
         int attributes = stream.read();
         if (attributes==1 || attributes==3) {
-            //TODO implement after labels are ready
             int length = stream.read();
-            stream.skipBytes(length+3);
+            byte[] textBytes = new byte[length];
+            stream.read(textBytes);
+            String text = new String(textBytes, "US-ASCII");
+            tile.setLabel(new Label(Font.decode("Arial-18"), text, new Color(0, 0, 0)), false);
+            stream.skipBytes(3);
         }
         if (attributes==2 || attributes==3) {
             stream.skipBytes(4);
@@ -153,8 +159,8 @@ public final class Map {
     
     private void readObject(LittleEndianDataInputStream stream, Tile tile) throws IOException {
         int pos = stream.read();
+        int type = stream.read();
         if (pos==2 || pos==10) {
-            int type = stream.read();
             WallData wallData = WAKData.walls.get(type);
             if (pos==2) {
                 Tile t = getTile(tile, 0, 1);
@@ -168,8 +174,12 @@ public final class Map {
             stream.skipBytes(1);
         }
         else {
-            //TODO add objects after implementation
-            stream.skipBytes(2);
+            ObjectLocation loc = WAKData.locations.get(pos);
+            GameObjectData data = WAKData.objects.get(type);
+            if (data!=null) {
+                tile.setGameObject(data, loc, 0);
+            }
+            stream.skipBytes(1);
         }
     }
     
@@ -196,7 +206,7 @@ public final class Map {
                     scan.nextLine();
                     break;
                 case "O":
-                    scan.nextLine();
+                    readObject(scan);
                     break;
                 case "T":
                     readTile(scan);
@@ -208,7 +218,7 @@ public final class Map {
                     readVerticalBorder(scan);
                     break;
                 case "L":
-                    scan.nextLine();
+                    readLabel(scan);
                     break;
                 case "W":
                     scan.nextLine();
@@ -274,6 +284,64 @@ public final class Map {
         if (roof!=null) {
             tiles[x][z].setTileContent(new Roof(roof), y, false);
         }
+    }
+    
+    private void readObject(Scanner scan) {
+        int x = scan.nextInt();
+        int y = scan.nextInt();
+        int z = scan.nextInt();
+        String shortName = scan.next();
+        double rPaint = Double.parseDouble(scan.next());
+        double gPaint = Double.parseDouble(scan.next());
+        double bPaint = Double.parseDouble(scan.next());
+        int rotation = Integer.parseInt(scan.next());
+        
+        int xPart = x%4;
+        int zPart = z%4;
+        x/=4;
+        z/=4;
+        
+        GameObjectData object = Data.objects.get(shortName);
+        final ObjectLocation loc;
+        if (object.centerOnly) {
+            loc = ObjectLocation.MIDDLE_CENTER;
+        }
+        else if (xPart<2 && zPart<2) {
+            loc = ObjectLocation.BOTTOM_LEFT;
+        }
+        else if (xPart>=2 && zPart<2) {
+            loc = ObjectLocation.BOTTOM_RIGHT;
+        }
+        else if (xPart<2 && zPart>=2) {
+            loc = ObjectLocation.TOP_LEFT;
+        }
+        else {
+            loc = ObjectLocation.TOP_RIGHT;
+        }
+        tiles[x][z].setGameObject(object, loc, y);
+    }
+    
+    private void readLabel(Scanner scan) {
+        final int x = scan.nextInt();
+        final int y = scan.nextInt();
+        String text = scan.next().replace("_", " ").replace("\\n", "\n");
+        String font = scan.next().replace("_", " ");
+        final int size = scan.nextInt();
+        final int rPaint = scan.nextInt();
+        final int gPaint = scan.nextInt();
+        final int bPaint = scan.nextInt();
+        final int aPaint = scan.nextInt();
+        boolean cave = false;
+        if (scan.hasNextBoolean()) {
+            cave = scan.nextBoolean();
+        }
+        if (cave = true) {
+            return;
+        }
+        
+        final Font f = new Font(font, Font.PLAIN, size);
+        final Color c = new Color(new java.awt.Color(rPaint, gPaint, bPaint, aPaint));
+        tiles[x][y].setLabel(new Label(f, text, c), false);
     }
     
     // </editor-fold>
@@ -369,9 +437,26 @@ public final class Map {
             g.glColor4f(1, 1, 1, 1);
         }
         
+        g.glDisable(GL2.GL_TEXTURE_2D);
+        g.glDisable(GL2.GL_DEPTH_TEST);
         if (Properties.showGrid && Globals.upCamera) {
             renderGrid(g);
         }
+        for (int i=startX; i<=endX; i++) {
+            for (int i2=startY; i2<=endY; i2++) {
+                g.glPushMatrix();
+                    g.glTranslatef(i*4, i2*4, 0);
+                    if (i==width || i2==height) {
+                        tiles[i][i2].render2d(g, true);
+                    }
+                    else {
+                        tiles[i][i2].render2d(g, false);
+                    }
+                g.glPopMatrix();
+            }
+        }
+        g.glEnable(GL2.GL_DEPTH_TEST);
+        g.glEnable(GL2.GL_TEXTURE_2D);
     }
     
     private void renderWater(GL2 g) {
@@ -388,15 +473,16 @@ public final class Map {
         boolean renderColors = (Globals.renderHeight || Globals.tab==Tab.height);
         
         g.glUseProgram(0);
-        g.glDisable(GL2.GL_TEXTURE_2D);
-        g.glDisable(GL2.GL_DEPTH_TEST);
         g.glColor3f(0.4f, 0.4f, 0.4f);
-        g.glBegin(GL2.GL_LINES);
-            for (int i=Globals.visibleDownX; i<Globals.visibleUpX; i++) {
-                for (int i2=Globals.visibleDownY; i2<Globals.visibleUpY; i2++) {
-                    if (i<0 || i2<0 || i>=width || i2>=height) {
-                        continue;
-                    }
+        for (int i=Globals.visibleDownX; i<Globals.visibleUpX; i++) {
+            for (int i2=Globals.visibleDownY; i2<Globals.visibleUpY; i2++) {
+                if (i<0 || i2<0 || i>=width || i2>=height) {
+                    continue;
+                }
+                if (tiles[i][i2].getVerticalWall(Globals.floor)!=null && tiles[i][i2].getVerticalFence(Globals.floor)!=null) {
+                    g.glLineWidth(3);
+                }
+                g.glBegin(GL2.GL_LINES);
                     if (renderColors) {
                         float color = ((float)tiles[i][i2].getHeight() - minElevation) / diffElevation;
                         g.glColor3f(color, 1-color, 0);
@@ -407,7 +493,13 @@ public final class Map {
                         g.glColor3f(color, 1-color, 0);
                     }
                     g.glVertex2f(i*4, i2*4+4);
+                g.glEnd();
+                g.glLineWidth(1);
 
+                if (tiles[i][i2].getHorizontalWall(Globals.floor)!=null && tiles[i][i2].getHorizontalFence(Globals.floor)!=null) {
+                    g.glLineWidth(3);
+                }
+                g.glBegin(GL2.GL_LINES);
                     if (renderColors) {
                         float color = ((float)tiles[i][i2].getHeight() - minElevation) / diffElevation;
                         g.glColor3f(color, 1-color, 0);
@@ -418,12 +510,11 @@ public final class Map {
                         g.glColor3f(color, 1-color, 0);
                     }
                     g.glVertex2f(i*4+4, i2*4);
-                }
+                g.glEnd();
+                g.glLineWidth(1);
             }
-        g.glEnd();
+        }
         g.glColor3f(1f, 1f, 1f);
-        g.glEnable(GL2.GL_DEPTH_TEST);
-        g.glEnable(GL2.GL_TEXTURE_2D);
     }
     
     public String serialize() throws ParserConfigurationException, TransformerConfigurationException, TransformerException, IOException {

@@ -14,72 +14,72 @@ public final class RoofType {
         roofTypes = new RoofType[14];
         ArrayList<RoofType> list = new ArrayList<>();
         
-        list.add(new RoofType(new Mesh("Data/Special/side.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/side.dae", "roof", null, false, 1),
                               new byte[][] {{ 1, 1, 1},
                                             { 0, 0, 0},
                                             {-1,-2,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/sideCorner.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/sideCorner.dae", "roof", null, false, 1),
                               new byte[][] {{-1,-2,-1},
                                             { 0, 0,-2},
                                             { 1, 0,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/sideCut.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/sideCut.dae", "roof", null, false, 1),
                               new byte[][] {{ 1, 1, 1},
                                             { 0, 0, 1},
                                             {-2, 0, 1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/sideToSpine.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/sideToSpine.dae", "roof", null, false, 1),
                               new byte[][] {{ 1, 0,-2},
                                             { 1, 0, 0},
                                             { 1, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spine.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/spine.dae", "roof", null, false, 1),
                               new byte[][] {{-1,-2,-1},
                                             { 0, 0, 0},
                                             {-1,-2,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineEnd.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/spineEnd.dae", "roof", null, false, 1),
                               new byte[][] {{-1,-2,-1},
                                             { 0, 0,-2},
                                             {-1,-2,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineEndUp.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/spineEndUp.dae", "roof", null, false, 1),
                               new byte[][] {{-1,-2,-1},
                                             { 0, 0, 3},
                                             { 1, 0,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineEndUp.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/spineEndUp.dae", "roof", null, false, 1),
                               new byte[][] {{-1,-2,-1},
                                             { 3, 0, 0},
                                             {-1, 0, 1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineCorner.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/spineCorner.dae", "roof", null, false, 1),
                               new byte[][] {{-1,-2,-1},
                                             {-2, 0, 0},
                                             {-1, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineCornerUp.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/spineCornerUp.dae", "roof", null, false, 1),
                               new byte[][] {{-2, 0,-2},
                                             { 0, 0, 0},
                                             { 1, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineCross.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/spineCross.dae", "roof", null, false, 1),
                               new byte[][] {{-2, 0,-2},
                                             { 0, 0, 0},
                                             {-2, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineTCross.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/spineTCross.dae", "roof", null, false, 1),
                               new byte[][] {{-1, 0,-2},
                                             {-2, 0, 0},
                                             {-1, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineTip.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/spineTip.dae", "roof", null, false, 1),
                               new byte[][] {{-1,-2,-1},
                                             {-2, 0,-2},
                                             {-1,-2,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/levelsCross.dae", "roof", null, false),
+        list.add(new RoofType(new Mesh("Data/Special/levelsCross.dae", "roof", null, false, 1),
                               new byte[][] {{-2, 0, 1},
                                             { 0, 0, 0},
                                             { 1, 0,-2}}));

@@ -45,8 +45,19 @@ public class Color implements XMLSerializable {
         }
     }
     
+    public Color(java.awt.Color color) {
+        this.r = (float)color.getRed()/255f;
+        this.g = (float)color.getGreen()/255f;
+        this.b = (float)color.getBlue()/255f;
+        this.a = (float)color.getAlpha()/255f;
+    }
+    
+    public Color() {
+        this(1, 1, 1, 1);
+    }
+    
     public Color(float r, float g, float b) {
-        this (r, g, b, 1);
+        this(r, g, b, 1);
     }
     
     public Color(float r, float g, float b, float a) {
@@ -63,9 +74,19 @@ public class Color implements XMLSerializable {
     public void use(GL2 gl, float mod) {
         gl.glColor4f(r*mod, g*mod, b*mod, a);
     }
+    
+    public java.awt.Color toAWTColor() {
+        return new java.awt.Color(r, g, b, a);
+    }
 
     public void serialize(Document doc, Element root) {
-        
+        Element colorElement = doc.createElement("color");
+        colorElement.setAttribute("type", "dec");
+        colorElement.setAttribute("r", Float.toString(r));
+        colorElement.setAttribute("g", Float.toString(g));
+        colorElement.setAttribute("b", Float.toString(b));
+        colorElement.setAttribute("a", Float.toString(a));
+        root.appendChild(colorElement);
     }
     
 }

@@ -129,6 +129,10 @@ public class HeightUpdater {
                     }
                     else if (frag.isCorner()) {
                         tile = frag.getTileByCorner(tile);
+                        if (tile.getHeight()==tile2.getHeight()) {
+                            tile2 = null;
+                            return;
+                        }
                         if (tile.getX()==tile2.getX() ^ tile.getY()==tile2.getY()) {
                             int min = Math.min(tile.getHeight(), tile2.getHeight());
                             int max = Math.max(tile.getHeight(), tile2.getHeight());

@@ -20,6 +20,9 @@ public class Data {
     public static final HashMap<String, RoofData> roofs = new HashMap<>();
     public static final DefaultListModel<RoofData> roofsList = new DefaultListModel<>();
     
-    public static Tex water = Tex.getTexture("Data/Special/water.png");
+    public static final HashMap<String, GameObjectData> objects = new HashMap<>();
+    public static final DefaultMutableTreeNode objectsTree = new DefaultMutableTreeNode("Objects");
+    
+    public static final Tex water = Tex.getTexture("Data/Special/water.png");
     
 }

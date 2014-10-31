@@ -23,6 +23,7 @@ public class MapPanel extends GLJPanel implements ComponentListener {
     
     public MapPanel(GLCapabilities capabilities) {
         super(capabilities);
+        addComponentListener(this);
         
         map = new Map(50, 50);
         
@@ -62,6 +63,7 @@ public class MapPanel extends GLJPanel implements ComponentListener {
     public void componentResized(ComponentEvent e) {
         Globals.glWindowWidth = getWidth();
         Globals.glWindowHeight = getHeight();
+        Globals.glAspectRatio = (float)getWidth()/(float)getHeight();
     }
 
     public void componentMoved(ComponentEvent e) {}

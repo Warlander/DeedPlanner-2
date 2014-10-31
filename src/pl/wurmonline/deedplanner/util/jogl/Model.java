@@ -9,6 +9,14 @@ public class Model {
     
     public Model(Element node) {
         String modelLoc = node.getAttribute("location");
+        String scaleStr = node.getAttribute("scale");
+        float scale;
+        try {
+            scale = Float.parseFloat(scaleStr);
+        }
+        catch (NumberFormatException ex) {
+            scale = 1;
+        }
         NodeList list = node.getElementsByTagName("mesh");
         meshes = new Mesh[list.getLength()];
         for (int i=0; i<list.getLength(); i++) {
@@ -22,7 +30,7 @@ public class Model {
             if (!texStr.isEmpty()) {
                 tex = Tex.getTexture(texStr);
             }
-            meshes[i] = new Mesh(modelLoc, name, tex, ladder);
+            meshes[i] = new Mesh(modelLoc, name, tex, ladder, scale);
         }
     }
     

@@ -2,7 +2,6 @@ package pl.wurmonline.deedplanner.data.io;
 
 import java.io.*;
 import java.util.ArrayList;
-import javax.swing.JProgressBar;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.*;
@@ -18,7 +17,7 @@ public final class DataLoader {
 
     private DataLoader() {}
     
-    public static void loadData(Loading loading, File file) throws ParserConfigurationException, IOException, SAXException {
+    public static void loadData(Loading loading, File file) throws ParserConfigurationException, IOException, SAXException, DeedPlannerException {
         Document doc = FileUtils.fileToXMLDoc(file);
         
         loading.increaseProgress("Loading ground data");
@@ -29,8 +28,8 @@ public final class DataLoader {
         loadWalls(doc);
         loading.increaseProgress("Loading roof data");
         loadRoofs(doc);
-//        loading.increaseProgress("Loading object data");
-//        loadObjects(loading.currentBar, doc);
+        loading.increaseProgress("Loading object data");
+        loadObjects(doc);
         loading.increaseProgress("Launching");
     }
     
@@ -120,15 +119,17 @@ public final class DataLoader {
         }
     }
     
-    private static void loadWalls(Document doc) throws IOException {
+    private static void loadWalls(Document doc) throws IOException, DeedPlannerException {
         NodeList entities = doc.getElementsByTagName("wall");
         
         for (int i=0; i<entities.getLength(); i++) {
-            String name;
-            String shortName;
+            final String name;
+            final String shortName;
             Color color = null;
-            float scale;
-            boolean houseWall = false;
+            final float scale;
+            final boolean houseWall;
+            final boolean arch;
+            final boolean archBuildable;
             Model model = null;
             ArrayList<String[]> categories = new ArrayList<>();
             
@@ -138,6 +139,10 @@ public final class DataLoader {
             name = map.getNamedItem("name").getNodeValue();
             shortName = map.getNamedItem("shortname").getNodeValue();
             scale = Float.parseFloat(map.getNamedItem("scale").getNodeValue());
+            String type = map.getNamedItem("type").getNodeValue();
+            houseWall = "house".equals(type) || "arch".equals(type);
+            arch = "arch".equals(type);
+            archBuildable = "lowfence".equals(type);
             
             NodeList list = entity.getChildNodes();
             
@@ -153,13 +158,10 @@ public final class DataLoader {
                     case "color":
                         color = new Color((Element) node);
                         break;
-                    case "house":
-                        houseWall = true;
-                        break;
                 }
             }
                 
-            WallData data = new WallData(model, name, shortName, color, scale, houseWall);
+            WallData data = new WallData(model, name, shortName, color, scale, houseWall, arch, archBuildable);
             Log.out(DataLoader.class, "Wall data "+data+" loaded and ready to use!");
             Data.walls.put(shortName, data);
 
@@ -191,6 +193,42 @@ public final class DataLoader {
     
     private static void loadObjects(Document doc) throws IOException {
         NodeList entities = doc.getElementsByTagName("object");
+        
+        for (int i=0; i<entities.getLength(); i++) {
+            final String name;
+            final String shortName;
+            final boolean centerOnly;
+            Model model = null;
+            ArrayList<String[]> categories = new ArrayList<>();
+            
+            Node entity = entities.item(i);
+            
+            NamedNodeMap map = entity.getAttributes();
+            name = map.getNamedItem("name").getNodeValue();
+            shortName = map.getNamedItem("shortname").getNodeValue();
+            String type = map.getNamedItem("type").getNodeValue();
+            centerOnly = "centered".equals(type);
+            
+            NodeList list = entity.getChildNodes();
+            
+            for (int i2=0; i2<list.getLength(); i2++) {
+                Node node = list.item(i2);
+                switch (node.getNodeName()) {
+                    case "model":
+                        model = new Model((Element) node);
+                        break;
+                    case "category":
+                        categories.add(node.getTextContent().split("/"));
+                        break;
+                }
+            }
+                
+            GameObjectData data = new GameObjectData(model, name, shortName, centerOnly);
+            Log.out(DataLoader.class, "Object data "+data+" loaded and ready to use!");
+            Data.objects.put(shortName, data);
+
+            addToCategories(Data.objectsTree, categories, data, name);
+        }
     }
     
     private static void addToCategories(DefaultMutableTreeNode node, ArrayList<String[]> categories, Object data, String name) {

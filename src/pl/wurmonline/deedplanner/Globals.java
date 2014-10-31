@@ -22,5 +22,6 @@ public class Globals {
     
     public static int glWindowWidth;
     public static int glWindowHeight;
+    public static float glAspectRatio;
     
 }

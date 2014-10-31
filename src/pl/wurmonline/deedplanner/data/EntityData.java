@@ -2,7 +2,7 @@ package pl.wurmonline.deedplanner.data;
 
 import java.util.Objects;
 
-public final class EntityData {
+public class EntityData {
 
     private final int floor;
     private final EntityType type;

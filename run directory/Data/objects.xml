@@ -372,154 +372,205 @@
 	
 	
 	<walls>
-		<wall name="Wooden wall" shortname="wWall" scale="4">
+		<wall name="Wooden wall" shortname="wWall" scale="4" type="house">
 			<model location="Data/Walls/Wooden_Wall.dae">
 				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
 			</model>
 			<color type="dec" r="1" g="0.8" b="0.8"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Wooden window" shortname="wWindow" scale="4">
+		<wall name="Wooden window" shortname="wWindow" scale="4" type="house">
 			<model location="Data/Walls/Wooden_Window.dae">
 				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
 			</model>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Wooden arched wall" shortname="wArch" scale="4">
+		<wall name="Wooden arched wall" shortname="wArch" scale="4" type="arch">
 			<model location="Data/Walls/Wooden_Arched_Door.dae">
 				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
 			</model>
 			<color type="dec" r="0.8" g="1" b="0.8"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Wooden door" shortname="wDoor" scale="4">
+		<wall name="Wooden door" shortname="wDoor" scale="4" type="house">
 			<model location="Data/Walls/Wooden_Door_Main.dae">
 				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
 			</model>
 			<color type="dec" r="0.8" g="1" b="1"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Wooden double door" shortname="wdDoor" scale="4">
+		<wall name="Wooden double door" shortname="wdDoor" scale="4" type="house">
 			<model location="Data/Walls/Wooden_Door_Double_Main.dae">
 				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
 			</model>
 			<color type="dec" r="1" g="0.7" b="1"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
 		
-		<wall name="Stone wall" shortname="sWall" scale="1">
+		<wall name="Stone wall" shortname="sWall" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Wall_Upper.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
 			<color type="dec" r="1" g="0.8" b="0.8"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
-		<wall name="Stone window" shortname="sWindow" scale="1">
+		<wall name="Stone window" shortname="sWindow" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Wall_Window_Upper.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
-		<wall name="Stone arched wall" shortname="sArch" scale="1">
+		<wall name="Stone arched wall" shortname="sArch" scale="1" type="arch">
 			<model location="Data/Walls/Stone_Arched_Door_Upper.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
 			<color type="dec" r="0.8" g="1" b="0.8"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
-		<wall name="Stone door" shortname="sDoor" scale="1">
+		<wall name="Stone door" shortname="sDoor" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Wall_Door_Main_Upper.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
 			<color type="dec" r="0.8" g="1" b="1"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
-		<wall name="Stone double door" shortname="sdDoor" scale="1">
+		<wall name="Stone double door" shortname="sdDoor" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Main_Upper.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
 			<color type="dec" r="1" g="0.7" b="1"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
 		
-		<wall name="Timber wall" shortname="tWall" scale="4">
+		<wall name="Plain stone wall" shortname="psWall" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone window" shortname="psWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Plain_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone narrow window" shortname="psnWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Narrow_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone arched wall" shortname="psArch" scale="1" type="arch">
+			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone door" shortname="psDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone double door" shortname="psdDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main_Upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone portcullis" shortname="psPort" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png" type="ladder"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone bars" shortname="psBars" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWall_bars1_upper.dae">
+				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png" type="ladder"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		
+		<wall name="Timber wall" shortname="tWall" scale="4" type="house">
 			<model location="Data/Walls/timberWall_upper.dae">
 				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
 			</model>
 			<color type="dec" r="1" g="0.8" b="0.8"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
-		<wall name="Timber window" shortname="tWindow" scale="4">
+		<wall name="Timber window" shortname="tWindow" scale="4" type="house">
 			<model location="Data/Walls/timberWallWindow_upper.dae">
 				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
 			</model>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
-		<wall name="Timber arched wall" shortname="tArch" scale="4">
+		<wall name="Timber arched wall" shortname="tArch" scale="4" type="arch">
 			<model location="Data/Walls/timberWallArched.dae">
 				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
 			</model>
 			<color type="dec" r="0.8" g="1" b="0.8"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
-		<wall name="Timber door" shortname="tDoor" scale="4">
+		<wall name="Timber door" shortname="tDoor" scale="4" type="house">
 			<model location="Data/Walls/timberWallDoorUpper_Main.dae">
 				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
 			</model>
 			<color type="dec" r="0.8" g="1" b="1"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
-		<wall name="Timber double door" shortname="tdDoor" scale="4">
+		<wall name="Timber double door" shortname="tdDoor" scale="4" type="house">
 			<model location="Data/Walls/timberWallDoubleDoorUpper_Main.dae">
 				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
 			</model>
 			<color type="dec" r="1" g="0.7" b="1"/>
-			<house/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
 		
-		<wall name="Wall plan" shortname="wPlan" scale="4">
+		<wall name="Wall plan" shortname="wPlan" scale="4" type="house">
 			<model location="Data/Walls/Wall_Plan.dae">
 				<mesh name="plan" tex="Data/Walls/wooden.jpg"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
-			<house/>
 			<category>House walls</category>
 		</wall>
 		
-		<wall name="Low stone wall" shortname="lsFence" scale="2">
+		<wall name="Low stone wall" shortname="lsFence" scale="2" type="highfence">
 			<model location="Data/Walls/SmallStone.dae">
 				<mesh name="stone" tex="Data/Walls/SmallStone.jpg"/>
 			</model>
@@ -527,7 +578,7 @@
 			<category>Fences</category>
 			<category>Materials/Stone</category>
 		</wall>
-		<wall name="Stone fence" shortname="stFence" scale="1">
+		<wall name="Stone fence" shortname="stFence" scale="1" type="lowfence">
 			<model location="Data/Walls/StoneFence.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
@@ -535,7 +586,7 @@
 			<category>Fences</category>
 			<category>Materials/Stone</category>
 		</wall>
-		<wall name="Tall stone wall" shortname="tsFence" scale="1">
+		<wall name="Tall stone wall" shortname="tsFence" scale="1" type="highfence">
 			<model location="Data/Walls/Tall_Stone_Wall.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
@@ -543,8 +594,17 @@
 			<category>Fences</category>
 			<category>Materials/Stone</category>
 		</wall>
+		<wall name="Tall stone wall portcullis" shortname="tsPort" scale="1" type="highfence">
+			<model location="Data/Walls/tallStoneWallPortcullis.dae">
+				<mesh name="thewall" tex="Data/Walls/StoneWall.jpg"/>
+				<mesh name="whhels" tex="Data/Walls/portcullisParts.png" type="ladder"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Fences</category>
+			<category>Materials/Stone</category>
+		</wall>
 		
-		<wall name="Palisade" shortname="pFence" scale="3">
+		<wall name="Palisade" shortname="pFence" scale="3" type="highfence">
 			<model location="Data/Walls/Palisade.dae">
 				<mesh name="palisade" tex="Data/Walls/palisade.jpg"/>
 			</model>
@@ -552,7 +612,7 @@
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Palisade gate" shortname="pFenceG" scale="3">
+		<wall name="Palisade gate" shortname="pFenceG" scale="3" type="highfence">
 			<model location="Data/Walls/PalisadeGate_Main.dae">
 				<mesh name="palisade" tex="Data/Walls/palisade.jpg"/>
 			</model>
@@ -561,7 +621,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		
-		<wall name="Wooden parapet" shortname="wPar" scale="4">
+		<wall name="Wooden parapet" shortname="wPar" scale="4" type="highfence">
 			<model location="Data/Walls/Wooden_Parapet.dae">
 				<mesh name="parapet" tex="Data/Walls/wooden.jpg"/>
 			</model>
@@ -570,7 +630,7 @@
 			<category>Parapets</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Stone parapet" shortname="sPar" scale="2">
+		<wall name="Stone parapet" shortname="sPar" scale="2" type="lowfence">
 			<model location="Data/Walls/Stone_Parapet.dae">
 				<mesh name="parapet" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
@@ -579,7 +639,7 @@
 			<category>Parapets</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Stone and iron parapet" shortname="siPar" scale="2">
+		<wall name="Stone and iron parapet" shortname="siPar" scale="2" type="lowfence">
 			<model location="Data/Walls/Stone_Iron_Parapet.dae">
 				<mesh name="parapet" tex="Data/Walls/IronFence.png"/>
 			</model>
@@ -589,7 +649,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		
-		<wall name="Crude wooden fence" shortname="cwFence" scale="4">
+		<wall name="Crude wooden fence" shortname="cwFence" scale="4" type="lowfence">
 			<model location="Data/Walls/Crude_Wooden_Fence.dae">
 				<mesh name="wooden" tex="Data/Walls/CrudeWoodenFence.jpg"/>
 			</model>
@@ -597,7 +657,7 @@
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Crude wooden fence gate" shortname="cwFenceG" scale="4">
+		<wall name="Crude wooden fence gate" shortname="cwFenceG" scale="4" type="lowfence">
 			<model location="Data/Walls/Crude_Gate_Main.dae">
 				<mesh name="posts" tex="Data/Walls/CrudeWoodenFence.jpg"/>
 				<mesh name="gate" tex="Data/Walls/CrudeWoodenFence.jpg" type="ladder"/>
@@ -607,7 +667,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		
-		<wall name="Low roundpole fence" shortname="gFence" scale="12">
+		<wall name="Low roundpole fence" shortname="gFence" scale="12" type="lowfence">
 			<model location="Data/Walls/Gardesgard.dae">
 				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
 			</model>
@@ -615,7 +675,7 @@
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Low roundpole gate" shortname="gFenceG" scale="12">
+		<wall name="Low roundpole gate" shortname="gFenceG" scale="12" type="lowfence">
 			<model location="Data/Walls/GardesgardGate_main.dae">
 				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
 			</model>
@@ -623,7 +683,7 @@
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="High roundpole fence" shortname="hgFence" scale="12">
+		<wall name="High roundpole fence" shortname="hgFence" scale="12" type="lowfence">
 			<model location="Data/Walls/GardesgardHigh.dae">
 				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
 			</model>
@@ -632,7 +692,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		
-		<wall name="Wooden fence" shortname="wFence" scale="4">
+		<wall name="Wooden fence" shortname="wFence" scale="4" type="lowfence">
 			<model location="Data/Walls/Wooden_Fence.dae">
 				<mesh name="fence" tex="Data/Walls/WoodenFence.jpg"/>
 			</model>
@@ -640,7 +700,7 @@
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
-		<wall name="Wooden fence gate" shortname="wFenceG" scale="2">
+		<wall name="Wooden fence gate" shortname="wFenceG" scale="2" type="lowfence">
 			<model location="Data/Walls/Wooden_Gate_Main.dae">
 				<mesh name="gatemesh" tex="Data/Walls/WoodenFence.jpg"/>
 				<mesh name="posts" tex="Data/Walls/WoodenFence.jpg" type="ladder"/>
@@ -651,7 +711,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		
-		<wall name="Iron fence" shortname="iFence" scale="2">
+		<wall name="Iron fence" shortname="iFence" scale="2" type="lowfence">
 			<model location="Data/Walls/IronFence.dae">
 				<mesh name="iron" tex="Data/Walls/IronFence.png"/>
 			</model>
@@ -659,7 +719,7 @@
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
-		<wall name="Iron fence gate" shortname="iFenceG" scale="2">
+		<wall name="Iron fence gate" shortname="iFenceG" scale="2" type="lowfence">
 			<model location="Data/Walls/IronFenceGate_Main.dae">
 				<mesh name="gatemesh" tex="Data/Walls/IronFence.png"/>
 				<mesh name="fence" tex="Data/Walls/IronFence.png" type="ladder"/>
@@ -668,7 +728,7 @@
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
-		<wall name="Tall iron fence" shortname="hiFence" scale="2">
+		<wall name="Tall iron fence" shortname="hiFence" scale="2" type="highfence">
 			<model location="Data/Walls/HighIronFence.dae">
 				<mesh name="iron" tex="Data/Walls/IronFence.png"/>
 			</model>
@@ -676,7 +736,7 @@
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
-		<wall name="Tall iron fence gate" shortname="hiFenceG" scale="2">
+		<wall name="Tall iron fence gate" shortname="hiFenceG" scale="2" type="highfence">
 			<model location="Data/Walls/HighIronFenceGate_main.dae">
 				<mesh name="iron" tex="Data/Walls/IronFence.png"/>
 			</model>
@@ -684,7 +744,7 @@
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
-		<wall name="Chain fence" shortname="icFence" scale="2">
+		<wall name="Chain fence" shortname="icFence" scale="2" type="lowfence">
 			<model location="Data/Walls/ChainMediumFence.dae">
 				<mesh name="fence" tex="Data/Walls/IronFence.png"/>
 			</model>
@@ -693,7 +753,7 @@
 			<category>Materials/Iron</category>
 		</wall>
 		
-		<wall name="Curb" shortname="curb" scale="2">
+		<wall name="Curb" shortname="curb" scale="2" type="lowfence">
 			<model location="Data/Walls/Curb.dae">
 				<mesh name="curb" tex="Data/Walls/curb.jpg"/>
 			</model>
@@ -702,7 +762,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		
-		<wall name="Low rope fence" shortname="rFence" scale="15">
+		<wall name="Low rope fence" shortname="rFence" scale="15" type="lowfence">
 			<model location="Data/Walls/RopeFence.dae">
 				<mesh name="rope" tex="Data/Walls/ropefence.jpg"/>
 			</model>
@@ -710,7 +770,7 @@
 			<category>Fences</category>
 			<category>Materials/Rope</category>
 		</wall>
-		<wall name="High rope fence" shortname="hrFence" scale="15">
+		<wall name="High rope fence" shortname="hrFence" scale="15" type="lowfence">
 			<model location="Data/Walls/HighRopeFence.dae">
 				<mesh name="rope" tex="Data/Walls/ropefence.jpg"/>
 			</model>
@@ -736,7 +796,511 @@
 	
 	
 	<objects>
-
+		<object name="Large chest" shortname="lChest" type="normal">
+			<model location="Data/Objects/LargeChest_main.dae">
+				<mesh name="largechest" tex="Data/Objects/chests.jpg"/>
+			</model>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Small chest" shortname="sChest" type="normal">
+			<model location="Data/Objects/SmallChest_main.dae">
+				<mesh name="smallchest" tex="Data/Objects/chests.jpg"/>
+			</model>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Coffin" shortname="coffin" type="normal">
+			<model location="Data/Objects/Coffin_main.dae">
+				<mesh name="coffin" tex="Data/Objects/coffin.jpg"/>
+			</model>
+			<category>Containers</category>
+			<category>Materials/Stone</category>
+		</object>
+		
+		<object name="Gold altar" shortname="gAltar" type="normal">
+			<model location="Data/Objects/altar-gold.dae">
+				<mesh name="altar" tex="Data/Objects/altar-gold.png"/>
+			</model>
+			<category>Altars</category>
+			<category>Materials/Gold</category>
+		</object>
+		<object name="Silver altar" shortname="sAltar" type="normal">
+			<model location="Data/Objects/altar-silver.dae">
+				<mesh name="altar" tex="Data/Objects/altar-silver.png"/>
+			</model>
+			<category>Altars</category>
+			<category>Materials/Silver</category>
+		</object>
+		<object name="Stone altar" shortname="stAltar" type="normal">
+			<model location="Data/Objects/altar-stone.dae">
+				<mesh name="altar" tex="Data/Objects/altar-stone.jpg"/>
+				<mesh name="bowl" tex="Data/Objects/altar-stone.jpg" type="ladder"/>
+			</model>
+			<category>Altars</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Wooden altar" shortname="wAltar" type="normal">
+			<model location="Data/Objects/altar-wooden.dae">
+				<mesh name="altar" tex="Data/Objects/altar-wooden.jpg"/>
+			</model>
+			<category>Altars</category>
+			<category>Materials/Wood</category>
+		</object>
+		
+		<object name="Camellia" shortname="cam" type="tree">
+			<model location="Data/Objects/camellia.dae">
+				<mesh name="camellia" tex="Data/Objects/camellia.png"/>
+			</model>
+			<category>Bushes</category>
+		</object>
+		<object name="Grape bush" shortname="grape" type="tree">
+			<model location="Data/Objects/grapebush.dae">
+				<mesh name="grapebush" tex="Data/Objects/grape.png"/>
+			</model>
+			<category>Bushes</category>
+		</object>
+		<object name="Lavender" shortname="laven" type="tree">
+			<model location="Data/Objects/lavenderBush.dae">
+				<mesh name="lavenderbush" tex="Data/Objects/lavender.png"/>
+			</model>
+			<category>Bushes</category>
+		</object>
+		<object name="Rose bush" shortname="rose" type="tree">
+			<model location="Data/Objects/rose.dae">
+				<mesh name="rosebush" tex="Data/Objects/rose-bush.png"/>
+			</model>
+			<category>Bushes</category>
+		</object>
+		
+		<object name="Willow (small)" shortname="willS" type="tree">
+			<model location="Data/Objects/willowTree.dae" scale="2">
+				<mesh name="willow" tex="Data/Objects/willowtex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Willow" shortname="will" type="tree">
+			<model location="Data/Objects/willowTree.dae" scale="4">
+				<mesh name="willow" tex="Data/Objects/willowtex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Willow (big)" shortname="willB" type="tree">
+			<model location="Data/Objects/willowTree.dae" scale="8">
+				<mesh name="willow" tex="Data/Objects/willowtex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Pine (small)" shortname="pineS" type="tree">
+			<model location="Data/Objects/pineTree.dae" scale="2">
+				<mesh name="pine" tex="Data/Objects/pinetex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Pine" shortname="pine" type="tree">
+			<model location="Data/Objects/pineTree.dae" scale="4">
+				<mesh name="pine" tex="Data/Objects/pinetex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Pine (big)" shortname="pineB" type="tree">
+			<model location="Data/Objects/pineTree.dae" scale="8">
+				<mesh name="pine" tex="Data/Objects/pinetex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Oak (small)" shortname="oakS" type="tree">
+			<model location="Data/Objects/oakTree.dae" scale="2">
+				<mesh name="oak" tex="Data/Objects/oaktex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Oak" shortname="oak" type="tree">
+			<model location="Data/Objects/oakTree.dae" scale="4">
+				<mesh name="oak" tex="Data/Objects/oaktex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Oak (big)" shortname="oakB" type="tree">
+			<model location="Data/Objects/oakTree.dae" scale="8">
+				<mesh name="oak" tex="Data/Objects/oaktex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Maple (small)" shortname="mapleS" type="tree">
+			<model location="Data/Objects/mapleTree.dae" scale="2">
+				<mesh name="maple" tex="Data/Objects/mapletex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Maple" shortname="maple" type="tree">
+			<model location="Data/Objects/mapleTree.dae" scale="4">
+				<mesh name="maple" tex="Data/Objects/mapletex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Maple (big)" shortname="mapleB" type="tree">
+			<model location="Data/Objects/mapleTree.dae" scale="8">
+				<mesh name="maple" tex="Data/Objects/mapletex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Cedar (small)" shortname="cedarS" type="tree">
+			<model location="Data/Objects/cedarTree.dae" scale="2">
+				<mesh name="treemesh" tex="Data/Objects/cedartex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Cedar" shortname="cedar" type="tree">
+			<model location="Data/Objects/cedarTree.dae" scale="4">
+				<mesh name="treemesh" tex="Data/Objects/cedartex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Cedar (big)" shortname="cedarB" type="tree">
+			<model location="Data/Objects/cedarTree.dae" scale="8">
+				<mesh name="treemesh" tex="Data/Objects/cedartex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Birch (small)" shortname="birchS" type="tree">
+			<model location="Data/Objects/birchTree.dae" scale="2">
+				<mesh name="birch" tex="Data/Objects/birchtex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Birch" shortname="birch" type="tree">
+			<model location="Data/Objects/birchTree.dae" scale="4">
+				<mesh name="birch" tex="Data/Objects/birchtex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Birch (big)" shortname="birchB" type="tree">
+			<model location="Data/Objects/birchTree.dae" scale="8">
+				<mesh name="birch" tex="Data/Objects/birchtex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Walnut (small)" shortname="walnutS" type="tree">
+			<model location="Data/Objects/walnutTree.dae" scale="2">
+				<mesh name="walnut" tex="Data/Objects/walnut.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Walnut" shortname="walnut" type="tree">
+			<model location="Data/Objects/walnutTree.dae" scale="4">
+				<mesh name="walnut" tex="Data/Objects/walnut.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Walnut (big)" shortname="walnutB" type="tree">
+			<model location="Data/Objects/walnutTree.dae" scale="8">
+				<mesh name="walnut" tex="Data/Objects/walnut.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Linden (small)" shortname="lindenS" type="tree">
+			<model location="Data/Objects/lindenTree.dae" scale="2">
+				<mesh name="linden" tex="Data/Objects/linden.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Linden" shortname="linden" type="tree">
+			<model location="Data/Objects/lindenTree.dae" scale="4">
+				<mesh name="linden" tex="Data/Objects/linden.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Linden (big)" shortname="lindenB" type="tree">
+			<model location="Data/Objects/lindenTree.dae" scale="8">
+				<mesh name="linden" tex="Data/Objects/linden.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Fir (small)" shortname="firS" type="tree">
+			<model location="Data/Objects/firTree.dae" scale="2">
+				<mesh name="fir" tex="Data/Objects/fir.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Fir" shortname="fir" type="tree">
+			<model location="Data/Objects/firTree.dae" scale="4">
+				<mesh name="fir" tex="Data/Objects/fir.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Fir (big)" shortname="firB" type="tree">
+			<model location="Data/Objects/firTree.dae" scale="8">
+				<mesh name="fir" tex="Data/Objects/fir.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Chestnut (small)" shortname="chestnutS" type="tree">
+			<model location="Data/Objects/chestnutTree.dae" scale="2">
+				<mesh name="chestnut" tex="Data/Objects/chestnut.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Chestnut" shortname="chestnut" type="tree">
+			<model location="Data/Objects/chestnutTree.dae" scale="4">
+				<mesh name="chestnut" tex="Data/Objects/chestnut.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Chestnut (big)" shortname="chestnutB" type="tree">
+			<model location="Data/Objects/chestnutTree.dae" scale="8">
+				<mesh name="chestnut" tex="Data/Objects/chestnut.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Apple (small)" shortname="appS" type="tree">
+			<model location="Data/Objects/AppleTree.dae" scale="2">
+				<mesh name="polysurface" tex="Data/Objects/appletex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Apple" shortname="app" type="tree">
+			<model location="Data/Objects/AppleTree.dae" scale="4">
+				<mesh name="polysurface" tex="Data/Objects/appletex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Apple (big)" shortname="appB" type="tree">
+			<model location="Data/Objects/AppleTree.dae" scale="8">
+				<mesh name="polysurface" tex="Data/Objects/appletex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Cherry (small)" shortname="cherryS" type="tree">
+			<model location="Data/Objects/CherryTree.dae" scale="2">
+				<mesh name="cherrytree" tex="Data/Objects/cherrytex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Cherry" shortname="cherry" type="tree">
+			<model location="Data/Objects/CherryTree.dae" scale="4">
+				<mesh name="cherrytree" tex="Data/Objects/cherrytex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Cherry (big)" shortname="cherryB" type="tree">
+			<model location="Data/Objects/CherryTree.dae" scale="8">
+				<mesh name="cherrytree" tex="Data/Objects/cherrytex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Lemon (small)" shortname="lemonS" type="tree">
+			<model location="Data/Objects/LemonTree.dae" scale="2">
+				<mesh name="lemontree" tex="Data/Objects/lemontex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Lemon" shortname="lemon" type="tree">
+			<model location="Data/Objects/LemonTree.dae" scale="4">
+				<mesh name="lemontree" tex="Data/Objects/lemontex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Lemon (big)" shortname="lemonB" type="tree">
+			<model location="Data/Objects/LemonTree.dae" scale="8">
+				<mesh name="lemontree" tex="Data/Objects/lemontex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Olive (small)" shortname="oliveS" type="tree">
+			<model location="Data/Objects/OliveTree.dae" scale="2">
+				<mesh name="olivetree" tex="Data/Objects/olivetex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Olive" shortname="olive" type="tree">
+			<model location="Data/Objects/OliveTree.dae" scale="4">
+				<mesh name="olivetree" tex="Data/Objects/olivetex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		<object name="Olive (big)" shortname="oliveB" type="tree">
+			<model location="Data/Objects/OliveTree.dae" scale="8">
+				<mesh name="olivetree" tex="Data/Objects/olivetex.png"/>
+			</model>
+			<category>Trees</category>
+		</object>
+		
+		<object name="Fountain" shortname="foun" type="centered">
+			<model location="Data/Objects/Fountain.dae">
+				<mesh name="fountain" tex="Data/Objects/fountain.jpg"/>
+			</model>
+			<category>Fountains</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Ornate fountain" shortname="ofoun" type="centered">
+			<model location="Data/Objects/Ornate_Fountain.dae">
+				<mesh name="fountain" tex="Data/Objects/ornateFountain.jpg"/>
+			</model>
+			<category>Fountains</category>
+			<category>Materials/Stone</category>
+		</object>
+		
+		<object name="Statue of boy" shortname="statBoy" type="normal">
+			<model location="Data/Objects/boyStatue.dae">
+				<mesh name="boystatue" tex="Data/Objects/boy_statue_512.jpg"/>
+			</model>
+			<category>Statues</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Statue of demon" shortname="statDemon" type="normal">
+			<model location="Data/Objects/solDemonStatue.dae">
+				<mesh name="sundemon" tex="Data/Objects/SolDemonStatue512.png"/>
+			</model>
+			<category>Statues</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Statue of dog" shortname="statDog" type="normal">
+			<model location="Data/Objects/dogStatue.dae">
+				<mesh name="dogstatue" tex="Data/Objects/DogStatue.png"/>
+			</model>
+			<category>Statues</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Statue of girl" shortname="statGirl" type="normal">
+			<model location="Data/Objects/girlStatue.dae">
+				<mesh name="girlstatue" tex="Data/Objects/girlStatue512.jpg"/>
+			</model>
+			<category>Statues</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Statue of horse" shortname="statHorse" type="normal">
+			<model location="Data/Objects/horseStatue.dae">
+				<mesh name="horse" tex="Data/Objects/horseStatue.png"/>
+			</model>
+			<category>Statues</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Statue of nymph" shortname="statNymph" type="normal">
+			<model location="Data/Objects/Nymph.dae">
+				<mesh name="nymph" tex="Data/Objects/Nymph512.jpg"/>
+			</model>
+			<category>Statues</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Statue of troll" shortname="statTroll" type="normal">
+			<model location="Data/Objects/trollStatue.dae">
+				<mesh name="troll" tex="Data/Objects/trollStatue.png"/>
+			</model>
+			<category>Statues</category>
+			<category>Materials/Stone</category>
+		</object>
+		
+		<object name="Vynora colossus" shortname="vynCol" type="centered">
+			<model location="Data/Objects/colossusVynora.dae">
+				<mesh name="polysurface" tex="Data/Objects/vynoraColossus_D.png"/>
+			</model>
+			<category>Giants</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Fo colossus" shortname="foCol" type="centered">
+			<model location="Data/Objects/colossusFo.dae">
+				<mesh name="colossusfo" tex="Data/Objects/colossusFo.png"/>
+			</model>
+			<category>Giants</category>
+			<category>Materials/Stone</category>
+		</object>
+		
+		<object name="Stool" shortname="stool" type="normal">
+			<model location="Data/Objects/Stool.dae">
+				<mesh name="stool" tex="Data/Objects/chair.jpg"/>
+			</model>
+			<category>Furniture/Chairs</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Chair" shortname="chair" type="normal">
+			<model location="Data/Objects/Chair.dae">
+				<mesh name="chair" tex="Data/Objects/chair.jpg"/>
+			</model>
+			<category>Furniture/Chairs</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Armchair" shortname="aChair" type="normal">
+			<model location="Data/Objects/Armchair.dae">
+				<mesh name="armchair" tex="Data/Objects/chair.jpg"/>
+			</model>
+			<category>Furniture/Chairs</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Royal throne" shortname="throne" type="normal">
+			<model location="Data/Objects/RoyalThrone.dae">
+				<mesh name="royal" tex="Data/Objects/Royal_Throne.jpg"/>
+			</model>
+			<category>Furniture/Chairs</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="High chair" shortname="hChair" type="normal">
+			<model location="Data/Objects/HighChair2.dae">
+				<mesh name="high" tex="Data/Objects/HighChair_2.png"/>
+			</model>
+			<category>Furniture/Chairs</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Fine high chair" shortname="fhChair" type="normal">
+			<model location="Data/Objects/HighChair1.dae">
+				<mesh name="high" tex="Data/Objects/HighChair_1.png"/>
+			</model>
+			<category>Furniture/Chairs</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Pauper high chair" shortname="phChair" type="normal">
+			<model location="Data/Objects/HighChair3.dae">
+				<mesh name="high" tex="Data/Objects/HighChair_3.png"/>
+			</model>
+			<category>Furniture/Chairs</category>
+			<category>Materials/Wood</category>
+		</object>
+		
+		<object name="Large dining table" shortname="lTable" type="normal">
+			<model location="Data/Objects/largeTable.dae">
+				<mesh name="largetable" tex="Data/Objects/table.jpg"/>
+			</model>
+			<category>Furniture/Tables</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Small square table" shortname="sTable" type="normal">
+			<model location="Data/Objects/largeTable.dae">
+				<mesh name="squaretable" tex="Data/Objects/table.jpg"/>
+			</model>
+			<category>Furniture/Tables</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Round table" shortname="rTable" type="normal">
+			<model location="Data/Objects/roundTable.dae">
+				<mesh name="roundtable" tex="Data/Objects/table.jpg"/>
+			</model>
+			<category>Furniture/Tables</category>
+			<category>Materials/Wood</category>
+		</object>
+		
+		<object name="Gravestone" shortname="graves" type="normal">
+			<model location="Data/Objects/Gravestone.dae">
+				<mesh name="gravestone" tex="Data/Objects/gravestone.jpg"/>
+			</model>
+			<category>Misc</category>
+			<category>Materials/Stone</category>
+		</object>
+		
+		<object name="Campfire" shortname="camp" type="normal">
+			<model location="Data/Objects/campfire.dae">
+				<mesh name="campfire" tex="Data/Objects/Campfire_unlit.jpg"/>
+			</model>
+			<category>Misc</category>
+		</object>
+		
+		<object name="Pillar" shortname="pill" type="normal">
+			<model location="Data/Objects/Pillar.dae">
+				<mesh name="pillar" tex="Data/Objects/pillar.jpg"/>
+			</model>
+			<category>Misc</category>
+			<category>Materials/Stone</category>
+		</object>
+		
 	</objects>
 	
 	

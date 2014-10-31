@@ -14,6 +14,8 @@ public final class UpCamera {
     public Tile tile;
     public float xTile;
     public float yTile;
+    public float xMap;
+    public float yMap;
     
     private final MapPanel panel;
     
@@ -49,6 +51,8 @@ public final class UpCamera {
         
         if (currX>=0 && currX<map.getWidth() && currY>=0 && currY<map.getHeight()) {
             tile = map.getTile(currX, currY);
+            xMap = tileX;
+            yMap = tileY;
             xTile = tileX%1f;
             yTile = tileY%1f;
         }

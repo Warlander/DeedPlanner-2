@@ -9,6 +9,8 @@ import pl.wurmonline.deedplanner.input.*;
 import pl.wurmonline.deedplanner.logic.floors.FloorUpdater;
 import pl.wurmonline.deedplanner.logic.ground.GroundUpdater;
 import pl.wurmonline.deedplanner.logic.height.HeightUpdater;
+import pl.wurmonline.deedplanner.logic.labels.LabelUpdater;
+import pl.wurmonline.deedplanner.logic.objects.ObjectsUpdater;
 import pl.wurmonline.deedplanner.logic.roofs.RoofUpdater;
 import pl.wurmonline.deedplanner.logic.walls.WallUpdater;
 
@@ -56,20 +58,28 @@ public class LogicLoop extends TimerTask {
             if (Globals.upCamera) {
                 panel.getUpCamera().update(mouse, keybindings);
                 if (panel.getUpCamera().tile!=null) {
-                    if (Globals.tab==Tab.ground) {
-                        GroundUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                    }
-                    else if (Globals.tab==Tab.height) {
-                        HeightUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                    }
-                    else if (Globals.tab==Tab.floors) {
-                        FloorUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                    }
-                    else if (Globals.tab==Tab.walls) {
-                        WallUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                    }
-                    else if (Globals.tab==Tab.roofs) {
-                        RoofUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                    switch (Globals.tab) {
+                        case ground:
+                            GroundUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            break;
+                        case height:
+                            HeightUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            break;
+                        case floors:
+                            FloorUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            break;
+                        case walls:
+                            WallUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            break;
+                        case roofs:
+                            RoofUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            break;
+                        case objects:
+                            ObjectsUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            break;
+                        case labels:
+                            LabelUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            break;
                     }
                 }
                 if (panel.getUpCamera().tile!=null) {

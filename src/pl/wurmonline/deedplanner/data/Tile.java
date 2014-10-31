@@ -8,6 +8,8 @@ import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.logic.Tab;
+import pl.wurmonline.deedplanner.logic.labels.LabelUpdater;
 import pl.wurmonline.deedplanner.util.*;
 
 public class Tile implements XMLSerializable {
@@ -19,6 +21,7 @@ public class Tile implements XMLSerializable {
     private int height = 5;
     private Ground ground;
     private final HashMap<EntityData, TileEntity> entities;
+    private Label label;
     
     private final float[][] heightValues;
     
@@ -28,6 +31,12 @@ public class Tile implements XMLSerializable {
         this.y = y;
         height = (int) Float.parseFloat(tile.getAttribute("height"));
         ground = new Ground((Element) tile.getElementsByTagName("ground").item(0));
+        
+        NodeList labels = tile.getElementsByTagName("label");
+        if (labels.getLength()!=0) {
+            label = new Label((Element) labels.item(0));
+        }
+        
         entities = new HashMap<>();
         
         heightValues = new float[4][4];
@@ -49,13 +58,29 @@ public class Tile implements XMLSerializable {
                         entities.put(new EntityData(floor, EntityType.FLOORROOF), FloorData.get(entity));
                         break;
                     case "hwall":
-                        entities.put(new EntityData(floor, EntityType.HWALL), new Wall(entity));
+                        Wall hwall = new Wall(entity);
+                        if (hwall.data.houseWall) {
+                            entities.put(new EntityData(floor, EntityType.HWALL), hwall);
+                        }
+                        else {
+                            entities.put(new EntityData(floor, EntityType.HFENCE), hwall);
+                        }
                         break;
                     case "vwall":
-                        entities.put(new EntityData(floor, EntityType.VWALL), new Wall(entity));
+                        Wall vwall = new Wall(entity);
+                        if (vwall.data.houseWall) {
+                            entities.put(new EntityData(floor, EntityType.VWALL), vwall);
+                        }
+                        else {
+                            entities.put(new EntityData(floor, EntityType.VFENCE), vwall);
+                        }
                         break;
                     case "roof":
                         entities.put(new EntityData(floor, EntityType.FLOORROOF), new Roof(entity));
+                        break;
+                    case "object":
+                        ObjectLocation loc = ObjectLocation.parse(entity.getAttribute("position"));
+                        entities.put(new ObjectEntityData(floor, loc), new GameObject(entity));
                         break;
                 }
             }
@@ -92,6 +117,7 @@ public class Tile implements XMLSerializable {
         this.height = tile.height;
         this.heightValues = tile.heightValues;
         this.ground = tile.ground;
+        this.label = tile.label;
         this.entities = new HashMap(tile.entities);
     }
     
@@ -150,7 +176,7 @@ public class Tile implements XMLSerializable {
                         g.glColor3f(colorMod, colorMod, colorMod);
                         entity.render(g, this);
                         break;
-                    case VWALL:
+                    case VWALL: case VFENCE:
                         g.glTranslatef(0, 0, 3*floor + getVerticalWallHeight()/Constants.HEIGHT_MOD);
                         g.glRotatef(90, 0, 0, 1);
                         float vdiff = getVerticalWallHeightDiff()/47f;
@@ -169,7 +195,7 @@ public class Tile implements XMLSerializable {
                         vwall.render(g, this);
                         g.glColor3f(1, 1, 1);
                         break;
-                    case HWALL:
+                    case HWALL: case HFENCE:
                         g.glTranslatef(0, 0, 3*floor + getHorizontalWallHeight()/Constants.HEIGHT_MOD);
                         float hdiff = getHorizontalWallHeightDiff()/47f;
                         if (hdiff<0) {
@@ -185,6 +211,13 @@ public class Tile implements XMLSerializable {
                         }
                         hwall.render(g, this);
                         g.glColor3f(1, 1, 1);
+                        break;
+                    case OBJECT:
+                        ObjectEntityData objData = (ObjectEntityData) key;
+                        ObjectLocation loc = objData.getLocation();
+                        GameObject obj = (GameObject) entity;
+                        g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), 3*floor + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
+                        obj.render(g, this);
                         break;
                 }
             g.glPopMatrix();
@@ -225,7 +258,24 @@ public class Tile implements XMLSerializable {
     }
     
     public void render2d(GL2 g, boolean edge) {
-        
+        if (Globals.upCamera) {
+            if (Globals.tab == Tab.labels && LabelUpdater.getSelectedTile()==this) {
+                g.glEnable(GL2.GL_BLEND);
+                g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
+                g.glColor4f(1, 1, 0, 0.3f);
+                g.glBegin(GL2.GL_QUADS);
+                    g.glVertex2f(0, 0);
+                    g.glVertex2f(0, 4);
+                    g.glVertex2f(4, 4);
+                    g.glVertex2f(4, 0);
+                g.glEnd();
+                g.glColor4f(1, 1, 1, 1);
+                g.glDisable(GL2.GL_BLEND);
+            }
+            if (label!=null) {
+                label.render(g, this);
+            }
+        }
     }
     
     public void serialize(Document doc, Element root) {
@@ -236,6 +286,9 @@ public class Tile implements XMLSerializable {
         root.appendChild(tile);
         
         ground.serialize(doc, tile);
+        if (label!=null) {
+            label.serialize(doc, tile);
+        }
         
         final HashMap<Integer, Element> levels = new HashMap<>();
         
@@ -256,15 +309,22 @@ public class Tile implements XMLSerializable {
                 case FLOORROOF:
                     entity.serialize(doc, level);
                     break;
-                case HWALL:
+                case HWALL: case HFENCE:
                     Element hWall = doc.createElement("hWall");
                     entity.serialize(doc, hWall);
                     level.appendChild(hWall);
                     break;
-                case VWALL:
+                case VWALL: case VFENCE:
                     Element vWall = doc.createElement("vWall");
                     entity.serialize(doc, vWall);
                     level.appendChild(vWall);
+                    break;
+                case OBJECT:
+                    ObjectEntityData objectData = (ObjectEntityData) key;
+                    Element objectElement = doc.createElement("object");
+                    objectElement.setAttribute("position", objectData.getLocation().toString());
+                    entity.serialize(doc, objectElement);
+                    level.appendChild(objectElement);
                     break;
             }
         }
@@ -449,14 +509,36 @@ public class Tile implements XMLSerializable {
             }
         }
         
-        final EntityData entityData = new EntityData(level, EntityType.HWALL);
+        final EntityData entityData;
+        if (wall!=null && wall.houseWall) {
+            entityData = new EntityData(level, EntityType.HWALL);
+        }
+        else if (wall!=null) {
+            entityData = new EntityData(level, EntityType.HFENCE);
+        }
+        else {
+            entityData = null;
+        }
+        
+        final EntityData wallEntity = new EntityData(level, EntityType.HWALL);
+        final EntityData fenceEntity = new EntityData(level, EntityType.HFENCE);
+        final Wall currentWall = (Wall) entities.get(wallEntity);
+        final Wall currentFence = (Wall) entities.get(fenceEntity);
+        
         if (!(new Wall(wall).equals(entities.get(entityData)))) {
             Tile oldTile = new Tile(this);
             if (wall!=null) {
                 entities.put(entityData, new Wall(wall));
+                if (wall.houseWall && !(wall.arch && currentFence!=null && currentFence.data.archBuildable)) {
+                    entities.remove(fenceEntity);
+                }
+                else if (!wall.houseWall && !(wall.archBuildable && currentWall!=null && currentWall.data.arch)) {
+                    entities.remove(wallEntity);
+                }
             }
             else {
-                entities.remove(entityData);
+                entities.remove(wallEntity);
+                entities.remove(fenceEntity);
             }
 
             if (undo) {
@@ -467,6 +549,10 @@ public class Tile implements XMLSerializable {
     
     public Wall getHorizontalWall(int level) {
         return (Wall) entities.get(new EntityData(level, EntityType.HWALL));
+    }
+    
+    public Wall getHorizontalFence(int level) {
+        return (Wall) entities.get(new EntityData(level, EntityType.HFENCE));
     }
     
     public void setVerticalWall(WallData wall, int level) {
@@ -480,14 +566,36 @@ public class Tile implements XMLSerializable {
             }
         }
         
-        final EntityData entityData = new EntityData(level, EntityType.VWALL);
+        final EntityData entityData;
+        if (wall!=null && wall.houseWall) {
+            entityData = new EntityData(level, EntityType.VWALL);
+        }
+        else if (wall!=null) {
+            entityData = new EntityData(level, EntityType.VFENCE);
+        }
+        else {
+            entityData = null;
+        }
+        
+        final EntityData wallEntity = new EntityData(level, EntityType.VWALL);
+        final EntityData fenceEntity = new EntityData(level, EntityType.VFENCE);
+        final Wall currentWall = (Wall) entities.get(wallEntity);
+        final Wall currentFence = (Wall) entities.get(fenceEntity);
+        
         if (!(new Wall(wall).equals(entities.get(entityData)))) {
             Tile oldTile = new Tile(this);
             if (wall!=null) {
                 entities.put(entityData, new Wall(wall));
+                if (wall.houseWall && !(wall.arch && currentFence!=null && currentFence.data.archBuildable)) {
+                    entities.remove(fenceEntity);
+                }
+                else if (!wall.houseWall && !(wall.archBuildable && currentWall!=null && currentWall.data.arch)) {
+                    entities.remove(wallEntity);
+                }
             }
             else {
-                entities.remove(entityData);
+                entities.remove(wallEntity);
+                entities.remove(fenceEntity);
             }
 
             if (undo) {
@@ -498,6 +606,48 @@ public class Tile implements XMLSerializable {
     
     public Wall getVerticalWall(int level) {
         return (Wall) entities.get(new EntityData(level, EntityType.VWALL));
+    }
+    
+    public Wall getVerticalFence(int level) {
+        return (Wall) entities.get(new EntityData(level, EntityType.VFENCE));
+    }
+    
+    public void setLabel(Label label) {
+        setLabel(label, true);
+    }
+    
+    void setLabel(Label label, boolean undo) {
+        Tile oldTile = new Tile(this);
+        this.label = label;
+        if (undo) {
+            map.addUndo(this, oldTile);
+        }
+    }
+    
+    public Label getLabel() {
+        return label;
+    }
+    
+    public void setGameObject(GameObjectData data, ObjectLocation location, int floor) {
+        setGameObject(data, location, floor, true);
+    }
+    
+    void setGameObject(GameObjectData data, ObjectLocation location, int floor, boolean undo) {
+        Tile oldTile = new Tile(this);
+        if (data!=null) {
+            entities.put(new ObjectEntityData(floor, location), new GameObject(data));
+        }
+        else {
+            entities.remove(new ObjectEntityData(floor, location));
+        }
+        if (undo) {
+            map.addUndo(this, oldTile);
+        }
+    }
+    
+    public GameObject getGameObject(int level, ObjectLocation location) {
+        //assumption - ObjectEntityData key always have GameObject value.
+        return (GameObject) entities.get(new ObjectEntityData(level, location));
     }
     
 }

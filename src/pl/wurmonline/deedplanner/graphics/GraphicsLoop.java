@@ -3,6 +3,7 @@ package pl.wurmonline.deedplanner.graphics;
 import com.jogamp.opengl.util.FPSAnimator;
 import javax.media.opengl.*;
 import pl.wurmonline.deedplanner.*;
+import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.jogl.Tex;
 import pl.wurmonline.deedplanner.util.jogl.*;
 
@@ -13,6 +14,10 @@ public class GraphicsLoop implements GLEventListener {
     
     private boolean runFlag = true;
     private boolean stopped = false;
+    
+    private int fps;
+    private long lastFPS;
+    private long timeSpent;
     
     public GraphicsLoop(MapPanel panel) {
         this.panel = panel;
@@ -39,6 +44,7 @@ public class GraphicsLoop implements GLEventListener {
 
     public void display(GLAutoDrawable glautodrawable) {
         if (runFlag) {
+            long startTime = System.currentTimeMillis();
             stopped = false;
             GL2 g = glautodrawable.getGL().getGL2();
             
@@ -59,6 +65,18 @@ public class GraphicsLoop implements GLEventListener {
 
             panel.getMap().render(g);
             stopped = true;
+            
+            if (lastFPS<System.currentTimeMillis()-1000) {
+                float renderPercent = timeSpent/10f;
+                Log.out(GraphicsLoop.class, "Graphics FPS: "+fps+", time spent on rendering: "+renderPercent+"%");
+                fps = 0;
+                timeSpent = 0;
+                lastFPS = System.currentTimeMillis();
+            }
+            else {
+                fps++;
+                timeSpent += System.currentTimeMillis() - startTime;
+            }
         }
         else {
             stopped = true;

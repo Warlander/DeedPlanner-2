@@ -19,12 +19,14 @@ public final class Mesh {
     private int listID = 0;
     private final Tex tex;
     private final boolean ladder;
+    private final float scale;
     
-    public Mesh(String vertLoc, String name, Tex tex, boolean ladder) {
+    public Mesh(String vertLoc, String name, Tex tex, boolean ladder, float scale) {
         this.name = name.toUpperCase();
         this.vertLoc = vertLoc;
         this.tex = tex;
         this.ladder = ladder;
+        this.scale = scale;
     }
     
     public void render(GL2 g) {
@@ -38,6 +40,7 @@ public final class Mesh {
                 Log.err(ex);
             }
         }
+        g.glScalef(scale, scale, scale);
         g.glCallList(listID);
     }
     
@@ -65,7 +68,7 @@ public final class Mesh {
                     case "source":
                         processSource(data, element);
                         break;
-                    case "triangles":
+                    case "triangles": case "polylist":
                         processTriangles(data, element);
                         break;
                 }
@@ -94,7 +97,7 @@ public final class Mesh {
         else if (attribute.contains("NORMAL")) {
             data.setNormals(floats);
         }
-        else if (attribute.contains("UV")) {
+        else if (attribute.contains("UV") || attribute.contains("MAP")) {
             data.setTexcoords(floats);
         }
     }

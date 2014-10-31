@@ -2,6 +2,9 @@ package pl.wurmonline.deedplanner.forms;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.tree.*;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,6 +18,7 @@ import pl.wurmonline.deedplanner.logic.*;
 import pl.wurmonline.deedplanner.logic.floors.*;
 import pl.wurmonline.deedplanner.logic.ground.*;
 import pl.wurmonline.deedplanner.logic.height.*;
+import pl.wurmonline.deedplanner.logic.objects.ObjectsUpdater;
 import pl.wurmonline.deedplanner.logic.roofs.RoofUpdater;
 import pl.wurmonline.deedplanner.logic.walls.WallUpdater;
 import pl.wurmonline.deedplanner.util.*;
@@ -24,6 +28,11 @@ public class Planner extends javax.swing.JFrame {
     
     public Planner() {
         initComponents();
+        try {
+            setIconImage(ImageIO.read(Planner.class.getResourceAsStream("SimpleLogo.png")));
+        } catch (IOException ex) {
+            Log.err(ex);
+        }
         setTitle(Constants.VERSION_STRING);
         SwingUtils.centerFrame(this);
         mapPanel.grabFocus();
@@ -68,6 +77,7 @@ public class Planner extends javax.swing.JFrame {
         
         floorsTree.setCellRenderer(defaultRenderer);
         wallsTree.setCellRenderer(defaultRenderer);
+        objectsTree.setCellRenderer(defaultRenderer);
         
         heightList.setModel(HeightUpdater.createListModel());
         heightList.setSelectedIndex(0);
@@ -138,6 +148,9 @@ public class Planner extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         roofsList = new javax.swing.JList();
         objectsPanel = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        objectsTree = new javax.swing.JTree();
+        labelsPanel = new pl.wurmonline.deedplanner.forms.LabelEditor();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -471,18 +484,30 @@ public class Planner extends javax.swing.JFrame {
 
         tabbedPane.addTab("Roofs", roofsPanel);
 
+        objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
+        objectsTree.setRootVisible(false);
+        objectsTree.setShowsRootHandles(true);
+        objectsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                objectsTreeValueChanged(evt);
+            }
+        });
+        jScrollPane6.setViewportView(objectsTree);
+
         javax.swing.GroupLayout objectsPanelLayout = new javax.swing.GroupLayout(objectsPanel);
         objectsPanel.setLayout(objectsPanelLayout);
         objectsPanelLayout.setHorizontalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 205, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
         );
         objectsPanelLayout.setVerticalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab("Objects", objectsPanel);
+        tabbedPane.addTab("Labels", labelsPanel);
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -850,6 +875,12 @@ public class Planner extends javax.swing.JFrame {
         else if (tab==roofsPanel) {
             Globals.tab = Tab.roofs;
         }
+        else if (tab==objectsPanel) {
+            Globals.tab = Tab.objects;
+        }
+        else if (tab==labelsPanel) {
+            Globals.tab = Tab.labels;
+        }
     }//GEN-LAST:event_tabbedPaneStateChanged
 
     private void jSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner4StateChanged
@@ -932,6 +963,15 @@ public class Planner extends javax.swing.JFrame {
         new LoadWindow(mapPanel).setVisible(true);
     }//GEN-LAST:event_loadItemActionPerformed
 
+    private void objectsTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_objectsTreeValueChanged
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) objectsTree.getLastSelectedPathComponent();
+        if (node!=null && node.isLeaf() && node.getUserObject()!=ObjectsUpdater.currentData) {
+            mapPanel.getLoop().syncAndExecute(() -> {
+                ObjectsUpdater.currentData = (GameObjectData) node.getUserObject();
+            });
+        }
+    }//GEN-LAST:event_objectsTreeValueChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JMenuItem deedCalculatorItem;
@@ -979,12 +1019,15 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSpinner jSpinner4;
+    private pl.wurmonline.deedplanner.forms.LabelEditor labelsPanel;
     private javax.swing.JMenuItem loadItem;
     private pl.wurmonline.deedplanner.MapPanel mapPanel;
     private javax.swing.JPanel objectsPanel;
+    private javax.swing.JTree objectsTree;
     private javax.swing.JMenuItem redoItem;
     private javax.swing.JMenuItem resizeItem;
     private javax.swing.JList roofsList;

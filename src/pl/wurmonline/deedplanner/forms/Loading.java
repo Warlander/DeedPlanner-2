@@ -6,6 +6,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.MapPanel;
 import pl.wurmonline.deedplanner.data.io.DataLoader;
+import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class Loading extends javax.swing.JFrame {
@@ -17,7 +18,7 @@ public class Loading extends javax.swing.JFrame {
         new Thread(() -> {
             try {
                 DataLoader.loadData(this, new File("Data/objects.xml"));
-            } catch (ParserConfigurationException | IOException | SAXException ex) {
+            } catch (DeedPlannerException | ParserConfigurationException | IOException | SAXException ex) {
                 Logger.getLogger(MapPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
             new Planner();
@@ -46,7 +47,7 @@ public class Loading extends javax.swing.JFrame {
         setType(java.awt.Window.Type.POPUP);
 
         progressBar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        progressBar.setMaximum(5);
+        progressBar.setMaximum(6);
         progressBar.setString("Initializing");
         progressBar.setStringPainted(true);
 
