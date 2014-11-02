@@ -810,6 +810,20 @@
 			<category>Containers</category>
 			<category>Materials/Wood</category>
 		</object>
+		<object name="Large crate" shortname="lCrate" type="normal">
+			<model location="Data/Objects/crateLarge.dae">
+				<mesh name="crate" tex="Data/Objects/crate.jpg"/>
+			</model>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Small crate" shortname="sCrate" type="normal">
+			<model location="Data/Objects/crateSmall.dae">
+				<mesh name="crate" tex="Data/Objects/crate.jpg"/>
+			</model>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
 		<object name="Coffin" shortname="coffin" type="normal">
 			<model location="Data/Objects/Coffin_main.dae">
 				<mesh name="coffin" tex="Data/Objects/coffin.jpg"/>
@@ -849,25 +863,25 @@
 		</object>
 		
 		<object name="Camellia" shortname="cam" type="tree">
-			<model location="Data/Objects/camellia.dae">
+			<model location="Data/Objects/camellia.dae" scale="3">
 				<mesh name="camellia" tex="Data/Objects/camellia.png"/>
 			</model>
 			<category>Bushes</category>
 		</object>
 		<object name="Grape bush" shortname="grape" type="tree">
-			<model location="Data/Objects/grapebush.dae">
+			<model location="Data/Objects/grapebush.dae" scale="3">
 				<mesh name="grapebush" tex="Data/Objects/grape.png"/>
 			</model>
 			<category>Bushes</category>
 		</object>
 		<object name="Lavender" shortname="laven" type="tree">
-			<model location="Data/Objects/lavenderBush.dae">
+			<model location="Data/Objects/lavenderBush.dae" scale="3">
 				<mesh name="lavenderbush" tex="Data/Objects/lavender.png"/>
 			</model>
 			<category>Bushes</category>
 		</object>
 		<object name="Rose bush" shortname="rose" type="tree">
-			<model location="Data/Objects/rose.dae">
+			<model location="Data/Objects/rose.dae" scale="3">
 				<mesh name="rosebush" tex="Data/Objects/rose-bush.png"/>
 			</model>
 			<category>Bushes</category>
@@ -1206,6 +1220,15 @@
 			<category>Materials/Stone</category>
 		</object>
 		
+		<object name="Freedom guard tower" shortname="freeGT" type="centered">
+			<model location="Data/Objects/freedomTower.dae">
+				<mesh name="main" tex="Data/Objects/FreedomTower_D.png"/>
+				<mesh name="detail" tex="Data/Objects/towerdetail.png" type="ladder"/>
+			</model>
+			<category>Towers</category>
+			<category>Materials/Stone</category>
+		</object>
+		
 		<object name="Stool" shortname="stool" type="normal">
 			<model location="Data/Objects/Stool.dae">
 				<mesh name="stool" tex="Data/Objects/chair.jpg"/>
@@ -1278,6 +1301,28 @@
 			<category>Materials/Wood</category>
 		</object>
 		
+		<object name="Campfire" shortname="camp" type="normal">
+			<model location="Data/Objects/campfire.dae">
+				<mesh name="campfire" tex="Data/Objects/Campfire_unlit.jpg"/>
+			</model>
+			<category>Fires</category>
+		</object>
+		
+		<object name="Large anvil" shortname="lAnvil" type="normal">
+			<model location="Data/Objects/Anvil_large.dae">
+				<mesh name="anvil" tex="Data/Objects/Anvil_256.png"/>
+			</model>
+			<category>Anvils</category>
+			<category>Materials/Iron</category>
+		</object>
+		<object name="Small anvil" shortname="sAnvil" type="normal">
+			<model location="Data/Objects/Anvil_small.dae">
+				<mesh name="anvil" tex="Data/Objects/Anvil_256.png"/>
+			</model>
+			<category>Anvils</category>
+			<category>Materials/Iron</category>
+		</object>
+		
 		<object name="Gravestone" shortname="graves" type="normal">
 			<model location="Data/Objects/Gravestone.dae">
 				<mesh name="gravestone" tex="Data/Objects/gravestone.jpg"/>
@@ -1285,20 +1330,40 @@
 			<category>Misc</category>
 			<category>Materials/Stone</category>
 		</object>
-		
-		<object name="Campfire" shortname="camp" type="normal">
-			<model location="Data/Objects/campfire.dae">
-				<mesh name="campfire" tex="Data/Objects/Campfire_unlit.jpg"/>
-			</model>
-			<category>Misc</category>
-		</object>
-		
 		<object name="Pillar" shortname="pill" type="normal">
 			<model location="Data/Objects/Pillar.dae">
 				<mesh name="pillar" tex="Data/Objects/pillar.jpg"/>
 			</model>
 			<category>Misc</category>
 			<category>Materials/Stone</category>
+		</object>
+		<object name="Epic portal" shortname="ePortal" type="normal">
+			<model location="Data/Objects/playerportal.dae">
+				<mesh name="playerportal" tex="Data/Objects/playerportal.jpg"/>
+			</model>
+			<category>Misc</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Archery target" shortname="aTarget" type="normal">
+			<model location="Data/Objects/archery-target.dae">
+				<mesh name="archerytarget" tex="Data/Objects/archery-target.jpg"/>
+			</model>
+			<category>Misc</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Practice doll" shortname="pDoll" type="normal">
+			<model location="Data/Objects/practiceDoll_main.dae">
+				<mesh name="practice" tex="Data/Objects/practiceDoll.png"/>
+			</model>
+			<category>Misc</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Loom" shortname="loom" type="normal">
+			<model location="Data/Objects/Loom.dae">
+				<mesh name="loom" tex="Data/Objects/loom.png"/>
+			</model>
+			<category>Misc</category>
+			<category>Materials/Wood</category>
 		</object>
 		
 	</objects>

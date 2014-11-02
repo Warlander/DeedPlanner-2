@@ -53,6 +53,7 @@ public final class Mesh {
         Node mesh = null;
         for (int i=0; i<geometries.getLength(); i++) {
             Element e = (Element) geometries.item(i);
+            System.out.println(e.getAttribute("name"));
             if (e.getAttribute("name").toUpperCase().contains(name)) {
                 mesh = e.getElementsByTagName("mesh").item(0);
             }

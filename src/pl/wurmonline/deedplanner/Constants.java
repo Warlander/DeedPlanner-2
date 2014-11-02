@@ -10,6 +10,6 @@ public class Constants {
     
     public final static float HEIGHT_MOD = (35f/3f);
     
-    public final static String VERSION_STRING = "DeedPlanner 2 BETA 1";
+    public final static String VERSION_STRING = "DeedPlanner 2 BETA 1a";
     
 }

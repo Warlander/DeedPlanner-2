@@ -78,7 +78,7 @@ public class WAKData {
         putObject(3, "sAltar"); //silver altar
         putObject(4, "stAltar"); //stone altar
         putObject(5, "wAltar"); //wood altar
-        putObject(6, null); //archery target
+        putObject(6, "aTarget"); //archery target
         putObject(7, null); //large barrel
         putObject(8, null); //bed
         putObject(9, null); //BSB
@@ -98,8 +98,8 @@ public class WAKData {
         putObject(23, null); //silver hanglamp
         putObject(24, null); //iron torch
         putObject(25, null); //loom
-        putObject(26, null); //marketstall 1
-        putObject(27, null); //marketstall 2
+        putObject(26, "stall"); //marketstall 1
+        putObject(27, "stall"); //marketstall 2
         putObject(28, null); //oven
         putObject(29, null); //spirit castle
         putObject(30, null); //stone bench
