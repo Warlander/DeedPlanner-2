@@ -10,7 +10,7 @@ import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.util.jogl.Color;
 
-public class Label implements TileEntity {
+public class Label {
 
     private final Font font;
     private final String text;

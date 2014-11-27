@@ -30,6 +30,10 @@ public class Wall implements TileEntity {
         root.setAttribute("id", data.shortName);
     }
     
+    public Materials getMaterials() {
+        return data.getMaterials();
+    }
+    
     public boolean equals(Object obj) {
         if (!(obj instanceof Wall)) {
             return false;
@@ -41,6 +45,10 @@ public class Wall implements TileEntity {
             }
             return true;
         }
+    }
+    
+    public String toString() {
+        return data.toString();
     }
 
 }

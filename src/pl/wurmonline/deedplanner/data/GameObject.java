@@ -30,12 +30,20 @@ public class GameObject implements TileEntity {
         root.setAttribute("rotation", Double.toString(rotation));
     }
     
+    public Materials getMaterials() {
+        return data.getMaterials();
+    }
+    
     public GameObjectData getData() {
         return data;
     }
     
     public void setRotation(double rotation) {
         this.rotation = rotation;
+    }
+    
+    public String toString() {
+        return data.toString();
     }
     
 }

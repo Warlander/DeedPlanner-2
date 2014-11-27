@@ -1,4 +1,4 @@
-package pl.wurmonline.deedplanner.logic.labels;
+package pl.wurmonline.deedplanner.logic;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -7,7 +7,7 @@ import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Mouse;
 
-public class LabelUpdater {
+public class TileSelection {
 
     private static Tile selectedTile = null;
     private static final ArrayList<Consumer<Tile>> listeners = new ArrayList<>();

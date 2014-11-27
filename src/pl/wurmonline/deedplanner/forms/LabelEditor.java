@@ -2,11 +2,10 @@ package pl.wurmonline.deedplanner.forms;
 
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JColorChooser;
-import pl.wurmonline.deedplanner.data.Label;
-import pl.wurmonline.deedplanner.data.Tile;
-import pl.wurmonline.deedplanner.logic.labels.LabelUpdater;
+import javax.swing.*;
+import pl.wurmonline.deedplanner.data.*;
+import pl.wurmonline.deedplanner.logic.LogicLoop;
+import pl.wurmonline.deedplanner.logic.TileSelection;
 import pl.wurmonline.deedplanner.util.FontWrapper;
 import pl.wurmonline.deedplanner.util.jogl.Color;
 
@@ -26,7 +25,7 @@ public class LabelEditor extends javax.swing.JPanel {
         fontBox.setModel(model);
         fontBox.setSelectedIndex(selectedFont);
         
-        LabelUpdater.addListener((Tile t) -> {
+        TileSelection.addListener((Tile t) -> {
             updatePanel(t);
         });
         updatePanel(null);
@@ -35,9 +34,13 @@ public class LabelEditor extends javax.swing.JPanel {
     private void updatePanel(Tile t) {
         if (t==null) {
             newLabelButton.setEnabled(false);
+            calculateTileButton.setEnabled(false);
+            calculateMapButton.setEnabled(false);
             innerPanel.setVisible(false);
             return;
         }
+        calculateTileButton.setEnabled(true);
+        calculateMapButton.setEnabled(true);
         Label label = t.getLabel();
         if (label==null) {
             newLabelButton.setEnabled(true);
@@ -65,11 +68,14 @@ public class LabelEditor extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         deleteLabel = new javax.swing.JButton();
         newLabelButton = new javax.swing.JButton();
+        calculateMapButton = new javax.swing.JButton();
+        calculateTileButton = new javax.swing.JButton();
 
         labelTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         labelTextField.setText("New Label");
 
+        labelColorShow.setBackground(new java.awt.Color(255, 255, 255));
         labelColorShow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout labelColorShowLayout = new javax.swing.GroupLayout(labelColorShow);
@@ -143,9 +149,7 @@ public class LabelEditor extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelColorButton)
-                    .addGroup(innerPanelLayout.createSequentialGroup()
-                        .addComponent(labelColorShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(labelColorShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -154,7 +158,7 @@ public class LabelEditor extends javax.swing.JPanel {
                 .addComponent(fontBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(253, 253, 253)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
                 .addComponent(deleteLabel)
                 .addContainerGap())
         );
@@ -168,28 +172,53 @@ public class LabelEditor extends javax.swing.JPanel {
             }
         });
 
+        calculateMapButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        calculateMapButton.setText("Materials (map)");
+        calculateMapButton.setToolTipText("");
+        calculateMapButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateMapButtonActionPerformed(evt);
+            }
+        });
+
+        calculateTileButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        calculateTileButton.setText("Materials (tile)");
+        calculateTileButton.setToolTipText("");
+        calculateTileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateTileButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(innerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(newLabelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newLabelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(calculateMapButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(calculateTileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(calculateMapButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(calculateTileButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(newLabelButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(innerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(innerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void newLabelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newLabelButtonActionPerformed
-        Tile t = LabelUpdater.getSelectedTile();
+        Tile t = TileSelection.getSelectedTile();
         if (t!=null) {
             t.setLabel(createLabel());
         }
@@ -197,7 +226,7 @@ public class LabelEditor extends javax.swing.JPanel {
     }//GEN-LAST:event_newLabelButtonActionPerformed
 
     private void deleteLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteLabelActionPerformed
-        Tile t = LabelUpdater.getSelectedTile();
+        Tile t = TileSelection.getSelectedTile();
         if (t!=null) {
             t.setLabel(null);
         }
@@ -208,6 +237,25 @@ public class LabelEditor extends javax.swing.JPanel {
         labelColorShow.setBackground(JColorChooser.showDialog(this, "Select label color", labelColorShow.getBackground()));
     }//GEN-LAST:event_labelColorButtonActionPerformed
 
+    private void calculateMapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateMapButtonActionPerformed
+        Tile tile = TileSelection.getSelectedTile();
+        Materials mats = tile.getMap().getTotalMaterials();
+        MaterialsReport report = new MaterialsReport(mats);
+        report.setVisible(true);
+    }//GEN-LAST:event_calculateMapButtonActionPerformed
+
+    private void calculateTileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateTileButtonActionPerformed
+        Tile tile = TileSelection.getSelectedTile();
+        HouseResults results = tile.getMap().getMaterialsOfBuilding(tile);
+        if (results!=null) {
+            MaterialsReport report = new MaterialsReport(results);
+            report.setVisible(true);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Invalid building - cannot calculate results.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_calculateTileButtonActionPerformed
+
     private Label createLabel() {
         FontWrapper wrapper = (FontWrapper) fontBox.getSelectedItem();
         Font font = wrapper.font;
@@ -217,6 +265,8 @@ public class LabelEditor extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton calculateMapButton;
+    private javax.swing.JButton calculateTileButton;
     private javax.swing.JButton deleteLabel;
     private javax.swing.JComboBox fontBox;
     private javax.swing.JPanel innerPanel;

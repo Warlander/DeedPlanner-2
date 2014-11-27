@@ -2,8 +2,6 @@ package pl.wurmonline.deedplanner.forms;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.tree.*;
@@ -106,8 +104,6 @@ public class Planner extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
         viewGroup = new javax.swing.ButtonGroup();
         seasonGroup = new javax.swing.ButtonGroup();
         wallsGroup = new javax.swing.ButtonGroup();
@@ -178,16 +174,10 @@ public class Planner extends javax.swing.JFrame {
         winterItem = new javax.swing.JRadioButtonMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         deedCalculatorItem = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu12 = new javax.swing.JMenu();
-        throwExceptionItem = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-
-        jMenuItem7.setText("jMenuItem7");
-
-        jMenu3.setText("jMenu3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -216,9 +206,7 @@ public class Planner extends javax.swing.JFrame {
         statusBar.setLayout(statusBarLayout);
         statusBarLayout.setHorizontalGroup(
             statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusBarLayout.createSequentialGroup()
-                .addGap(0, 404, Short.MAX_VALUE)
-                .addComponent(tileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(tileLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
         );
         statusBarLayout.setVerticalGroup(
             statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +269,7 @@ public class Planner extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
             .addGroup(groundPanelLayout.createSequentialGroup()
                 .addComponent(diagonalPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 75, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(groundModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         groundPanelLayout.setVerticalGroup(
@@ -507,7 +495,7 @@ public class Planner extends javax.swing.JFrame {
         );
 
         tabbedPane.addTab("Objects", objectsPanel);
-        tabbedPane.addTab("Labels", labelsPanel);
+        tabbedPane.addTab("Labels and Materials", labelsPanel);
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -706,6 +694,14 @@ public class Planner extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem8);
 
+        jMenuItem9.setText("Reload textures");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem9);
+
         jMenuBar1.add(jMenu6);
 
         jMenu9.setText("Tools");
@@ -727,26 +723,6 @@ public class Planner extends javax.swing.JFrame {
         jMenu9.add(jMenuItem10);
 
         jMenuBar1.add(jMenu9);
-
-        jMenu12.setText("Debug");
-
-        throwExceptionItem.setText("Throw exception");
-        throwExceptionItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                throwException(evt);
-            }
-        });
-        jMenu12.add(throwExceptionItem);
-
-        jMenuItem9.setText("Reload textures");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenu12.add(jMenuItem9);
-
-        jMenuBar1.add(jMenu12);
 
         setJMenuBar(jMenuBar1);
 
@@ -785,16 +761,6 @@ public class Planner extends javax.swing.JFrame {
             });
         }
     }//GEN-LAST:event_formWindowClosing
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        mapPanel.getLoop().syncAndExecute(() -> {
-            Tex.destroyAll(mapPanel.getGL());
-        });
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void throwException(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_throwException
-        throw new DeedPlannerRuntimeException("Exception thrown!");
-    }//GEN-LAST:event_throwException
 
     private void undoItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoItemActionPerformed
         mapPanel.getLoop().syncAndExecute(() -> {
@@ -972,6 +938,12 @@ public class Planner extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_objectsTreeValueChanged
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        mapPanel.getLoop().syncAndExecute(() -> {
+            Tex.destroyAll(mapPanel.getGL());
+        });
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JMenuItem deedCalculatorItem;
@@ -1000,9 +972,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
@@ -1010,7 +980,6 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
@@ -1039,7 +1008,6 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JPanel statusBar;
     private javax.swing.JRadioButtonMenuItem summerItem;
     private javax.swing.JTabbedPane tabbedPane;
-    private javax.swing.JMenuItem throwExceptionItem;
     public javax.swing.JLabel tileLabel;
     private javax.swing.JMenuItem undoItem;
     private javax.swing.JRadioButtonMenuItem upViewItem;

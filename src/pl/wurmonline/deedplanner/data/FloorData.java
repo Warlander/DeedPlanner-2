@@ -11,17 +11,24 @@ public final class FloorData implements TileEntity {
     public final String name;
     public final String shortName;
     public final boolean opening;
+    private final Materials materials;
     
     public static FloorData get(Element floor) {
         String shortname = floor.getAttribute("id");
         return Data.floors.get(shortname);
     }
     
-    public FloorData(Model model, String name, String shortName, boolean opening) {
+    public FloorData(Model model, String name, String shortName, boolean opening, Materials materials) {
         this.model = model;
         this.name = name;
         this.shortName = shortName;
         this.opening = opening;
+        if (materials!=null) {
+            this.materials = materials;
+        }
+        else {
+            this.materials = new Materials();
+        }
     }
     
     public void render(GL2 g, Tile tile) {
@@ -32,6 +39,10 @@ public final class FloorData implements TileEntity {
         Element floor = doc.createElement("Floor");
         floor.setAttribute("id", shortName);
         root.appendChild(floor);
+    }
+    
+    public Materials getMaterials() {
+        return materials;
     }
     
     public String toString() {

@@ -9,10 +9,10 @@ import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.logic.Tab;
-import pl.wurmonline.deedplanner.logic.labels.LabelUpdater;
+import pl.wurmonline.deedplanner.logic.TileSelection;
 import pl.wurmonline.deedplanner.util.*;
 
-public class Tile implements XMLSerializable {
+public final class Tile implements XMLSerializable {
 
     private final Map map;
     private final int x;
@@ -130,20 +130,7 @@ public class Tile implements XMLSerializable {
     }
     
     private void renderGround(GL2 g) {
-        if (Globals.upCamera && Globals.floor>=0 && Globals.floor<3) {
-            switch (Globals.floor) {
-                case 1:
-                    g.glColor3f(0.6f, 0.6f, 0.6f);
-                    break;
-                case 2:
-                    g.glColor3f(0.25f, 0.25f, 0.25f);
-                    break;
-            }
-            g.glColor3f(2, 2, 2);
-            ground.render(g, this);
-            g.glColor3f(1, 1, 1);
-        }
-        else if (!Globals.upCamera) {
+        if ((Globals.upCamera && Globals.floor>=0 && Globals.floor<3) || !Globals.upCamera) {
             ground.render(g, this);
         }
     }
@@ -259,10 +246,12 @@ public class Tile implements XMLSerializable {
     
     public void render2d(GL2 g, boolean edge) {
         if (Globals.upCamera) {
-            if (Globals.tab == Tab.labels && LabelUpdater.getSelectedTile()==this) {
+            if (Globals.tab == Tab.labels && TileSelection.getSelectedTile()==this) {
                 g.glEnable(GL2.GL_BLEND);
                 g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
-                g.glColor4f(1, 1, 0, 0.3f);
+                double color = System.currentTimeMillis();
+                color%=2000d; color-=1000d; color = Math.abs(color); color/=1000d;
+                g.glColor4d(1, 1, 0, 0.1d+0.2d*color);
                 g.glBegin(GL2.GL_QUADS);
                     g.glVertex2f(0, 0);
                     g.glVertex2f(0, 4);
@@ -648,6 +637,63 @@ public class Tile implements XMLSerializable {
     public GameObject getGameObject(int level, ObjectLocation location) {
         //assumption - ObjectEntityData key always have GameObject value.
         return (GameObject) entities.get(new ObjectEntityData(level, location));
+    }
+    
+    public Materials getMaterials() {
+        return getMaterials(false, false);
+    }
+    
+    public Materials getMaterials(boolean withRight, boolean withTop) {
+        Materials materials = new Materials();
+        entities.values().stream().forEach((entity) -> {
+            materials.put(entity.getMaterials());
+        });
+        if (withRight) {
+            for (int i = 0; i<Constants.FLOORS_LIMIT; i++) {
+                Wall wall = map.getTile(this, 1, 0).getVerticalWall(i);
+                Wall fence = map.getTile(this, 1, 0).getVerticalFence(i);
+                if (wall!=null) {
+                    materials.put(wall.getMaterials());
+                }
+                if (fence!=null) {
+                    materials.put(fence.getMaterials());
+                }
+            }
+        }
+        if (withTop) {
+            for (int i = 0; i<Constants.FLOORS_LIMIT; i++) {
+                Wall wall = map.getTile(this, 0, 1).getHorizontalWall(i);
+                Wall fence = map.getTile(this, 0, 1).getHorizontalFence(i);
+                if (wall!=null) {
+                    materials.put(wall.getMaterials());
+                }
+                if (fence!=null) {
+                    materials.put(fence.getMaterials());
+                }
+            }
+        }
+        return materials;
+    }
+    
+    public boolean isPassable(TileBorder border) {
+        switch (border) {
+            case SOUTH:
+                return getHorizontalWall(0)==null;
+            case NORTH:
+                return map.getTile(this, 0, 1)!=null &&
+                       map.getTile(this, 0, 1).getHorizontalWall(0)==null;
+            case WEST:
+                return getVerticalWall(0)==null;
+            case EAST:
+                return map.getTile(this, 1, 0)!=null &&
+                       map.getTile(this, 1, 0).getVerticalWall(0)==null;
+            default:
+                return false;
+        }
+    }
+    
+    public String toString() {
+        return "Tile: ("+x+"; "+y+")";
     }
     
 }

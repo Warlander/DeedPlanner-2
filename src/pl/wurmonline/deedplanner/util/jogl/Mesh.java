@@ -9,7 +9,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
-import pl.wurmonline.deedplanner.util.FileUtils;
+import pl.wurmonline.deedplanner.util.XMLUtils;
 import pl.wurmonline.deedplanner.util.Log;
 
 public final class Mesh {
@@ -47,13 +47,12 @@ public final class Mesh {
     private MeshData loadMesh(GL2 g, File location) throws ParserConfigurationException, IOException, SAXException, DeedPlannerException {
         MeshData data = new MeshData();
         
-        Document doc = FileUtils.fileToXMLDoc(location);
+        Document doc = XMLUtils.fileToXMLDoc(location);
         
         NodeList geometries = doc.getElementsByTagName("geometry");
         Node mesh = null;
         for (int i=0; i<geometries.getLength(); i++) {
             Element e = (Element) geometries.item(i);
-            System.out.println(e.getAttribute("name"));
             if (e.getAttribute("name").toUpperCase().contains(name)) {
                 mesh = e.getElementsByTagName("mesh").item(0);
             }
@@ -75,7 +74,6 @@ public final class Mesh {
                 }
             }
         }
-        
         return data;
     }
     
@@ -92,13 +90,13 @@ public final class Mesh {
             current++;
         }
         String attribute = source.getAttribute("id").toUpperCase();
-        if (attribute.contains("POSITION")) {
+        if (attribute.contains("POS")) {
             data.setVertices(floats);
         }
         else if (attribute.contains("NORMAL")) {
             data.setNormals(floats);
         }
-        else if (attribute.contains("UV") || attribute.contains("MAP")) {
+        else if (attribute.contains("UV") || attribute.contains("MAP") || attribute.contains("TEX")) {
             data.setTexcoords(floats);
         }
     }
@@ -115,6 +113,10 @@ public final class Mesh {
             current++;
         }
         data.setTriangles(ints);
+    }
+    
+    public String toString() {
+        return name;
     }
     
 }

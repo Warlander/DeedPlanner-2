@@ -73,7 +73,7 @@ public class WAKData {
         putLocation(0x39, ObjectLocation.BOTTOM_CENTER);
         putLocation(0x41, ObjectLocation.BOTTOM_RIGHT);
         
-        putObject(1, null); //token
+        putObject(1, "token"); //token
         putObject(2, "gAltar"); //gold altar
         putObject(3, "sAltar"); //silver altar
         putObject(4, "stAltar"); //stone altar

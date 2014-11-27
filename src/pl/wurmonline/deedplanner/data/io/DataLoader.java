@@ -18,7 +18,7 @@ public final class DataLoader {
     private DataLoader() {}
     
     public static void loadData(Loading loading, File file) throws ParserConfigurationException, IOException, SAXException, DeedPlannerException {
-        Document doc = FileUtils.fileToXMLDoc(file);
+        Document doc = XMLUtils.fileToXMLDoc(file);
         
         loading.increaseProgress("Loading ground data");
         loadGrounds(doc);
@@ -87,6 +87,7 @@ public final class DataLoader {
             Model model = null;
             ArrayList<String[]> categories = new ArrayList<>();
             boolean opening = false;
+            Materials materials = null;
             
             Node entity = entities.item(i);
             
@@ -108,10 +109,13 @@ public final class DataLoader {
                     case "opening":
                         opening = true;
                         break;
+                    case "materials":
+                        materials = new Materials(node);
+                        break;
                 }
             }
                 
-            FloorData data = new FloorData(model, name, shortName, opening);
+            FloorData data = new FloorData(model, name, shortName, opening, materials);
             Log.out(DataLoader.class, "Floor data "+data+" loaded and ready to use!");
             Data.floors.put(shortName, data);
 
@@ -132,6 +136,7 @@ public final class DataLoader {
             final boolean archBuildable;
             Model model = null;
             ArrayList<String[]> categories = new ArrayList<>();
+            Materials materials = null;
             
             Node entity = entities.item(i);
             
@@ -158,10 +163,12 @@ public final class DataLoader {
                     case "color":
                         color = new Color((Element) node);
                         break;
+                    case "materials":
+                        materials = new Materials(node);
                 }
             }
                 
-            WallData data = new WallData(model, name, shortName, color, scale, houseWall, arch, archBuildable);
+            WallData data = new WallData(model, name, shortName, color, scale, houseWall, arch, archBuildable, materials);
             Log.out(DataLoader.class, "Wall data "+data+" loaded and ready to use!");
             Data.walls.put(shortName, data);
 
@@ -176,6 +183,7 @@ public final class DataLoader {
             String name;
             String shortName;
             Tex tex;
+            Materials materials = null;
             
             Node entity = entities.item(i);
             
@@ -183,8 +191,12 @@ public final class DataLoader {
             name = map.getNamedItem("name").getNodeValue();
             shortName = map.getNamedItem("shortname").getNodeValue();
             tex = Tex.getTexture(map.getNamedItem("tex").getNodeValue());
+            Node materialsNode = entity.getChildNodes().item(1);
+            if (materialsNode!=null) {
+                materials = new Materials(materialsNode);
+            }
                 
-            RoofData data = new RoofData(name, shortName, tex);
+            RoofData data = new RoofData(name, shortName, tex, materials);
             Log.out(DataLoader.class, "Roof data "+data+" loaded and ready to use!");
             Data.roofs.put(shortName, data);
             Data.roofsList.addElement(data);
@@ -200,6 +212,7 @@ public final class DataLoader {
             final boolean centerOnly;
             Model model = null;
             ArrayList<String[]> categories = new ArrayList<>();
+            Materials materials = null;
             
             Node entity = entities.item(i);
             
@@ -220,10 +233,12 @@ public final class DataLoader {
                     case "category":
                         categories.add(node.getTextContent().split("/"));
                         break;
+                    case "materials":
+                        materials = new Materials(node);
                 }
             }
                 
-            GameObjectData data = new GameObjectData(model, name, shortName, centerOnly);
+            GameObjectData data = new GameObjectData(model, name, shortName, centerOnly, materials);
             Log.out(DataLoader.class, "Object data "+data+" loaded and ready to use!");
             Data.objects.put(shortName, data);
 

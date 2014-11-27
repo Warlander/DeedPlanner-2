@@ -15,6 +15,15 @@ public class Launcher {
             System.exit(-1);
         }
         Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.getExceptionHandler());
+        
+//        if (DataUpdater.isUpdater()) {
+//            try {
+//                DataUpdater.doUpdate(null);
+//            } catch (IOException | GitAPIException ex) {
+//                Log.err(ex);
+//            }
+//        }
+        
         Properties.wake();
         
         SwingUtils.setLookAndFeel(Properties.lookAndFeel);

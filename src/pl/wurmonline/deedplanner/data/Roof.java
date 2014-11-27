@@ -116,11 +116,19 @@ public class Roof implements TileEntity {
         mesh = null;
     }
     
+    public Materials getMaterials() {
+        return data.getMaterials();
+    }
+    
     private boolean containsRoof(Tile t, int floor) {
         if (t!=null) {
             return t.getTileContent(floor) instanceof Roof;
         }
         return false;
+    }
+    
+    public String toString() {
+        return data.toString();
     }
     
 }

@@ -1,5 +1,6 @@
 package pl.wurmonline.deedplanner.logic.ground;
 
+import java.util.Stack;
 import javax.swing.DefaultComboBoxModel;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
@@ -55,28 +56,18 @@ public class GroundUpdater {
             }
             
             private void floodFill(Map map, Tile tile, GroundData data, GroundData toReplace) {
-                if (tile.getGround().getData()!=toReplace) {
-                    return;
-                }
-                else {
-                    tile.setGround(data);
-                }
+                Stack<Tile> stack = new Stack<>();
+                stack.push(tile);
                 
-                Tile t = map.getTile(tile, -1, 0);
-                if (t!=null) {
-                    floodFill(map, t, data, toReplace);
-                }
-                t = map.getTile(tile, 1, 0);
-                if (t!=null) {
-                    floodFill(map, t, data, toReplace);
-                }
-                t = map.getTile(tile, 0, -1);
-                if (t!=null) {
-                    floodFill(map, t, data, toReplace);
-                }
-                t = map.getTile(tile, 0, 1);
-                if (t!=null) {
-                    floodFill(map, t, data, toReplace);
+                while (!stack.empty()) {
+                    Tile anchor = stack.pop();
+                    if (anchor.getGround().getData()==toReplace) {
+                        anchor.setGround(data);
+                        map.getTileAndExecute(anchor, -1, 0, (t) -> {stack.push(t);});
+                        map.getTileAndExecute(anchor, 1, 0, (t) -> {stack.push(t);});
+                        map.getTileAndExecute(anchor, 0, -1, (t) -> {stack.push(t);});
+                        map.getTileAndExecute(anchor, 0, 1, (t) -> {stack.push(t);});
+                    }
                 }
             }
             

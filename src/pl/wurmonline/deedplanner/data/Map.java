@@ -1,11 +1,13 @@
 package pl.wurmonline.deedplanner.data;
 
+import com.google.common.io.LittleEndianDataInputStream;
 import com.jogamp.opengl.util.glsl.ShaderProgram;
 import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.function.Consumer;
 import javax.media.opengl.GL2;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
@@ -18,7 +20,8 @@ import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.*;
 import pl.wurmonline.deedplanner.logic.Tab;
-import pl.wurmonline.deedplanner.util.*;
+import pl.wurmonline.deedplanner.util.DeedPlannerException;
+import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.jogl.Color;
 
 public final class Map {
@@ -590,6 +593,13 @@ public final class Map {
         return tiles[x][y];
     }
     
+    public void getTileAndExecute(Tile tile, int xOffset, int yOffset, Consumer<Tile> consumer) {
+        Tile t = getTile(tile, xOffset, yOffset);
+        if (t!=null) {
+            consumer.accept(t);
+        }
+    }
+    
     /**
      * This method allows to get map tile in relation to another tile.
      * 
@@ -619,6 +629,118 @@ public final class Map {
                     t.getGround().redraw();
                 }
             }
+        }
+    }
+    
+    public Materials getTotalMaterials() {
+        Materials materials = new Materials();
+        for (int i = 0; i < width; i++) {
+            for (int i2 = 0; i2 < height; i2++) {
+                materials.put(tiles[i][i2].getMaterials());
+            }
+        }
+        return materials;
+    }
+    
+    public HouseResults getMaterialsOfBuilding(Tile startTile) {
+        ArrayList<Tile> houseTiles = getRoomTiles(startTile);
+        
+        houseTiles = getAllHouseTiles(houseTiles);
+        
+        if (houseTiles==null) {
+            return null;
+        }
+        
+        int carpentry = 0;
+        for (Tile t : houseTiles) {
+            carpentry++;
+            if (!houseTiles.contains(getTile(t, -1, 0))) {
+                carpentry++;
+            }
+            if (!houseTiles.contains(getTile(t, 1, 0))) {
+                carpentry++;
+            }
+            if (!houseTiles.contains(getTile(t, 0, -1))) {
+                carpentry++;
+            }
+            if (!houseTiles.contains(getTile(t, 0, 1))) {
+                carpentry++;
+            }
+        }
+        
+        Materials mats = new Materials();
+        for (Tile t : houseTiles) {
+            boolean includeTop = !houseTiles.contains(getTile(t, 0, 1));
+            boolean includeRight = !houseTiles.contains(getTile(t, 1, 0));
+            mats.put(t.getMaterials(includeRight, includeTop));
+        }
+        return new HouseResults(mats, carpentry);
+    }
+    
+    private ArrayList<Tile> getAllHouseTiles(ArrayList<Tile> houseTiles) {
+        if (houseTiles.isEmpty()) {
+            return null;
+        }
+        ArrayList<Tile> newHouseTiles = new ArrayList<>();
+        newHouseTiles.addAll(houseTiles);
+        for (Tile t : houseTiles) {
+            if (!newHouseTiles.contains(getTile(t, -1, 0))) {
+                newHouseTiles.addAll(getRoomTiles(getTile(t, -1, 0)));
+            }
+            if (!newHouseTiles.contains(getTile(t, 1, 0))) {
+                newHouseTiles.addAll(getRoomTiles(getTile(t, 1, 0)));
+            }
+            if (!newHouseTiles.contains(getTile(t, 0, -1))) {
+                newHouseTiles.addAll(getRoomTiles(getTile(t, 0, -1)));
+            }
+            if (!newHouseTiles.contains(getTile(t, 0, 1))) {
+                newHouseTiles.addAll(getRoomTiles(getTile(t, 0, 1)));
+            }
+        }
+        if (newHouseTiles.equals(houseTiles)) {
+            return newHouseTiles;
+        }
+        else {
+            return getAllHouseTiles(newHouseTiles);
+        }
+    }
+    
+    private ArrayList<Tile> getRoomTiles(Tile startTile) {
+        ArrayList<Tile> tilesList = new ArrayList<>();
+        Stack<Tile> stack = new Stack<>();
+        
+        stack.push(startTile);
+        
+        while (!stack.isEmpty()) {
+            if (tilesList.size()>100) {
+                return new ArrayList<>();
+            }
+            
+            Tile anchor = stack.pop();
+            if (!tilesList.contains(anchor)) {
+                tilesList.add(anchor);
+            }
+            
+            if (anchor.isPassable(TileBorder.SOUTH)) {
+                checkAndAddTile(tilesList, stack, getTile(anchor, 0, -1));
+            }
+            if (anchor.isPassable(TileBorder.NORTH)) {
+                checkAndAddTile(tilesList, stack, getTile(anchor, 0, 1));
+            }
+            if (anchor.isPassable(TileBorder.WEST)) {
+                checkAndAddTile(tilesList, stack, getTile(anchor, -1, 0));
+            }
+            if (anchor.isPassable(TileBorder.EAST)) {
+                checkAndAddTile(tilesList, stack, getTile(anchor, 1, 0));
+            }
+        }
+        
+        return tilesList;
+    }
+    
+    private void checkAndAddTile(ArrayList<Tile> tilesList, Stack<Tile> stack, Tile tile) {
+        if (tile!=null && !tilesList.contains(tile)) {
+            stack.push(tile);
         }
     }
     

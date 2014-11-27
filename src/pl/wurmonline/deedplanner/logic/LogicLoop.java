@@ -3,13 +3,12 @@ package pl.wurmonline.deedplanner.logic;
 import java.util.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.Properties;
-import pl.wurmonline.deedplanner.data.Tile;
+import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.forms.Planner;
 import pl.wurmonline.deedplanner.input.*;
 import pl.wurmonline.deedplanner.logic.floors.FloorUpdater;
 import pl.wurmonline.deedplanner.logic.ground.GroundUpdater;
 import pl.wurmonline.deedplanner.logic.height.HeightUpdater;
-import pl.wurmonline.deedplanner.logic.labels.LabelUpdater;
 import pl.wurmonline.deedplanner.logic.objects.ObjectsUpdater;
 import pl.wurmonline.deedplanner.logic.roofs.RoofUpdater;
 import pl.wurmonline.deedplanner.logic.walls.WallUpdater;
@@ -78,21 +77,53 @@ public class LogicLoop extends TimerTask {
                             ObjectsUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
                         case labels:
-                            LabelUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            TileSelection.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
                     }
                 }
                 if (panel.getUpCamera().tile!=null) {
                     Tile t = panel.getUpCamera().tile;
                     TileFragment frag = TileFragment.calculateTileFragment(panel.getUpCamera().xTile, panel.getUpCamera().yTile);
+                    planner.heightShow.setUpCamera(panel.getUpCamera());
+                    StringBuilder build = new StringBuilder();
+                    switch (Globals.tab) {
+                        case ground:
+                            build.append(t.getGround());
+                            break;
+                        case floors: case roofs:
+                            if (t.getTileContent(Globals.floor)!=null) {
+                                build.append(t.getTileContent(Globals.floor));
+                            }
+                            break;
+                        case walls:
+                            if (frag == TileFragment.S) {
+                                appendWalls(t.getHorizontalWall(Globals.floor), t.getHorizontalFence(Globals.floor), build);
+                            }
+                            else if (frag == TileFragment.W) {
+                                appendWalls(t.getVerticalWall(Globals.floor), t.getVerticalFence(Globals.floor), build);
+                            }
+                            else if (frag == TileFragment.N) {
+                                Tile temp = t.getMap().getTile(t, 0, 1);
+                                appendWalls(temp.getHorizontalWall(Globals.floor), temp.getHorizontalFence(Globals.floor), build);
+                            }
+                            else if (frag == TileFragment.E) {
+                                Tile temp = t.getMap().getTile(t, 1, 0);
+                                appendWalls(temp.getVerticalWall(Globals.floor), temp.getVerticalFence(Globals.floor), build);
+                            }
+                            break;
+                        case objects:
+                            ObjectLocation loc = ObjectLocation.calculateObjectLocation(panel.getUpCamera().xTile, panel.getUpCamera().yTile);
+                            GameObject obj = t.getGameObject(Globals.floor, loc);
+                            if (obj!=null) {
+                                build.append(obj);
+                            }
+                            break;
+                    }
                     if (frag.isCorner()) {
-                        planner.tileLabel.setText("Height: "+frag.getTileByCorner(t).getHeight()+"     X: "+t.getX()+" Y: "+t.getY());
-                        planner.heightShow.setUpCamera(panel.getUpCamera());
+                        build.append("     Height: ").append(frag.getTileByCorner(t).getHeight());	
                     }
-                    else {
-                        planner.tileLabel.setText("X: "+t.getX()+" Y: "+t.getY());
-                        planner.heightShow.setUpCamera(null);
-                    }
+                    build.append("     X: ").append(t.getX()).append(" Y: ").append(t.getY());
+                    planner.tileLabel.setText(build.toString());
                 }
             }
             else {
@@ -107,6 +138,18 @@ public class LogicLoop extends TimerTask {
         }
         else {
             stopped = true;
+        }
+    }
+    
+    private void appendWalls(Wall wall, Wall fence, StringBuilder build) {
+        if (wall!=null) {
+            build.append(wall.toString());
+        }
+        if (wall!=null && fence!=null) {
+            build.append("     ");
+        }
+        if (fence!=null) {
+            build.append(fence.toString());
         }
     }
     

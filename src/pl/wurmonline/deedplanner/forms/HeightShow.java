@@ -9,6 +9,9 @@ import pl.wurmonline.deedplanner.logic.TileFragment;
 
 public class HeightShow extends JComponent {
 
+    private static final Font basicFont = Font.decode("Arial-10");
+    private static final Font boldFont = Font.decode("Arial-BOLD-12");
+    
     private UpCamera cam;
     
     public HeightShow() {
@@ -28,14 +31,16 @@ public class HeightShow extends JComponent {
             }
             Tile tile = frag.getTileByCorner(cam.tile);
             g.setColor(Color.black);
-            g.setFont(Font.decode("Arial-10"));
+            g.setFont(basicFont);
             drawHeightString(g, tile, tile.getMap().getTile(tile, -1, 1), 10, 10);
             drawHeightString(g, tile, tile.getMap().getTile(tile, 0, 1), 35, 10);
             drawHeightString(g, tile, tile.getMap().getTile(tile, 1, 1), 60, 10);
             
             drawHeightString(g, tile, tile.getMap().getTile(tile, -1, 0), 10, 35);
             String heightStr = Integer.toString(tile.getHeight());
+            g.setFont(boldFont);
             drawCenteredString(g, heightStr, 35, 35);
+            g.setFont(basicFont);
             drawHeightString(g, tile, tile.getMap().getTile(tile, 1, 0), 60, 35);
             
             drawHeightString(g, tile, tile.getMap().getTile(tile, -1, -1), 10, 60);
