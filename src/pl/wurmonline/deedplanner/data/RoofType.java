@@ -11,7 +11,6 @@ public final class RoofType {
     private final byte[][] conditions;
     
     static {
-        roofTypes = new RoofType[14];
         ArrayList<RoofType> list = new ArrayList<>();
         
         list.add(new RoofType(new Mesh("Data/Special/side.dae", "roof", null, false, 1),
@@ -84,6 +83,7 @@ public final class RoofType {
                                             { 0, 0, 0},
                                             { 1, 0,-2}}));
         
+        roofTypes = new RoofType[list.size()];
         list.toArray(roofTypes);
     }
     
@@ -117,7 +117,10 @@ public final class RoofType {
         
         for (int x=-1; x<=1; x++) {
             for (int y=-1; y<=1; y++) {
-                if (!(map.getTile(tile, x, y).getTileContent(height) instanceof Roof)) {
+                if (map.getTile(tile, x, y)==null) {
+                    roof=-1;
+                }
+                else if (!(map.getTile(tile, x, y).getTileContent(height) instanceof Roof)) {
                     roof=-1;
                 }
                 else {

@@ -2,17 +2,24 @@ package pl.wurmonline.deedplanner.forms;
 
 import java.io.*;
 import java.util.logging.*;
+import javax.imageio.ImageIO;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.MapPanel;
 import pl.wurmonline.deedplanner.data.io.DataLoader;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
+import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class Loading extends javax.swing.JFrame {
 
     public Loading() {
         initComponents();
+        try {
+            setIconImage(ImageIO.read(Planner.class.getResourceAsStream("SimpleLogo.png")));
+        } catch (IOException ex) {
+            Log.err(ex);
+        }
         SwingUtils.centerFrame(this);
         setVisible(true);
         new Thread(() -> {
@@ -47,7 +54,7 @@ public class Loading extends javax.swing.JFrame {
         setType(java.awt.Window.Type.POPUP);
 
         progressBar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        progressBar.setMaximum(6);
+        progressBar.setMaximum(7);
         progressBar.setString("Initializing");
         progressBar.setStringPainted(true);
 

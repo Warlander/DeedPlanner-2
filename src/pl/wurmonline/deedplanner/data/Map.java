@@ -380,7 +380,6 @@ public final class Map {
             }
         }
         recalculateHeight();
-        recalculateRoofs();
     }
     
     private void createHeightData() {

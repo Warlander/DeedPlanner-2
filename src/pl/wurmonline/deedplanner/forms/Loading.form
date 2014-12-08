@@ -80,7 +80,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="1"/>
             </Property>
-            <Property name="maximum" type="int" value="6"/>
+            <Property name="maximum" type="int" value="7"/>
             <Property name="string" type="java.lang.String" value="Initializing"/>
             <Property name="stringPainted" type="boolean" value="true"/>
           </Properties>

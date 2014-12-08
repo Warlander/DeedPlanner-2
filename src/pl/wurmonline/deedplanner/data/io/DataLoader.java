@@ -30,6 +30,8 @@ public final class DataLoader {
         loadRoofs(doc);
         loading.increaseProgress("Loading object data");
         loadObjects(doc);
+        loading.increaseProgress("Loading cave data");
+        loadCaves(doc);
         loading.increaseProgress("Launching");
     }
     
@@ -195,7 +197,7 @@ public final class DataLoader {
             if (materialsNode!=null) {
                 materials = new Materials(materialsNode);
             }
-                
+            
             RoofData data = new RoofData(name, shortName, tex, materials);
             Log.out(DataLoader.class, "Roof data "+data+" loaded and ready to use!");
             Data.roofs.put(shortName, data);
@@ -244,6 +246,10 @@ public final class DataLoader {
 
             addToCategories(Data.objectsTree, categories, data, name);
         }
+    }
+    
+    private static void loadCaves(Document doc) throws IOException {
+        
     }
     
     private static void addToCategories(DefaultMutableTreeNode node, ArrayList<String[]> categories, Object data, String name) {

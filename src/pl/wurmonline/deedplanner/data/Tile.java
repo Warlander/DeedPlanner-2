@@ -22,6 +22,7 @@ public final class Tile implements XMLSerializable {
     private Ground ground;
     private final HashMap<EntityData, TileEntity> entities;
     private Label label;
+    private Label caveLabel;
     
     private final float[][] heightValues;
     
@@ -203,6 +204,7 @@ public final class Tile implements XMLSerializable {
                         ObjectEntityData objData = (ObjectEntityData) key;
                         ObjectLocation loc = objData.getLocation();
                         GameObject obj = (GameObject) entity;
+                        g.glColor3f(colorMod, colorMod, colorMod);
                         g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), 3*floor + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
                         obj.render(g, this);
                         break;
@@ -246,7 +248,7 @@ public final class Tile implements XMLSerializable {
     
     public void render2d(GL2 g, boolean edge) {
         if (Globals.upCamera) {
-            if (Globals.tab == Tab.labels && TileSelection.getSelectedTile()==this) {
+            if ((Globals.tab == Tab.labels || Globals.tab == Tab.height) && TileSelection.getSelectedTile()==this) {
                 g.glEnable(GL2.GL_BLEND);
                 g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
                 double color = System.currentTimeMillis();
@@ -615,6 +617,18 @@ public final class Tile implements XMLSerializable {
     
     public Label getLabel() {
         return label;
+    }
+    
+    void setCaveLabel(Label caveLabel, boolean undo) {
+        Tile oldTile = new Tile(this);
+        this.caveLabel = caveLabel;
+        if (undo) {
+            map.addUndo(this, oldTile);
+        }
+    }
+    
+    public Label getCaveLabel() {
+        return caveLabel;
     }
     
     public void setGameObject(GameObjectData data, ObjectLocation location, int floor) {

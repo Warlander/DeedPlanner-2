@@ -541,6 +541,19 @@
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
+		<wall name="Stone portcullis" shortname="sPort" scale="1" type="house">
+			<model location="Data/Walls/stonewallPortcullis_upper.dae">
+				<mesh name="wall" tex="Data/Walls/StoneWall.jpg"/>
+				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png" type="ladder"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20
+			</materials>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
 		
 		<wall name="Plain stone wall" shortname="psWall" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.dae">
@@ -1543,6 +1556,14 @@
 			<category>Towers</category>
 			<category>Materials/Stone</category>
 		</object>
+		<object name="Archery tower" shortname="archGT" type="centered">
+			<model location="Data/Objects/archeryTower.dae">
+				<mesh name="archerytower" tex="Data/Objects/archeryTower.jpg"/>
+			</model>
+			
+			<category>Towers</category>
+			<category>Materials/Stone</category>
+		</object>
 		
 		<object name="Stool" shortname="stool" type="normal">
 			<model location="Data/Objects/Stool.dae">
@@ -1772,7 +1793,9 @@
 	
 	
 	
-	<cave>
-
-	</cave>
+	<caves>
+		<rock name="Stone floor" shortname="sfl" type="floor" tex="Data/Caves/cave.jpg">
+			<category>Floors</category>
+		</rock>
+	</caves>
 </entities>
