@@ -28,7 +28,7 @@ public final class Action {
     }
     
     private void action(Map map, Tile tile) {
-        map.setTile(tile, tile.getX(), tile.getY());
+        map.setTile(tile, tile.getX(), tile.getY(), false);
     }
     
     public boolean isEmpty() {

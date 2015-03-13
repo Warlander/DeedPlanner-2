@@ -4,7 +4,9 @@ import javax.swing.*;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Mouse;
+import pl.wurmonline.deedplanner.logic.SelectionType;
 import pl.wurmonline.deedplanner.logic.TileFragment;
+import pl.wurmonline.deedplanner.logic.TileSelection;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 
 public class HeightUpdater {
@@ -18,8 +20,9 @@ public class HeightUpdater {
     public static int setRight = -5;
     public static int add = 1;
     
-    public static void update(Mouse mouse, Map map, UpCamera cam) {
+    public static SelectionType update(Mouse mouse, Map map, UpCamera cam) {
         currentMode.update(mouse, map, cam);
+        return currentMode.getSelectionType();
     }
     
     public static ListModel<HeightMode> createListModel() {
@@ -39,6 +42,10 @@ public class HeightUpdater {
                         map.newAction();
                     }
                 }
+            }
+
+            public SelectionType getSelectionType() {
+                return SelectionType.NONE;
             }
             
         });
@@ -61,6 +68,10 @@ public class HeightUpdater {
                 }
             }
             
+            public SelectionType getSelectionType() {
+                return SelectionType.NONE;
+            }
+            
         });
         
         
@@ -81,6 +92,10 @@ public class HeightUpdater {
                 }
             }
             
+            public SelectionType getSelectionType() {
+                return SelectionType.NONE;
+            }
+            
         });
         
         model.addElement(new HeightMode("Select height") {
@@ -96,6 +111,10 @@ public class HeightUpdater {
                 }
             }
             
+            public SelectionType getSelectionType() {
+                return SelectionType.NONE;
+            }
+            
         });
         
         model.addElement(new HeightMode("Reset height") {
@@ -109,6 +128,10 @@ public class HeightUpdater {
                         map.newAction();
                     }
                 }
+            }
+            
+            public SelectionType getSelectionType() {
+                return SelectionType.NONE;
             }
             
         });
@@ -179,93 +202,50 @@ public class HeightUpdater {
                 }
             }
             
+            public SelectionType getSelectionType() {
+                return SelectionType.NONE;
+            }
+            
         });
         
         model.addElement(new HeightMode("Level area") {
-
-            private Tile tile2;
             
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
-                if (mouse.pressed.left || mouse.pressed.right) {
-                    if (tile2==null) {
-                        if (frag.isCorner()) {
-                            tile2 = frag.getTileByCorner(tile);
-                        }
-                    }
-                    else if (frag.isCorner()) {
-                        tile = frag.getTileByCorner(tile);
-                        
-                        int minX = Math.min(tile.getX(), tile2.getX());
-                        int maxX = Math.max(tile.getX(), tile2.getX());
-                        int minY = Math.min(tile.getY(), tile2.getY());
-                        int maxY = Math.max(tile.getY(), tile2.getY());
-
-                        int set;
-                        if (mouse.pressed.left) {
-                            set = setLeft;
-                        }
-                        else if (mouse.pressed.right) {
-                            set = setRight;
-                        }
-                        else {
-                            throw new IllegalArgumentException("Impossible, but...");
-                        }
-
-                        for (int i=minX; i<=maxX; i++) {
-                            for (int i2=minY; i2<=maxY; i2++) {
-                                map.getTile(i, i2).setHeight(set);
-                            }
-                        }
-                        
-                        map.newAction();
-                        tile2=null;
-                    }
+                if (mouse.released.left) {
+                    TileSelection.getMapFragment().forEach(t -> t.setHeight(setLeft));
+                    map.newAction();
+                    TileSelection.setMapFragment(null);
                 }
+                if (mouse.released.right) {
+                    TileSelection.getMapFragment().forEach(t -> t.setHeight(setRight));
+                    map.newAction();
+                    TileSelection.setMapFragment(null);
+                }
+            }
+            
+            public SelectionType getSelectionType() {
+                return SelectionType.MULTIPLE;
             }
             
         });
         
         model.addElement(new HeightMode("Lift area") {
-
-            private Tile tile2;
             
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
-                if (mouse.pressed.left || mouse.pressed.right) {
-                    if (tile2==null) {
-                        if (frag.isCorner()) {
-                            tile2 = frag.getTileByCorner(tile);
-                        }
+                if (mouse.released.left || mouse.released.right) {
+                    if (mouse.released.left) {
+                        TileSelection.getMapFragment().forEach(t -> t.setHeight(t.getHeight()+add));
                     }
-                    else if (frag.isCorner()) {
-                        tile = frag.getTileByCorner(tile);
-                        
-                        int minX = Math.min(tile.getX(), tile2.getX());
-                        int maxX = Math.max(tile.getX(), tile2.getX());
-                        int minY = Math.min(tile.getY(), tile2.getY());
-                        int maxY = Math.max(tile.getY(), tile2.getY());
-
-                        int add;
-                        if (mouse.pressed.left) {
-                            add = HeightUpdater.add;
-                        }
-                        else if (mouse.pressed.right) {
-                            add = -HeightUpdater.add;
-                        }
-                        else {
-                            throw new IllegalArgumentException("Impossible, but...");
-                        }
-
-                        for (int i=minX; i<=maxX; i++) {
-                            for (int i2=minY; i2<=maxY; i2++) {
-                                Tile t = map.getTile(i, i2);
-                                t.setHeight(t.getHeight()+add);
-                            }
-                        }
-                        
-                        map.newAction();
-                        tile2=null;
+                    else {
+                        TileSelection.getMapFragment().forEach(t -> t.setHeight(t.getHeight()-add));
                     }
+                    map.newAction();
+                    TileSelection.setMapFragment(null);
                 }
+            }
+            
+            public SelectionType getSelectionType() {
+                return SelectionType.MULTIPLE;
             }
             
         });

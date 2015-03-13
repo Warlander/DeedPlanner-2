@@ -444,6 +444,18 @@
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
+		<wall name="Wooden wide window" shortname="wwWindow" scale="4" type="house">
+			<model location="Data/Walls/Wooden_WideWindow.dae">
+				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Planks = 20,
+				Large nails = 1
+			</materials>
+			<category>House walls</category>
+			<category>Materials/Wood</category>
+		</wall>
 		<wall name="Wooden arched wall" shortname="wArch" scale="4" type="arch">
 			<model location="Data/Walls/Wooden_Arched_Door.dae">
 				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
@@ -459,6 +471,18 @@
 		<wall name="Wooden door" shortname="wDoor" scale="4" type="house">
 			<model location="Data/Walls/Wooden_Door_Main.dae">
 				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<materials>
+				Planks = 20,
+				Large nails = 1
+			</materials>
+			<category>House walls</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Wooden canopy" shortname="wCanopy" scale="1" type="house">
+			<model location="Data/Walls/Wooden_Canopy.dae">
+				<mesh name="canopy" tex="Data/Walls/wooden.jpg"/>
 			</model>
 			<color type="dec" r="0.8" g="1" b="1"/>
 			<materials>
@@ -547,6 +571,18 @@
 				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png" type="ladder"/>
 			</model>
 			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20
+			</materials>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Stone oriel" shortname="sOriel" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Upper_Oriel1.dae">
+				<mesh name="oriel" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Mortar = 20,
 				Stone bricks = 20
@@ -653,6 +689,18 @@
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
+		<wall name="Plain stone oriel" shortname="psOriel" scale="1" type="house">
+			<model location="Data/Walls/House_Plain_Stone_Wall_Upper_Oriel2.dae">
+				<mesh name="oriel" tex="Data/Walls/StoneWall.jpg"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20
+			</materials>
+			<category>House walls</category>
+			<category>Materials/Stone</category>
+		</wall>
 		
 		<wall name="Timber wall" shortname="tWall" scale="4" type="house">
 			<model location="Data/Walls/timberWall_upper.dae">
@@ -711,6 +759,32 @@
 				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
 			</model>
 			<color type="dec" r="1" g="0.7" b="1"/>
+			<materials>
+				Wooden beams = 5,
+				Clay = 20,
+				Mixed grass = 10
+			</materials>
+			<category>House walls</category>
+			<category>Materials/Timber</category>
+		</wall>
+		<wall name="Timber jetty" shortname="tJetty" scale="1" type="house">
+			<model location="Data/Walls/timberWallJetty_upper.dae">
+				<mesh name="tiimber" tex="Data/Walls/timberTex.png"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<materials>
+				Wooden beams = 5,
+				Clay = 20,
+				Mixed grass = 10
+			</materials>
+			<category>House walls</category>
+			<category>Materials/Timber</category>
+		</wall>
+		<wall name="Timber balcony" shortname="tBalcony" scale="1" type="house">
+			<model location="Data/Walls/timberWallBalcony_upper.dae">
+				<mesh name="tiimber" tex="Data/Walls/timberTex.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
 			<materials>
 				Wooden beams = 5,
 				Clay = 20,
@@ -1031,6 +1105,56 @@
 			</materials>
 			<category>Fences</category>
 			<category>Materials/Rope</category>
+		</wall>
+		
+		<wall name="High hedge" shortname="hHedge" scale="1" type="highfence">
+			<model location="Data/Walls/Hedge01_High.dae">
+				<mesh name="hedge" tex="Data/Walls/Hedge01.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="0.5"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Medium hedge" shortname="mHedge" scale="1" type="highfence">
+			<model location="Data/Walls/Hedge01_Medium.dae">
+				<mesh name="hedge" tex="Data/Walls/Hedge01.png"/>
+			</model>
+			<color type="dec" r="0.6" g="0.6" b="0.6"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Low hedge" shortname="lHedge" scale="1" type="highfence">
+			<model location="Data/Walls/Hedge01_Low.dae">
+				<mesh name="hedge" tex="Data/Walls/Hedge01.png"/>
+			</model>
+			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Lavender hedge" shortname="llHedge" scale="1" type="highfence">
+			<model location="Data/Walls/LavenderHedge.dae">
+				<mesh name="hedge" tex="Data/Walls/LavenderHedge.png"/>
+			</model>
+			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="High maple hedge" shortname="hmHedge" scale="1" type="highfence">
+			<model location="Data/Walls/Maple_High.dae">
+				<mesh name="maple" tex="Data/Walls/MapleHedgeSummer.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="0.5"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Medium maple hedge" shortname="mmHedge" scale="1" type="highfence">
+			<model location="Data/Walls/Maple_Medium.dae">
+				<mesh name="maple" tex="Data/Walls/MapleHedgeSummer.png"/>
+			</model>
+			<color type="dec" r="0.6" g="0.6" b="0.6"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Low maple hedge" shortname="lmHedge" scale="1" type="highfence">
+			<model location="Data/Walls/Maple_Low.dae">
+				<mesh name="maple" tex="Data/Walls/MapleHedgeSummer.png"/>
+			</model>
+			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<category>Hedges</category>
 		</wall>
 	</walls>
 	

@@ -25,6 +25,10 @@ public class GameObject implements TileEntity {
         data.model.render(g);
     }
     
+    public GameObject deepCopy() {
+        return new GameObject(data);
+    }
+    
     public void serialize(Document doc, Element root) {
         root.setAttribute("id", data.shortName);
         root.setAttribute("rotation", Double.toString(rotation));

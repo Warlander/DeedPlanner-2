@@ -73,7 +73,7 @@ public final class Tex {
                 throw new DeedPlannerRuntimeException("Invalid texture unit!");
         }
         if (this!=activeTex[target]) {
-            init();
+            init(g);
             g.glActiveTexture(glTarget);
             texture.bind(g);
             activeTex[target] = this;
@@ -88,10 +88,12 @@ public final class Tex {
         }
     }
     
-    private void init() {
+    private void init(GL g) {
         if (texture==null) {
             try {
                 texture = TextureIO.newTexture(file, true);
+                texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_S, GL2.GL_REPEAT);
+                texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_T, GL2.GL_REPEAT);
             } catch (GLException | IOException ex) {
                 Log.err(ex);
             }

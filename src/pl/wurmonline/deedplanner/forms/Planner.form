@@ -380,7 +380,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSpinner4" max="32767" attributes="0"/>
               </Group>
-              <Component id="tabbedPane" max="32767" attributes="0"/>
+              <Component id="tabbedPane" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">

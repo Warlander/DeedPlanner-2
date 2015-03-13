@@ -18,7 +18,6 @@ public class Properties {
     public static String lookAndFeel = "PGS";
     
     public static boolean showGrid = true;
-    public static boolean showNoise = true;
     
     public static int antialiasing = 2;
     

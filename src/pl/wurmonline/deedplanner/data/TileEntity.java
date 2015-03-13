@@ -7,5 +7,6 @@ public interface TileEntity extends XMLSerializable {
     
     public abstract Materials getMaterials();
     public abstract void render(GL2 g, Tile tile);
+    public abstract TileEntity deepCopy();
     
 }

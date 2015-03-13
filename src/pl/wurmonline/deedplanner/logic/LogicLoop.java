@@ -62,7 +62,8 @@ public class LogicLoop extends TimerTask {
                             GroundUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
                         case height:
-                            HeightUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            SelectionType selectionType = HeightUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            TileSelection.update(mouse, keyboard, panel.getMap(), panel.getUpCamera(), selectionType);
                             break;
                         case floors:
                             FloorUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
@@ -77,7 +78,7 @@ public class LogicLoop extends TimerTask {
                             ObjectsUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
                         case labels:
-                            TileSelection.update(mouse, panel.getMap(), panel.getUpCamera());
+                            TileSelection.update(mouse, keyboard, panel.getMap(), panel.getUpCamera(), SelectionType.MULTIPLE);
                             break;
                     }
                 }

@@ -6,16 +6,11 @@ import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.graphics.Shaders;
-import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
-import pl.wurmonline.deedplanner.util.XMLSerializable;
-import pl.wurmonline.deedplanner.util.jogl.RenderableEntity;
 
-public class Ground extends RenderableEntity implements XMLSerializable {
+public class Ground implements TileEntity {
     
     private final GroundData data;
     private final RoadDirection dir;
-    
-    private final byte[][] noise;
     
     public Ground(Element ground) {
         String shortname = ground.getAttribute("id");
@@ -38,9 +33,6 @@ public class Ground extends RenderableEntity implements XMLSerializable {
                 this.dir = RoadDirection.CENTER;
                 break;
         }
-        
-        noise = new byte[4][4];
-        createNoise();
     }
     
     public Ground(GroundData data) {
@@ -50,44 +42,14 @@ public class Ground extends RenderableEntity implements XMLSerializable {
     public Ground(GroundData data, RoadDirection dir) {
         this.data = data;
         this.dir = dir;
-        
-        noise = new byte[4][4];
-        createNoise();
     }
     
     public Ground(Ground ground) {
         data = ground.data;
-        noise = ground.noise;
         dir = ground.dir;
     }
     
-    private void createNoise() {
-        for (int i=0; i<noise.length; i++) {
-            for (int i2=0; i2<noise.length; i2++) {
-                if (Properties.showNoise && data.noiseStr>0) {
-                    noise[i][i2] = (byte) (Constants.random.nextInt(data.noiseStr*2+1)-data.noiseStr);
-                }
-                else {
-                    noise[i][i2] = 0;
-                }
-            }
-        }
-    }
-    
     public void render(GL2 g, Tile tile, int listID) {
-        if (Globals.upCamera && Globals.floor>=0 && Globals.floor<3) {
-            switch (Globals.floor) {
-                case 0:
-                    g.glColor3f(1, 1, 1);
-                    break;
-                case 1:
-                    g.glColor3f(0.6f, 0.6f, 0.6f);
-                    break;
-                case 2:
-                    g.glColor3f(0.25f, 0.25f, 0.25f);
-                    break;
-            }
-        }
         data.tex.bind(g);
         if (dir!=RoadDirection.CENTER) {
             if (dir==RoadDirection.NE || dir==RoadDirection.NW) {
@@ -108,7 +70,24 @@ public class Ground extends RenderableEntity implements XMLSerializable {
         g.glColor3f(1, 1, 1);
     }
     
-    public void prepareRender(GL2 g, Tile tile) {
+    public void render(GL2 g, Tile tile) {
+        data.tex.bind(g);
+        if (dir!=RoadDirection.CENTER) {
+            if (dir==RoadDirection.NE || dir==RoadDirection.NW) {
+                tile.getMap().getTile(tile, 0, -1).getGround().data.tex.bind(g, 1);
+            }
+            else {
+                tile.getMap().getTile(tile, 0, 1).getGround().data.tex.bind(g, 1);
+            }
+            
+            if (dir==RoadDirection.NW || dir==RoadDirection.SW) {
+                tile.getMap().getTile(tile, 1, 0).getGround().data.tex.bind(g, 2);
+            }
+            else {
+                tile.getMap().getTile(tile, -1, 0).getGround().data.tex.bind(g, 2);
+            }
+        }
+        
         if (dir!=RoadDirection.CENTER) {
             ShaderProgram program = Shaders.getShaders(g).diagonal;
             program.useProgram(g, true);
@@ -122,50 +101,26 @@ public class Ground extends RenderableEntity implements XMLSerializable {
             g.glUniform1i(tex2, 2);
         }
         
-        for (int i=0; i<4; i++) {
-            for (int i2=0; i2<4; i2++) {
-                float texX = (float) i / 4f;
-                float texY = (float) i2 / 4f;
-                float h00 = (tile.getHeight(i, i2) + getNoise(tile, i, i2)/2) / Constants.HEIGHT_MOD;
-                float h10 = (tile.getHeight(i+1, i2) + getNoise(tile, i+1, i2)/2) / Constants.HEIGHT_MOD;
-                float h11 = (tile.getHeight(i+1, i2+1) + getNoise(tile, i+1, i2+1)/2) / Constants.HEIGHT_MOD;
-                float h01 = (tile.getHeight(i, i2+1) + getNoise(tile, i, i2+1)/2) / Constants.HEIGHT_MOD;
-                g.glBegin(GL2.GL_QUADS);
-                    g.glTexCoord2f(texX, texY);
-                    g.glVertex3f(i, i2, h00);
-                    g.glTexCoord2f(texX + 0.25f, texY);
-                    g.glVertex3f(i+1, i2, h10);
-                    g.glTexCoord2f(texX + 0.25f, texY + 0.25f);
-                    g.glVertex3f(i+1, i2+1, h11);
-                    g.glTexCoord2f(texX, texY + 0.25f);
-                    g.glVertex3f(i, i2+1, h01);
-                g.glEnd();
-            }
-        }
+        float h00 = (tile.getHeight()) / Constants.HEIGHT_MOD;
+        float h10 = (tile.getMap().getTile(tile, 1, 0).getHeight()) / Constants.HEIGHT_MOD;
+        float h11 = (tile.getMap().getTile(tile, 1, 1).getHeight()) / Constants.HEIGHT_MOD;
+        float h01 = (tile.getMap().getTile(tile, 0, 1).getHeight()) / Constants.HEIGHT_MOD;
+        g.glBegin(GL2.GL_QUADS);
+            g.glTexCoord2f(0, 0);
+            g.glVertex3f(0, 0, h00);
+            g.glTexCoord2f(1, 0);
+            g.glVertex3f(4, 0, h10);
+            g.glTexCoord2f(1, 1);
+            g.glVertex3f(4, 4, h11);
+            g.glTexCoord2f(0, 1);
+            g.glVertex3f(0, 4, h01);
+        g.glEnd();
         
         if (dir!=RoadDirection.CENTER) {
             ShaderProgram program = Shaders.getShaders(g).diagonal;
             program.useProgram(g, false);
             program = Shaders.getShaders(g).simple;
             program.useProgram(g, true);
-        }
-    }
-    
-    private float getNoise(Tile tile, int x, int y) {
-        if (x<4 && y<4) {
-            return noise[x][y];
-        }
-        else if (x==4 && y==4) {
-            return tile.getMap().getTile(tile, 1, 1).getGround().noise[0][0];
-        }
-        else if (x==4) {
-            return tile.getMap().getTile(tile, 1, 0).getGround().noise[0][y];
-        }
-        else if (y==4) {
-            return tile.getMap().getTile(tile, 0, 1).getGround().noise[x][0];
-        }
-        else {
-            throw new DeedPlannerRuntimeException("Invalid xPart or yPart: must be from 0 to 4");
         }
     }
 
@@ -202,6 +157,14 @@ public class Ground extends RenderableEntity implements XMLSerializable {
     
     public String toString() {
         return data.toString();
+    }
+
+    public Materials getMaterials() {
+        return null;
+    }
+
+    public Ground deepCopy() {
+        return new Ground(this);
     }
     
 }

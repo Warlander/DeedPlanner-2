@@ -20,6 +20,7 @@ import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.*;
 import pl.wurmonline.deedplanner.logic.Tab;
+import pl.wurmonline.deedplanner.logic.TileSelection;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.jogl.Color;
@@ -382,15 +383,9 @@ public final class Map {
         recalculateHeight();
     }
     
-    private void createHeightData() {
+    public void createHeightData() {
         recalculateHeight();
         recalculateRoofs();
-        
-        for (int i=0; i<width; i++) {
-            for (int i2=0; i2<height; i2++) {
-                tiles[i][i2].recalculateHeights();
-            }
-        }
     }
     
     public void render(GL2 g) {
@@ -439,26 +434,35 @@ public final class Map {
             g.glColor4f(1, 1, 1, 1);
         }
         
-        g.glDisable(GL2.GL_TEXTURE_2D);
-        g.glDisable(GL2.GL_DEPTH_TEST);
-        if (Properties.showGrid && Globals.upCamera) {
-            renderGrid(g);
-        }
-        for (int i=startX; i<=endX; i++) {
-            for (int i2=startY; i2<=endY; i2++) {
-                g.glPushMatrix();
-                    g.glTranslatef(i*4, i2*4, 0);
-                    if (i==width || i2==height) {
-                        tiles[i][i2].render2d(g, true);
-                    }
-                    else {
-                        tiles[i][i2].render2d(g, false);
-                    }
-                g.glPopMatrix();
+        if (Globals.upCamera) {
+            g.glDisable(GL2.GL_TEXTURE_2D);
+            g.glDisable(GL2.GL_DEPTH_TEST);
+            if (Properties.showGrid) {
+                renderGrid(g);
             }
+            for (int i=startX; i<=endX; i++) {
+                for (int i2=startY; i2<=endY; i2++) {
+                    if (TileSelection.getMapFragment()!=null && TileSelection.getMapFragment().contains(tiles[i][i2])) {
+                        g.glPushMatrix();
+                            g.glTranslatef(i*4, i2*4, 0);
+                            tiles[i][i2].renderSelection(g);
+                        g.glPopMatrix();
+                    }
+                }
+            }
+            for (int i=startX; i<=endX; i++) {
+                for (int i2=startY; i2<=endY; i2++) {
+                    if (tiles[i][i2].getLabel()!=null) {
+                        g.glPushMatrix();
+                            g.glTranslatef(i*4, i2*4, 0);
+                            tiles[i][i2].renderLabel(g);
+                        g.glPopMatrix();
+                    }
+                }
+            }
+            g.glEnable(GL2.GL_DEPTH_TEST);
+            g.glEnable(GL2.GL_TEXTURE_2D);
         }
-        g.glEnable(GL2.GL_DEPTH_TEST);
-        g.glEnable(GL2.GL_TEXTURE_2D);
     }
     
     private void renderWater(GL2 g) {
@@ -619,15 +623,15 @@ public final class Map {
     }
     
     void setTile(Tile tile, int x, int y) {
+        setTile(tile, x, y, true);
+    }
+    
+    void setTile(Tile tile, int x, int y, boolean undo) {
+        Tile oldTile = tiles[x][y];
         tiles[x][y] = tile;
-        for (int i=-1; i<=1; i++) {
-            for (int i2=-1; i2<=1; i2++) {
-                Tile t = getTile(tile, i, i2);
-                if (t!=null) {
-                    t.recalculateHeights();
-                    t.getGround().redraw();
-                }
-            }
+        
+        if (undo) {
+            addUndo(tile, oldTile);
         }
     }
     

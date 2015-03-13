@@ -51,11 +51,6 @@ public class MapPanel extends GLJPanel implements ComponentListener {
     
     public void setMap(Map map) {
         loop.syncAndExecute(() -> {
-            for (int i=0; i<map.getWidth(); i++) {
-                for (int i2=0; i2<map.getHeight(); i2++) {
-                    map.getTile(i, i2).getGround().destroy();
-                }
-            }
             this.map = map;
         });
     }

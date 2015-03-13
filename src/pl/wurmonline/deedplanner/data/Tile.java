@@ -9,7 +9,6 @@ import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.logic.Tab;
-import pl.wurmonline.deedplanner.logic.TileSelection;
 import pl.wurmonline.deedplanner.util.*;
 
 public final class Tile implements XMLSerializable {
@@ -24,8 +23,6 @@ public final class Tile implements XMLSerializable {
     private Label label;
     private Label caveLabel;
     
-    private final float[][] heightValues;
-    
     public Tile(Map map, int x, int y, Element tile) {
         this.map = map;
         this.x = x;
@@ -39,13 +36,6 @@ public final class Tile implements XMLSerializable {
         }
         
         entities = new HashMap<>();
-        
-        heightValues = new float[4][4];
-        for (int i=0; i<4; i++) {
-            for (int i2=0; i2<4; i2++) {
-                heightValues[i][i2] = height;
-            }
-        }
         
         NodeList list = tile.getElementsByTagName("level");
         for (int i=0; i<list.getLength(); i++) {
@@ -93,13 +83,6 @@ public final class Tile implements XMLSerializable {
         this.x = x;
         this.y = y;
         
-        heightValues = new float[4][4];
-        for (int i=0; i<4; i++) {
-            for (int i2=0; i2<4; i2++) {
-                heightValues[i][i2] = height;
-            }
-        }
-        
         if (!Data.grounds.isEmpty()) {
             ground = new Ground(Data.grounds.get("gr"));
         }
@@ -116,9 +99,14 @@ public final class Tile implements XMLSerializable {
         this.y = y;
         
         this.height = tile.height;
-        this.heightValues = tile.heightValues;
         this.ground = tile.ground;
         this.label = tile.label;
+        HashMap<EntityData, TileEntity> entities = new HashMap<>();
+        for (Entry<EntityData, TileEntity> entrySet : tile.entities.entrySet()) {
+            EntityData key = entrySet.getKey();
+            TileEntity value = entrySet.getValue();
+            entities.put(key, value.deepCopy());
+        }
         this.entities = new HashMap(tile.entities);
     }
     
@@ -132,6 +120,19 @@ public final class Tile implements XMLSerializable {
     
     private void renderGround(GL2 g) {
         if ((Globals.upCamera && Globals.floor>=0 && Globals.floor<3) || !Globals.upCamera) {
+            if (Globals.upCamera && Globals.floor>=0 && Globals.floor<3) {
+                switch (Globals.floor) {
+                    case 0:
+                        g.glColor3f(1, 1, 1);
+                        break;
+                    case 1:
+                        g.glColor3f(0.6f, 0.6f, 0.6f);
+                        break;
+                    case 2:
+                        g.glColor3f(0.25f, 0.25f, 0.25f);
+                        break;
+                }
+            }
             ground.render(g, this);
         }
     }
@@ -246,26 +247,29 @@ public final class Tile implements XMLSerializable {
         g.glMultMatrixf(matrix);
     }
     
-    public void render2d(GL2 g, boolean edge) {
-        if (Globals.upCamera) {
-            if ((Globals.tab == Tab.labels || Globals.tab == Tab.height) && TileSelection.getSelectedTile()==this) {
-                g.glEnable(GL2.GL_BLEND);
-                g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
-                double color = System.currentTimeMillis();
-                color%=2000d; color-=1000d; color = Math.abs(color); color/=1000d;
-                g.glColor4d(1, 1, 0, 0.1d+0.2d*color);
-                g.glBegin(GL2.GL_QUADS);
-                    g.glVertex2f(0, 0);
-                    g.glVertex2f(0, 4);
-                    g.glVertex2f(4, 4);
-                    g.glVertex2f(4, 0);
-                g.glEnd();
-                g.glColor4f(1, 1, 1, 1);
-                g.glDisable(GL2.GL_BLEND);
-            }
-            if (label!=null) {
-                label.render(g, this);
-            }
+    public void renderSelection(GL2 g) {
+        if ((Globals.tab == Tab.labels || Globals.tab == Tab.height)) {
+            g.glDisable(GL2.GL_ALPHA_TEST);
+            g.glEnable(GL2.GL_BLEND);
+            g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
+            double color = System.currentTimeMillis();
+            color%=2000d; color-=1000d; color = Math.abs(color); color/=1000d;
+            g.glColor4d(1, 1, 0, 0.1d+0.2d*color);
+            g.glBegin(GL2.GL_QUADS);
+                g.glVertex2f(0, 0);
+                g.glVertex2f(0, 4);
+                g.glVertex2f(4, 4);
+                g.glVertex2f(4, 0);
+            g.glEnd();
+            g.glColor4f(1, 1, 1, 1);
+            g.glDisable(GL2.GL_BLEND);
+            g.glEnable(GL2.GL_ALPHA_TEST);
+        }
+    }
+    
+    public void renderLabel(GL2 g) {
+        if (label!=null) {
+            label.render(g, this);
         }
     }
     
@@ -339,21 +343,11 @@ public final class Tile implements XMLSerializable {
     
     void setGround(GroundData data, RoadDirection dir, boolean undo) {
         if (!new Ground(data).equals(ground)) {
-            ground.destroy();
             Tile oldTile = new Tile(this);
             if (!data.diagonal) {
                 dir = RoadDirection.CENTER;
             }
             ground = new Ground(data, dir);
-            for (int i=-1; i<=1; i++) {
-                for (int i2=-1; i2<=1; i2++) {
-                    Tile t = map.getTile(this, i, i2);
-                    if (t!=null) {
-                        t.recalculateHeights();
-                        t.ground.redraw();
-                    }
-                }
-            }
             
             if (undo) {
                 map.addUndo(this, oldTile);
@@ -377,33 +371,9 @@ public final class Tile implements XMLSerializable {
         if (this.height!=height) {
             Tile oldTile = new Tile(this);
             this.height = height;
-            recalculateHeights();
-            ground.redraw();
-            if (x!=0) {
-                map.getTile(this, -1, 0).recalculateHeights();
-                map.getTile(this, -1, 0).ground.redraw();
-            }
-            if (y!=0) {
-                map.getTile(this, 0, -1).recalculateHeights();
-                map.getTile(this, 0, -1).ground.redraw();
-            }
-            if (x!=0 && y!=0) {
-                map.getTile(this, -1, -1).recalculateHeights();
-                map.getTile(this, -1, -1).ground.redraw();
-            }
             map.recalculateHeight();
             if (undo) {
                 map.addUndo(this, oldTile);
-            }
-        }
-    }
-    
-    public void recalculateHeights() {
-        for (int i=0; i<4; i++) {
-            for (int i2=0; i2<4; i2++) {
-                float xPart = (float)i / 4f;
-                float yPart = (float)i2 / 4f;
-                heightValues[i][i2] = getHeight(xPart, yPart);
             }
         }
     }
@@ -421,24 +391,6 @@ public final class Tile implements XMLSerializable {
         final float x1 = (h01*xPartRev + h11*xPart);
         
         return (x0*yPartRev + x1*yPart);
-    }
-    
-    public float getHeight(int xPart, int yPart) {
-        if (xPart<4 && yPart<4) {
-            return heightValues[xPart][yPart];
-        }
-        else if (xPart==4 && yPart==4) {
-            return map.getTile(this, 1, 1).heightValues[0][0];
-        }
-        else if (xPart==4) {
-            return map.getTile(this, 1, 0).heightValues[0][yPart];
-        }
-        else if (yPart==4) {
-            return map.getTile(this, 0, 1).heightValues[xPart][0];
-        }
-        else {
-            throw new DeedPlannerRuntimeException("Invalid xPart or yPart: must be from 0 to 3");
-        }
     }
     
     public int getHeight() {
@@ -546,6 +498,13 @@ public final class Tile implements XMLSerializable {
         return (Wall) entities.get(new EntityData(level, EntityType.HFENCE));
     }
     
+    public void clearHorizontalWalls() {
+        for (int i = 0; i < Constants.FLOORS_LIMIT; i++) {
+            entities.remove(new EntityData(i, EntityType.HWALL));
+            entities.remove(new EntityData(i, EntityType.HFENCE));
+        }
+    }
+    
     public void setVerticalWall(WallData wall, int level) {
         setVerticalWall(wall, level, true);
     }
@@ -601,6 +560,13 @@ public final class Tile implements XMLSerializable {
     
     public Wall getVerticalFence(int level) {
         return (Wall) entities.get(new EntityData(level, EntityType.VFENCE));
+    }
+    
+    public void clearVerticalWalls() {
+        for (int i = 0; i < Constants.FLOORS_LIMIT; i++) {
+            entities.remove(new EntityData(i, EntityType.VWALL));
+            entities.remove(new EntityData(i, EntityType.VFENCE));
+        }
     }
     
     public void setLabel(Label label) {

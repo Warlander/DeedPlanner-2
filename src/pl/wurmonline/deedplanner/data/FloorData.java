@@ -35,6 +35,10 @@ public final class FloorData implements TileEntity {
         model.render(g);
     }
     
+    public FloorData deepCopy() {
+        return this;
+    }
+    
     public void serialize(Document doc, Element root) {
         Element floor = doc.createElement("Floor");
         floor.setAttribute("id", shortName);

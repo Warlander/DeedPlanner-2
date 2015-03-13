@@ -25,14 +25,14 @@ public class LabelEditor extends javax.swing.JPanel {
         fontBox.setModel(model);
         fontBox.setSelectedIndex(selectedFont);
         
-        TileSelection.addListener((Tile t) -> {
-            updatePanel(t);
+        TileSelection.addTileListener((MapFragment frag) -> {
+            updatePanel(frag);
         });
         updatePanel(null);
     }
     
-    private void updatePanel(Tile t) {
-        if (t==null) {
+    private void updatePanel(MapFragment frag) {
+        if (frag==null) {
             newLabelButton.setEnabled(false);
             calculateTileButton.setEnabled(false);
             calculateMapButton.setEnabled(false);
@@ -41,15 +41,18 @@ public class LabelEditor extends javax.swing.JPanel {
         }
         calculateTileButton.setEnabled(true);
         calculateMapButton.setEnabled(true);
-        Label label = t.getLabel();
-        if (label==null) {
+        Tile singleTile = frag.getSingleTile();
+        if (singleTile != null) {
             newLabelButton.setEnabled(true);
-            newLabelButton.setText("Create label on tile");
-            innerPanel.setVisible(false);
-        }
-        else {
-            newLabelButton.setText("Edit label on tile");
-            innerPanel.setVisible(true);
+            Label label = singleTile.getLabel();
+            if (label==null) {
+                newLabelButton.setText("Create label on tile");
+                innerPanel.setVisible(false);
+            }
+            else {
+                newLabelButton.setText("Edit label on tile");
+                innerPanel.setVisible(true);
+            }
         }
         repaint();
     }
@@ -222,7 +225,7 @@ public class LabelEditor extends javax.swing.JPanel {
         if (t!=null) {
             t.setLabel(createLabel());
         }
-        updatePanel(t);
+        updatePanel(TileSelection.getMapFragment());
     }//GEN-LAST:event_newLabelButtonActionPerformed
 
     private void deleteLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteLabelActionPerformed
@@ -230,7 +233,7 @@ public class LabelEditor extends javax.swing.JPanel {
         if (t!=null) {
             t.setLabel(null);
         }
-        updatePanel(t);
+        updatePanel(TileSelection.getMapFragment());
     }//GEN-LAST:event_deleteLabelActionPerformed
 
     private void labelColorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labelColorButtonActionPerformed
@@ -245,14 +248,21 @@ public class LabelEditor extends javax.swing.JPanel {
     }//GEN-LAST:event_calculateMapButtonActionPerformed
 
     private void calculateTileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateTileButtonActionPerformed
-        Tile tile = TileSelection.getSelectedTile();
-        HouseResults results = tile.getMap().getMaterialsOfBuilding(tile);
-        if (results!=null) {
-            MaterialsReport report = new MaterialsReport(results);
-            report.setVisible(true);
+        MapFragment frag = TileSelection.getMapFragment();
+        Tile singleTile = frag.getSingleTile();
+        if (singleTile!=null) {
+            HouseResults results = singleTile.getMap().getMaterialsOfBuilding(singleTile);
+            if (results!=null) {
+                MaterialsReport report = new MaterialsReport(results);
+                report.setVisible(true);
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Invalid building - cannot calculate results.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
         else {
-            JOptionPane.showMessageDialog(null, "Invalid building - cannot calculate results.", "Error", JOptionPane.ERROR_MESSAGE);
+            MaterialsReport report = new MaterialsReport(frag.getMaterials());
+            report.setVisible(true);
         }
     }//GEN-LAST:event_calculateTileButtonActionPerformed
 

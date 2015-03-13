@@ -26,6 +26,10 @@ public class Wall implements TileEntity {
         data.model.render(g);
     }
     
+    public Wall deepCopy() {
+        return new Wall(data);
+    }
+    
     public void serialize(Document doc, Element root) {
         root.setAttribute("id", data.shortName);
     }

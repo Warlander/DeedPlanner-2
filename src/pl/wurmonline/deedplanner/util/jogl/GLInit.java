@@ -32,7 +32,7 @@ public class GLInit {
         g.glClearColor(0, 0, 0, 0);
         
         g.glEnable(GL2.GL_ALPHA_TEST);
-        g.glAlphaFunc(GL2.GL_GREATER, 0.1f);
+        g.glAlphaFunc(GL2.GL_GREATER, 0.5f);
     }
     
 }

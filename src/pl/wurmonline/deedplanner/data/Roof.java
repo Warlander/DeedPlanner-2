@@ -81,6 +81,10 @@ public class Roof implements TileEntity {
             mesh.render(g);
         }
     }
+    
+    public Roof deepCopy() {
+        return new Roof(data);
+    }
 
     public void serialize(Document doc, Element root) {
         Element roof = doc.createElement("roof");

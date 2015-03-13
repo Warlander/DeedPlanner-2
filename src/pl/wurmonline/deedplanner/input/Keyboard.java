@@ -45,6 +45,18 @@ public final class Keyboard implements KeyListener {
         }
     }
     
+    public boolean isPressed(int key) {
+        return pressed[key];
+    }
+    
+    public boolean isHold(int key) {
+        return hold[key];
+    }
+    
+    public boolean isReleased(int key) {
+        return released[key];
+    }
+    
     public void keyPressed(KeyEvent e) {
         keysDown[e.getKeyCode()] = true;
     }
