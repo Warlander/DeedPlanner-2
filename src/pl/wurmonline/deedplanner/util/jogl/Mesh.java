@@ -90,7 +90,7 @@ public final class Mesh {
             current++;
         }
         String attribute = source.getAttribute("id").toUpperCase();
-        if (attribute.contains("POS")) {
+        if (attribute.contains("POSITION")) {
             data.setVertices(floats);
         }
         else if (attribute.contains("NORMAL")) {
