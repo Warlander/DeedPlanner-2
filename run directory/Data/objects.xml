@@ -1156,6 +1156,56 @@
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
 			<category>Hedges</category>
 		</wall>
+		
+		<wall name="Blue flowerbed" shortname="bFlowerbed" scale="1" type="highfence">
+			<model location="Data/Walls/Flowerbed_blue.dae">
+				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Flowerbeds</category>
+		</wall>
+		<wall name="Dotted flowerbed" shortname="dFlowerbed" scale="1" type="highfence">
+			<model location="Data/Walls/Flowerbed_dotted.dae">
+				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Flowerbeds</category>
+		</wall>
+		<wall name="Greenish flowerbed" shortname="gFlowerbed" scale="1" type="highfence">
+			<model location="Data/Walls/Flowerbed_greenish.dae">
+				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Flowerbeds</category>
+		</wall>
+		<wall name="Orange flowerbed" shortname="oFlowerbed" scale="1" type="highfence">
+			<model location="Data/Walls/Flowerbed_orange.dae">
+				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Flowerbeds</category>
+		</wall>
+		<wall name="Purple flowerbed" shortname="pFlowerbed" scale="1" type="highfence">
+			<model location="Data/Walls/Flowerbed_purple.dae">
+				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Flowerbeds</category>
+		</wall>
+		<wall name="White flowerbed" shortname="wFlowerbed" scale="1" type="highfence">
+			<model location="Data/Walls/Flowerbed_white.dae">
+				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Flowerbeds</category>
+		</wall>
+		<wall name="Yellow flowerbed" shortname="yFlowerbed" scale="1" type="highfence">
+			<model location="Data/Walls/Flowerbed_yellow.dae">
+				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<category>Flowerbeds</category>
+		</wall>
 	</walls>
 	
 	
@@ -1577,14 +1627,14 @@
 			<category>Trees</category>
 		</object>
 		
-		<object name="Fountain" shortname="foun" type="centered">
+		<object name="Fountain" shortname="foun" type="normal">
 			<model location="Data/Objects/Fountain.dae">
 				<mesh name="fountain" tex="Data/Objects/fountain.jpg"/>
 			</model>
 			<category>Fountains</category>
 			<category>Materials/Stone</category>
 		</object>
-		<object name="Ornate fountain" shortname="ofoun" type="centered">
+		<object name="Ornate fountain" shortname="ofoun" type="normal">
 			<model location="Data/Objects/Ornate_Fountain.dae">
 				<mesh name="fountain" tex="Data/Objects/ornateFountain.jpg"/>
 			</model>
