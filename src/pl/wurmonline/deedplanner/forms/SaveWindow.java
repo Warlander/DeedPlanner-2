@@ -7,12 +7,10 @@ import java.net.*;
 import java.util.logging.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
+import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class SaveWindow extends javax.swing.JFrame {
-
-    private static final String slash = System.getProperty("file.separator");
-    private static String previousDir;
     
     private final String serializedMap;
     
@@ -165,9 +163,7 @@ public class SaveWindow extends javax.swing.JFrame {
         JFileChooser fc = new JFileChooser();
         FileFilter filter = new ExtensionFileFilter(".MAP file", new String[] { "MAP" });
         fc.setFileFilter(filter);
-        if (previousDir!=null) {
-            fc.setCurrentDirectory(new File(previousDir));
-        }
+        fc.setCurrentDirectory(new File(Properties.lastDir));
         int returnVal = fc.showSaveDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
@@ -187,7 +183,8 @@ public class SaveWindow extends javax.swing.JFrame {
             out.print(serializedMap);
             out.close();
             String ph = file.getPath();
-            previousDir = ph.substring(0, ph.lastIndexOf(slash)+1);
+            Properties.lastDir = ph.substring(0, ph.lastIndexOf(Properties.SLASH)+1);
+            Properties.saveProperties();
         } catch (IOException ex) {
             Logger.getLogger(SaveWindow.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -16,6 +16,7 @@ public class Properties {
     public static final transient String SAVE_DIR = HOME+SLASH+"DeedPlanner"+SLASH;
     
     public static String lookAndFeel = "PGS";
+    public static String lastDir = HOME;
     
     public static boolean showGrid = true;
     
