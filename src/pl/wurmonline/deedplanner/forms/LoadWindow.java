@@ -8,6 +8,7 @@ import javax.swing.filechooser.FileFilter;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.MapPanel;
+import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.Log;
@@ -163,10 +164,14 @@ public class LoadWindow extends javax.swing.JFrame {
         JFileChooser fc = new JFileChooser();
         FileFilter filter = new ExtensionFileFilter(".MAP file", "MAP");
         fc.setFileFilter(filter);
+        fc.setCurrentDirectory(new File(Properties.lastDir));
         
         int returnVal = fc.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
+            String ph = file.getPath();
+            Properties.lastDir = ph.substring(0, ph.lastIndexOf(Properties.SLASH)+1);
+            Properties.saveProperties();
             try {
                 FileInputStream fis = new FileInputStream(file);
                 byte[] bytes = getBytesFromInputStream(fis);
