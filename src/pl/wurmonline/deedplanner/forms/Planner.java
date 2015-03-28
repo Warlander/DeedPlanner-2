@@ -10,9 +10,9 @@ import javax.xml.transform.TransformerException;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.forms.tools.*;
 import pl.wurmonline.deedplanner.graphics.texture.*;
 import pl.wurmonline.deedplanner.logic.*;
+import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
 import pl.wurmonline.deedplanner.logic.floors.*;
 import pl.wurmonline.deedplanner.logic.ground.*;
 import pl.wurmonline.deedplanner.logic.height.*;
@@ -83,6 +83,9 @@ public class Planner extends javax.swing.JFrame {
         roofsList.setModel(Data.roofsList);
         roofsList.setSelectedIndex(0);
         
+        bordersList.setModel(Data.bordersList);
+        bordersList.setSelectedIndex(0);
+        
         floorsModeCombo.setModel(FloorUpdater.createComboModel());
         floorsModeCombo.setSelectedIndex(0);
         
@@ -140,6 +143,7 @@ public class Planner extends javax.swing.JFrame {
         wallsPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         wallsTree = new javax.swing.JTree();
+        wallReversedBox = new javax.swing.JCheckBox();
         roofsPanel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         roofsList = new javax.swing.JList();
@@ -147,6 +151,9 @@ public class Planner extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         objectsTree = new javax.swing.JTree();
         labelsPanel = new pl.wurmonline.deedplanner.forms.LabelEditor();
+        bordersPanel = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        bordersList = new javax.swing.JList();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -175,9 +182,6 @@ public class Planner extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu9 = new javax.swing.JMenu();
-        deedCalculatorItem = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -200,7 +204,8 @@ public class Planner extends javax.swing.JFrame {
 
         tileLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tileLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        tileLabel.setText("Height: 0     X: 0 Y: 0");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        tileLabel.setText(bundle.getString("Planner.tileLabel.text")); // NOI18N
 
         javax.swing.GroupLayout statusBarLayout = new javax.swing.GroupLayout(statusBar);
         statusBar.setLayout(statusBarLayout);
@@ -224,7 +229,7 @@ public class Planner extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel5.setText("Floor");
+        jLabel5.setText(bundle.getString("Planner.jLabel5.text")); // NOI18N
 
         tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -282,10 +287,10 @@ public class Planner extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE))
         );
 
-        tabbedPane.addTab("Ground", groundPanel);
+        tabbedPane.addTab(bundle.getString("Planner.groundPanel.TabConstraints.tabTitle"), groundPanel); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel1.setText("Set (LMB):");
+        jLabel1.setText(bundle.getString("Planner.jLabel1.text")); // NOI18N
 
         heightLeftSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), null, null, Integer.valueOf(1)));
@@ -304,7 +309,7 @@ public class Planner extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("Set (RMB):");
+        jLabel2.setText(bundle.getString("Planner.jLabel2.text")); // NOI18N
 
         addHeightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
@@ -315,11 +320,11 @@ public class Planner extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setText("Add:");
+        jLabel3.setText(bundle.getString("Planner.jLabel3.text")); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Edit mode");
+        jLabel4.setText(bundle.getString("Planner.jLabel4.text")); // NOI18N
 
         heightList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         heightList.setModel(new javax.swing.AbstractListModel() {
@@ -383,7 +388,7 @@ public class Planner extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))
         );
 
-        tabbedPane.addTab("Height", heightPanel);
+        tabbedPane.addTab(bundle.getString("Planner.heightPanel.TabConstraints.tabTitle"), heightPanel); // NOI18N
 
         floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
@@ -418,7 +423,7 @@ public class Planner extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE))
         );
 
-        tabbedPane.addTab("Floors", floorsPanel);
+        tabbedPane.addTab(bundle.getString("Planner.floorsPanel.TabConstraints.tabTitle"), floorsPanel); // NOI18N
 
         wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
@@ -431,18 +436,31 @@ public class Planner extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(wallsTree);
 
+        wallReversedBox.setText(bundle.getString("Planner.wallReversedBox.text")); // NOI18N
+        wallReversedBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wallReversedBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout wallsPanelLayout = new javax.swing.GroupLayout(wallsPanel);
         wallsPanel.setLayout(wallsPanelLayout);
         wallsPanelLayout.setHorizontalGroup(
             wallsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+            .addGroup(wallsPanelLayout.createSequentialGroup()
+                .addComponent(wallReversedBox)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         wallsPanelLayout.setVerticalGroup(
             wallsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, wallsPanelLayout.createSequentialGroup()
+                .addComponent(wallReversedBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
         );
 
-        tabbedPane.addTab("Walls", wallsPanel);
+        tabbedPane.addTab(bundle.getString("Planner.wallsPanel.TabConstraints.tabTitle"), wallsPanel); // NOI18N
 
         roofsList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         roofsList.setModel(new javax.swing.AbstractListModel() {
@@ -470,7 +488,7 @@ public class Planner extends javax.swing.JFrame {
             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
         );
 
-        tabbedPane.addTab("Roofs", roofsPanel);
+        tabbedPane.addTab(bundle.getString("Planner.roofsPanel.TabConstraints.tabTitle"), roofsPanel); // NOI18N
 
         objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
@@ -494,8 +512,31 @@ public class Planner extends javax.swing.JFrame {
             .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
         );
 
-        tabbedPane.addTab("Objects", objectsPanel);
-        tabbedPane.addTab("Labels and Materials", labelsPanel);
+        tabbedPane.addTab(bundle.getString("Planner.objectsPanel.TabConstraints.tabTitle"), objectsPanel); // NOI18N
+        tabbedPane.addTab(bundle.getString("Planner.labelsPanel.TabConstraints.tabTitle"), labelsPanel); // NOI18N
+
+        bordersList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        bordersList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        bordersList.setFixedCellHeight(20);
+        bordersList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                bordersListValueChanged(evt);
+            }
+        });
+        jScrollPane7.setViewportView(bordersList);
+
+        javax.swing.GroupLayout bordersPanelLayout = new javax.swing.GroupLayout(bordersPanel);
+        bordersPanel.setLayout(bordersPanelLayout);
+        bordersPanelLayout.setHorizontalGroup(
+            bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+        );
+        bordersPanelLayout.setVerticalGroup(
+            bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+        );
+
+        tabbedPane.addTab(bundle.getString("Planner.bordersPanel.TabConstraints.tabTitle"), bordersPanel); // NOI18N
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -517,11 +558,11 @@ public class Planner extends javax.swing.JFrame {
                 .addComponent(tabbedPane))
         );
 
-        tabbedPane.getAccessibleContext().setAccessibleDescription("");
+        tabbedPane.getAccessibleContext().setAccessibleDescription(bundle.getString("Planner.tabbedPane.AccessibleContext.accessibleDescription")); // NOI18N
 
-        jMenu1.setText("File");
+        jMenu1.setText(bundle.getString("Planner.jMenu1.text")); // NOI18N
 
-        jMenuItem1.setText("New map");
+        jMenuItem1.setText(bundle.getString("Planner.jMenuItem1.text")); // NOI18N
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -529,7 +570,7 @@ public class Planner extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        resizeItem.setText("Resize");
+        resizeItem.setText(bundle.getString("Planner.resizeItem.text")); // NOI18N
         resizeItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resizeItemActionPerformed(evt);
@@ -538,7 +579,7 @@ public class Planner extends javax.swing.JFrame {
         jMenu1.add(resizeItem);
         jMenu1.add(jSeparator3);
 
-        saveItem.setText("Save");
+        saveItem.setText(bundle.getString("Planner.saveItem.text")); // NOI18N
         saveItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveItemActionPerformed(evt);
@@ -546,7 +587,7 @@ public class Planner extends javax.swing.JFrame {
         });
         jMenu1.add(saveItem);
 
-        loadItem.setText("Load");
+        loadItem.setText(bundle.getString("Planner.loadItem.text")); // NOI18N
         loadItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loadItemActionPerformed(evt);
@@ -556,10 +597,10 @@ public class Planner extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText(bundle.getString("Planner.jMenu2.text")); // NOI18N
 
         undoItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        undoItem.setText("Undo");
+        undoItem.setText(bundle.getString("Planner.undoItem.text")); // NOI18N
         undoItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 undoItemActionPerformed(evt);
@@ -568,7 +609,7 @@ public class Planner extends javax.swing.JFrame {
         jMenu2.add(undoItem);
 
         redoItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
-        redoItem.setText("Redo");
+        redoItem.setText(bundle.getString("Planner.redoItem.text")); // NOI18N
         redoItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 redoItemActionPerformed(evt);
@@ -578,11 +619,11 @@ public class Planner extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu8.setText("View");
+        jMenu8.setText(bundle.getString("Planner.jMenu8.text")); // NOI18N
 
         viewGroup.add(upViewItem);
         upViewItem.setSelected(true);
-        upViewItem.setText("2d view");
+        upViewItem.setText(bundle.getString("Planner.upViewItem.text")); // NOI18N
         upViewItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewSwitched(evt);
@@ -591,7 +632,7 @@ public class Planner extends javax.swing.JFrame {
         jMenu8.add(upViewItem);
 
         viewGroup.add(fppViewItem);
-        fppViewItem.setText("3d view");
+        fppViewItem.setText(bundle.getString("Planner.fppViewItem.text")); // NOI18N
         fppViewItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewSwitched(evt);
@@ -600,7 +641,7 @@ public class Planner extends javax.swing.JFrame {
         jMenu8.add(fppViewItem);
 
         viewGroup.add(wurmianItem);
-        wurmianItem.setText("Wurmian view");
+        wurmianItem.setText(bundle.getString("Planner.wurmianItem.text")); // NOI18N
         wurmianItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewSwitched(evt);
@@ -609,19 +650,19 @@ public class Planner extends javax.swing.JFrame {
         jMenu8.add(wurmianItem);
         jMenu8.add(jSeparator2);
 
-        jMenu7.setText("Walls");
+        jMenu7.setText(bundle.getString("Planner.jMenu7.text")); // NOI18N
 
         wallsGroup.add(jRadioButtonMenuItem1);
         jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("Type");
+        jRadioButtonMenuItem1.setText(bundle.getString("Planner.jRadioButtonMenuItem1.text")); // NOI18N
         jMenu7.add(jRadioButtonMenuItem1);
 
         jMenu8.add(jMenu7);
 
-        jMenu10.setText("Elevation");
+        jMenu10.setText(bundle.getString("Planner.jMenu10.text")); // NOI18N
 
         elevationGroup.add(elevationOnItem);
-        elevationOnItem.setText("On");
+        elevationOnItem.setText(bundle.getString("Planner.elevationOnItem.text")); // NOI18N
         elevationOnItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 elevationDisplayChanged(evt);
@@ -631,7 +672,7 @@ public class Planner extends javax.swing.JFrame {
 
         elevationGroup.add(elevationOffItem);
         elevationOffItem.setSelected(true);
-        elevationOffItem.setText("Off");
+        elevationOffItem.setText(bundle.getString("Planner.elevationOffItem.text")); // NOI18N
         elevationOffItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 elevationDisplayChanged(evt);
@@ -641,10 +682,10 @@ public class Planner extends javax.swing.JFrame {
 
         jMenu8.add(jMenu10);
 
-        jMenu11.setText("Season");
+        jMenu11.setText(bundle.getString("Planner.jMenu11.text")); // NOI18N
 
         seasonGroup.add(springItem);
-        springItem.setText("Spring");
+        springItem.setText(bundle.getString("Planner.springItem.text")); // NOI18N
         springItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seasonChanged(evt);
@@ -654,7 +695,7 @@ public class Planner extends javax.swing.JFrame {
 
         seasonGroup.add(summerItem);
         summerItem.setSelected(true);
-        summerItem.setText("Summer");
+        summerItem.setText(bundle.getString("Planner.summerItem.text")); // NOI18N
         summerItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seasonChanged(evt);
@@ -663,7 +704,7 @@ public class Planner extends javax.swing.JFrame {
         jMenu11.add(summerItem);
 
         seasonGroup.add(fallItem);
-        fallItem.setText("Fall");
+        fallItem.setText(bundle.getString("Planner.fallItem.text")); // NOI18N
         fallItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seasonChanged(evt);
@@ -672,7 +713,7 @@ public class Planner extends javax.swing.JFrame {
         jMenu11.add(fallItem);
 
         seasonGroup.add(winterItem);
-        winterItem.setText("Winter");
+        winterItem.setText(bundle.getString("Planner.winterItem.text")); // NOI18N
         winterItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seasonChanged(evt);
@@ -684,9 +725,9 @@ public class Planner extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu8);
 
-        jMenu6.setText("Options");
+        jMenu6.setText(bundle.getString("Planner.jMenu6.text")); // NOI18N
 
-        jMenuItem8.setText("Settings");
+        jMenuItem8.setText(bundle.getString("Planner.jMenuItem8.text")); // NOI18N
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);
@@ -694,7 +735,7 @@ public class Planner extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem8);
 
-        jMenuItem9.setText("Reload textures");
+        jMenuItem9.setText(bundle.getString("Planner.jMenuItem9.text")); // NOI18N
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -703,26 +744,6 @@ public class Planner extends javax.swing.JFrame {
         jMenu6.add(jMenuItem9);
 
         jMenuBar1.add(jMenu6);
-
-        jMenu9.setText("Tools");
-
-        deedCalculatorItem.setText("Deed Calculator");
-        deedCalculatorItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deedCalculatorItemActionPerformed(evt);
-            }
-        });
-        jMenu9.add(deedCalculatorItem);
-
-        jMenuItem10.setText("Armor defence calculator");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        jMenu9.add(jMenuItem10);
-
-        jMenuBar1.add(jMenu9);
 
         setJMenuBar(jMenuBar1);
 
@@ -749,12 +770,8 @@ public class Planner extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void deedCalculatorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deedCalculatorItemActionPerformed
-        new DeedCalculator().setVisible(true);
-    }//GEN-LAST:event_deedCalculatorItemActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        int option = JOptionPane.showConfirmDialog(null, "Do you really want to close program? All unsaved changes will be lost!", "Close program confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        int option = JOptionPane.showConfirmDialog(null, java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("DO YOU REALLY WANT TO CLOSE PROGRAM? ALL UNSAVED CHANGES WILL BE LOST!"), java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("CLOSE PROGRAM CONFIRMATION"), JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (option==JOptionPane.OK_OPTION) {
             mapPanel.getLoop().syncAndExecute(() -> {
                 System.exit(0);
@@ -773,10 +790,6 @@ public class Planner extends javax.swing.JFrame {
             mapPanel.getMap().redo();
         });
     }//GEN-LAST:event_redoItemActionPerformed
-
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        new ArmorDefence().setVisible(true);
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void groundsTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_groundsTreeValueChanged
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) groundsTree.getLastSelectedPathComponent();
@@ -840,6 +853,9 @@ public class Planner extends javax.swing.JFrame {
         }
         else if (tab==roofsPanel) {
             Globals.tab = Tab.roofs;
+        }
+        else if (tab==bordersPanel) {
+            Globals.tab = Tab.borders;
         }
         else if (tab==objectsPanel) {
             Globals.tab = Tab.objects;
@@ -907,7 +923,7 @@ public class Planner extends javax.swing.JFrame {
     }//GEN-LAST:event_elevationDisplayChanged
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        int option = JOptionPane.showConfirmDialog(null, "Do you really want to destroy current map and start from scratch?", "New map", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        int option = JOptionPane.showConfirmDialog(null, java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("DO YOU REALLY WANT TO DESTROY CURRENT MAP AND START FROM SCRATCH?"), java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("NEW MAP"), JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (option==JOptionPane.OK_OPTION) {
             mapPanel.setMap(new Map(50, 50));
         }
@@ -944,9 +960,18 @@ public class Planner extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void wallReversedBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wallReversedBoxActionPerformed
+        Globals.reverseWall = wallReversedBox.isSelected();
+    }//GEN-LAST:event_wallReversedBoxActionPerformed
+
+    private void bordersListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_bordersListValueChanged
+        BorderUpdater.currentData = (BorderData) bordersList.getSelectedValue();
+    }//GEN-LAST:event_bordersListValueChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
-    private javax.swing.JMenuItem deedCalculatorItem;
+    private javax.swing.JList bordersList;
+    private javax.swing.JPanel bordersPanel;
     private pl.wurmonline.deedplanner.forms.DiagonalPanel diagonalPanel1;
     private javax.swing.ButtonGroup elevationGroup;
     private javax.swing.JRadioButtonMenuItem elevationOffItem;
@@ -976,10 +1001,8 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
@@ -989,6 +1012,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSpinner jSpinner4;
@@ -1012,6 +1036,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenuItem undoItem;
     private javax.swing.JRadioButtonMenuItem upViewItem;
     private javax.swing.ButtonGroup viewGroup;
+    private javax.swing.JCheckBox wallReversedBox;
     private javax.swing.ButtonGroup wallsGroup;
     private javax.swing.JPanel wallsPanel;
     private javax.swing.JTree wallsTree;

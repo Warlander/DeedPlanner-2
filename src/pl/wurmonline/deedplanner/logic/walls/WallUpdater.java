@@ -17,7 +17,7 @@ public class WallUpdater {
             setWalls(map, cam.tile, currentData, frag);
         }
         else if (mouse.hold.right) {
-            setWalls(map, cam.tile, null, frag);
+            deleteWalls(map, cam.tile, frag);
         }
         
         if (mouse.released.left || mouse.released.right) {
@@ -38,6 +38,22 @@ public class WallUpdater {
         }
         else if (frag==TileFragment.E) {
             map.getTile(tile, 1, 0).setVerticalWall(wall, Globals.floor);
+        }
+    }
+    
+    private static void deleteWalls(Map map, Tile tile, TileFragment frag) {
+        if (frag==TileFragment.S) {
+            tile.clearHorizontalWalls(Globals.floor);
+        }
+        else if (frag==TileFragment.N) {
+            map.getTile(tile, 0, 1).clearHorizontalWalls(Globals.floor);
+        }
+        
+        if (frag==TileFragment.W) {
+            tile.clearVerticalWalls(Globals.floor);
+        }
+        else if (frag==TileFragment.E) {
+            map.getTile(tile, 0, 1).clearVerticalWalls(Globals.floor);
         }
     }
     

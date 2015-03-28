@@ -76,7 +76,8 @@ public class LabelEditor extends javax.swing.JPanel {
 
         labelTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        labelTextField.setText("New Label");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        labelTextField.setText(bundle.getString("LabelEditor.labelTextField.text")); // NOI18N
 
         labelColorShow.setBackground(new java.awt.Color(255, 255, 255));
         labelColorShow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -93,7 +94,7 @@ public class LabelEditor extends javax.swing.JPanel {
         );
 
         labelColorButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        labelColorButton.setText("Select Color");
+        labelColorButton.setText(bundle.getString("LabelEditor.labelColorButton.text")); // NOI18N
         labelColorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 labelColorButtonActionPerformed(evt);
@@ -101,7 +102,7 @@ public class LabelEditor extends javax.swing.JPanel {
         });
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setText("Font size:");
+        jLabel6.setText(bundle.getString("LabelEditor.jLabel6.text")); // NOI18N
 
         sizeSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         sizeSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(18), Integer.valueOf(8), null, Integer.valueOf(1)));
@@ -110,11 +111,11 @@ public class LabelEditor extends javax.swing.JPanel {
         fontBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Arial" }));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel7.setText("<html>B = Bold<br/>\nI = Italic<br/>\nO = Oblique");
+        jLabel7.setText(bundle.getString("LabelEditor.jLabel7.text_1")); // NOI18N
 
         deleteLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         deleteLabel.setForeground(new java.awt.Color(255, 0, 0));
-        deleteLabel.setText("Delete label on tile");
+        deleteLabel.setText(bundle.getString("LabelEditor.deleteLabel.text")); // NOI18N
         deleteLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteLabelActionPerformed(evt);
@@ -167,8 +168,8 @@ public class LabelEditor extends javax.swing.JPanel {
         );
 
         newLabelButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        newLabelButton.setText("Create label on tile");
-        newLabelButton.setToolTipText("");
+        newLabelButton.setText(bundle.getString("LabelEditor.newLabelButton.text")); // NOI18N
+        newLabelButton.setToolTipText(bundle.getString("LabelEditor.newLabelButton.toolTipText")); // NOI18N
         newLabelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newLabelButtonActionPerformed(evt);
@@ -176,8 +177,8 @@ public class LabelEditor extends javax.swing.JPanel {
         });
 
         calculateMapButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        calculateMapButton.setText("Materials (map)");
-        calculateMapButton.setToolTipText("");
+        calculateMapButton.setText(bundle.getString("LabelEditor.calculateMapButton.text")); // NOI18N
+        calculateMapButton.setToolTipText(bundle.getString("LabelEditor.calculateMapButton.toolTipText")); // NOI18N
         calculateMapButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculateMapButtonActionPerformed(evt);
@@ -185,8 +186,8 @@ public class LabelEditor extends javax.swing.JPanel {
         });
 
         calculateTileButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        calculateTileButton.setText("Materials (tile)");
-        calculateTileButton.setToolTipText("");
+        calculateTileButton.setText(bundle.getString("LabelEditor.calculateTileButton.text")); // NOI18N
+        calculateTileButton.setToolTipText(bundle.getString("LabelEditor.calculateTileButton.toolTipText")); // NOI18N
         calculateTileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculateTileButtonActionPerformed(evt);

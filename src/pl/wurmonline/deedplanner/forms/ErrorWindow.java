@@ -33,7 +33,8 @@ public class ErrorWindow extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Error!");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        setTitle(bundle.getString("ErrorWindow.title")); // NOI18N
         setBackground(new java.awt.Color(255, 0, 0));
         setResizable(false);
 
@@ -42,10 +43,10 @@ public class ErrorWindow extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("An error has occurred!");
+        jLabel1.setText(bundle.getString("ErrorWindow.jLabel1.text")); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton1.setText("Close");
+        jButton1.setText(bundle.getString("ErrorWindow.jButton1.text")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -53,7 +54,7 @@ public class ErrorWindow extends javax.swing.JFrame {
         });
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton2.setText("Copy and open program official thread");
+        jButton2.setText(bundle.getString("ErrorWindow.jButton2.text")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -67,7 +68,7 @@ public class ErrorWindow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(errorTextArea);
 
         jButton3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton3.setText("Close, show next errors");
+        jButton3.setText(bundle.getString("ErrorWindow.jButton3.text")); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

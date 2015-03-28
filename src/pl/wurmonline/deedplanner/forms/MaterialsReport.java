@@ -27,9 +27,10 @@ public class MaterialsReport extends javax.swing.JFrame {
         materialsField = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Materials");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        setTitle(bundle.getString("MaterialsReport.title")); // NOI18N
 
-        jButton1.setText("Close");
+        jButton1.setText(bundle.getString("MaterialsReport.jButton1.text")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

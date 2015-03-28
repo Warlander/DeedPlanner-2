@@ -3,7 +3,6 @@ package pl.wurmonline.deedplanner.data.io;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
-import org.apache.commons.io.FileUtils;
 
 public class DataUpdater {
 
@@ -27,7 +26,7 @@ public class DataUpdater {
     
     public static void prepareUpdate() throws IOException {
         File tempUpdater = new File(updaterName);
-        FileUtils.copyFile(appFile, tempUpdater);
+        //FileUtils.copyFile(appFile, tempUpdater);
         Desktop.getDesktop().open(tempUpdater);
         System.exit(0);
     }

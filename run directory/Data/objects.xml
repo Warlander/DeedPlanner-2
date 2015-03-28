@@ -1955,8 +1955,8 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Settlement token" shortname="token" type="centered">
-			<model location="Data/Objects/sundial.dae">
-				<mesh name="sundial" tex="Data/Objects/sundial.jpg"/>
+			<model location="Data/Objects/deed_sundail.dae">
+				<mesh name="default" tex="Data/Objects/sundial.jpg"/>
 			</model>
 			<category>Misc</category>
 		</object>

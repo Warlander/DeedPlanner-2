@@ -18,7 +18,7 @@ public class FloorUpdater {
     public static DefaultComboBoxModel<FloorMode> createComboModel() {
         DefaultComboBoxModel<FloorMode> model = new DefaultComboBoxModel<>();
         
-        model.addElement(new FloorMode("Pencil") {
+        model.addElement(new FloorMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("PENCIL")) {
 
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.hold.left) {
@@ -41,7 +41,7 @@ public class FloorUpdater {
             
         });
         
-        model.addElement(new FloorMode("Eraser") {
+        model.addElement(new FloorMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("ERASER")) {
 
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.hold.left  && !(tile.getTileContent(Globals.floor) instanceof Roof)) {

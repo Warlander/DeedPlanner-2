@@ -10,6 +10,8 @@ public class Globals {
     public static boolean fixedHeight = false;
     public static boolean renderHeight = false;
     
+    public static boolean reverseWall = false;
+    
     public static int season = Season.SUMMER;
     public static RoadDirection roadDirection = RoadDirection.CENTER;
     public static Tab tab = Tab.ground;

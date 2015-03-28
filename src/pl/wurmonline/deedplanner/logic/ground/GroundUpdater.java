@@ -21,7 +21,7 @@ public class GroundUpdater {
     public static DefaultComboBoxModel<GroundMode> createComboModel() {
         DefaultComboBoxModel<GroundMode> model = new DefaultComboBoxModel<>();
         
-        model.addElement(new GroundMode("Pencil") {
+        model.addElement(new GroundMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("PENCIL")) {
 
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.hold.left) {
@@ -41,7 +41,7 @@ public class GroundUpdater {
             
         });
         
-        model.addElement(new GroundMode("Fill") {
+        model.addElement(new GroundMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("FILL")) {
             
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.pressed.left) {
@@ -73,7 +73,7 @@ public class GroundUpdater {
             
         });
         
-        model.addElement(new GroundMode("Eraser") {
+        model.addElement(new GroundMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("ERASER")) {
 
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.hold.left) {

@@ -6,6 +6,7 @@ import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.forms.Planner;
 import pl.wurmonline.deedplanner.input.*;
+import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
 import pl.wurmonline.deedplanner.logic.floors.FloorUpdater;
 import pl.wurmonline.deedplanner.logic.ground.GroundUpdater;
 import pl.wurmonline.deedplanner.logic.height.HeightUpdater;
@@ -71,6 +72,9 @@ public class LogicLoop extends TimerTask {
                         case walls:
                             WallUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
+                        case borders:
+                            BorderUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            break;
                         case roofs:
                             RoofUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
@@ -121,7 +125,7 @@ public class LogicLoop extends TimerTask {
                             break;
                     }
                     if (frag.isCorner()) {
-                        build.append("     Height: ").append(frag.getTileByCorner(t).getHeight());	
+                        build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("     HEIGHT: ")).append(frag.getTileByCorner(t).getHeight());	
                     }
                     build.append("     X: ").append(t.getX()).append(" Y: ").append(t.getY());
                     planner.tileLabel.setText(build.toString());

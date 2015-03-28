@@ -66,6 +66,12 @@ public final class Tile implements XMLSerializable {
                             entities.put(new EntityData(floor, EntityType.VFENCE), vwall);
                         }
                         break;
+                    case "hborder":
+                        entities.put(new EntityData(0, EntityType.HBORDER), BorderData.get(entity));
+                        break;
+                    case "vborder":
+                        entities.put(new EntityData(0, EntityType.VBORDER), BorderData.get(entity));
+                        break;
                     case "roof":
                         entities.put(new EntityData(floor, EntityType.FLOORROOF), new Roof(entity));
                         break;
@@ -215,6 +221,33 @@ public final class Tile implements XMLSerializable {
         }
     }
     
+    public void render2d(GL2 g) {
+        for (Entry<EntityData, TileEntity> e : entities.entrySet()) {
+            EntityData key = e.getKey();
+            TileEntity entity = e.getValue();
+            g.glPushMatrix();
+                switch (key.getType()) {
+                    case VBORDER:
+                        g.glRotatef(90, 0, 0, 1);
+                        BorderData vBorder = (BorderData) entity;
+                        if (Globals.upCamera) {
+                            vBorder.render(g, this);
+                        }
+                        g.glColor3f(1, 1, 1);
+                        break;
+                    case HBORDER:
+                        BorderData hBorder = (BorderData) entity;
+                        if (Globals.upCamera) {
+                            hBorder.render(g, this);
+                        }
+                        g.glColor3f(1, 1, 1);
+                        break;
+                }
+            g.glPopMatrix();
+            g.glColor3f(1, 1, 1);
+        }
+    }
+    
     private float getFloorHeight() {
         float h00 = getHeight();
         float h10 = getMap().getTile(this, 1, 0)!=null ? getMap().getTile(this, 1, 0).getHeight() : 0;
@@ -313,6 +346,16 @@ public final class Tile implements XMLSerializable {
                     Element vWall = doc.createElement("vWall");
                     entity.serialize(doc, vWall);
                     level.appendChild(vWall);
+                    break;
+                case HBORDER:
+                    Element hDeco = doc.createElement("hBorder");
+                    entity.serialize(doc, hDeco);
+                    level.appendChild(hDeco);
+                    break;
+                case VBORDER:
+                    Element vDeco = doc.createElement("vBorder");
+                    entity.serialize(doc, vDeco);
+                    level.appendChild(vDeco);
                     break;
                 case OBJECT:
                     ObjectEntityData objectData = (ObjectEntityData) key;
@@ -500,9 +543,13 @@ public final class Tile implements XMLSerializable {
     
     public void clearHorizontalWalls() {
         for (int i = 0; i < Constants.FLOORS_LIMIT; i++) {
-            entities.remove(new EntityData(i, EntityType.HWALL));
-            entities.remove(new EntityData(i, EntityType.HFENCE));
+            clearHorizontalWalls(i);
         }
+    }
+    
+    public void clearHorizontalWalls(int level) {
+        entities.remove(new EntityData(level, EntityType.HWALL));
+        entities.remove(new EntityData(level, EntityType.HFENCE));
     }
     
     public void setVerticalWall(WallData wall, int level) {
@@ -564,9 +611,65 @@ public final class Tile implements XMLSerializable {
     
     public void clearVerticalWalls() {
         for (int i = 0; i < Constants.FLOORS_LIMIT; i++) {
-            entities.remove(new EntityData(i, EntityType.VWALL));
-            entities.remove(new EntityData(i, EntityType.VFENCE));
+            clearVerticalWalls(i);
         }
+    }
+    
+    public void clearVerticalWalls(int level) {
+        entities.remove(new EntityData(level, EntityType.VWALL));
+        entities.remove(new EntityData(level, EntityType.VFENCE));
+    }
+    
+    public void setHorizontalBorder(BorderData border) {
+        setHorizontalBorder(border, true);
+    }
+    
+    void setHorizontalBorder(BorderData border, boolean undo) {
+        final EntityData entityData = new EntityData(0, EntityType.HBORDER);
+        if (border!=entities.get(entityData)) {
+            Tile oldTile = new Tile(this);
+            
+            if (border!=null) {
+                entities.put(entityData, border);
+            }
+            else {
+                entities.remove(entityData);
+            }
+
+            if (undo) {
+                map.addUndo(this, oldTile);
+            }
+        }
+    }
+    
+    public BorderData getHorizontalBorder() {
+        return (BorderData) entities.get(new EntityData(0, EntityType.HBORDER));
+    }
+    
+    public void setVerticalBorder(BorderData border) {
+        setVerticalBorder(border, true);
+    }
+    
+    void setVerticalBorder(BorderData border, boolean undo) {
+        final EntityData entityData = new EntityData(0, EntityType.VBORDER);
+        if (border!=entities.get(entityData)) {
+            Tile oldTile = new Tile(this);
+            
+            if (border!=null) {
+                entities.put(entityData, border);
+            }
+            else {
+                entities.remove(entityData);
+            }
+
+            if (undo) {
+                map.addUndo(this, oldTile);
+            }
+        }
+    }
+    
+    public BorderData getVerticalBorder() {
+        return (BorderData) entities.get(new EntityData(0, EntityType.VBORDER));
     }
     
     public void setLabel(Label label) {

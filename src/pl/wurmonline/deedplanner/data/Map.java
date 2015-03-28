@@ -442,6 +442,14 @@ public final class Map {
             }
             for (int i=startX; i<=endX; i++) {
                 for (int i2=startY; i2<=endY; i2++) {
+                    g.glPushMatrix();
+                        g.glTranslatef(i*4, i2*4, 0);
+                        tiles[i][i2].render2d(g);
+                    g.glPopMatrix();
+                }
+            }
+            for (int i=startX; i<=endX; i++) {
+                for (int i2=startY; i2<=endY; i2++) {
                     if (TileSelection.getMapFragment()!=null && TileSelection.getMapFragment().contains(tiles[i][i2])) {
                         g.glPushMatrix();
                             g.glTranslatef(i*4, i2*4, 0);

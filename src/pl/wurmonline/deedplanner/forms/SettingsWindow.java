@@ -84,11 +84,12 @@ public class SettingsWindow extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("DeedPlanner Settings");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        setTitle(bundle.getString("SettingsWindow.title")); // NOI18N
         setResizable(false);
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton1.setText("Save all settings and close program");
+        jButton1.setText(bundle.getString("SettingsWindow.jButton1.text")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -96,50 +97,50 @@ public class SettingsWindow extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel1.setText("Settings are stored in \"Home_Directory/DeedPlanner\n\"");
+        jLabel1.setText(bundle.getString("SettingsWindow.jLabel1.text_1")); // NOI18N
 
         showGridBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         showGridBox.setSelected(true);
-        showGridBox.setText("Show grid (top view only)");
+        showGridBox.setText(bundle.getString("SettingsWindow.showGridBox.text")); // NOI18N
 
         keyboardFractionUpSelect.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         keyboardFractionUpSelect.setModel(new javax.swing.SpinnerNumberModel(1.0d, 0.10000000149011612d, 5.0d, 0.009999999776482582d));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText("Scrolling speed in top view (keyboard)");
+        jLabel2.setText(bundle.getString("SettingsWindow.jLabel2.text")); // NOI18N
 
         mouseFractionUpSelect.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         mouseFractionUpSelect.setModel(new javax.swing.SpinnerNumberModel(0.20000000298023224d, 0.05000000074505806d, 1.0d, 0.009999999776482582d));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setText("Scrolling speed in top view (mouse)");
+        jLabel3.setText(bundle.getString("SettingsWindow.jLabel3.text")); // NOI18N
 
         mouseFractionFppSelect.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         mouseFractionFppSelect.setModel(new javax.swing.SpinnerNumberModel(0.20000000298023224d, 0.10000000149011612d, 2.0d, 0.009999999776482582d));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setText("Move speed in FPP view");
+        jLabel4.setText(bundle.getString("SettingsWindow.jLabel4.text")); // NOI18N
 
         cameraRotationFppSelect.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cameraRotationFppSelect.setModel(new javax.swing.SpinnerNumberModel(0.014999999664723873d, 0.0010000000474974513d, 0.10000000149011612d, 0.0010000000474974513d));
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel5.setText("Camera sensitivity in FPP view");
+        jLabel5.setText(bundle.getString("SettingsWindow.jLabel5.text")); // NOI18N
 
         scaleUpSelect.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         scaleUpSelect.setModel(new javax.swing.SpinnerNumberModel(10, 5, 40, 1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setText("Top view scale (visible vertical tiles)");
+        jLabel6.setText(bundle.getString("SettingsWindow.jLabel6.text")); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel7.setText("Shift key speed multiplier");
+        jLabel7.setText(bundle.getString("SettingsWindow.jLabel7.text")); // NOI18N
 
         mod1FppSelect.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         mod1FppSelect.setModel(new javax.swing.SpinnerNumberModel(5.0d, 0.10000000149011612d, 10.0d, 0.10000000149011612d));
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel8.setText("Control key speed multiplier");
+        jLabel8.setText(bundle.getString("SettingsWindow.jLabel8.text")); // NOI18N
 
         mod2FppSelect.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         mod2FppSelect.setModel(new javax.swing.SpinnerNumberModel(0.20000000298023224d, 0.10000000149011612d, 10.0d, 0.10000000149011612d));
@@ -149,31 +150,31 @@ public class SettingsWindow extends javax.swing.JFrame {
         antialiasingCombo.setSelectedIndex(3);
 
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel9.setText("Antialiasing");
+        jLabel9.setText(bundle.getString("SettingsWindow.jLabel9.text")); // NOI18N
 
         logicFpsSelect.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         logicFpsSelect.setModel(new javax.swing.SpinnerNumberModel(100, 30, 200, 1));
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel10.setText("Logic FPS");
+        jLabel10.setText(bundle.getString("SettingsWindow.jLabel10.text")); // NOI18N
 
         graphicsFpsSelect.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         graphicsFpsSelect.setModel(new javax.swing.SpinnerNumberModel(45, 30, 60, 1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel11.setText("Graphics FPS");
+        jLabel11.setText(bundle.getString("SettingsWindow.jLabel11.text")); // NOI18N
 
         iconsCombo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         iconsCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "64", "48", "32", "24", "16", "0" }));
         iconsCombo.setSelectedIndex(2);
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel12.setText("Icons size");
+        jLabel12.setText(bundle.getString("SettingsWindow.jLabel12.text")); // NOI18N
 
         lookCombo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel13.setText("Look and Feel");
+        jLabel13.setText(bundle.getString("SettingsWindow.jLabel13.text")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

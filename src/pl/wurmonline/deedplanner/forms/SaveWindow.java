@@ -8,6 +8,7 @@ import java.util.logging.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
 import pl.wurmonline.deedplanner.Properties;
+import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class SaveWindow extends javax.swing.JFrame {
@@ -29,14 +30,17 @@ public class SaveWindow extends javax.swing.JFrame {
         copyMapButton = new javax.swing.JButton();
         saveToFileButton = new javax.swing.JButton();
         pasteExpiration = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Save map");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        setTitle(bundle.getString("SaveWindow.title")); // NOI18N
         setMaximumSize(new java.awt.Dimension(500, 400));
         setResizable(false);
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton2.setText("Save to pastebin.com");
+        jButton2.setText(bundle.getString("SaveWindow.jButton2.text")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -45,10 +49,10 @@ public class SaveWindow extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Saved map");
+        jLabel1.setText(bundle.getString("SaveWindow.jLabel1.text")); // NOI18N
 
         copyMapButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        copyMapButton.setText("Copy code");
+        copyMapButton.setText(bundle.getString("SaveWindow.copyMapButton.text")); // NOI18N
         copyMapButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 copyMapButtonActionPerformed(evt);
@@ -56,7 +60,7 @@ public class SaveWindow extends javax.swing.JFrame {
         });
 
         saveToFileButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        saveToFileButton.setText("Save to file");
+        saveToFileButton.setText(bundle.getString("SaveWindow.saveToFileButton.text")); // NOI18N
         saveToFileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveToFileButtonActionPerformed(evt);
@@ -67,6 +71,18 @@ public class SaveWindow extends javax.swing.JFrame {
         pasteExpiration.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "10 minutes", "1 hour", "1 day", "1 week", "2 weeks", "1 month", "Never delete" }));
         pasteExpiration.setSelectedIndex(5);
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setText(bundle.getString("SaveWindow.jLabel2.text")); // NOI18N
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/btn_donate_LG.gif"))); // NOI18N
+        jLabel3.setText(bundle.getString("SaveWindow.jLabel3.text")); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -74,11 +90,13 @@ public class SaveWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(saveToFileButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(copyMapButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pasteExpiration, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -96,6 +114,10 @@ public class SaveWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(pasteExpiration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -173,6 +195,14 @@ public class SaveWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveToFileButtonActionPerformed
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        try {
+            Desktop.getDesktop().browse(new URI("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NYTYWR5MV2U68"));
+        } catch (URISyntaxException | IOException ex) {
+            Log.err(ex);
+        }
+    }//GEN-LAST:event_jLabel3MouseClicked
+
     private void saveToFile(File file) {
         if (!file.getPath().contains(".MAP")) {
             file = new File(file.getPath()+".MAP");
@@ -237,6 +267,8 @@ public class SaveWindow extends javax.swing.JFrame {
     private javax.swing.JButton copyMapButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JComboBox pasteExpiration;
     private javax.swing.JButton saveToFileButton;
     // End of variables declaration//GEN-END:variables

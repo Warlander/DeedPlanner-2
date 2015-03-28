@@ -45,11 +45,12 @@ public class LoadWindow extends javax.swing.JFrame {
         fileButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Load map");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        setTitle(bundle.getString("LoadWindow.title")); // NOI18N
         setResizable(false);
 
         codeField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        codeField.setText("Enter code");
+        codeField.setText(bundle.getString("LoadWindow.codeField.text")); // NOI18N
         codeField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 codeFieldMouseClicked(evt);
@@ -57,7 +58,7 @@ public class LoadWindow extends javax.swing.JFrame {
         });
 
         codeButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        codeButton.setText("Load by code");
+        codeButton.setText(bundle.getString("LoadWindow.codeButton.text")); // NOI18N
         codeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codeButtonActionPerformed(evt);
@@ -65,7 +66,7 @@ public class LoadWindow extends javax.swing.JFrame {
         });
 
         urlButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        urlButton.setText("Load from pastebin.com");
+        urlButton.setText(bundle.getString("LoadWindow.urlButton.text")); // NOI18N
         urlButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 urlButtonActionPerformed(evt);
@@ -73,7 +74,7 @@ public class LoadWindow extends javax.swing.JFrame {
         });
 
         urlField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        urlField.setText("Enter URL");
+        urlField.setText(bundle.getString("LoadWindow.urlField.text")); // NOI18N
         urlField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 urlFieldMouseClicked(evt);
@@ -81,7 +82,7 @@ public class LoadWindow extends javax.swing.JFrame {
         });
 
         fileButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        fileButton.setText("Open from file");
+        fileButton.setText(bundle.getString("LoadWindow.fileButton.text")); // NOI18N
         fileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fileButtonActionPerformed(evt);

@@ -2,6 +2,8 @@ package pl.wurmonline.deedplanner.data.io;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.function.Consumer;
+import javax.media.opengl.GL2;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.*;
@@ -20,19 +22,21 @@ public final class DataLoader {
     public static void loadData(Loading loading, File file) throws ParserConfigurationException, IOException, SAXException, DeedPlannerException {
         Document doc = XMLUtils.fileToXMLDoc(file);
         
-        loading.increaseProgress("Loading ground data");
+        loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING GROUND DATA"));
         loadGrounds(doc);
-        loading.increaseProgress("Loading floor data");
+        loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING FLOOR DATA"));
         loadFloors(doc);
-        loading.increaseProgress("Loading wall data");
+        loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING WALL DATA"));
         loadWalls(doc);
-        loading.increaseProgress("Loading roof data");
+        loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING BORDERS DATA"));
+        loadBorders();
+        loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING ROOF DATA"));
         loadRoofs(doc);
-        loading.increaseProgress("Loading object data");
+        loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING OBJECT DATA"));
         loadObjects(doc);
-        loading.increaseProgress("Loading cave data");
+        loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING CAVE DATA"));
         loadCaves(doc);
-        loading.increaseProgress("Launching");
+        loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LAUNCHING"));
     }
     
     private static void loadGrounds(Document doc) {
@@ -176,6 +180,63 @@ public final class DataLoader {
 
             addToCategories(Data.wallsTree, categories, data, name);
         }
+    }
+    
+    private static void loadBorders() {
+        loadBorderCategory("line", "l", DataLoader::straightLineRender);
+        loadBorderCategory("dotted line", "dl", DataLoader::dottedLineRender);
+        loadBorderCategory("zigzag line", "zl", DataLoader::zigzagLineRender);
+    }
+    
+    private static void loadBorderCategory(String name, String shortName, Consumer<GL2> drawCall) {
+        loadBorder("Blue "+name, "be"+shortName, drawCall, new Color(java.awt.Color.blue));
+        loadBorder("Black "+name, "bk"+shortName, drawCall, new Color(java.awt.Color.black));
+        loadBorder("Cyan "+name, "cn"+shortName, drawCall, new Color(java.awt.Color.cyan));
+        loadBorder("Green "+name, "gn"+shortName, drawCall, new Color(java.awt.Color.green));
+        loadBorder("Magenta "+name, "ma"+shortName, drawCall, new Color(java.awt.Color.magenta));
+        loadBorder("Orange "+name, "oe"+shortName, drawCall, new Color(java.awt.Color.orange));
+        loadBorder("Pink "+name, "pk"+shortName, drawCall, new Color(java.awt.Color.pink));
+        loadBorder("Purple "+name, "pe"+shortName, drawCall, new Color(new java.awt.Color(128, 0, 128)));
+        loadBorder("Red "+name, "rd"+shortName, drawCall, new Color(java.awt.Color.red));
+        loadBorder("White "+name, "we"+shortName, drawCall, new Color(java.awt.Color.white));
+        loadBorder("Yellow "+name, "yw"+shortName, drawCall, new Color(java.awt.Color.yellow));
+    }
+    
+    private static void loadBorder(String name, String shortName, Consumer<GL2> drawCall, Color color) {
+        BorderData data = new BorderData(name, shortName, drawCall, color);
+        Data.borders.put(shortName, data);
+        Data.bordersList.addElement(data);
+    }
+    
+    private static void straightLineRender(GL2 g) {
+        g.glLineWidth(2);
+        g.glBegin(GL2.GL_LINES);
+            g.glVertex2f(0, 0);
+            g.glVertex2f(4, 0);
+        g.glEnd();
+    }
+    
+    private static void dottedLineRender(GL2 g) {
+        g.glPointSize(3);
+        g.glBegin(GL2.GL_POINTS);
+            g.glVertex2f(0, 0);
+            g.glVertex2f(1, 0);
+            g.glVertex2f(2, 0);
+            g.glVertex2f(3, 0);
+            g.glVertex2f(4, 0);
+        g.glEnd();
+    }
+    
+    private static void zigzagLineRender(GL2 g) {
+        g.glLineWidth(2);
+        g.glBegin(GL2.GL_LINE_STRIP);
+            g.glVertex2f(0, 0);
+            g.glVertex2f(0.5f, 0.25f);
+            g.glVertex2f(1.5f, -0.25f);
+            g.glVertex2f(2.5f, 0.25f);
+            g.glVertex2f(3.5f, -0.25f);
+            g.glVertex2f(4, 0);
+        g.glEnd();
     }
     
     private static void loadRoofs(Document doc) throws IOException {

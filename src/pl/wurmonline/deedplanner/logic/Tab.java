@@ -1,5 +1,5 @@
 package pl.wurmonline.deedplanner.logic;
 
 public enum Tab {
-    ground, height, floors, walls, roofs, objects, labels;
+    ground, height, floors, walls, borders, roofs, objects, labels;
 }

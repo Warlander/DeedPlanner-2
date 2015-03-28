@@ -54,19 +54,20 @@ public class Loading extends javax.swing.JFrame {
         setType(java.awt.Window.Type.POPUP);
 
         progressBar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        progressBar.setMaximum(7);
-        progressBar.setString("Initializing");
+        progressBar.setMaximum(8);
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        progressBar.setString(bundle.getString("Loading.progressBar.string")); // NOI18N
         progressBar.setStringPainted(true);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Loading");
+        jLabel2.setText(bundle.getString("Loading.jLabel2.text")); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("DeedPlanner");
+        jLabel1.setText(bundle.getString("Loading.jLabel1.text")); // NOI18N
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/planks.png"))); // NOI18N

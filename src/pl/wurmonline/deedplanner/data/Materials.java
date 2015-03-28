@@ -41,12 +41,12 @@ public final class Materials extends HashMap<String, Integer> {
     public String toString() {
         StringBuilder build = new StringBuilder();
         
-        build.append("Materials needed:").append(Constants.ENTER);
+        build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("MATERIALS NEEDED:")).append(Constants.ENTER);
         build.append(Constants.ENTER);
         
         forEach((name, count) -> {build.append(name).append(" = ").append(count).append(System.getProperty("line.separator"));});
         if (isEmpty()) {
-            build.append("No materials. If there are any structures on map and this message is shown, please contact program developer on Wurm Online forum.");
+            build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("NO MATERIALS. IF THERE ARE ANY STRUCTURES ON MAP AND THIS MESSAGE IS SHOWN, PLEASE CONTACT PROGRAM DEVELOPER ON WURM ONLINE FORUM."));
         }
         
         return build.toString();

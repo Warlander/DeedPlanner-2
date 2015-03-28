@@ -34,11 +34,12 @@ public class ResizeWindow extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Resize area");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        setTitle(bundle.getString("ResizeWindow.title")); // NOI18N
         setResizable(false);
 
         jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton1.setText("Resize!");
+        jButton1.setText(bundle.getString("ResizeWindow.jButton1.text")); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -59,25 +60,25 @@ public class ResizeWindow extends javax.swing.JFrame {
 
         currWidth.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         currWidth.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        currWidth.setText("Current width: 25");
+        currWidth.setText(bundle.getString("ResizeWindow.currWidth.text")); // NOI18N
 
         currHeight.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         currHeight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        currHeight.setText("Current height: 25");
+        currHeight.setText(bundle.getString("ResizeWindow.currHeight.text")); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Global add height");
+        jLabel1.setText(bundle.getString("ResizeWindow.jLabel1.text")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("(You can input negative vaues, too)");
+        jLabel2.setText(bundle.getString("ResizeWindow.jLabel2.text")); // NOI18N
 
         jSpinner1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, -999, 999, 1));
 
         jButton2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton2.setText("Add/Delete");
+        jButton2.setText(bundle.getString("ResizeWindow.jButton2.text")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

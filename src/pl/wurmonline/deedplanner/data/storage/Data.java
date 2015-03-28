@@ -20,6 +20,9 @@ public class Data {
     public static final HashMap<String, RoofData> roofs = new HashMap<>();
     public static final DefaultListModel<RoofData> roofsList = new DefaultListModel<>();
     
+    public static final HashMap<String, BorderData> borders = new HashMap<>();
+    public static final DefaultListModel<BorderData> bordersList = new DefaultListModel<>();
+    
     public static final HashMap<String, GameObjectData> objects = new HashMap<>();
     public static final DefaultMutableTreeNode objectsTree = new DefaultMutableTreeNode("Objects");
     

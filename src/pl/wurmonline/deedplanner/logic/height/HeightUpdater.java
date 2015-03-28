@@ -28,7 +28,7 @@ public class HeightUpdater {
     public static ListModel<HeightMode> createListModel() {
         DefaultListModel<HeightMode> model = new DefaultListModel<>();
         
-        model.addElement(new HeightMode("Set height") {
+        model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("SET HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 for (Tile t : getAffectedTiles(tile, frag)) {
@@ -52,7 +52,7 @@ public class HeightUpdater {
         
         
         
-        model.addElement(new HeightMode("Add height") {
+        model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("ADD HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 for (Tile t : getAffectedTiles(tile, frag)) {
@@ -76,7 +76,7 @@ public class HeightUpdater {
         
         
         
-        model.addElement(new HeightMode("Remove height") {
+        model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("REMOVE HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 for (Tile t : getAffectedTiles(tile, frag)) {
@@ -98,7 +98,7 @@ public class HeightUpdater {
             
         });
         
-        model.addElement(new HeightMode("Select height") {
+        model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("SELECT HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 if (frag.isCorner()) {
@@ -117,7 +117,7 @@ public class HeightUpdater {
             
         });
         
-        model.addElement(new HeightMode("Reset height") {
+        model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("RESET HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 for (Tile t : getAffectedTiles(tile, frag)) {
@@ -136,7 +136,7 @@ public class HeightUpdater {
             
         });
         
-        model.addElement(new HeightMode("Smooth height") {
+        model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("SMOOTH HEIGHT")) {
 
             private Tile tile2;
             
@@ -208,7 +208,7 @@ public class HeightUpdater {
             
         });
         
-        model.addElement(new HeightMode("Level area") {
+        model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LEVEL AREA")) {
             
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 if (mouse.released.left) {
@@ -229,7 +229,7 @@ public class HeightUpdater {
             
         });
         
-        model.addElement(new HeightMode("Lift area") {
+        model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LIFT AREA")) {
             
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 if (mouse.released.left || mouse.released.right) {

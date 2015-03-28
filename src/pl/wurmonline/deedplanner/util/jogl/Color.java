@@ -5,7 +5,7 @@ import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.util.*;
 
 public class Color implements XMLSerializable {
-
+    
     public final float r;
     public final float g;
     public final float b;
