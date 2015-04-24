@@ -19,6 +19,7 @@ public class Properties {
     public static String lastDir = HOME;
     
     public static boolean showGrid = true;
+    public static boolean useTranslation = true;
     
     public static int antialiasing = 2;
     

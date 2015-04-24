@@ -17,6 +17,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         keyboardFractionUpSelect.getModel().setValue(Properties.keyboardFractionUp);
         mouseFractionUpSelect.getModel().setValue(Properties.mouseFractionUp);
         showGridBox.setSelected(Properties.showGrid);
+        translationBox.setSelected(Properties.useTranslation);
         scaleUpSelect.getModel().setValue(Properties.scale);
 
         mouseFractionFppSelect.getModel().setValue(Properties.mouseFractionFpp);
@@ -82,6 +83,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         lookCombo = new javax.swing.JComboBox();
         jLabel13 = new javax.swing.JLabel();
+        translationBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
@@ -176,6 +178,10 @@ public class SettingsWindow extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel13.setText(bundle.getString("SettingsWindow.jLabel13.text")); // NOI18N
 
+        translationBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        translationBox.setSelected(true);
+        translationBox.setText(bundle.getString("SettingsWindow.translationBox.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -218,7 +224,7 @@ public class SettingsWindow extends javax.swing.JFrame {
                                 .addComponent(jLabel9)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -233,7 +239,8 @@ public class SettingsWindow extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lookCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel13)))
+                                .addComponent(jLabel13))
+                            .addComponent(translationBox))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -244,7 +251,7 @@ public class SettingsWindow extends javax.swing.JFrame {
                     .addComponent(filler1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(showGridBox)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -294,7 +301,9 @@ public class SettingsWindow extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lookCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13))))))
+                                    .addComponent(jLabel13))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(translationBox)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -307,6 +316,7 @@ public class SettingsWindow extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Properties.showGrid = showGridBox.isSelected();
+        Properties.useTranslation = translationBox.isSelected();
         Properties.keyboardFractionUp = (double) keyboardFractionUpSelect.getModel().getValue();
         Properties.mouseFractionUp = (double) mouseFractionUpSelect.getModel().getValue();
         Properties.scale = (int) scaleUpSelect.getModel().getValue();
@@ -358,5 +368,6 @@ public class SettingsWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner mouseFractionUpSelect;
     private javax.swing.JSpinner scaleUpSelect;
     private javax.swing.JCheckBox showGridBox;
+    private javax.swing.JCheckBox translationBox;
     // End of variables declaration//GEN-END:variables
 }

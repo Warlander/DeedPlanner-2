@@ -1,7 +1,5 @@
 package pl.wurmonline.deedplanner.data;
 
-import com.jogamp.common.nio.Buffers;
-import java.nio.FloatBuffer;
 import java.util.*;
 import java.util.Map.Entry;
 import javax.media.opengl.GL2;
@@ -13,6 +11,11 @@ import pl.wurmonline.deedplanner.util.*;
 
 public final class Tile implements XMLSerializable {
 
+    private static final float[] deformMatrix = new float[] {1, 0, 0, 0,
+                                                             0, 1, 0, 0,
+                                                             0, 0, 1, 0,
+                                                             0, 0, 0, 1};
+    
     private final Map map;
     private final int x;
     private final int y;
@@ -273,11 +276,8 @@ public final class Tile implements XMLSerializable {
     }
     
     private void deform(GL2 g, float scale) {
-        FloatBuffer matrix = (FloatBuffer)Buffers.newDirectFloatBuffer(new float[] {1, 0, scale, 0,
-                                                                                    0, 1, 0, 0,
-                                                                                    0, 0, 1, 0,
-                                                                                    0, 0, 0, 1}).flip();
-        g.glMultMatrixf(matrix);
+        deformMatrix[2] = scale;
+        g.glMultMatrixf(deformMatrix, 0);
     }
     
     public void renderSelection(GL2 g) {

@@ -6,11 +6,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.media.opengl.GL2;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.graphics.texture.TexComplex;
 
@@ -22,14 +19,12 @@ public final class GroundData {
     public final TexComplex tex;
     private Icon icon;
     
-    public final byte noiseStr;
     public final boolean diagonal;
     
-    public GroundData(String name, String shortName, TexComplex tex, byte noiseStr, boolean diagonal) {
+    public GroundData(String name, String shortName, TexComplex tex, boolean diagonal) {
         this.name = name;
         this.shortName = shortName;
         this.tex = tex;
-        this.noiseStr = noiseStr;
         this.diagonal = diagonal;
     }
     

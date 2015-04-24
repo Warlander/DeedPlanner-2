@@ -18,14 +18,12 @@ public final class Mesh {
     private final String vertLoc;
     private int listID = 0;
     private final Tex tex;
-    private final boolean ladder;
     private final float scale;
     
-    public Mesh(String vertLoc, String name, Tex tex, boolean ladder, float scale) {
+    public Mesh(String vertLoc, String name, Tex tex, float scale) {
         this.name = name.toUpperCase();
         this.vertLoc = vertLoc;
         this.tex = tex;
-        this.ladder = ladder;
         this.scale = scale;
     }
     
@@ -35,7 +33,7 @@ public final class Mesh {
         }
         if (listID==0) {
             try {
-                listID = loadMesh(g, new File(vertLoc)).createModel(g, ladder);
+                listID = loadMesh(new File(vertLoc)).createModel(g);
             } catch (ParserConfigurationException | IOException | SAXException | DeedPlannerException ex) {
                 Log.err(ex);
             }
@@ -44,7 +42,7 @@ public final class Mesh {
         g.glCallList(listID);
     }
     
-    private MeshData loadMesh(GL2 g, File location) throws ParserConfigurationException, IOException, SAXException, DeedPlannerException {
+    private MeshData loadMesh(File location) throws ParserConfigurationException, IOException, SAXException, DeedPlannerException {
         MeshData data = new MeshData();
         
         Document doc = XMLUtils.fileToXMLDoc(location);
@@ -82,12 +80,13 @@ public final class Mesh {
         int count = Integer.parseInt(floatContainer.getAttribute("count"));
         String floatsString = floatContainer.getTextContent();
         float[] floats = new float[count];
-        Scanner scan = new Scanner(floatsString);
-        scan.useLocale(Locale.US);
-        int current = 0;
-        while (scan.hasNextFloat()) {
-            floats[current] = scan.nextFloat();
-            current++;
+        try (Scanner scan = new Scanner(floatsString)) {
+            scan.useLocale(Locale.US);
+            int current = 0;
+            while (scan.hasNextFloat()) {
+                floats[current] = scan.nextFloat();
+                current++;
+            }
         }
         String attribute = source.getAttribute("id").toUpperCase();
         if (attribute.contains("POSITION")) {
@@ -106,11 +105,12 @@ public final class Mesh {
         int count = Integer.parseInt(triangles.getAttribute("count"));
         int[] ints = new int[count*9];
         String intsString = intContainer.getTextContent();
-        Scanner scan = new Scanner(intsString);
-        int current = 0;
-        while (scan.hasNextFloat()) {
-            ints[current] = scan.nextInt();
-            current++;
+        try (Scanner scan = new Scanner(intsString)) {
+            int current = 0;
+            while (scan.hasNextFloat()) {
+                ints[current] = scan.nextInt();
+                current++;
+            }
         }
         data.setTriangles(ints);
     }

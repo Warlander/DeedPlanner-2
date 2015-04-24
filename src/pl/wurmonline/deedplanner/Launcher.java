@@ -8,11 +8,6 @@ import pl.wurmonline.deedplanner.util.*;
 public class Launcher {
 
     public static void main(String[] args) {
-        if (Constants.DEBUG) {
-            System.err.println("You are in debug mode");
-            Locale.setDefault(Locale.ENGLISH);
-        }
-        
         try {
             System.setOut(new DoublePrintStream(System.out, new PrintStream("InfoLog.txt")));
             System.setErr(new DoublePrintStream(System.err, new PrintStream("ErrorLog.txt")));
@@ -31,6 +26,9 @@ public class Launcher {
 //        }
         
         Properties.wake();
+        if (!Properties.useTranslation) {
+            Locale.setDefault(Locale.ENGLISH);
+        }
         
         SwingUtils.setLookAndFeel(Properties.lookAndFeel);
         

@@ -9,7 +9,7 @@ import pl.wurmonline.deedplanner.logic.TileFragment;
 
 public class WallUpdater {
 
-    public static WallData currentData = Data.walls.get(0);
+    public static WallData currentData = Data.walls.values().iterator().next();
     
     public static void update(Mouse mouse, Map map, UpCamera cam) {
         TileFragment frag = TileFragment.calculateTileFragment(cam.xTile, cam.yTile);
@@ -53,7 +53,7 @@ public class WallUpdater {
             tile.clearVerticalWalls(Globals.floor);
         }
         else if (frag==TileFragment.E) {
-            map.getTile(tile, 0, 1).clearVerticalWalls(Globals.floor);
+            map.getTile(tile, 1, 0).clearVerticalWalls(Globals.floor);
         }
     }
     

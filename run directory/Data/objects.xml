@@ -331,7 +331,7 @@
 		<floor name="Wooden plank opening" shortname="wOpen">
 			<model location="Data/Floors/Floor_Opening.dae">
 				<mesh name="opening" tex="Data/Floors/floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
 			</model>
 			<opening/>
 			<materials>
@@ -344,7 +344,7 @@
 		<floor name="Stone brick opening" shortname="sbOpen">
 			<model location="Data/Floors/Floor_Opening.dae">
 				<mesh name="opening" tex="Data/Floors/brick_floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
 			</model>
 			<opening/>
 			<materials>
@@ -357,7 +357,7 @@
 		<floor name="Pottery brick opening" shortname="pbOpen">
 			<model location="Data/Floors/Floor_Opening.dae">
 				<mesh name="opening" tex="Data/Floors/clay_brick.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
 			</model>
 			<opening/>
 			<materials>
@@ -370,7 +370,7 @@
 		<floor name="Marble slab opening" shortname="mOpen">
 			<model location="Data/Floors/Floor_Opening.dae">
 				<mesh name="opening" tex="Data/Floors/marble_floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
 			</model>
 			<opening/>
 			<materials>
@@ -383,7 +383,7 @@
 		<floor name="Slate slab opening" shortname="sOpen">
 			<model location="Data/Floors/Floor_Opening.dae">
 				<mesh name="opening" tex="Data/Floors/slate_floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
 			</model>
 			<opening/>
 			<materials>
@@ -396,7 +396,7 @@
 		<floor name="Stone slab opening" shortname="sOpen2">
 			<model location="Data/Floors/Floor_Opening.dae">
 				<mesh name="opening" tex="Data/Floors/slab_floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg" type="ladder"/>
+				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
 			</model>
 			<opening/>
 			<materials>
@@ -568,7 +568,7 @@
 		<wall name="Stone portcullis" shortname="sPort" scale="1" type="house">
 			<model location="Data/Walls/stonewallPortcullis_upper.dae">
 				<mesh name="wall" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png" type="ladder"/>
+				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="0.7"/>
 			<materials>
@@ -666,7 +666,7 @@
 		<wall name="Plain stone portcullis" shortname="psPort" scale="1" type="house">
 			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png" type="ladder"/>
+				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="0.7"/>
 			<materials>
@@ -679,7 +679,7 @@
 		<wall name="Plain stone bars" shortname="psBars" scale="1" type="house">
 			<model location="Data/Walls/PlainStoneWall_bars1_upper.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png" type="ladder"/>
+				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="0.7"/>
 			<materials>
@@ -838,7 +838,7 @@
 		<wall name="Tall stone wall portcullis" shortname="tsPort" scale="1" type="highfence">
 			<model location="Data/Walls/tallStoneWallPortcullis.dae">
 				<mesh name="thewall" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="whhels" tex="Data/Walls/portcullisParts.png" type="ladder"/>
+				<mesh name="whhels" tex="Data/Walls/portcullisParts.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
@@ -930,7 +930,7 @@
 		<wall name="Crude wooden fence gate" shortname="cwFenceG" scale="4" type="lowfence">
 			<model location="Data/Walls/Crude_Gate_Main.dae">
 				<mesh name="posts" tex="Data/Walls/CrudeWoodenFence.jpg"/>
-				<mesh name="gate" tex="Data/Walls/CrudeWoodenFence.jpg" type="ladder"/>
+				<mesh name="gate" tex="Data/Walls/CrudeWoodenFence.jpg"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
@@ -995,7 +995,7 @@
 		<wall name="Wooden fence gate" shortname="wFenceG" scale="2" type="lowfence">
 			<model location="Data/Walls/Wooden_Gate_Main.dae">
 				<mesh name="gatemesh" tex="Data/Walls/WoodenFence.jpg"/>
-				<mesh name="posts" tex="Data/Walls/WoodenFence.jpg" type="ladder"/>
+				<mesh name="posts" tex="Data/Walls/WoodenFence.jpg"/>
 				<mesh name="gate2" tex="Data/Walls/WoodenFence.jpg"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
@@ -1023,7 +1023,7 @@
 		<wall name="Iron fence gate" shortname="iFenceG" scale="2" type="lowfence">
 			<model location="Data/Walls/IronFenceGate_Main.dae">
 				<mesh name="gatemesh" tex="Data/Walls/IronFence.png"/>
-				<mesh name="fence" tex="Data/Walls/IronFence.png" type="ladder"/>
+				<mesh name="fence" tex="Data/Walls/IronFence.png"/>
 			</model>
 			<color type="dec" r="0.5" g="0.5" b="1"/>
 			<materials>
@@ -1325,7 +1325,7 @@
 		<object name="Stone altar" shortname="stAltar" type="normal">
 			<model location="Data/Objects/altar-stone.dae">
 				<mesh name="altar" tex="Data/Objects/altar-stone.jpg"/>
-				<mesh name="bowl" tex="Data/Objects/altar-stone.jpg" type="ladder"/>
+				<mesh name="bowl" tex="Data/Objects/altar-stone.jpg"/>
 			</model>
 			<materials>
 				Clay = 11,
@@ -1720,7 +1720,7 @@
 		<object name="Freedom guard tower" shortname="freeGT" type="centered">
 			<model location="Data/Objects/freedomTower.dae">
 				<mesh name="main" tex="Data/Objects/FreedomTower_D.png"/>
-				<mesh name="detail" tex="Data/Objects/towerdetail.png" type="ladder"/>
+				<mesh name="detail" tex="Data/Objects/towerdetail.png"/>
 			</model>
 			<materials>
 				Clay = 500,
@@ -1883,6 +1883,84 @@
 			</materials>
 			<category>Anvils</category>
 			<category>Materials/Iron</category>
+		</object>
+		
+		<object name="Tapestry of Faeldray" shortname="tFaeldray" type="normal">
+			<model location="Data/Objects/tapestry.dae">
+				<mesh name="tapestry" tex="Data/Objects/TapestryComp1.png"/>
+			</model>
+			<materials>
+				Tapestry stand = 1,
+				Square piece of wool cloth = 8,
+				Yarn = 6
+			</materials>
+			<category>Tapestries</category>
+		</object>
+		<object name="Green tapestry" shortname="tGreen" type="normal">
+			<model location="Data/Objects/tapestry.dae">
+				<mesh name="tapestry" tex="Data/Objects/Tapestry1.png"/>
+			</model>
+			<materials>
+				Tapestry stand = 1,
+				Square piece of wool cloth = 8,
+				Yarn = 6
+			</materials>
+			<category>Tapestries</category>
+		</object>
+		<object name="Beige tapestry" shortname="tBeige" type="normal">
+			<model location="Data/Objects/tapestry.dae">
+				<mesh name="tapestry" tex="Data/Objects/Tapestry2.png"/>
+			</model>
+			<materials>
+				Tapestry stand = 1,
+				Square piece of wool cloth = 8,
+				Yarn = 6
+			</materials>
+			<category>Tapestries</category>
+		</object>
+		<object name="Orange tapestry" shortname="tOrange" type="normal">
+			<model location="Data/Objects/tapestry.dae">
+				<mesh name="tapestry" tex="Data/Objects/Tapestry3.png"/>
+			</model>
+			<materials>
+				Tapestry stand = 1,
+				Square piece of wool cloth = 8,
+				Yarn = 6
+			</materials>
+			<category>Tapestries</category>
+		</object>
+		<object name="Cavalry motif tapestry" shortname="tCavalry" type="normal">
+			<model location="Data/Objects/tapestry.dae">
+				<mesh name="tapestry" tex="Data/Objects/Tapestry4.png"/>
+			</model>
+			<materials>
+				Tapestry stand = 1,
+				Square piece of wool cloth = 8,
+				Yarn = 6
+			</materials>
+			<category>Tapestries</category>
+		</object>
+		<object name="Festivities motif tapestry" shortname="tFestivities" type="normal">
+			<model location="Data/Objects/tapestry.dae">
+				<mesh name="tapestry" tex="Data/Objects/Tapestry5.png"/>
+			</model>
+			<materials>
+				Tapestry stand = 1,
+				Square piece of wool cloth = 8,
+				Yarn = 6
+			</materials>
+			<category>Tapestries</category>
+		</object>
+		<object name="Battle of Kyara tapestry" shortname="tKyara" type="normal">
+			<model location="Data/Objects/tapestry.dae">
+				<mesh name="tapestry" tex="Data/Objects/Tapestry6.png"/>
+			</model>
+			<materials>
+				Tapestry stand = 1,
+				Square piece of wool cloth = 8,
+				Yarn = 6
+			</materials>
+			<category>Tapestries</category>
 		</object>
 		
 		<object name="Gravestone" shortname="graves" type="normal">

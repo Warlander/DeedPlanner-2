@@ -23,14 +23,12 @@ public class Model {
             Element e = (Element) list.item(i);
             String name = e.getAttribute("name");
             String texStr = e.getAttribute("tex");
-            String typeStr = e.getAttribute("type");
-            boolean ladder = typeStr.equals("ladder");
             
             Tex tex = null;
             if (!texStr.isEmpty()) {
                 tex = Tex.getTexture(texStr);
             }
-            meshes[i] = new Mesh(modelLoc, name, tex, ladder, scale);
+            meshes[i] = new Mesh(modelLoc, name, tex, scale);
         }
     }
     

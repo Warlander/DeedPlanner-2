@@ -47,7 +47,6 @@ public final class DataLoader {
             String shortName;
             TexComplex tex = null;
             ArrayList<String[]> categories = new ArrayList<>();
-            byte noiseStr = 0;
             boolean diagonal = false;
             
             Node entity = entities.item(i);
@@ -67,17 +66,13 @@ public final class DataLoader {
                     case "category":
                         categories.add(node.getTextContent().split("/"));
                         break;
-                    case "noise":
-                        String power = node.getAttributes().getNamedItem("power").getNodeValue();
-                        noiseStr = Byte.parseByte(power);
-                        break;
                     case "diagonal":
                         diagonal = true;
                         break;
                 }
             }
             
-            GroundData data = new GroundData(name, shortName, tex, noiseStr, diagonal);
+            GroundData data = new GroundData(name, shortName, tex, diagonal);
             Log.out(DataLoader.class, "Ground data "+data+" loaded and ready to use!");
             Data.grounds.put(shortName, data);
             addToCategories(Data.groundsTree, categories, data, name);
