@@ -47,6 +47,7 @@ public class Label {
                 renderer.draw3D(text, 0, 0, 0, scale);
             renderer.end3DRendering();
         g.glPopMatrix();
+        renderer.dispose();
     }
     
     public void serialize(Document doc, Element root) {
