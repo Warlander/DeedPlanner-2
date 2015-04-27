@@ -24,7 +24,7 @@ public final class Tile implements XMLSerializable {
     private Ground ground;
     private final HashMap<EntityData, TileEntity> entities;
     private Label label;
-    private Label caveLabel;
+    //private Label caveLabel;
     
     public Tile(Map map, int x, int y, Element tile) {
         this.map = map;
@@ -688,17 +688,17 @@ public final class Tile implements XMLSerializable {
         return label;
     }
     
-    void setCaveLabel(Label caveLabel, boolean undo) {
-        Tile oldTile = new Tile(this);
-        this.caveLabel = caveLabel;
-        if (undo) {
-            map.addUndo(this, oldTile);
-        }
-    }
-    
-    public Label getCaveLabel() {
-        return caveLabel;
-    }
+//    void setCaveLabel(Label caveLabel, boolean undo) {
+//        Tile oldTile = new Tile(this);
+//        this.caveLabel = caveLabel;
+//        if (undo) {
+//            map.addUndo(this, oldTile);
+//        }
+//    }
+//    
+//    public Label getCaveLabel() {
+//        return caveLabel;
+//    }
     
     public void setGameObject(GameObjectData data, ObjectLocation location, int floor) {
         setGameObject(data, location, floor, true);

@@ -12,6 +12,8 @@ import pl.wurmonline.deedplanner.util.jogl.Color;
 
 public class Label {
 
+    private int listID;
+    
     private final Font font;
     private final String text;
     private final Color color;
@@ -37,17 +39,24 @@ public class Label {
     }
     
     public void render(GL2 g, Tile tile) {
-        TextRenderer renderer = new TextRenderer(font);
-        Rectangle2D bounds = renderer.getBounds(text);
-        final float scale = Properties.scale*4f/(float)Globals.glWindowHeight;
-        g.glPushMatrix();
-            g.glTranslated(2-(bounds.getWidth()/2)*scale, 2-(bounds.getHeight()/2f)*scale, 0);
-            renderer.setColor(color.toAWTColor());
-            renderer.begin3DRendering();
-                renderer.draw3D(text, 0, 0, 0, scale);
-            renderer.end3DRendering();
-        g.glPopMatrix();
-        renderer.dispose();
+        if (listID==0) {
+            TextRenderer renderer = new TextRenderer(font);
+            Rectangle2D bounds = renderer.getBounds(text);
+            final float scale = Properties.scale*4f/(float)Globals.glWindowHeight;
+            listID = g.glGenLists(1);
+            g.glNewList(listID, GL2.GL_COMPILE);
+                g.glPushMatrix();
+                    g.glTranslated(2-(bounds.getWidth()/2)*scale, 2-(bounds.getHeight()/2f)*scale, 0);
+                    renderer.setColor(color.toAWTColor());
+                    renderer.begin3DRendering();
+                        renderer.draw3D(text, 0, 0, 0, scale);
+                    renderer.end3DRendering();
+                g.glPopMatrix();
+            g.glEndList();
+            renderer.dispose();
+        }
+        
+        g.glCallList(listID);
     }
     
     public void serialize(Document doc, Element root) {
@@ -59,6 +68,13 @@ public class Label {
         
         color.serialize(doc, labelElement);
         root.appendChild(labelElement);
+    }
+    
+    public void dispose(GL2 g) {
+        if (listID!=0) {
+            g.glDeleteLists(listID, 1);
+            listID = 0;
+        }
     }
 
 }
