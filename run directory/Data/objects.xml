@@ -158,6 +158,13 @@
 			<noise power="2"/>
 			<category>Enchanted terrain</category>
 		</ground>
+		<ground name="Lawn" shortname="lw">
+			<tex>
+				<universal season="all" location="Data/GroundTextures/lawn.png"/>
+			</tex>
+			<noise power="2"/>
+			<category>Enchanted terrain</category>
+		</ground>
 		<ground name="Forest mycelium" shortname="fm">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/forest-Mycelium.jpg"/>
@@ -1961,6 +1968,96 @@
 				Yarn = 6
 			</materials>
 			<category>Tapestries</category>
+		</object>
+
+		<object name="Freedom banner" shortname="bFree" type="normal">
+			<model location="Data/Objects/Banner_main.dae">
+				<mesh name="pole" tex="Data/Objects/Pole.png"/>
+				<mesh name="cloth" tex="Data/Objects/Banner4.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+		</object>
+		<object name="JK banner" shortname="bJK" type="normal">
+			<model location="Data/Objects/Banner_main.dae">
+				<mesh name="pole" tex="Data/Objects/Pole.png"/>
+				<mesh name="cloth" tex="Data/Objects/Banner3.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+		</object>
+		<object name="HoTS banner" shortname="bHoTS" type="normal">
+			<model location="Data/Objects/Banner_main.dae">
+				<mesh name="pole" tex="Data/Objects/Pole.png"/>
+				<mesh name="cloth" tex="Data/Objects/Banner2.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+		</object>
+		<object name="MR banner" shortname="bMR" type="normal">
+			<model location="Data/Objects/Banner_main.dae">
+				<mesh name="pole" tex="Data/Objects/Pole.png"/>
+				<mesh name="cloth" tex="Data/Objects/Banner.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+		</object>
+
+		<object name="Freedom flag" shortname="fFree" type="normal">
+			<model location="Data/Objects/Flag_main.dae">
+				<mesh name="pole" tex="Data/Objects/Pole.png"/>
+				<mesh name="flag" tex="Data/Objects/Flag4.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+		</object>
+		<object name="JK flag" shortname="fJK" type="normal">
+			<model location="Data/Objects/Flag_main.dae">
+				<mesh name="pole" tex="Data/Objects/Pole.png"/>
+				<mesh name="flag" tex="Data/Objects/Flag3.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+		</object>
+		<object name="HoTS flag" shortname="fHoTS" type="normal">
+			<model location="Data/Objects/Flag_main.dae">
+				<mesh name="pole" tex="Data/Objects/Pole.png"/>
+				<mesh name="flag" tex="Data/Objects/Flag2.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+		</object>
+		<object name="MR flag" shortname="fMR" type="normal">
+			<model location="Data/Objects/Flag_main.dae">
+				<mesh name="pole" tex="Data/Objects/Pole.png"/>
+				<mesh name="flag" tex="Data/Objects/Flag.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
 		</object>
 		
 		<object name="Gravestone" shortname="graves" type="normal">

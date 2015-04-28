@@ -14,18 +14,14 @@ public class Water {
         g.glNewList(listID, GL2.GL_COMPILE);
             g.glColor4f(1, 1, 1, 0.7f);
             g.glBegin(GL2.GL_QUADS);
-                for (int i=0; i<map.getWidth(); i++) {
-                    for (int i2=0; i2<map.getHeight(); i2++) {
-                        g.glTexCoord2f(0, 0);
-                        g.glVertex3f(i*4, i2*4, -0.01f);
-                        g.glTexCoord2f(1, 0);
-                        g.glVertex3f(i*4+4, i2*4, -0.01f);
-                        g.glTexCoord2f(1, 1);
-                        g.glVertex3f(i*4+4, i2*4+4, -0.01f);
-                        g.glTexCoord2f(0, 1);
-                        g.glVertex3f(i*4, i2*4+4, -0.01f);
-                    }
-                }
+                g.glTexCoord2f(0, 0);
+                g.glVertex3f(0, 0, -0.01f);
+                g.glTexCoord2f(map.getWidth(), 0);
+                g.glVertex3f(map.getWidth()*4, 0, -0.01f);
+                g.glTexCoord2f(map.getWidth(), map.getHeight());
+                g.glVertex3f(map.getWidth()*4, map.getHeight()*4, -0.01f);
+                g.glTexCoord2f(0, map.getHeight());
+                g.glVertex3f(0, map.getHeight()*4, -0.01f);
             g.glEnd();
         g.glEndList();
         
