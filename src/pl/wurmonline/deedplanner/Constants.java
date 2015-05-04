@@ -12,6 +12,5 @@ public class Constants {
     
     public final static String ENTER = System.getProperty("line.separator");
     public final static String VERSION_STRING = "DeedPlanner 2.1.6";
-    public final static int SAVEFILE_VERSION = 1;
     
 }
