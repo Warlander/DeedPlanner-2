@@ -1,0 +1,3 @@
+X11Util.Display: Shutdown (JVM shutdown: true, open (no close attempt): 1/1, reusable (open, marked uncloseable): 0, pending (open in creation order): 1)
+X11Util: Open X11 Display Connections: 1
+X11Util: Open[0]: NamedX11Display[:0, 0x7f2a6c040550, refCount 1, unCloseable false]
