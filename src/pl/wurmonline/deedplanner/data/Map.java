@@ -537,6 +537,7 @@ public final class Map {
         Document doc = dBuilder.newDocument();
         
         Element main = doc.createElement("map");
+        main.setAttribute("saveVersion", Integer.toString(Constants.SAVEFILE_VERSION));
         main.setAttribute("width", Integer.toString(width));
         main.setAttribute("height", Integer.toString(height));
         doc.appendChild(main);

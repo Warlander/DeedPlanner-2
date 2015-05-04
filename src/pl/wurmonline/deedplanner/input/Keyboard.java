@@ -6,18 +6,20 @@ import javax.media.opengl.awt.GLJPanel;
 
 public final class Keyboard implements KeyListener {
     
-    final boolean[] pressed = new boolean[256];
-    final boolean[] hold = new boolean[256];
-    final boolean[] released = new boolean[256];
+    private final int CACHE_SIZE = 1024;
     
-    final boolean[] keysDown = new boolean[256];
+    final boolean[] pressed = new boolean[CACHE_SIZE];
+    final boolean[] hold = new boolean[CACHE_SIZE];
+    final boolean[] released = new boolean[CACHE_SIZE];
+    
+    final boolean[] keysDown = new boolean[CACHE_SIZE];
     
     public Keyboard(GLJPanel panel) {
         panel.addKeyListener(this);
     }
     
     public void update() {
-        for (int i=0; i<256; i++) {
+        for (int i=0; i<CACHE_SIZE; i++) {
             if (keysDown[i]) {
                 if (!pressed[i] && !hold[i]) {
                     pressed[i] = true;
