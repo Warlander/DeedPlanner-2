@@ -421,7 +421,7 @@ public final class Tile implements XMLSerializable {
         }
     }
     
-    private float getHeight(final float xPart, final float yPart) {
+    public float getHeight(final float xPart, final float yPart) {
         final float xPartRev = 1f - xPart;
         final float yPartRev = 1f - yPart;
         
