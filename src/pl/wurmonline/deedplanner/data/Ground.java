@@ -105,15 +105,35 @@ public class Ground implements TileEntity {
         float h10 = (tile.getMap().getTile(tile, 1, 0).getHeight()) / Constants.HEIGHT_MOD;
         float h11 = (tile.getMap().getTile(tile, 1, 1).getHeight()) / Constants.HEIGHT_MOD;
         float h01 = (tile.getMap().getTile(tile, 0, 1).getHeight()) / Constants.HEIGHT_MOD;
-        g.glBegin(GL2.GL_QUADS);
+        float hC = (tile.getHeight(0.5f, 0.5f)) / Constants.HEIGHT_MOD;
+        g.glBegin(GL2.GL_TRIANGLES);
             g.glTexCoord2f(0, 0);
             g.glVertex3f(0, 0, h00);
             g.glTexCoord2f(1, 0);
             g.glVertex3f(4, 0, h10);
+            g.glTexCoord2f(0.5f, 0.5f);
+            g.glVertex3f(2, 2, hC);
+            
+            g.glTexCoord2f(1, 0);
+            g.glVertex3f(4, 0, h10);
+            g.glTexCoord2f(1, 1);
+            g.glVertex3f(4, 4, h11);
+            g.glTexCoord2f(0.5f, 0.5f);
+            g.glVertex3f(2, 2, hC);
+            
             g.glTexCoord2f(1, 1);
             g.glVertex3f(4, 4, h11);
             g.glTexCoord2f(0, 1);
             g.glVertex3f(0, 4, h01);
+            g.glTexCoord2f(0.5f, 0.5f);
+            g.glVertex3f(2, 2, hC);
+            
+            g.glTexCoord2f(0, 1);
+            g.glVertex3f(0, 4, h01);
+            g.glTexCoord2f(0, 0);
+            g.glVertex3f(0, 0, h00);
+            g.glTexCoord2f(0.5f, 0.5f);
+            g.glVertex3f(2, 2, hC);
         g.glEnd();
         
         if (dir!=RoadDirection.CENTER) {
