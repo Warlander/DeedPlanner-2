@@ -58,6 +58,28 @@ public class Planner extends javax.swing.JFrame {
             }
         });
         
+        wallsTree.setCellRenderer(new DefaultTreeCellRenderer() {
+            public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded,boolean leaf, int row, boolean hasFocus) {
+                super.getTreeCellRendererComponent(tree, value, selected,expanded, leaf, row, hasFocus);
+                DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) value;
+                if (tree.getModel().getRoot().equals(nodo)) {
+                    setIcon(null);
+                } else if (nodo.getChildCount() > 0) {
+                    setIcon(null);
+                } else {
+                    DefaultMutableTreeNode node = (DefaultMutableTreeNode) value;
+                    if (node.getUserObject() instanceof WallData) {
+                        WallData data = (WallData) node.getUserObject();
+                        setIcon(data.getIcon());
+                    }
+                    else {
+                        setIcon(null);
+                    }
+                }
+                return this;
+            }
+        });
+        
         TreeCellRenderer defaultRenderer = new DefaultTreeCellRenderer() {
             public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded,boolean leaf, int row, boolean hasFocus) {
                 super.getTreeCellRendererComponent(tree, value, selected,expanded, leaf, row, hasFocus);
@@ -74,7 +96,6 @@ public class Planner extends javax.swing.JFrame {
         };
         
         floorsTree.setCellRenderer(defaultRenderer);
-        wallsTree.setCellRenderer(defaultRenderer);
         objectsTree.setCellRenderer(defaultRenderer);
         
         heightList.setModel(HeightUpdater.createListModel());

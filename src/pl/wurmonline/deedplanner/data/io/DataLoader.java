@@ -136,6 +136,7 @@ public final class DataLoader {
             final boolean arch;
             final boolean archBuildable;
             Model model = null;
+            String iconLocation = null;
             ArrayList<String[]> categories = new ArrayList<>();
             Materials materials = null;
             
@@ -166,10 +167,14 @@ public final class DataLoader {
                         break;
                     case "materials":
                         materials = new Materials(node);
+                        break;
+                    case "icon":
+                        iconLocation = node.getAttributes().getNamedItem("location").getNodeValue();
+                        break;
                 }
             }
                 
-            WallData data = new WallData(model, name, shortName, color, scale, houseWall, arch, archBuildable, materials);
+            WallData data = new WallData(model, name, shortName, color, scale, houseWall, arch, archBuildable, materials, iconLocation);
             Log.out(DataLoader.class, "Wall data "+data+" loaded and ready to use!");
             Data.walls.put(shortName, data);
 

@@ -100,21 +100,21 @@
 			<category>Roads</category>
 		</ground>
 		<ground name="Rough Cobblestone" shortname="rcs">
-            <tex>
-                <universal season="all" location="Data/GroundTextures/cobble2.png"/>
-                <universal season="winter" location="Data/GroundTextures/Winter/cobble2_snow.png"/>
-            </tex>
-            <noise power="1"/>
-            <category>Roads</category>
-        </ground>
-        <ground name="Round Cobblestone" shortname="csr">
-            <tex>
-                <universal season="all" location="Data/GroundTextures/cobble3.png"/>
-                <universal season="winter" location="Data/GroundTextures/Winter/cobble3_snow.png"/>
-            </tex>
-            <noise power="1"/>
-            <category>Roads</category>
-        </ground>
+		    <tex>
+		        <universal season="all" location="Data/GroundTextures/cobble2.png"/>
+		        <universal season="winter" location="Data/GroundTextures/Winter/cobble2_snow.png"/>
+		    </tex>
+		    <noise power="1"/>
+		    <category>Roads</category>
+		</ground>
+		<ground name="Round Cobblestone" shortname="csr">
+		    <tex>
+		        <universal season="all" location="Data/GroundTextures/cobble3.png"/>
+		        <universal season="winter" location="Data/GroundTextures/Winter/cobble3_snow.png"/>
+		    </tex>
+		    <noise power="1"/>
+		    <category>Roads</category>
+		</ground>
 		<ground name="Stone slab" shortname="sl">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/slab.jpg"/>
@@ -436,6 +436,7 @@
 				Planks = 20,
 				Large nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/wood.png"/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -448,6 +449,7 @@
 				Planks = 20,
 				Large nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/wood_window.png"/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -460,6 +462,7 @@
 				Planks = 20,
 				Large nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/wooden_widewindow.png"/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -472,6 +475,7 @@
 				Planks = 20,
 				Large nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/wood_arch.png"/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -484,6 +488,7 @@
 				Planks = 20,
 				Large nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/wood_door.png"/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -496,6 +501,7 @@
 				Planks = 20,
 				Large nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/wooden_canopy.png"/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -508,6 +514,7 @@
 				Planks = 20,
 				Large nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/wood_doubledoor.png"/>
 			<category>House walls</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -521,6 +528,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone-wall.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -533,6 +541,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone-window.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -545,6 +554,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone-arch.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -557,6 +567,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone-door.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -569,6 +580,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone-doubledoor.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -582,6 +594,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone_wall_portcullis_distance.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -594,6 +607,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/House_Stone_Wall_Upper_Oriel1.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -607,6 +621,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone_wall_plain.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -619,6 +634,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone_window_plain.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -631,6 +647,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone_window_narrow_plain.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -643,6 +660,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone_arch_plain.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -655,6 +673,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone_door_plain.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -667,6 +686,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone_doubledoor_plain.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -680,6 +700,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone_wall_plain_portcullis.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -693,6 +714,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/stone_wall_plain_bars1.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -705,6 +727,7 @@
 				Mortar = 20,
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/plain_stone_oriel2.png"/>
 			<category>House walls</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -719,6 +742,7 @@
 				Clay = 20,
 				Mixed grass = 10
 			</materials>
+			<icon location="Data/Walls/Icons/timber_wall.png"/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
@@ -732,6 +756,7 @@
 				Clay = 20,
 				Mixed grass = 10
 			</materials>
+			<icon location="Data/Walls/Icons/timber_window.png"/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
@@ -745,6 +770,7 @@
 				Clay = 20,
 				Mixed grass = 10
 			</materials>
+			<icon location="Data/Walls/Icons/timber_arch.png"/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
@@ -758,6 +784,7 @@
 				Clay = 20,
 				Mixed grass = 10
 			</materials>
+			<icon location="Data/Walls/Icons/timber_door.png"/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
@@ -771,6 +798,7 @@
 				Clay = 20,
 				Mixed grass = 10
 			</materials>
+			<icon location="Data/Walls/Icons/timber_doubledoor.png"/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
@@ -784,6 +812,7 @@
 				Clay = 20,
 				Mixed grass = 10
 			</materials>
+			<icon location="Data/Walls/Icons/timber_jetty.png"/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
@@ -797,6 +826,7 @@
 				Clay = 20,
 				Mixed grass = 10
 			</materials>
+			<icon location="Data/Walls/Icons/timber_balcony.png"/>
 			<category>House walls</category>
 			<category>Materials/Timber</category>
 		</wall>
@@ -806,6 +836,7 @@
 				<mesh name="plan" tex="Data/Walls/wooden.jpg"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
+			<icon location="Data/Walls/Icons/outline.png"/>
 			<category>House walls</category>
 		</wall>
 		
@@ -817,6 +848,7 @@
 			<materials>
 				Rock shards = 10
 			</materials>
+			<icon location="Data/Walls/Icons/lowstone.png"/>
 			<category>Fences</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -828,6 +860,7 @@
 			<materials>
 				Stone bricks = 10
 			</materials>
+			<icon location="Data/Walls/Icons/StoneFence.png"/>
 			<category>Fences</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -839,6 +872,7 @@
 			<materials>
 				Stone bricks = 20
 			</materials>
+			<icon location="Data/Walls/Icons/TallStoneWall.png"/>
 			<category>Fences</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -854,6 +888,7 @@
 				Small wheel = 2,
 				Cordage rope = 1
 			</materials>
+			<icon location="Data/Walls/Icons/TallStoneWallPortCullis.png"/>
 			<category>Fences</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -866,6 +901,7 @@
 			<materials>
 				Felled trees = 10
 			</materials>
+			<icon location="Data/Walls/Icons/palisade.png"/>
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -877,6 +913,7 @@
 			<materials>
 				Felled trees = 10
 			</materials>
+			<icon location="Data/Walls/Icons/palisadeGate.png"/>
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -892,6 +929,7 @@
 				Small nails = 13,
 				Planks = 13
 			</materials>
+			<icon location="Data/Walls/Icons/WoodenParapet.png"/>
 			<category>Parapets</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -904,6 +942,7 @@
 			<materials>
 				Stone bricks = 15
 			</materials>
+			<icon location="Data/Walls/Icons/StoneParapet.png"/>
 			<category>Parapets</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -917,6 +956,7 @@
 				Stone bricks = 14,
 				Iron fence bars = 1
 			</materials>
+			<icon location="Data/Walls/Icons/IronFence.png"/>
 			<category>Parapets</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -931,6 +971,7 @@
 				Planks = 2,
 				Small nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/CrudeFence.png"/>
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -945,6 +986,7 @@
 				Planks = 2,
 				Small nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/CrudeFenceGate.png"/>
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -958,6 +1000,7 @@
 				Shafts = 4,
 				Small nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/LowShaft.png"/>
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -970,6 +1013,7 @@
 				Shafts = 4,
 				Small nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/ShaftGate.png"/>
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -982,6 +1026,7 @@
 				Shafts = 4,
 				Small nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/HighShaft.png"/>
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -996,6 +1041,7 @@
 				Planks = 2,
 				Small nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/wooden-fence-distance.png"/>
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -1011,6 +1057,7 @@
 				Planks = 2,
 				Small nails = 1
 			</materials>
+			<icon location="Data/Walls/Icons/wooden-gate-distance.png"/>
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
@@ -1024,6 +1071,7 @@
 				Stone bricks = 9,
 				Iron fence bars = 1
 			</materials>
+			<icon location="Data/Walls/Icons/IronFence.png"/>
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
@@ -1037,6 +1085,7 @@
 				Stone bricks = 9,
 				Iron fence bars = 1
 			</materials>
+			<icon location="Data/Walls/Icons/IronFence_Gate.png"/>
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
@@ -1049,6 +1098,7 @@
 				Stone bricks = 16,
 				Iron fence bars = 2
 			</materials>
+			<icon location="Data/Walls/Icons/HighIron.png"/>
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
@@ -1061,6 +1111,7 @@
 				Stone bricks = 16,
 				Iron fence bars = 2
 			</materials>
+			<icon location="Data/Walls/Icons/HighIronGate.png"/>
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
@@ -1073,6 +1124,7 @@
 				Stone bricks = 10,
 				Large chain links = 6
 			</materials>
+			<icon location="Data/Walls/Icons/ChainMediumFence.png"/>
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
@@ -1085,6 +1137,7 @@
 			<materials>
 				Rock shards = 6
 			</materials>
+			<icon location="Data/Walls/Icons/CurbFence.png"/>
 			<category>Decorations</category>
 			<category>Materials/Stone</category>
 		</wall>
@@ -1098,6 +1151,7 @@
 				Shafts = 2,
 				Ropes = 2
 			</materials>
+			<icon location="Data/Walls/Icons/LowRope.png"/>
 			<category>Fences</category>
 			<category>Materials/Rope</category>
 		</wall>
@@ -1110,6 +1164,7 @@
 				Shafts = 2,
 				Ropes = 4
 			</materials>
+			<icon location="Data/Walls/Icons/HighRope.png"/>
 			<category>Fences</category>
 			<category>Materials/Rope</category>
 		</wall>
@@ -1119,6 +1174,7 @@
 				<mesh name="hedge" tex="Data/Walls/Hedge01.png"/>
 			</model>
 			<color type="dec" r="0.5" g="0.5" b="0.5"/>
+			<icon location="Data/Walls/Icons/Hedge01_High.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Medium hedge" shortname="mHedge" scale="1" type="highfence">
@@ -1126,6 +1182,7 @@
 				<mesh name="hedge" tex="Data/Walls/Hedge01.png"/>
 			</model>
 			<color type="dec" r="0.6" g="0.6" b="0.6"/>
+			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Low hedge" shortname="lHedge" scale="1" type="highfence">
@@ -1133,6 +1190,7 @@
 				<mesh name="hedge" tex="Data/Walls/Hedge01.png"/>
 			</model>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Lavender hedge" shortname="llHedge" scale="1" type="highfence">
@@ -1140,6 +1198,7 @@
 				<mesh name="hedge" tex="Data/Walls/LavenderHedge.png"/>
 			</model>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<icon location="Data/Walls/Icons/LavenderHedge_low.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="High maple hedge" shortname="hmHedge" scale="1" type="highfence">
@@ -1147,6 +1206,7 @@
 				<mesh name="maple" tex="Data/Walls/MapleHedgeSummer.png"/>
 			</model>
 			<color type="dec" r="0.5" g="0.5" b="0.5"/>
+			<icon location="Data/Walls/Icons/MapleHedge_High.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Medium maple hedge" shortname="mmHedge" scale="1" type="highfence">
@@ -1154,6 +1214,7 @@
 				<mesh name="maple" tex="Data/Walls/MapleHedgeSummer.png"/>
 			</model>
 			<color type="dec" r="0.6" g="0.6" b="0.6"/>
+			<icon location="Data/Walls/Icons/MapleHedge_Medium.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Low maple hedge" shortname="lmHedge" scale="1" type="highfence">
@@ -1161,6 +1222,7 @@
 				<mesh name="maple" tex="Data/Walls/MapleHedgeSummer.png"/>
 			</model>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<icon location="Data/Walls/Icons/MapleHedge_Low.png"/>
 			<category>Hedges</category>
 		</wall>
 		
@@ -1169,6 +1231,7 @@
 				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
+			<icon location="Data/Walls/Icons/FlowerbedBlue.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Dotted flowerbed" shortname="dFlowerbed" scale="1" type="highfence">
@@ -1176,6 +1239,7 @@
 				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
+			<icon location="Data/Walls/Icons/FlowerbedDotted.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Greenish flowerbed" shortname="gFlowerbed" scale="1" type="highfence">
@@ -1183,6 +1247,7 @@
 				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
+			<icon location="Data/Walls/Icons/FlowerbedGreenish.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Orange flowerbed" shortname="oFlowerbed" scale="1" type="highfence">
@@ -1190,6 +1255,7 @@
 				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
+			<icon location="Data/Walls/Icons/FlowerbedOrange.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Purple flowerbed" shortname="pFlowerbed" scale="1" type="highfence">
@@ -1197,6 +1263,7 @@
 				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
+			<icon location="Data/Walls/Icons/FlowerbedPurple.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="White flowerbed" shortname="wFlowerbed" scale="1" type="highfence">
@@ -1204,6 +1271,7 @@
 				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
+			<icon location="Data/Walls/Icons/FlowerbedWhite.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Yellow flowerbed" shortname="yFlowerbed" scale="1" type="highfence">
@@ -1211,6 +1279,7 @@
 				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
+			<icon location="Data/Walls/Icons/FlowerbedYellow.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 	</walls>
@@ -1868,8 +1937,13 @@
 			<model location="Data/Objects/campfire.dae">
 				<mesh name="campfire" tex="Data/Objects/Campfire_unlit.jpg"/>
 			</model>
+			<materials>
+				Kindlings = 1
+			</materials>
 			<category>Fires</category>
 		</object>
+
+		
 		
 		<object name="Large anvil" shortname="lAnvil" type="normal">
 			<model location="Data/Objects/Anvil_large.dae">
