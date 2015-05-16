@@ -7,16 +7,26 @@ import javax.swing.JPanel;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.MainLoop;
 import pl.wurmonline.deedplanner.data.RoadDirection;
+import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class DiagonalPanel extends JPanel implements MouseListener {
     
     private final Planner planner;
     
     private final Rectangle2D.Float fullRect = new Rectangle.Float(10, 10, 50, 50);
+    private final Point.Float fullRectStrPos = new Point.Float(35, 35);
+    
     private final Rectangle2D.Float nw = new Rectangle.Float(70, 10, 20, 20);
+    private final Point.Float nwStrPos = new Point.Float(80, 20);
+    
     private final Rectangle2D.Float ne = new Rectangle.Float(100, 10, 20, 20);
+    private final Point.Float neStrPos = new Point.Float(110, 20);
+    
     private final Rectangle2D.Float sw = new Rectangle.Float(70, 40, 20, 20);
+    private final Point.Float swStrPos = new Point.Float(80, 50);
+    
     private final Rectangle2D.Float se = new Rectangle.Float(100, 40, 20, 20);
+    private final Point.Float seStrPos = new Point.Float(110, 50);
     
     public DiagonalPanel() {
         planner = null;
@@ -47,6 +57,14 @@ public class DiagonalPanel extends JPanel implements MouseListener {
         fill(g2, ne, RoadDirection.NE);
         fill(g2, sw, RoadDirection.SW);
         fill(g2, se, RoadDirection.SE);
+        
+        g2.setFont(Font.decode("Arial-10"));
+        g2.setColor(Color.black);
+        SwingUtils.drawCenteredString(g, "CENTER", (int) fullRectStrPos.x, (int) fullRectStrPos.y);
+        SwingUtils.drawCenteredString(g, "NW", (int) nwStrPos.x, (int) nwStrPos.y);
+        SwingUtils.drawCenteredString(g, "NE", (int) neStrPos.x, (int) neStrPos.y);
+        SwingUtils.drawCenteredString(g, "SW", (int) swStrPos.x, (int) swStrPos.y);
+        SwingUtils.drawCenteredString(g, "SE", (int) seStrPos.x, (int) seStrPos.y);
     }
     
     private void fill(Graphics2D g, Rectangle2D.Float rect, RoadDirection dir) {

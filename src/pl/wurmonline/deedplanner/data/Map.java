@@ -279,8 +279,9 @@ public final class Map {
         int y = scan.nextInt();
         int z = scan.nextInt();
         String shortName = scan.next();
-        FloorData floor = Data.floors.get(shortName);
-        if (floor!=null) {
+        FloorData floorData = Data.floors.get(shortName);
+        if (floorData!=null) {
+            Floor floor = new Floor(floorData);
             tiles[x][z].setTileContent(floor, y, false);
             return;
         }

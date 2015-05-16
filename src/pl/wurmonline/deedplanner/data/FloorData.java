@@ -1,11 +1,10 @@
 package pl.wurmonline.deedplanner.data;
 
-import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.util.jogl.Model;
 
-public final class FloorData implements TileEntity {
+public final class FloorData {
 
     public final Model model;
     public final String name;
@@ -29,20 +28,6 @@ public final class FloorData implements TileEntity {
         else {
             this.materials = new Materials();
         }
-    }
-    
-    public void render(GL2 g, Tile tile) {
-        model.render(g);
-    }
-    
-    public FloorData deepCopy() {
-        return this;
-    }
-    
-    public void serialize(Document doc, Element root) {
-        Element floor = doc.createElement("Floor");
-        floor.setAttribute("id", shortName);
-        root.appendChild(floor);
     }
     
     public Materials getMaterials() {

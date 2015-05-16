@@ -1,6 +1,7 @@
 package pl.wurmonline.deedplanner.util;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import pl.wurmonline.deedplanner.Launcher;
@@ -37,6 +38,14 @@ public class SwingUtils {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Launcher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void drawCenteredString(Graphics g, String str, int x, int y) {
+        FontMetrics metrics = g.getFontMetrics(g.getFont());
+        Rectangle2D rect = metrics.getStringBounds(str, g);
+        int w = (int)(rect.getWidth());
+        int h = (int)(rect.getHeight());
+        g.drawString(str, x-w/2, y+h/2);
     }
     
 }

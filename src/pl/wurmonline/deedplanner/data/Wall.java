@@ -17,14 +17,9 @@ public class Wall implements TileEntity {
         this.reversed = wall.getAttribute("reversed").equals("true");
     }
     
-    public Wall(WallData data) {
+    public Wall(WallData data, boolean reversed) {
         this.data = data;
-        if (data.houseWall) {
-            this.reversed = Globals.reverseWall;
-        }
-        else {
-            this.reversed = false;
-        }
+        this.reversed = reversed;
     }
     
     public void render(GL2 g, Tile tile) {
@@ -39,7 +34,7 @@ public class Wall implements TileEntity {
     }
     
     public Wall deepCopy() {
-        return new Wall(data);
+        return new Wall(data, reversed);
     }
     
     public void serialize(Document doc, Element root) {

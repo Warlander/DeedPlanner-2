@@ -6,7 +6,6 @@
 				<universal season="fall" location="Data/GroundTextures/Fall/grass_fall.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/Winter/winter-grass.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Dirt" shortname="di">
@@ -15,7 +14,6 @@
 				<universal season="fall" location="Data/GroundTextures/Fall/dirt_fall.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/Winter/winter-dirt.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Packed dirt" shortname="pd">
@@ -24,7 +22,6 @@
 				<universal season="fall" location="Data/GroundTextures/Fall/packed_dirt_fall.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/Winter/winter-packed-dirt.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Sand" shortname="sa">
@@ -33,21 +30,18 @@
 				<universal season="fall" location="Data/GroundTextures/Fall/sand_fall.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/Winter/winter-sand.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Water" shortname="wa">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/water.png"/>
 			</tex>
-			<noise power="0"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Forest" shortname="fo">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/forest.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Marsh" shortname="ma">
@@ -55,21 +49,18 @@
 				<universal season="all" location="Data/GroundTextures/marsh.png"/>
 				<universal season="winter" location="Data/GroundTextures/winter-marsh.png"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Steppe" shortname="st">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/steppe.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Tundra" shortname="tu">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/tundra.png"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Field" shortname="fi">
@@ -77,7 +68,6 @@
 				<universal season="all" location="Data/GroundTextures/farm.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/Winter/winter-farm.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Gravel" shortname="gv">
@@ -86,7 +76,6 @@
 				<universal season="fall" location="Data/GroundTextures/Fall/gravel_fall.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/Winter/winter-gravel.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
@@ -95,7 +84,6 @@
 				<universal season="all" location="Data/GroundTextures/cobble.png"/>
 				<universal season="winter" location="Data/GroundTextures/Winter/winter-cobble.png"/>
 			</tex>
-			<noise power="1"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
@@ -104,7 +92,6 @@
 		        <universal season="all" location="Data/GroundTextures/cobble2.png"/>
 		        <universal season="winter" location="Data/GroundTextures/Winter/cobble2_snow.png"/>
 		    </tex>
-		    <noise power="1"/>
 		    <category>Roads</category>
 		</ground>
 		<ground name="Round Cobblestone" shortname="csr">
@@ -112,7 +99,6 @@
 		        <universal season="all" location="Data/GroundTextures/cobble3.png"/>
 		        <universal season="winter" location="Data/GroundTextures/Winter/cobble3_snow.png"/>
 		    </tex>
-		    <noise power="1"/>
 		    <category>Roads</category>
 		</ground>
 		<ground name="Stone slab" shortname="sl">
@@ -120,91 +106,78 @@
 				<universal season="all" location="Data/GroundTextures/slab.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/Winter/winter-slab.jpg"/>
 			</tex>
-			<noise power="0"/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Marble slab" shortname="msl">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/marbleslab.jpg"/>
 			</tex>
-			<noise power="0"/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Slate slab" shortname="ssl">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/slateslab.jpg"/>
 			</tex>
-			<noise power="0"/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Planks" shortname="pl">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/planks.png"/>
 			</tex>
-			<noise power="0"/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Enchanted forest" shortname="ef">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/enchantedforest.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Enchanted terrain</category>
 		</ground>
 		<ground name="Enchanted grass" shortname="eg">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/enchantedgrass.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Enchanted terrain</category>
 		</ground>
 		<ground name="Lawn" shortname="lw">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/lawn.png"/>
 			</tex>
-			<noise power="2"/>
 			<category>Enchanted terrain</category>
 		</ground>
 		<ground name="Forest mycelium" shortname="fm">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/forest-Mycelium.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Infected terrain</category>
 		</ground>
 		<ground name="Mycelium" shortname="my">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/mycelium.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Infected terrain</category>
 		</ground>
 		<ground name="Wooden cave door" shortname="wcaDoor">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/door-wood.png"/>
 			</tex>
-			<noise power="0"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Metal cave door" shortname="mcaDoor">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/door-metal.png"/>
 			</tex>
-			<noise power="0"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Silver cave door" shortname="scaDoor">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/door-silver.png"/>
 			</tex>
-			<noise power="0"/>
 			<category>Cave doors</category>
 		</ground>
-		<ground name="Golder cave door" shortname="gcaDoor">
+		<ground name="Golden cave door" shortname="gcaDoor">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/door-gold.png"/>
 			</tex>
-			<noise power="0"/>
 			<category>Cave doors</category>
 		</ground>
 		
@@ -213,7 +186,6 @@
 				<universal season="all" location="Data/GroundTextures/rock.jpg"/>
 				<universal season="fall" location="Data/GroundTextures/Fall/rock_fall.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain/Mountain</category>
 		</ground>
 		<ground name="Cliff" shortname="cl">
@@ -221,21 +193,18 @@
 				<universal season="all" location="Data/GroundTextures/cliff.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/winter-cliff.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain/Mountain</category>
 		</ground>
 		<ground name="Lava" shortname="la">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/lava.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain/Mountain</category>
 		</ground>
 		<ground name="Clay" shortname="cy">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/clay.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 		<ground name="Moss" shortname="mo">
@@ -243,7 +212,6 @@
 				<universal season="all" location="Data/GroundTextures/moss.png"/>
 				<universal season="winter" location="Data/GroundTextures/winter-moss.png"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 		<ground name="Peat" shortname="pe">
@@ -251,14 +219,12 @@
 				<universal season="all" location="Data/GroundTextures/peat.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/winter-peat.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 		<ground name="Tar" shortname="ta">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/tar.jpg"/>
 			</tex>
-			<noise power="2"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 	</grounds>
@@ -411,6 +377,107 @@
 				Mortar = 10
 			</materials>
 			<category>Openings</category>
+			<category>Materials/Stone slab</category>
+		</floor>
+		
+		<floor name="Wooden plank staircase" shortname="wStair">
+			<model location="Data/Floors/Staircase.dae">
+				<mesh name="floor" tex="Data/Floors/floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 20,
+				Shafts = 10,
+				Small nails = 2,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Wooden plank</category>
+		</floor>
+		<floor name="Stone brick staircase" shortname="sbStair">
+			<model location="Data/Floors/Staircase.dae">
+				<mesh name="floor" tex="Data/Floors/brick_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Stone bricks = 5,
+				Mortar = 5,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Stone brick</category>
+		</floor>
+		<floor name="Pottery brick staircase" shortname="pbStair">
+			<model location="Data/Floors/Staircase.dae">
+				<mesh name="floor" tex="Data/Floors/clay_brick.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Pottery bricks = 5,
+				Mortar = 5,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Pottery brick</category>
+		</floor>
+		<floor name="Marble slab staircase" shortname="mStair">
+			<model location="Data/Floors/Staircase.dae">
+				<mesh name="floor" tex="Data/Floors/marble_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Marble slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Marble slab</category>
+		</floor>
+		<floor name="Slate slab staircase" shortname="sStair">
+			<model location="Data/Floors/Staircase.dae">
+				<mesh name="floor" tex="Data/Floors/slate_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Slate slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Slate slab</category>
+		</floor>
+		<floor name="Stone slab staircase" shortname="sStair2">
+			<model location="Data/Floors/Staircase.dae">
+				<mesh name="floor" tex="Data/Floors/slab_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Stone slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
 			<category>Materials/Stone slab</category>
 		</floor>
 		
@@ -1342,6 +1409,13 @@
 			</materials>
 			<category>Containers</category>
 			<category>Materials/Wood</category>
+		</object>
+		<object name="Large magic chest" shortname="lmChest" type="normal">
+			<model location="Data/Objects/magic_chest.dae">
+				<mesh name="magicchest" tex="Data/Objects/magic_chest.jpg"/>
+				<mesh name="glow" tex="Data/Objects/shine.png"/>
+			</model>
+			<category>Containers</category>
 		</object>
 		<object name="Large crate" shortname="lCrate" type="normal">
 			<model location="Data/Objects/crateLarge.dae">

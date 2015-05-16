@@ -26,7 +26,14 @@ public class FloorUpdater {
                         if (currentData.opening && Globals.floor==0) {
                             return;
                         }
-                        tile.setTileContent(currentData, Globals.floor);
+                        Floor floor;
+                        if (currentData==null) {
+                            floor = null;
+                        }
+                        else {
+                            floor = new Floor(currentData, Globals.floorOrientation);
+                        }
+                        tile.setTileContent(floor, Globals.floor);
                     }
                 }
                 else if (mouse.hold.right) {

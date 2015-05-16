@@ -6,6 +6,7 @@ import javax.swing.JComponent;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.logic.TileFragment;
+import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class HeightShow extends JComponent {
 
@@ -39,7 +40,7 @@ public class HeightShow extends JComponent {
             drawHeightString(g, tile, tile.getMap().getTile(tile, -1, 0), 10, 35);
             String heightStr = Integer.toString(tile.getHeight());
             g.setFont(boldFont);
-            drawCenteredString(g, heightStr, 35, 35);
+            SwingUtils.drawCenteredString(g, heightStr, 35, 35);
             g.setFont(basicFont);
             drawHeightString(g, tile, tile.getMap().getTile(tile, 1, 0), 60, 35);
             
@@ -57,15 +58,7 @@ public class HeightShow extends JComponent {
         int heightDiff = diff.getHeight()-main.getHeight();
         String heightStr = Integer.toString(heightDiff);
         
-        drawCenteredString(g, heightStr, x, y);
-    }
-    
-    private void drawCenteredString(Graphics g, String str, int x, int y) {
-        FontMetrics metrics = g.getFontMetrics(g.getFont());
-        Rectangle2D rect = metrics.getStringBounds(str, g);
-        int w = (int)(rect.getWidth());
-        int h = (int)(rect.getHeight());
-        g.drawString(str, x-w/2, y+h/2);
+        SwingUtils.drawCenteredString(g, heightStr, x, y);
     }
     
 }

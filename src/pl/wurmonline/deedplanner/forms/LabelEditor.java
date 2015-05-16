@@ -4,7 +4,6 @@ import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import javax.swing.*;
 import pl.wurmonline.deedplanner.data.*;
-import pl.wurmonline.deedplanner.logic.LogicLoop;
 import pl.wurmonline.deedplanner.logic.TileSelection;
 import pl.wurmonline.deedplanner.util.FontWrapper;
 import pl.wurmonline.deedplanner.util.jogl.Color;

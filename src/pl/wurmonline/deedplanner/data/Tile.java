@@ -49,7 +49,7 @@ public final class Tile implements XMLSerializable {
                 Element entity = (Element) childNodes.item(i2);
                 switch (entity.getNodeName().toLowerCase()) {
                     case "floor":
-                        entities.put(new EntityData(floor, EntityType.FLOORROOF), FloorData.get(entity));
+                        entities.put(new EntityData(floor, EntityType.FLOORROOF), new Floor(entity));
                         break;
                     case "hwall":
                         Wall hwall = new Wall(entity);
@@ -511,10 +511,23 @@ public final class Tile implements XMLSerializable {
         final Wall currentWall = (Wall) entities.get(wallEntity);
         final Wall currentFence = (Wall) entities.get(fenceEntity);
         
-        if (!(new Wall(wall).equals(entities.get(entityData)))) {
+        boolean reversed;
+        if (wall!=null && wall.houseWall) {
+            if (Globals.autoReverseWall) {
+                reversed = getTileContent(level)!=null && map.getTile(this, 0, -1).getTileContent(level)==null;
+            }
+            else {
+                reversed = Globals.reverseWall;
+            }
+        }
+        else {
+            reversed = false;
+        }
+        
+        if (!(new Wall(wall, reversed).equals(entities.get(entityData)))) {
             Tile oldTile = new Tile(this);
             if (wall!=null) {
-                entities.put(entityData, new Wall(wall));
+                entities.put(entityData, new Wall(wall, reversed));
                 if (wall.houseWall && !(wall.arch && currentFence!=null && currentFence.data.archBuildable)) {
                     entities.remove(fenceEntity);
                 }
@@ -579,10 +592,23 @@ public final class Tile implements XMLSerializable {
         final Wall currentWall = (Wall) entities.get(wallEntity);
         final Wall currentFence = (Wall) entities.get(fenceEntity);
         
-        if (!(new Wall(wall).equals(entities.get(entityData)))) {
+        boolean reversed;
+        if (wall!=null && wall.houseWall) {
+            if (Globals.autoReverseWall) {
+                reversed = getTileContent(level)==null && map.getTile(this, -1, 0).getTileContent(level)!=null;
+            }
+            else {
+                reversed = Globals.reverseWall;
+            }
+        }
+        else {
+            reversed = false;
+        }
+        
+        if (!(new Wall(wall, reversed).equals(entities.get(entityData)))) {
             Tile oldTile = new Tile(this);
             if (wall!=null) {
-                entities.put(entityData, new Wall(wall));
+                entities.put(entityData, new Wall(wall, reversed));
                 if (wall.houseWall && !(wall.arch && currentFence!=null && currentFence.data.archBuildable)) {
                     entities.remove(fenceEntity);
                 }

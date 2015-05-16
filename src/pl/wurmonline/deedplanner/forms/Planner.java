@@ -161,10 +161,13 @@ public class Planner extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         floorsTree = new javax.swing.JTree();
         floorsModeCombo = new javax.swing.JComboBox();
+        floorOrientationBox = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
         wallsPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         wallsTree = new javax.swing.JTree();
         wallReversedBox = new javax.swing.JCheckBox();
+        wallReversedAutoBox = new javax.swing.JCheckBox();
         roofsPanel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         roofsList = new javax.swing.JList();
@@ -429,19 +432,39 @@ public class Planner extends javax.swing.JFrame {
             }
         });
 
+        floorOrientationBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorOrientationBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Up", "Left", "Down", "Right" }));
+        floorOrientationBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorOrientationBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText(bundle.getString("Planner.jLabel6.text")); // NOI18N
+
         javax.swing.GroupLayout floorsPanelLayout = new javax.swing.GroupLayout(floorsPanel);
         floorsPanel.setLayout(floorsPanelLayout);
         floorsPanelLayout.setHorizontalGroup(
             floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
             .addComponent(floorsModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(floorOrientationBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         floorsPanelLayout.setVerticalGroup(
             floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
                 .addComponent(floorsModeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE))
+                .addGroup(floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(floorOrientationBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.floorsPanel.TabConstraints.tabTitle"), floorsPanel); // NOI18N
@@ -464,21 +487,32 @@ public class Planner extends javax.swing.JFrame {
             }
         });
 
+        wallReversedAutoBox.setSelected(true);
+        wallReversedAutoBox.setText(bundle.getString("Planner.wallReversedAutoBox.text")); // NOI18N
+        wallReversedAutoBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wallReversedAutoBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout wallsPanelLayout = new javax.swing.GroupLayout(wallsPanel);
         wallsPanel.setLayout(wallsPanelLayout);
         wallsPanelLayout.setHorizontalGroup(
             wallsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+            .addComponent(jScrollPane4)
             .addGroup(wallsPanelLayout.createSequentialGroup()
                 .addComponent(wallReversedBox)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(wallReversedAutoBox, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
         );
         wallsPanelLayout.setVerticalGroup(
             wallsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, wallsPanelLayout.createSequentialGroup()
                 .addComponent(wallReversedBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
+                .addComponent(wallReversedAutoBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.wallsPanel.TabConstraints.tabTitle"), wallsPanel); // NOI18N
@@ -989,6 +1023,27 @@ public class Planner extends javax.swing.JFrame {
         BorderUpdater.currentData = (BorderData) bordersList.getSelectedValue();
     }//GEN-LAST:event_bordersListValueChanged
 
+    private void floorOrientationBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorOrientationBoxActionPerformed
+        switch((String) floorOrientationBox.getSelectedItem()) {
+            case "Up":
+                Globals.floorOrientation = FloorOrientation.UP;
+                break;
+            case "Left":
+                Globals.floorOrientation = FloorOrientation.LEFT;
+                break;
+            case "Down":
+                Globals.floorOrientation = FloorOrientation.DOWN;
+                break;
+            case "Right":
+                Globals.floorOrientation = FloorOrientation.RIGHT;
+                break;
+        }
+    }//GEN-LAST:event_floorOrientationBoxActionPerformed
+
+    private void wallReversedAutoBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wallReversedAutoBoxActionPerformed
+        Globals.autoReverseWall = wallReversedAutoBox.isSelected();
+    }//GEN-LAST:event_wallReversedAutoBoxActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JList bordersList;
@@ -998,6 +1053,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem elevationOffItem;
     private javax.swing.JRadioButtonMenuItem elevationOnItem;
     private javax.swing.JRadioButtonMenuItem fallItem;
+    private javax.swing.JComboBox floorOrientationBox;
     private javax.swing.JComboBox floorsModeCombo;
     private javax.swing.JPanel floorsPanel;
     private javax.swing.JTree floorsTree;
@@ -1015,6 +1071,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
@@ -1057,6 +1114,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenuItem undoItem;
     private javax.swing.JRadioButtonMenuItem upViewItem;
     private javax.swing.ButtonGroup viewGroup;
+    private javax.swing.JCheckBox wallReversedAutoBox;
     private javax.swing.JCheckBox wallReversedBox;
     private javax.swing.ButtonGroup wallsGroup;
     private javax.swing.JPanel wallsPanel;

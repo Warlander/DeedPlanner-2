@@ -1,5 +1,6 @@
 package pl.wurmonline.deedplanner;
 
+import pl.wurmonline.deedplanner.data.FloorOrientation;
 import pl.wurmonline.deedplanner.data.RoadDirection;
 import pl.wurmonline.deedplanner.graphics.texture.Season;
 import pl.wurmonline.deedplanner.logic.Tab;
@@ -11,9 +12,11 @@ public class Globals {
     public static boolean renderHeight = false;
     
     public static boolean reverseWall = false;
+    public static boolean autoReverseWall = true;
     
     public static int season = Season.SUMMER;
     public static RoadDirection roadDirection = RoadDirection.CENTER;
+    public static FloorOrientation floorOrientation = FloorOrientation.UP;
     public static Tab tab = Tab.ground;
     
     public static int floor = 0;
