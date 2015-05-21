@@ -97,6 +97,7 @@ public class Planner extends javax.swing.JFrame {
         
         floorsTree.setCellRenderer(defaultRenderer);
         objectsTree.setCellRenderer(defaultRenderer);
+        cavesTree.setCellRenderer(defaultRenderer);
         
         heightList.setModel(HeightUpdater.createListModel());
         heightList.setSelectedIndex(0);
@@ -178,6 +179,9 @@ public class Planner extends javax.swing.JFrame {
         bordersPanel = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         bordersList = new javax.swing.JList();
+        cavesPanel = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        cavesTree = new javax.swing.JTree();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -245,7 +249,7 @@ public class Planner extends javax.swing.JFrame {
         );
 
         jSpinner4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jSpinner4.setModel(new javax.swing.SpinnerNumberModel(1, 1, 17, 1));
+        jSpinner4.setModel(new javax.swing.SpinnerNumberModel(1, 0, 17, 1));
         jSpinner4.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner4StateChanged(evt);
@@ -265,7 +269,6 @@ public class Planner extends javax.swing.JFrame {
         groundsTree.setModel(new DefaultTreeModel(Data.groundsTree));
         groundsTree.setCellRenderer(null);
         groundsTree.setRootVisible(false);
-        groundsTree.setShowsRootHandles(true);
         groundsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 groundsTreeValueChanged(evt);
@@ -308,7 +311,7 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(groundModeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.groundPanel.TabConstraints.tabTitle"), groundPanel); // NOI18N
@@ -409,7 +412,7 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.heightPanel.TabConstraints.tabTitle"), heightPanel); // NOI18N
@@ -417,7 +420,6 @@ public class Planner extends javax.swing.JFrame {
         floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
         floorsTree.setRootVisible(false);
-        floorsTree.setShowsRootHandles(true);
         floorsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 floorsTreeValueChanged(evt);
@@ -464,7 +466,7 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(floorOrientationBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.floorsPanel.TabConstraints.tabTitle"), floorsPanel); // NOI18N
@@ -472,7 +474,6 @@ public class Planner extends javax.swing.JFrame {
         wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
         wallsTree.setRootVisible(false);
-        wallsTree.setShowsRootHandles(true);
         wallsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 wallsTreeValueChanged(evt);
@@ -503,7 +504,7 @@ public class Planner extends javax.swing.JFrame {
             .addGroup(wallsPanelLayout.createSequentialGroup()
                 .addComponent(wallReversedBox)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(wallReversedAutoBox, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+            .addComponent(wallReversedAutoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         wallsPanelLayout.setVerticalGroup(
             wallsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -512,7 +513,7 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(wallReversedAutoBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.wallsPanel.TabConstraints.tabTitle"), wallsPanel); // NOI18N
@@ -540,7 +541,7 @@ public class Planner extends javax.swing.JFrame {
         );
         roofsPanelLayout.setVerticalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.roofsPanel.TabConstraints.tabTitle"), roofsPanel); // NOI18N
@@ -548,7 +549,6 @@ public class Planner extends javax.swing.JFrame {
         objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
         objectsTree.setRootVisible(false);
-        objectsTree.setShowsRootHandles(true);
         objectsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 objectsTreeValueChanged(evt);
@@ -564,7 +564,7 @@ public class Planner extends javax.swing.JFrame {
         );
         objectsPanelLayout.setVerticalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.objectsPanel.TabConstraints.tabTitle"), objectsPanel); // NOI18N
@@ -588,10 +588,33 @@ public class Planner extends javax.swing.JFrame {
         );
         bordersPanelLayout.setVerticalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.bordersPanel.TabConstraints.tabTitle"), bordersPanel); // NOI18N
+
+        cavesTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cavesTree.setModel(new DefaultTreeModel(Data.cavesTree));
+        cavesTree.setRootVisible(false);
+        cavesTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                cavesTreeValueChanged(evt);
+            }
+        });
+        jScrollPane8.setViewportView(cavesTree);
+
+        javax.swing.GroupLayout cavesPanelLayout = new javax.swing.GroupLayout(cavesPanel);
+        cavesPanel.setLayout(cavesPanelLayout);
+        cavesPanelLayout.setHorizontalGroup(
+            cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+        );
+        cavesPanelLayout.setVerticalGroup(
+            cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+        );
+
+        tabbedPane.addTab(bundle.getString("Planner.cavesPanel.TabConstraints.tabTitle"), cavesPanel); // NOI18N
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -918,6 +941,9 @@ public class Planner extends javax.swing.JFrame {
         else if (tab==labelsPanel) {
             Globals.tab = Tab.labels;
         }
+        else if (tab==cavesPanel) {
+            Globals.tab = Tab.caves;
+        }
     }//GEN-LAST:event_tabbedPaneStateChanged
 
     private void jSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner4StateChanged
@@ -1044,10 +1070,16 @@ public class Planner extends javax.swing.JFrame {
         Globals.autoReverseWall = wallReversedAutoBox.isSelected();
     }//GEN-LAST:event_wallReversedAutoBoxActionPerformed
 
+    private void cavesTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_cavesTreeValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cavesTreeValueChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JList bordersList;
     private javax.swing.JPanel bordersPanel;
+    private javax.swing.JPanel cavesPanel;
+    private javax.swing.JTree cavesTree;
     private pl.wurmonline.deedplanner.forms.DiagonalPanel diagonalPanel1;
     private javax.swing.ButtonGroup elevationGroup;
     private javax.swing.JRadioButtonMenuItem elevationOffItem;
@@ -1091,6 +1123,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSpinner jSpinner4;

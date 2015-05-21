@@ -310,7 +310,43 @@ public final class DataLoader {
     }
     
     private static void loadCaves(Document doc) throws IOException {
+        NodeList entities = doc.getElementsByTagName("rock");
         
+        for (int i=0; i<entities.getLength(); i++) {
+            String name;
+            String shortName;
+            Tex tex;
+            ArrayList<String[]> categories = new ArrayList<>();
+            boolean wall;
+            boolean show = true;
+            
+            Node entity = entities.item(i);
+            
+            NamedNodeMap map = entity.getAttributes();
+            name = map.getNamedItem("name").getNodeValue();
+            shortName = map.getNamedItem("shortname").getNodeValue();
+            tex = Tex.getTexture(map.getNamedItem("tex").getNodeValue());
+            wall = map.getNamedItem("type").getNodeValue().equals("wall");
+            
+            NodeList list = entity.getChildNodes();
+            
+            for (int i2=0; i2<list.getLength(); i2++) {
+                Node node = list.item(i2);
+                switch (node.getNodeName()) {
+                    case "category":
+                        categories.add(node.getTextContent().split("/"));
+                        break;
+                    case "hidden":
+                        show = false;
+                        break;
+                }
+            }
+            
+            CaveData data = new CaveData(tex, name, shortName, wall, show);
+            Log.out(DataLoader.class, "Cave data "+data+" loaded and ready to use!");
+            Data.caves.put(shortName, data);
+            addToCategories(Data.cavesTree, categories, data, name);
+        }
     }
     
     private static void addToCategories(DefaultMutableTreeNode node, ArrayList<String[]> categories, Object data, String name) {

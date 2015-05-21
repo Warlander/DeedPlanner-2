@@ -31,8 +31,6 @@ public class Floor implements TileEntity {
     public Materials getMaterials() {
         return data.getMaterials();
     }
-
-    private int rotation = 0;
     
     public void render(GL2 g, Tile tile) {
         if (orientation==FloorOrientation.UP) {

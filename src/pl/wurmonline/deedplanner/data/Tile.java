@@ -24,7 +24,11 @@ public final class Tile implements XMLSerializable {
     private Ground ground;
     private final HashMap<EntityData, TileEntity> entities;
     private Label label;
-    //private Label caveLabel;
+    
+    private int caveHeight = 5;
+    private int caveSize = 30;
+    private CaveData cave;
+    private Label caveLabel;
     
     public Tile(Map map, int x, int y, Element tile) {
         this.map = map;
@@ -32,6 +36,9 @@ public final class Tile implements XMLSerializable {
         this.y = y;
         height = (int) Float.parseFloat(tile.getAttribute("height"));
         ground = new Ground((Element) tile.getElementsByTagName("ground").item(0));
+        if (tile.getElementsByTagName("cave").getLength()!=0) {
+            cave = CaveData.get((Element) tile.getElementsByTagName("cave").item(0));
+        }
         
         NodeList labels = tile.getElementsByTagName("label");
         if (labels.getLength()!=0) {
@@ -95,6 +102,9 @@ public final class Tile implements XMLSerializable {
         if (!Data.grounds.isEmpty()) {
             ground = new Ground(Data.grounds.get("gr"));
         }
+        if (!Data.caves.isEmpty()) {
+            cave = Data.caves.get("sw");
+        }
         entities = new HashMap<>();
     }
     
@@ -109,6 +119,7 @@ public final class Tile implements XMLSerializable {
         
         this.height = tile.height;
         this.ground = tile.ground;
+        this.cave = tile.cave;
         this.label = tile.label;
         HashMap<EntityData, TileEntity> entities = new HashMap<>();
         for (Entry<EntityData, TileEntity> entrySet : tile.entities.entrySet()) {
@@ -121,10 +132,18 @@ public final class Tile implements XMLSerializable {
     
     public void render3d(GL2 g, boolean edge) {
         if (!edge) {
-            renderGround(g);
-            
-            renderEntities(g);
+            if (Globals.floor>=0) {
+                renderWorld(g);
+            }
+            else {
+                renderUnderground(g);
+            }
         }
+    }
+    
+    private void renderWorld(GL2 g) {
+        renderGround(g);
+        renderEntities(g);
     }
     
     private void renderGround(GL2 g) {
@@ -222,6 +241,10 @@ public final class Tile implements XMLSerializable {
             g.glPopMatrix();
             g.glColor3f(1, 1, 1);
         }
+    }
+    
+    private void renderUnderground(GL2 g) {
+        cave.render(g, this);
     }
     
     public void render2d(GL2 g) {
@@ -438,6 +461,61 @@ public final class Tile implements XMLSerializable {
     
     public int getHeight() {
         return height;
+    }
+    
+    public void setCaveHeight(int height) {
+        setCaveHeight(height, true);
+    }
+    
+    void setCaveHeight(int height, boolean undo) {
+        if (this.caveHeight!=height) {
+            Tile oldTile = new Tile(this);
+            this.caveHeight = height;
+            map.recalculateHeight();
+            if (undo) {
+                map.addUndo(this, oldTile);
+            }
+        }
+    }
+    
+    public int getCaveHeight() {
+        return caveHeight;
+    }
+    
+    public void setCaveSize(int size) {
+        setCaveSize(size, true);
+    }
+    
+    void setCaveSize(int size, boolean undo) {
+        if (this.caveSize!=size) {
+            Tile oldTile = new Tile(this);
+            this.caveSize = size;
+            if (undo) {
+                map.addUndo(this, oldTile);
+            }
+        }
+    }
+    
+    public int getCaveSize() {
+        return caveSize;
+    }
+    
+    public void setCaveEntity(CaveData entity) {
+        setCaveEntity(entity, true);
+    }
+    
+    void setCaveEntity(CaveData entity, boolean undo) {
+        if (this.cave != entity) {
+            Tile oldTile = new Tile(this);
+            this.cave = entity;
+            if (undo) {
+                map.addUndo(this, oldTile);
+            }
+        }
+    }
+    
+    public CaveData getCaveEntity() {
+        return cave;
     }
     
     public boolean isFlat() {

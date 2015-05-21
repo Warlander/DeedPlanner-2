@@ -20,6 +20,7 @@ public class Properties {
     
     public static boolean showGrid = true;
     public static boolean useTranslation = true;
+    public static boolean colorblind = false;
     
     public static int antialiasing = 2;
     

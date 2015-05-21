@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.IntSupplier;
+import java.util.function.Supplier;
 import javax.media.opengl.GL2;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
@@ -362,6 +365,12 @@ public final class Map {
         }
         recalculateHeight();
         recalculateRoofs();
+        
+        tiles[2][2].setCaveEntity(Data.caves.get("sfl"));
+        tiles[3][2].setCaveEntity(Data.caves.get("sfl"));
+        tiles[2][3].setCaveEntity(Data.caves.get("sfl"));
+        tiles[2][2].setCaveSize(60);
+        tiles[3][3].setCaveHeight(20);
     }
     
     public Map(Map map, int startX, int startY, int width, int height) {
@@ -499,13 +508,11 @@ public final class Map {
                 }
                 g.glBegin(GL2.GL_LINES);
                     if (renderColors) {
-                        float color = ((float)tiles[i][i2].getHeight() - minElevation) / diffElevation;
-                        g.glColor3f(color, 1-color, 0);
+                        applyColor(g, tiles[i][i2]::getHeight);
                     }
                     g.glVertex2f(i*4, i2*4);
                     if (renderColors) {
-                        float color = ((float)tiles[i][i2+1].getHeight() - minElevation) / diffElevation;
-                        g.glColor3f(color, 1-color, 0);
+                        applyColor(g, tiles[i][i2+1]::getHeight);
                     }
                     g.glVertex2f(i*4, i2*4+4);
                 g.glEnd();
@@ -516,13 +523,12 @@ public final class Map {
                 }
                 g.glBegin(GL2.GL_LINES);
                     if (renderColors) {
-                        float color = ((float)tiles[i][i2].getHeight() - minElevation) / diffElevation;
-                        g.glColor3f(color, 1-color, 0);
+                        
+                        applyColor(g, tiles[i][i2]::getHeight);
                     }
                     g.glVertex2f(i*4, i2*4);
                     if (renderColors) {
-                        float color = ((float)tiles[i+1][i2].getHeight() - minElevation) / diffElevation;
-                        g.glColor3f(color, 1-color, 0);
+                        applyColor(g, tiles[i+1][i2]::getHeight);
                     }
                     g.glVertex2f(i*4+4, i2*4);
                 g.glEnd();
@@ -530,6 +536,16 @@ public final class Map {
             }
         }
         g.glColor3f(1f, 1f, 1f);
+    }
+    
+    private void applyColor(GL2 g, IntSupplier func) {
+        float color = ((float)func.getAsInt() - minElevation) / diffElevation;
+        if (!Properties.colorblind) {
+            g.glColor3f(color, 1-color, 0);
+        }
+        else {
+            g.glColor3f(0, 1-color, color);
+        }
     }
     
     public String serialize() throws ParserConfigurationException, TransformerConfigurationException, TransformerException, IOException {
