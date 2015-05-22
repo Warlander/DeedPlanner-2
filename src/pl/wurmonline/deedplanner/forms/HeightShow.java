@@ -3,6 +3,7 @@ package pl.wurmonline.deedplanner.forms;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import javax.swing.JComponent;
+import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.logic.TileFragment;
@@ -38,7 +39,13 @@ public class HeightShow extends JComponent {
             drawHeightString(g, tile, tile.getMap().getTile(tile, 1, 1), 60, 10);
             
             drawHeightString(g, tile, tile.getMap().getTile(tile, -1, 0), 10, 35);
-            String heightStr = Integer.toString(tile.getHeight());
+            String heightStr;
+            if (Globals.floor>=0) {
+                heightStr = Integer.toString(tile.getHeight());
+            }
+            else {
+                heightStr = Integer.toString(tile.getCaveHeight());
+            }
             g.setFont(boldFont);
             SwingUtils.drawCenteredString(g, heightStr, 35, 35);
             g.setFont(basicFont);
@@ -55,7 +62,13 @@ public class HeightShow extends JComponent {
             return;
         }
         
-        int heightDiff = diff.getHeight()-main.getHeight();
+        int heightDiff;
+        if (Globals.floor>=0) {
+            heightDiff = diff.getHeight()-main.getHeight();
+        }
+        else {
+            heightDiff = diff.getCaveHeight()-main.getCaveHeight();
+        }
         String heightStr = Integer.toString(heightDiff);
         
         SwingUtils.drawCenteredString(g, heightStr, x, y);

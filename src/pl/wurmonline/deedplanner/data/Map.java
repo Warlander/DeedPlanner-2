@@ -44,6 +44,14 @@ public final class Map {
     private float maxElevation = 5;
     private float diffElevation = 0;
     
+    private float minCaveElevation = 5;
+    private float maxCaveElevation = 5;
+    private float diffCaveElevation = 0;
+    
+    private float minCaveSize = 5;
+    private float maxCaveSize = 5;
+    private float diffCaveSize = 0;
+    
     public static Map parseMap(byte[] mapData) throws DeedPlannerException {
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -365,12 +373,6 @@ public final class Map {
         }
         recalculateHeight();
         recalculateRoofs();
-        
-        tiles[2][2].setCaveEntity(Data.caves.get("sfl"));
-        tiles[3][2].setCaveEntity(Data.caves.get("sfl"));
-        tiles[2][3].setCaveEntity(Data.caves.get("sfl"));
-        tiles[2][2].setCaveSize(60);
-        tiles[3][3].setCaveHeight(20);
     }
     
     public Map(Map map, int startX, int startY, int width, int height) {
@@ -470,11 +472,21 @@ public final class Map {
             }
             for (int i=startX; i<=endX; i++) {
                 for (int i2=startY; i2<=endY; i2++) {
-                    if (tiles[i][i2].getLabel()!=null) {
-                        g.glPushMatrix();
-                            g.glTranslatef(i*4, i2*4, 0);
-                            tiles[i][i2].renderLabel(g);
-                        g.glPopMatrix();
+                    if (Globals.floor>=0) {
+                        if (tiles[i][i2].getLabel()!=null) {
+                            g.glPushMatrix();
+                                g.glTranslatef(i*4, i2*4, 0);
+                                tiles[i][i2].renderLabel(g);
+                            g.glPopMatrix();
+                        }
+                    }
+                    else {
+                        if (tiles[i][i2].getCaveLabel()!=null) {
+                            g.glPushMatrix();
+                                g.glTranslatef(i*4, i2*4, 0);
+                                tiles[i][i2].renderCaveLabel(g);
+                            g.glPopMatrix();
+                        }
                     }
                 }
             }
@@ -503,16 +515,17 @@ public final class Map {
                 if (i<0 || i2<0 || i>=width || i2>=height) {
                     continue;
                 }
+                
                 if (tiles[i][i2].getVerticalWall(Globals.floor)!=null && tiles[i][i2].getVerticalFence(Globals.floor)!=null) {
                     g.glLineWidth(3);
                 }
                 g.glBegin(GL2.GL_LINES);
                     if (renderColors) {
-                        applyColor(g, tiles[i][i2]::getHeight);
+                        applyColor(g, tiles[i][i2], false);
                     }
                     g.glVertex2f(i*4, i2*4);
                     if (renderColors) {
-                        applyColor(g, tiles[i][i2+1]::getHeight);
+                        applyColor(g, tiles[i][i2+1], false);
                     }
                     g.glVertex2f(i*4, i2*4+4);
                 g.glEnd();
@@ -523,28 +536,60 @@ public final class Map {
                 }
                 g.glBegin(GL2.GL_LINES);
                     if (renderColors) {
-                        
-                        applyColor(g, tiles[i][i2]::getHeight);
+                        applyColor(g, tiles[i][i2], false);
                     }
                     g.glVertex2f(i*4, i2*4);
                     if (renderColors) {
-                        applyColor(g, tiles[i+1][i2]::getHeight);
+                        applyColor(g, tiles[i+1][i2], false);
                     }
                     g.glVertex2f(i*4+4, i2*4);
                 g.glEnd();
                 g.glLineWidth(1);
+                
+                if (Globals.floor==-1 && renderColors) {
+                    g.glPointSize(10);
+                    g.glBegin(GL2.GL_POINTS);
+                        applyColor(g, tiles[i][i2], true);
+                        g.glVertex2f(i*4, i2*4);
+                    g.glEnd();
+                }
             }
         }
         g.glColor3f(1f, 1f, 1f);
     }
     
-    private void applyColor(GL2 g, IntSupplier func) {
-        float color = ((float)func.getAsInt() - minElevation) / diffElevation;
+    private void applyColor(GL2 g, Tile t, boolean dot) {
+        if (Globals.floor>=0) {
+            applyColor(g, t::getHeight, dot);
+        }
+        else if (!dot) {
+            applyColor(g, t::getCaveHeight, dot);
+        }
+        else {
+            applyColor(g, t::getCaveSize, dot);
+        }
+    }
+    
+    private void applyColor(GL2 g, IntSupplier func, boolean dot) {
+        float color;
+        if (Globals.floor>=0) {
+            color = ((float)func.getAsInt() - minElevation) / diffElevation;
+        }
+        else if (!dot) {
+            color = ((float)func.getAsInt() - minCaveElevation) / diffCaveElevation;
+        }
+        else {
+            color = ((float)func.getAsInt() - minCaveSize) / diffCaveSize;
+        }
+        if (Float.isNaN(color)) {
+            color = 0.5f;
+        }
+        
         if (!Properties.colorblind) {
             g.glColor3f(color, 1-color, 0);
         }
         else {
-            g.glColor3f(0, 1-color, color);
+            g.glColor3f(color, 0, 1-color);
         }
     }
     
@@ -668,6 +713,33 @@ public final class Map {
             }
         }
         return materials;
+    }
+    
+    public void deleteBuildingOnTile(Tile startTile) {
+        ArrayList<Tile> houseTiles = getRoomTiles(startTile);
+        
+        houseTiles = getAllHouseTiles(houseTiles);
+        
+        if (houseTiles==null) {
+            return;
+        }
+        
+        for (Tile t : houseTiles) {
+            boolean includeTop = !houseTiles.contains(getTile(t, 0, 1));
+            boolean includeRight = !houseTiles.contains(getTile(t, 1, 0));
+            for (int i = 0; i < Constants.FLOORS_LIMIT; i++) {
+                t.setTileContent(null, i, true);
+                t.setHorizontalWall(null, i, true);
+                t.setVerticalWall(null, i, true);
+                if (includeTop) {
+                    getTile(t, 0, 1).setHorizontalWall(null, i, true);
+                }
+                if (includeRight) {
+                    getTile(t, 1, 0).setVerticalWall(null, i, true);
+                }
+            }
+        }
+        newAction();
     }
     
     public HouseResults getMaterialsOfBuilding(Tile startTile) {
@@ -805,20 +877,44 @@ public final class Map {
     void recalculateHeight() {
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
+        int caveMin = Integer.MAX_VALUE;
+        int caveMax = Integer.MIN_VALUE;
+        int caveSizeMin = Integer.MAX_VALUE;
+        int caveSizeMax = Integer.MIN_VALUE;
         for (int i=0; i<=width; i++) {
             for (int i2=0; i2<=height; i2++) {
                 int elevation = tiles[i][i2].getHeight();
+                int caveElevation = tiles[i][i2].getCaveHeight();
+                int caveSize = tiles[i][i2].getCaveSize();
                 if (elevation>max) {
                     max = elevation;
                 }
                 if (elevation<min) {
                     min = elevation;
                 }
+                if (caveElevation>caveMax) {
+                    caveMax = caveElevation;
+                }
+                if (caveElevation<caveMin) {
+                    caveMin = caveElevation;
+                }
+                if (caveSize>caveSizeMax) {
+                    caveSizeMax = caveSize;
+                }
+                if (caveSize<caveSizeMin) {
+                    caveSizeMin = caveSize;
+                }
             }
         }
         maxElevation = max;
         minElevation = min;
         diffElevation = max - min;
+        maxCaveElevation = caveMax;
+        minCaveElevation = caveMin;
+        diffCaveElevation = caveMax - caveMin;
+        maxCaveSize = caveSizeMax;
+        minCaveSize = caveSizeMin;
+        diffCaveSize = caveSizeMax - caveSizeMin;
     }
     
     public String toString() {

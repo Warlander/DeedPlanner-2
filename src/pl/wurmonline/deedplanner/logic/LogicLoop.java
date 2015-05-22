@@ -7,6 +7,7 @@ import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.forms.Planner;
 import pl.wurmonline.deedplanner.input.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
+import pl.wurmonline.deedplanner.logic.caves.CaveUpdater;
 import pl.wurmonline.deedplanner.logic.floors.FloorUpdater;
 import pl.wurmonline.deedplanner.logic.ground.GroundUpdater;
 import pl.wurmonline.deedplanner.logic.height.HeightUpdater;
@@ -84,6 +85,9 @@ public class LogicLoop extends TimerTask {
                         case labels:
                             TileSelection.update(mouse, keyboard, panel.getMap(), panel.getUpCamera(), SelectionType.MULTIPLE);
                             break;
+                        case caves:
+                            CaveUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            break;
                     }
                 }
                 if (panel.getUpCamera().tile!=null) {
@@ -92,8 +96,13 @@ public class LogicLoop extends TimerTask {
                     planner.heightShow.setUpCamera(panel.getUpCamera());
                     StringBuilder build = new StringBuilder();
                     switch (Globals.tab) {
-                        case ground:
-                            build.append(t.getGround());
+                        case ground: case caves:
+                            if (Globals.floor>=0) {
+                                build.append(t.getGround());
+                            }
+                            else {
+                                build.append(t.getCaveEntity());
+                            }
                             break;
                         case floors: case roofs:
                             if (t.getTileContent(Globals.floor)!=null) {
@@ -125,7 +134,17 @@ public class LogicLoop extends TimerTask {
                             break;
                     }
                     if (frag.isCorner()) {
-                        build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("     HEIGHT: ")).append(frag.getTileByCorner(t).getHeight());	
+                        int height;
+                        if (Globals.floor>=0) {
+                            height = frag.getTileByCorner(t).getHeight();
+                        }
+                        else {
+                            height = frag.getTileByCorner(t).getCaveHeight();
+                        }
+                        build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("     HEIGHT: ")).append(height);
+                        if (Globals.floor==-1) {
+                            build.append("     Cave size: ").append(frag.getTileByCorner(t).getCaveSize());
+                        }
                     }
                     build.append("     X: ").append(t.getX()).append(" Y: ").append(t.getY());
                     planner.tileLabel.setText(build.toString());

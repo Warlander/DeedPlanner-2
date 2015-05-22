@@ -66,47 +66,59 @@ public class CaveData implements TileEntity {
                 g.glVertex3f(4, 4, ht11);
                 g.glTexCoord2f(0, 1);
                 g.glVertex3f(0, 4, ht01);
-                if (tile.getMap().getTile(tile, 0, 1).getCaveEntity().wall) {
-                    g.glTexCoord2f(1, 0);
-                    g.glVertex3d(0, 4, h01);
-                    g.glTexCoord2f(1, 1);
-                    g.glVertex3d(0, 4, ht01);
-                    g.glTexCoord2f(0, 1);
-                    g.glVertex3d(4, 4, ht11);
-                    g.glTexCoord2f(0, 0);
-                    g.glVertex3d(4, 4, h11);
-                }
-                if (tile.getMap().getTile(tile, 0, -1)!=null && tile.getMap().getTile(tile, 0, -1).getCaveEntity().wall) {
-                    g.glTexCoord2f(0, 0);
-                    g.glVertex3d(0, 0, h00);
-                    g.glTexCoord2f(0, 1);
-                    g.glVertex3d(0, 0, ht00);
-                    g.glTexCoord2f(1, 1);
-                    g.glVertex3d(4, 0, ht10);
-                    g.glTexCoord2f(1, 0);
-                    g.glVertex3d(4, 0, h10);
-                }
-                if (tile.getMap().getTile(tile, 1, 0).getCaveEntity().wall) {
-                    g.glTexCoord2f(1, 0);
-                    g.glVertex3d(4, 0, h10);
-                    g.glTexCoord2f(1, 1);
-                    g.glVertex3d(4, 0, ht10);
-                    g.glTexCoord2f(0, 1);
-                    g.glVertex3d(4, 4, ht11);
-                    g.glTexCoord2f(0, 0);
-                    g.glVertex3d(4, 4, h11);
-                }
-                if (tile.getMap().getTile(tile, -1, 0)!=null && tile.getMap().getTile(tile, -1, 0).getCaveEntity().wall) {
-                    g.glTexCoord2f(1, 0);
-                    g.glVertex3d(0, 0, h00);
-                    g.glTexCoord2f(1, 1);
-                    g.glVertex3d(0, 0, ht00);
-                    g.glTexCoord2f(0, 1);
-                    g.glVertex3d(0, 4, ht01);
-                    g.glTexCoord2f(0, 0);
-                    g.glVertex3d(0, 4, h01);
-                }
             g.glEnd();
+            if (tile.getMap().getTile(tile, 0, 1).getCaveEntity().wall) {
+                tile.getMap().getTile(tile, 0, 1).getCaveEntity().texture.bind(g);
+                g.glBegin(GL2.GL_QUADS);
+                    g.glTexCoord2f(1, 0);
+                    g.glVertex3d(0, 4, h01);
+                    g.glTexCoord2f(1, 1);
+                    g.glVertex3d(0, 4, ht01);
+                    g.glTexCoord2f(0, 1);
+                    g.glVertex3d(4, 4, ht11);
+                    g.glTexCoord2f(0, 0);
+                    g.glVertex3d(4, 4, h11);
+                g.glEnd();
+            }
+            if (tile.getMap().getTile(tile, 0, -1)!=null && tile.getMap().getTile(tile, 0, -1).getCaveEntity().wall) {
+                tile.getMap().getTile(tile, 0, -1).getCaveEntity().texture.bind(g);
+                g.glBegin(GL2.GL_QUADS);
+                    g.glTexCoord2f(0, 0);
+                    g.glVertex3d(0, 0, h00);
+                    g.glTexCoord2f(0, 1);
+                    g.glVertex3d(0, 0, ht00);
+                    g.glTexCoord2f(1, 1);
+                    g.glVertex3d(4, 0, ht10);
+                    g.glTexCoord2f(1, 0);
+                    g.glVertex3d(4, 0, h10);
+                g.glEnd();
+            }
+            if (tile.getMap().getTile(tile, 1, 0).getCaveEntity().wall) {
+                tile.getMap().getTile(tile, 1, 0).getCaveEntity().texture.bind(g);
+                g.glBegin(GL2.GL_QUADS);
+                    g.glTexCoord2f(1, 0);
+                    g.glVertex3d(4, 0, h10);
+                    g.glTexCoord2f(1, 1);
+                    g.glVertex3d(4, 0, ht10);
+                    g.glTexCoord2f(0, 1);
+                    g.glVertex3d(4, 4, ht11);
+                    g.glTexCoord2f(0, 0);
+                    g.glVertex3d(4, 4, h11);
+                g.glEnd();
+            }
+            if (tile.getMap().getTile(tile, -1, 0)!=null && tile.getMap().getTile(tile, -1, 0).getCaveEntity().wall) {
+                tile.getMap().getTile(tile, -1, 0).getCaveEntity().texture.bind(g);
+                g.glBegin(GL2.GL_QUADS);
+                    g.glTexCoord2f(1, 0);
+                    g.glVertex3d(0, 0, h00);
+                    g.glTexCoord2f(1, 1);
+                    g.glVertex3d(0, 0, ht00);
+                    g.glTexCoord2f(0, 1);
+                    g.glVertex3d(0, 4, ht01);
+                    g.glTexCoord2f(0, 0);
+                    g.glVertex3d(0, 4, h01);
+                g.glEnd();
+            }
         }
         
     }

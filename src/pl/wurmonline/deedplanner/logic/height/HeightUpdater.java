@@ -12,6 +12,7 @@ import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 public class HeightUpdater {
 
     public static HeightMode currentMode;
+    public static boolean sizeEdit = false;
     
     public static JSpinner setRMB;
     public static JSpinner setLMB;

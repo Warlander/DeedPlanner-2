@@ -13,6 +13,7 @@ import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.graphics.texture.*;
 import pl.wurmonline.deedplanner.logic.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
+import pl.wurmonline.deedplanner.logic.caves.CaveUpdater;
 import pl.wurmonline.deedplanner.logic.floors.*;
 import pl.wurmonline.deedplanner.logic.ground.*;
 import pl.wurmonline.deedplanner.logic.height.*;
@@ -114,6 +115,8 @@ public class Planner extends javax.swing.JFrame {
         groundModeCombo.setModel(GroundUpdater.createComboModel());
         groundModeCombo.setSelectedIndex(0);
         
+        tabbedPane.remove(cavesPanel);
+        
         mapPanel.getLoop().start(this);
     }
     
@@ -133,6 +136,7 @@ public class Planner extends javax.swing.JFrame {
         seasonGroup = new javax.swing.ButtonGroup();
         wallsGroup = new javax.swing.ButtonGroup();
         elevationGroup = new javax.swing.ButtonGroup();
+        heightEditGroup = new javax.swing.ButtonGroup();
         mapPanel = new pl.wurmonline.deedplanner.MapPanel();
         statusBar = new javax.swing.JPanel();
         tileLabel = new javax.swing.JLabel();
@@ -158,6 +162,9 @@ public class Planner extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         heightList = new javax.swing.JList();
         heightShow = new pl.wurmonline.deedplanner.forms.HeightShow();
+        jLabel7 = new javax.swing.JLabel();
+        heightRadio = new javax.swing.JRadioButton();
+        sizeRadio = new javax.swing.JRadioButton();
         floorsPanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         floorsTree = new javax.swing.JTree();
@@ -269,6 +276,7 @@ public class Planner extends javax.swing.JFrame {
         groundsTree.setModel(new DefaultTreeModel(Data.groundsTree));
         groundsTree.setCellRenderer(null);
         groundsTree.setRootVisible(false);
+        groundsTree.setShowsRootHandles(true);
         groundsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 groundsTreeValueChanged(evt);
@@ -368,28 +376,65 @@ public class Planner extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(heightList);
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText(bundle.getString("Planner.jLabel7.text")); // NOI18N
+
+        heightEditGroup.add(heightRadio);
+        heightRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        heightRadio.setSelected(true);
+        heightRadio.setText(bundle.getString("Planner.heightRadio.text")); // NOI18N
+        heightRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heightRadioActionPerformed(evt);
+            }
+        });
+
+        heightEditGroup.add(sizeRadio);
+        sizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        sizeRadio.setText(bundle.getString("Planner.sizeRadio.text")); // NOI18N
+        sizeRadio.setEnabled(false);
+        sizeRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sizeRadioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout heightPanelLayout = new javax.swing.GroupLayout(heightPanel);
         heightPanel.setLayout(heightPanelLayout);
         heightPanelLayout.setHorizontalGroup(
             heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
             .addComponent(jScrollPane2)
             .addGroup(heightPanelLayout.createSequentialGroup()
-                .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(heightPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(heightLeftSpinner))
+                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(heightPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(heightLeftSpinner))
+                            .addGroup(heightPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(heightRightSpinner))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, heightPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, heightPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                     .addGroup(heightPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(heightRightSpinner))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, heightPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(heightPanelLayout.createSequentialGroup()
+                                .addComponent(heightRadio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sizeRadio)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         heightPanelLayout.setVerticalGroup(
@@ -409,10 +454,16 @@ public class Planner extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(heightRadio)
+                    .addComponent(sizeRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.heightPanel.TabConstraints.tabTitle"), heightPanel); // NOI18N
@@ -420,6 +471,7 @@ public class Planner extends javax.swing.JFrame {
         floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
         floorsTree.setRootVisible(false);
+        floorsTree.setShowsRootHandles(true);
         floorsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 floorsTreeValueChanged(evt);
@@ -449,7 +501,7 @@ public class Planner extends javax.swing.JFrame {
         floorsPanel.setLayout(floorsPanelLayout);
         floorsPanelLayout.setHorizontalGroup(
             floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
             .addComponent(floorsModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
@@ -474,6 +526,7 @@ public class Planner extends javax.swing.JFrame {
         wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
         wallsTree.setRootVisible(false);
+        wallsTree.setShowsRootHandles(true);
         wallsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 wallsTreeValueChanged(evt);
@@ -537,7 +590,7 @@ public class Planner extends javax.swing.JFrame {
         roofsPanel.setLayout(roofsPanelLayout);
         roofsPanelLayout.setHorizontalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
         );
         roofsPanelLayout.setVerticalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -549,6 +602,7 @@ public class Planner extends javax.swing.JFrame {
         objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
         objectsTree.setRootVisible(false);
+        objectsTree.setShowsRootHandles(true);
         objectsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 objectsTreeValueChanged(evt);
@@ -560,7 +614,7 @@ public class Planner extends javax.swing.JFrame {
         objectsPanel.setLayout(objectsPanelLayout);
         objectsPanelLayout.setHorizontalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
         );
         objectsPanelLayout.setVerticalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -584,7 +638,7 @@ public class Planner extends javax.swing.JFrame {
         bordersPanel.setLayout(bordersPanelLayout);
         bordersPanelLayout.setHorizontalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
         );
         bordersPanelLayout.setVerticalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -596,6 +650,7 @@ public class Planner extends javax.swing.JFrame {
         cavesTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cavesTree.setModel(new DefaultTreeModel(Data.cavesTree));
         cavesTree.setRootVisible(false);
+        cavesTree.setShowsRootHandles(true);
         cavesTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 cavesTreeValueChanged(evt);
@@ -949,6 +1004,15 @@ public class Planner extends javax.swing.JFrame {
     private void jSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner4StateChanged
         mapPanel.getLoop().syncAndExecute(() -> {
             Globals.floor = (int)jSpinner4.getModel().getValue()-1;
+            if (Globals.floor==-1) {
+                tabbedPane.addTab("Caves", cavesPanel);
+                sizeRadio.setEnabled(true);
+            }
+            else if (Globals.floor>=0) {
+                tabbedPane.remove(cavesPanel);
+                sizeRadio.setEnabled(false);
+                heightRadio.setSelected(true);
+            }
         });
     }//GEN-LAST:event_jSpinner4StateChanged
 
@@ -1071,8 +1135,21 @@ public class Planner extends javax.swing.JFrame {
     }//GEN-LAST:event_wallReversedAutoBoxActionPerformed
 
     private void cavesTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_cavesTreeValueChanged
-        // TODO add your handling code here:
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) cavesTree.getLastSelectedPathComponent();
+        if (node!=null && node.isLeaf() && node.getUserObject()!=ObjectsUpdater.currentData) {
+            mapPanel.getLoop().syncAndExecute(() -> {
+                CaveUpdater.currentData = (CaveData) node.getUserObject();
+            });
+        }
     }//GEN-LAST:event_cavesTreeValueChanged
+
+    private void heightRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heightRadioActionPerformed
+        Globals.editSize = false;
+    }//GEN-LAST:event_heightRadioActionPerformed
+
+    private void sizeRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeRadioActionPerformed
+        Globals.editSize = true;
+    }//GEN-LAST:event_sizeRadioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
@@ -1093,9 +1170,11 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JComboBox groundModeCombo;
     private javax.swing.JPanel groundPanel;
     private javax.swing.JTree groundsTree;
+    private javax.swing.ButtonGroup heightEditGroup;
     private javax.swing.JSpinner heightLeftSpinner;
     private javax.swing.JList heightList;
     private javax.swing.JPanel heightPanel;
+    private javax.swing.JRadioButton heightRadio;
     private javax.swing.JSpinner heightRightSpinner;
     public pl.wurmonline.deedplanner.forms.HeightShow heightShow;
     private javax.swing.JLabel jLabel1;
@@ -1104,6 +1183,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
@@ -1139,6 +1219,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveItem;
     private javax.swing.ButtonGroup seasonGroup;
     private javax.swing.JPanel sidePanel;
+    private javax.swing.JRadioButton sizeRadio;
     private javax.swing.JRadioButtonMenuItem springItem;
     private javax.swing.JPanel statusBar;
     private javax.swing.JRadioButtonMenuItem summerItem;

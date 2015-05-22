@@ -27,7 +27,7 @@ public final class Tile implements XMLSerializable {
     
     private int caveHeight = 5;
     private int caveSize = 30;
-    private CaveData cave;
+    private CaveData cave = Data.caves.get("sw");
     private Label caveLabel;
     
     public Tile(Map map, int x, int y, Element tile) {
@@ -35,6 +35,12 @@ public final class Tile implements XMLSerializable {
         this.x = x;
         this.y = y;
         height = (int) Float.parseFloat(tile.getAttribute("height"));
+        if (!tile.getAttribute("caveHeight").equals("")) {
+            caveHeight = (int) Float.parseFloat(tile.getAttribute("caveHeight"));
+        }
+        if (!tile.getAttribute("caveSize").equals("")) {
+            caveSize = (int) Float.parseFloat(tile.getAttribute("caveSize"));
+        }
         ground = new Ground((Element) tile.getElementsByTagName("ground").item(0));
         if (tile.getElementsByTagName("cave").getLength()!=0) {
             cave = CaveData.get((Element) tile.getElementsByTagName("cave").item(0));
@@ -89,6 +95,9 @@ public final class Tile implements XMLSerializable {
                         ObjectLocation loc = ObjectLocation.parse(entity.getAttribute("position"));
                         entities.put(new ObjectEntityData(floor, loc), new GameObject(entity));
                         break;
+                    case "cave":
+                        cave = CaveData.get(entity);
+                        break;
                 }
             }
         }
@@ -101,9 +110,6 @@ public final class Tile implements XMLSerializable {
         
         if (!Data.grounds.isEmpty()) {
             ground = new Ground(Data.grounds.get("gr"));
-        }
-        if (!Data.caves.isEmpty()) {
-            cave = Data.caves.get("sw");
         }
         entities = new HashMap<>();
     }
@@ -329,14 +335,23 @@ public final class Tile implements XMLSerializable {
         }
     }
     
+    public void renderCaveLabel(GL2 g) {
+        if (caveLabel!=null) {
+            caveLabel.render(g, this);
+        }
+    }
+    
     public void serialize(Document doc, Element root) {
         Element tile = doc.createElement("tile");
         tile.setAttribute("x", Integer.toString(x));
         tile.setAttribute("y", Integer.toString(y));
         tile.setAttribute("height", Float.toString(height));
+        tile.setAttribute("caveHeight", Float.toString(caveHeight));
+        tile.setAttribute("caveSize", Float.toString(caveSize));
         root.appendChild(tile);
         
         ground.serialize(doc, tile);
+        cave.serialize(doc, tile);
         if (label!=null) {
             label.serialize(doc, tile);
         }
@@ -430,7 +445,15 @@ public final class Tile implements XMLSerializable {
     }
     
     public void setHeight(int height) {
-        setHeight(height, true);
+        if (Globals.floor>=0) {
+            setHeight(height, true);
+        }
+        else if (!Globals.editSize) {
+            setCaveHeight(height, true);
+        }
+        else {
+            setCaveSize(height, true);
+        }
     }
     
     void setHeight(int height, boolean undo) {
@@ -463,10 +486,6 @@ public final class Tile implements XMLSerializable {
         return height;
     }
     
-    public void setCaveHeight(int height) {
-        setCaveHeight(height, true);
-    }
-    
     void setCaveHeight(int height, boolean undo) {
         if (this.caveHeight!=height) {
             Tile oldTile = new Tile(this);
@@ -482,14 +501,14 @@ public final class Tile implements XMLSerializable {
         return caveHeight;
     }
     
-    public void setCaveSize(int size) {
-        setCaveSize(size, true);
-    }
-    
     void setCaveSize(int size, boolean undo) {
+        if (size<30 || size>300) {
+            return;
+        }
         if (this.caveSize!=size) {
             Tile oldTile = new Tile(this);
             this.caveSize = size;
+            map.recalculateHeight();
             if (undo) {
                 map.addUndo(this, oldTile);
             }
@@ -593,6 +612,9 @@ public final class Tile implements XMLSerializable {
         if (wall!=null && wall.houseWall) {
             if (Globals.autoReverseWall) {
                 reversed = getTileContent(level)!=null && map.getTile(this, 0, -1).getTileContent(level)==null;
+                if (reversed == false) {
+                    reversed = Globals.reverseWall;
+                }
             }
             else {
                 reversed = Globals.reverseWall;
@@ -674,6 +696,9 @@ public final class Tile implements XMLSerializable {
         if (wall!=null && wall.houseWall) {
             if (Globals.autoReverseWall) {
                 reversed = getTileContent(level)==null && map.getTile(this, -1, 0).getTileContent(level)!=null;
+                if (reversed == false) {
+                    reversed = Globals.reverseWall;
+                }
             }
             else {
                 reversed = Globals.reverseWall;
@@ -792,17 +817,21 @@ public final class Tile implements XMLSerializable {
         return label;
     }
     
-//    void setCaveLabel(Label caveLabel, boolean undo) {
-//        Tile oldTile = new Tile(this);
-//        this.caveLabel = caveLabel;
-//        if (undo) {
-//            map.addUndo(this, oldTile);
-//        }
-//    }
-//    
-//    public Label getCaveLabel() {
-//        return caveLabel;
-//    }
+    public void setCaveLabel(Label caveLabel) {
+        setCaveLabel(caveLabel, true);
+    }
+    
+    void setCaveLabel(Label caveLabel, boolean undo) {
+        Tile oldTile = new Tile(this);
+        this.caveLabel = caveLabel;
+        if (undo) {
+            map.addUndo(this, oldTile);
+        }
+    }
+    
+    public Label getCaveLabel() {
+        return caveLabel;
+    }
     
     public void setGameObject(GameObjectData data, ObjectLocation location, int floor) {
         setGameObject(data, location, floor, true);

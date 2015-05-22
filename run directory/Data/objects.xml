@@ -2291,14 +2291,51 @@
 	
 	
 	<caves>
-		<rock name="Stone wall" shortname="sw" type="wall" tex="Data/Caves/cave.jpg">
+		<rock name="Stone wall" shortname="sw" type="wall" tex="Data/Caves/cave_512.png">
 			<category>Walls</category>
 			<hidden/>
 		</rock>
-		<rock name="Reinforced stone wall" shortname="rsw" type="wall" tex="Data/Caves/reinforcedcave.jpg">
+		<rock name="Reinforced stone wall" shortname="rsw" type="wall" tex="Data/Caves/reinforcedcave_v1.png">
 			<category>Walls</category>
 		</rock>
-		<rock name="Stone floor" shortname="sfl" type="floor" tex="Data/Caves/cave.jpg">
+		<rock name="Iron vein" shortname="iv" type="wall" tex="Data/Caves/ironvein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Copper vein" shortname="cv" type="wall" tex="Data/Caves/coppervein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Tin vein" shortname="tv" type="wall" tex="Data/Caves/tinvein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Zinc vein" shortname="zv" type="wall" tex="Data/Caves/zincvein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Lead vein" shortname="lv" type="wall" tex="Data/Caves/leadvein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Silver vein" shortname="sv" type="wall" tex="Data/Caves/silvervein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Gold vein" shortname="gv" type="wall" tex="Data/Caves/goldvein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Slate vein" shortname="slv" type="wall" tex="Data/Caves/slatevein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Marble vein" shortname="mv" type="wall" tex="Data/Caves/marblevein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		
+		<rock name="Stone floor" shortname="sfl" type="floor" tex="Data/Caves/cave_512.png">
 			<category>Floors</category>
 		</rock>
 		

@@ -14,6 +14,8 @@ public class Globals {
     public static boolean reverseWall = false;
     public static boolean autoReverseWall = true;
     
+    public static boolean editSize;
+    
     public static int season = Season.SUMMER;
     public static RoadDirection roadDirection = RoadDirection.CENTER;
     public static FloorOrientation floorOrientation = FloorOrientation.UP;

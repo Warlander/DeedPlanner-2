@@ -1,6 +1,5 @@
 package pl.wurmonline.deedplanner.data;
 
-import java.util.HashMap;
 import java.util.function.Consumer;
 import pl.wurmonline.deedplanner.Constants;
 
