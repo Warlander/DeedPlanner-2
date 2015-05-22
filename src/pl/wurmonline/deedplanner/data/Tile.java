@@ -50,6 +50,10 @@ public final class Tile implements XMLSerializable {
         if (labels.getLength()!=0) {
             label = new Label((Element) labels.item(0));
         }
+        NodeList caveLabels = tile.getElementsByTagName("caveLabel");
+        if (caveLabels.getLength()!=0) {
+            caveLabel = new Label((Element) caveLabels.item(0));
+        }
         
         entities = new HashMap<>();
         
@@ -353,7 +357,10 @@ public final class Tile implements XMLSerializable {
         ground.serialize(doc, tile);
         cave.serialize(doc, tile);
         if (label!=null) {
-            label.serialize(doc, tile);
+            label.serialize(doc, tile, false);
+        }
+        if (caveLabel!=null) {
+            caveLabel.serialize(doc, tile, true);
         }
         
         final HashMap<Integer, Element> levels = new HashMap<>();

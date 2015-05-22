@@ -58,7 +58,17 @@ public class Label {
     }
     
     public void serialize(Document doc, Element root) {
-        Element labelElement = doc.createElement("label");
+        serialize(doc, root, false);
+    }
+    
+    public void serialize(Document doc, Element root, boolean cave) {
+        Element labelElement;
+        if (!cave) {
+            labelElement = doc.createElement("label");
+        }
+        else {
+            labelElement = doc.createElement("caveLabel");
+        }
         labelElement.setAttribute("text", text);
         labelElement.setAttribute("font", font.getFamily(Locale.UK));
         labelElement.setAttribute("style", Integer.toString(font.getStyle()));
