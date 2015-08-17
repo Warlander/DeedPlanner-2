@@ -58,7 +58,13 @@ public class Mouse implements MouseListener, MouseWheelListener {
             return;
         }
         
-        Point mouseLocation = MouseInfo.getPointerInfo().getLocation();
+        Point mouseLocation;
+        try {
+            mouseLocation = MouseInfo.getPointerInfo().getLocation();
+        } catch (NullPointerException ex){
+            // ignore
+            return;
+        }
         Point panelLocation = panel.getLocationOnScreen();
         
         realX = mouseLocation.x - panelLocation.x;

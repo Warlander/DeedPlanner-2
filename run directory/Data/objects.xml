@@ -380,6 +380,19 @@
 			<category>Materials/Stone slab</category>
 		</floor>
 		
+		<floor name="Standalone staircase" shortname="stStair">
+			<model location="Data/Floors/Staircase.dae">
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
 		<floor name="Wooden plank staircase" shortname="wStair">
 			<model location="Data/Floors/Staircase.dae">
 				<mesh name="floor" tex="Data/Floors/floor.png"/>
