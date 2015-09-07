@@ -632,9 +632,6 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone arched wall" shortname="sArch" scale="1" type="arch">
-			<model location="Data/Walls/Stone_Arched_Door.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
 			<model location="Data/Walls/Stone_Arched_Door_Upper.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
@@ -760,9 +757,6 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone arched wall" shortname="psArch" scale="1" type="arch">
-			<model location="Data/Walls/Stone_Arched_Door_Plain.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
 			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
