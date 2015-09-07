@@ -1,9 +1,12 @@
 package pl.wurmonline.deedplanner.logic.objects;
 
+import java.awt.event.KeyEvent;
 import java.awt.geom.Point2D;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
+import pl.wurmonline.deedplanner.input.Keybindings;
+import pl.wurmonline.deedplanner.input.Keyboard;
 import pl.wurmonline.deedplanner.input.Mouse;
 
 public class ObjectsUpdater {
@@ -14,7 +17,7 @@ public class ObjectsUpdater {
     private static Point2D point;
     private static GameObject object;
     
-    public static void update(Mouse mouse, Map map, UpCamera cam) {
+    public static void update(Mouse mouse, Keyboard keyboard, Map map, UpCamera cam) {
         if (currentData!=null) {
             if (mouse.pressed.left) {
                 tile = cam.tile;
@@ -33,7 +36,11 @@ public class ObjectsUpdater {
             else if (object!=null && mouse.hold.left) {
                 float deltaX = cam.xMap - (float) point.getX();
                 float deltaY = cam.yMap - (float) point.getY();
-                object.setRotation(Math.atan2(deltaY, deltaX)+Math.PI/2f);
+                double rotation = Math.atan2(deltaY, deltaX)+Math.PI/2f;
+                if (!keyboard.isHold(KeyEvent.VK_SHIFT)) {
+                    rotation = getClampedRotation(rotation);
+                }
+                object.setRotation(rotation);
             }
             
             if (mouse.released.left) {
@@ -48,8 +55,11 @@ public class ObjectsUpdater {
                 map.newAction();
             }
         }
-        
-        
+    }
+    
+    private static double getClampedRotation(double rotation) {
+        final double quarterPI = (Math.PI / 4);
+        return quarterPI * Math.round(rotation / quarterPI);
     }
     
 }

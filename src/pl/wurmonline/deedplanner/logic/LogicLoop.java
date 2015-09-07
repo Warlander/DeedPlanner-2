@@ -80,7 +80,7 @@ public class LogicLoop extends TimerTask {
                             RoofUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
                         case objects:
-                            ObjectsUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
+                            ObjectsUpdater.update(mouse, keyboard, panel.getMap(), panel.getUpCamera());
                             break;
                         case labels:
                             TileSelection.update(mouse, keyboard, panel.getMap(), panel.getUpCamera(), SelectionType.MULTIPLE);

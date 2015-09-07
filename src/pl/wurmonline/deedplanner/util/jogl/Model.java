@@ -5,9 +5,11 @@ import org.w3c.dom.*;
 
 public class Model {
     
+    public final String tag;
     private final Mesh[] meshes;
     
     public Model(Element node) {
+        this.tag = node.getAttribute("tag");
         String modelLoc = node.getAttribute("location");
         String scaleStr = node.getAttribute("scale");
         float scale;

@@ -20,7 +20,7 @@ public final class Tile implements XMLSerializable {
     private final int x;
     private final int y;
     
-    private int height = 5;
+    private int height = 0;
     private Ground ground;
     private final HashMap<EntityData, TileEntity> entities;
     private Label label;
@@ -411,6 +411,16 @@ public final class Tile implements XMLSerializable {
                     break;
             }
         }
+    }
+    
+    protected int getEntityFloor(TileEntity entity) {
+        for (Entry<EntityData, TileEntity> entry : entities.entrySet()) {
+            if (entry.getValue() == entity) {
+                return entry.getKey().getFloor();
+            }
+        }
+        
+        throw new DeedPlannerRuntimeException("Cannot find entity: "+entity);
     }
     
     public Map getMap() {
@@ -850,7 +860,9 @@ public final class Tile implements XMLSerializable {
             entities.put(new ObjectEntityData(floor, location), new GameObject(data));
         }
         else {
-            entities.remove(new ObjectEntityData(floor, location));
+            for (ObjectLocation loc : ObjectLocation.values()) {
+                entities.remove(new ObjectEntityData(floor, loc));
+            }
         }
         if (undo) {
             map.addUndo(this, oldTile);
