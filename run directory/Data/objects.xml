@@ -677,10 +677,6 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone portcullis" shortname="sPort" scale="1" type="house">
-			<model location="Data/Walls/stonewallPortcullis.dae" tag="bottom">
-				<mesh name="wall" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
-			</model>
 			<model location="Data/Walls/stonewallPortcullis_upper.dae">
 				<mesh name="wall" tex="Data/Walls/StoneWall.jpg"/>
 				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
@@ -802,10 +798,6 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone portcullis" shortname="psPort" scale="1" type="house">
-			<model location="Data/Walls/PlainStoneWallPortcullis_main.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
-			</model>
 			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.dae">
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
