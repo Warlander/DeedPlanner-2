@@ -32,7 +32,7 @@ public class HeightUpdater {
         model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("SET HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
-                for (Tile t : getAffectedTiles(tile, frag)) {
+                for (Tile t : tile.getAffectedTiles(frag)) {
                     if (mouse.hold.left) {
                         t.setHeight(setLeft);
                     }
@@ -56,7 +56,7 @@ public class HeightUpdater {
         model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("ADD HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
-                for (Tile t : getAffectedTiles(tile, frag)) {
+                for (Tile t : tile.getAffectedTiles(frag)) {
                     if (mouse.pressed.left) {
                         t.setHeight(t.getHeight()+add);
                     }
@@ -80,7 +80,7 @@ public class HeightUpdater {
         model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("REMOVE HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
-                for (Tile t : getAffectedTiles(tile, frag)) {
+                for (Tile t : tile.getAffectedTiles(frag)) {
                     if (mouse.pressed.left) {
                         t.setHeight(t.getHeight()-add);
                     }
@@ -121,7 +121,7 @@ public class HeightUpdater {
         model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("RESET HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
-                for (Tile t : getAffectedTiles(tile, frag)) {
+                for (Tile t : tile.getAffectedTiles(frag)) {
                     if (mouse.hold.left || mouse.hold.right) {
                         t.setHeight(5);
                     }
@@ -253,52 +253,4 @@ public class HeightUpdater {
         
         return model;
     }
-    
-    private static Tile[] getAffectedTiles(Tile tile, TileFragment frag) {
-        final Tile[] tiles;
-        if (frag==TileFragment.CENTER) {
-            tiles = new Tile[4];
-            tiles[0] = tile;
-            tiles[1] = tile.getMap().getTile(tile, 1, 0);
-            tiles[2] = tile.getMap().getTile(tile, 1, 1);
-            tiles[3] = tile.getMap().getTile(tile, 0, 1);
-        }
-        else if (frag==TileFragment.S) {
-            tiles = new Tile[2];
-            tiles[0] = tile;
-            tiles[1] = tile.getMap().getTile(tile, 1, 0);
-        }
-        else if (frag==TileFragment.N) {
-            tiles = new Tile[2];
-            tiles[0] = tile.getMap().getTile(tile, 0, 1);
-            tiles[1] = tile.getMap().getTile(tile, 1, 1);
-        }
-        else if (frag==TileFragment.W) {
-            tiles = new Tile[2];
-            tiles[0] = tile;
-            tiles[1] = tile.getMap().getTile(tile, 0, 1);
-        }
-        else if (frag==TileFragment.E) {
-            tiles = new Tile[2];
-            tiles[0] = tile.getMap().getTile(tile, 1, 0);
-            tiles[1] = tile.getMap().getTile(tile, 1, 1);
-        }
-        else if (frag==TileFragment.SW) {
-            tiles = new Tile[] {tile};
-        }
-        else if (frag==TileFragment.SE) {
-            tiles = new Tile[] {tile.getMap().getTile(tile, 1, 0)};
-        }
-        else if (frag==TileFragment.NW) {
-            tiles = new Tile[] {tile.getMap().getTile(tile, 0, 1)};
-        }
-        else if (frag==TileFragment.NE) {
-            tiles = new Tile[] {tile.getMap().getTile(tile, 1, 1)};
-        }
-        else {
-            throw new DeedPlannerRuntimeException("Illegal argument");
-        }
-        return tiles;
-    }
-    
 }
