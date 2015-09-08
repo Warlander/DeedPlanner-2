@@ -53,17 +53,25 @@ public class Ground implements TileEntity {
         data.tex.bind(g);
         if (dir!=RoadDirection.CENTER) {
             if (dir==RoadDirection.NE || dir==RoadDirection.NW) {
-                tile.getMap().getTile(tile, 0, -1).getGround().data.tex.bind(g, 1);
+                Tile nTile = tile.getMap().getTile(tile, 0, -1);
+                if(nTile != null)
+                    nTile.getGround().data.tex.bind(g, 1);
             }
             else {
-                tile.getMap().getTile(tile, 0, 1).getGround().data.tex.bind(g, 1);
+                Tile nTile = tile.getMap().getTile(tile, 0, 1);
+                if(nTile != null)
+                    nTile.getGround().data.tex.bind(g, 1);
             }
             
             if (dir==RoadDirection.NW || dir==RoadDirection.SW) {
-                tile.getMap().getTile(tile, 1, 0).getGround().data.tex.bind(g, 2);
+                Tile nTile = tile.getMap().getTile(tile, 1, 0);
+                if(nTile != null)
+                    nTile.getGround().data.tex.bind(g, 2);
             }
             else {
-                tile.getMap().getTile(tile, -1, 0).getGround().data.tex.bind(g, 2);
+                Tile nTile = tile.getMap().getTile(tile, -1, 0);
+                if(nTile != null)
+                    nTile.getGround().data.tex.bind(g, 2);
             }
         }
         g.glCallList(listID);
@@ -74,17 +82,25 @@ public class Ground implements TileEntity {
         data.tex.bind(g);
         if (dir!=RoadDirection.CENTER) {
             if (dir==RoadDirection.NE || dir==RoadDirection.NW) {
-                tile.getMap().getTile(tile, 0, -1).getGround().data.tex.bind(g, 1);
+                Tile nTile = tile.getMap().getTile(tile, 0, -1);
+                if(nTile != null)
+                    nTile.getGround().data.tex.bind(g, 1);
             }
             else {
-                tile.getMap().getTile(tile, 0, 1).getGround().data.tex.bind(g, 1);
+                Tile nTile = tile.getMap().getTile(tile, 0, 1);
+                if(nTile != null)
+                    nTile.getGround().data.tex.bind(g, 1);
             }
             
             if (dir==RoadDirection.NW || dir==RoadDirection.SW) {
-                tile.getMap().getTile(tile, 1, 0).getGround().data.tex.bind(g, 2);
+                Tile nTile = tile.getMap().getTile(tile, 1, 0);
+                if(nTile != null)
+                    nTile.getGround().data.tex.bind(g, 2);
             }
             else {
-                tile.getMap().getTile(tile, -1, 0).getGround().data.tex.bind(g, 2);
+                Tile nTile = tile.getMap().getTile(tile, -1, 0);
+                if(nTile != null)
+                    nTile.getGround().data.tex.bind(g, 2);
             }
         }
         
