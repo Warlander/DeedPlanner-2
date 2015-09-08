@@ -919,4 +919,47 @@ public final class Tile implements XMLSerializable {
         return "Tile: ("+x+"; "+y+")";
     }
     
+    public Tile[] getAffectedTiles(TileFragment frag) {
+        final Tile[] tiles;
+        if (null != frag) switch (frag) {
+            case CENTER:
+                tiles = new Tile[4];
+                tiles[0] = this;
+                tiles[1] = this.getMap().getTile(this, 1, 0);
+                tiles[2] = this.getMap().getTile(this, 1, 1);
+                tiles[3] = this.getMap().getTile(this, 0, 1);
+                return tiles;
+            case S:
+                tiles = new Tile[2];
+                tiles[0] = this;
+                tiles[1] = this.getMap().getTile(this, 1, 0);
+                return tiles;
+            case N:
+                tiles = new Tile[2];
+                tiles[0] = this.getMap().getTile(this, 0, 1);
+                tiles[1] = this.getMap().getTile(this, 1, 1);
+                return tiles;
+            case W:
+                tiles = new Tile[2];
+                tiles[0] = this;
+                tiles[1] = this.getMap().getTile(this, 0, 1);
+                return tiles;
+            case E:
+                tiles = new Tile[2];
+                tiles[0] = this.getMap().getTile(this, 1, 0);
+                tiles[1] = this.getMap().getTile(this, 1, 1);
+                return tiles;
+            case SW:
+                return new Tile[]{this};
+            case SE:
+                return new Tile[]{this.getMap().getTile(this, 1, 0)};
+            case NW:
+                return new Tile[]{this.getMap().getTile(this, 0, 1)};
+            case NE:
+                return new Tile[]{this.getMap().getTile(this, 1, 1)};
+            default:
+                throw new DeedPlannerRuntimeException("Illegal argument");
+        }
+        return null;
+    }
 }
