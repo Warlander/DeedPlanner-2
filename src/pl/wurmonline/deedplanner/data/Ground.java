@@ -49,7 +49,7 @@ public class Ground implements TileEntity {
         dir = ground.dir;
     }
     
-        public void render(GL2 g, Tile tile, int listID) {
+    public void render(GL2 g, Tile tile, int listID) {
         data.tex.bind(g);
         if (dir!=RoadDirection.CENTER) {
             if (dir==RoadDirection.NE || dir==RoadDirection.NW) {
