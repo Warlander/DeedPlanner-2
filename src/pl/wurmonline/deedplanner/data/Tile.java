@@ -7,6 +7,7 @@ import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.logic.Tab;
+import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.util.*;
 
 public final class Tile implements XMLSerializable {
