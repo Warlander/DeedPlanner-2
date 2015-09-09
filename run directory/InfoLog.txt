@@ -1,458 +1,701 @@
-[2015-04-28 11:29:04] <Tex> {grass.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {grass_fall.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-grass.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Grass loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {water.png} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {dirt.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {dirt_fall.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-dirt.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Dirt loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {packed-dirt.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {packed_dirt_fall.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-packed-dirt.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Packed dirt loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {sand.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {sand_fall.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-sand.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Sand loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {water.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Water loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {forest.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Forest loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {marsh.png} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-marsh.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Marsh loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {steppe.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Steppe loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {tundra.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Tundra loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {farm.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-farm.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Field loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {gravel.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {gravel_fall.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-gravel.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Gravel loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {cobble.png} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-cobble.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Cobblestone loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {cobble2.png} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {cobble2_snow.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Rough Cobblestone loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {cobble3.png} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {cobble3_snow.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Round Cobblestone loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {slab.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-slab.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Stone slab loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {marbleslab.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Marble slab loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {slateslab.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Slate slab loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {planks.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Planks loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {enchantedforest.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Enchanted forest loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {enchantedgrass.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Enchanted grass loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {lawn.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Lawn loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {forest-Mycelium.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Forest mycelium loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {mycelium.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Mycelium loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {door-wood.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Wooden cave door loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {door-metal.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Metal cave door loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {door-silver.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Silver cave door loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {door-gold.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Golder cave door loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {rock.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {rock_fall.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Rock loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {cliff.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-cliff.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Cliff loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {lava.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Lava loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {clay.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Clay loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {moss.png} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-moss.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Moss loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {peat.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {winter-peat.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Peat loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {tar.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Ground data Tar loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {floor.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Floor data Wooden plank floor loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {brick_floor.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Floor data Stone brick floor loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {clay_brick.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Floor data Pottery brick floor loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {marble_floor.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Floor data Marble slab floor loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {slate_floor.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Floor data Slate slab floor loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {slab_floor.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Floor data Stone slab floor loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {ladder.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Floor data Wooden plank opening loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Floor data Stone brick opening loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Floor data Pottery brick opening loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Floor data Marble slab opening loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Floor data Slate slab opening loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Floor data Stone slab opening loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Floor data Unfinished floor loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {wooden.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden window loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden wide window loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden arched wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden door loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden canopy loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden double door loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {StoneWall.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone window loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone arched wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone door loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone double door loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {portcullisParts.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone portcullis loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone oriel loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Plain stone wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Plain stone window loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Plain stone narrow window loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Plain stone arched wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Plain stone door loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Plain stone double door loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Plain stone portcullis loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Plain stone bars loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Plain stone oriel loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {timberTex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Timber wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Timber window loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Timber arched wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Timber door loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Timber double door loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Timber jetty loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Timber balcony loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wall plan loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {SmallStone.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Low stone wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone fence loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Tall stone wall loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Tall stone wall portcullis loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {palisade.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Palisade loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Palisade gate loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden parapet loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone parapet loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {IronFence.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Stone and iron parapet loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {CrudeWoodenFence.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Crude wooden fence loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Crude wooden fence gate loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {WoodenFence.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Low roundpole fence loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Low roundpole gate loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data High roundpole fence loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden fence loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Wooden fence gate loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Iron fence loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Iron fence gate loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data High iron fence loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data High iron fence gate loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Chain fence loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {curb.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Curb loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {ropefence.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Low rope fence loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data High rope fence loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Hedge01.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data High hedge loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Medium hedge loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Low hedge loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {LavenderHedge.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Lavender hedge loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {MapleHedgeSummer.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data High maple hedge loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Medium maple hedge loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Low maple hedge loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {flowerbed.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Wall data Blue flowerbed loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Dotted flowerbed loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Greenish flowerbed loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Orange flowerbed loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Purple flowerbed loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data White flowerbed loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Wall data Yellow flowerbed loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {wooden.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Roof data Wood shingle roof loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {slate.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Roof data Slate shingle roof loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {clay.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Roof data Pottery shingle roof loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {thatch.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Roof data Thatched roof loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {chests.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Large chest loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Small chest loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {crate.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Large crate loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Small crate loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {coffin.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Coffin loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {altar-gold.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Gold altar loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {altar-silver.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Silver altar loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {altar-stone.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Stone altar loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {altar-wooden.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Wooden altar loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {camellia.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Camellia loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {grape.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Grape bush loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {lavender.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Lavender loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {rose-bush.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Rose bush loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {willowtex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Willow (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Willow loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Willow (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {pinetex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Pine (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Pine loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Pine (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {oaktex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Oak (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Oak loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Oak (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {mapletex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Maple (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Maple loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Maple (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {cedartex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Cedar (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Cedar loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Cedar (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {birchtex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Birch (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Birch loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Birch (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {walnut.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Walnut (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Walnut loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Walnut (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {linden.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Linden (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Linden loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Linden (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {fir.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Fir (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Fir loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Fir (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {chestnut.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Chestnut (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Chestnut loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Chestnut (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {appletex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Apple (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Apple loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Apple (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {cherrytex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Cherry (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Cherry loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Cherry (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {lemontex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Lemon (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Lemon loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Lemon (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {olivetex.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Olive (small) loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Olive loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Olive (big) loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {fountain.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Fountain loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {ornateFountain.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Ornate fountain loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {boy_statue_512.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Statue of boy loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {SolDemonStatue512.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Statue of demon loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {DogStatue.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Statue of dog loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {girlStatue512.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Statue of girl loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {horseStatue.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Statue of horse loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Nymph512.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Statue of nymph loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {trollStatue.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Statue of troll loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {vynoraColossus_D.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Vynora colossus loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {colossusFo.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Fo colossus loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {FreedomTower_D.png} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {towerdetail.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Freedom guard tower loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {archeryTower.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Archery tower loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {chair.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Stool loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Chair loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Armchair loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Royal_Throne.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Royal throne loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {HighChair_2.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data High chair loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {HighChair_1.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Fine high chair loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {HighChair_3.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Pauper high chair loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {table.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Large dining table loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Small square table loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Round table loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Campfire_unlit.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Campfire loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Anvil_256.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Large anvil loaded and ready to use!
-[2015-04-28 11:29:04] <DataLoader> Object data Small anvil loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {TapestryComp1.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Tapestry of Faeldray loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Tapestry1.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Green tapestry loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Tapestry2.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Beige tapestry loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Tapestry3.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Orange tapestry loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Tapestry4.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Cavalry motif tapestry loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Tapestry5.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Festivities motif tapestry loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Tapestry6.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Battle of Kyara tapestry loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Pole.png} Texture data loaded!
-[2015-04-28 11:29:04] <Tex> {Banner4.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Freedom banner loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Banner3.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data JK banner loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Banner2.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data HoTS banner loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Banner.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data MR banner loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Flag4.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Freedom flag loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Flag3.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data JK flag loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Flag2.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data HoTS flag loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {Flag.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data MR flag loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {gravestone.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Gravestone loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {pillar.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Pillar loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {playerportal.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Epic portal loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {archery-target.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Archery target loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {practiceDoll.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Practice doll loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {loom.png} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Loom loaded and ready to use!
-[2015-04-28 11:29:04] <Tex> {sundial.jpg} Texture data loaded!
-[2015-04-28 11:29:04] <DataLoader> Object data Settlement token loaded and ready to use!
-[2015-04-28 11:29:06] <GLInit> GL2 support: true
-[2015-04-28 11:29:06] <GLInit> GL3 support: true
-[2015-04-28 11:29:06] <GLInit> GL4 support: true
-[2015-04-28 11:29:06] <GLInit> GLSL support: true
-[2015-04-28 11:29:06] <GLInit> Hardware rendering: true
-[2015-04-28 11:29:06] <Shaders> Shader loaded from files: "Simple" and "Simple"
-[2015-04-28 11:29:06] <Shaders> Shader loaded from files: "Diagonal" and "Diagonal"
-[2015-04-28 11:29:06] <Tex> {grass.jpg} Texture loaded and ready to use!
-[2015-04-28 11:29:06] <Tex> {water.png} Texture loaded and ready to use!
-[2015-04-28 11:29:06] <GraphicsLoop> Graphics FPS: 0, time spent on rendering: 0.0%
-[2015-04-28 11:29:07] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 16.4%
-[2015-04-28 11:29:08] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 12.5%
-[2015-04-28 11:29:09] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.9%
-[2015-04-28 11:29:10] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 11.0%
-[2015-04-28 11:29:11] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
-[2015-04-28 11:29:12] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.4%
-[2015-04-28 11:29:13] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.3%
-[2015-04-28 11:29:14] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.7%
-[2015-04-28 11:29:15] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.9%
-[2015-04-28 11:29:16] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 12.0%
-[2015-04-28 11:29:17] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 11.5%
-[2015-04-28 11:29:18] <Tex> {Pole.png} Texture loaded and ready to use!
-[2015-04-28 11:29:19] <Tex> {Banner4.png} Texture loaded and ready to use!
-[2015-04-28 11:29:19] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 9.0%
-[2015-04-28 11:29:20] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 12.7%
-[2015-04-28 11:29:21] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 12.4%
-[2015-04-28 11:29:22] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 12.7%
-[2015-04-28 11:29:23] <Tex> {Banner3.png} Texture loaded and ready to use!
-[2015-04-28 11:29:23] <GraphicsLoop> Graphics FPS: 6, time spent on rendering: 1.4%
-[2015-04-28 11:29:24] <GraphicsLoop> Graphics FPS: 46, time spent on rendering: 12.3%
-[2015-04-28 11:29:26] <Tex> {Banner2.png} Texture loaded and ready to use!
-[2015-04-28 11:29:26] <GraphicsLoop> Graphics FPS: 30, time spent on rendering: 8.0%
-[2015-04-28 11:29:27] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 11.9%
-[2015-04-28 11:29:28] <Tex> {Banner.png} Texture loaded and ready to use!
-[2015-04-28 11:29:28] <GraphicsLoop> Graphics FPS: 31, time spent on rendering: 8.3%
-[2015-04-28 11:29:29] <GraphicsLoop> Graphics FPS: 46, time spent on rendering: 11.6%
-[2015-04-28 11:29:30] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 13.2%
-[2015-04-28 11:29:31] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 13.2%
-[2015-04-28 11:29:33] <Tex> {Flag4.png} Texture loaded and ready to use!
-[2015-04-28 11:29:33] <GraphicsLoop> Graphics FPS: 29, time spent on rendering: 7.1%
-[2015-04-28 11:29:34] <GraphicsLoop> Graphics FPS: 46, time spent on rendering: 12.8%
-[2015-04-28 11:29:35] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 11.2%
-[2015-04-28 11:29:36] <Tex> {Flag3.png} Texture loaded and ready to use!
-[2015-04-28 11:29:36] <GraphicsLoop> Graphics FPS: 14, time spent on rendering: 2.8%
-[2015-04-28 11:29:37] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 13.4%
-[2015-04-28 11:29:38] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 13.1%
-[2015-04-28 11:29:39] <Tex> {Flag2.png} Texture loaded and ready to use!
-[2015-04-28 11:29:39] <GraphicsLoop> Graphics FPS: 10, time spent on rendering: 2.7%
-[2015-04-28 11:29:40] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 12.6%
-[2015-04-28 11:29:41] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 11.9%
-[2015-04-28 11:29:43] <Tex> {Flag.png} Texture loaded and ready to use!
-[2015-04-28 11:29:43] <GraphicsLoop> Graphics FPS: 40, time spent on rendering: 9.4%
-[2015-04-28 11:29:44] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 11.6%
-[2015-04-28 11:29:45] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 12.7%
-[2015-04-28 11:29:46] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 12.2%
-[2015-04-28 11:29:46] <Tex> {skybox.png} Texture data loaded!
-[2015-04-28 11:29:48] <Tex> {skybox.png} Texture loaded and ready to use!
-[2015-04-28 11:29:48] <GraphicsLoop> Graphics FPS: 10, time spent on rendering: 3.7%
-[2015-04-28 11:29:49] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 19.3%
-[2015-04-28 11:29:50] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.7%
-[2015-04-28 11:29:51] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 17.9%
-[2015-04-28 11:29:52] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 17.5%
-[2015-04-28 11:29:53] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.9%
-[2015-04-28 11:29:54] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 17.5%
-[2015-04-28 11:29:55] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 17.9%
-[2015-04-28 11:29:56] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 15.5%
-[2015-04-28 11:29:57] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 17.3%
-[2015-04-28 11:29:58] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.0%
-[2015-04-28 11:29:59] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 15.7%
-[2015-04-28 11:30:00] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.6%
-[2015-04-28 11:30:01] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.2%
-[2015-04-28 11:30:02] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 15.3%
-[2015-04-28 11:30:03] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.2%
-[2015-04-28 11:30:04] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.3%
-[2015-04-28 11:30:05] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.3%
-[2015-04-28 11:30:06] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 17.8%
-[2015-04-28 11:30:07] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 17.4%
-[2015-04-28 11:30:08] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 15.3%
-[2015-04-28 11:30:09] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 17.3%
-[2015-04-28 11:30:10] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 17.0%
-[2015-04-28 11:30:11] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.8%
-[2015-04-28 11:30:12] <GraphicsLoop> Graphics FPS: 35, time spent on rendering: 16.1%
-[2015-04-28 11:30:13] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 16.6%
-[2015-04-28 11:30:14] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 15.1%
+[2015-09-09 03:10:07] <Tex> {grass.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {grass_fall.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-grass.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Grass loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {water.png} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {dirt.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {dirt_fall.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-dirt.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Dirt loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {packed-dirt.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {packed_dirt_fall.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-packed-dirt.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Packed dirt loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {sand.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {sand_fall.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-sand.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Sand loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {water.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Water loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {forest.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Forest loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {marsh.png} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-marsh.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Marsh loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {steppe.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Steppe loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {tundra.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Tundra loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {farm.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-farm.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Field loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {gravel.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {gravel_fall.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-gravel.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Gravel loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {cobble.png} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-cobble.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Cobblestone loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {cobble2.png} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {cobble2_snow.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Rough Cobblestone loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {cobble3.png} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {cobble3_snow.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Round Cobblestone loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {slab.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-slab.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Stone slab loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {marbleslab.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Marble slab loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {slateslab.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Slate slab loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {planks.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Planks loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {enchantedforest.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Enchanted forest loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {enchantedgrass.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Enchanted grass loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {lawn.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Lawn loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {forest-Mycelium.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Forest mycelium loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {mycelium.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Mycelium loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {door-wood.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Wooden cave door loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {door-metal.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Metal cave door loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {door-silver.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Silver cave door loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {door-gold.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Golden cave door loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {rock.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {rock_fall.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Rock loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {cliff.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-cliff.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Cliff loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {lava.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Lava loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {clay.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Clay loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {moss.png} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-moss.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Moss loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {peat.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <Tex> {winter-peat.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Peat loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {tar.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Ground data Tar loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {floor.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Floor data Wooden plank floor loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {brick_floor.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Floor data Stone brick floor loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {clay_brick.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Floor data Pottery brick floor loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {marble_floor.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Floor data Marble slab floor loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {slate_floor.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Floor data Slate slab floor loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {slab_floor.png} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Floor data Stone slab floor loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {ladder.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Floor data Wooden plank opening loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Stone brick opening loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Pottery brick opening loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Marble slab opening loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Slate slab opening loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Stone slab opening loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Standalone staircase loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Wooden plank staircase loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Stone brick staircase loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Pottery brick staircase loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Marble slab staircase loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Slate slab staircase loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Stone slab staircase loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Floor data Unfinished floor loaded and ready to use!
+[2015-09-09 03:10:07] <Tex> {wooden.jpg} Texture data loaded!
+[2015-09-09 03:10:07] <DataLoader> Wall data Wooden wall loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Wall data Wooden window loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Wall data Wooden wide window loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Wall data Wooden arched wall loaded and ready to use!
+[2015-09-09 03:10:07] <DataLoader> Wall data Wooden door loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Wooden canopy loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Wooden double door loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {StoneWall.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone wall loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone window loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone arched wall loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone door loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone double door loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {portcullisParts.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone portcullis loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone oriel loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Plain stone wall loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Plain stone window loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Plain stone narrow window loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Plain stone arched wall loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Plain stone door loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Plain stone double door loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Plain stone portcullis loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Plain stone bars loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Plain stone oriel loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {timberTex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Timber wall loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Timber window loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Timber arched wall loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Timber door loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Timber double door loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Timber jetty loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Timber balcony loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Wall plan loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {SmallStone.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Low stone wall loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone fence loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Tall stone wall loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Tall stone wall portcullis loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {palisade.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Palisade loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Palisade gate loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Wooden parapet loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone parapet loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {IronFence.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Stone and iron parapet loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {CrudeWoodenFence.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Crude wooden fence loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Crude wooden fence gate loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {WoodenFence.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Low roundpole fence loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Low roundpole gate loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data High roundpole fence loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Wooden fence loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Wooden fence gate loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Iron fence loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Iron fence gate loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data High iron fence loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data High iron fence gate loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Chain fence loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {curb.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Curb loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {ropefence.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Low rope fence loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data High rope fence loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Hedge01.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data High hedge loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Medium hedge loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Low hedge loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {LavenderHedge.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Lavender hedge loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {MapleHedgeSummer.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data High maple hedge loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Medium maple hedge loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Low maple hedge loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {flowerbed.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Wall data Blue flowerbed loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Dotted flowerbed loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Greenish flowerbed loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Orange flowerbed loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Purple flowerbed loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data White flowerbed loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Wall data Yellow flowerbed loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {wooden.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Roof data Wood shingle roof loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {slate.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Roof data Slate shingle roof loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {clay.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Roof data Pottery shingle roof loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {thatch.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Roof data Thatched roof loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {chests.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Large chest loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Small chest loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {magic_chest.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <Tex> {shine.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Large magic chest loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {crate.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Large crate loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Small crate loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {coffin.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Coffin loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {altar-gold.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Gold altar loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {altar-silver.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Silver altar loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {altar-stone.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Stone altar loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {altar-wooden.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Wooden altar loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {camellia.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Camellia loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {grape.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Grape bush loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {lavender.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Lavender loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {rose-bush.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Rose bush loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {willowtex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Willow (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Willow loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Willow (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {pinetex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Pine (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Pine loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Pine (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {oaktex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Oak (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Oak loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Oak (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {mapletex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Maple (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Maple loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Maple (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {cedartex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Cedar (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Cedar loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Cedar (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {birchtex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Birch (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Birch loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Birch (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {walnut.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Walnut (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Walnut loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Walnut (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {linden.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Linden (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Linden loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Linden (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {fir.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Fir (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Fir loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Fir (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {chestnut.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Chestnut (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Chestnut loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Chestnut (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {appletex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Apple (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Apple loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Apple (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {cherrytex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Cherry (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Cherry loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Cherry (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {lemontex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Lemon (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Lemon loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Lemon (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {olivetex.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Olive (small) loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Olive loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Olive (big) loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {fountain.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Fountain loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {ornateFountain.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Ornate fountain loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {boy_statue_512.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Statue of boy loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {SolDemonStatue512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Statue of demon loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {DogStatue.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Statue of dog loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {girlStatue512.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Statue of girl loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {horseStatue.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Statue of horse loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Nymph512.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Statue of nymph loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {trollStatue.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Statue of troll loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {vynoraColossus_D.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Vynora colossus loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {colossusFo.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Fo colossus loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {FreedomTower_D.png} Texture data loaded!
+[2015-09-09 03:10:08] <Tex> {towerdetail.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Freedom guard tower loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {archeryTower.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Archery tower loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {chair.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Stool loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Chair loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Armchair loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Royal_Throne.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Royal throne loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {HighChair_2.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data High chair loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {HighChair_1.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Fine high chair loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {HighChair_3.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Pauper high chair loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {table.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Large dining table loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Small square table loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Round table loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Campfire_unlit.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Campfire loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Anvil_256.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Large anvil loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Object data Small anvil loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {TapestryComp1.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Tapestry of Faeldray loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Tapestry1.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Green tapestry loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Tapestry2.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Beige tapestry loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Tapestry3.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Orange tapestry loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Tapestry4.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Cavalry motif tapestry loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Tapestry5.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Festivities motif tapestry loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Tapestry6.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Battle of Kyara tapestry loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Pole.png} Texture data loaded!
+[2015-09-09 03:10:08] <Tex> {Banner4.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Freedom banner loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Banner3.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data JK banner loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Banner2.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data HoTS banner loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Banner.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data MR banner loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Flag4.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Freedom flag loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Flag3.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data JK flag loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Flag2.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data HoTS flag loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {Flag.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data MR flag loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {gravestone.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Gravestone loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {pillar.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Pillar loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {playerportal.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Epic portal loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {archery-target.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Archery target loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {practiceDoll.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Practice doll loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {loom.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Loom loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {sundial.jpg} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Object data Settlement token loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {cave_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Stone wall loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {reinforcedcave_v1.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Reinforced stone wall loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {ironvein_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Iron vein loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {coppervein_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Copper vein loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {tinvein_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Tin vein loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {zincvein_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Zinc vein loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {leadvein_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Lead vein loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {silvervein_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Silver vein loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {goldvein_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Gold vein loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {slatevein_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Slate vein loaded and ready to use!
+[2015-09-09 03:10:08] <Tex> {marblevein_512.png} Texture data loaded!
+[2015-09-09 03:10:08] <DataLoader> Cave data Marble vein loaded and ready to use!
+[2015-09-09 03:10:08] <DataLoader> Cave data Stone floor loaded and ready to use!
+[2015-09-09 03:10:10] <GLInit> GL2 support: true
+[2015-09-09 03:10:10] <GLInit> GL3 support: true
+[2015-09-09 03:10:10] <GLInit> GL4 support: true
+[2015-09-09 03:10:10] <GLInit> GLSL support: true
+[2015-09-09 03:10:10] <GLInit> Hardware rendering: true
+[2015-09-09 03:10:10] <Shaders> Shader loaded from files: "Simple" and "Simple"
+[2015-09-09 03:10:10] <Shaders> Shader loaded from files: "Diagonal" and "Diagonal"
+[2015-09-09 03:10:10] <Tex> {grass.jpg} Texture loaded and ready to use!
+[2015-09-09 03:10:10] <Tex> {water.png} Texture loaded and ready to use!
+[2015-09-09 03:10:10] <GraphicsLoop> Graphics FPS: 0, time spent on rendering: 0.0%
+[2015-09-09 03:10:11] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 22.8%
+[2015-09-09 03:10:12] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 11.8%
+[2015-09-09 03:10:13] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 10.0%
+[2015-09-09 03:10:14] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 9.8%
+[2015-09-09 03:10:15] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 6.5%
+[2015-09-09 03:10:16] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 7.1%
+[2015-09-09 03:10:17] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.3%
+[2015-09-09 03:10:18] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.1%
+[2015-09-09 03:10:19] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 6.5%
+[2015-09-09 03:10:20] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 6.8%
+[2015-09-09 03:10:21] <GraphicsLoop> Graphics FPS: 27, time spent on rendering: 5.2%
+[2015-09-09 03:10:22] <GraphicsLoop> Graphics FPS: 40, time spent on rendering: 7.3%
+[2015-09-09 03:10:24] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 6.8%
+[2015-09-09 03:10:25] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 6.2%
+[2015-09-09 03:10:26] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 8.4%
+[2015-09-09 03:10:27] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 6.7%
+[2015-09-09 03:10:27] <Tex> {floor.png} Texture loaded and ready to use!
+[2015-09-09 03:10:28] <GraphicsLoop> Graphics FPS: 37, time spent on rendering: 21.3%
+[2015-09-09 03:10:29] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 7.9%
+[2015-09-09 03:10:30] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.8%
+[2015-09-09 03:10:31] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.2%
+[2015-09-09 03:10:32] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.8%
+[2015-09-09 03:10:33] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.7%
+[2015-09-09 03:10:34] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 6.7%
+[2015-09-09 03:10:35] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 6.6%
+[2015-09-09 03:10:36] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.0%
+[2015-09-09 03:10:37] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.1%
+[2015-09-09 03:10:38] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.0%
+[2015-09-09 03:10:39] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 6.5%
+[2015-09-09 03:10:40] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.4%
+[2015-09-09 03:10:41] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.1%
+[2015-09-09 03:10:42] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.4%
+[2015-09-09 03:10:43] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.6%
+[2015-09-09 03:10:44] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.4%
+[2015-09-09 03:10:45] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 7.8%
+[2015-09-09 03:10:46] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.9%
+[2015-09-09 03:10:47] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.9%
+[2015-09-09 03:10:48] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.0%
+[2015-09-09 03:10:49] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.4%
+[2015-09-09 03:10:50] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.5%
+[2015-09-09 03:10:51] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.8%
+[2015-09-09 03:10:52] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.8%
+[2015-09-09 03:10:53] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.1%
+[2015-09-09 03:10:54] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.8%
+[2015-09-09 03:10:55] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.8%
+[2015-09-09 03:10:56] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.2%
+[2015-09-09 03:10:57] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.3%
+[2015-09-09 03:10:58] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.4%
+[2015-09-09 03:10:59] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.4%
+[2015-09-09 03:11:00] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.9%
+[2015-09-09 03:11:01] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.8%
+[2015-09-09 03:11:02] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.2%
+[2015-09-09 03:11:03] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.7%
+[2015-09-09 03:11:04] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.3%
+[2015-09-09 03:11:05] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.3%
+[2015-09-09 03:11:06] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.1%
+[2015-09-09 03:11:07] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.0%
+[2015-09-09 03:11:08] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.5%
+[2015-09-09 03:11:09] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 6.7%
+[2015-09-09 03:11:10] <Tex> {brick_floor.png} Texture loaded and ready to use!
+[2015-09-09 03:11:10] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 12.6%
+[2015-09-09 03:11:11] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.8%
+[2015-09-09 03:11:12] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.5%
+[2015-09-09 03:11:13] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 7.9%
+[2015-09-09 03:11:14] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.7%
+[2015-09-09 03:11:15] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.2%
+[2015-09-09 03:11:16] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.6%
+[2015-09-09 03:11:17] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.4%
+[2015-09-09 03:11:18] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.3%
+[2015-09-09 03:11:19] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.2%
+[2015-09-09 03:11:20] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.0%
+[2015-09-09 03:11:21] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.6%
+[2015-09-09 03:11:22] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 8.7%
+[2015-09-09 03:11:23] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.8%
+[2015-09-09 03:11:24] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.0%
+[2015-09-09 03:11:25] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.3%
+[2015-09-09 03:11:26] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.2%
+[2015-09-09 03:11:27] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.4%
+[2015-09-09 03:11:28] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.6%
+[2015-09-09 03:11:29] <GraphicsLoop> Graphics FPS: 34, time spent on rendering: 8.6%
+[2015-09-09 03:11:30] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 8.3%
+[2015-09-09 03:11:31] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 8.9%
+[2015-09-09 03:11:32] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.2%
+[2015-09-09 03:11:33] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.8%
+[2015-09-09 03:11:34] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.9%
+[2015-09-09 03:11:35] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.3%
+[2015-09-09 03:11:36] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.7%
+[2015-09-09 03:11:37] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.5%
+[2015-09-09 03:11:38] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.8%
+[2015-09-09 03:11:39] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.0%
+[2015-09-09 03:11:41] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.3%
+[2015-09-09 03:11:42] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.6%
+[2015-09-09 03:11:43] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.4%
+[2015-09-09 03:11:44] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 7.5%
+[2015-09-09 03:11:45] <GraphicsLoop> Graphics FPS: 40, time spent on rendering: 8.9%
+[2015-09-09 03:11:46] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.5%
+[2015-09-09 03:11:47] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.2%
+[2015-09-09 03:11:48] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.6%
+[2015-09-09 03:11:49] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.9%
+[2015-09-09 03:11:50] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.1%
+[2015-09-09 03:11:51] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.2%
+[2015-09-09 03:11:52] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.3%
+[2015-09-09 03:11:53] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.4%
+[2015-09-09 03:11:54] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.3%
+[2015-09-09 03:11:55] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.1%
+[2015-09-09 03:11:56] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.1%
+[2015-09-09 03:11:57] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.1%
+[2015-09-09 03:11:58] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.1%
+[2015-09-09 03:11:59] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 7.4%
+[2015-09-09 03:12:00] <GraphicsLoop> Graphics FPS: 40, time spent on rendering: 8.1%
+[2015-09-09 03:12:01] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.6%
+[2015-09-09 03:12:02] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 6.9%
+[2015-09-09 03:12:03] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 7.1%
+[2015-09-09 03:12:04] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.1%
+[2015-09-09 03:12:05] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 6.7%
+[2015-09-09 03:12:06] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.0%
+[2015-09-09 03:12:07] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 7.8%
+[2015-09-09 03:12:08] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.0%
+[2015-09-09 03:12:09] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.1%
+[2015-09-09 03:12:10] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.7%
+[2015-09-09 03:12:11] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 8.4%
+[2015-09-09 03:12:12] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 7.0%
+[2015-09-09 03:12:13] <Tex> {wooden.jpg} Texture loaded and ready to use!
+[2015-09-09 03:12:13] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 8.2%
+[2015-09-09 03:12:14] <GraphicsLoop> Graphics FPS: 28, time spent on rendering: 8.4%
+[2015-09-09 03:12:15] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 10.8%
+[2015-09-09 03:12:16] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:12:17] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.4%
+[2015-09-09 03:12:18] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.1%
+[2015-09-09 03:12:19] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 8.7%
+[2015-09-09 03:12:20] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.0%
+[2015-09-09 03:12:21] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.6%
+[2015-09-09 03:12:22] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.2%
+[2015-09-09 03:12:23] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.2%
+[2015-09-09 03:12:24] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 14.5%
+[2015-09-09 03:12:25] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.6%
+[2015-09-09 03:12:26] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.4%
+[2015-09-09 03:12:27] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.4%
+[2015-09-09 03:12:29] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.3%
+[2015-09-09 03:12:30] <GraphicsLoop> Graphics FPS: 29, time spent on rendering: 7.8%
+[2015-09-09 03:12:31] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.2%
+[2015-09-09 03:12:32] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 9.4%
+[2015-09-09 03:12:33] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 9.6%
+[2015-09-09 03:12:34] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.7%
+[2015-09-09 03:12:35] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.0%
+[2015-09-09 03:12:36] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.3%
+[2015-09-09 03:12:37] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.5%
+[2015-09-09 03:12:38] <GraphicsLoop> Graphics FPS: 28, time spent on rendering: 13.5%
+[2015-09-09 03:12:39] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.6%
+[2015-09-09 03:12:40] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.6%
+[2015-09-09 03:12:41] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.8%
+[2015-09-09 03:12:42] <GraphicsLoop> Graphics FPS: 33, time spent on rendering: 8.1%
+[2015-09-09 03:12:43] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.4%
+[2015-09-09 03:12:44] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.2%
+[2015-09-09 03:12:45] <GraphicsLoop> Graphics FPS: 31, time spent on rendering: 8.2%
+[2015-09-09 03:12:46] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 9.8%
+[2015-09-09 03:12:46] <Tex> {skybox.png} Texture data loaded!
+[2015-09-09 03:12:48] <Tex> {skybox.png} Texture loaded and ready to use!
+[2015-09-09 03:12:48] <GraphicsLoop> Graphics FPS: 11, time spent on rendering: 2.4%
+[2015-09-09 03:12:49] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 20.9%
+[2015-09-09 03:12:50] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 20.2%
+[2015-09-09 03:12:51] <GraphicsLoop> Graphics FPS: 40, time spent on rendering: 18.8%
+[2015-09-09 03:12:52] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 19.5%
+[2015-09-09 03:12:53] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 19.3%
+[2015-09-09 03:12:54] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 18.9%
+[2015-09-09 03:12:55] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 19.1%
+[2015-09-09 03:12:56] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 18.4%
+[2015-09-09 03:12:57] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 19.1%
+[2015-09-09 03:12:58] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 19.4%
+[2015-09-09 03:12:59] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 19.5%
+[2015-09-09 03:13:00] <GraphicsLoop> Graphics FPS: 29, time spent on rendering: 16.4%
+[2015-09-09 03:13:01] <GraphicsLoop> Graphics FPS: 39, time spent on rendering: 18.6%
+[2015-09-09 03:13:02] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 18.4%
+[2015-09-09 03:13:03] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 18.5%
+[2015-09-09 03:13:04] <GraphicsLoop> Graphics FPS: 30, time spent on rendering: 15.3%
+[2015-09-09 03:13:05] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 18.6%
+[2015-09-09 03:13:06] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 17.9%
+[2015-09-09 03:13:07] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 18.1%
+[2015-09-09 03:13:08] <GraphicsLoop> Graphics FPS: 40, time spent on rendering: 16.8%
+[2015-09-09 03:13:09] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 18.3%
+[2015-09-09 03:13:10] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 18.7%
+[2015-09-09 03:13:11] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 18.4%
+[2015-09-09 03:13:12] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 18.2%
+[2015-09-09 03:13:13] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 19.3%
+[2015-09-09 03:13:14] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 17.7%
+[2015-09-09 03:13:15] <GraphicsLoop> Graphics FPS: 33, time spent on rendering: 16.3%
+[2015-09-09 03:13:16] <GraphicsLoop> Graphics FPS: 32, time spent on rendering: 17.3%
+[2015-09-09 03:13:17] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 17.8%
+[2015-09-09 03:13:18] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 17.9%
+[2015-09-09 03:13:19] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 13.9%
+[2015-09-09 03:13:20] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.6%
+[2015-09-09 03:13:21] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.6%
+[2015-09-09 03:13:22] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 9.0%
+[2015-09-09 03:13:23] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.4%
+[2015-09-09 03:13:24] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.4%
+[2015-09-09 03:13:25] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.7%
+[2015-09-09 03:13:26] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.9%
+[2015-09-09 03:13:27] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.9%
+[2015-09-09 03:13:28] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:13:29] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:13:30] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.3%
+[2015-09-09 03:13:31] <GraphicsLoop> Graphics FPS: 41, time spent on rendering: 9.2%
+[2015-09-09 03:13:32] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 9.4%
+[2015-09-09 03:13:33] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 11.0%
+[2015-09-09 03:13:34] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:13:35] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.5%
+[2015-09-09 03:13:36] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.5%
+[2015-09-09 03:13:37] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:13:38] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.4%
+[2015-09-09 03:13:39] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.8%
+[2015-09-09 03:13:40] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.6%
+[2015-09-09 03:13:41] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.6%
+[2015-09-09 03:13:42] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.7%
+[2015-09-09 03:13:43] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:13:44] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.2%
+[2015-09-09 03:13:45] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.0%
+[2015-09-09 03:13:46] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.3%
+[2015-09-09 03:13:47] <GraphicsLoop> Graphics FPS: 33, time spent on rendering: 9.3%
+[2015-09-09 03:13:48] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.0%
+[2015-09-09 03:13:49] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:13:51] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:13:52] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.0%
+[2015-09-09 03:13:53] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 9.1%
+[2015-09-09 03:13:54] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.9%
+[2015-09-09 03:13:55] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.9%
+[2015-09-09 03:13:56] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.6%
+[2015-09-09 03:13:57] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:13:58] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 9.6%
+[2015-09-09 03:13:59] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:14:00] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:14:01] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.7%
+[2015-09-09 03:14:02] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 11.6%
+[2015-09-09 03:14:03] <GraphicsLoop> Graphics FPS: 37, time spent on rendering: 9.8%
+[2015-09-09 03:14:04] <GraphicsLoop> Graphics FPS: 40, time spent on rendering: 10.1%
+[2015-09-09 03:14:05] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:14:06] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.2%
+[2015-09-09 03:14:07] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 9.1%
+[2015-09-09 03:14:08] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:14:09] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.4%
+[2015-09-09 03:14:10] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:14:11] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.1%
+[2015-09-09 03:14:12] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.5%
+[2015-09-09 03:14:13] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:14:14] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:14:15] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.9%
+[2015-09-09 03:14:16] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:14:17] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.0%
+[2015-09-09 03:14:18] <GraphicsLoop> Graphics FPS: 39, time spent on rendering: 9.0%
+[2015-09-09 03:14:19] <GraphicsLoop> Graphics FPS: 37, time spent on rendering: 10.7%
+[2015-09-09 03:14:20] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.8%
+[2015-09-09 03:14:21] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.1%
+[2015-09-09 03:14:22] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.5%
+[2015-09-09 03:14:23] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.3%
+[2015-09-09 03:14:24] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.6%
+[2015-09-09 03:14:25] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.4%
+[2015-09-09 03:14:26] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.6%
+[2015-09-09 03:14:27] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.9%
+[2015-09-09 03:14:28] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 11.7%
+[2015-09-09 03:14:29] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 11.0%
+[2015-09-09 03:14:30] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.8%
+[2015-09-09 03:14:31] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.0%
+[2015-09-09 03:14:32] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.9%
+[2015-09-09 03:14:33] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.7%
+[2015-09-09 03:14:34] <GraphicsLoop> Graphics FPS: 36, time spent on rendering: 10.2%
+[2015-09-09 03:14:35] <GraphicsLoop> Graphics FPS: 42, time spent on rendering: 9.9%
+[2015-09-09 03:14:36] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.5%
+[2015-09-09 03:14:37] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.4%
+[2015-09-09 03:14:38] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.3%
+[2015-09-09 03:14:39] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.8%
+[2015-09-09 03:14:40] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 11.0%
+[2015-09-09 03:14:41] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.5%
+[2015-09-09 03:14:42] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:14:43] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.4%
+[2015-09-09 03:14:44] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.5%
+[2015-09-09 03:14:45] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.2%
+[2015-09-09 03:14:46] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 10.6%
+[2015-09-09 03:14:47] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 10.3%
+[2015-09-09 03:14:48] <GraphicsLoop> Graphics FPS: 45, time spent on rendering: 9.8%
+[2015-09-09 03:14:49] <GraphicsLoop> Graphics FPS: 39, time spent on rendering: 10.0%
+[2015-09-09 03:14:50] <GraphicsLoop> Graphics FPS: 40, time spent on rendering: 10.4%
+[2015-09-09 03:14:51] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 9.8%
+[2015-09-09 03:14:52] <GraphicsLoop> Graphics FPS: 44, time spent on rendering: 9.6%
+[2015-09-09 03:14:53] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 9.5%
+[2015-09-09 03:14:54] <GraphicsLoop> Graphics FPS: 43, time spent on rendering: 9.4%

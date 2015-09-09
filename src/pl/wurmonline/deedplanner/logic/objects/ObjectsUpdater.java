@@ -8,6 +8,7 @@ import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Keybindings;
 import pl.wurmonline.deedplanner.input.Keyboard;
 import pl.wurmonline.deedplanner.input.Mouse;
+import pl.wurmonline.deedplanner.util.Log;
 
 public class ObjectsUpdater {
 
@@ -29,8 +30,11 @@ public class ObjectsUpdater {
                     location = ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
                 }
                 point = new Point2D.Double(tile.getX()+location.getHorizontalAlign()/4f, tile.getY()+location.getVerticalAlign()/4f);
+                Log.out(location, "ObjectLocation");
                 cam.tile.setGameObject(currentData, location, Globals.floor);
+                map.getSymmetry().mirrorObject(cam.tile, currentData, location, Globals.floor);
                 object = cam.tile.getGameObject(Globals.floor, location);
+                Log.out(object, "Object Get");
                 map.newAction();
             }
             else if (object!=null && mouse.hold.left) {
@@ -52,6 +56,7 @@ public class ObjectsUpdater {
             if (mouse.hold.right && !mouse.hold.left) {
                 ObjectLocation location = ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
                 cam.tile.setGameObject(null, location, Globals.floor);
+                map.getSymmetry().mirrorObject(cam.tile, null, location, Globals.floor);
                 map.newAction();
             }
         }

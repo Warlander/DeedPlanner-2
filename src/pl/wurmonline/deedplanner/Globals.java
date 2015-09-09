@@ -30,5 +30,10 @@ public class Globals {
     public static int glWindowWidth;
     public static int glWindowHeight;
     public static float glAspectRatio;
-    
+
+    // For use with symmetry
+    public static boolean xSymLock = false;
+    public static boolean ySymLock = false;
+    public static boolean mirrorFloors = false;
+
 }
