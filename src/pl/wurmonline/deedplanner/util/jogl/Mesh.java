@@ -18,9 +18,17 @@ public final class Mesh {
     private final String vertLoc;
     private int listID = 0;
     private final Tex tex;
-    private final float scale;
+    private final float[] scale;
     
     public Mesh(String vertLoc, String name, Tex tex, float scale) {
+        this.name = name.toUpperCase();
+        this.vertLoc = vertLoc;
+        this.tex = tex;
+        this.scale = new float[3];
+        this.scale[0] = this.scale[1] = this.scale[2] = scale;
+    }
+    
+    public Mesh(String vertLoc, String name, Tex tex, float[] scale) {
         this.name = name.toUpperCase();
         this.vertLoc = vertLoc;
         this.tex = tex;
@@ -38,10 +46,10 @@ public final class Mesh {
                 Log.err(ex);
             }
         }
-        g.glScalef(scale, scale, scale);
+        g.glScalef(scale[0], scale[1], scale[2]);
         g.glCallList(listID);
     }
-    
+
     private MeshData loadMesh(File location) throws ParserConfigurationException, IOException, SAXException, DeedPlannerException {
         MeshData data = new MeshData();
         
