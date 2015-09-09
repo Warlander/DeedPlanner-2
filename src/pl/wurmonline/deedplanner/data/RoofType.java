@@ -48,11 +48,12 @@ public final class RoofType {
                                             { 0, 0, 3},
                                             { 1, 0,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineEndUp.dae", "roof", null, 1),
+        list.add(new RoofType(new Mesh("Data/Special/spineEndUp.dae", "roof", null,
+                                new float[] {-1.0f, 1.0f, 1.0f}),
                               new byte[][] {{-1,-2,-1},
                                             { 3, 0, 0},
                                             {-1, 0, 1}}));
-        
+
         list.add(new RoofType(new Mesh("Data/Special/spineCorner.dae", "roof", null, 1),
                               new byte[][] {{-1,-2,-1},
                                             {-2, 0, 0},
