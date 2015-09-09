@@ -135,7 +135,8 @@ public final class DataLoader {
             final boolean houseWall;
             final boolean arch;
             final boolean archBuildable;
-            Model model = null;
+            Model bottomModel = null;
+            Model normalModel = null;
             String iconLocation = null;
             ArrayList<String[]> categories = new ArrayList<>();
             Materials materials = null;
@@ -157,7 +158,13 @@ public final class DataLoader {
                 Node node = list.item(i2);
                 switch (node.getNodeName()) {
                     case "model":
-                        model = new Model((Element) node);
+                        Model model = new Model((Element) node);
+                        if (model.tag.equals("bottom")) {
+                            bottomModel = model;
+                        }
+                        else {
+                            normalModel = model;
+                        }
                         break;
                     case "category":
                         categories.add(node.getTextContent().split("/"));
@@ -174,7 +181,11 @@ public final class DataLoader {
                 }
             }
                 
-            WallData data = new WallData(model, name, shortName, color, scale, houseWall, arch, archBuildable, materials, iconLocation);
+            if (bottomModel == null) {
+                bottomModel = normalModel;
+            }
+            
+            WallData data = new WallData(bottomModel, normalModel, name, shortName, color, scale, houseWall, arch, archBuildable, materials, iconLocation);
             Log.out(DataLoader.class, "Wall data "+data+" loaded and ready to use!");
             Data.walls.put(shortName, data);
 

@@ -1,9 +1,11 @@
 package pl.wurmonline.deedplanner.data;
 
+import java.util.Map.Entry;
 import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.util.jogl.Model;
 
 public class Wall implements TileEntity {
 
@@ -30,7 +32,22 @@ public class Wall implements TileEntity {
             g.glScalef(1, -1, 1);
         }
         g.glTranslatef(4, 0, 0);
-        data.model.render(g);
+        
+        Model model;
+        if (data.houseWall) {
+            int floor = tile.getEntityFloor(this);
+            if (floor == 0) {
+                model = data.bottomModel;
+            }
+            else {
+                model = data.normalModel;
+            }
+        }
+        else {
+            model = data.normalModel;
+        }
+        
+        model.render(g);
     }
     
     public Wall deepCopy() {

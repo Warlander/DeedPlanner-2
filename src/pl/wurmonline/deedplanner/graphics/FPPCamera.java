@@ -23,7 +23,7 @@ public final class FPPCamera {
     private float anglex=-(float)Math.PI/4;
     private float angley=(float)Math.PI/2;
     
-    private double stickedHeight = 1.7;
+    private double stickedHeight = 1.4;
     
     private final MapPanel panel;
     

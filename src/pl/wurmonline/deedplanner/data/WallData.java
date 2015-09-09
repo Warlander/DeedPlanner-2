@@ -15,7 +15,8 @@ import pl.wurmonline.deedplanner.util.jogl.Model;
 
 public class WallData {
 
-    public final Model model;
+    public final Model bottomModel;
+    public final Model normalModel;
     public final String name;
     public final String shortName;
     public final Color color;
@@ -29,8 +30,9 @@ public class WallData {
     
     private final Materials materials;
     
-    public WallData(Model model, String name, String shortName, Color color, float scale, boolean houseWall, boolean arch, boolean archBuildable, Materials materials, String iconLocation) {
-        this.model = model;
+    public WallData(Model bottomModel, Model normalModel, String name, String shortName, Color color, float scale, boolean houseWall, boolean arch, boolean archBuildable, Materials materials, String iconLocation) {
+        this.bottomModel = bottomModel;
+        this.normalModel = normalModel;
         this.name = name;
         this.shortName = shortName;
         this.color = color;
