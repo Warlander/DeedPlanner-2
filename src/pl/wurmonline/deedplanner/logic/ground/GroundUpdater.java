@@ -27,11 +27,13 @@ public class GroundUpdater {
                 if (mouse.hold.left) {
                     if (currentData!=null) {
                         tile.setGround(currentData);
+                        map.getSymmetry().mirrorGround(tile, currentData);
                     }
                 }
                 else if (mouse.hold.right) {
                     if (currentData!=null) {
                         tile.setGround(defaultData);
+                        map.getSymmetry().mirrorGround(tile, defaultData);
                     }
                 }
                 else if (mouse.released.left || mouse.released.right) {
@@ -78,9 +80,11 @@ public class GroundUpdater {
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.hold.left) {
                     tile.setGround(defaultData);
+                    map.getSymmetry().mirrorGround(tile, defaultData);
                 }
                 else if (mouse.hold.right) {
                     tile.setGround(defaultData);
+                    map.getSymmetry().mirrorGround(tile, defaultData);
                 }
                 else if (mouse.released.left || mouse.released.right) {
                     map.newAction();

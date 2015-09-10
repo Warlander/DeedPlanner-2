@@ -34,11 +34,13 @@ public class FloorUpdater {
                             floor = new Floor(currentData, Globals.floorOrientation);
                         }
                         tile.setTileContent(floor, Globals.floor);
+                        map.getSymmetry().mirrorFloor(tile, currentData, Globals.floorOrientation, Globals.floor);
                     }
                 }
                 else if (mouse.hold.right) {
                     if (!(tile.getTileContent(Globals.floor) instanceof Roof)) {
                         tile.setTileContent(null, Globals.floor);
+                        map.getSymmetry().mirrorFloor(tile, null, Globals.floorOrientation, Globals.floor);
                     }
                 }
                 else if (mouse.released.left || mouse.released.right) {
@@ -53,9 +55,11 @@ public class FloorUpdater {
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.hold.left  && !(tile.getTileContent(Globals.floor) instanceof Roof)) {
                     tile.setTileContent(null, Globals.floor);
+                    map.getSymmetry().mirrorFloor(tile, null, Globals.floorOrientation, Globals.floor);
                 }
                 else if (mouse.hold.right  && !(tile.getTileContent(Globals.floor) instanceof Roof)) {
                     tile.setTileContent(null, Globals.floor);
+                    map.getSymmetry().mirrorFloor(tile, null, Globals.floorOrientation, Globals.floor);
                 }
                 else if (mouse.released.left || mouse.released.right) {
                     map.newAction();

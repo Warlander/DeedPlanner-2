@@ -8,6 +8,7 @@ import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.logic.Tab;
 import pl.wurmonline.deedplanner.logic.TileFragment;
+import pl.wurmonline.deedplanner.logic.symmetry.Symmetry;
 import pl.wurmonline.deedplanner.util.*;
 
 public final class Tile implements XMLSerializable {
@@ -315,7 +316,7 @@ public final class Tile implements XMLSerializable {
     }
     
     public void renderSelection(GL2 g) {
-        if ((Globals.tab == Tab.labels || Globals.tab == Tab.height)) {
+        if ((Globals.tab == Tab.labels || Globals.tab == Tab.height || Globals.tab == Tab.symmetry)) {
             g.glDisable(GL2.GL_ALPHA_TEST);
             g.glEnable(GL2.GL_BLEND);
             g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
@@ -331,6 +332,22 @@ public final class Tile implements XMLSerializable {
             g.glColor4f(1, 1, 1, 1);
             g.glDisable(GL2.GL_BLEND);
             g.glEnable(GL2.GL_ALPHA_TEST);
+        }
+    }
+    
+    public void renderSymmetry(GL2 g) {
+        Symmetry sym = getMap().getSymmetry();
+        switch(sym.getType()) {
+            case TILE:
+                sym.renderTiles(g);
+                break;
+            case BORDER:
+            case CORNER:
+                if(getX() == sym.getX() && Globals.xSymLock)
+                    sym.renderXBorder(g);
+                if(getY() == sym.getY() && Globals.ySymLock)
+                    sym.renderYBorder(g);
+                break;
         }
     }
     

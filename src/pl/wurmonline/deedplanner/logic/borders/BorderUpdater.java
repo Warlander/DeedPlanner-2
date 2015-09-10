@@ -38,16 +38,20 @@ public class BorderUpdater {
     private static void setWalls(Map map, Tile tile, BorderData border, TileFragment frag) {
         if (frag==TileFragment.S) {
             tile.setHorizontalBorder(border);
+            map.getSymmetry().mirrorHorizontalBorder(tile, border, frag);
         }
         else if (frag==TileFragment.N) {
             map.getTile(tile, 0, 1).setHorizontalBorder(border);
+            map.getSymmetry().mirrorHorizontalBorder(map.getTile(tile, 0, 1), border, frag);
         }
         
         if (frag==TileFragment.W) {
             tile.setVerticalBorder(border);
+            map.getSymmetry().mirrorVerticalBorder(tile, border, frag);
         }
         else if (frag==TileFragment.E) {
             map.getTile(tile, 1, 0).setVerticalBorder(border);
+            map.getSymmetry().mirrorVerticalBorder(map.getTile(tile, 1, 0), border, frag);
         }
     }
     
