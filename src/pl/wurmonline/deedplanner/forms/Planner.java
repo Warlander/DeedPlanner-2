@@ -1116,16 +1116,16 @@ public class Planner extends javax.swing.JFrame {
     private void floorOrientationBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorOrientationBoxActionPerformed
         switch((String) floorOrientationBox.getSelectedItem()) {
             case "Up":
-                Globals.floorOrientation = EntityOrientation.UP;
+                Globals.floorOrientation = FloorOrientation.UP;
                 break;
             case "Left":
-                Globals.floorOrientation = EntityOrientation.LEFT;
+                Globals.floorOrientation = FloorOrientation.LEFT;
                 break;
             case "Down":
-                Globals.floorOrientation = EntityOrientation.DOWN;
+                Globals.floorOrientation = FloorOrientation.DOWN;
                 break;
             case "Right":
-                Globals.floorOrientation = EntityOrientation.RIGHT;
+                Globals.floorOrientation = FloorOrientation.RIGHT;
                 break;
         }
     }//GEN-LAST:event_floorOrientationBoxActionPerformed

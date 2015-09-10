@@ -1,6 +1,6 @@
 package pl.wurmonline.deedplanner.data;
 
-public enum EntityOrientation {
+public enum FloorOrientation {
     
     UP, LEFT, DOWN, RIGHT;
     
