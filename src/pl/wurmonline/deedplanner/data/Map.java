@@ -22,6 +22,7 @@ import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.*;
 import pl.wurmonline.deedplanner.logic.Tab;
 import pl.wurmonline.deedplanner.logic.TileSelection;
+import pl.wurmonline.deedplanner.logic.symmetry.Symmetry;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.jogl.Color;
@@ -49,6 +50,8 @@ public final class Map {
     private float minCaveSize = 5;
     private float maxCaveSize = 5;
     private float diffCaveSize = 0;
+    
+    private Symmetry symmetry = new Symmetry();
     
     public static Map parseMap(byte[] mapData) throws DeedPlannerException {
         try {
@@ -468,6 +471,24 @@ public final class Map {
                     }
                 }
             }
+            if(Globals.xSymLock || Globals.ySymLock) {
+                for (int i=startX; i<=endX; i++) {
+                    for (int i2=startY; i2<=endY; i2++) {
+                        if(Globals.xSymLock && i == symmetry.getX()) {
+                            g.glPushMatrix();
+                                g.glTranslatef(i*4, i2*4, 0);
+                                tiles[i][i2].renderSymmetry(g);
+                            g.glPopMatrix();
+                        }
+                        else if(Globals.ySymLock && i2 == symmetry.getY()) {
+                            g.glPushMatrix();
+                                g.glTranslatef(i*4, i2*4, 0);
+                                tiles[i][i2].renderSymmetry(g);
+                            g.glPopMatrix();
+                        }
+                    }
+                }
+            }            
             for (int i=startX; i<=endX; i++) {
                 for (int i2=startY; i2<=endY; i2++) {
                     if (Globals.floor>=0) {
@@ -919,4 +940,11 @@ public final class Map {
         return "Map";
     }
     
+    public Symmetry getSymmetry() {
+        return symmetry;
+    }
+    
+    public void setSymmetry(Symmetry sym) {
+        symmetry = sym;
+    }
 }

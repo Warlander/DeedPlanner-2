@@ -18,11 +18,13 @@ public class CaveUpdater {
         if (mouse.hold.left) {
             if (currentData!=null) {
                 tile.setCaveEntity(currentData);
+                map.getSymmetry().mirrorCaveEntity(tile, currentData);
             }
         }
         else if (mouse.hold.right) {
             if (currentData!=null) {
                 tile.setCaveEntity(defaultData);
+                map.getSymmetry().mirrorCaveEntity(tile, defaultData);
             }
         }
         else if (mouse.released.left || mouse.released.right) {

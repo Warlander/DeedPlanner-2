@@ -8,6 +8,7 @@ import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Keybindings;
 import pl.wurmonline.deedplanner.input.Keyboard;
 import pl.wurmonline.deedplanner.input.Mouse;
+import pl.wurmonline.deedplanner.util.Log;
 
 public class ObjectsUpdater {
 
@@ -16,12 +17,12 @@ public class ObjectsUpdater {
     private static Tile tile;
     private static Point2D point;
     private static GameObject object;
+    private static ObjectLocation location;
     
     public static void update(Mouse mouse, Keyboard keyboard, Map map, UpCamera cam) {
         if (currentData!=null) {
             if (mouse.pressed.left) {
                 tile = cam.tile;
-                ObjectLocation location;
                 if (currentData.centerOnly) {
                     location = ObjectLocation.MIDDLE_CENTER;
                 }
@@ -30,6 +31,7 @@ public class ObjectsUpdater {
                 }
                 point = new Point2D.Double(tile.getX()+location.getHorizontalAlign()/4f, tile.getY()+location.getVerticalAlign()/4f);
                 cam.tile.setGameObject(currentData, location, Globals.floor);
+                map.getSymmetry().mirrorObject(cam.tile, currentData, location, Globals.floor);
                 object = cam.tile.getGameObject(Globals.floor, location);
                 map.newAction();
             }
@@ -41,17 +43,20 @@ public class ObjectsUpdater {
                     rotation = getClampedRotation(rotation);
                 }
                 object.setRotation(rotation);
+                map.getSymmetry().mirrorObjectRotation(tile, object, rotation, location, Globals.floor);
             }
             
             if (mouse.released.left) {
                 tile = null;
                 point = null;
                 object = null;
+                location = null;
             }
             
             if (mouse.hold.right && !mouse.hold.left) {
-                ObjectLocation location = ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
+                location = ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
                 cam.tile.setGameObject(null, location, Globals.floor);
+                map.getSymmetry().mirrorObject(cam.tile, null, location, Globals.floor);
                 map.newAction();
             }
         }

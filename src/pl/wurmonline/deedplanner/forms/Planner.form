@@ -492,7 +492,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="groundModeCombo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" pref="396" max="32767" attributes="0"/>
+                          <Component id="jScrollPane1" pref="384" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -596,13 +596,10 @@
                                   <EmptySpace pref="52" max="32767" attributes="0"/>
                                   <Component id="heightShow" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel7" pref="230" max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel7" alignment="1" pref="230" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="heightRadio" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -649,7 +646,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" pref="290" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="274" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -857,7 +854,7 @@
                               <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" pref="441" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" pref="433" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -962,7 +959,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="wallReversedAutoBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" pref="443" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" pref="439" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1034,7 +1031,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane5" alignment="0" pref="503" max="32767" attributes="0"/>
+                      <Component id="jScrollPane5" alignment="0" pref="487" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1086,7 +1083,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane6" alignment="0" pref="503" max="32767" attributes="0"/>
+                      <Component id="jScrollPane6" alignment="0" pref="487" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1147,7 +1144,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane7" alignment="0" pref="503" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" alignment="0" pref="487" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1197,7 +1194,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane8" alignment="0" pref="503" max="32767" attributes="0"/>
+                      <Component id="jScrollPane8" alignment="0" pref="487" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -1231,6 +1228,17 @@
                 </Container>
               </SubComponents>
             </Container>
+            <Component class="pl.wurmonline.deedplanner.forms.SymmetryEditor" name="symmetryPanel">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                  <JTabbedPaneConstraints tabName="Symmetry">
+                    <Property name="tabTitle" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+                      <ResourceString bundle="pl/wurmonline/deedplanner/forms/Bundle.properties" key="Planner.symmetryPanel.TabConstraints.tabTitle" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
+                    </Property>
+                  </JTabbedPaneConstraints>
+                </Constraint>
+              </Constraints>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

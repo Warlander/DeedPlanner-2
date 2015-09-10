@@ -16,18 +16,21 @@ public class RoofUpdater {
         if (mouse.hold.left) {
             if (currentData!=null) {
                 cam.tile.setTileContent(new Roof(currentData), Globals.floor);
+                map.getSymmetry().mirrorRoof(cam.tile, currentData, Globals.floor);
                 map.recalculateRoofs();
             }
         }
         else if (mouse.hold.right) {
             if (currentData!=null) {
                 cam.tile.setTileContent(null, Globals.floor);
+                map.getSymmetry().mirrorRoof(cam.tile, null, Globals.floor);
                 map.recalculateRoofs();
             }
         }
         else if (mouse.released.left || mouse.released.right) {
             map.newAction();
         }
+        map.recalculateRoofs();
     }
     
 }

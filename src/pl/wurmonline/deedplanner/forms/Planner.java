@@ -189,6 +189,7 @@ public class Planner extends javax.swing.JFrame {
         cavesPanel = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         cavesTree = new javax.swing.JTree();
+        symmetryPanel = new pl.wurmonline.deedplanner.forms.SymmetryEditor();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -319,7 +320,7 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(groundModeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.groundPanel.TabConstraints.tabTitle"), groundPanel); // NOI18N
@@ -423,12 +424,10 @@ public class Planner extends javax.swing.JFrame {
                                 .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                         .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, heightPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                     .addGroup(heightPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                             .addGroup(heightPanelLayout.createSequentialGroup()
                                 .addComponent(heightRadio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -463,7 +462,7 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.heightPanel.TabConstraints.tabTitle"), heightPanel); // NOI18N
@@ -518,7 +517,7 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(floorOrientationBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.floorsPanel.TabConstraints.tabTitle"), floorsPanel); // NOI18N
@@ -566,7 +565,7 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(wallReversedAutoBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.wallsPanel.TabConstraints.tabTitle"), wallsPanel); // NOI18N
@@ -594,7 +593,7 @@ public class Planner extends javax.swing.JFrame {
         );
         roofsPanelLayout.setVerticalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.roofsPanel.TabConstraints.tabTitle"), roofsPanel); // NOI18N
@@ -618,7 +617,7 @@ public class Planner extends javax.swing.JFrame {
         );
         objectsPanelLayout.setVerticalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.objectsPanel.TabConstraints.tabTitle"), objectsPanel); // NOI18N
@@ -642,7 +641,7 @@ public class Planner extends javax.swing.JFrame {
         );
         bordersPanelLayout.setVerticalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.bordersPanel.TabConstraints.tabTitle"), bordersPanel); // NOI18N
@@ -666,10 +665,11 @@ public class Planner extends javax.swing.JFrame {
         );
         cavesPanelLayout.setVerticalGroup(
             cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.cavesPanel.TabConstraints.tabTitle"), cavesPanel); // NOI18N
+        tabbedPane.addTab(bundle.getString("Planner.symmetryPanel.TabConstraints.tabTitle"), symmetryPanel); // NOI18N
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -999,6 +999,9 @@ public class Planner extends javax.swing.JFrame {
         else if (tab==cavesPanel) {
             Globals.tab = Tab.caves;
         }
+        else if (tab==symmetryPanel) {
+            Globals.tab = Tab.symmetry;
+        }
     }//GEN-LAST:event_tabbedPaneStateChanged
 
     private void jSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner4StateChanged
@@ -1223,6 +1226,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem springItem;
     private javax.swing.JPanel statusBar;
     private javax.swing.JRadioButtonMenuItem summerItem;
+    private pl.wurmonline.deedplanner.forms.SymmetryEditor symmetryPanel;
     private javax.swing.JTabbedPane tabbedPane;
     public javax.swing.JLabel tileLabel;
     private javax.swing.JMenuItem undoItem;
