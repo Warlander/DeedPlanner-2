@@ -7,6 +7,7 @@ import pl.wurmonline.deedplanner.data.CaveData;
 import pl.wurmonline.deedplanner.data.Floor;
 import pl.wurmonline.deedplanner.data.FloorData;
 import pl.wurmonline.deedplanner.data.FloorOrientation;
+import pl.wurmonline.deedplanner.data.GameObject;
 import pl.wurmonline.deedplanner.data.GameObjectData;
 import pl.wurmonline.deedplanner.data.GroundData;
 import pl.wurmonline.deedplanner.data.ObjectLocation;
@@ -20,78 +21,103 @@ import pl.wurmonline.deedplanner.data.WallData;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 
+/**
+ * Symmetry
+ * Allows for locking a line or lines of symmetry to mirror work done.
+ * @since 15-09-06
+ * @author Jonathan Walker (Keenan)
+ */
 public class Symmetry {
-    private int x = -1;
-    private int y = -1;
-    private SymmetryType type = SymmetryType.NONE;
-    private SymmetryDirection direction = SymmetryDirection.CENTER;
-    private boolean isMirroring = false;
-    
-    public Symmetry() {
+    private final int x;
+    private final int y;
+    private final SymmetryType type;
+    private final SymmetryDirection direction;
         
+    /**
+     * Empty constructor for when there is no symmetry lock.
+     */
+    public Symmetry() {
+        this.x = -1;
+        this.y = -1;
+        this.type = SymmetryType.NONE;
+        this.direction = SymmetryDirection.CENTER;
     }
     
-    public Symmetry(int x, int y, SymmetryType type, SymmetryDirection dir) {
-        this.x = x;
-        this.y = y;
+    /**
+     * Main constructor for border and corner locks.
+     * 
+     * @param cX X-axis coordinate for the lock, or -1 if none.
+     * @param cY Y-axis coordinate for the lock, or -1 if none.
+     * @param dir SymmetryDirection of the border or corner of the lock.
+     */
+    public Symmetry(int cX, int cY, SymmetryDirection dir) {
         
-        if(type == SymmetryType.CORNER || type == SymmetryType.BORDER ) switch(dir) {
+        switch(dir) {
             case SE:
             case E:
-                this.x += 1;
+                cX += 1;
                 break;
-            case N:
             case NW:
-                this.y += 1;
+            case N:
+                cY += 1;
                 break;
             case NE:
-                this.x += 1;
-                this.y += 1;
+                cX += 1;
+                cY += 1;
                 break;
         }
-        this.type = type;
+        this.x = cX;
+        this.y = cY;
+        this.type = SymmetryType.getType(dir);
         this.direction = dir;
     }
     
-    public Symmetry(int x, int y, SymmetryType type) {
+    /**
+     * Constructor for tile locks.
+     * 
+     * @param x X-axis coordinate of the tile lock.
+     * @param y Y-axis coordinate of the tile lock.
+     */
+    public Symmetry(int x, int y) {
         this.x = x;
         this.y = y;
-        this.type = type;
+        this.type = SymmetryType.TILE;
+        this.direction = SymmetryDirection.CENTER;
     }
     
-    public void setX(int x) {
-        this.x = x;
-    }
-    
-    public void setY(int y) {
-        this.y = y;
-    }
-    
+    /**
+     * Returns the X-axis coordinate for the symmetry lock
+     * @return X-axis coordinate
+     */
     public int getX() {
         return this.x;
     }
     
+    /**
+     * Returns the Y-axis coordinate for the symmetry lock
+     * @return Y-axis coordinate
+     */
     public int getY() {
         return this.y;
     }
     
-    public void setType(SymmetryType type) {
-        this.type = type;
-    }
-    
+    /**
+     * Returns the type of lock.
+     * @return SymmetryType
+     */
     public SymmetryType getType() {
         return type;
     }
     
-    public void setDirection(SymmetryDirection dir) {
-        this.direction = dir;
-    }
-    
+    /**
+     * Returns the direction of the lock
+     * @return SymmetryDirection
+     */
     public SymmetryDirection getDirection() {
         return direction;
     }
     
-    public int mirrorX(int curX) {
+    private int mirrorX(int curX) {
         int mX = (getX() - curX) + getX();
         switch(direction) {
             case E:
@@ -106,7 +132,7 @@ public class Symmetry {
         return mX;
     }
     
-    public int mirrorY(int curY) {
+    private int mirrorY(int curY) {
         int mY = (getY() - curY) + getY();
         switch(direction) {
             case N:
@@ -121,6 +147,10 @@ public class Symmetry {
         return mY;
     }
     
+    /**
+     *
+     * @return Status string of X-axis lock
+     */
     public String getXStatus() {
         if(getX() == -1)
             return "X: No Lock";
@@ -142,6 +172,10 @@ public class Symmetry {
         return status;
     }
     
+    /**
+     *
+     * @return Status string of Y-axis lock
+     */
     public String getYStatus() {
         if(getY() == -1)
             return "Y: No Lock";
@@ -163,20 +197,7 @@ public class Symmetry {
         return status;
     }
     
-    public String getStatus() {
-        String status = "";
-        if(getX() > -1)
-            status += getXStatus();
-        if(getY() > -1)
-            status += getYStatus();
-        
-        if(status != "")
-            status = "Symmetry - " + status;
-        
-        return status;
-    }
-    
-    public static RoadDirection mirrorDirX(RoadDirection dir) {
+    private static RoadDirection mirrorDirX(RoadDirection dir) {
         switch(dir) {
             case CENTER:
                 return CENTER;
@@ -193,7 +214,7 @@ public class Symmetry {
         }
     }
     
-    public static RoadDirection mirrorDirY(RoadDirection dir) {
+    private static RoadDirection mirrorDirY(RoadDirection dir) {
         switch(dir) {
             case CENTER:
                 return CENTER;
@@ -210,10 +231,14 @@ public class Symmetry {
         }
     }
     
-    public static RoadDirection mirrorDirXY(RoadDirection dir) {
+    private static RoadDirection mirrorDirXY(RoadDirection dir) {
         return mirrorDirY(mirrorDirX(dir));
     }
     
+    /**
+     *
+     * @param g
+     */
     public void renderTiles(GL2 g) {
         g.glDisable(GL2.GL_ALPHA_TEST);
         g.glEnable(GL2.GL_BLEND);
@@ -232,6 +257,10 @@ public class Symmetry {
         g.glEnable(GL2.GL_ALPHA_TEST);
     }
     
+    /**
+     *
+     * @param g
+     */
     public void renderXBorder(GL2 g) {
         g.glRotatef(90, 0, 0, 1);
         g.glColor3f(0.5f, 0.5f, 1.0f);
@@ -246,6 +275,10 @@ public class Symmetry {
         g.glRotatef(-90, 0, 0, 1);
     }
     
+    /**
+     *
+     * @param g
+     */
     public void renderYBorder(GL2 g) {
         g.glColor3f(0.5f, 0.5f, 1.0f);
         g.glPointSize(3);
@@ -258,6 +291,12 @@ public class Symmetry {
         g.glEnd();
     }
     
+    /**
+     *
+     * @param tile
+     * @param entity
+     * @param level
+     */
     public void mirrorTileContent(Tile tile, TileEntity entity, int level) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
@@ -292,7 +331,7 @@ public class Symmetry {
         }
     }
 
-    private FloorOrientation mirrorFlOrX(FloorOrientation fl) {
+    private FloorOrientation mirrorFloorOrientationX(FloorOrientation fl) {
         if(fl != null && Globals.mirrorFloors) switch(fl) {
             case LEFT:
                 return FloorOrientation.RIGHT;
@@ -302,7 +341,7 @@ public class Symmetry {
         return fl;
     }
     
-    private FloorOrientation mirrorFlOrY(FloorOrientation fl) {
+    private FloorOrientation mirrorFloorOrientationY(FloorOrientation fl) {
         if(fl != null && Globals.mirrorFloors) switch(fl) {
             case UP:
                 return FloorOrientation.DOWN;
@@ -312,10 +351,17 @@ public class Symmetry {
         return fl;
     }
     
-    private FloorOrientation mirrorFlOrXY(FloorOrientation fl) {
-        return mirrorFlOrX(mirrorFlOrY(fl));
+    private FloorOrientation mirrorFloorOrientationXY(FloorOrientation fl) {
+        return mirrorFloorOrientationX(mirrorFloorOrientationY(fl));
     }
     
+    /**
+     *
+     * @param tile
+     * @param data
+     * @param fl
+     * @param level
+     */
     public void mirrorFloor(Tile tile, FloorData data, FloorOrientation fl, int level) {
         if(data == null) {
             this.mirrorTileContent(tile, null, level);
@@ -327,7 +373,7 @@ public class Symmetry {
             if(mX >= 0) {
                 Tile t = tile.getMap().getTile(mX, tile.getY());
                 if(t != null) {
-                    t.setTileContent(new Floor(data, mirrorFlOrX(fl)), level);
+                    t.setTileContent(new Floor(data, mirrorFloorOrientationX(fl)), level);
                 }
             }
         }
@@ -337,7 +383,7 @@ public class Symmetry {
             if(mY >= 0) {
                 Tile t = tile.getMap().getTile(tile.getX(), mY);
                 if(t != null) {
-                    t.setTileContent(new Floor(data, mirrorFlOrY(fl)), level);
+                    t.setTileContent(new Floor(data, mirrorFloorOrientationY(fl)), level);
                 }
             }
         }
@@ -349,12 +395,18 @@ public class Symmetry {
             if(mX >= 0 && mY >= 0) {
                 Tile t = tile.getMap().getTile(mX, mY);
                 if( t != null) {
-                    t.setTileContent(new Floor(data, mirrorFlOrXY(fl)), level);
+                    t.setTileContent(new Floor(data, mirrorFloorOrientationXY(fl)), level);
                 }
             }
         }
     }
     
+    /**
+     *
+     * @param tile
+     * @param data
+     * @param level
+     */
     public void mirrorRoof(Tile tile, RoofData data, int level) {
         if(data == null) {
             this.mirrorTileContent(tile, null, level);
@@ -394,11 +446,13 @@ public class Symmetry {
         }
     }
 
+    /**
+     *
+     * @param tile
+     * @param data
+     */
     public void mirrorGround(Tile tile, GroundData data) {
-        mirrorGround(tile, data, Globals.roadDirection);
-    }
-    
-    public void mirrorGround(Tile tile, GroundData data, RoadDirection dir) {
+        RoadDirection dir = Globals.roadDirection;
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
             if(mX >= 0) {
@@ -429,7 +483,14 @@ public class Symmetry {
         }
     }
 
-    public void mirrorHorWall(Tile tile, WallData wall, int level, TileFragment frag) {
+    /**
+     *
+     * @param tile
+     * @param wall
+     * @param level
+     * @param frag
+     */
+    public void mirrorHorizontalWall(Tile tile, WallData wall, int level, TileFragment frag) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
             if(mX >= 0) {
@@ -460,7 +521,14 @@ public class Symmetry {
         }
     }
 
-    public void mirrorVertWall(Tile tile, WallData wall, int level, TileFragment frag) {
+    /**
+     *
+     * @param tile
+     * @param wall
+     * @param level
+     * @param frag
+     */
+    public void mirrorVerticalWall(Tile tile, WallData wall, int level, TileFragment frag) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
             if(mX >= 0) {
@@ -489,7 +557,13 @@ public class Symmetry {
         }
     }
     
-   public void mirrorClearVertWall(Tile tile, int level, TileFragment frag) {
+    /**
+     *
+     * @param tile
+     * @param level
+     * @param frag
+     */
+    public void mirrorClearVerticalWalls(Tile tile, int level, TileFragment frag) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
             if(mX >= 0) {
@@ -518,7 +592,13 @@ public class Symmetry {
         }
     }
    
-   public void mirrorClearHorzWall(Tile tile, int level, TileFragment frag) {
+    /**
+     *
+     * @param tile
+     * @param level
+     * @param frag
+     */
+    public void mirrorClearHorizontalWalls(Tile tile, int level, TileFragment frag) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
             if(mX >= 0) {
@@ -547,7 +627,13 @@ public class Symmetry {
         }
     }
 
-       public void mirrorHorzBorder(Tile tile, BorderData border, TileFragment frag) {
+    /**
+     *
+     * @param tile
+     * @param border
+     * @param frag
+     */
+    public void mirrorHorizontalBorder(Tile tile, BorderData border, TileFragment frag) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
             if(mX >= 0) {
@@ -578,7 +664,13 @@ public class Symmetry {
         }
     }
 
-    public void mirrorVertBorder(Tile tile, BorderData border, TileFragment frag) {
+    /**
+     *
+     * @param tile
+     * @param border
+     * @param frag
+     */
+    public void mirrorVerticalBorder(Tile tile, BorderData border, TileFragment frag) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
             if(mX >= 0) {
@@ -606,6 +698,12 @@ public class Symmetry {
             }
         }
     }
+
+    /**
+     *
+     * @param tile
+     * @param entity
+     */
     public void mirrorCaveEntity(Tile tile, CaveData entity) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
@@ -679,6 +777,13 @@ public class Symmetry {
         return ObjectLocation.MIDDLE_CENTER;
     }
     
+    /**
+     *
+     * @param tile
+     * @param data
+     * @param location
+     * @param floor
+     */
     public void mirrorObject(Tile tile, GameObjectData data, ObjectLocation location, int floor) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
@@ -708,6 +813,64 @@ public class Symmetry {
                     t.setGameObject(data, mirrorObjectLocationXY(location), floor);
             }
         }
+    }
+    
+    /**
+     *
+     * @param tile
+     * @param object
+     * @param rotation
+     * @param location
+     * @param floor
+     */
+    public void mirrorObjectRotation(Tile tile, GameObject object, double rotation,
+            ObjectLocation location, int floor) {
+        if(Globals.xSymLock && getX() > -1) {
+            int mX = mirrorX(tile.getX());
+            ObjectLocation l = mirrorObjectLocationX(location);
+            if(mX >= 0) {
+                Tile t = tile.getMap().getTile(mX, tile.getY());
+                if(t != null) {
+                    GameObject o = t.getGameObject(floor, l);
+                    if(o != null) {
+                        double r = (Math.PI * 2) - rotation;
+                        o.setRotation(r);
+                    }
+                }
+            }
+        }
+
+        if(Globals.ySymLock && getY() > -1) {
+            int mY = mirrorY(tile.getY());
+            ObjectLocation l = mirrorObjectLocationY(location);
+            if(mY >= 0) {
+                Tile t = tile.getMap().getTile(tile.getX(), mY);
+                if(t != null) {
+                    GameObject o = t.getGameObject(floor, l);
+                    if(o != null) {
+                        double r = Math.PI - rotation;
+                        o.setRotation(r);
+                    }
+                }
+            }
+        }
+        
+        if(Globals.ySymLock && Globals.xSymLock 
+                && getX() > -1 && getY() > -1) {
+            int mX = mirrorX(tile.getX());
+            int mY = mirrorY(tile.getY());
+            ObjectLocation l = mirrorObjectLocationXY(location);
+            if(mX >= 0 && mY >= 0) {
+                Tile t = tile.getMap().getTile(mX, mY);
+                if(t != null) {
+                    GameObject o = t.getGameObject(floor, l);
+                    if(o != null) {
+                        double r = Math.PI + rotation;
+                        o.setRotation(r);
+                    }
+                }
+            }
+        }        
     }
     
 }

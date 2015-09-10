@@ -439,7 +439,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
     private void yTileLockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yTileLockBtnActionPerformed
         Tile t = TileSelection.getSelectedTile();
         if (t!=null) {
-            t.getMap().setSymmetry(new Symmetry(-1, t.getY(), SymmetryType.TILE));
+            t.getMap().setSymmetry(new Symmetry(-1, t.getY()));
             Globals.xSymLock = false;
             Globals.ySymLock = true;
         }
@@ -449,7 +449,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
     private void xTileLockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xTileLockBtnActionPerformed
         Tile t = TileSelection.getSelectedTile();
         if (t!=null) {
-            t.getMap().setSymmetry(new Symmetry(t.getX(), -1, SymmetryType.TILE));
+            t.getMap().setSymmetry(new Symmetry(t.getX(), -1));
             Globals.ySymLock = false;
             Globals.xSymLock = true;
         }
@@ -459,7 +459,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
     private void xyTileLockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xyTileLockBtnActionPerformed
         Tile t = TileSelection.getSelectedTile();
         if (t!=null) {
-            t.getMap().setSymmetry(new Symmetry(t.getX(), t.getY(), SymmetryType.TILE));
+            t.getMap().setSymmetry(new Symmetry(t.getX(), t.getY()));
             Globals.xSymLock = Globals.ySymLock = true;
         }
         updatePanel(TileSelection.getMapFragment());
@@ -472,19 +472,19 @@ public class SymmetryEditor extends javax.swing.JPanel {
             switch(d) {
                 case N:
                 case S:
-                    t.getMap().setSymmetry(new Symmetry(-1, t.getY(), SymmetryType.BORDER, d));
+                    t.getMap().setSymmetry(new Symmetry(-1, t.getY(), d));
                     Globals.ySymLock = true;
                     break;
                 case E:
                 case W:
-                    t.getMap().setSymmetry(new Symmetry(t.getX(), -1, SymmetryType.BORDER, d));
+                    t.getMap().setSymmetry(new Symmetry(t.getX(), -1, d));
                     Globals.xSymLock = true;
                     break;
                 case NE:
                 case SE:
                 case NW:
                 case SW:
-                    t.getMap().setSymmetry(new Symmetry(t.getX(), t.getY(), SymmetryType.CORNER, d));
+                    t.getMap().setSymmetry(new Symmetry(t.getX(), t.getY(), d));
                     Globals.xSymLock = Globals.ySymLock = true;
                     break;
             }

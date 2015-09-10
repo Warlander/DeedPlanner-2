@@ -1,32 +1,63 @@
 package pl.wurmonline.deedplanner.logic.symmetry;
 
+/**
+ * SymmetryDirection
+ * Indicates the side of the tile symmetry is locked to.
+ * @author Jonathan Walker (Keenan)
+ */
 public enum SymmetryDirection {
-    CENTER, N, E, S, W, NE, NW, SE, SW;
-    
-    public static SymmetryDirection getDirFromString(String dir) {
-        dir = dir.toLowerCase();
-        switch(dir) {
-            case "n":
-                return N;
-            case "e":
-                return E;
-            case "w":
-                return W;
-            case "s":
-                return S;
-            case "ne":
-                return NE;
-            case "se":
-                return SE;
-            case "nw":
-                return NW;
-            case "sw":
-                return SW;
-            default:
-                return CENTER;
-        }
-    }
-    
+
+    /**
+     * Default, no border or corner is selected. Used for tile locks.
+     */
+    CENTER,
+
+    /**
+     * North tile border.
+     */
+    N,
+
+    /**
+     * East tile border.
+     */
+    E,
+
+    /**
+     * South tile border.
+     */
+    S,
+
+    /**
+     * West tile border.
+     */
+    W,
+
+    /**
+     * Northeast tile corner.
+     */
+    NE,
+
+    /**
+     * Northwest tile corner.
+     */
+    NW,
+
+    /**
+     * Southeast tile corner.
+     */
+    SE,
+
+    /**
+     * Southwest tile corner.
+     */
+    SW;
+        
+    /**
+     * Returns a string representation of the direction symmetry is locked to.
+     * 
+     * @param d SymmetryDirection enumerated direction.
+     * @return String value of direction.
+     */
     public static String toString(SymmetryDirection d) {
         switch(d) {
             case N:
@@ -50,6 +81,12 @@ public enum SymmetryDirection {
         }
     }
     
+    /**
+     * Detects if the lock occurs on a corner.
+     * 
+     * @param d Enumerated direction
+     * @return True if it is a corner, otherwise false.
+     */
     public static boolean isCorner(SymmetryDirection d) {
         switch(d) {
             case NE:
