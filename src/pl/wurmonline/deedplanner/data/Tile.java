@@ -133,6 +133,7 @@ public final class Tile implements XMLSerializable {
         this.ground = tile.ground;
         this.cave = tile.cave;
         this.label = tile.label;
+        this.caveLabel = tile.caveLabel;
         HashMap<EntityData, TileEntity> entities = new HashMap<>();
         for (Entry<EntityData, TileEntity> entrySet : tile.entities.entrySet()) {
             EntityData key = entrySet.getKey();
