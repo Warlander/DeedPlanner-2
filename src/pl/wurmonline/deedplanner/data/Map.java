@@ -371,6 +371,10 @@ public final class Map {
         }
         recalculateHeight();
         recalculateRoofs();
+        
+        BridgePartType[] segments = new BridgePartType[] {BridgePartType.ABUTMENT, BridgePartType.CROWN, BridgePartType.ABUTMENT, BridgePartType.SUPPORT, BridgePartType.ABUTMENT, BridgePartType.CROWN, BridgePartType.ABUTMENT};
+        
+        Bridge.createBridge(this, tiles[5][5], tiles[11][5], new WoodenBridgeData(), BridgeType.FLAT, segments, height);
     }
     
     public Map(Map map, int startX, int startY, int width, int height) {

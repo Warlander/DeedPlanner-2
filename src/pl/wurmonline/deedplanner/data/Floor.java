@@ -7,23 +7,23 @@ import org.w3c.dom.Element;
 public class Floor implements TileEntity {
 
     private final FloorData data;
-    private final FloorOrientation orientation;
+    private final EntityOrientation orientation;
     
     public Floor(Element floor) {
         this.data = FloorData.get(floor);
         if (floor.getAttribute("orientation").equals("")) {
-            this.orientation = FloorOrientation.UP;
+            this.orientation = EntityOrientation.UP;
         }
         else {
-            this.orientation = FloorOrientation.valueOf(floor.getAttribute("orientation"));
+            this.orientation = EntityOrientation.valueOf(floor.getAttribute("orientation"));
         }
     }
     
     public Floor(FloorData data) {
-        this(data, FloorOrientation.UP);
+        this(data, EntityOrientation.UP);
     }
     
-    public Floor(FloorData data, FloorOrientation orientation) {
+    public Floor(FloorData data, EntityOrientation orientation) {
         this.data = data;
         this.orientation = orientation;
     }
@@ -33,19 +33,19 @@ public class Floor implements TileEntity {
     }
     
     public void render(GL2 g, Tile tile) {
-        if (orientation==FloorOrientation.UP) {
+        if (orientation==EntityOrientation.UP) {
             data.model.render(g);
         }
         else {
             g.glPushMatrix();
                 g.glTranslatef(-2f, 2f, 0);
-                if (orientation==FloorOrientation.LEFT) {
+                if (orientation==EntityOrientation.LEFT) {
                     g.glRotatef(90, 0, 0, 1);
                 }
-                else if(orientation==FloorOrientation.DOWN) {
+                else if(orientation==EntityOrientation.DOWN) {
                     g.glRotatef(180, 0, 0, 1);
                 }
-                else if(orientation==FloorOrientation.RIGHT) {
+                else if(orientation==EntityOrientation.RIGHT) {
                     g.glRotatef(270, 0, 0, 1);
                 }
                 
