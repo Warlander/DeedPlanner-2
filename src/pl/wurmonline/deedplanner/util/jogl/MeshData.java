@@ -77,5 +77,4 @@ public class MeshData {
     public void setTriangles(int[] triangles) {
         this.triangles = triangles;
     }
-    
 }

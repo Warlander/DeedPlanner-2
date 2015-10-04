@@ -11,7 +11,7 @@ public class Model {
     public Model(Element node) {
         this.tag = node.getAttribute("tag");
         String modelLoc = node.getAttribute("location");
-        String scaleStr = node.getAttribute("scale");
+        String scaleStr = node.getAttribute("scale");        
         float scale;
         try {
             scale = Float.parseFloat(scaleStr);
@@ -20,17 +20,20 @@ public class Model {
             scale = 1;
         }
         NodeList list = node.getElementsByTagName("mesh");
-        meshes = new Mesh[list.getLength()];
+        meshes = new Mesh[list.getLength()];        
         for (int i=0; i<list.getLength(); i++) {
             Element e = (Element) list.item(i);
+            if(e == null)
+                break;
             String name = e.getAttribute("name");
             String texStr = e.getAttribute("tex");
-            
+            String matStr = e.getAttribute("material");
+         
             Tex tex = null;
             if (!texStr.isEmpty()) {
                 tex = Tex.getTexture(texStr);
             }
-            meshes[i] = new Mesh(modelLoc, name, tex, scale);
+            meshes[i] = new Mesh(modelLoc, name, tex, matStr, scale);
         }
     }
     
