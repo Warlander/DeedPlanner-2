@@ -1,5 +1,9 @@
 package pl.wurmonline.deedplanner.data;
 
+import pl.wurmonline.deedplanner.data.bridges.WoodenBridgeData;
+import pl.wurmonline.deedplanner.data.bridges.BridgeType;
+import pl.wurmonline.deedplanner.data.bridges.BridgePartType;
+import pl.wurmonline.deedplanner.data.bridges.Bridge;
 import com.google.common.io.LittleEndianDataInputStream;
 import com.jogamp.opengl.util.glsl.ShaderProgram;
 import java.awt.Font;
@@ -17,6 +21,9 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.*;
+import pl.wurmonline.deedplanner.data.bridges.MarbleBridgeData;
+import pl.wurmonline.deedplanner.data.bridges.RopeBridgeData;
+import pl.wurmonline.deedplanner.data.bridges.StoneBridgeData;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.*;
@@ -372,8 +379,42 @@ public final class Map {
                 tiles[i][i2] = new Tile(this, i, i2);
             }
         }
-        recalculateHeight();
-        recalculateRoofs();
+        
+        for (int x = 2; x <=5; x++) {
+            for (int y = 5; y <= 8; y++) {
+                tiles[x][y].setHeight(200);
+            }
+        }
+        
+        for (int x = 12; x <=14; x++) {
+            for (int y = 5; y <= 8; y++) {
+                tiles[x][y].setHeight(200);
+            }
+        }
+        
+        for (int x = 2; x <=5; x++) {
+            for (int y = 18; y <= 21; y++) {
+                tiles[x][y].setHeight(200);
+            }
+        }
+        
+//        BridgePartType[] segments = new BridgePartType[] {BridgePartType.ABUTMENT, BridgePartType.CROWN, BridgePartType.ABUTMENT, BridgePartType.SUPPORT, BridgePartType.ABUTMENT, BridgePartType.CROWN, BridgePartType.ABUTMENT};
+//        Bridge.createBridge(this, tiles[5][5], tiles[11][6], new WoodenBridgeData(), BridgeType.FLAT, segments, height);
+        
+//        BridgePartType[] segments = new BridgePartType[] {BridgePartType.ABUTMENT, BridgePartType.DOUBLE_BRACING, BridgePartType.ABUTMENT, BridgePartType.SUPPORT, BridgePartType.ABUTMENT, BridgePartType.DOUBLE_BRACING, BridgePartType.ABUTMENT};
+//        Bridge.createBridge(this, tiles[5][5], tiles[11][7], new StoneBridgeData(), BridgeType.FLAT, segments, height);
+//        BridgePartType[] segments2 = new BridgePartType[] {BridgePartType.ABUTMENT, BridgePartType.BRACING, BridgePartType.CROWN, BridgePartType.BRACING, BridgePartType.ABUTMENT, BridgePartType.SUPPORT, BridgePartType.ABUTMENT, BridgePartType.BRACING, BridgePartType.BRACING, BridgePartType.ABUTMENT};
+//        Bridge.createBridge(this, tiles[2][8], tiles[4][17], new StoneBridgeData(), BridgeType.FLAT, segments2, height);
+        
+//        BridgePartType[] segments = new BridgePartType[] {BridgePartType.ABUTMENT, BridgePartType.CROWN, BridgePartType.CROWN, BridgePartType.CROWN, BridgePartType.CROWN, BridgePartType.CROWN, BridgePartType.ABUTMENT};
+//        Bridge.createBridge(this, tiles[5][5], tiles[11][5], new RopeBridgeData(), BridgeType.ROPE, segments, 10);
+        
+        BridgePartType[] segments = new BridgePartType[] {BridgePartType.DOUBLE_ABUTMENT, BridgePartType.SUPPORT, BridgePartType.ABUTMENT, BridgePartType.DOUBLE_BRACING, BridgePartType.ABUTMENT, BridgePartType.SUPPORT, BridgePartType.DOUBLE_ABUTMENT};
+        Bridge.createBridge(this, tiles[5][5], tiles[11][5], new MarbleBridgeData(), BridgeType.ARCHED, segments, 20);
+        BridgePartType[] segments2 = new BridgePartType[] {BridgePartType.DOUBLE_ABUTMENT, BridgePartType.SUPPORT, BridgePartType.ABUTMENT, BridgePartType.BRACING, BridgePartType.FLOATING, BridgePartType.FLOATING, BridgePartType.BRACING, BridgePartType.ABUTMENT, BridgePartType.SUPPORT, BridgePartType.DOUBLE_ABUTMENT};
+        Bridge.createBridge(this, tiles[2][8], tiles[4][17], new MarbleBridgeData(), BridgeType.ARCHED, segments2, 20);
+        
+        createHeightData();
     }
     
     public Map(Map map, int startX, int startY, int width, int height) {

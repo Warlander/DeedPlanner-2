@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import javax.media.opengl.awt.GLJPanel;
+import javax.swing.JFrame;
 import pl.wurmonline.deedplanner.util.Log;
 
 public class Mouse implements MouseListener, MouseWheelListener {

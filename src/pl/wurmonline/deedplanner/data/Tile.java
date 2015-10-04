@@ -1,5 +1,6 @@
 package pl.wurmonline.deedplanner.data;
 
+import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import java.util.*;
 import java.util.Map.Entry;
 import javax.media.opengl.GL2;
@@ -26,6 +27,7 @@ public final class Tile implements XMLSerializable {
     private Ground ground;
     private final HashMap<EntityData, TileEntity> entities;
     private Label label;
+    private BridgePart bridgePart;
     
     private int caveHeight = 5;
     private int caveSize = 30;
@@ -156,6 +158,11 @@ public final class Tile implements XMLSerializable {
     
     private void renderWorld(GL2 g) {
         renderGround(g);
+        
+        if (bridgePart != null) {
+            bridgePart.render(g, this);
+        }
+        
         renderEntities(g);
     }
     
@@ -893,6 +900,14 @@ public final class Tile implements XMLSerializable {
         return (GameObject) entities.get(new ObjectEntityData(level, location));
     }
     
+    public void setBridgePart(BridgePart bridgePart) {
+        this.bridgePart = bridgePart;
+    }
+    
+    public BridgePart getBridgePart() {
+        return bridgePart;
+    }
+    
     public Materials getMaterials() {
         return getMaterials(false, false);
     }
@@ -902,6 +917,11 @@ public final class Tile implements XMLSerializable {
         entities.values().stream().forEach((entity) -> {
             materials.put(entity.getMaterials());
         });
+        
+        if (bridgePart != null) {
+            materials.put(bridgePart.getMaterials());
+        }
+        
         if (withRight) {
             for (int i = 0; i<Constants.FLOORS_LIMIT; i++) {
                 Wall wall = map.getTile(this, 1, 0).getVerticalWall(i);

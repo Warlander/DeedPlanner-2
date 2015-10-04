@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2014-05-21T13:58:04Z</created><keywords></keywords><modified>2014-05-21T13:58:04Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="Bridge1F-image" name="Bridge1F"><init_from>bridge.png</init_from></image>
+    <image id="Bridge_Tiling1F-image" name="Bridge_Tiling1F"><init_from>bridgeTiling.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="bridge" name="bridge">
+      <instance_effect url="#bridge-fx"/>
+    </material>
+    <material id="bridge_tiling" name="bridge_tiling">
+      <instance_effect url="#bridge_tiling-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="bridge-fx" name="bridge">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Bridge1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">2.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="bridge_tiling-fx" name="bridge_tiling">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Bridge_Tiling1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">2.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="AbutmentDoubleCenter2-lib" name="AbutmentDoubleCenter2Mesh">
+      <mesh>
+        <source id="AbutmentDoubleCenter2-POSITION">
+          <float_array id="AbutmentDoubleCenter2-POSITION-array" count="87">
+-4.000000 -1.881800 -0.193304
+-4.000000 -2.395186 -1.215109
+-4.000000 -3.011798 -2.122913
+-4.000000 -3.693606 -2.902397
+-4.000000 -4.468341 -3.541268
+-4.000000 -4.333109 -4.000000
+-4.000000 -5.178288 -4.000000
+-4.000000 -1.790952 -0.000000
+-4.000000 -0.000000 -4.000000
+-4.000000 0.000000 -0.000000
+-2.000000 -1.789457 -0.000000
+-2.000000 -5.176793 -4.000000
+-2.000000 -4.466846 -3.541268
+-2.000000 -3.692111 -2.902397
+-2.000000 -3.010302 -2.122913
+-2.000000 -2.393691 -1.215109
+-2.000000 -1.880305 -0.193304
+-4.000000 0.000000 -2.000000
+0.000000 -1.881800 -0.193304
+0.000000 -2.395186 -1.215109
+0.000000 -3.011798 -2.122913
+0.000000 -3.693606 -2.902397
+0.000000 -4.468341 -3.541268
+0.000000 -4.333109 -4.000000
+0.000000 -5.178288 -4.000000
+0.000000 -1.790952 -0.000000
+0.000000 -0.000000 -4.000000
+0.000000 0.000000 -0.000000
+0.000000 0.000000 -2.000000
+</float_array>
+          <technique_common>
+            <accessor source="#AbutmentDoubleCenter2-POSITION-array" count="29" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="AbutmentDoubleCenter2-Normal0">
+          <float_array id="AbutmentDoubleCenter2-Normal0-array" count="216">
+0.000000 -0.905032 0.425343
+0.000677 -0.905032 0.425343
+0.000672 -0.899372 0.437184
+0.000000 -0.905032 0.425343
+0.000672 -0.899372 0.437184
+0.000000 -0.899372 0.437184
+0.000000 -0.899372 0.437184
+0.000672 -0.899372 0.437184
+0.000645 -0.862239 0.506500
+0.000000 -0.899372 0.437184
+0.000645 -0.862239 0.506500
+-0.000000 -0.862240 0.506500
+-0.000000 -0.862240 0.506500
+0.000645 -0.862239 0.506500
+0.000592 -0.791428 0.611262
+-0.000000 -0.862240 0.506500
+0.000592 -0.791428 0.611262
+0.000000 -0.791428 0.611262
+0.000000 -0.791428 0.611262
+0.000592 -0.791428 0.611262
+0.000521 -0.696753 0.717311
+0.000000 -0.791428 0.611262
+0.000521 -0.696753 0.717311
+-0.000000 -0.696753 0.717311
+0.000521 -0.696753 0.717311
+-0.000000 -0.590455 0.807070
+-0.000000 -0.696753 0.717311
+-0.000000 -0.590455 0.807070
+0.000521 -0.696753 0.717311
+0.000441 -0.590455 0.807070
+0.000441 -0.590455 0.807070
+0.000000 -0.542713 0.839918
+-0.000000 -0.590455 0.807070
+0.000000 -0.542713 0.839918
+0.000441 -0.590455 0.807070
+0.000406 -0.542713 0.839918
+-0.000441 -0.590455 0.807070
+-0.000000 -0.590455 0.807070
+0.000000 -0.542713 0.839918
+-0.000441 -0.590455 0.807070
+0.000000 -0.542713 0.839918
+-0.000406 -0.542713 0.839918
+-0.000521 -0.696753 0.717311
+-0.000000 -0.696753 0.717311
+-0.000000 -0.590455 0.807070
+-0.000521 -0.696753 0.717311
+-0.000000 -0.590455 0.807070
+-0.000441 -0.590455 0.807070
+-0.000592 -0.791428 0.611262
+0.000000 -0.791428 0.611262
+-0.000000 -0.696753 0.717311
+-0.000592 -0.791428 0.611262
+-0.000000 -0.696753 0.717311
+-0.000521 -0.696753 0.717311
+-0.000645 -0.862239 0.506500
+-0.000000 -0.862240 0.506500
+0.000000 -0.791428 0.611262
+-0.000645 -0.862239 0.506500
+0.000000 -0.791428 0.611262
+-0.000592 -0.791428 0.611262
+-0.000672 -0.899372 0.437184
+0.000000 -0.899372 0.437184
+-0.000000 -0.862240 0.506500
+-0.000672 -0.899372 0.437184
+-0.000000 -0.862240 0.506500
+-0.000645 -0.862239 0.506500
+-0.000677 -0.905032 0.425343
+0.000000 -0.905032 0.425343
+0.000000 -0.899372 0.437184
+-0.000677 -0.905032 0.425343
+0.000000 -0.899372 0.437184
+-0.000672 -0.899372 0.437184
+</float_array>
+          <technique_common>
+            <accessor source="#AbutmentDoubleCenter2-Normal0-array" count="72" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="AbutmentDoubleCenter2-UV0">
+          <float_array id="AbutmentDoubleCenter2-UV0-array" count="60">
+0.393408 0.391899
+0.869345 0.391899
+0.869348 0.358382
+0.393618 0.358382
+0.393968 0.571236
+0.869419 0.571235
+0.393274 0.407939
+0.869389 0.407939
+0.869392 0.235407
+0.395323 0.235407
+0.394859 0.570897
+0.870082 0.570897
+0.393227 0.434240
+0.870185 0.434240
+0.870187 0.275067
+0.394568 0.275067
+0.394925 0.568105
+0.870364 0.568105
+0.394925 0.568105
+0.393227 0.434240
+0.393227 0.434240
+0.394568 0.275067
+0.394859 0.570897
+0.393274 0.407939
+0.393274 0.407939
+0.395323 0.235407
+0.393968 0.571236
+0.393408 0.391899
+0.393408 0.391899
+0.393618 0.358382
+</float_array>
+          <technique_common>
+            <accessor source="#AbutmentDoubleCenter2-UV0-array" count="30" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="AbutmentDoubleCenter2-VERTEX">
+          <input semantic="POSITION" source="#AbutmentDoubleCenter2-POSITION"/>
+        </vertices>
+        <triangles count="24" material="bridge"><input semantic="VERTEX" offset="0" source="#AbutmentDoubleCenter2-VERTEX"/><input semantic="NORMAL" offset="1" source="#AbutmentDoubleCenter2-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#AbutmentDoubleCenter2-UV0"/><p> 10 0 2 7 1 3 0 2 0 10 3 2 0 4 0 16 5 1 16 6 1 0 7 0 1 8 4 16 9 1 1 10 4 15 11 5 15 12 8 1 13 9 2 14 6 15 15 8 2 16 6 14 17 7 14 18 7 2 19 6 3 20 10 14 21 7 3 22 10 13 23 11 3 24 15 12 25 13 13 26 14 12 27 13 3 28 15 4 29 12 4 30 12 11 31 17 12 32 13 11 33 17 4 34 12 6 35 16 22 36 19 12 37 13 11 38 17 22 39 19 11 40 17 24 41 18 21 42 21 13 43 14 12 44 13 21 45 21 12 46 13 22 47 20 20 48 23 14 49 7 13 50 11 20 51 23 13 52 11 21 53 22 19 54 25 15 55 8 14 56 7 19 57 25 14 58 7 20 59 24 18 60 27 16 61 1 15 62 5 18 63 27 15 64 5 19 65 26 25 66 29 10 67 2 16 68 1 25 69 29 16 70 1 18 71 28</p></triangles>
+      </mesh>
+    </geometry>
+    <geometry id="StoneBridgeAbutmentCenter-lib" name="StoneBridgeAbutmentCenterMesh">
+      <mesh>
+        <source id="StoneBridgeAbutmentCenter-POSITION">
+          <float_array id="StoneBridgeAbutmentCenter-POSITION-array" count="72">
+-4.000000 -4.333109 -4.000000
+-4.000000 -0.000000 -4.000000
+0.000000 -0.000000 -4.000000
+0.000000 -4.333109 -4.000000
+0.000000 -5.178288 -4.000000
+-2.000000 -5.176793 -4.000000
+-4.000000 -5.178288 -4.000000
+-4.000000 -1.790952 -0.000000
+-2.000000 -1.789457 -0.000000
+0.000000 -1.790952 -0.000000
+0.000000 0.000000 -0.000000
+-4.000000 0.000000 -0.000000
+-4.000000 -1.881800 -0.193304
+-4.000000 0.000000 -2.000000
+-4.000000 -4.468341 -3.541268
+-4.000000 -3.693606 -2.902397
+-4.000000 -3.011798 -2.122913
+-4.000000 -2.395186 -1.215109
+0.000000 -2.395186 -1.215109
+0.000000 -3.011798 -2.122913
+0.000000 -3.693606 -2.902397
+0.000000 -4.468341 -3.541268
+0.000000 0.000000 -2.000000
+0.000000 -1.881800 -0.193304
+</float_array>
+          <technique_common>
+            <accessor source="#StoneBridgeAbutmentCenter-POSITION-array" count="24" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="StoneBridgeAbutmentCenter-Normal0">
+          <float_array id="StoneBridgeAbutmentCenter-Normal0-array" count="270">
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 -0.000000 1.000000
+0.000000 -0.000000 1.000000
+0.000000 -0.000000 1.000000
+0.000000 -0.000000 1.000000
+0.000000 -0.000000 1.000000
+0.000000 -0.000000 1.000000
+0.000000 -0.000000 1.000000
+0.000000 -0.000000 1.000000
+0.000000 -0.000000 1.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+0.000000 1.000000 -0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#StoneBridgeAbutmentCenter-Normal0-array" count="90" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="StoneBridgeAbutmentCenter-UV0">
+          <float_array id="StoneBridgeAbutmentCenter-UV0-array" count="80">
+1.999116 -1.135489
+1.999116 1.030109
+0.000000 1.030109
+0.000000 -1.135489
+0.000000 -1.557891
+0.999558 -1.557144
+1.999116 -1.557891
+0.000000 0.134998
+1.000000 0.135746
+2.000000 0.134998
+2.000000 1.030475
+0.000000 1.030475
+1.900755 0.091582
+1.997275 0.136944
+1.997275 1.031200
+0.998637 1.031200
+0.000000 1.031200
+0.000000 -1.132403
+0.000000 -1.554416
+0.229053 -1.199926
+0.548054 -0.813087
+0.937265 -0.472647
+1.390548 -0.164761
+0.000000 0.000000
+0.000000 -1.000000
+2.000000 -1.000000
+2.000000 0.000000
+2.000000 1.000000
+0.000000 1.000000
+1.390548 -0.164761
+0.937265 -0.472647
+0.548054 -0.813087
+0.229053 -1.199926
+0.000000 -1.554416
+0.000000 -1.132403
+0.000000 1.031200
+0.998637 1.031200
+1.997275 1.031200
+1.997275 0.136944
+1.900755 0.091582
+</float_array>
+          <technique_common>
+            <accessor source="#StoneBridgeAbutmentCenter-UV0-array" count="40" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="StoneBridgeAbutmentCenter-VERTEX">
+          <input semantic="POSITION" source="#StoneBridgeAbutmentCenter-POSITION"/>
+        </vertices>
+        <triangles count="30" material="bridge_tiling"><input semantic="VERTEX" offset="0" source="#StoneBridgeAbutmentCenter-VERTEX"/><input semantic="NORMAL" offset="1" source="#StoneBridgeAbutmentCenter-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#StoneBridgeAbutmentCenter-UV0"/><p> 5 0 5 6 1 6 0 2 0 2 3 2 0 4 0 1 5 1 0 6 0 3 7 3 5 8 5 3 9 3 0 10 0 2 11 2 4 12 4 5 13 5 3 14 3 11 15 11 8 16 8 10 17 10 8 18 8 11 19 11 7 20 7 10 21 10 8 22 8 9 23 9 1 24 16 15 25 20 16 26 21 13 27 15 12 28 12 11 29 14 12 30 12 13 31 15 17 32 22 11 33 14 12 34 12 7 35 13 13 36 15 16 37 21 17 38 22 15 39 20 1 40 16 0 41 17 0 42 17 6 43 18 14 44 19 0 45 17 14 46 19 15 47 20 16 48 21 13 49 15 1 50 16 10 51 37 23 52 39 22 53 36 18 54 29 22 55 36 23 56 39 22 57 36 19 58 30 2 59 35 20 60 31 2 61 35 19 62 30 3 63 34 20 64 31 21 65 32 3 66 34 21 67 32 4 68 33 19 69 30 22 70 36 18 71 29 2 72 35 20 73 31 3 74 34 23 75 39 10 76 37 9 77 38 10 78 25 13 79 23 11 80 24 22 81 26 13 82 23 10 83 25 13 84 23 22 85 26 1 86 28 1 87 28 22 88 26 2 89 27</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="StoneBridge_AbutmentCenter2" name="StoneBridge_AbutmentCenter2">
+      <node name="AbutmentDoubleCenter2" id="AbutmentDoubleCenter2" sid="AbutmentDoubleCenter2"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#AbutmentDoubleCenter2-lib"><bind_material><technique_common><instance_material symbol="bridge" target="#bridge"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <node name="StoneBridgeAbutmentCenter" id="StoneBridgeAbutmentCenter" sid="StoneBridgeAbutmentCenter"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#StoneBridgeAbutmentCenter-lib"><bind_material><technique_common><instance_material symbol="bridge_tiling" target="#bridge_tiling"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#StoneBridge_AbutmentCenter2"></instance_visual_scene>
+  </scene>
+</COLLADA>

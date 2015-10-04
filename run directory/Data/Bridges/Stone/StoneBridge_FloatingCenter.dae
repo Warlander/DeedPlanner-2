@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2014-05-21T14:08:43Z</created><keywords></keywords><modified>2014-05-21T14:08:43Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="Bridge1F-image" name="Bridge1F"><init_from>bridge.png</init_from></image>
+    <image id="Bridge_Tiling1F-image" name="Bridge_Tiling1F"><init_from>bridgeTiling.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="bridge" name="bridge">
+      <instance_effect url="#bridge-fx"/>
+    </material>
+    <material id="bridge_tiling" name="bridge_tiling">
+      <instance_effect url="#bridge_tiling-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="bridge-fx" name="bridge">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Bridge1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">2.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="bridge_tiling-fx" name="bridge_tiling">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Bridge_Tiling1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">2.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="FloatingDoubleCenter2-lib" name="FloatingDoubleCenter2Mesh">
+      <mesh>
+        <source id="FloatingDoubleCenter2-POSITION">
+          <float_array id="FloatingDoubleCenter2-POSITION-array" count="57">
+-4.000000 -0.756955 -2.000000
+-4.000000 -0.756955 -3.322614
+-4.000000 -0.756955 -4.000000
+-4.000000 0.000000 -4.000000
+-4.000000 -0.756955 -0.677386
+-4.000000 -0.756956 0.000000
+-4.000000 -0.000000 0.000000
+-2.000000 -0.755461 0.000000
+-2.000000 -0.755460 -0.677386
+-2.000000 -0.755460 -4.000000
+-2.000000 -0.755460 -3.322614
+-2.000000 -0.755460 -2.000000
+0.000000 -0.756955 -2.000000
+0.000000 -0.756955 -3.322614
+0.000000 -0.756955 -4.000000
+-0.000000 0.000000 -4.000000
+0.000000 -0.756955 -0.677386
+0.000000 -0.756956 0.000000
+0.000000 -0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#FloatingDoubleCenter2-POSITION-array" count="19" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="FloatingDoubleCenter2-Normal0">
+          <float_array id="FloatingDoubleCenter2-Normal0-array" count="144">
+0.000747 -1.000000 0.000000
+0.000748 -1.000000 0.000000
+0.000748 -1.000000 0.000000
+0.000748 -1.000000 0.000000
+0.000747 -1.000000 0.000000
+0.000747 -1.000000 0.000000
+0.000748 -1.000000 0.000000
+0.000748 -1.000000 0.000000
+0.000748 -1.000000 0.000000
+0.000748 -1.000000 0.000000
+0.000748 -1.000000 0.000000
+0.000748 -1.000000 0.000000
+0.000748 -1.000000 -0.000001
+0.000748 -1.000000 -0.000001
+0.000748 -1.000000 -0.000001
+0.000748 -1.000000 -0.000001
+0.000748 -1.000000 -0.000001
+0.000748 -1.000000 -0.000001
+0.000748 -1.000000 -0.000001
+0.000747 -1.000000 0.000000
+0.000747 -1.000000 0.000000
+0.000747 -1.000000 0.000000
+0.000748 -1.000000 -0.000001
+0.000748 -1.000000 -0.000001
+-0.000748 -1.000000 -0.000001
+-0.000748 -1.000000 -0.000001
+-0.000748 -1.000000 -0.000001
+-0.000748 -1.000000 -0.000001
+-0.000748 -1.000000 -0.000001
+-0.000748 -1.000000 -0.000001
+-0.000748 -1.000000 0.000000
+-0.000748 -1.000000 0.000000
+-0.000748 -1.000000 0.000000
+-0.000748 -1.000000 0.000000
+-0.000748 -1.000000 0.000000
+-0.000748 -1.000000 0.000000
+-0.000747 -1.000000 0.000000
+-0.000748 -1.000000 0.000000
+-0.000747 -1.000000 0.000000
+-0.000748 -1.000000 0.000000
+-0.000747 -1.000000 0.000000
+-0.000748 -1.000000 0.000000
+-0.000748 -1.000000 -0.000001
+-0.000747 -1.000000 0.000000
+-0.000748 -1.000000 -0.000001
+-0.000747 -1.000000 0.000000
+-0.000748 -1.000000 -0.000001
+-0.000747 -1.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#FloatingDoubleCenter2-Normal0-array" count="48" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="FloatingDoubleCenter2-UV0">
+          <float_array id="FloatingDoubleCenter2-UV0-array" count="40">
+0.390821 0.241722
+0.390821 0.446190
+0.878070 0.446190
+0.878070 0.241722
+0.390687 0.551230
+0.878685 0.551229
+0.390981 0.337541
+0.878230 0.337541
+0.878230 0.232286
+0.390981 0.232286
+0.878364 0.541794
+0.390366 0.541793
+0.390981 0.337541
+0.390981 0.232286
+0.390687 0.551230
+0.390821 0.446190
+0.390821 0.446190
+0.390821 0.241722
+0.390366 0.541793
+0.390981 0.337541
+</float_array>
+          <technique_common>
+            <accessor source="#FloatingDoubleCenter2-UV0-array" count="20" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="FloatingDoubleCenter2-VERTEX">
+          <input semantic="POSITION" source="#FloatingDoubleCenter2-POSITION"/>
+        </vertices>
+        <triangles count="16" material="bridge"><input semantic="VERTEX" offset="0" source="#FloatingDoubleCenter2-VERTEX"/><input semantic="NORMAL" offset="1" source="#FloatingDoubleCenter2-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#FloatingDoubleCenter2-UV0"/><p> 11 0 3 1 1 1 10 2 2 1 3 1 11 4 3 0 5 0 2 6 4 9 7 5 1 8 1 10 9 2 1 10 1 9 11 5 7 12 8 5 13 9 4 14 6 7 15 8 4 16 6 8 17 7 8 18 7 0 19 11 11 20 10 0 21 11 8 22 7 4 23 6 7 24 8 16 25 12 17 26 13 16 27 12 7 28 8 8 29 7 13 30 15 10 31 2 9 32 5 13 33 15 9 34 5 14 35 14 11 36 3 13 37 16 12 38 17 13 39 16 11 40 3 10 41 2 8 42 7 12 43 18 16 44 19 12 45 18 8 46 7 11 47 10</p></triangles>
+      </mesh>
+    </geometry>
+    <geometry id="FloatingDoubleCenter-lib" name="FloatingDoubleCenterMesh">
+      <mesh>
+        <source id="FloatingDoubleCenter-POSITION">
+          <float_array id="FloatingDoubleCenter-POSITION-array" count="48">
+-4.000000 -0.756955 -4.000000
+-4.000000 0.000000 -4.000000
+-0.000000 0.000000 -4.000000
+0.000000 -0.756955 -4.000000
+-2.000000 -0.755460 -4.000000
+-4.000000 -0.756956 0.000000
+-2.000000 -0.755461 0.000000
+0.000000 -0.756956 0.000000
+0.000000 -0.000000 0.000000
+-4.000000 -0.000000 0.000000
+0.000000 -0.756955 -0.677386
+0.000000 -0.756955 -2.000000
+0.000000 -0.756955 -3.322614
+-4.000000 -0.756955 -3.322614
+-4.000000 -0.756955 -2.000000
+-4.000000 -0.756955 -0.677386
+</float_array>
+          <technique_common>
+            <accessor source="#FloatingDoubleCenter-POSITION-array" count="16" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="FloatingDoubleCenter-Normal0">
+          <float_array id="FloatingDoubleCenter-Normal0-array" count="162">
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+1.000000 0.000000 -0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+-1.000000 0.000000 -0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#FloatingDoubleCenter-Normal0-array" count="54" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="FloatingDoubleCenter-UV0">
+          <float_array id="FloatingDoubleCenter-UV0-array" count="56">
+2.000000 0.652576
+2.000000 1.031054
+0.000000 1.031054
+0.000000 0.652576
+1.000000 0.653324
+0.000000 0.652576
+1.000000 0.653324
+2.000000 0.652576
+2.000000 1.031054
+0.000000 1.031054
+0.000000 0.665869
+0.000000 1.024091
+2.000000 1.024090
+2.000000 0.665869
+1.661307 0.665869
+1.000000 0.665869
+0.338693 0.665869
+0.000000 -1.000000
+2.000000 -1.000000
+2.000000 1.000000
+0.000000 1.000000
+0.338693 0.665869
+1.000000 0.665869
+1.661307 0.665869
+2.000000 0.665869
+2.000000 1.024090
+0.000000 1.024091
+0.000000 0.665869
+</float_array>
+          <technique_common>
+            <accessor source="#FloatingDoubleCenter-UV0-array" count="28" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="FloatingDoubleCenter-VERTEX">
+          <input semantic="POSITION" source="#FloatingDoubleCenter-POSITION"/>
+        </vertices>
+        <triangles count="18" material="bridge_tiling"><input semantic="VERTEX" offset="0" source="#FloatingDoubleCenter-VERTEX"/><input semantic="NORMAL" offset="1" source="#FloatingDoubleCenter-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#FloatingDoubleCenter-UV0"/><p> 1 0 1 4 1 4 0 2 0 4 3 4 1 4 1 2 5 2 2 6 2 3 7 3 4 8 4 6 9 6 9 10 9 5 11 5 8 12 8 9 13 9 6 14 6 8 15 8 6 16 6 7 17 7 2 18 11 8 19 12 11 20 15 11 21 15 8 22 12 10 23 14 8 24 12 7 25 13 10 26 14 3 27 10 2 28 11 12 29 16 2 30 11 11 31 15 12 32 16 8 33 18 2 34 19 9 35 17 9 36 17 2 37 19 1 38 20 9 39 25 15 40 23 5 41 24 14 42 22 1 43 26 13 44 21 14 45 22 9 46 25 1 47 26 9 48 25 14 49 22 15 50 23 13 51 21 1 52 26 0 53 27</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="StoneBridge_FloatingCenter" name="StoneBridge_FloatingCenter">
+      <node name="FloatingDoubleCenter2" id="FloatingDoubleCenter2" sid="FloatingDoubleCenter2"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#FloatingDoubleCenter2-lib"><bind_material><technique_common><instance_material symbol="bridge" target="#bridge"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <node name="FloatingDoubleCenter" id="FloatingDoubleCenter" sid="FloatingDoubleCenter"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#FloatingDoubleCenter-lib"><bind_material><technique_common><instance_material symbol="bridge_tiling" target="#bridge_tiling"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#StoneBridge_FloatingCenter"></instance_visual_scene>
+  </scene>
+</COLLADA>

@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2014-05-21T13:58:04Z</created><keywords></keywords><modified>2014-05-21T13:58:04Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="Bridge1F-image" name="Bridge1F"><init_from>bridge.png</init_from></image>
+    <image id="Bridge_Tiling1F-image" name="Bridge_Tiling1F"><init_from>bridgeTiling.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="bridge" name="bridge">
+      <instance_effect url="#bridge-fx"/>
+    </material>
+    <material id="bridge_tiling" name="bridge_tiling">
+      <instance_effect url="#bridge_tiling-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="bridge-fx" name="bridge">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Bridge1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">2.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="bridge_tiling-fx" name="bridge_tiling">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Bridge_Tiling1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">2.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="BracingDoubleCenter2-lib" name="BracingDoubleCenter2Mesh">
+      <mesh>
+        <source id="BracingDoubleCenter2-POSITION">
+          <float_array id="BracingDoubleCenter2-POSITION-array" count="57">
+-4.000000 -0.836472 -0.633881
+-4.000000 -1.109671 -1.895112
+-4.000000 -1.435944 -3.095036
+-4.000000 -1.790952 -4.000000
+-4.000000 -0.756955 0.000000
+-4.000000 0.000000 -3.999999
+-4.000000 -0.000000 0.000000
+-2.000000 -0.755460 0.000000
+-2.000000 -1.789457 -4.000000
+-2.000000 -1.434449 -3.095036
+-2.000000 -1.108176 -1.895112
+-2.000000 -0.834977 -0.633881
+0.000000 -0.836472 -0.633881
+0.000000 -1.109671 -1.895112
+0.000000 -1.435944 -3.095036
+0.000000 -1.790952 -4.000000
+0.000000 -0.756955 0.000000
+0.000000 0.000000 -3.999999
+0.000000 -0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#BracingDoubleCenter2-POSITION-array" count="19" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="BracingDoubleCenter2-Normal0">
+          <float_array id="BracingDoubleCenter2-Normal0-array" count="144">
+0.000737 -0.985744 0.168251
+0.000737 -0.985744 0.168251
+0.000726 -0.971479 0.237124
+0.000737 -0.985744 0.168251
+0.000726 -0.971479 0.237124
+0.000726 -0.971479 0.237124
+0.000726 -0.971479 0.237124
+0.000726 -0.971479 0.237124
+0.000710 -0.949340 0.314251
+0.000726 -0.971479 0.237124
+0.000710 -0.949340 0.314251
+0.000710 -0.949340 0.314251
+0.000696 -0.930931 0.365195
+0.000696 -0.930931 0.365195
+0.000710 -0.949340 0.314251
+0.000710 -0.949340 0.314251
+0.000710 -0.949340 0.314251
+0.000696 -0.930931 0.365195
+0.000742 -0.992223 0.124469
+0.000737 -0.985744 0.168251
+0.000742 -0.992223 0.124469
+0.000737 -0.985744 0.168251
+0.000742 -0.992223 0.124469
+0.000737 -0.985744 0.168251
+-0.000710 -0.949340 0.314251
+-0.000710 -0.949340 0.314251
+-0.000696 -0.930931 0.365195
+-0.000710 -0.949340 0.314251
+-0.000696 -0.930931 0.365195
+-0.000696 -0.930931 0.365195
+-0.000726 -0.971479 0.237124
+-0.000726 -0.971479 0.237124
+-0.000710 -0.949340 0.314251
+-0.000726 -0.971479 0.237124
+-0.000710 -0.949340 0.314251
+-0.000710 -0.949340 0.314251
+-0.000737 -0.985744 0.168251
+-0.000737 -0.985744 0.168251
+-0.000726 -0.971479 0.237124
+-0.000737 -0.985744 0.168251
+-0.000726 -0.971479 0.237124
+-0.000726 -0.971479 0.237124
+-0.000742 -0.992223 0.124469
+-0.000742 -0.992223 0.124469
+-0.000737 -0.985744 0.168251
+-0.000742 -0.992223 0.124469
+-0.000737 -0.985744 0.168251
+-0.000737 -0.985744 0.168251
+</float_array>
+          <technique_common>
+            <accessor source="#BracingDoubleCenter2-Normal0-array" count="48" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="BracingDoubleCenter2-UV0">
+          <float_array id="BracingDoubleCenter2-UV0-array" count="40">
+0.394135 0.374238
+0.394003 0.570090
+0.873567 0.570089
+0.874506 0.374238
+0.394120 0.236906
+0.394120 0.423099
+0.874710 0.423099
+0.874710 0.236906
+0.393987 0.570823
+0.873553 0.570822
+0.874506 0.277182
+0.394135 0.277182
+0.393987 0.570823
+0.394120 0.423099
+0.394120 0.423099
+0.394120 0.236906
+0.394003 0.570090
+0.394135 0.374238
+0.394135 0.374238
+0.394135 0.277182
+</float_array>
+          <technique_common>
+            <accessor source="#BracingDoubleCenter2-UV0-array" count="20" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="BracingDoubleCenter2-VERTEX">
+          <input semantic="POSITION" source="#BracingDoubleCenter2-POSITION"/>
+        </vertices>
+        <triangles count="16" material="bridge"><input semantic="VERTEX" offset="0" source="#BracingDoubleCenter2-VERTEX"/><input semantic="NORMAL" offset="1" source="#BracingDoubleCenter2-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#BracingDoubleCenter2-UV0"/><p> 11 0 3 0 1 0 10 2 2 0 3 0 1 4 1 10 5 2 10 6 7 1 7 4 9 8 6 1 9 4 2 10 5 9 11 6 3 12 8 8 13 9 2 14 5 9 15 6 2 16 5 8 17 9 4 18 11 11 19 3 7 20 10 11 21 3 4 22 11 0 23 0 14 24 13 9 25 6 8 26 9 14 27 13 8 28 9 15 29 12 13 30 15 10 31 7 9 32 6 13 33 15 9 34 6 14 35 14 12 36 17 11 37 3 10 38 2 12 39 17 10 40 2 13 41 16 16 42 19 7 43 10 11 44 3 16 45 19 11 46 3 12 47 18</p></triangles>
+      </mesh>
+    </geometry>
+    <geometry id="BracingDoubleCenter-lib" name="BracingDoubleCenterMesh">
+      <mesh>
+        <source id="BracingDoubleCenter-POSITION">
+          <float_array id="BracingDoubleCenter-POSITION-array" count="48">
+-4.000000 -1.790952 -4.000000
+-4.000000 0.000000 -3.999999
+0.000000 0.000000 -3.999999
+0.000000 -1.790952 -4.000000
+-2.000000 -1.789457 -4.000000
+-2.000000 -0.755460 0.000000
+0.000000 -0.756955 0.000000
+0.000000 -0.000000 0.000000
+-4.000000 -0.000000 0.000000
+-4.000000 -0.756955 0.000000
+-4.000000 -1.435944 -3.095036
+-4.000000 -1.109671 -1.895112
+-4.000000 -0.836472 -0.633881
+0.000000 -0.836472 -0.633881
+0.000000 -1.109671 -1.895112
+0.000000 -1.435944 -3.095036
+</float_array>
+          <technique_common>
+            <accessor source="#BracingDoubleCenter-POSITION-array" count="16" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="BracingDoubleCenter-Normal0">
+          <float_array id="BracingDoubleCenter-Normal0-array" count="162">
+0.000000 0.000001 -1.000000
+0.000000 0.000001 -1.000000
+0.000000 0.000001 -1.000000
+0.000000 0.000001 -1.000000
+0.000000 0.000001 -1.000000
+0.000000 0.000001 -1.000000
+0.000000 0.000001 -1.000000
+0.000000 0.000001 -1.000000
+0.000000 0.000001 -1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#BracingDoubleCenter-Normal0-array" count="54" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="BracingDoubleCenter-UV0">
+          <float_array id="BracingDoubleCenter-UV0-array" count="56">
+2.000000 0.147655
+2.000000 1.043131
+0.000000 1.043131
+0.000000 0.147655
+1.000000 0.148402
+1.000000 0.664538
+2.000000 0.663791
+2.000000 1.042268
+0.000000 1.042268
+0.000000 0.663791
+0.000000 0.142248
+0.452592 0.319387
+1.052644 0.482044
+1.683326 0.618142
+2.000277 0.657650
+2.000573 1.036104
+0.000701 1.037668
+2.000000 -1.000000
+2.000000 1.000000
+0.000000 1.000000
+0.000000 -1.000000
+0.000701 1.037668
+2.000573 1.036104
+2.000277 0.657650
+1.683326 0.618142
+1.052644 0.482044
+0.452592 0.319387
+0.000000 0.142248
+</float_array>
+          <technique_common>
+            <accessor source="#BracingDoubleCenter-UV0-array" count="28" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="BracingDoubleCenter-VERTEX">
+          <input semantic="POSITION" source="#BracingDoubleCenter-POSITION"/>
+        </vertices>
+        <triangles count="18" material="bridge_tiling"><input semantic="VERTEX" offset="0" source="#BracingDoubleCenter-VERTEX"/><input semantic="NORMAL" offset="1" source="#BracingDoubleCenter-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#BracingDoubleCenter-UV0"/><p> 1 0 1 4 1 4 0 2 0 4 3 4 1 4 1 2 5 2 2 6 2 3 7 3 4 8 4 7 9 7 8 10 8 5 11 5 7 12 7 5 13 5 6 14 6 5 15 5 8 16 8 9 17 9 8 18 15 1 19 16 11 20 12 11 21 12 1 22 16 10 23 11 8 24 15 11 25 12 12 26 13 8 27 15 12 28 13 9 29 14 0 30 10 10 31 11 1 32 16 14 33 25 7 34 22 13 35 24 7 36 22 14 37 25 2 38 21 7 39 22 6 40 23 13 41 24 15 42 26 2 43 21 14 44 25 2 45 21 15 46 26 3 47 27 8 48 20 7 49 17 1 50 19 7 51 17 2 52 18 1 53 19</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="StoneBridge_BracingCenter2" name="StoneBridge_BracingCenter2">
+      <node name="BracingDoubleCenter2" id="BracingDoubleCenter2" sid="BracingDoubleCenter2"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#BracingDoubleCenter2-lib"><bind_material><technique_common><instance_material symbol="bridge" target="#bridge"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <node name="BracingDoubleCenter" id="BracingDoubleCenter" sid="BracingDoubleCenter"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#BracingDoubleCenter-lib"><bind_material><technique_common><instance_material symbol="bridge_tiling" target="#bridge_tiling"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#StoneBridge_BracingCenter2"></instance_visual_scene>
+  </scene>
+</COLLADA>

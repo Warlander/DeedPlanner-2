@@ -12,7 +12,7 @@ import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.XMLUtils;
 import pl.wurmonline.deedplanner.util.Log;
 
-public final class Mesh {
+public final class Mesh implements Renderable {
 
     private final String name;
     private final String vertLoc;

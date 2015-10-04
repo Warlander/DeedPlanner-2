@@ -3,10 +3,15 @@ package pl.wurmonline.deedplanner.util.jogl;
 import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 
-public class Model {
+public class Model implements Renderable {
     
     public final String tag;
     private final Mesh[] meshes;
+    
+    public Model(Mesh... meshes) {
+        this.tag = "";
+        this.meshes = meshes;
+    }
     
     public Model(Element node) {
         this.tag = node.getAttribute("tag");

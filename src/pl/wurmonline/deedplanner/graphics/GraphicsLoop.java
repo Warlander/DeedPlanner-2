@@ -47,8 +47,6 @@ public class GraphicsLoop implements GLEventListener {
             long startTime = System.currentTimeMillis();
             stopped = false;
             GL2 g = glautodrawable.getGL().getGL2();
-            
-            RenderableEntity.clearEntities(g);
 
             g.glClearColor(0, 0, 0, 1);
             g.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);

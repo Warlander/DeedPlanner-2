@@ -6,7 +6,7 @@ import pl.wurmonline.deedplanner.data.BorderData;
 import pl.wurmonline.deedplanner.data.CaveData;
 import pl.wurmonline.deedplanner.data.Floor;
 import pl.wurmonline.deedplanner.data.FloorData;
-import pl.wurmonline.deedplanner.data.FloorOrientation;
+import pl.wurmonline.deedplanner.data.EntityOrientation;
 import pl.wurmonline.deedplanner.data.GameObject;
 import pl.wurmonline.deedplanner.data.GameObjectData;
 import pl.wurmonline.deedplanner.data.GroundData;
@@ -331,28 +331,28 @@ public class Symmetry {
         }
     }
 
-    private FloorOrientation mirrorFloorOrientationX(FloorOrientation fl) {
+    private EntityOrientation mirrorEntityOrientationX(EntityOrientation fl) {
         if(fl != null && Globals.mirrorFloors) switch(fl) {
             case LEFT:
-                return FloorOrientation.RIGHT;
+                return EntityOrientation.RIGHT;
             case RIGHT:
-                return FloorOrientation.LEFT;
+                return EntityOrientation.LEFT;
         }
         return fl;
     }
     
-    private FloorOrientation mirrorFloorOrientationY(FloorOrientation fl) {
+    private EntityOrientation mirrorEntityOrientationY(EntityOrientation fl) {
         if(fl != null && Globals.mirrorFloors) switch(fl) {
             case UP:
-                return FloorOrientation.DOWN;
+                return EntityOrientation.DOWN;
             case DOWN:
-                return FloorOrientation.UP;
+                return EntityOrientation.UP;
         }
         return fl;
     }
     
-    private FloorOrientation mirrorFloorOrientationXY(FloorOrientation fl) {
-        return mirrorFloorOrientationX(mirrorFloorOrientationY(fl));
+    private EntityOrientation mirrorEntityOrientationXY(EntityOrientation fl) {
+        return mirrorEntityOrientationX(mirrorEntityOrientationY(fl));
     }
     
     /**
@@ -362,7 +362,7 @@ public class Symmetry {
      * @param fl
      * @param level
      */
-    public void mirrorFloor(Tile tile, FloorData data, FloorOrientation fl, int level) {
+    public void mirrorFloor(Tile tile, FloorData data, EntityOrientation fl, int level) {
         if(data == null) {
             this.mirrorTileContent(tile, null, level);
             return;
@@ -373,7 +373,7 @@ public class Symmetry {
             if(mX >= 0) {
                 Tile t = tile.getMap().getTile(mX, tile.getY());
                 if(t != null) {
-                    t.setTileContent(new Floor(data, mirrorFloorOrientationX(fl)), level);
+                    t.setTileContent(new Floor(data, mirrorEntityOrientationX(fl)), level);
                 }
             }
         }
@@ -383,7 +383,7 @@ public class Symmetry {
             if(mY >= 0) {
                 Tile t = tile.getMap().getTile(tile.getX(), mY);
                 if(t != null) {
-                    t.setTileContent(new Floor(data, mirrorFloorOrientationY(fl)), level);
+                    t.setTileContent(new Floor(data, mirrorEntityOrientationY(fl)), level);
                 }
             }
         }
@@ -395,7 +395,7 @@ public class Symmetry {
             if(mX >= 0 && mY >= 0) {
                 Tile t = tile.getMap().getTile(mX, mY);
                 if( t != null) {
-                    t.setTileContent(new Floor(data, mirrorFloorOrientationXY(fl)), level);
+                    t.setTileContent(new Floor(data, mirrorEntityOrientationXY(fl)), level);
                 }
             }
         }
