@@ -1932,7 +1932,7 @@
 			<category>Towers</category>
 			<category>Materials/Stone</category>
 		</object>
-		<object name="Archery tower" shortname="archGT" type="centered">
+                <object name="Archery tower" shortname="archGT" type="centered">
 			<model location="Data/Objects/archeryTower.dae">
 				<mesh name="archerytower" tex="Data/Objects/archeryTower.jpg"/>
 			</model>
@@ -2335,13 +2335,200 @@
 			</model>
 			<category>Misc</category>
 		</object>
-		
-	</objects>
-	
-	
-	
-	
-	
+                <object name="Forge" shortname="forge" type="normal">
+                    <model location="Data/Objects/forge.dae">
+                        <mesh name="forge-mesh" material="forge" tex="Data/Objects/forge.jpg"/>
+                        <mesh name="forge-mesh" material="forgecauldron" tex="Data/Objects/forgecauldron.jpg"/>
+                        <mesh name="forge-mesh" material="coal" tex="Data/Objects/forge.jpg"/>
+                    </model>
+                    <materials>
+                        Clay = 11,
+                        Stone bricks = 11
+                    </materials>
+                    <category>Furnaces</category>
+                    <category>Materials/Stone</category>
+                </object>
+                <object name="Forge (lit)" shortname="forgelit" type="normal">
+                    <model location="Data/Objects/forge.dae">
+                        <mesh name="forge-mesh" material="forge" tex="Data/Objects/forgelit.jpg"/>
+                        <mesh name="forge-mesh" material="forgecauldron" tex="Data/Objects/forgecauldron.jpg"/>                        
+                        <mesh name="forge-mesh" material="forgecauldronglow" tex="Data/Objects/forgecauldronglow.jpg"/>
+                        <mesh name="forge-mesh" material="coal" tex="Data/Objects/forgelit.jpg"/>
+                    </model>
+                    <materials>
+                        Clay = 11,
+                        Stone bricks = 11
+                    </materials>
+                    <category>Furnaces</category>
+                    <category>Materials/Stone</category>
+                </object>
+                <object name="Oven" shortname="oven" type="normal">
+                    <model location="Data/Objects/oven.dae">
+                        <mesh name="oven" material="oven" tex="Data/Objects/oven.jpg"/>
+                        <mesh name="oven" material="ovenpan" tex="Data/Objects/ovenpan.jpg"/>
+                        <mesh name="oven" material="coal" tex="Data/Objects/oven.jpg"/>
+                    </model>
+                    <materials>
+                        Clay = 11,
+                        Stone bricks = 11
+                    </materials>
+                    <category>Furnaces</category>
+                    <category>Materials/Stone</category>
+                </object>
+                <object name="Oven (lit)" shortname="ovenlit" type="normal">
+                    <model location="Data/Objects/oven.dae">
+                        <mesh name="oven" material="oven" tex="Data/Objects/ovenlit.jpg"/>
+                        <mesh name="oven" material="ovenpan" tex="Data/Objects/ovenpanlit.jpg"/>
+                        <mesh name="oven" material="coal" tex="Data/Objects/ovenlit.jpg"/>
+                    </model>
+                    <materials>
+                        Clay = 11,
+                        Stone bricks = 11
+                    </materials>
+                    <category>Furnaces</category>
+                    <category>Materials/Stone</category>
+                </object>
+                <object name="Market stall" shortname="mstall" type="normal">
+                    <model location="Data/Objects/MarketStall.dae">
+                        <mesh name="MarketstallMesh" tex="Data/Objects/MarketStall.png"/>
+                    </model>
+                    <materials>
+                        Large nails = 1,
+                        Planks = 21,
+                        Square piece of cloth = 4,
+                        Shafts = 4
+                    </materials>
+                    <category>Decoration</category>
+                </object>
+                <object name="Belltower" shortname="belltower" type="normal">
+                    <model location="Data/Objects/Belltower_Main.dae">
+                        <mesh name="Belltower" tex="Data/Objects/bell.jpg"/>
+                    </model>
+                    <category>Decoration</category>
+                </object>
+                <object name="Bear vs Bull" shortname="bearvbullhota" type="normal">
+                    <model location="Data/Objects/bearBullStatue.dae">
+                        <mesh name="BearBullMesh" tex="Data/Objects/BearFightingBull512.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Dragon" shortname="dragonhota" type="normal">
+                    <model location="Data/Objects/blackDragonStatue.dae">
+                        <mesh name="blackDragonStatueMesh" tex="Data/Objects/blackDragonStatue.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Deer" shortname="dearhota" type="normal">
+                    <model location="Data/Objects/deerStatue.dae">
+                        <mesh name="Deer_statueMesh" tex="Data/Objects/DeerStatue.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Dogs vs Boar" shortname="dogvboarhota" type="normal">
+                    <model location="Data/Objects/dogsBoarStatue.dae">
+                        <mesh name="Dogs_Boar_statueMesh" tex="Data/Objects/dogsBoarStatue512.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Lady vs Anaconda" shortname="ladyvanahota" type="normal">
+                    <model location="Data/Objects/femaleAnacondaStatue.dae">
+                        <mesh name="femaleanacondaStatueMesh" tex="Data/Objects/femaleAnacondaStatue512.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Lady of the Lake" shortname="ladylakehota" type="normal">
+                    <model location="Data/Objects/ladyOfTheLakeStatue.dae">
+                        <mesh name="Lady_of_the_lake_StatueMesh" tex="Data/Objects/LadyLake512.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Man vs Bear" shortname="manvbearhota" type="normal">
+                    <model location="Data/Objects/manBearstatue.dae">
+                        <mesh name="Man_fighting_Bear_Statue_ReducedMesh" tex="Data/Objects/manBearstatue512.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Nogump" shortname="nogumphota" type="normal">
+                    <model location="Data/Objects/nogumpStatue.dae">
+                        <mesh name="NogumpStatueMesh" tex="Data/Objects/nogumpStatue512.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Scorpion" shortname="scorphota" type="normal">
+                    <model location="Data/Objects/scorpionStatue.dae">
+                        <mesh name="ScorpionStatueMesh" tex="Data/Objects/Scorpionstatue512.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Sol demon" shortname="soldhota" type="normal">
+                    <model location="Data/Objects/soldDemonStatueHota.dae">
+                        <mesh name="SunDemonStoneHotaMesh" tex="Data/Objects/SolDemonStatue512Hota.png"/>
+                        <mesh name="SunDemonStoneHotaGlowMesh" tex="Data/Objects/SolDemonStatue512Hota.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Wolf vs Bison" shortname="wolfbisonhota" type="normal">
+                    <model location="Data/Objects/wolfBisonStatue.dae">
+                        <mesh name="Wolf_fighting_bison_statueMesh" tex="Data/Objects/wolfBisonstatue512.png"/>
+                    </model>
+                    <category>HOTA Statues</category>
+                </object>
+                <object name="Marble Planter (empty)" shortname="marbplantempty" type="normal">
+                    <model location="Data/Objects/marblePlanter_empty.dae">
+                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
+                    </model>
+                    <category>Decoration</category>
+                </object>
+                <object name="Marble Planter (blue flowers)" shortname="marbplantblue" type="normal">
+                    <model location="Data/Objects/marblePlanter.dae">
+                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
+                        <mesh name="FlowersMesh" tex="Data/Objects/flower_blue.png"/>
+                    </model>
+                    <category>Decoration</category>
+                </object>
+                <object name="Marble Planter (dotted flowers)" shortname="marbplantdotted" type="normal">
+                    <model location="Data/Objects/marblePlanter.dae">
+                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
+                        <mesh name="FlowersMesh" tex="Data/Objects/flower_dotted.png"/>
+                    </model>
+                    <category>Decoration</category>
+                </object>
+                <object name="Marble Planter (greenish flowers)" shortname="marbplantgreen" type="normal">
+                    <model location="Data/Objects/marblePlanter.dae">
+                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
+                        <mesh name="FlowersMesh" tex="Data/Objects/flower_greenish.png"/>
+                    </model>
+                    <category>Decoration</category>
+                </object>
+                <object name="Marble Planter (orange flowers)" shortname="marbplantorange" type="normal">
+                    <model location="Data/Objects/marblePlanter.dae">
+                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
+                        <mesh name="FlowersMesh" tex="Data/Objects/flower_orange.png"/>
+                    </model>
+                    <category>Decoration</category>
+                </object>
+                <object name="Marble Planter (purple flowers)" shortname="marbplantpurple" type="normal">
+                    <model location="Data/Objects/marblePlanter.dae">
+                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
+                        <mesh name="FlowersMesh" tex="Data/Objects/flower_purple.png"/>
+                    </model>
+                    <category>Decoration</category>
+                </object>
+                <object name="Marble Planter (white flowers)" shortname="marbplantwhite" type="normal">
+                    <model location="Data/Objects/marblePlanter.dae">
+                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
+                        <mesh name="FlowersMesh" tex="Data/Objects/flower_white.png"/>
+                    </model>
+                    <category>Decoration</category>
+                </object>
+                <object name="Marble Planter (yellow flowers)" shortname="marbplantyellow" type="normal">
+                    <model location="Data/Objects/marblePlanter.dae">
+                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
+                        <mesh name="FlowersMesh" tex="Data/Objects/flower_yellow.png"/>
+                    </model>
+                    <category>Decoration</category>
+                </object>
+        </objects>
 	<caves>
 		<rock name="Stone wall" shortname="sw" type="wall" tex="Data/Caves/cave_512.png">
 			<category>Walls</category>

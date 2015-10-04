@@ -2,6 +2,8 @@ package pl.wurmonline.deedplanner.util.jogl;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 import javax.media.opengl.GL2;
@@ -19,6 +21,7 @@ public final class Mesh implements Renderable {
     private int listID = 0;
     private final Tex tex;
     private final float[] scale;
+    private final String material;
     
     public Mesh(String vertLoc, String name, Tex tex, float scale) {
         this.name = name.toUpperCase();
@@ -26,6 +29,16 @@ public final class Mesh implements Renderable {
         this.tex = tex;
         this.scale = new float[3];
         this.scale[0] = this.scale[1] = this.scale[2] = scale;
+        this.material = "";
+    }
+
+    public Mesh(String vertLoc, String name, Tex tex, String material, float scale) {
+        this.name = name.toUpperCase();
+        this.vertLoc = vertLoc;
+        this.tex = tex;
+        this.scale = new float[3];
+        this.scale[0] = this.scale[1] = this.scale[2] = scale;
+        this.material = material;
     }
     
     public Mesh(String vertLoc, String name, Tex tex, float[] scale) {
@@ -33,6 +46,7 @@ public final class Mesh implements Renderable {
         this.vertLoc = vertLoc;
         this.tex = tex;
         this.scale = scale;
+        this.material = "";
     }
     
     public void render(GL2 g) {
@@ -57,9 +71,13 @@ public final class Mesh implements Renderable {
         
         NodeList geometries = doc.getElementsByTagName("geometry");
         Node mesh = null;
+        Log.out(this,"Searching for " + name);
         for (int i=0; i<geometries.getLength(); i++) {
             Element e = (Element) geometries.item(i);
-            if (e.getAttribute("name").toUpperCase().contains(name)) {
+            Log.out(e,"name=" + e.getAttribute("name"));
+            Log.out(e,"id=" + e.getAttribute("id"));
+            if (e.getAttribute("name").toUpperCase().contains(name) ||
+                    e.getAttribute("id").toUpperCase().contains(name)) {
                 mesh = e.getElementsByTagName("mesh").item(0);
             }
         }
@@ -74,7 +92,15 @@ public final class Mesh implements Renderable {
                     case "source":
                         processSource(data, element);
                         break;
-                    case "triangles": case "polylist":
+                    case "polylist":
+                        // This is to allow for backwards compatibility.
+                        if(!this.material.isEmpty() 
+                            && !element.getAttribute("material").equalsIgnoreCase(material)) {
+                                break;
+                        }
+                        processTriangles(data, element);
+                        break;
+                    case "triangles":
                         processTriangles(data, element);
                         break;
                 }
@@ -82,7 +108,7 @@ public final class Mesh implements Renderable {
         }
         return data;
     }
-    
+        
     private void processSource(MeshData data, Element source) {
         Element floatContainer = (Element) source.getElementsByTagName("float_array").item(0);
         int count = Integer.parseInt(floatContainer.getAttribute("count"));
@@ -122,7 +148,7 @@ public final class Mesh implements Renderable {
         }
         data.setTriangles(ints);
     }
-    
+
     public String toString() {
         return name;
     }

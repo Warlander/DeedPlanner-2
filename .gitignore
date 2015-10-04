@@ -2,3 +2,5 @@
 /build/
 /dist/
 /nbproject/
+/run directory/ErrorLog.txt
+/run directory/InfoLog.txt
