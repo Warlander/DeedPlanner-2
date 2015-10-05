@@ -2528,6 +2528,31 @@
                     </model>
                     <category>Decoration</category>
                 </object>
+                <object name="Spirit castle" shortname="spiritcastle" type="normal">
+                    <model location="Data/Objects/mailbox-spirit-castle.dae">
+                        <mesh name="mailboxMesh" material="cloth" tex="Data/Objects/clothe.jpg"/>
+                        <mesh name="mailboxMesh" material="stone" tex="Data/Objects/stonewall.jpg"/>
+                    </model>
+                    <category>Mailboxes</category>
+                </object>
+                <object name="Spirit cottage" shortname="spiritcottage" type="normal">
+                    <model location="Data/Objects/mailbox-spirit-cottage.dae">
+                        <mesh name="mailboxMesh" material="stone" tex="Data/Objects/stonewall.jpg"/>
+                    </model>
+                    <category>Mailboxes</category>
+                </object>
+                <object name="Spirit mansion" shortname="spiritmansion" type="normal">
+                    <model location="Data/Objects/mailbox-spirit-mansion.dae">
+                        <mesh name="mailboxMesh" material="wood" tex="Data/Objects/wurmhousetext.jpg"/>
+                    </model>
+                    <category>Mailboxes</category>
+                </object>
+                <object name="Spirit house" shortname="spirithouse" type="normal">
+                    <model location="Data/Objects/mailbox-spirit-house.dae">
+                        <mesh name="mailboxMesh" material="wood" tex="Data/Objects/wurmhousetext.jpg"/>
+                    </model>
+                    <category>Mailboxes</category>
+                </object>
         </objects>
 	<caves>
 		<rock name="Stone wall" shortname="sw" type="wall" tex="Data/Caves/cave_512.png">
