@@ -192,11 +192,13 @@ public class Planner extends javax.swing.JFrame {
         symmetryPanel = new pl.wurmonline.deedplanner.forms.SymmetryEditor();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        newMapItem = new javax.swing.JMenuItem();
         resizeItem = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         saveItem = new javax.swing.JMenuItem();
         loadItem = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        exitItem = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         undoItem = new javax.swing.JMenuItem();
         redoItem = new javax.swing.JMenuItem();
@@ -698,13 +700,13 @@ public class Planner extends javax.swing.JFrame {
 
         jMenu1.setText(bundle.getString("Planner.jMenu1.text")); // NOI18N
 
-        jMenuItem1.setText(bundle.getString("Planner.jMenuItem1.text")); // NOI18N
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        newMapItem.setText(bundle.getString("Planner.newMapItem.text")); // NOI18N
+        newMapItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                newMapItemActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(newMapItem);
 
         resizeItem.setText(bundle.getString("Planner.resizeItem.text")); // NOI18N
         resizeItem.addActionListener(new java.awt.event.ActionListener() {
@@ -730,6 +732,15 @@ public class Planner extends javax.swing.JFrame {
             }
         });
         jMenu1.add(loadItem);
+        jMenu1.add(jSeparator1);
+
+        exitItem.setText(bundle.getString("Planner.exitItem.text")); // NOI18N
+        exitItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitItemActionPerformed(evt);
+            }
+        });
+        jMenu1.add(exitItem);
 
         jMenuBar1.add(jMenu1);
 
@@ -1073,12 +1084,12 @@ public class Planner extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_elevationDisplayChanged
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void newMapItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMapItemActionPerformed
         int option = JOptionPane.showConfirmDialog(null, java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("DO YOU REALLY WANT TO DESTROY CURRENT MAP AND START FROM SCRATCH?"), java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("NEW MAP"), JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (option==JOptionPane.OK_OPTION) {
             mapPanel.setMap(new Map(50, 50));
         }
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_newMapItemActionPerformed
 
     private void roofsListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_roofsListValueChanged
         RoofUpdater.currentData = (RoofData) roofsList.getSelectedValue();
@@ -1157,6 +1168,15 @@ public class Planner extends javax.swing.JFrame {
         Globals.editSize = true;
     }//GEN-LAST:event_sizeRadioActionPerformed
 
+    private void exitItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitItemActionPerformed
+        int option = JOptionPane.showConfirmDialog(null, java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("DO YOU REALLY WANT TO CLOSE PROGRAM? ALL UNSAVED CHANGES WILL BE LOST!"), java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("CLOSE PROGRAM CONFIRMATION"), JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (option==JOptionPane.OK_OPTION) {
+            mapPanel.getLoop().syncAndExecute(() -> {
+                System.exit(0);
+            });
+        }        
+    }//GEN-LAST:event_exitItemActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JList bordersList;
@@ -1167,6 +1187,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.ButtonGroup elevationGroup;
     private javax.swing.JRadioButtonMenuItem elevationOffItem;
     private javax.swing.JRadioButtonMenuItem elevationOnItem;
+    private javax.swing.JMenuItem exitItem;
     private javax.swing.JRadioButtonMenuItem fallItem;
     private javax.swing.JComboBox floorOrientationBox;
     private javax.swing.JComboBox floorsModeCombo;
@@ -1198,7 +1219,6 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
@@ -1210,12 +1230,14 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSpinner jSpinner4;
     private pl.wurmonline.deedplanner.forms.LabelEditor labelsPanel;
     private javax.swing.JMenuItem loadItem;
     private pl.wurmonline.deedplanner.MapPanel mapPanel;
+    private javax.swing.JMenuItem newMapItem;
     private javax.swing.JPanel objectsPanel;
     private javax.swing.JTree objectsTree;
     private javax.swing.JMenuItem redoItem;
