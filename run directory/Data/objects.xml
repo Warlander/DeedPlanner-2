@@ -620,7 +620,7 @@
 				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
 			<model location="Data/Walls/House_Stone_Wall_Window_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
+				<mesh name="WindowUpper" tex="Data/Walls/StoneWall.jpg"/>
 			</model>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
 			<materials>
