@@ -143,8 +143,8 @@ public final class UpCamera {
     public void set(GL2 g) {
         g.glMatrixMode(GL2.GL_PROJECTION);
         g.glLoadIdentity();
-        g.glOrtho(0, Properties.scale*4f*(float)panel.getWidth()/(float)panel.getHeight(), 0, Properties.scale*4, 0.001f, 600);
-        g.glTranslatef(-x, -y, -200);
+        g.glOrtho(0, Properties.scale*4f*(float)panel.getWidth()/(float)panel.getHeight(), 0, Properties.scale*4, 0.001f, 8192);
+        g.glTranslatef(-x, -y, -4000);
         g.glMatrixMode(GL2.GL_MODELVIEW);
         g.glLoadIdentity();
     }
