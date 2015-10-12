@@ -188,5 +188,9 @@ public class MarbleBridgeData extends BridgeData {
     public int getSupportHeight() {
         return 80;
     }
+
+    public String getName() {
+        return "marble";
+    }
     
 }

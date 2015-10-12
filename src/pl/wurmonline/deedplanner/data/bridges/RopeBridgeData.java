@@ -71,5 +71,9 @@ public class RopeBridgeData extends BridgeData {
     public int getSupportHeight() {
         return 0; //no supports
     }
+
+    public String getName() {
+        return "rope";
+    }
     
 }

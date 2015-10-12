@@ -506,6 +506,15 @@ public final class Tile implements XMLSerializable {
             map.recalculateHeight();
             if (undo) {
                 map.addUndo(this, oldTile);
+                for (int i = -1; i <= 0; i++) {
+                    for (int i2 = -1; i2 <= 0; i2++) {
+                        Tile tile = map.getTile(this, i, i2);
+                        if (tile != null) {
+                            tile.destroyBridge();
+                        }
+                    }
+                }
+                
             }
         }
     }
@@ -900,6 +909,15 @@ public final class Tile implements XMLSerializable {
         return (GameObject) entities.get(new ObjectEntityData(level, location));
     }
     
+    public void destroyBridge() {
+        if (bridgePart != null) {
+            bridgePart.destroy();
+        }
+    }
+    
+    /**
+     * This method shouldn't be called to destroy bridge manually - use destroyBridge() instead!
+     */
     public void setBridgePart(BridgePart bridgePart) {
         this.bridgePart = bridgePart;
     }

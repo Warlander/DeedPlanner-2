@@ -43,6 +43,8 @@ public final class Map {
     private final Stack<Action> undo = new Stack<>();
     private final Stack<Action> redo = new Stack<>();
     
+    private final ArrayList<Bridge> bridges = new ArrayList<Bridge>();
+    
     private int waterID = 0;
     private final Tile[][] tiles;
     
@@ -410,9 +412,9 @@ public final class Map {
 //        Bridge.createBridge(this, tiles[5][5], tiles[11][5], new RopeBridgeData(), BridgeType.ROPE, segments, 10);
         
         BridgePartType[] segments = new BridgePartType[] {BridgePartType.DOUBLE_ABUTMENT, BridgePartType.SUPPORT, BridgePartType.ABUTMENT, BridgePartType.DOUBLE_BRACING, BridgePartType.ABUTMENT, BridgePartType.SUPPORT, BridgePartType.DOUBLE_ABUTMENT};
-        Bridge.createBridge(this, tiles[5][5], tiles[11][5], new MarbleBridgeData(), BridgeType.ARCHED, segments, 20);
+        Bridge.createBridge(this, tiles[5][5], tiles[11][5], 4, 3, new MarbleBridgeData(), BridgeType.ARCHED, segments, 20);
         BridgePartType[] segments2 = new BridgePartType[] {BridgePartType.DOUBLE_ABUTMENT, BridgePartType.SUPPORT, BridgePartType.ABUTMENT, BridgePartType.BRACING, BridgePartType.FLOATING, BridgePartType.FLOATING, BridgePartType.BRACING, BridgePartType.ABUTMENT, BridgePartType.SUPPORT, BridgePartType.DOUBLE_ABUTMENT};
-        Bridge.createBridge(this, tiles[2][8], tiles[4][17], new MarbleBridgeData(), BridgeType.ARCHED, segments2, 20);
+        Bridge.createBridge(this, tiles[2][8], tiles[4][17], 0, 0, new MarbleBridgeData(), BridgeType.ARCHED, segments2, 20);
         
         createHeightData();
     }
@@ -669,6 +671,10 @@ public final class Map {
             }
         }
         
+        for (Bridge bridge : bridges) {
+            bridge.serialize(doc, main);
+        }
+        
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -763,6 +769,15 @@ public final class Map {
         if (undo) {
             addUndo(tile, oldTile);
         }
+    }
+    
+    public void addBridge(Bridge bridge) {
+        bridges.add(bridge);
+    }
+    
+    public void destroyBridge(Bridge bridge) {
+        bridges.remove(bridge);
+        bridge.destroy();
     }
     
     public Materials getTotalMaterials() {

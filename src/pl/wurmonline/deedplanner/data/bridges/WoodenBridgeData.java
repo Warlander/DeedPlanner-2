@@ -108,5 +108,9 @@ public class WoodenBridgeData extends BridgeData {
     public int getSupportHeight() {
         return 60;
     }
+
+    public String getName() {
+        return "wood";
+    }
     
 }

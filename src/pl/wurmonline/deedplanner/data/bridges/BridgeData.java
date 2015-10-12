@@ -73,6 +73,27 @@ public abstract class BridgeData {
         height41, height42, height43, height44, height45,
         height46, height47, height48, height49, height50};
     
+    private static final HashMap<String, BridgeData> bridgeTypes = new HashMap<>();
+    
+    static {
+        addBridgeData(new RopeBridgeData());
+        addBridgeData(new WoodenBridgeData());
+        addBridgeData(new MarbleBridgeData());
+        addBridgeData(new StoneBridgeData());
+    }
+    
+    private static void addBridgeData(BridgeData data) {
+        bridgeTypes.put(data.getName(), data);
+    }
+    
+    public static BridgeData getData(String str) {
+        return bridgeTypes.get(str);
+    }
+    
+    public static BridgeType[] getAllBridgesData() {
+        return bridgeTypes.values().stream().toArray(BridgeType[]::new);
+    }
+    
     private final HashMap<BridgePartType, Materials> materials;
     protected final int maxWidth;
     
@@ -83,22 +104,22 @@ public abstract class BridgeData {
         prepareMaterialsMap(materials);
     }
     
-    public final void constructBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, BridgeType type, BridgePartType[] segments, int additionalData) {
+    public final void constructBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgeType type, BridgePartType[] segments, int additionalData) {
         if (type == BridgeType.FLAT) {
-            constructFlatBridge(map, bridge, startX, startY, endX, endY, type, segments, additionalData);
+            constructFlatBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, segments);
         }
         else if (type == BridgeType.ARCHED) {
-            constructArchedBridge(map, bridge, startX, startY, endX, endY, type, segments, additionalData);
+            constructArchedBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, segments, additionalData);
         }
         else if (type == BridgeType.ROPE) {
-            constructRopeBridge(map, bridge, startX, startY, endX, endY, type, segments, additionalData);
+            constructRopeBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, segments, additionalData);
         }
     }
     
-    private void constructFlatBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, BridgeType type, BridgePartType[] segments, int additionalData) {
+    private void constructFlatBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments) {
         int bridgeWidth = Math.max(endX - startX, endY - startY) + 1;
-        float startHeight = map.getTile(startX, startY).getHeight();
-        float endHeight = map.getTile(endX + 1, endY + 1).getHeight();
+        float startHeight = getAbsoluteHeight(map.getTile(startX, startY), firstFloor);
+        float endHeight = getAbsoluteHeight(map.getTile(endX + 1, endY + 1), secondFloor);
         float heightStep = (endHeight - startHeight) / bridgeWidth;
         boolean verticalOrientation = (endY - startY) > (endX - startX);
         
@@ -115,10 +136,10 @@ public abstract class BridgeData {
         }
     }
     
-    private void constructArchedBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, BridgeType type, BridgePartType[] segments, int additionalData) {
+    private void constructArchedBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData) {
         int bridgeWidth = Math.max(endX - startX, endY - startY) + 1;
-        float startHeight = map.getTile(startX, startY).getHeight();
-        float endHeight = map.getTile(endX + 1, endY + 1).getHeight();
+        float startHeight = getAbsoluteHeight(map.getTile(startX, startY), firstFloor);
+        float endHeight = getAbsoluteHeight(map.getTile(endX + 1, endY + 1), secondFloor);
         float heightStep = (endHeight - startHeight) / bridgeWidth;
         boolean verticalOrientation = (endY - startY) > (endX - startX);
         
@@ -157,10 +178,10 @@ public abstract class BridgeData {
         }
     }
     
-    private void constructRopeBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, BridgeType type, BridgePartType[] segments, int additionalData) {
+    private void constructRopeBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData) {
         int bridgeWidth = Math.max(endX - startX, endY - startY) + 1;
-        float startHeight = map.getTile(startX, startY).getHeight();
-        float endHeight = map.getTile(endX + 1, endY + 1).getHeight();
+        float startHeight = getAbsoluteHeight(map.getTile(startX, startY), firstFloor);
+        float endHeight = getAbsoluteHeight(map.getTile(endX + 1, endY + 1), secondFloor);
         float heightStep = (endHeight - startHeight) / bridgeWidth;
         boolean verticalOrientation = (endY - startY) > (endX - startX);
         
@@ -178,6 +199,16 @@ public abstract class BridgeData {
                 
                 map.getTile(x, y).setBridgePart(new BridgePart(bridge, map.getTile(x, y), side, segment, orientation, sags[currentSegment], heightStep + currentSag));
             }
+        }
+    }
+    
+    private int getAbsoluteHeight(Tile tile, int floor) {
+        if (floor == 0) {
+            return tile.getHeight();
+        }
+        else {
+            return tile.getHeight();
+            //return tile.getHeight() + floor * 35 + 3;
         }
     }
     
@@ -249,6 +280,7 @@ public abstract class BridgeData {
     public abstract boolean isCompatibleType(BridgeType type);
     public abstract Renderable getRenderableForPart(BridgePartSide orientation, BridgePartType type);
     public abstract int getSupportHeight();
+    public abstract String getName();
     
     protected abstract void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials);
     

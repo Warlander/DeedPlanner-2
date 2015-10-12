@@ -62,10 +62,10 @@ public class BridgePart implements TileEntity {
         
         g.glPushMatrix();
             if (orientation == EntityOrientation.UP || orientation == EntityOrientation.DOWN) {
-                deform2(g, heightDiff / 47f);
+                deform2(g, heightDiff / 40f);
             }
             else {
-                deform1(g, heightDiff / 47f);
+                deform1(g, heightDiff / 40f);
             }
             //4 is required to render bridge in DeedPlanner coordinate system
             g.glTranslatef(4, 0, height / Constants.HEIGHT_MOD);
@@ -118,7 +118,7 @@ public class BridgePart implements TileEntity {
     }
 
     public void serialize(Document doc, Element root) {
-        
+        //no serialization of single bridge parts
     }
     
     public BridgePartSide getSide() {
@@ -131,6 +131,10 @@ public class BridgePart implements TileEntity {
     
     public EntityOrientation getOrientation() {
         return orientation;
+    }
+    
+    public void destroy() {
+        bridge.destroy();
     }
     
 }
