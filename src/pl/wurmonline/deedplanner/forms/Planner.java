@@ -190,7 +190,7 @@ public class Planner extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         cavesTree = new javax.swing.JTree();
         symmetryPanel = new pl.wurmonline.deedplanner.forms.SymmetryEditor();
-        bridgesPanel = new pl.wurmonline.deedplanner.forms.BridgesEditor();
+        bridgesPanel = new BridgesEditor(this);
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         newMapItem = new javax.swing.JMenuItem();
@@ -280,7 +280,6 @@ public class Planner extends javax.swing.JFrame {
         groundsTree.setModel(new DefaultTreeModel(Data.groundsTree));
         groundsTree.setCellRenderer(null);
         groundsTree.setRootVisible(false);
-        groundsTree.setShowsRootHandles(true);
         groundsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 groundsTreeValueChanged(evt);
@@ -473,7 +472,6 @@ public class Planner extends javax.swing.JFrame {
         floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
         floorsTree.setRootVisible(false);
-        floorsTree.setShowsRootHandles(true);
         floorsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 floorsTreeValueChanged(evt);
@@ -528,7 +526,6 @@ public class Planner extends javax.swing.JFrame {
         wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
         wallsTree.setRootVisible(false);
-        wallsTree.setShowsRootHandles(true);
         wallsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 wallsTreeValueChanged(evt);
@@ -604,7 +601,6 @@ public class Planner extends javax.swing.JFrame {
         objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
         objectsTree.setRootVisible(false);
-        objectsTree.setShowsRootHandles(true);
         objectsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 objectsTreeValueChanged(evt);
@@ -652,7 +648,6 @@ public class Planner extends javax.swing.JFrame {
         cavesTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cavesTree.setModel(new DefaultTreeModel(Data.cavesTree));
         cavesTree.setRootVisible(false);
-        cavesTree.setShowsRootHandles(true);
         cavesTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 cavesTreeValueChanged(evt);
@@ -1014,6 +1009,9 @@ public class Planner extends javax.swing.JFrame {
         }
         else if (tab==symmetryPanel) {
             Globals.tab = Tab.symmetry;
+        }
+        else if (tab==bridgesPanel) {
+            Globals.tab = Tab.bridges;
         }
     }//GEN-LAST:event_tabbedPaneStateChanged
 

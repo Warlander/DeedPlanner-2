@@ -89,7 +89,7 @@ public class LogicLoop extends TimerTask {
                         case caves:
                             CaveUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
-                        case symmetry:
+                        case symmetry: case bridges:
                             TileSelection.update(mouse, keyboard, panel.getMap(), panel.getUpCamera(), SelectionType.SINGLE);
                             break;
                     }

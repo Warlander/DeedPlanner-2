@@ -529,7 +529,6 @@
                           <ComponentRef name="null"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
-                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="groundsTreeValueChanged"/>
@@ -888,7 +887,6 @@
                           <Connection code="new DefaultTreeModel(Data.floorsTree)" type="code"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
-                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="floorsTreeValueChanged"/>
@@ -993,7 +991,6 @@
                           <Connection code="new DefaultTreeModel(Data.wallsTree)" type="code"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
-                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="wallsTreeValueChanged"/>
@@ -1116,7 +1113,6 @@
                           <Connection code="new DefaultTreeModel(Data.objectsTree)" type="code"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
-                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="objectsTreeValueChanged"/>
@@ -1227,7 +1223,6 @@
                           <Connection code="new DefaultTreeModel(Data.cavesTree)" type="code"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
-                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="cavesTreeValueChanged"/>
@@ -1252,6 +1247,9 @@
               </Constraints>
             </Component>
             <Component class="pl.wurmonline.deedplanner.forms.BridgesEditor" name="bridgesPanel">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new BridgesEditor(this)"/>
+              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Bridges">
