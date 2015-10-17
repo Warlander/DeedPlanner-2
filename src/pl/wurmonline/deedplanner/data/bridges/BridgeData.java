@@ -90,8 +90,8 @@ public abstract class BridgeData {
         return bridgeTypes.get(str);
     }
     
-    public static BridgeType[] getAllBridgesData() {
-        return bridgeTypes.values().stream().toArray(BridgeType[]::new);
+    public static BridgeData[] getAllBridgesData() {
+        return bridgeTypes.values().stream().toArray(BridgeData[]::new);
     }
     
     private final HashMap<BridgePartType, Materials> materials;

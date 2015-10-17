@@ -3,6 +3,7 @@ package pl.wurmonline.deedplanner.forms;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.data.Tile;
+import pl.wurmonline.deedplanner.forms.bridges.BridgesConstructor;
 import pl.wurmonline.deedplanner.logic.TileSelection;
 
 public class BridgesEditor extends javax.swing.JPanel {
@@ -166,6 +167,13 @@ public class BridgesEditor extends javax.swing.JPanel {
         if (!createBridgeButton.isEnabled()) {
             return;
         }
+        
+        Map map = planner.getMapPanel().getMap();
+            
+        Tile startTile = map.getTile(map.getTile(0, 0), startX, startY);
+        Tile endTile = map.getTile(map.getTile(0, 0), endX, endY);
+        
+        new BridgesConstructor(map, startTile, endTile);
     }//GEN-LAST:event_createBridgeButtonActionPerformed
 
     private void updateState() {
@@ -195,7 +203,7 @@ public class BridgesEditor extends javax.swing.JPanel {
             warningsString.append("Start tile is not set<br>");
         }
         if (endFloor == -1) {
-            warningsString.append("end tile is not set<br>");
+            warningsString.append("End tile is not set<br>");
         }
         
         if (planner == null) {
@@ -213,6 +221,14 @@ public class BridgesEditor extends javax.swing.JPanel {
             if (endTile == null) {
                 warningsString.append("End tile out of map bounds<br>");
             }
+        }
+        
+        int distX = Math.abs(endX - startX);
+        int distY = Math.abs(endY - startY);
+        int distMin = Math.min(distX, distY);
+
+        if (distMin > 2) {
+            warningsString.append("Bridge cannot be more than 3 tiles wide.<br>");
         }
         
         
