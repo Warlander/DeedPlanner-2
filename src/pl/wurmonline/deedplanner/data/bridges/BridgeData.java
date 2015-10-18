@@ -74,16 +74,21 @@ public abstract class BridgeData {
         height46, height47, height48, height49, height50};
     
     private static final HashMap<String, BridgeData> bridgeTypes = new HashMap<>();
+    public static final BridgeData ROPE_BRIDGE;
+    public static final BridgeData WOODEN_BRIDGE;
+    public static final BridgeData MARBLE_BRIDGE;
+    public static final BridgeData STONE_BRIDGE;
     
     static {
-        addBridgeData(new RopeBridgeData());
-        addBridgeData(new WoodenBridgeData());
-        addBridgeData(new MarbleBridgeData());
-        addBridgeData(new StoneBridgeData());
+        ROPE_BRIDGE = addBridgeData(new RopeBridgeData());
+        WOODEN_BRIDGE = addBridgeData(new WoodenBridgeData());
+        MARBLE_BRIDGE = addBridgeData(new MarbleBridgeData());
+        STONE_BRIDGE = addBridgeData(new StoneBridgeData());
     }
     
-    private static void addBridgeData(BridgeData data) {
+    private static BridgeData addBridgeData(BridgeData data) {
         bridgeTypes.put(data.getName(), data);
+        return data;
     }
     
     public static BridgeData getData(String str) {

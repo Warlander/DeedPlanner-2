@@ -16,7 +16,7 @@ public class BridgesConstructor extends JFrame {
     private final Tile startTile;
     private final Tile endTile;
     
-    private final JPanel rootPanel;
+    private final JPanel subpanelPanel;
     private int currentPanelIndex;
     private final BridgesPanel[] panels;
     
@@ -37,7 +37,7 @@ public class BridgesConstructor extends JFrame {
         setTitle("Bridges Constructor");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setResizable(false);
-        rootPanel = new JPanel();
+        JPanel rootPanel = new JPanel();
         
         defaultFont = new Font("Arial", Font.PLAIN, 12);
         buttonsPanel = new JPanel();
@@ -50,12 +50,16 @@ public class BridgesConstructor extends JFrame {
         nextButton = addButton(new JButton("Next"), (evt) -> setNextPanel());
         nextButton.setEnabled(false);
         
+        subpanelPanel = new JPanel();
+        
         rootPanel.setLayout(new BorderLayout());
         rootPanel.add(buttonsPanel, BorderLayout.PAGE_END);
+        rootPanel.add(subpanelPanel, BorderLayout.CENTER);
         setContentPane(rootPanel);
         
         panels = new BridgesPanel[] {
-            new BridgesTypePanel(this)
+            new BridgesTypePanel(this),
+            new BridgesStructurePanel(this)
         };
         setPanel(panels[0]);
         
@@ -127,7 +131,8 @@ public class BridgesConstructor extends JFrame {
     }
     
     private void setPanel(BridgesPanel panel) {
-        rootPanel.add(panel, BorderLayout.CENTER);
+        subpanelPanel.removeAll();
+        subpanelPanel.add(panel, BorderLayout.CENTER);
         pack();
     }
     
