@@ -2,14 +2,22 @@ package pl.wurmonline.deedplanner.forms.bridges;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Arrays;
 import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
 
 public class BridgesStructurePanel extends BridgesPanel {
 
     private final MouseListener selectedSegmentListener;
+    private final ActionListener selectedValueListener;
+    
+    private final ButtonGroup buttonGroup;
+    private int selectedValue;
     
     private BridgeSegmentLabel[] validSegments;
     private BridgeSegmentLabel activatedSegment;
@@ -19,7 +27,6 @@ public class BridgesStructurePanel extends BridgesPanel {
         initComponents();
         
         selectedSegmentListener = new MouseListener() {
-
             public void mouseClicked(MouseEvent e) {
                 if (activatedSegment != null) {
                     activatedSegment.setBorder(null);
@@ -32,9 +39,11 @@ public class BridgesStructurePanel extends BridgesPanel {
             public void mouseReleased(MouseEvent e) {}
             public void mouseEntered(MouseEvent e) {}
             public void mouseExited(MouseEvent e) {}
-            
         };
         
+        selectedValueListener = e -> selectedValue = Integer.parseInt(((JRadioButton) e.getSource()).getText());
+        
+        buttonGroup = new ButtonGroup();
         bridgePartsPanel.setLayout(new FlowLayout(0, 0, 0));
     }
     
@@ -49,6 +58,14 @@ public class BridgesStructurePanel extends BridgesPanel {
                 .toArray(BridgeSegmentLabel[]::new);
         
         bridgePartsPanel.validate();
+        
+        
+    }
+    
+    private void addRadio(int value) {
+        JRadioButton radio = new JRadioButton();
+        buttonGroup.add(radio);
+        
     }
 
     @SuppressWarnings("unchecked")
