@@ -44,32 +44,54 @@ public class StoneBridgeData extends BridgeData {
         
         this.stoneTex = Tex.getTexture("Data/Bridges/Stone/bridgeTiling.png");
         
-        this.narrowFloating = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeFloating.dae", "floating", stoneTex, 1));
-        this.narrowAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeAbutment.dae", "abutment", stoneTex, 1));
-        this.narrowDoubleAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeEnd.dae", "end", stoneTex, 1));
-        this.narrowBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeBracing.dae", "bracing", stoneTex, 1));
-        this.narrowDoubleBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeDoubleBracing.dae", "bracing", stoneTex, 1));
-        this.narrowCrown = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeCrown.dae", "crown", stoneTex, 1));
-        this.narrowSupport = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeSupport.dae", "support", stoneTex, 1));
-        this.narrowExtension = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeExtension.dae", "extension", stoneTex, 1));
+        this.narrowFloating = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeFloating.dae", "BridgeFloatingWMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridgeFloating.dae", "BridgeFloatingMesh", stoneTex, 1));
+        this.narrowAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeAbutment.dae", "Abutment10_Support_sep36_BridgeMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridgeAbutment.dae", "Abutment10_Support_sep36_Bridge_TilingMesh", stoneTex, 1));
+        this.narrowDoubleAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeEnd.dae", "EndWMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridgeEnd.dae", "DoubleAbutmentMesh", stoneTex, 1));
+        this.narrowBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeBracing.dae", "Bracing10_Support_sep35_BridgeMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridgeBracing.dae", "Bracing10_Support_sep35_Bridge_TilingMesh", stoneTex, 1));
+        this.narrowDoubleBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeDoubleBracing.dae", "DoubleBracingWMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridgeDoubleBracing.dae", "DoubleBracingMesh", stoneTex, 1));
+        this.narrowCrown = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeCrown.dae", "Crown10_Support_sep23_BridgeMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridgeCrown.dae", "Crown10_Support_sep23_Bridge_TilingMesh", stoneTex, 1));
+        this.narrowSupport = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeSupport.dae", "Support10_Support_sep34_BridgeMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridgeSupport.dae", "Support10_Support_sep34_Bridge_TilingMesh", stoneTex, 1));
+        this.narrowExtension = new Model(new Mesh("Data/Bridges/Stone/StoneBridgeExtension.dae", "ExtensionMesh", stoneTex, 1));
+
+        this.centralFloating = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_FloatingCenter.dae", "FloatingDoubleCenter2Mesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_FloatingCenter.dae", "FloatingDoubleCenterMesh", stoneTex, 1));
+        this.centralAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_AbutmentCenter.dae", "AbutmentDoubleCenter2Mesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_AbutmentCenter.dae", "StoneBridgeAbutmentCenterMesh", stoneTex, 1));
+        this.centralDoubleAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_DoubleAbutmentCenter.dae", "DoubleAbutmentCenter2Mesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_DoubleAbutmentCenter.dae", "DoubleAbutmentCenterMesh", stoneTex, 1));
+        this.centralBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_BracingCenter.dae", "BracingDoubleCenter2Mesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_BracingCenter.dae", "BracingDoubleCenterMesh", stoneTex, 1));
+        this.centralDoubleBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_DoubleBracingCenter.dae", "DoubleBracingCenter2Mesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_DoubleBracingCenter.dae", "DoubleBracingCenterMesh", stoneTex, 1));
+        this.centralCrown = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_CrownCenter.dae", "StoneBridgeCrownCenter2Mesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_CrownCenter.dae", "StoneBridgeCrownCenterMesh", stoneTex, 1));
+        this.centralSupport = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_SupportCenter.dae", "SupportDoubleCenter2Mesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_SupportCenter.dae", "SupportDoubleCenterMesh", stoneTex, 1));
+        this.centralExtension = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_ExtensionCenter.dae", "ExtensionCenterMesh", stoneTex, 1));
+
+        this.sideFloating = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_FloatingSide.dae", "FloatingSideWMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_FloatingSide.dae", "BridgeFloatingSideMesh", stoneTex, 1));
+        this.sideAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_AbutmentSide.dae", "StoneBridgeAbutmentSideWMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_AbutmentSide.dae", "StoneBridgeAbutmentSideMesh", stoneTex, 1));
+        this.sideDoubleAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_AbutmentDoubleRight.dae", "AbutmentDoubleTMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_AbutmentDoubleRight.dae", "AbutmentDoubleMesh", stoneTex, 1));
+        this.sideBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_BracingDoubleSide.dae", "DoubleBracingSideWMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_BracingDoubleSide.dae", "DoubleBracingSideMesh", stoneTex, 1));
+        this.sideDoubleBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_BracingDoubleRight.dae", "BracingDoubleRightWMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_BracingDoubleRight.dae", "BracingDoubleRightTMesh", stoneTex, 1));
+        this.sideCrown = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_CrownDouble.dae", "CrownDoubleWMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_CrownDouble.dae", "CrownDoubleTMesh", stoneTex, 1));
+        this.sideSupport = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_SupportDoubleSide.dae", "SupportDoubleRightWMesh", stoneTex, 1),
+            new Mesh("Data/Bridges/Stone/StoneBridge_SupportDoubleSide.dae", "SupportDoubleRightTMesh", stoneTex, 1));
         
-        this.centralFloating = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_FloatingCenter.dae", "floating", stoneTex, 1));
-        this.centralAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_AbutmentCenter.dae", "abutment", stoneTex, 1));
-        this.centralDoubleAbutment = new Model(new Mesh("Data/Stone/Marble/StoneBridge_DoubleAbutmentCenter.dae", "abutment", stoneTex, 1));
-        this.centralBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_BracingCenter.dae", "bracing", stoneTex, 1));
-        this.centralDoubleBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_DoubleBracingCenter.dae", "bracing", stoneTex, 1));
-        this.centralCrown = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_CrownCenter.dae", "crown", stoneTex, 1));
-        this.centralSupport = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_SupportCenter.dae", "support", stoneTex, 1));
-        this.centralExtension = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_ExtensionCenter.dae", "extension", stoneTex, 1));
-        
-        this.sideFloating = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_FloatingSide.dae", "floating", stoneTex, 1));
-        this.sideAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_AbutmentSide.dae", "abutment", stoneTex, 1));
-        this.sideDoubleAbutment = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_AbutmentDoubleRight.dae", "abutment", stoneTex, 1));
-        this.sideBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_BracingDoubleSide.dae", "bracing", stoneTex, 1));
-        this.sideDoubleBracing = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_BracingDoubleRight.dae", "bracing", stoneTex, 1));
-        this.sideCrown = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_CrownDouble.dae", "crown", stoneTex, 1));
-        this.sideSupport = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_SupportDoubleSide.dae", "support", stoneTex, 1));
-        this.sideExtension = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_ExtensionSide.dae", "extension", stoneTex, 1));
+        this.sideExtension = new Model(new Mesh("Data/Bridges/Stone/StoneBridge_ExtensionSide.dae", "ExtensionDoubleTMesh", stoneTex, 1));
     }
     
     protected void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials) {
