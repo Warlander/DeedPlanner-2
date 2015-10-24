@@ -57,7 +57,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="warningsLabel" pref="54" max="32767" attributes="0"/>
+              <Component id="warningsLabel" pref="67" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -73,7 +73,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="10" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;Bridges creation instruction:&lt;br&gt;&#xa;1. Select starting tile of bridge.&lt;br&gt;&#xa;(not the one you are standing on,&lt;br&gt;&#xa;but first tile of planned bridge,&lt;br&gt;&#xa;current floor is important)&lt;br&gt;&lt;br&gt;&#xa;&#xa;2. Click &quot;Select start tile&quot; button.&lt;br&gt;&lt;br&gt;&#xa;&#xa;3. Repeat for end tile.&lt;br&gt;&lt;br&gt;&#xa;&#xa;4. If everything is correct,&lt;br&gt;&#xa;click &quot;Create new bridge!&quot; button.&lt;br&gt;&lt;br&gt;&#xa;&#xa;5. Follow instructions in new&lt;br&gt;&#xa;window.&lt;br&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;Bridges creation instruction:&lt;br&gt;&#xa;1. Select starting tile of bridge.&lt;br&gt;&#xa;(the one you are standing on,&lt;br&gt;&#xa;current floor is important)&lt;br&gt;&lt;br&gt;&#xa;&#xa;2. Click &quot;Select start tile&quot; button.&lt;br&gt;&lt;br&gt;&#xa;&#xa;3. Repeat for end tile.&lt;br&gt;&lt;br&gt;&#xa;&#xa;4. If everything is correct,&lt;br&gt;&#xa;click &quot;Create new bridge!&quot; button.&lt;br&gt;&lt;br&gt;&#xa;&#xa;5. Follow instructions in new&lt;br&gt;&#xa;window.&lt;br&gt;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="startTileLabel">

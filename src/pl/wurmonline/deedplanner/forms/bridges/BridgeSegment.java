@@ -10,7 +10,7 @@ import pl.wurmonline.deedplanner.data.bridges.BridgeData;
 import pl.wurmonline.deedplanner.data.bridges.BridgePartType;
 
 enum BridgeSegment {
-    ROPE_BRIDGE_CROWN(BridgeData.ROPE_BRIDGE, BridgePartType.CROWN, 1, Integer.MAX_VALUE, "RopeCrown.png"),
+    ROPE_BRIDGE_CROWN(BridgeData.ROPE_BRIDGE, BridgePartType.CROWN, 1, 999, "RopeCrown.png"),
     ROPE_BRIDGE_DOUBLE_ABUTMENT(BridgeData.ROPE_BRIDGE, BridgePartType.DOUBLE_ABUTMENT, 0, 0, "RopeDA.png"),
     ROPE_BRIDGE_ABUTMENT(BridgeData.ROPE_BRIDGE, BridgePartType.ABUTMENT, 0, 0, "RopeEndL.png", "RopeEndR.png");
 
@@ -53,6 +53,10 @@ enum BridgeSegment {
             Logger.getLogger(BridgeSegment.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
+    }
+    
+    boolean isAcceptableRange(int range) {
+        return range >= minRange && range <= maxRange;
     }
     
     ImageIcon getIconFor(int distToPrevious, int distToNext) {

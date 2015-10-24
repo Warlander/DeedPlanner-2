@@ -46,7 +46,7 @@ public class BridgesEditor extends javax.swing.JPanel {
         endTileButton = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel1.setText("<html>Bridges creation instruction:<br>\n1. Select starting tile of bridge.<br>\n(not the one you are standing on,<br>\nbut first tile of planned bridge,<br>\ncurrent floor is important)<br><br>\n\n2. Click \"Select start tile\" button.<br><br>\n\n3. Repeat for end tile.<br><br>\n\n4. If everything is correct,<br>\nclick \"Create new bridge!\" button.<br><br>\n\n5. Follow instructions in new<br>\nwindow.<br>");
+        jLabel1.setText("<html>Bridges creation instruction:<br>\n1. Select starting tile of bridge.<br>\n(the one you are standing on,<br>\ncurrent floor is important)<br><br>\n\n2. Click \"Select start tile\" button.<br><br>\n\n3. Repeat for end tile.<br><br>\n\n4. If everything is correct,<br>\nclick \"Create new bridge!\" button.<br><br>\n\n5. Follow instructions in new<br>\nwindow.<br>");
 
         startTileLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         startTileLabel.setText("Start tile: none");
@@ -127,7 +127,7 @@ public class BridgesEditor extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(warningsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addComponent(warningsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
                 .addGap(46, 46, 46)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -226,11 +226,17 @@ public class BridgesEditor extends javax.swing.JPanel {
         int distX = Math.abs(endX - startX);
         int distY = Math.abs(endY - startY);
         int distMin = Math.min(distX, distY);
+        int distMax = Math.max(distX, distY);
 
         if (distMin > 2) {
             warningsString.append("Bridge cannot be more than 3 tiles wide.<br>");
         }
-        
+        if (distMax < 3) {
+            warningsString.append("Bridge cannot be 0 tiles long.<br>");
+        }
+        if (distMax > 40) {
+            warningsString.append("Bridge cannot be longer than 38 tiles.<br>");
+        }
         
         if (warningsString.length() == 0) {
             warningsString.append("No warnings");

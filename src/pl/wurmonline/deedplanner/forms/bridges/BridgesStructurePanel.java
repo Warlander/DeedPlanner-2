@@ -4,19 +4,23 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Arrays;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
+import pl.wurmonline.deedplanner.data.Tile;
 
 public class BridgesStructurePanel extends BridgesPanel {
 
     private final MouseListener selectedSegmentListener;
-    private final ActionListener selectedValueListener;
+    private final ItemListener selectedValueListener;
     
-    private final ButtonGroup buttonGroup;
+    private ButtonGroup buttonGroup;
     private int selectedValue;
     
     private BridgeSegmentLabel[] validSegments;
@@ -26,7 +30,7 @@ public class BridgesStructurePanel extends BridgesPanel {
         super(constructor);
         initComponents();
         
-        selectedSegmentListener = new MouseListener() {
+        selectedSegmentListener = new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 if (activatedSegment != null) {
                     activatedSegment.setBorder(null);
@@ -34,21 +38,35 @@ public class BridgesStructurePanel extends BridgesPanel {
                 activatedSegment = (BridgeSegmentLabel) e.getSource();
                 activatedSegment.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
             }
-
-            public void mousePressed(MouseEvent e) {}
-            public void mouseReleased(MouseEvent e) {}
-            public void mouseEntered(MouseEvent e) {}
-            public void mouseExited(MouseEvent e) {}
         };
         
-        selectedValueListener = e -> selectedValue = Integer.parseInt(((JRadioButton) e.getSource()).getText());
+        selectedValueListener = (ItemEvent e) -> {
+            if (e.getStateChange() == ItemEvent.DESELECTED) {
+                return;
+            }
+            selectedValue = Integer.parseInt(((JRadioButton) e.getSource()).getText());
+        };
         
-        buttonGroup = new ButtonGroup();
         bridgePartsPanel.setLayout(new FlowLayout(0, 0, 0));
+        additionalDataPanel.setLayout(new FlowLayout());
     }
     
     protected void awake() {
+        Tile startTile = getConstructor().getStartTile();
+        Tile endTile = getConstructor().getEndTile();
+        int startX = startTile.getX();
+        int startY = startTile.getY();
+        int endX = endTile.getX();
+        int endY = endTile.getY();
+        
+        int bridgeWidth = Math.min(Math.abs(endX - startX), Math.abs(endY - startY)) + 1;
+        int bridgeLength = Math.max(Math.abs(endX - startX), Math.abs(endY - startY)) - 2;
+        
+        bridgeInfoLabel.setText("Planned bridge length: "+bridgeLength+", width: "+bridgeWidth);
+        
         activatedSegment = null;
+        buttonGroup = new ButtonGroup();
+        
         bridgePartsPanel.removeAll();
         
         validSegments = Arrays.stream(BridgeSegment.getValidSegmentsFor(getConstructor().getBridgeSpecs().data))
@@ -59,13 +77,22 @@ public class BridgesStructurePanel extends BridgesPanel {
         
         bridgePartsPanel.validate();
         
+        additionalDataPanel.removeAll();
         
+        Arrays.stream(getConstructor().getBridgeSpecs().type.getAdditionalParameters())
+                .forEach(i -> addRadio(i));
+        
+        additionalDataPanel.validate();
+        JRadioButton firstRadio = (JRadioButton) additionalDataPanel.getComponent(0);
+        firstRadio.setSelected(true);
     }
     
     private void addRadio(int value) {
         JRadioButton radio = new JRadioButton();
+        radio.setText(Integer.toString(value));
+        radio.addItemListener(selectedValueListener);
         buttonGroup.add(radio);
-        
+        additionalDataPanel.add(radio);
     }
 
     @SuppressWarnings("unchecked")

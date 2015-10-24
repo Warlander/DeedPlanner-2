@@ -17,7 +17,7 @@ public class BridgesConstructor extends JFrame {
     private final Tile endTile;
     
     private final JPanel subpanelPanel;
-    private int currentPanelIndex;
+    private int currentPanelIndex = -1;
     private final BridgesPanel[] panels;
     
     private final Font defaultFont;
@@ -61,7 +61,7 @@ public class BridgesConstructor extends JFrame {
             new BridgesTypePanel(this),
             new BridgesStructurePanel(this)
         };
-        setPanel(panels[0]);
+        setNextPanel();
         
         SwingUtils.centerFrame(this);
         setVisible(true);

@@ -1,6 +1,7 @@
 package pl.wurmonline.deedplanner.forms.bridges;
 
 import javax.swing.DefaultListModel;
+import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.data.bridges.BridgeData;
 import pl.wurmonline.deedplanner.data.bridges.BridgeType;
 
@@ -10,15 +11,6 @@ public class BridgesTypePanel extends BridgesPanel {
         super(constructor);
         initComponents();
         
-        DefaultListModel<BridgeListItem> model = new DefaultListModel<>();
-        for (BridgeType type : BridgeType.values()) {
-            for (BridgeData data : BridgeData.getAllBridgesData()) {
-                if (data.isCompatibleType(type)) {
-                    model.addElement(new BridgeListItem(type, data));
-                }
-            }
-        }
-        typesList.setModel(model);
         typesList.addListSelectionListener((evt) -> {
             getConstructor().setBridgeSpecs(typesList.getSelectedValue());
             getConstructor().setCanAdvance(true);
@@ -26,6 +18,29 @@ public class BridgesTypePanel extends BridgesPanel {
     }
     
     protected void awake() {
+        Tile startTile = getConstructor().getStartTile();
+        Tile endTile = getConstructor().getEndTile();
+        int startX = startTile.getX();
+        int startY = startTile.getY();
+        int endX = endTile.getX();
+        int endY = endTile.getY();
+        int bridgeWidth = Math.min(Math.abs(endX - startX), Math.abs(endY - startY)) + 1;
+        int bridgeLength = Math.max(Math.abs(endX - startX), Math.abs(endY - startY)) - 2;
+        
+        DefaultListModel<BridgeListItem> model = new DefaultListModel<>();
+        for (BridgeType type : BridgeType.values()) {
+            if (bridgeLength == 1 && type == BridgeType.ARCHED) {
+                break;
+            }
+            
+            for (BridgeData data : BridgeData.getAllBridgesData()) {
+                if (data.isCompatibleType(type) && data.getMaxWidth() >= bridgeWidth) {
+                    model.addElement(new BridgeListItem(type, data));
+                }
+            }
+        }
+        typesList.setModel(model);
+        
         if (getConstructor().getBridgeSpecs() != null) {
             getConstructor().setCanAdvance(true);
         }
