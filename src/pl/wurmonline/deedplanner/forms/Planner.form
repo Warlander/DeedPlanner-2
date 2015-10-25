@@ -529,6 +529,7 @@
                           <ComponentRef name="null"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
+                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="groundsTreeValueChanged"/>
@@ -887,6 +888,7 @@
                           <Connection code="new DefaultTreeModel(Data.floorsTree)" type="code"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
+                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="floorsTreeValueChanged"/>
@@ -991,6 +993,7 @@
                           <Connection code="new DefaultTreeModel(Data.wallsTree)" type="code"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
+                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="wallsTreeValueChanged"/>
@@ -1113,6 +1116,7 @@
                           <Connection code="new DefaultTreeModel(Data.objectsTree)" type="code"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
+                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="objectsTreeValueChanged"/>
@@ -1223,6 +1227,7 @@
                           <Connection code="new DefaultTreeModel(Data.cavesTree)" type="code"/>
                         </Property>
                         <Property name="rootVisible" type="boolean" value="false"/>
+                        <Property name="showsRootHandles" type="boolean" value="true"/>
                       </Properties>
                       <Events>
                         <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="cavesTreeValueChanged"/>

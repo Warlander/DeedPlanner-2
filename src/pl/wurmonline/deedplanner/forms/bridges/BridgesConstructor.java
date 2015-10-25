@@ -8,6 +8,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.data.Tile;
+import pl.wurmonline.deedplanner.data.bridges.Bridge;
+import pl.wurmonline.deedplanner.data.bridges.BridgeData;
+import pl.wurmonline.deedplanner.data.bridges.BridgePartType;
+import pl.wurmonline.deedplanner.data.bridges.BridgeType;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class BridgesConstructor extends JFrame {
@@ -15,6 +19,8 @@ public class BridgesConstructor extends JFrame {
     private final Map map;
     private final Tile startTile;
     private final Tile endTile;
+    private final int startFloor;
+    private final int endFloor;
     
     private final JPanel subpanelPanel;
     private int currentPanelIndex = -1;
@@ -28,11 +34,15 @@ public class BridgesConstructor extends JFrame {
     private final JButton cancelButton;
     
     private BridgeListItem bridgeSpecs;
+    private BridgePartType[] segments;
+    private int additionalData;
     
-    public BridgesConstructor(Map map, Tile startTile, Tile endTile) {
+    public BridgesConstructor(Map map, Tile startTile, Tile endTile, int startFloor, int endFloor) {
         this.map = map;
         this.startTile = startTile;
         this.endTile = endTile;
+        this.startFloor = startFloor;
+        this.endFloor = endFloor;
         
         setTitle("Bridges Constructor");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -44,10 +54,10 @@ public class BridgesConstructor extends JFrame {
         
         cancelButton = addButton(new JButton("Cancel"), (evt) -> dispose());
         
-        previousButton = addButton(new JButton("Back"), (evt) -> setPreviousPanel());
+        previousButton = addButton(new JButton("Back"), (evt) -> setPanel(-1));
         previousButton.setEnabled(false);
         
-        nextButton = addButton(new JButton("Next"), (evt) -> setNextPanel());
+        nextButton = addButton(new JButton("Next"), (evt) -> setPanel(1));
         nextButton.setEnabled(false);
         
         subpanelPanel = new JPanel();
@@ -61,7 +71,7 @@ public class BridgesConstructor extends JFrame {
             new BridgesTypePanel(this),
             new BridgesStructurePanel(this)
         };
-        setNextPanel();
+        setPanel(1);
         
         SwingUtils.centerFrame(this);
         setVisible(true);
@@ -98,15 +108,30 @@ public class BridgesConstructor extends JFrame {
         return bridgeSpecs;
     }
     
-    private void setNextPanel() {
-        currentPanelIndex++;
-        if (currentPanelIndex != panels.length) {
+    void setSegments(BridgePartType[] segments) {
+        this.segments = segments;
+    }
+    
+    void setAdditionalData(int additionalData) {
+        this.additionalData = additionalData;
+    }
+    
+    private void setPanel(int direction) {
+        currentPanelIndex += direction;
+        
+        if (currentPanelIndex >= 0 && currentPanelIndex < panels.length) {
+            nextButton.setEnabled(false);
             panels[currentPanelIndex].awake();
             setPanel(panels[currentPanelIndex]);
-            nextButton.setEnabled(false);
+        }
+        else if (currentPanelIndex == panels.length) {
+            Bridge.createBridge(map, startTile, endTile, startFloor, endFloor, bridgeSpecs.data, bridgeSpecs.type, segments, additionalData);
+            dispose();
+            return;
         }
         else {
-            //finalize bridge
+            currentPanelIndex -= direction;
+            return;
         }
         
         if (currentPanelIndex == panels.length - 1) {
@@ -115,21 +140,10 @@ public class BridgesConstructor extends JFrame {
         else {
             nextButton.setText("Next");
         }
-    }
-    
-    private void setPreviousPanel() {
-        currentPanelIndex--;
-        if (currentPanelIndex != -1) {
-            panels[currentPanelIndex].awake();
-            setPanel(panels[currentPanelIndex]);
-        }
-        else {
-            currentPanelIndex++;
-        }
         
         previousButton.setEnabled(currentPanelIndex != 0);
     }
-    
+
     private void setPanel(BridgesPanel panel) {
         subpanelPanel.removeAll();
         subpanelPanel.add(panel, BorderLayout.CENTER);

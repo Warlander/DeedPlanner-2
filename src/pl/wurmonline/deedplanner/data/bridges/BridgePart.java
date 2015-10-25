@@ -8,7 +8,6 @@ import pl.wurmonline.deedplanner.data.EntityOrientation;
 import pl.wurmonline.deedplanner.data.Materials;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.data.TileEntity;
-import pl.wurmonline.deedplanner.util.jogl.Mesh;
 import pl.wurmonline.deedplanner.util.jogl.Renderable;
 
 public class BridgePart implements TileEntity {

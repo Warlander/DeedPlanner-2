@@ -3,13 +3,20 @@ package pl.wurmonline.deedplanner.forms.bridges;
 import java.awt.Dimension;
 import javax.swing.JLabel;
 
-class BridgeSegmentLabel extends JLabel {
+final class BridgeSegmentLabel extends JLabel {
     
     private BridgeSegment segment;
     
     public BridgeSegmentLabel(BridgeSegment segment) {
-        super(segment.getDefaultIcon());
         setSize(new Dimension(32, 32));
+        
+        setSegment(segment);
+    }
+    
+    public BridgeSegmentLabel(BridgeSegment segment, int distToPrevious, int distToNext) {
+        setSize(new Dimension(32, 32));
+        
+        setSegment(segment, distToPrevious, distToNext);
     }
     
     BridgeSegment getSegment() {

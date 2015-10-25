@@ -102,7 +102,7 @@ public class WoodenBridgeData extends BridgeData {
             return extension;
         }
         
-        throw new DeedPlannerRuntimeException("Invalid bridge part");
+        throw new DeedPlannerRuntimeException("Invalid bridge part: side "+side+", type: "+type);
     }
 
     public int getSupportHeight() {

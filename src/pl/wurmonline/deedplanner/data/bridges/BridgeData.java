@@ -109,24 +109,23 @@ public abstract class BridgeData {
         prepareMaterialsMap(materials);
     }
     
-    public final void constructBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgeType type, BridgePartType[] segments, int additionalData) {
+    public final void constructBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgeType type, BridgePartType[] segments, int additionalData, boolean verticalOrientation) {
         if (type == BridgeType.FLAT) {
-            constructFlatBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, segments);
+            constructFlatBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, segments, verticalOrientation);
         }
         else if (type == BridgeType.ARCHED) {
-            constructArchedBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, segments, additionalData);
+            constructArchedBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, segments, additionalData, verticalOrientation);
         }
         else if (type == BridgeType.ROPE) {
-            constructRopeBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, segments, additionalData);
+            constructRopeBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, segments, additionalData, verticalOrientation);
         }
     }
     
-    private void constructFlatBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments) {
+    private void constructFlatBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, boolean verticalOrientation) {
         int bridgeWidth = Math.max(endX - startX, endY - startY) + 1;
         float startHeight = getAbsoluteHeight(map.getTile(startX, startY), firstFloor);
         float endHeight = getAbsoluteHeight(map.getTile(endX + 1, endY + 1), secondFloor);
         float heightStep = (endHeight - startHeight) / bridgeWidth;
-        boolean verticalOrientation = (endY - startY) > (endX - startX);
         
         for (int x = startX; x <= endX; x++) {
             for (int y = startY; y <= endY; y++) {
@@ -141,12 +140,11 @@ public abstract class BridgeData {
         }
     }
     
-    private void constructArchedBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData) {
+    private void constructArchedBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData, boolean verticalOrientation) {
         int bridgeWidth = Math.max(endX - startX, endY - startY) + 1;
         float startHeight = getAbsoluteHeight(map.getTile(startX, startY), firstFloor);
         float endHeight = getAbsoluteHeight(map.getTile(endX + 1, endY + 1), secondFloor);
         float heightStep = (endHeight - startHeight) / bridgeWidth;
-        boolean verticalOrientation = (endY - startY) > (endX - startX);
         
         int[] archHeights = heights[bridgeWidth / 2];
         
@@ -183,12 +181,11 @@ public abstract class BridgeData {
         }
     }
     
-    private void constructRopeBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData) {
+    private void constructRopeBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData, boolean verticalOrientation) {
         int bridgeWidth = Math.max(endX - startX, endY - startY) + 1;
         float startHeight = getAbsoluteHeight(map.getTile(startX, startY), firstFloor);
         float endHeight = getAbsoluteHeight(map.getTile(endX + 1, endY + 1), secondFloor);
         float heightStep = (endHeight - startHeight) / bridgeWidth;
-        boolean verticalOrientation = (endY - startY) > (endX - startX);
         
         int[] sags = getSags(bridgeWidth, additionalData, (int) startHeight, (int) endHeight);
         

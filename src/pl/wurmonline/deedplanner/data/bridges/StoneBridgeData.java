@@ -96,44 +96,44 @@ public class StoneBridgeData extends BridgeData {
     
     protected void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials) {
         Materials crownMaterials = new Materials();
-        crownMaterials.put("Marble bricks", 22);
+        crownMaterials.put("Stone bricks", 22);
         crownMaterials.put("Mortar", 10);
         crownMaterials.put("Rock shards", 4);
-        crownMaterials.put("Marble keystones", 1);
+        crownMaterials.put("Stone keystones", 1);
         materials.put(BridgePartType.CROWN, crownMaterials);
         
         Materials abutmentMaterials = new Materials();
-        abutmentMaterials.put("Marble bricks", 52);
+        abutmentMaterials.put("Stone bricks", 52);
         abutmentMaterials.put("Mortar", 40);
         abutmentMaterials.put("Rock shards", 16);
         materials.put(BridgePartType.ABUTMENT, abutmentMaterials);
         
         Materials doubleAbutmentMaterials = new Materials();
-        doubleAbutmentMaterials.put("Marble bricks", 72);
+        doubleAbutmentMaterials.put("Stone bricks", 72);
         doubleAbutmentMaterials.put("Mortar", 60);
         doubleAbutmentMaterials.put("Rock shards", 24);
         materials.put(BridgePartType.DOUBLE_ABUTMENT, doubleAbutmentMaterials);
         
         Materials bracingMaterials = new Materials();
-        bracingMaterials.put("Marble bricks", 37);
+        bracingMaterials.put("Stone bricks", 37);
         bracingMaterials.put("Mortar", 25);
         bracingMaterials.put("Rock shards", 8);
         materials.put(BridgePartType.BRACING, bracingMaterials);
         
         Materials doubleBracingMaterials = new Materials();
-        doubleBracingMaterials.put("Marble bricks", 42);
+        doubleBracingMaterials.put("Stone bricks", 42);
         doubleBracingMaterials.put("Mortar", 30);
         doubleBracingMaterials.put("Rock shards", 12);
         materials.put(BridgePartType.DOUBLE_BRACING, doubleBracingMaterials);
         
         Materials supportMaterials = new Materials();
-        supportMaterials.put("Marble bricks", 102);
+        supportMaterials.put("Stone bricks", 102);
         supportMaterials.put("Mortar", 90);
         supportMaterials.put("Rock shards", 36);
         materials.put(BridgePartType.SUPPORT, supportMaterials);
         
         Materials extensionMaterials = new Materials();
-        extensionMaterials.put("Marble bricks", 30);
+        extensionMaterials.put("Stone bricks", 30);
         extensionMaterials.put("Mortar", 30);
         extensionMaterials.put("Rock shards", 12);
         materials.put(BridgePartType.EXTENSION, extensionMaterials);

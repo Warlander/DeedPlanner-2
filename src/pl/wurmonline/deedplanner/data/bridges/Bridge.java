@@ -8,6 +8,24 @@ import pl.wurmonline.deedplanner.util.XMLSerializable;
 
 public class Bridge implements XMLSerializable {
     
+    public static Bridge createBridge(Map map, Element element) {
+        BridgeData data = BridgeData.getData(element.getAttribute("data"));
+        BridgeType type = BridgeType.getType(element.getAttribute("type"));
+        int firstX = Integer.parseInt(element.getAttribute("firstX"));
+        int firstY = Integer.parseInt(element.getAttribute("firstY"));
+        Tile firstTile = map.getTile(firstX, firstY);
+        int firstFloor = Integer.parseInt(element.getAttribute("firstFloor"));
+        int secondX = Integer.parseInt(element.getAttribute("secondX"));
+        int secondY = Integer.parseInt(element.getAttribute("secondY"));
+        Tile secondTile = map.getTile(secondX, secondY);
+        int secondFloor = Integer.parseInt(element.getAttribute("secondFloor"));
+        int additionalData = Integer.parseInt(element.getAttribute("sag"));
+        
+        BridgePartType[] segments = BridgePartType.decodeSegments(element.getTextContent());
+        
+        return createBridge(map, firstTile, secondTile, firstFloor, secondFloor, data, type, segments, additionalData);
+    }
+    
     public static Bridge createBridge(Map map, Tile firstTile, Tile secondTile, int firstFloor, int secondFloor, BridgeData data, BridgeType type, BridgePartType[] segments, int additionalData) {
         if (!data.isCompatibleType(type)) {
             return null;
@@ -18,13 +36,27 @@ public class Bridge implements XMLSerializable {
         int startY = Math.min(firstTile.getY(), secondTile.getY());
         int endY = Math.max(firstTile.getY(), secondTile.getY());
         
+        boolean verticalOrientation = (endY - startY) > (endX - startX);
+        
+        if (verticalOrientation) {
+            startY += 1;
+            endY -= 1;
+        }
+        else {
+            startX += 1;
+            endX -= 1;
+        }
+        
+        firstTile = map.getTile(startX, startY);
+        secondTile = map.getTile(endX, endY);
+        
         int maxWidth = data.getMaxWidth() - 1;
         if (maxWidth < endX - startX && maxWidth < endY - startY) {
             return null;
         }
         
         Bridge bridge = new Bridge(map, data, type, firstTile, secondTile, firstFloor, secondFloor, segments, additionalData);
-        data.constructBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, type, segments, additionalData);
+        data.constructBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, type, segments, additionalData, verticalOrientation);
         map.addBridge(bridge);
         
         return bridge;
@@ -40,7 +72,7 @@ public class Bridge implements XMLSerializable {
     private final BridgePartType[] segments;
     private final int additionalData;
     
-    public Bridge(Map map, BridgeData data, BridgeType type, Tile firstTile, Tile secondTile, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData) {
+    private Bridge(Map map, BridgeData data, BridgeType type, Tile firstTile, Tile secondTile, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData) {
         this.map = map;
         this.data = data;
         this.type = type;
@@ -50,23 +82,6 @@ public class Bridge implements XMLSerializable {
         this.secondFloor = secondFloor;
         this.segments = segments;
         this.additionalData = additionalData;
-    }
-    
-    public Bridge(Map map, Element element) {
-        this.map = map;
-        this.data = BridgeData.getData(element.getAttribute("data"));
-        this.type = BridgeType.getType(element.getAttribute("type"));
-        int firstX = Integer.parseInt(element.getAttribute("firstX"));
-        int firstY = Integer.parseInt(element.getAttribute("firstY"));
-        this.firstTile = map.getTile(firstX, firstY);
-        this.firstFloor = Integer.parseInt(element.getAttribute("firstFloor"));
-        int secondX = Integer.parseInt(element.getAttribute("secondX"));
-        int secondY = Integer.parseInt(element.getAttribute("secondY"));
-        this.secondTile = map.getTile(secondX, secondY);
-        this.secondFloor = Integer.parseInt(element.getAttribute("secondFloor"));
-        this.additionalData = Integer.parseInt(element.getAttribute("sag"));
-        
-        this.segments = BridgePartType.decodeSegments(element.getTextContent());
     }
     
     public void destroy() {

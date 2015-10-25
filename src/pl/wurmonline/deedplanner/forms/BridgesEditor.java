@@ -173,7 +173,7 @@ public class BridgesEditor extends javax.swing.JPanel {
         Tile startTile = map.getTile(map.getTile(0, 0), startX, startY);
         Tile endTile = map.getTile(map.getTile(0, 0), endX, endY);
         
-        new BridgesConstructor(map, startTile, endTile);
+        new BridgesConstructor(map, startTile, endTile, startFloor, endFloor);
     }//GEN-LAST:event_createBridgeButtonActionPerformed
 
     private void updateState() {
@@ -231,7 +231,7 @@ public class BridgesEditor extends javax.swing.JPanel {
         if (distMin > 2) {
             warningsString.append("Bridge cannot be more than 3 tiles wide.<br>");
         }
-        if (distMax < 3) {
+        if (distMax < 2) {
             warningsString.append("Bridge cannot be 0 tiles long.<br>");
         }
         if (distMax > 40) {

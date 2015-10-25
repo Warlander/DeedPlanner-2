@@ -25,7 +25,7 @@ public class BridgesTypePanel extends BridgesPanel {
         int endX = endTile.getX();
         int endY = endTile.getY();
         int bridgeWidth = Math.min(Math.abs(endX - startX), Math.abs(endY - startY)) + 1;
-        int bridgeLength = Math.max(Math.abs(endX - startX), Math.abs(endY - startY)) - 2;
+        int bridgeLength = Math.max(Math.abs(endX - startX), Math.abs(endY - startY)) - 1;
         
         DefaultListModel<BridgeListItem> model = new DefaultListModel<>();
         for (BridgeType type : BridgeType.values()) {
