@@ -168,8 +168,8 @@ public abstract class BridgeData {
                     archHeight = index == 0 ? 0 : archHeights[previousIndex];
                 }
                 
-                previousArch *= (additionalData / 20);
-                archHeight *= (additionalData / 20);
+                previousArch *= (additionalData / 20f);
+                archHeight *= (additionalData / 20f);
                 
                 float currentHeight = startHeight + heightStep * currentSegment;
                 BridgePartType segment = segments[currentSegment];

@@ -20,10 +20,14 @@ public class Bridge implements XMLSerializable {
         Tile secondTile = map.getTile(secondX, secondY);
         int secondFloor = Integer.parseInt(element.getAttribute("secondFloor"));
         int additionalData = Integer.parseInt(element.getAttribute("sag"));
+        boolean verticalOrientation = Boolean.parseBoolean(element.getAttribute("orientation"));
         
         BridgePartType[] segments = BridgePartType.decodeSegments(element.getTextContent());
         
-        return createBridge(map, firstTile, secondTile, firstFloor, secondFloor, data, type, segments, additionalData);
+        Bridge bridge = new Bridge(map, data, type, firstTile, secondTile, firstFloor, secondFloor, segments, additionalData, verticalOrientation);
+        data.constructBridge(map, bridge, firstX, firstY, secondX, secondY, firstFloor, secondFloor, type, segments, additionalData, verticalOrientation);
+        map.addBridge(bridge);
+        return bridge;
     }
     
     public static Bridge createBridge(Map map, Tile firstTile, Tile secondTile, int firstFloor, int secondFloor, BridgeData data, BridgeType type, BridgePartType[] segments, int additionalData) {
@@ -55,7 +59,7 @@ public class Bridge implements XMLSerializable {
             return null;
         }
         
-        Bridge bridge = new Bridge(map, data, type, firstTile, secondTile, firstFloor, secondFloor, segments, additionalData);
+        Bridge bridge = new Bridge(map, data, type, firstTile, secondTile, firstFloor, secondFloor, segments, additionalData, verticalOrientation);
         data.constructBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, type, segments, additionalData, verticalOrientation);
         map.addBridge(bridge);
         
@@ -71,8 +75,9 @@ public class Bridge implements XMLSerializable {
     private final int secondFloor;
     private final BridgePartType[] segments;
     private final int additionalData;
+    private final boolean verticalOrientation;
     
-    private Bridge(Map map, BridgeData data, BridgeType type, Tile firstTile, Tile secondTile, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData) {
+    private Bridge(Map map, BridgeData data, BridgeType type, Tile firstTile, Tile secondTile, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData, boolean verticalOrientation) {
         this.map = map;
         this.data = data;
         this.type = type;
@@ -82,6 +87,7 @@ public class Bridge implements XMLSerializable {
         this.secondFloor = secondFloor;
         this.segments = segments;
         this.additionalData = additionalData;
+        this.verticalOrientation = verticalOrientation;
     }
     
     public void destroy() {
@@ -113,9 +119,10 @@ public class Bridge implements XMLSerializable {
         bridgeElement.setAttribute("secondX", Integer.toString(secondTile.getX()));
         bridgeElement.setAttribute("secondY", Integer.toString(secondTile.getY()));
         bridgeElement.setAttribute("secondFloor", Integer.toString(secondFloor));
-        bridgeElement.setAttribute("data", data.toString());
+        bridgeElement.setAttribute("data", data.getName());
         bridgeElement.setAttribute("type", type.toString());
         bridgeElement.setAttribute("sag", Integer.toString(additionalData));
+        bridgeElement.setAttribute("orientation", Boolean.toString(verticalOrientation));
         
         bridgeElement.setTextContent(BridgePartType.encodeSegments(segments));
         
