@@ -158,11 +158,11 @@ public class ResizeWindow extends javax.swing.JFrame {
         int width = panel.getMap().getWidth()+right+left;
         int height = panel.getMap().getHeight()+up+down;
         
-        if (width<50 || width>9999) {
+        if (width<13 || width>9999) {
             close();
             return;
         }
-        else if (height<50 || height>9999) {
+        else if (height<13 || height>9999) {
             close();
             return;
         }
