@@ -209,8 +209,7 @@ public abstract class BridgeData {
             return tile.getHeight();
         }
         else {
-            return tile.getHeight();
-            //return tile.getHeight() + floor * 35 + 3;
+            return tile.getHeight() + floor * 30 + 3;
         }
     }
     

@@ -157,11 +157,12 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderWorld(GL2 g) {
-        renderGround(g);
-        
         if (bridgePart != null) {
+            g.glColor3f(1, 1, 1);
             bridgePart.render(g, this);
         }
+        
+        renderGround(g);
         
         renderEntities(g);
     }
@@ -324,7 +325,7 @@ public final class Tile implements XMLSerializable {
     }
     
     public void renderSelection(GL2 g) {
-        if ((Globals.tab == Tab.labels || Globals.tab == Tab.height || Globals.tab == Tab.symmetry)) {
+        if ((Globals.tab == Tab.labels || Globals.tab == Tab.height || Globals.tab == Tab.symmetry || Globals.tab == Tab.bridges)) {
             g.glDisable(GL2.GL_ALPHA_TEST);
             g.glEnable(GL2.GL_BLEND);
             g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);

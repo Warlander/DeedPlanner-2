@@ -1,7 +1,5 @@
 package pl.wurmonline.deedplanner.data;
 
-import pl.wurmonline.deedplanner.data.bridges.BridgeType;
-import pl.wurmonline.deedplanner.data.bridges.BridgePartType;
 import pl.wurmonline.deedplanner.data.bridges.Bridge;
 import com.google.common.io.LittleEndianDataInputStream;
 import com.jogamp.opengl.util.glsl.ShaderProgram;
@@ -20,7 +18,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.*;
-import pl.wurmonline.deedplanner.data.bridges.MarbleBridgeData;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.*;
@@ -40,7 +37,7 @@ public final class Map {
     private final Stack<Action> undo = new Stack<>();
     private final Stack<Action> redo = new Stack<>();
     
-    private final ArrayList<Bridge> bridges = new ArrayList<Bridge>();
+    private final ArrayList<Bridge> bridges = new ArrayList<>();
     
     private int waterID = 0;
     private final Tile[][] tiles;
