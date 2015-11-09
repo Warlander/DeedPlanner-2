@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2013-11-25T14:45:31Z</created><keywords></keywords><modified>2013-11-25T14:45:31Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="Extension10_Bridge_Tiling1F-image" name="Extension10_Bridge_Tiling1F"><init_from>file:///home/saroman/Documents/Wurm/Bridges/StoneBridge/bridgeTiling.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="stone_tiling" name="stone_tiling">
+      <instance_effect url="#stone_tiling-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="stone_tiling-fx" name="stone_tiling">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Extension10_Bridge_Tiling1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.122301  0.122301 0.122301 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">9.050360</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.500000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="Extension-lib" name="ExtensionMesh">
+      <mesh>
+        <source id="Extension-POSITION">
+          <float_array id="Extension-POSITION-array" count="48">
+-0.100000 0.000000 -0.479842
+0.000000 0.000000 -0.584842
+-3.900000 0.000000 -0.479842
+-4.000000 0.000000 -0.584842
+0.000000 0.000000 -3.442582
+-0.100000 0.000000 -3.547582
+-4.000000 0.000000 -3.442582
+-3.900000 0.000000 -3.547582
+-0.100000 -3.000000 -0.479842
+-3.900000 -3.000000 -0.479842
+-4.000000 -3.000000 -0.584842
+-4.000000 -3.000000 -3.442582
+-3.900000 -3.000000 -3.547582
+-0.100000 -3.000000 -3.547582
+0.000000 -3.000000 -3.442582
+0.000000 -3.000000 -0.584842
+</float_array>
+          <technique_common>
+            <accessor source="#Extension-POSITION-array" count="16" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Extension-Normal0">
+          <float_array id="Extension-Normal0-array" count="144">
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+-0.724138 0.000000 0.689655
+-0.724138 0.000000 0.689655
+-0.724138 0.000000 0.689655
+-0.724138 0.000000 0.689655
+-0.724138 0.000000 0.689655
+-0.724138 0.000000 0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-0.724138 0.000000 -0.689655
+-0.724138 0.000000 -0.689655
+-0.724138 0.000000 -0.689655
+-0.724138 0.000000 -0.689655
+-0.724138 0.000000 -0.689655
+-0.724138 0.000000 -0.689655
+</float_array>
+          <technique_common>
+            <accessor source="#Extension-Normal0-array" count="48" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Extension-UV0">
+          <float_array id="Extension-UV0-array" count="48">
+0.000000 1.000000
+0.000000 -0.580059
+0.092130 -0.580059
+0.092130 1.000000
+1.907870 -0.580059
+1.907870 1.000000
+0.000000 1.000000
+0.000000 -0.580328
+2.000000 -0.580328
+2.000000 1.000000
+1.907870 1.000000
+1.907870 -0.580059
+2.000000 -0.580059
+2.000000 1.000000
+2.000000 -0.580059
+2.000000 1.000000
+0.000000 1.000000
+0.000000 -0.580328
+2.000000 -0.580328
+2.000000 1.000000
+0.092130 1.000000
+0.092130 -0.580059
+0.000000 1.000000
+0.000000 -0.580059
+</float_array>
+          <technique_common>
+            <accessor source="#Extension-UV0-array" count="24" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Extension-VERTEX">
+          <input semantic="POSITION" source="#Extension-POSITION"/>
+        </vertices>
+        <triangles count="16" material="stone_tiling"><input semantic="VERTEX" offset="0" source="#Extension-VERTEX"/><input semantic="NORMAL" offset="1" source="#Extension-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#Extension-UV0"/><p> 15 0 2 0 1 0 8 2 1 0 3 0 15 4 2 1 5 3 15 6 2 14 7 4 1 8 3 1 9 3 14 10 4 4 11 5 0 12 9 2 13 6 8 14 8 2 15 6 9 16 7 8 17 8 9 18 12 2 19 13 3 20 10 9 21 12 3 22 10 10 23 11 13 24 14 4 25 5 14 26 4 4 27 5 13 28 14 5 29 15 12 30 18 5 31 16 13 32 17 5 33 16 12 34 18 7 35 19 10 36 11 3 37 10 6 38 20 10 39 11 6 40 20 11 41 21 11 42 21 6 43 20 7 44 22 11 45 21 7 46 22 12 47 23</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Extension" name="Extension">
+      <node name="Extension" id="Extension" sid="Extension"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#Extension-lib"><bind_material><technique_common><instance_material symbol="stone_tiling" target="#stone_tiling"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Extension"></instance_visual_scene>
+  </scene>
+</COLLADA>

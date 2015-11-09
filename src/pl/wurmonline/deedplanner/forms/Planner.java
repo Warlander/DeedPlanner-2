@@ -190,6 +190,7 @@ public class Planner extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         cavesTree = new javax.swing.JTree();
         symmetryPanel = new pl.wurmonline.deedplanner.forms.SymmetryEditor();
+        bridgesPanel = new BridgesEditor(this);
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         newMapItem = new javax.swing.JMenuItem();
@@ -672,6 +673,7 @@ public class Planner extends javax.swing.JFrame {
 
         tabbedPane.addTab(bundle.getString("Planner.cavesPanel.TabConstraints.tabTitle"), cavesPanel); // NOI18N
         tabbedPane.addTab(bundle.getString("Planner.symmetryPanel.TabConstraints.tabTitle"), symmetryPanel); // NOI18N
+        tabbedPane.addTab(bundle.getString("Planner.bridgesPanel.TabConstraints.tabTitle"), bridgesPanel); // NOI18N
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -1013,6 +1015,9 @@ public class Planner extends javax.swing.JFrame {
         else if (tab==symmetryPanel) {
             Globals.tab = Tab.symmetry;
         }
+        else if (tab==bridgesPanel) {
+            Globals.tab = Tab.bridges;
+        }
     }//GEN-LAST:event_tabbedPaneStateChanged
 
     private void jSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner4StateChanged
@@ -1130,16 +1135,16 @@ public class Planner extends javax.swing.JFrame {
     private void floorOrientationBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorOrientationBoxActionPerformed
         switch((String) floorOrientationBox.getSelectedItem()) {
             case "Up":
-                Globals.floorOrientation = FloorOrientation.UP;
+                Globals.floorOrientation = EntityOrientation.UP;
                 break;
             case "Left":
-                Globals.floorOrientation = FloorOrientation.LEFT;
+                Globals.floorOrientation = EntityOrientation.LEFT;
                 break;
             case "Down":
-                Globals.floorOrientation = FloorOrientation.DOWN;
+                Globals.floorOrientation = EntityOrientation.DOWN;
                 break;
             case "Right":
-                Globals.floorOrientation = FloorOrientation.RIGHT;
+                Globals.floorOrientation = EntityOrientation.RIGHT;
                 break;
         }
     }//GEN-LAST:event_floorOrientationBoxActionPerformed
@@ -1178,6 +1183,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JList bordersList;
     private javax.swing.JPanel bordersPanel;
+    private pl.wurmonline.deedplanner.forms.BridgesEditor bridgesPanel;
     private javax.swing.JPanel cavesPanel;
     private javax.swing.JTree cavesTree;
     private pl.wurmonline.deedplanner.forms.DiagonalPanel diagonalPanel1;

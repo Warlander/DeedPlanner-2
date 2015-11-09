@@ -1,5 +1,6 @@
 package pl.wurmonline.deedplanner.data;
 
+import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import java.util.*;
 import java.util.Map.Entry;
 import javax.media.opengl.GL2;
@@ -26,6 +27,7 @@ public final class Tile implements XMLSerializable {
     private Ground ground;
     private final HashMap<EntityData, TileEntity> entities;
     private Label label;
+    private BridgePart bridgePart;
     
     private int caveHeight = 5;
     private int caveSize = 30;
@@ -155,7 +157,13 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderWorld(GL2 g) {
+        if (bridgePart != null) {
+            g.glColor3f(1, 1, 1);
+            bridgePart.render(g, this);
+        }
+        
         renderGround(g);
+        
         renderEntities(g);
     }
     
@@ -317,7 +325,7 @@ public final class Tile implements XMLSerializable {
     }
     
     public void renderSelection(GL2 g) {
-        if ((Globals.tab == Tab.labels || Globals.tab == Tab.height || Globals.tab == Tab.symmetry)) {
+        if ((Globals.tab == Tab.labels || Globals.tab == Tab.height || Globals.tab == Tab.symmetry || Globals.tab == Tab.bridges)) {
             g.glDisable(GL2.GL_ALPHA_TEST);
             g.glEnable(GL2.GL_BLEND);
             g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
@@ -499,6 +507,15 @@ public final class Tile implements XMLSerializable {
             map.recalculateHeight();
             if (undo) {
                 map.addUndo(this, oldTile);
+                for (int i = -1; i <= 0; i++) {
+                    for (int i2 = -1; i2 <= 0; i2++) {
+                        Tile tile = map.getTile(this, i, i2);
+                        if (tile != null) {
+                            tile.destroyBridge();
+                        }
+                    }
+                }
+                
             }
         }
     }
@@ -893,6 +910,23 @@ public final class Tile implements XMLSerializable {
         return (GameObject) entities.get(new ObjectEntityData(level, location));
     }
     
+    public void destroyBridge() {
+        if (bridgePart != null) {
+            bridgePart.destroy();
+        }
+    }
+    
+    /**
+     * This method shouldn't be called to destroy bridge manually - use destroyBridge() instead!
+     */
+    public void setBridgePart(BridgePart bridgePart) {
+        this.bridgePart = bridgePart;
+    }
+    
+    public BridgePart getBridgePart() {
+        return bridgePart;
+    }
+    
     public Materials getMaterials() {
         return getMaterials(false, false);
     }
@@ -902,6 +936,11 @@ public final class Tile implements XMLSerializable {
         entities.values().stream().forEach((entity) -> {
             materials.put(entity.getMaterials());
         });
+        
+        if (bridgePart != null) {
+            materials.put(bridgePart.getMaterials());
+        }
+        
         if (withRight) {
             for (int i = 0; i<Constants.FLOORS_LIMIT; i++) {
                 Wall wall = map.getTile(this, 1, 0).getVerticalWall(i);

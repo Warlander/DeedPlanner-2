@@ -1,5 +1,6 @@
 package pl.wurmonline.deedplanner.data;
 
+import pl.wurmonline.deedplanner.data.bridges.Bridge;
 import com.google.common.io.LittleEndianDataInputStream;
 import com.jogamp.opengl.util.glsl.ShaderProgram;
 import java.awt.Font;
@@ -35,6 +36,8 @@ public final class Map {
     private boolean newAction = true;
     private final Stack<Action> undo = new Stack<>();
     private final Stack<Action> redo = new Stack<>();
+    
+    private final ArrayList<Bridge> bridges = new ArrayList<>();
     
     private int waterID = 0;
     private final Tile[][] tiles;
@@ -97,6 +100,12 @@ public final class Map {
             int x = Integer.parseInt(tile.getAttribute("x"));
             int y = Integer.parseInt(tile.getAttribute("y"));
             tiles[x][y] = new Tile(this, x, y, tile);
+        }
+        
+        NodeList bridgesList = doc.getElementsByTagName("bridge");
+        for (int i=0; i<bridgesList.getLength(); i++) {
+            Element bridgeElement = (Element) bridgesList.item(i);
+            bridges.add(Bridge.createBridge(this, bridgeElement));
         }
         
         createHeightData();
@@ -372,8 +381,8 @@ public final class Map {
                 tiles[i][i2] = new Tile(this, i, i2);
             }
         }
-        recalculateHeight();
-        recalculateRoofs();
+        
+        createHeightData();
     }
     
     public Map(Map map, int startX, int startY, int width, int height) {
@@ -628,6 +637,10 @@ public final class Map {
             }
         }
         
+        for (Bridge bridge : bridges) {
+            bridge.serialize(doc, main);
+        }
+        
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -722,6 +735,15 @@ public final class Map {
         if (undo) {
             addUndo(tile, oldTile);
         }
+    }
+    
+    public void addBridge(Bridge bridge) {
+        bridges.add(bridge);
+    }
+    
+    public void destroyBridge(Bridge bridge) {
+        bridges.remove(bridge);
+        bridge.destroy();
     }
     
     public Materials getTotalMaterials() {

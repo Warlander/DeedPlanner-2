@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2015-04-14T12:01:51Z</created><keywords></keywords><modified>2015-04-14T12:01:51Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="AbutmentDoubleCenter_Bridge_Tiling1F-image" name="AbutmentDoubleCenter_Bridge_Tiling1F"><init_from>bridgeTilingMarble.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="tilingMat" name="tilingMat">
+      <instance_effect url="#tilingMat-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="tilingMat-fx" name="tilingMat">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.000000  0.000000 0.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="AbutmentDoubleCenter_Bridge_Tiling1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.250000  0.250000 0.250000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">40.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="AbutmentMarbleCenter-lib" name="AbutmentMarbleCenterMesh">
+      <mesh>
+        <source id="AbutmentMarbleCenter-POSITION">
+          <float_array id="AbutmentMarbleCenter-POSITION-array" count="66">
+-4.000000 -2.132548 -0.193304
+-4.000000 -2.645934 -1.215109
+-4.000000 -3.262545 -2.122913
+-4.000000 -3.944354 -2.902397
+-4.000000 -4.719089 -3.541268
+-4.000000 -4.333109 -4.000000
+-4.000000 -5.429035 -4.000000
+-4.000000 -2.041700 0.000000
+-4.000000 0.000000 -4.000000
+-4.000000 0.000000 0.000000
+-4.000000 0.000000 -2.000000
+0.000000 -2.132548 -0.193304
+0.000000 -2.645934 -1.215109
+0.000000 -3.262545 -2.122913
+0.000000 -3.944354 -2.902397
+0.000000 -4.719089 -3.541268
+0.000000 -4.333109 -4.000000
+0.000000 -5.429035 -4.000000
+0.000000 -2.041700 0.000000
+0.000000 0.000000 -4.000000
+0.000000 0.000000 0.000000
+0.000000 0.000000 -2.000000
+</float_array>
+          <technique_common>
+            <accessor source="#AbutmentMarbleCenter-POSITION-array" count="22" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="AbutmentMarbleCenter-Normal0">
+          <float_array id="AbutmentMarbleCenter-Normal0-array" count="360">
+0.000000 -0.905032 0.425342
+0.000000 -0.905032 0.425342
+0.000000 -0.899372 0.437184
+0.000000 -0.905032 0.425342
+0.000000 -0.899372 0.437184
+0.000000 -0.899372 0.437184
+0.000000 -0.899372 0.437184
+0.000000 -0.899372 0.437184
+0.000000 -0.862240 0.506500
+0.000000 -0.899372 0.437184
+0.000000 -0.862240 0.506500
+0.000000 -0.862240 0.506500
+0.000000 -0.862240 0.506500
+0.000000 -0.862240 0.506500
+0.000000 -0.791428 0.611262
+0.000000 -0.862240 0.506500
+0.000000 -0.791428 0.611262
+0.000000 -0.791428 0.611262
+0.000000 -0.791428 0.611262
+0.000000 -0.791428 0.611262
+0.000000 -0.696753 0.717311
+0.000000 -0.791428 0.611262
+0.000000 -0.696753 0.717311
+0.000000 -0.696753 0.717311
+0.000000 -0.696753 0.717311
+0.000000 -0.696753 0.717311
+0.000000 -0.590455 0.807070
+0.000000 -0.696753 0.717311
+0.000000 -0.590455 0.807070
+0.000000 -0.590455 0.807070
+0.000000 -0.590455 0.807070
+0.000000 -0.590455 0.807070
+0.000000 -0.542713 0.839918
+0.000000 -0.590455 0.807070
+0.000000 -0.542713 0.839918
+0.000000 -0.542713 0.839918
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+0.000000 1.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+</float_array>
+          <technique_common>
+            <accessor source="#AbutmentMarbleCenter-Normal0-array" count="120" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="AbutmentMarbleCenter-UV0">
+          <float_array id="AbutmentMarbleCenter-UV0-array" count="104">
+0.000000 -1.626431
+0.000000 -1.618108
+0.000000 -1.083185
+0.000000 -1.079370
+0.000000 -1.000000
+0.000000 -0.965093
+0.000000 0.034907
+0.000000 0.041033
+0.000000 0.042084
+0.000000 1.034907
+0.000000 1.039339
+0.000000 1.040909
+0.000000 1.042245
+0.000000 1.000000
+0.080002 1.000000
+0.080002 -1.000000
+0.096652 -0.003388
+0.229366 -1.268098
+0.508324 -1.000000
+0.508324 1.000000
+0.548801 -0.889285
+0.607554 -0.254412
+0.919375 -1.000000
+0.919375 1.000000
+0.938543 -0.555909
+1.000000 1.039339
+1.061456 -0.555909
+1.307271 -1.000000
+1.307271 1.000000
+1.392445 -0.254412
+1.451198 -0.889285
+1.683398 -1.000000
+1.683398 1.000000
+1.770634 -1.268098
+1.903348 -0.003388
+2.000000 0.041033
+2.000000 1.039339
+2.000000 -1.625792
+2.000000 -1.618108
+2.000000 -1.083185
+2.000000 -1.079370
+2.000000 -1.000000
+2.000000 -0.965093
+2.000000 0.034907
+2.000000 0.042084
+2.000000 1.000000
+2.000000 1.034907
+2.000000 1.039339
+2.000000 1.040909
+2.000000 1.042245
+1.000000 1.039339
+0.000000 1.039339
+</float_array>
+          <technique_common>
+            <accessor source="#AbutmentMarbleCenter-UV0-array" count="52" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="AbutmentMarbleCenter-VERTEX">
+          <input semantic="POSITION" source="#AbutmentMarbleCenter-POSITION"/>
+        </vertices>
+        <triangles count="40" material="tilingMat"><input semantic="VERTEX" offset="0" source="#AbutmentMarbleCenter-VERTEX"/><input semantic="NORMAL" offset="1" source="#AbutmentMarbleCenter-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#AbutmentMarbleCenter-UV0"/><p> 18 0 13 7 1 4 0 2 15 18 3 13 0 4 15 11 5 14 11 6 14 0 7 15 1 8 18 11 9 14 1 10 18 12 11 19 12 12 19 1 13 18 2 14 22 12 15 19 2 16 22 13 17 23 13 18 23 2 19 22 3 20 27 13 21 23 3 22 27 14 23 28 14 24 28 3 25 27 4 26 31 14 27 28 4 28 31 15 29 32 15 30 32 4 31 31 6 32 41 15 33 32 6 34 41 17 35 45 20 36 42 10 37 6 9 38 5 21 39 43 10 40 6 20 41 42 10 42 6 21 43 43 8 44 9 8 45 9 21 46 43 19 47 46 8 48 10 3 49 20 2 50 24 10 51 25 0 52 34 9 53 36 0 54 34 10 55 25 1 56 29 9 57 36 0 58 34 7 59 35 10 60 25 2 61 24 1 62 29 3 63 20 8 64 10 5 65 3 5 66 3 6 67 0 4 68 17 5 69 3 4 70 17 3 71 20 2 72 24 10 73 25 8 74 10 20 75 51 11 76 16 21 77 50 13 78 26 21 79 50 12 80 21 21 81 50 13 82 26 19 83 47 12 84 21 21 85 50 11 86 16 14 87 30 19 88 47 13 89 26 16 90 40 14 91 30 15 92 33 16 93 40 15 94 33 17 95 37 19 96 47 14 97 30 16 98 40 11 99 16 20 100 51 18 101 7 16 102 39 5 103 2 19 104 49 5 105 2 16 106 39 6 107 1 5 108 2 8 109 12 19 110 49 17 111 38 6 112 1 16 113 39 20 114 48 9 115 11 7 116 8 20 117 48 7 118 8 18 119 44</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="AbutmentMarbleCenter" name="AbutmentMarbleCenter">
+      <node name="AbutmentMarbleCenter" id="AbutmentMarbleCenter" sid="AbutmentMarbleCenter"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#AbutmentMarbleCenter-lib"><bind_material><technique_common><instance_material symbol="tilingMat" target="#tilingMat"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#AbutmentMarbleCenter"></instance_visual_scene>
+  </scene>
+</COLLADA>

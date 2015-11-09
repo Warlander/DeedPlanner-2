@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2015-04-08T14:36:16Z</created><keywords></keywords><modified>2015-04-08T14:36:16Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="tiling-image" name="tiling"><init_from>bridgeTilingMarble.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="tilingMat" name="tilingMat">
+      <instance_effect url="#tilingMat-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="tilingMat-fx" name="tilingMat">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="tiling-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.250000  0.250000 0.250000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">40.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.500000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="ExtensionMarbleDouble-lib" name="ExtensionMarbleDoubleMesh">
+      <mesh>
+        <source id="ExtensionMarbleDouble-POSITION">
+          <float_array id="ExtensionMarbleDouble-POSITION-array" count="36">
+-0.100000 0.000000 -0.479842
+0.000000 0.000000 -0.584842
+-4.000000 0.000000 -0.479842
+0.000000 0.000000 -3.442582
+-0.100000 0.000000 -3.547582
+-4.000000 0.000000 -3.547582
+-0.100000 -3.000000 -0.479842
+-4.000000 -3.000000 -0.479842
+-4.000000 -3.000000 -3.547582
+-0.100000 -3.000000 -3.547582
+0.000000 -3.000000 -3.442582
+0.000000 -3.000000 -0.584842
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionMarbleDouble-POSITION-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ExtensionMarbleDouble-Normal0">
+          <float_array id="ExtensionMarbleDouble-Normal0-array" count="108">
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionMarbleDouble-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ExtensionMarbleDouble-UV0">
+          <float_array id="ExtensionMarbleDouble-UV0-array" count="40">
+0.000000 -0.580328
+0.000000 1.000000
+0.000000 1.000000
+0.000000 1.000000
+0.000000 1.000000
+0.000000 -0.580328
+0.000000 -0.580059
+0.000000 -0.580059
+0.092130 1.000000
+0.092130 -0.580059
+1.907870 1.000000
+1.907870 -0.580059
+2.000000 -0.580059
+2.000000 -0.580059
+2.000000 -0.580328
+2.000000 1.000000
+2.000000 -0.580328
+2.000000 1.000000
+2.000000 1.000000
+2.000000 1.000000
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionMarbleDouble-UV0-array" count="20" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="ExtensionMarbleDouble-VERTEX">
+          <input semantic="POSITION" source="#ExtensionMarbleDouble-POSITION"/>
+        </vertices>
+        <triangles count="12" material="tilingMat"><input semantic="VERTEX" offset="0" source="#ExtensionMarbleDouble-VERTEX"/><input semantic="NORMAL" offset="1" source="#ExtensionMarbleDouble-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#ExtensionMarbleDouble-UV0"/><p> 11 0 9 10 1 11 1 2 8 1 3 8 10 4 11 3 5 10 7 6 13 2 7 17 5 8 2 7 9 13 5 10 2 8 11 6 11 12 9 0 13 1 6 14 7 0 15 1 11 16 9 1 17 8 9 18 12 3 19 10 10 20 11 3 21 10 9 22 12 4 23 19 0 24 15 2 25 3 6 26 16 2 27 3 7 28 5 6 29 16 8 30 14 4 31 4 9 32 0 4 33 4 8 34 14 5 35 18</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="ExtensionMarbleDouble" name="ExtensionMarbleDouble">
+      <node name="ExtensionMarbleDouble" id="ExtensionMarbleDouble" sid="ExtensionMarbleDouble"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#ExtensionMarbleDouble-lib"><bind_material><technique_common><instance_material symbol="tilingMat" target="#tilingMat"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#ExtensionMarbleDouble"></instance_visual_scene>
+  </scene>
+</COLLADA>

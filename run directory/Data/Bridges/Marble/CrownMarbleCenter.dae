@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2015-04-14T12:01:51Z</created><keywords></keywords><modified>2015-04-14T12:01:51Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="AbutmentDoubleCenter_Bridge_Tiling1F-image" name="AbutmentDoubleCenter_Bridge_Tiling1F"><init_from>bridgeTilingMarble.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="tilingMat" name="tilingMat">
+      <instance_effect url="#tilingMat-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="tilingMat-fx" name="tilingMat">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.000000  0.000000 0.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="AbutmentDoubleCenter_Bridge_Tiling1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.250000  0.250000 0.250000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">40.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="CrownMarbleCenter-lib" name="CrownMarbleCenterMesh">
+      <mesh>
+        <source id="CrownMarbleCenter-POSITION">
+          <float_array id="CrownMarbleCenter-POSITION-array" count="48">
+-4.000000 -0.820664 -2.000000
+-4.000000 -0.921557 -3.322614
+-4.000000 -1.007703 -4.000000
+-4.000000 0.000000 -4.000000
+-4.000000 -0.921558 -0.677386
+-4.000000 -1.007455 0.000000
+-4.000000 0.000000 0.000000
+-2.000000 0.000000 -4.000000
+-2.000000 0.000000 0.000000
+0.000000 -0.820663 -2.000000
+0.000000 -0.921556 -3.322614
+0.000000 -1.007702 -4.000000
+0.000000 0.000001 -4.000000
+0.000000 -0.920810 -0.677386
+0.000000 -1.007454 0.000000
+0.000000 0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#CrownMarbleCenter-POSITION-array" count="16" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="CrownMarbleCenter-Normal0">
+          <float_array id="CrownMarbleCenter-Normal0-array" count="252">
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+0.000093 -0.994877 -0.101093
+0.000093 -0.994877 -0.101093
+0.000047 -1.000000 0.000140
+0.000093 -0.994877 -0.101093
+0.000047 -1.000000 0.000140
+0.000047 -1.000000 0.000140
+0.000047 -1.000000 0.000140
+0.000047 -1.000000 0.000140
+0.000000 -0.994872 0.101142
+0.000047 -1.000000 0.000140
+0.000000 -0.994872 0.101142
+0.000000 -0.994872 0.101142
+0.000000 -0.994872 0.101142
+0.000000 -0.994872 0.101142
+0.000000 -0.992010 0.126158
+0.000000 -0.994872 0.101142
+0.000000 -0.992010 0.126158
+0.000000 -0.992010 0.126158
+0.000093 -0.991987 -0.126337
+0.000093 -0.991987 -0.126337
+0.000093 -0.994877 -0.101093
+0.000093 -0.991987 -0.126337
+0.000093 -0.994877 -0.101093
+0.000093 -0.994877 -0.101093
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+-0.000000 1.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#CrownMarbleCenter-Normal0-array" count="84" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="CrownMarbleCenter-UV0">
+          <float_array id="CrownMarbleCenter-UV0-array" count="80">
+0.000000 -0.964832
+0.000000 0.548758
+0.000000 0.549167
+0.000000 0.549236
+0.000000 0.999997
+0.000000 1.035168
+0.000000 1.039338
+0.000000 1.039339
+0.000000 1.039416
+0.000000 1.039417
+0.000021 -1.000000
+0.338693 0.591387
+0.338693 0.591070
+0.339851 -0.999995
+0.339876 1.000000
+1.000000 -0.964832
+1.000000 0.640106
+1.000000 0.640147
+1.000000 1.035168
+1.000000 1.039416
+1.000013 0.999999
+1.000016 -0.999993
+1.660163 0.999998
+1.660165 -0.999990
+1.661307 0.591024
+1.661307 0.591070
+1.999997 0.999997
+2.000000 -0.999988
+2.000000 -0.964832
+2.000000 0.548758
+2.000000 0.549116
+2.000000 0.549287
+2.000000 1.035168
+2.000000 1.039339
+2.000000 1.039416
+2.000000 1.039417
+0.000000 0.548758
+2.000000 0.548758
+1.000000 1.039416
+2.000000 1.039339
+</float_array>
+          <technique_common>
+            <accessor source="#CrownMarbleCenter-UV0-array" count="40" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="CrownMarbleCenter-VERTEX">
+          <input semantic="POSITION" source="#CrownMarbleCenter-POSITION"/>
+        </vertices>
+        <triangles count="28" material="tilingMat"><input semantic="VERTEX" offset="0" source="#CrownMarbleCenter-VERTEX"/><input semantic="NORMAL" offset="1" source="#CrownMarbleCenter-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#CrownMarbleCenter-UV0"/><p> 7 0 19 2 1 29 3 2 34 11 3 1 2 4 29 7 5 19 11 6 1 7 7 19 12 8 9 8 9 38 14 10 37 15 11 35 14 12 37 8 13 38 5 14 36 8 15 38 6 16 8 5 17 36 6 18 33 4 19 25 5 20 31 6 21 33 3 22 7 0 23 17 6 24 33 0 25 17 4 26 25 0 27 17 3 28 7 1 29 12 3 30 7 2 31 2 1 32 12 15 33 6 9 34 16 12 35 39 9 36 16 15 37 6 13 38 11 10 39 24 11 40 30 12 41 39 15 42 6 14 43 3 13 44 11 10 45 24 12 46 39 9 47 16 13 48 14 4 49 13 0 50 21 13 51 14 0 52 21 9 53 20 9 54 20 0 55 21 1 56 23 9 57 20 1 58 23 10 59 22 10 60 22 1 61 23 2 62 27 10 63 22 2 64 27 11 65 26 14 66 4 5 67 10 4 68 13 14 69 4 4 70 13 13 71 14 12 72 32 8 73 15 15 74 28 8 75 15 3 76 5 6 77 0 8 78 15 12 79 32 7 80 18 3 81 5 8 82 15 7 83 18</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="CrownMarbleCenter+" name="CrownMarbleCenter+">
+      <node name="CrownMarbleCenter" id="CrownMarbleCenter" sid="CrownMarbleCenter"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#CrownMarbleCenter-lib"><bind_material><technique_common><instance_material symbol="tilingMat" target="#tilingMat"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#CrownMarbleCenter+"></instance_visual_scene>
+  </scene>
+</COLLADA>

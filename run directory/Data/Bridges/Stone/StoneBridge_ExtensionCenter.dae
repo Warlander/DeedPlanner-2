@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2014-05-21T17:45:03Z</created><keywords></keywords><modified>2014-05-21T17:45:03Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="Bridge_Tiling1F-image" name="Bridge_Tiling1F"><init_from>bridgeTiling.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="bridge_tiling" name="bridge_tiling">
+      <instance_effect url="#bridge_tiling-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="bridge_tiling-fx" name="bridge_tiling">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Bridge_Tiling1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.000000  0.000000 0.000000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">2.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="ExtensionCenter-lib" name="ExtensionCenterMesh">
+      <mesh>
+        <source id="ExtensionCenter-POSITION">
+          <float_array id="ExtensionCenter-POSITION-array" count="24">
+0.000000 0.000000 -0.479842
+-4.000000 0.000000 -0.479842
+0.000000 0.000000 -3.547582
+-4.000000 0.000000 -3.547582
+0.000000 -3.000000 -0.479842
+-4.000000 -3.000000 -0.479842
+-4.000000 -3.000000 -3.547582
+0.000000 -3.000000 -3.547582
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionCenter-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ExtensionCenter-Normal0">
+          <float_array id="ExtensionCenter-Normal0-array" count="72">
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionCenter-Normal0-array" count="24" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ExtensionCenter-UV0">
+          <float_array id="ExtensionCenter-UV0-array" count="32">
+0.000000 1.000000
+0.000000 -0.580059
+2.000000 -0.580059
+2.000000 1.000000
+0.000000 1.000000
+0.000000 -0.580328
+2.000000 -0.580328
+2.000000 1.000000
+0.000000 1.000000
+0.000000 -0.580328
+2.000000 -0.580328
+2.000000 1.000000
+0.000000 1.000000
+0.000000 -0.580059
+2.000000 -0.580059
+2.000000 1.000000
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionCenter-UV0-array" count="16" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="ExtensionCenter-VERTEX">
+          <input semantic="POSITION" source="#ExtensionCenter-POSITION"/>
+        </vertices>
+        <triangles count="8" material="bridge_tiling"><input semantic="VERTEX" offset="0" source="#ExtensionCenter-VERTEX"/><input semantic="NORMAL" offset="1" source="#ExtensionCenter-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#ExtensionCenter-UV0"/><p> 7 0 2 0 1 0 4 2 1 0 3 0 7 4 2 2 5 3 0 6 7 1 7 4 4 8 6 1 9 4 5 10 5 4 11 6 6 12 10 2 13 8 7 14 9 2 15 8 6 16 10 3 17 11 5 18 14 1 19 15 3 20 12 5 21 14 3 22 12 6 23 13</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="ExtensionCenter" name="ExtensionCenter">
+      <node name="ExtensionCenter" id="ExtensionCenter" sid="ExtensionCenter"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#ExtensionCenter-lib"><bind_material><technique_common><instance_material symbol="bridge_tiling" target="#bridge_tiling"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#ExtensionCenter"></instance_visual_scene>
+  </scene>
+</COLLADA>

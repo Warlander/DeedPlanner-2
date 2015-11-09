@@ -1,5 +1,6 @@
 package pl.wurmonline.deedplanner.logic;
 
+import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import java.util.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.Properties;
@@ -88,7 +89,7 @@ public class LogicLoop extends TimerTask {
                         case caves:
                             CaveUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
-                        case symmetry:
+                        case symmetry: case bridges:
                             TileSelection.update(mouse, keyboard, panel.getMap(), panel.getUpCamera(), SelectionType.SINGLE);
                             break;
                     }
@@ -98,6 +99,12 @@ public class LogicLoop extends TimerTask {
                     TileFragment frag = TileFragment.calculateTileFragment(panel.getUpCamera().xTile, panel.getUpCamera().yTile);
                     planner.heightShow.setUpCamera(panel.getUpCamera());
                     StringBuilder build = new StringBuilder();
+                    
+                    BridgePart part = t.getBridgePart();
+                    if (part != null) {
+                        build.append("Bridge: ").append(part.getType().toString()).append(" ").append(part.getSide().toString()).append(" ").append(part.getOrientation().toString()).append("     ");
+                    }
+                    
                     switch (Globals.tab) {
                         case ground: case caves:
                             if (Globals.floor>=0) {

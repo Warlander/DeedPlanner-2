@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2015-04-14T12:01:51Z</created><keywords></keywords><modified>2015-04-14T12:01:51Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="AbutmentDoubleCenter_Bridge_Tiling1F-image" name="AbutmentDoubleCenter_Bridge_Tiling1F"><init_from>bridgeTilingMarble.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="tilingMat" name="tilingMat">
+      <instance_effect url="#tilingMat-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="tilingMat-fx" name="tilingMat">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0.000000  0.000000 0.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="AbutmentDoubleCenter_Bridge_Tiling1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.250000  0.250000 0.250000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">40.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="ExtensionMarbleCenter-lib" name="ExtensionMarbleCenterMesh">
+      <mesh>
+        <source id="ExtensionMarbleCenter-POSITION">
+          <float_array id="ExtensionMarbleCenter-POSITION-array" count="24">
+0.000000 0.000000 -0.479841
+-4.000000 0.000000 -0.479842
+0.000000 0.000000 -3.547583
+-4.000000 0.000000 -3.547582
+0.000000 -3.000000 -0.479842
+-4.000000 -3.000000 -0.479842
+-4.000000 -3.000000 -3.547582
+0.000000 -3.000000 -3.547582
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionMarbleCenter-POSITION-array" count="8" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ExtensionMarbleCenter-Normal0">
+          <float_array id="ExtensionMarbleCenter-Normal0-array" count="72">
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-0.000000 -0.000000 1.000000
+-0.000000 -0.000000 1.000000
+-0.000000 -0.000000 1.000000
+-0.000000 -0.000000 1.000000
+-0.000000 -0.000000 1.000000
+-0.000000 -0.000000 1.000000
+-0.000000 -0.000000 -1.000000
+-0.000000 -0.000000 -1.000000
+-0.000000 -0.000000 -1.000000
+-0.000000 -0.000000 -1.000000
+-0.000000 -0.000000 -1.000000
+-0.000000 -0.000000 -1.000000
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionMarbleCenter-Normal0-array" count="24" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ExtensionMarbleCenter-UV0">
+          <float_array id="ExtensionMarbleCenter-UV0-array" count="32">
+0.000000 -0.580328
+0.000000 1.000000
+0.000000 1.000000
+0.000000 1.000000
+0.000000 1.000000
+0.000000 -0.580328
+0.000000 -0.580059
+0.000000 -0.580059
+2.000000 -0.580059
+2.000000 -0.580059
+2.000000 -0.580328
+2.000000 1.000000
+2.000000 -0.580328
+2.000000 1.000000
+2.000000 1.000000
+2.000000 1.000000
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionMarbleCenter-UV0-array" count="16" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="ExtensionMarbleCenter-VERTEX">
+          <input semantic="POSITION" source="#ExtensionMarbleCenter-POSITION"/>
+        </vertices>
+        <triangles count="8" material="tilingMat"><input semantic="VERTEX" offset="0" source="#ExtensionMarbleCenter-VERTEX"/><input semantic="NORMAL" offset="1" source="#ExtensionMarbleCenter-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#ExtensionMarbleCenter-UV0"/><p> 7 0 8 0 1 1 4 2 7 0 3 1 7 4 8 2 5 15 5 6 9 1 7 13 3 8 2 5 9 9 3 10 2 6 11 6 0 12 11 1 13 3 4 14 12 1 15 3 5 16 5 4 17 12 6 18 10 2 19 4 7 20 0 2 21 4 6 22 10 3 23 14</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="ExtensionMarbleCenter" name="ExtensionMarbleCenter">
+      <node name="ExtensionMarbleCenter" id="ExtensionMarbleCenter" sid="ExtensionMarbleCenter"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#ExtensionMarbleCenter-lib"><bind_material><technique_common><instance_material symbol="tilingMat" target="#tilingMat"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#ExtensionMarbleCenter"></instance_visual_scene>
+  </scene>
+</COLLADA>

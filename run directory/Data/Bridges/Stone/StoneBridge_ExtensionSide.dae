@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset><contributor><author></author><authoring_tool>FBX COLLADA exporter</authoring_tool><comments></comments></contributor><created>2013-11-28T13:51:33Z</created><keywords></keywords><modified>2013-11-28T13:51:33Z</modified><revision></revision><subject></subject><title></title><unit meter="0.010000" name="centimeter"></unit><up_axis>Y_UP</up_axis></asset>
+  <library_images>
+    <image id="AbutmentDoubleLeft_Bridge_Tiling1F-image" name="AbutmentDoubleLeft_Bridge_Tiling1F"><init_from>file:///home/saroman/Documents/Wurm/Bridges/StoneBridgeDouble/bridgeTiling.png</init_from></image>
+  </library_images>
+  <library_materials>
+    <material id="bridge_tiling" name="bridge_tiling">
+      <instance_effect url="#bridge_tiling-fx"/>
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="bridge_tiling-fx" name="bridge_tiling">
+      <profile_COMMON>
+        <technique sid="standard">
+          <phong>
+            <emission>
+              <color sid="emission">0.000000  0.000000 0.000000 1.000000</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">1.000000  1.000000 1.000000 1.000000</color>
+            </ambient>
+            <diffuse>
+              <texture texture="AbutmentDoubleLeft_Bridge_Tiling1F-image" texcoord="CHANNEL0">
+                <extra>
+                  <technique profile="MAYA">
+                    <wrapU sid="wrapU0">TRUE</wrapU>
+                    <wrapV sid="wrapV0">TRUE</wrapV>
+                    <blend_mode>NONE</blend_mode>
+                  </technique>
+                </extra>
+              </texture>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.100000  0.100000 0.100000 1.000000</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">10.000000</float>
+            </shininess>
+            <reflective>
+              <color sid="reflective">0.000000  0.000000 0.000000 1.000000</color>
+            </reflective>
+            <reflectivity>
+              <float sid="reflectivity">0.000000</float>
+            </reflectivity>
+            <transparent opaque="RGB_ZERO">
+              <color sid="transparent">0.000000  0.000000 0.000000 1.000000</color>
+            </transparent>
+            <transparency>
+              <float sid="transparency">1.000000</float>
+            </transparency>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="ExtensionDoubleT-lib" name="ExtensionDoubleTMesh">
+      <mesh>
+        <source id="ExtensionDoubleT-POSITION">
+          <float_array id="ExtensionDoubleT-POSITION-array" count="36">
+-0.100000 0.000000 -0.479842
+0.000000 0.000000 -0.584842
+-4.000000 0.000000 -0.479842
+0.000000 0.000000 -3.442582
+-0.100000 0.000000 -3.547582
+-4.000000 0.000000 -3.547582
+-0.100000 -3.000000 -0.479842
+-4.000000 -3.000000 -0.479842
+-4.000000 -3.000000 -3.547582
+-0.100000 -3.000000 -3.547582
+0.000000 -3.000000 -3.442582
+0.000000 -3.000000 -0.584842
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionDoubleT-POSITION-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ExtensionDoubleT-Normal0">
+          <float_array id="ExtensionDoubleT-Normal0-array" count="108">
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+0.724138 0.000000 0.689655
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+1.000000 0.000000 0.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.000000 0.000000 1.000000
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.724138 0.000000 -0.689655
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+0.000000 0.000000 -1.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+-1.000000 0.000000 0.000000
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionDoubleT-Normal0-array" count="36" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ExtensionDoubleT-UV0">
+          <float_array id="ExtensionDoubleT-UV0-array" count="40">
+0.000000 1.000000
+0.000000 -0.580059
+0.092130 -0.580059
+0.092130 1.000000
+1.907870 -0.580059
+1.907870 1.000000
+0.000000 1.000000
+0.000000 -0.580328
+2.000000 -0.580328
+2.000000 1.000000
+2.000000 -0.580059
+2.000000 1.000000
+0.000000 1.000000
+0.000000 -0.580328
+2.000000 -0.580328
+2.000000 1.000000
+0.000000 1.000000
+0.000000 -0.580059
+2.000000 -0.580059
+2.000000 1.000000
+</float_array>
+          <technique_common>
+            <accessor source="#ExtensionDoubleT-UV0-array" count="20" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="ExtensionDoubleT-VERTEX">
+          <input semantic="POSITION" source="#ExtensionDoubleT-POSITION"/>
+        </vertices>
+        <triangles count="12" material="bridge_tiling"><input semantic="VERTEX" offset="0" source="#ExtensionDoubleT-VERTEX"/><input semantic="NORMAL" offset="1" source="#ExtensionDoubleT-Normal0"/><input semantic="TEXCOORD" offset="2" set="0" source="#ExtensionDoubleT-UV0"/><p> 11 0 2 0 1 0 6 2 1 0 3 0 11 4 2 1 5 3 11 6 2 10 7 4 1 8 3 1 9 3 10 10 4 3 11 5 0 12 9 2 13 6 6 14 8 2 15 6 7 16 7 6 17 8 9 18 10 3 19 5 10 20 4 3 21 5 9 22 10 4 23 11 8 24 14 4 25 12 9 26 13 4 27 12 8 28 14 5 29 15 7 30 18 2 31 19 5 32 16 7 33 18 5 34 16 8 35 17</p></triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="ExtensionDouble" name="ExtensionDouble">
+      <node name="ExtensionDoubleT" id="ExtensionDoubleT" sid="ExtensionDoubleT"><matrix sid="matrix">1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000</matrix><instance_geometry url="#ExtensionDoubleT-lib"><bind_material><technique_common><instance_material symbol="bridge_tiling" target="#bridge_tiling"/></technique_common></bind_material></instance_geometry><extra><technique profile="FCOLLADA"><visibility>1.000000</visibility></technique></extra></node>
+      <extra><technique profile="MAX3D"><frame_rate>30.000000</frame_rate></technique><technique profile="FCOLLADA"><start_time>0.033333</start_time><end_time>1.600000</end_time></technique></extra>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#ExtensionDouble"></instance_visual_scene>
+  </scene>
+</COLLADA>
