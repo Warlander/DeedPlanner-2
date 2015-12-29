@@ -101,6 +101,8 @@ public class Bridge implements XMLSerializable {
                 map.getTile(x, y).setBridgePart(null);
             }
         }
+        
+        map.removeBridge(this);
     }
     
     public BridgeData getData() {

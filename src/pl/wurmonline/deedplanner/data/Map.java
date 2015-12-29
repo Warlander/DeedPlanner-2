@@ -741,9 +741,8 @@ public final class Map {
         bridges.add(bridge);
     }
     
-    public void destroyBridge(Bridge bridge) {
+    public void removeBridge(Bridge bridge) {
         bridges.remove(bridge);
-        bridge.destroy();
     }
     
     public Materials getTotalMaterials() {
