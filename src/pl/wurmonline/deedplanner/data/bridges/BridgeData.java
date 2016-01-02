@@ -171,6 +171,10 @@ public abstract class BridgeData {
                 previousArch *= (additionalData / 20f);
                 archHeight *= (additionalData / 20f);
                 
+                if (index == previousIndex) {
+                    archHeight = previousArch;
+                }
+                
                 float currentHeight = startHeight + heightStep * currentSegment;
                 BridgePartType segment = segments[currentSegment];
                 BridgePartSide side = getPartSide(startX, startY, endX, endY, map.getTile(x, y), verticalOrientation);
