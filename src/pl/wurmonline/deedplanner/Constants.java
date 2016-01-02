@@ -11,6 +11,6 @@ public class Constants {
     public final static float HEIGHT_MOD = 10f;
     
     public final static String ENTER = System.getProperty("line.separator");
-    public final static String VERSION_STRING = "DeedPlanner 2.4.1";
+    public final static String VERSION_STRING = "DeedPlanner 2.4.2";
     
 }
