@@ -44,6 +44,7 @@ public class BridgesEditor extends javax.swing.JPanel {
         warningsLabel = new javax.swing.JLabel();
         startTileButton = new javax.swing.JButton();
         endTileButton = new javax.swing.JButton();
+        destroyBridgeButton = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel1.setText("<html>Bridges creation instruction:<br>\n1. Select starting tile of bridge.<br>\n(the one you are standing on,<br>\ncurrent floor is important)<br><br>\n\n2. Click \"Select start tile\" button.<br><br>\n\n3. Repeat for end tile.<br><br>\n\n4. If everything is correct,<br>\nclick \"Create new bridge!\" button.<br><br>\n\n5. Follow instructions in new<br>\nwindow.<br>");
@@ -87,6 +88,15 @@ public class BridgesEditor extends javax.swing.JPanel {
             }
         });
 
+        destroyBridgeButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        destroyBridgeButton.setText("Destroy start tile bridge");
+        destroyBridgeButton.setEnabled(false);
+        destroyBridgeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destroyBridgeButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,7 +116,8 @@ public class BridgesEditor extends javax.swing.JPanel {
                             .addComponent(startTileLabel)
                             .addComponent(endTileLabel))
                         .addGap(0, 2, Short.MAX_VALUE))
-                    .addComponent(endTileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(endTileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(destroyBridgeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -125,10 +136,12 @@ public class BridgesEditor extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(createBridgeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(destroyBridgeButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(warningsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                .addGap(46, 46, 46)
+                .addComponent(warningsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,8 +189,25 @@ public class BridgesEditor extends javax.swing.JPanel {
         new BridgesConstructor(map, startTile, endTile, startFloor, endFloor);
     }//GEN-LAST:event_createBridgeButtonActionPerformed
 
+    private void destroyBridgeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destroyBridgeButtonActionPerformed
+        if (startFloor == -1) {
+            // no starting tile is set, so returning
+            return;
+        }
+        
+        Map map = planner.getMapPanel().getMap();
+        Tile startTile = map.getTile(map.getTile(0, 0), startX, startY);
+        
+        if (startTile.getBridgePart() != null) {
+            startTile.getBridgePart().destroy();
+        }
+        
+        updateState();
+    }//GEN-LAST:event_destroyBridgeButtonActionPerformed
+
     private void updateState() {
         updateTileLabels();
+        updateBridgeDeletion();
         updateWarnings();
     }
     
@@ -194,6 +224,24 @@ public class BridgesEditor extends javax.swing.JPanel {
         }
         else {
             endTileLabel.setText("End tile X:"+endX + ", Y:" + endY + ", floor "+ endFloor);
+        }
+    }
+    
+    private void updateBridgeDeletion() {
+        if (startFloor == -1) {
+            destroyBridgeButton.setEnabled(false);
+            // no starting tile is set, so returning
+            return;
+        }
+        
+        Map map = planner.getMapPanel().getMap();
+        Tile startTile = map.getTile(map.getTile(0, 0), startX, startY);
+        
+        if (startTile.getBridgePart() != null) {
+            destroyBridgeButton.setEnabled(true);
+        }
+        else {
+            destroyBridgeButton.setEnabled(false);
         }
     }
     
@@ -251,6 +299,7 @@ public class BridgesEditor extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createBridgeButton;
+    private javax.swing.JButton destroyBridgeButton;
     private javax.swing.JButton endTileButton;
     private javax.swing.JLabel endTileLabel;
     private javax.swing.JLabel jLabel1;
