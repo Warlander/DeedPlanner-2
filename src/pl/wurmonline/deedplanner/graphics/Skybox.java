@@ -30,7 +30,7 @@ public class Skybox {
             g.glVertex3d(-250, 250, 249);
         g.glEnd();
 
-        //down
+        //bottom
         tex[1].bind(g);
         g.glBegin(GL2.GL_QUADS);
             g.glTexCoord2f(0, 0);
