@@ -55,13 +55,14 @@ public class GraphicsLoop implements GLEventListener {
             
             if (Globals.upCamera) {
                 panel.getUpCamera().set(g);
+                panel.getMap().render(g);
             }
             else {
                 panel.getFPPCamera().set(g);
+                panel.getMap().render(g);
                 Skybox.render(panel, g);
             }
-
-            panel.getMap().render(g);
+            
             stopped = true;
             
             if (lastFPS<System.currentTimeMillis()-1000) {
