@@ -92,6 +92,7 @@
 		        <universal season="all" location="Data/GroundTextures/cobble2.png"/>
 		        <universal season="winter" location="Data/GroundTextures/Winter/cobble2_snow.png"/>
 		    </tex>
+			<diagonal/>
 		    <category>Roads</category>
 		</ground>
 		<ground name="Round Cobblestone" shortname="csr">
@@ -99,6 +100,7 @@
 		        <universal season="all" location="Data/GroundTextures/cobble3.png"/>
 		        <universal season="winter" location="Data/GroundTextures/Winter/cobble3_snow.png"/>
 		    </tex>
+			<diagonal/>
 		    <category>Roads</category>
 		</ground>
 		<ground name="Stone slab" shortname="sl">
@@ -106,18 +108,21 @@
 				<universal season="all" location="Data/GroundTextures/slab.jpg"/>
 				<universal season="winter" location="Data/GroundTextures/Winter/winter-slab.jpg"/>
 			</tex>
+			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Marble slab" shortname="msl">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/marbleslab.jpg"/>
 			</tex>
+			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Slate slab" shortname="ssl">
 			<tex>
 				<universal season="all" location="Data/GroundTextures/slateslab.jpg"/>
 			</tex>
+			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Planks" shortname="pl">
