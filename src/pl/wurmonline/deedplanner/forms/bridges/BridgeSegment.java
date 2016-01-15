@@ -14,8 +14,7 @@ enum BridgeSegment {
     ROPE_BRIDGE_DOUBLE_ABUTMENT(BridgeData.ROPE_BRIDGE, BridgePartType.DOUBLE_ABUTMENT, 0, 0, true, "RopeDA.png"),
     ROPE_BRIDGE_ABUTMENT(BridgeData.ROPE_BRIDGE, BridgePartType.ABUTMENT, 0, 0, false, "RopeEndL.png", "RopeEndR.png"),
     
-    WOODEN_BRIDGE_CROWN(BridgeData.WOODEN_BRIDGE, BridgePartType.CROWN, 1, 999, true, "WoodCrown.png"),
-    WOODEN_BRIDGE_DOUBLE_ABUTMENT(BridgeData.WOODEN_BRIDGE, BridgePartType.DOUBLE_ABUTMENT, 0, 0, true, "WoodCrown.png"),
+    WOODEN_BRIDGE_CROWN(BridgeData.WOODEN_BRIDGE, BridgePartType.CROWN, 0, 999, true, "WoodCrown.png"),
     WOODEN_BRIDGE_ABUTMENT(BridgeData.WOODEN_BRIDGE, BridgePartType.ABUTMENT, 0, 0, false, "WoodCrown.png"),
     WOODEN_BRIDGE_SUPPORT(BridgeData.WOODEN_BRIDGE, BridgePartType.SUPPORT, 1, 1, true, "WoodSupport.png"),
     

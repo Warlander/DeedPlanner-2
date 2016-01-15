@@ -189,7 +189,7 @@ final class BridgesDefaults {
         
         if (item.data == BridgeData.WOODEN_BRIDGE) {
             for (int i = 0; i < length; i++) {
-                if (bridge[i] == BridgePartType.BRACING || bridge[i] == BridgePartType.DOUBLE_BRACING) {
+                if (bridge[i] == BridgePartType.BRACING || bridge[i] == BridgePartType.DOUBLE_BRACING || bridge[i] == BridgePartType.DOUBLE_ABUTMENT) {
                     bridge[i] = BridgePartType.CROWN;
                 }
             }
