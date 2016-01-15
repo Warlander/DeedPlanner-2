@@ -118,6 +118,12 @@ public class Planner extends javax.swing.JFrame {
         tabbedPane.remove(cavesPanel);
         
         mapPanel.getLoop().start(this);
+        
+        if (Properties.showTip) {
+            TipWindow tipWindow = new TipWindow();
+            tipWindow.setVisible(true);
+            SwingUtilities.invokeLater(() -> tipWindow.pack());
+        }
     }
     
     public MapPanel getMapPanel() {

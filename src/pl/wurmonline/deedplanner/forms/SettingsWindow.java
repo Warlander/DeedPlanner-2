@@ -19,6 +19,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         showGridBox.setSelected(Properties.showGrid);
         translationBox.setSelected(Properties.useTranslation);
         colorblindBox.setSelected(Properties.colorblind);
+        tipBox.setSelected(Properties.showTip);
         scaleUpSelect.getModel().setValue(Properties.scale);
 
         mouseFractionFppSelect.getModel().setValue(Properties.mouseFractionFpp);
@@ -86,6 +87,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         translationBox = new javax.swing.JCheckBox();
         colorblindBox = new javax.swing.JCheckBox();
+        tipBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
@@ -187,6 +189,9 @@ public class SettingsWindow extends javax.swing.JFrame {
         colorblindBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         colorblindBox.setText(bundle.getString("SettingsWindow.colorblindBox.text")); // NOI18N
 
+        tipBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tipBox.setText(bundle.getString("SettingsWindow.tipBox.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,7 +210,7 @@ public class SettingsWindow extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(keyboardFractionUpSelect)
                                     .addComponent(scaleUpSelect, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(mouseFractionUpSelect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, Short.MAX_VALUE))
+                                    .addComponent(mouseFractionUpSelect, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
@@ -246,7 +251,8 @@ public class SettingsWindow extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel13))
                             .addComponent(translationBox)
-                            .addComponent(colorblindBox))
+                            .addComponent(colorblindBox)
+                            .addComponent(tipBox))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -309,6 +315,8 @@ public class SettingsWindow extends javax.swing.JFrame {
                                     .addComponent(lookCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tipBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(colorblindBox)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(translationBox)))))
@@ -326,6 +334,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         Properties.showGrid = showGridBox.isSelected();
         Properties.useTranslation = translationBox.isSelected();
         Properties.colorblind = colorblindBox.isSelected();
+        Properties.showTip = tipBox.isSelected();
         Properties.keyboardFractionUp = (double) keyboardFractionUpSelect.getModel().getValue();
         Properties.mouseFractionUp = (double) mouseFractionUpSelect.getModel().getValue();
         Properties.scale = (int) scaleUpSelect.getModel().getValue();
@@ -378,6 +387,7 @@ public class SettingsWindow extends javax.swing.JFrame {
     private javax.swing.JSpinner mouseFractionUpSelect;
     private javax.swing.JSpinner scaleUpSelect;
     private javax.swing.JCheckBox showGridBox;
+    private javax.swing.JCheckBox tipBox;
     private javax.swing.JCheckBox translationBox;
     // End of variables declaration//GEN-END:variables
 }
