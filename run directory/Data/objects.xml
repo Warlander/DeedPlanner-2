@@ -385,8 +385,142 @@
 			<category>Materials/Stone slab</category>
 		</floor>
 		
+		<floor name="Spiral staircase" shortname="spStair">
+			<model location="Data/Floors/spiralStaircase.dae">
+				<mesh name="wall" tex="Data/Walls/StoneWall.jpg"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
+		<floor name="Spiral staircase with banister" shortname="spbStair">
+			<model location="Data/Floors/spiralStaircaseB.dae">
+				<mesh name="column" tex="Data/Walls/StoneWall.jpg"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
+		<floor name="Spiral staircase (counterclockwise)" shortname="spccStair">
+			<model location="Data/Floors/spiralStaircaseCC.dae">
+				<mesh name="column" tex="Data/Walls/StoneWall.jpg"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
+		<floor name="Spiral staircase with banister (counterclockwise)" shortname="spbccStair">
+			<model location="Data/Floors/spiralStaircaseBCC.dae">
+				<mesh name="column" tex="Data/Walls/StoneWall.jpg"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
 		<floor name="Standalone staircase" shortname="stStair">
-			<model location="Data/Floors/Staircase.dae">
+			<model location="Data/Floors/standaloneStaircase.dae">
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
+		<floor name="Standalone left staircase" shortname="stlStair">
+			<model location="Data/Floors/standaloneStaircaseLeft.dae">
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
+		<floor name="Standalone right staircase" shortname="strStair">
+			<model location="Data/Floors/standaloneStaircaseRight.dae">
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
+		<floor name="Wide staircase" shortname="wsStair">
+			<model location="Data/Floors/wideStaircase.dae">
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
+		<floor name="Wide staircase (both banisters)" shortname="wsbStair">
+			<model location="Data/Floors/wideStaircaseBanister.dae">
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
+		<floor name="Wide staircase (left banister)" shortname="wslStair">
+			<model location="Data/Floors/wideStaircaseBanisterL.dae">
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+		</floor>
+		<floor name="Wide staircase (right banister)" shortname="wsrStair">
+			<model location="Data/Floors/wideStaircaseBanisterR.dae">
 				<mesh name="staircase" tex="Data/Floors/floor.png"/>
 			</model>
 			<opening/>
@@ -483,6 +617,206 @@
 		</floor>
 		<floor name="Stone slab staircase" shortname="sStair2">
 			<model location="Data/Floors/Staircase.dae">
+				<mesh name="floor" tex="Data/Floors/slab_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Stone slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Stone slab</category>
+		</floor>
+		<floor name="Wooden plank left staircase" shortname="wlStair">
+			<model location="Data/Floors/staircaseLeft.dae">
+				<mesh name="floor" tex="Data/Floors/floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 20,
+				Shafts = 10,
+				Small nails = 2,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Wooden plank</category>
+		</floor>
+		<floor name="Stone brick left staircase" shortname="sblStair">
+			<model location="Data/Floors/staircaseLeft.dae">
+				<mesh name="floor" tex="Data/Floors/brick_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Stone bricks = 5,
+				Mortar = 5,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Stone brick</category>
+		</floor>
+		<floor name="Pottery brick left staircase" shortname="pblStair">
+			<model location="Data/Floors/staircaseLeft.dae">
+				<mesh name="floor" tex="Data/Floors/clay_brick.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Pottery bricks = 5,
+				Mortar = 5,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Pottery brick</category>
+		</floor>
+		<floor name="Marble slab left staircase" shortname="mlStair">
+			<model location="Data/Floors/staircaseLeft.dae">
+				<mesh name="floor" tex="Data/Floors/marble_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Marble slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Marble slab</category>
+		</floor>
+		<floor name="Slate slab left staircase" shortname="slStair">
+			<model location="Data/Floors/staircaseLeft.dae">
+				<mesh name="floor" tex="Data/Floors/slate_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Slate slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Slate slab</category>
+		</floor>
+		<floor name="Stone slab left staircase" shortname="slStair2">
+			<model location="Data/Floors/staircaseLeft.dae">
+				<mesh name="floor" tex="Data/Floors/slab_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Stone slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Stone slab</category>
+		</floor>
+		<floor name="Wooden plank right staircase" shortname="wrStair">
+			<model location="Data/Floors/staircaseRight.dae">
+				<mesh name="floor" tex="Data/Floors/floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Planks = 20,
+				Shafts = 10,
+				Small nails = 2,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Wooden plank</category>
+		</floor>
+		<floor name="Stone brick right staircase" shortname="sbrStair">
+			<model location="Data/Floors/staircaseRight.dae">
+				<mesh name="floor" tex="Data/Floors/brick_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Stone bricks = 5,
+				Mortar = 5,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Stone brick</category>
+		</floor>
+		<floor name="Pottery brick right staircase" shortname="pbrStair">
+			<model location="Data/Floors/staircaseRight.dae">
+				<mesh name="floor" tex="Data/Floors/clay_brick.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Pottery bricks = 5,
+				Mortar = 5,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Pottery brick</category>
+		</floor>
+		<floor name="Marble slab right staircase" shortname="mrStair">
+			<model location="Data/Floors/staircaseRight.dae">
+				<mesh name="floor" tex="Data/Floors/marble_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Marble slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Marble slab</category>
+		</floor>
+		<floor name="Slate slab right staircase" shortname="srStair">
+			<model location="Data/Floors/staircaseRight.dae">
+				<mesh name="floor" tex="Data/Floors/slate_floor.png"/>
+				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			</model>
+			<opening/>
+			<materials>
+				Slate slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Slate slab</category>
+		</floor>
+		<floor name="Stone slab right staircase" shortname="srStair2">
+			<model location="Data/Floors/staircaseRight.dae">
 				<mesh name="floor" tex="Data/Floors/slab_floor.png"/>
 				<mesh name="staircase" tex="Data/Floors/floor.png"/>
 			</model>
