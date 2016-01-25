@@ -56,7 +56,10 @@ public final class Mesh implements Renderable {
         if (listID==0) {
             try {
                 listID = loadMesh(new File(vertLoc)).createModel(g);
-            } catch (ParserConfigurationException | IOException | SAXException | DeedPlannerException ex) {
+            } catch (ParserConfigurationException | IOException | SAXException ex) {
+                Log.err(ex);
+            } catch (DeedPlannerException ex) {
+                System.err.println("Problems with loading mesh " + name);
                 Log.err(ex);
             }
         }
