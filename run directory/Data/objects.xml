@@ -240,8 +240,8 @@
 	
 	<floors>
 		<floor name="Wooden plank floor" shortname="wFloor">
-			<model location="Data/Floors/Floor.dae">
-				<mesh name="floor" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/Floor.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/floor.png"/>
 			</model>
 			<materials>
 				Planks = 10,
@@ -251,8 +251,8 @@
 			<category>Materials/Wooden plank</category>
 		</floor>
 		<floor name="Stone brick floor" shortname="sbFloor">
-			<model location="Data/Floors/Floor.dae">
-				<mesh name="floor" tex="Data/Floors/brick_floor.png"/>
+			<model location="Data/Floors/Floor.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/brick_floor.png"/>
 			</model>
 			<materials>
 				Stone bricks = 10,
@@ -262,8 +262,8 @@
 			<category>Materials/Stone brick</category>
 		</floor>
 		<floor name="Pottery brick floor" shortname="pbFloor">
-			<model location="Data/Floors/Floor.dae">
-				<mesh name="floor" tex="Data/Floors/clay_brick.png"/>
+			<model location="Data/Floors/Floor.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.png"/>
 			</model>
 			<materials>
 				Pottery bricks = 10,
@@ -273,8 +273,8 @@
 			<category>Materials/Pottery brick</category>
 		</floor>
 		<floor name="Marble slab floor" shortname="mFloor">
-			<model location="Data/Floors/Floor.dae">
-				<mesh name="floor" tex="Data/Floors/marble_floor.png"/>
+			<model location="Data/Floors/Floor.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/marble_floor.png"/>
 			</model>
 			<materials>
 				Marble slabs = 2,
@@ -284,8 +284,8 @@
 			<category>Materials/Marble slab</category>
 		</floor>
 		<floor name="Slate slab floor" shortname="sFloor">
-			<model location="Data/Floors/Floor.dae">
-				<mesh name="floor" tex="Data/Floors/slate_floor.png"/>
+			<model location="Data/Floors/Floor.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/slate_floor.png"/>
 			</model>
 			<materials>
 				Slate slabs = 2,
@@ -295,8 +295,8 @@
 			<category>Materials/Slate slab</category>
 		</floor>
 		<floor name="Stone slab floor" shortname="sFloor2">
-			<model location="Data/Floors/Floor.dae">
-				<mesh name="floor" tex="Data/Floors/slab_floor.png"/>
+			<model location="Data/Floors/Floor.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<materials>
 				Slabs = 2,
@@ -307,9 +307,8 @@
 		</floor>
 		
 		<floor name="Wooden plank opening" shortname="wOpen">
-			<model location="Data/Floors/Floor_Opening.dae">
-				<mesh name="opening" tex="Data/Floors/floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
+			<model location="Data/Floors/Floor_Opening.wom">
+				<override mesh="OpeningMesh" texture="Data/Floors/floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -320,9 +319,8 @@
 			<category>Materials/Wooden plank</category>
 		</floor>
 		<floor name="Stone brick opening" shortname="sbOpen">
-			<model location="Data/Floors/Floor_Opening.dae">
-				<mesh name="opening" tex="Data/Floors/brick_floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
+			<model location="Data/Floors/Floor_Opening.wom">
+				<override mesh="OpeningMesh" texture="Data/Floors/brick_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -333,9 +331,8 @@
 			<category>Materials/Stone brick</category>
 		</floor>
 		<floor name="Pottery brick opening" shortname="pbOpen">
-			<model location="Data/Floors/Floor_Opening.dae">
-				<mesh name="opening" tex="Data/Floors/clay_brick.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
+			<model location="Data/Floors/Floor_Opening.wom">
+				<override mesh="OpeningMesh" texture="Data/Floors/clay_brick.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -346,9 +343,8 @@
 			<category>Materials/Pottery brick</category>
 		</floor>
 		<floor name="Marble slab opening" shortname="mOpen">
-			<model location="Data/Floors/Floor_Opening.dae">
-				<mesh name="opening" tex="Data/Floors/marble_floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
+			<model location="Data/Floors/Floor_Opening.wom">
+				<override mesh="OpeningMesh" texture="Data/Floors/marble_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -359,9 +355,8 @@
 			<category>Materials/Marble slab</category>
 		</floor>
 		<floor name="Slate slab opening" shortname="sOpen">
-			<model location="Data/Floors/Floor_Opening.dae">
-				<mesh name="opening" tex="Data/Floors/slate_floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
+			<model location="Data/Floors/Floor_Opening.wom">
+				<override mesh="OpeningMesh" texture="Data/Floors/slate_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -372,9 +367,8 @@
 			<category>Materials/Slate slab</category>
 		</floor>
 		<floor name="Stone slab opening" shortname="sOpen2">
-			<model location="Data/Floors/Floor_Opening.dae">
-				<mesh name="opening" tex="Data/Floors/slab_floor.png"/>
-				<mesh name="ladder" tex="Data/Floors/ladder.jpg"/>
+			<model location="Data/Floors/Floor_Opening.wom">
+				<override mesh="OpeningMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -386,10 +380,7 @@
 		</floor>
 		
 		<floor name="Spiral staircase" shortname="spStair">
-			<model location="Data/Floors/spiralStaircase.dae">
-				<mesh name="wall" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/spiralStaircase.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -400,10 +391,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Spiral staircase with banister" shortname="spbStair">
-			<model location="Data/Floors/spiralStaircaseB.dae">
-				<mesh name="column" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/spiralStaircaseB.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -414,10 +402,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Spiral staircase (counterclockwise)" shortname="spccStair">
-			<model location="Data/Floors/spiralStaircaseCC.dae">
-				<mesh name="column" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/spiralStaircaseCC.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -428,10 +413,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Spiral staircase with banister (counterclockwise)" shortname="spbccStair">
-			<model location="Data/Floors/spiralStaircaseBCC.dae">
-				<mesh name="column" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/spiralStaircaseBCC.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -442,9 +424,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Standalone staircase" shortname="stStair">
-			<model location="Data/Floors/standaloneStaircase.dae">
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/standaloneStaircase.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -455,9 +435,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Standalone left staircase" shortname="stlStair">
-			<model location="Data/Floors/standaloneStaircaseLeft.dae">
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/standaloneStaircaseLeft.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -468,9 +446,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Standalone right staircase" shortname="strStair">
-			<model location="Data/Floors/standaloneStaircaseRight.dae">
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/standaloneStaircaseRight.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -481,9 +457,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Wide staircase" shortname="wsStair">
-			<model location="Data/Floors/wideStaircase.dae">
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/wideStaircase.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -494,9 +468,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Wide staircase (both banisters)" shortname="wsbStair">
-			<model location="Data/Floors/wideStaircaseBanister.dae">
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/wideStaircaseBanister.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -507,9 +479,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Wide staircase (left banister)" shortname="wslStair">
-			<model location="Data/Floors/wideStaircaseBanisterL.dae">
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/wideStaircaseBanisterL.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -520,9 +490,7 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Wide staircase (right banister)" shortname="wsrStair">
-			<model location="Data/Floors/wideStaircaseBanisterR.dae">
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/wideStaircaseBanisterR.wom"/>
 			<opening/>
 			<materials>
 				Planks = 15,
@@ -533,9 +501,8 @@
 			<category>Staircases</category>
 		</floor>
 		<floor name="Wooden plank staircase" shortname="wStair">
-			<model location="Data/Floors/Staircase.dae">
-				<mesh name="floor" tex="Data/Floors/floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/Staircase.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -548,9 +515,8 @@
 			<category>Materials/Wooden plank</category>
 		</floor>
 		<floor name="Stone brick staircase" shortname="sbStair">
-			<model location="Data/Floors/Staircase.dae">
-				<mesh name="floor" tex="Data/Floors/brick_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/Staircase.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/brick_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -565,9 +531,8 @@
 			<category>Materials/Stone brick</category>
 		</floor>
 		<floor name="Pottery brick staircase" shortname="pbStair">
-			<model location="Data/Floors/Staircase.dae">
-				<mesh name="floor" tex="Data/Floors/clay_brick.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/Staircase.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -582,9 +547,8 @@
 			<category>Materials/Pottery brick</category>
 		</floor>
 		<floor name="Marble slab staircase" shortname="mStair">
-			<model location="Data/Floors/Staircase.dae">
-				<mesh name="floor" tex="Data/Floors/marble_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/Staircase.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/marble_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -599,9 +563,8 @@
 			<category>Materials/Marble slab</category>
 		</floor>
 		<floor name="Slate slab staircase" shortname="sStair">
-			<model location="Data/Floors/Staircase.dae">
-				<mesh name="floor" tex="Data/Floors/slate_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/Staircase.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/slate_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -616,9 +579,8 @@
 			<category>Materials/Slate slab</category>
 		</floor>
 		<floor name="Stone slab staircase" shortname="sStair2">
-			<model location="Data/Floors/Staircase.dae">
-				<mesh name="floor" tex="Data/Floors/slab_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/Staircase.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -633,9 +595,8 @@
 			<category>Materials/Stone slab</category>
 		</floor>
 		<floor name="Wooden plank left staircase" shortname="wlStair">
-			<model location="Data/Floors/staircaseLeft.dae">
-				<mesh name="floor" tex="Data/Floors/floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseLeft.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -648,9 +609,8 @@
 			<category>Materials/Wooden plank</category>
 		</floor>
 		<floor name="Stone brick left staircase" shortname="sblStair">
-			<model location="Data/Floors/staircaseLeft.dae">
-				<mesh name="floor" tex="Data/Floors/brick_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseLeft.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/brick_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -665,9 +625,8 @@
 			<category>Materials/Stone brick</category>
 		</floor>
 		<floor name="Pottery brick left staircase" shortname="pblStair">
-			<model location="Data/Floors/staircaseLeft.dae">
-				<mesh name="floor" tex="Data/Floors/clay_brick.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseLeft.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -682,9 +641,8 @@
 			<category>Materials/Pottery brick</category>
 		</floor>
 		<floor name="Marble slab left staircase" shortname="mlStair">
-			<model location="Data/Floors/staircaseLeft.dae">
-				<mesh name="floor" tex="Data/Floors/marble_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseLeft.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/marble_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -699,9 +657,8 @@
 			<category>Materials/Marble slab</category>
 		</floor>
 		<floor name="Slate slab left staircase" shortname="slStair">
-			<model location="Data/Floors/staircaseLeft.dae">
-				<mesh name="floor" tex="Data/Floors/slate_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseLeft.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/slate_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -716,9 +673,8 @@
 			<category>Materials/Slate slab</category>
 		</floor>
 		<floor name="Stone slab left staircase" shortname="slStair2">
-			<model location="Data/Floors/staircaseLeft.dae">
-				<mesh name="floor" tex="Data/Floors/slab_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseLeft.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -733,9 +689,8 @@
 			<category>Materials/Stone slab</category>
 		</floor>
 		<floor name="Wooden plank right staircase" shortname="wrStair">
-			<model location="Data/Floors/staircaseRight.dae">
-				<mesh name="floor" tex="Data/Floors/floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseRight.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -748,9 +703,8 @@
 			<category>Materials/Wooden plank</category>
 		</floor>
 		<floor name="Stone brick right staircase" shortname="sbrStair">
-			<model location="Data/Floors/staircaseRight.dae">
-				<mesh name="floor" tex="Data/Floors/brick_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseRight.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/brick_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -765,9 +719,8 @@
 			<category>Materials/Stone brick</category>
 		</floor>
 		<floor name="Pottery brick right staircase" shortname="pbrStair">
-			<model location="Data/Floors/staircaseRight.dae">
-				<mesh name="floor" tex="Data/Floors/clay_brick.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseRight.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -782,9 +735,8 @@
 			<category>Materials/Pottery brick</category>
 		</floor>
 		<floor name="Marble slab right staircase" shortname="mrStair">
-			<model location="Data/Floors/staircaseRight.dae">
-				<mesh name="floor" tex="Data/Floors/marble_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseRight.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/marble_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -799,9 +751,8 @@
 			<category>Materials/Marble slab</category>
 		</floor>
 		<floor name="Slate slab right staircase" shortname="srStair">
-			<model location="Data/Floors/staircaseRight.dae">
-				<mesh name="floor" tex="Data/Floors/slate_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseRight.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/slate_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -816,9 +767,8 @@
 			<category>Materials/Slate slab</category>
 		</floor>
 		<floor name="Stone slab right staircase" shortname="srStair2">
-			<model location="Data/Floors/staircaseRight.dae">
-				<mesh name="floor" tex="Data/Floors/slab_floor.png"/>
-				<mesh name="staircase" tex="Data/Floors/floor.png"/>
+			<model location="Data/Floors/staircaseRight.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
@@ -834,9 +784,7 @@
 		</floor>
 		
 		<floor name="Unfinished floor" shortname="uFloor">
-			<model location="Data/Floors/Floor_Plan.dae">
-				<mesh name="plan" tex="Data/Floors/floor.png"/>
-			</model>
+			<model location="Data/Floors/Floor_Plan.wom"/>
 			<category>Unfinished</category>
 		</floor>
 	</floors>
@@ -847,9 +795,7 @@
 	
 	<walls>
 		<wall name="Wooden wall" shortname="wWall" scale="4" type="house">
-			<model location="Data/Walls/Wooden_Wall.dae">
-				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_Wall.wom"/>
 			<color type="dec" r="1" g="0.8" b="0.8"/>
 			<materials>
 				Planks = 20,
@@ -860,9 +806,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden window" shortname="wWindow" scale="4" type="house">
-			<model location="Data/Walls/Wooden_Window.dae">
-				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_Window.wom"/>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
 			<materials>
 				Planks = 20,
@@ -873,9 +817,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden wide window" shortname="wwWindow" scale="4" type="house">
-			<model location="Data/Walls/Wooden_WideWindow.dae">
-				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_WideWindow.wom"/>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
 			<materials>
 				Planks = 20,
@@ -886,9 +828,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden arched wall" shortname="wArch" scale="4" type="arch">
-			<model location="Data/Walls/Wooden_Arched_Door.dae">
-				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_Arched_Door.wom"/>
 			<color type="dec" r="0.8" g="1" b="0.8"/>
 			<materials>
 				Planks = 20,
@@ -899,9 +839,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden door" shortname="wDoor" scale="4" type="house">
-			<model location="Data/Walls/Wooden_Door_Main.dae">
-				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_Door_Main.wom"/>
 			<color type="dec" r="0.8" g="1" b="1"/>
 			<materials>
 				Planks = 20,
@@ -912,9 +850,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden canopy" shortname="wCanopy" scale="1" type="house">
-			<model location="Data/Walls/Wooden_Canopy.dae">
-				<mesh name="canopy" tex="Data/Walls/wooden.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_Canopy.wom"/>
 			<color type="dec" r="0.8" g="1" b="1"/>
 			<materials>
 				Planks = 20,
@@ -925,9 +861,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden double door" shortname="wdDoor" scale="4" type="house">
-			<model location="Data/Walls/Wooden_Door_Double_Main.dae">
-				<mesh name="wooden" tex="Data/Walls/wooden.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_Door_Double_Main.wom"/>
 			<color type="dec" r="1" g="0.7" b="1"/>
 			<materials>
 				Planks = 20,
@@ -939,12 +873,8 @@
 		</wall>
 		
 		<wall name="Stone wall" shortname="sWall" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Wall.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
-			<model location="Data/Walls/House_Stone_Wall_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Wall.wom" tag="bottom"/>
+			<model location="Data/Walls/House_Stone_Wall_Upper.wom"/>
 			<color type="dec" r="1" g="0.8" b="0.8"/>
 			<materials>
 				Mortar = 20,
@@ -955,12 +885,8 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone window" shortname="sWindow" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Wall_Window.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
-			<model location="Data/Walls/House_Stone_Wall_Window_Upper.dae">
-				<mesh name="WindowUpper" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Wall_Window.wom" tag="bottom"/>
+			<model location="Data/Walls/House_Stone_Wall_Window_Upper.wom"/>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
 			<materials>
 				Mortar = 20,
@@ -971,9 +897,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone arched wall" shortname="sArch" scale="1" type="arch">
-			<model location="Data/Walls/Stone_Arched_Door_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/Stone_Arched_Door_Upper.wom"/>
 			<color type="dec" r="0.8" g="1" b="0.8"/>
 			<materials>
 				Mortar = 20,
@@ -984,12 +908,8 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone door" shortname="sDoor" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Wall_Door_Main.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
-			<model location="Data/Walls/House_Stone_Wall_Door_Main_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Wall_Door_Main.wom" tag="bottom"/>
+			<model location="Data/Walls/House_Stone_Wall_Door_Main_Upper.wom"/>
 			<color type="dec" r="0.8" g="1" b="1"/>
 			<materials>
 				Mortar = 20,
@@ -1000,12 +920,8 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone double door" shortname="sdDoor" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Main.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
-			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Main_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Main.wom" tag="bottom"/>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Main_Upper.wom"/>
 			<color type="dec" r="1" g="0.7" b="1"/>
 			<materials>
 				Mortar = 20,
@@ -1016,10 +932,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone portcullis" shortname="sPort" scale="1" type="house">
-			<model location="Data/Walls/stonewallPortcullis_upper.dae">
-				<mesh name="wall" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
-			</model>
+			<model location="Data/Walls/stonewallPortcullis_upper.wom"/>
 			<color type="dec" r="1" g="1" b="0.7"/>
 			<materials>
 				Mortar = 20,
@@ -1030,9 +943,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone oriel" shortname="sOriel" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Wall_Upper_Oriel1.dae">
-				<mesh name="oriel" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Wall_Upper_Oriel1.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Mortar = 20,
@@ -1044,12 +955,8 @@
 		</wall>
 		
 		<wall name="Plain stone wall" shortname="psWall" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Wall_Plain.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
-			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Wall_Plain.wom" tag="bottom"/>
+			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.wom"/>
 			<color type="dec" r="1" g="0.8" b="0.8"/>
 			<materials>
 				Mortar = 20,
@@ -1060,12 +967,8 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone window" shortname="psWindow" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Window_Plain.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
-			<model location="Data/Walls/House_Stone_Window_Plain_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Window_Plain.wom" tag="bottom"/>
+			<model location="Data/Walls/House_Stone_Window_Plain_Upper.wom"/>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
 			<materials>
 				Mortar = 20,
@@ -1076,12 +979,8 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone narrow window" shortname="psnWindow" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Window_Narrow.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
-			<model location="Data/Walls/House_Stone_Window_Narrow_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom"/>
+			<model location="Data/Walls/House_Stone_Window_Narrow_Upper.wom"/>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
 			<materials>
 				Mortar = 20,
@@ -1092,9 +991,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone arched wall" shortname="psArch" scale="1" type="arch">
-			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.wom"/>
 			<color type="dec" r="0.8" g="1" b="0.8"/>
 			<materials>
 				Mortar = 20,
@@ -1105,12 +1002,8 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone door" shortname="psDoor" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
-			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main.wom" tag="bottom"/>
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main_Upper.wom"/>
 			<color type="dec" r="0.8" g="1" b="1"/>
 			<materials>
 				Mortar = 20,
@@ -1121,12 +1014,8 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone double door" shortname="psdDoor" scale="1" type="house">
-			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main.dae" tag="bottom">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
-			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main_Upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main.wom" tag="bottom"/>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main_Upper.wom"/>
 			<color type="dec" r="1" g="0.7" b="1"/>
 			<materials>
 				Mortar = 20,
@@ -1137,10 +1026,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone portcullis" shortname="psPort" scale="1" type="house">
-			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
-			</model>
+			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.wom"/>
 			<color type="dec" r="1" g="1" b="0.7"/>
 			<materials>
 				Mortar = 20,
@@ -1151,10 +1037,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone bars" shortname="psBars" scale="1" type="house">
-			<model location="Data/Walls/PlainStoneWall_bars1_upper.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="portcullisparts" tex="Data/Walls/portcullisParts.png"/>
-			</model>
+			<model location="Data/Walls/PlainStoneWall_bars1_upper.wom"/>
 			<color type="dec" r="1" g="1" b="0.7"/>
 			<materials>
 				Mortar = 20,
@@ -1165,9 +1048,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone oriel" shortname="psOriel" scale="1" type="house">
-			<model location="Data/Walls/House_Plain_Stone_Wall_Upper_Oriel2.dae">
-				<mesh name="oriel" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/House_Plain_Stone_Wall_Upper_Oriel2.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Mortar = 20,
@@ -1179,12 +1060,8 @@
 		</wall>
 		
 		<wall name="Timber wall" shortname="tWall" scale="4" type="house">
-			<model location="Data/Walls/timberWall.dae" tag="bottom">
-				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
-			</model>
-			<model location="Data/Walls/timberWall_upper.dae">
-				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
-			</model>
+			<model location="Data/Walls/timberWall.wom" tag="bottom"/>
+			<model location="Data/Walls/timberWall_upper.wom"/>
 			<color type="dec" r="1" g="0.8" b="0.8"/>
 			<materials>
 				Wooden beams = 5,
@@ -1196,12 +1073,8 @@
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber window" shortname="tWindow" scale="4" type="house">
-			<model location="Data/Walls/timberWallWindow.dae" tag="bottom">
-				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
-			</model>
-			<model location="Data/Walls/timberWallWindow_upper.dae">
-				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
-			</model>
+			<model location="Data/Walls/timberWallWindow.wom" tag="bottom"/>
+			<model location="Data/Walls/timberWallWindow_upper.wom"/>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
 			<materials>
 				Wooden beams = 5,
@@ -1213,9 +1086,7 @@
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber arched wall" shortname="tArch" scale="4" type="arch">
-			<model location="Data/Walls/timberWallArched.dae">
-				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
-			</model>
+			<model location="Data/Walls/timberWallArched.wom"/>
 			<color type="dec" r="0.8" g="1" b="0.8"/>
 			<materials>
 				Wooden beams = 5,
@@ -1227,12 +1098,8 @@
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber door" shortname="tDoor" scale="4" type="house">
-			<model location="Data/Walls/timberWallDoor_Main.dae" tag="bottom">
-				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
-			</model>
-			<model location="Data/Walls/timberWallDoorUpper_Main.dae">
-				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
-			</model>
+			<model location="Data/Walls/timberWallDoor_Main.wom" tag="bottom"/>
+			<model location="Data/Walls/timberWallDoorUpper_Main.wom"/>
 			<color type="dec" r="0.8" g="1" b="1"/>
 			<materials>
 				Wooden beams = 5,
@@ -1244,12 +1111,8 @@
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber double door" shortname="tdDoor" scale="4" type="house">
-			<model location="Data/Walls/timberWallDoubleDoor_Main.dae" tag="bottom">
-				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
-			</model>
-			<model location="Data/Walls/timberWallDoubleDoorUpper_Main.dae">
-				<mesh name="timber" tex="Data/Walls/timberTex.png"/>
-			</model>
+			<model location="Data/Walls/timberWallDoubleDoor_Main.wom" tag="bottom"/>
+			<model location="Data/Walls/timberWallDoubleDoorUpper_Main.wom"/>
 			<color type="dec" r="1" g="0.7" b="1"/>
 			<materials>
 				Wooden beams = 5,
@@ -1261,9 +1124,7 @@
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber jetty" shortname="tJetty" scale="1" type="house">
-			<model location="Data/Walls/timberWallJetty_upper.dae">
-				<mesh name="tiimber" tex="Data/Walls/timberTex.png"/>
-			</model>
+			<model location="Data/Walls/timberWallJetty_upper.wom"/>
 			<color type="dec" r="1" g="0.8" b="0.8"/>
 			<materials>
 				Wooden beams = 5,
@@ -1275,9 +1136,7 @@
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber balcony" shortname="tBalcony" scale="1" type="house">
-			<model location="Data/Walls/timberWallBalcony_upper.dae">
-				<mesh name="tiimber" tex="Data/Walls/timberTex.png"/>
-			</model>
+			<model location="Data/Walls/timberWallBalcony_upper.wom"/>
 			<color type="dec" r="0.8" g="0.8" b="1"/>
 			<materials>
 				Wooden beams = 5,
@@ -1290,18 +1149,14 @@
 		</wall>
 		
 		<wall name="Wall plan" shortname="wPlan" scale="4" type="house">
-			<model location="Data/Walls/Wall_Plan.dae">
-				<mesh name="plan" tex="Data/Walls/wooden.jpg"/>
-			</model>
+			<model location="Data/Walls/Wall_Plan.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<icon location="Data/Walls/Icons/outline.png"/>
 			<category>House walls</category>
 		</wall>
 		
 		<wall name="Low stone wall" shortname="lsFence" scale="2" type="highfence">
-			<model location="Data/Walls/SmallStone.dae">
-				<mesh name="stone" tex="Data/Walls/SmallStone.jpg"/>
-			</model>
+			<model location="Data/Walls/SmallStone.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Rock shards = 10
@@ -1311,9 +1166,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone fence" shortname="stFence" scale="1" type="lowfence">
-			<model location="Data/Walls/StoneFence.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/StoneFence.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Stone bricks = 10
@@ -1323,9 +1176,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Tall stone wall" shortname="tsFence" scale="1" type="highfence">
-			<model location="Data/Walls/Tall_Stone_Wall.dae">
-				<mesh name="stone" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/Tall_Stone_Wall.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Stone bricks = 20
@@ -1335,10 +1186,7 @@
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Tall stone wall portcullis" shortname="tsPort" scale="1" type="highfence">
-			<model location="Data/Walls/tallStoneWallPortcullis.dae">
-				<mesh name="thewall" tex="Data/Walls/StoneWall.jpg"/>
-				<mesh name="whhels" tex="Data/Walls/portcullisParts.png"/>
-			</model>
+			<model location="Data/Walls/tallStoneWallPortcullis.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Stone bricks = 15,
@@ -1352,9 +1200,7 @@
 		</wall>
 		
 		<wall name="Palisade" shortname="pFence" scale="3" type="highfence">
-			<model location="Data/Walls/Palisade.dae">
-				<mesh name="palisade" tex="Data/Walls/palisade.jpg"/>
-			</model>
+			<model location="Data/Walls/Palisade.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Felled trees = 10
@@ -1364,9 +1210,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Palisade gate" shortname="pFenceG" scale="3" type="highfence">
-			<model location="Data/Walls/PalisadeGate_Main.dae">
-				<mesh name="palisade" tex="Data/Walls/palisade.jpg"/>
-			</model>
+			<model location="Data/Walls/PalisadeGate_Main.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Felled trees = 10
@@ -1377,9 +1221,7 @@
 		</wall>
 		
 		<wall name="Wooden parapet" shortname="wPar" scale="4" type="highfence">
-			<model location="Data/Walls/Wooden_Parapet.dae">
-				<mesh name="parapet" tex="Data/Walls/wooden.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_Parapet.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<house/>
 			<materials>
@@ -1392,9 +1234,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Stone parapet" shortname="sPar" scale="2" type="lowfence">
-			<model location="Data/Walls/Stone_Parapet.dae">
-				<mesh name="parapet" tex="Data/Walls/StoneWall.jpg"/>
-			</model>
+			<model location="Data/Walls/Stone_Parapet.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<house/>
 			<materials>
@@ -1405,9 +1245,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Stone and iron parapet" shortname="siPar" scale="2" type="lowfence">
-			<model location="Data/Walls/Stone_Iron_Parapet.dae">
-				<mesh name="parapet" tex="Data/Walls/IronFence.png"/>
-			</model>
+			<model location="Data/Walls/Stone_Iron_Parapet.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<house/>
 			<materials>
@@ -1420,9 +1258,7 @@
 		</wall>
 		
 		<wall name="Crude wooden fence" shortname="cwFence" scale="4" type="lowfence">
-			<model location="Data/Walls/Crude_Wooden_Fence.dae">
-				<mesh name="wooden" tex="Data/Walls/CrudeWoodenFence.jpg"/>
-			</model>
+			<model location="Data/Walls/Crude_Wooden_Fence.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Shafts = 2,
@@ -1434,10 +1270,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Crude wooden fence gate" shortname="cwFenceG" scale="4" type="lowfence">
-			<model location="Data/Walls/Crude_Gate_Main.dae">
-				<mesh name="posts" tex="Data/Walls/CrudeWoodenFence.jpg"/>
-				<mesh name="gate" tex="Data/Walls/CrudeWoodenFence.jpg"/>
-			</model>
+			<model location="Data/Walls/Crude_Gate_Main.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Shafts = 2,
@@ -1450,9 +1283,7 @@
 		</wall>
 		
 		<wall name="Low roundpole fence" shortname="gFence" scale="12" type="lowfence">
-			<model location="Data/Walls/Gardesgard.dae">
-				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
-			</model>
+			<model location="Data/Walls/Gardesgard.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="1"/>
 			<materials>
 				Shafts = 4,
@@ -1463,9 +1294,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Low roundpole gate" shortname="gFenceG" scale="12" type="lowfence">
-			<model location="Data/Walls/GardesgardGate_main.dae">
-				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
-			</model>
+			<model location="Data/Walls/GardesgardGate_main.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="1"/>
 			<materials>
 				Shafts = 4,
@@ -1476,9 +1305,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="High roundpole fence" shortname="hgFence" scale="12" type="lowfence">
-			<model location="Data/Walls/GardesgardHigh.dae">
-				<mesh name="gardesgard" tex="Data/Walls/WoodenFence.jpg"/>
-			</model>
+			<model location="Data/Walls/GardesgardHigh.wom"/>
 			<color type="dec" r="1" g="0.5" b="0.5"/>
 			<materials>
 				Shafts = 4,
@@ -1490,9 +1317,7 @@
 		</wall>
 		
 		<wall name="Wooden fence" shortname="wFence" scale="4" type="lowfence">
-			<model location="Data/Walls/Wooden_Fence.dae">
-				<mesh name="fence" tex="Data/Walls/WoodenFence.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_Fence.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Shafts = 2,
@@ -1504,11 +1329,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden fence gate" shortname="wFenceG" scale="2" type="lowfence">
-			<model location="Data/Walls/Wooden_Gate_Main.dae">
-				<mesh name="gatemesh" tex="Data/Walls/WoodenFence.jpg"/>
-				<mesh name="posts" tex="Data/Walls/WoodenFence.jpg"/>
-				<mesh name="gate2" tex="Data/Walls/WoodenFence.jpg"/>
-			</model>
+			<model location="Data/Walls/Wooden_Gate_Main.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
 				Shafts = 2,
@@ -1521,9 +1342,7 @@
 		</wall>
 		
 		<wall name="Iron fence" shortname="iFence" scale="2" type="lowfence">
-			<model location="Data/Walls/IronFence.dae">
-				<mesh name="iron" tex="Data/Walls/IronFence.png"/>
-			</model>
+			<model location="Data/Walls/IronFence.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="1"/>
 			<materials>
 				Stone bricks = 9,
@@ -1534,10 +1353,7 @@
 			<category>Materials/Iron</category>
 		</wall>
 		<wall name="Iron fence gate" shortname="iFenceG" scale="2" type="lowfence">
-			<model location="Data/Walls/IronFenceGate_Main.dae">
-				<mesh name="gatemesh" tex="Data/Walls/IronFence.png"/>
-				<mesh name="fence" tex="Data/Walls/IronFence.png"/>
-			</model>
+			<model location="Data/Walls/IronFenceGate_Main.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="1"/>
 			<materials>
 				Stone bricks = 9,
@@ -1548,9 +1364,7 @@
 			<category>Materials/Iron</category>
 		</wall>
 		<wall name="High iron fence" shortname="hiFence" scale="2" type="highfence">
-			<model location="Data/Walls/HighIronFence.dae">
-				<mesh name="iron" tex="Data/Walls/IronFence.png"/>
-			</model>
+			<model location="Data/Walls/HighIronFence.wom"/>
 			<color type="dec" r="1" g="0.5" b="0.5"/>
 			<materials>
 				Stone bricks = 16,
@@ -1561,9 +1375,7 @@
 			<category>Materials/Iron</category>
 		</wall>
 		<wall name="High iron fence gate" shortname="hiFenceG" scale="2" type="highfence">
-			<model location="Data/Walls/HighIronFenceGate_main.dae">
-				<mesh name="iron" tex="Data/Walls/IronFence.png"/>
-			</model>
+			<model location="Data/Walls/HighIronFenceGate_main.wom"/>
 			<color type="dec" r="1" g="0.5" b="0.5"/>
 			<materials>
 				Stone bricks = 16,
@@ -1574,9 +1386,7 @@
 			<category>Materials/Iron</category>
 		</wall>
 		<wall name="Chain fence" shortname="icFence" scale="2" type="lowfence">
-			<model location="Data/Walls/ChainMediumFence.dae">
-				<mesh name="fence" tex="Data/Walls/IronFence.png"/>
-			</model>
+			<model location="Data/Walls/ChainMediumFence.wom"/>
 			<color type="dec" r="1" g="0.5" b="0.5"/>
 			<materials>
 				Stone bricks = 10,
@@ -1588,9 +1398,7 @@
 		</wall>
 		
 		<wall name="Curb" shortname="curb" scale="2" type="lowfence">
-			<model location="Data/Walls/Curb.dae">
-				<mesh name="curb" tex="Data/Walls/curb.jpg"/>
-			</model>
+			<model location="Data/Walls/Curb.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="1"/>
 			<materials>
 				Rock shards = 6
@@ -1601,9 +1409,7 @@
 		</wall>
 		
 		<wall name="Low rope fence" shortname="rFence" scale="15" type="lowfence">
-			<model location="Data/Walls/RopeFence.dae">
-				<mesh name="rope" tex="Data/Walls/ropefence.jpg"/>
-			</model>
+			<model location="Data/Walls/RopeFence.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="1"/>
 			<materials>
 				Shafts = 2,
@@ -1614,9 +1420,7 @@
 			<category>Materials/Rope</category>
 		</wall>
 		<wall name="High rope fence" shortname="hrFence" scale="15" type="lowfence">
-			<model location="Data/Walls/HighRopeFence.dae">
-				<mesh name="rope" tex="Data/Walls/ropefence.jpg"/>
-			</model>
+			<model location="Data/Walls/HighRopeFence.wom"/>
 			<color type="dec" r="1" g="0.5" b="0.5"/>
 			<materials>
 				Shafts = 2,
@@ -1628,114 +1432,86 @@
 		</wall>
 		
 		<wall name="High hedge" shortname="hHedge" scale="1" type="highfence">
-			<model location="Data/Walls/Hedge01_High.dae">
-				<mesh name="hedge" tex="Data/Walls/Hedge01.png"/>
-			</model>
+			<model location="Data/Walls/Hedge01_High.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="0.5"/>
 			<icon location="Data/Walls/Icons/Hedge01_High.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Medium hedge" shortname="mHedge" scale="1" type="highfence">
-			<model location="Data/Walls/Hedge01_Medium.dae">
-				<mesh name="hedge" tex="Data/Walls/Hedge01.png"/>
-			</model>
+			<model location="Data/Walls/Hedge01_Medium.wom"/>
 			<color type="dec" r="0.6" g="0.6" b="0.6"/>
 			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Low hedge" shortname="lHedge" scale="1" type="highfence">
-			<model location="Data/Walls/Hedge01_Low.dae">
-				<mesh name="hedge" tex="Data/Walls/Hedge01.png"/>
-			</model>
+			<model location="Data/Walls/Hedge01_Low.wom"/>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
 			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Lavender hedge" shortname="llHedge" scale="1" type="highfence">
-			<model location="Data/Walls/LavenderHedge.dae">
-				<mesh name="hedge" tex="Data/Walls/LavenderHedge.png"/>
-			</model>
+			<model location="Data/Walls/LavenderHedge.wom"/>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
 			<icon location="Data/Walls/Icons/LavenderHedge_low.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="High maple hedge" shortname="hmHedge" scale="1" type="highfence">
-			<model location="Data/Walls/Maple_High.dae">
-				<mesh name="maple" tex="Data/Walls/MapleHedgeSummer.png"/>
-			</model>
+			<model location="Data/Walls/Maple_High.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="0.5"/>
 			<icon location="Data/Walls/Icons/MapleHedge_High.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Medium maple hedge" shortname="mmHedge" scale="1" type="highfence">
-			<model location="Data/Walls/Maple_Medium.dae">
-				<mesh name="maple" tex="Data/Walls/MapleHedgeSummer.png"/>
-			</model>
+			<model location="Data/Walls/Maple_Medium.wom"/>
 			<color type="dec" r="0.6" g="0.6" b="0.6"/>
 			<icon location="Data/Walls/Icons/MapleHedge_Medium.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Low maple hedge" shortname="lmHedge" scale="1" type="highfence">
-			<model location="Data/Walls/Maple_Low.dae">
-				<mesh name="maple" tex="Data/Walls/MapleHedgeSummer.png"/>
-			</model>
+			<model location="Data/Walls/Maple_Low.wom"/>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
 			<icon location="Data/Walls/Icons/MapleHedge_Low.png"/>
 			<category>Hedges</category>
 		</wall>
 		
 		<wall name="Blue flowerbed" shortname="bFlowerbed" scale="1" type="highfence">
-			<model location="Data/Walls/Flowerbed_blue.dae">
-				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
-			</model>
+			<model location="Data/Walls/Flowerbed_blue.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<icon location="Data/Walls/Icons/FlowerbedBlue.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Dotted flowerbed" shortname="dFlowerbed" scale="1" type="highfence">
-			<model location="Data/Walls/Flowerbed_dotted.dae">
-				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
-			</model>
+			<model location="Data/Walls/Flowerbed_dotted.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<icon location="Data/Walls/Icons/FlowerbedDotted.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Greenish flowerbed" shortname="gFlowerbed" scale="1" type="highfence">
-			<model location="Data/Walls/Flowerbed_greenish.dae">
-				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
-			</model>
+			<model location="Data/Walls/Flowerbed_greenish.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<icon location="Data/Walls/Icons/FlowerbedGreenish.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Orange flowerbed" shortname="oFlowerbed" scale="1" type="highfence">
-			<model location="Data/Walls/Flowerbed_orange.dae">
-				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
-			</model>
+			<model location="Data/Walls/Flowerbed_orange.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<icon location="Data/Walls/Icons/FlowerbedOrange.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Purple flowerbed" shortname="pFlowerbed" scale="1" type="highfence">
-			<model location="Data/Walls/Flowerbed_purple.dae">
-				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
-			</model>
+			<model location="Data/Walls/Flowerbed_purple.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<icon location="Data/Walls/Icons/FlowerbedPurple.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="White flowerbed" shortname="wFlowerbed" scale="1" type="highfence">
-			<model location="Data/Walls/Flowerbed_white.dae">
-				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
-			</model>
+			<model location="Data/Walls/Flowerbed_white.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<icon location="Data/Walls/Icons/FlowerbedWhite.png"/>
 			<category>Flowerbeds</category>
 		</wall>
 		<wall name="Yellow flowerbed" shortname="yFlowerbed" scale="1" type="highfence">
-			<model location="Data/Walls/Flowerbed_yellow.dae">
-				<mesh name="flowerbed" tex="Data/Walls/flowerbed.png"/>
-			</model>
+			<model location="Data/Walls/Flowerbed_yellow.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<icon location="Data/Walls/Icons/FlowerbedYellow.png"/>
 			<category>Flowerbeds</category>
@@ -1779,9 +1555,7 @@
 	
 	<objects>
 		<object name="Large chest" shortname="lChest" type="normal">
-			<model location="Data/Objects/LargeChest_main.dae">
-				<mesh name="largechest" tex="Data/Objects/chests.jpg"/>
-			</model>
+			<model location="Data/Objects/LargeChest_main.wom"/>
 			<materials>
 				Planks = 5,
 				Iron ribbons = 3,
@@ -1791,9 +1565,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Small chest" shortname="sChest" type="normal">
-			<model location="Data/Objects/SmallChest_main.dae">
-				<mesh name="smallchest" tex="Data/Objects/chests.jpg"/>
-			</model>
+			<model location="Data/Objects/SmallChest_main.wom"/>
 			<materials>
 				Planks = 4,
 				Small nails = 1
@@ -1802,16 +1574,11 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Large magic chest" shortname="lmChest" type="normal">
-			<model location="Data/Objects/magic_chest.dae">
-				<mesh name="magicchest" tex="Data/Objects/magic_chest.jpg"/>
-				<mesh name="glow" tex="Data/Objects/shine.png"/>
-			</model>
+			<model location="Data/Objects/magic_chest.wom"/>
 			<category>Containers</category>
 		</object>
 		<object name="Large crate" shortname="lCrate" type="normal">
-			<model location="Data/Objects/crateLarge.dae">
-				<mesh name="crate" tex="Data/Objects/crate.jpg"/>
-			</model>
+			<model location="Data/Objects/crateLarge.wom"/>
 			<materials>
 				Planks = 16,
 				Large nails = 1
@@ -1820,9 +1587,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Small crate" shortname="sCrate" type="normal">
-			<model location="Data/Objects/crateSmall.dae">
-				<mesh name="crate" tex="Data/Objects/crate.jpg"/>
-			</model>
+			<model location="Data/Objects/crateSmall.wom"/>
 			<materials>
 				Planks = 11,
 				Large nails = 1
@@ -1831,9 +1596,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Coffin" shortname="coffin" type="normal">
-			<model location="Data/Objects/Coffin_main.dae">
-				<mesh name="coffin" tex="Data/Objects/coffin.jpg"/>
-			</model>
+			<model location="Data/Objects/Coffin_main.wom"/>
 			<materials>
 				Slabs = 4,
 				Clay = 4,
@@ -1842,11 +1605,39 @@
 			<category>Containers</category>
 			<category>Materials/Stone</category>
 		</object>
+		<object name="Bulk Storage Bin (empty)" shortname="bsbe" type="normal">
+			<model location="Data/Objects/Bulk_Storage_Bin.wom"/>
+			<materials>
+				Planks = 25,
+				Large nails = 4,
+				Iron ribbons = 1
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Bulk Storage Bin (full)" shortname="bsbf" type="normal">
+			<model location="Data/Objects/Bulk_Storage_Bin_Full.wom"/>
+			<materials>
+				Planks = 25,
+				Large nails = 4,
+				Iron ribbons = 1
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Food Storage Bin" shortname="fsb" type="normal">
+			<model location="Data/Objects/Hopper_Bulk.wom"/>
+			<materials>
+				Planks = 25,
+				Large nails = 4,
+				Iron ribbons = 1
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
 		
 		<object name="Gold altar" shortname="gAltar" type="normal">
-			<model location="Data/Objects/altar-gold.dae">
-				<mesh name="altar" tex="Data/Objects/altar-gold.png"/>
-			</model>
+			<model location="Data/Objects/altar-gold.wom"/>
 			<materials>
 				Gold lump = 50
 			</materials>
@@ -1854,9 +1645,7 @@
 			<category>Materials/Gold</category>
 		</object>
 		<object name="Silver altar" shortname="sAltar" type="normal">
-			<model location="Data/Objects/altar-silver.dae">
-				<mesh name="altar" tex="Data/Objects/altar-silver.png"/>
-			</model>
+			<model location="Data/Objects/altar-silver.wom"/>
 			<materials>
 				Silver lump = 50
 			</materials>
@@ -1864,10 +1653,7 @@
 			<category>Materials/Silver</category>
 		</object>
 		<object name="Stone altar" shortname="stAltar" type="normal">
-			<model location="Data/Objects/altar-stone.dae">
-				<mesh name="altar" tex="Data/Objects/altar-stone.jpg"/>
-				<mesh name="bowl" tex="Data/Objects/altar-stone.jpg"/>
-			</model>
+			<model location="Data/Objects/altar-stone.wom"/>
 			<materials>
 				Clay = 11,
 				Stone bricks = 11,
@@ -1877,9 +1663,7 @@
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Wooden altar" shortname="wAltar" type="normal">
-			<model location="Data/Objects/altar-wooden.dae">
-				<mesh name="altar" tex="Data/Objects/altar-wooden.jpg"/>
-			</model>
+			<model location="Data/Objects/altar-wooden.wom"/>
 			<materials>
 				Planks = 9,
 				Small nails = 1,
@@ -1891,352 +1675,240 @@
 		</object>
 		
 		<object name="Camellia" shortname="cam" type="tree">
-			<model location="Data/Objects/camellia.dae" scale="3">
-				<mesh name="camellia" tex="Data/Objects/camellia.png"/>
-			</model>
+			<model location="Data/Objects/camellia.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
 		<object name="Grape bush" shortname="grape" type="tree">
-			<model location="Data/Objects/grapebush.dae" scale="3">
-				<mesh name="grapebush" tex="Data/Objects/grape.png"/>
-			</model>
+			<model location="Data/Objects/grapebush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
 		<object name="Lavender" shortname="laven" type="tree">
-			<model location="Data/Objects/lavenderBush.dae" scale="3">
-				<mesh name="lavenderbush" tex="Data/Objects/lavender.png"/>
-			</model>
+			<model location="Data/Objects/lavenderBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
 		<object name="Rose bush" shortname="rose" type="tree">
-			<model location="Data/Objects/rose.dae" scale="3">
-				<mesh name="rosebush" tex="Data/Objects/rose-bush.png"/>
-			</model>
+			<model location="Data/Objects/rose.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
 		
 		<object name="Willow (small)" shortname="willS" type="tree">
-			<model location="Data/Objects/willowTree.dae" scale="4">
-				<mesh name="willow" tex="Data/Objects/willowtex.png"/>
-			</model>
+			<model location="Data/Objects/willowTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Willow" shortname="will" type="tree">
-			<model location="Data/Objects/willowTree.dae" scale="8">
-				<mesh name="willow" tex="Data/Objects/willowtex.png"/>
-			</model>
+			<model location="Data/Objects/willowTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Willow (big)" shortname="willB" type="tree">
-			<model location="Data/Objects/willowTree.dae" scale="16">
-				<mesh name="willow" tex="Data/Objects/willowtex.png"/>
-			</model>
+			<model location="Data/Objects/willowTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Pine (small)" shortname="pineS" type="tree">
-			<model location="Data/Objects/pineTree.dae" scale="4">
-				<mesh name="pine" tex="Data/Objects/pinetex.png"/>
-			</model>
+			<model location="Data/Objects/pineTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Pine" shortname="pine" type="tree">
-			<model location="Data/Objects/pineTree.dae" scale="8">
-				<mesh name="pine" tex="Data/Objects/pinetex.png"/>
-			</model>
+			<model location="Data/Objects/pineTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Pine (big)" shortname="pineB" type="tree">
-			<model location="Data/Objects/pineTree.dae" scale="16">
-				<mesh name="pine" tex="Data/Objects/pinetex.png"/>
-			</model>
+			<model location="Data/Objects/pineTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Oak (small)" shortname="oakS" type="tree">
-			<model location="Data/Objects/oakTree.dae" scale="4">
-				<mesh name="oak" tex="Data/Objects/oaktex.png"/>
-			</model>
+			<model location="Data/Objects/oakTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Oak" shortname="oak" type="tree">
-			<model location="Data/Objects/oakTree.dae" scale="8">
-				<mesh name="oak" tex="Data/Objects/oaktex.png"/>
-			</model>
+			<model location="Data/Objects/oakTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Oak (big)" shortname="oakB" type="tree">
-			<model location="Data/Objects/oakTree.dae" scale="16">
-				<mesh name="oak" tex="Data/Objects/oaktex.png"/>
-			</model>
+			<model location="Data/Objects/oakTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Maple (small)" shortname="mapleS" type="tree">
-			<model location="Data/Objects/mapleTree.dae" scale="4">
-				<mesh name="maple" tex="Data/Objects/mapletex.png"/>
-			</model>
+			<model location="Data/Objects/mapleTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Maple" shortname="maple" type="tree">
-			<model location="Data/Objects/mapleTree.dae" scale="8">
-				<mesh name="maple" tex="Data/Objects/mapletex.png"/>
-			</model>
+			<model location="Data/Objects/mapleTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Maple (big)" shortname="mapleB" type="tree">
-			<model location="Data/Objects/mapleTree.dae" scale="16">
-				<mesh name="maple" tex="Data/Objects/mapletex.png"/>
-			</model>
+			<model location="Data/Objects/mapleTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Cedar (small)" shortname="cedarS" type="tree">
-			<model location="Data/Objects/cedarTree.dae" scale="4">
-				<mesh name="treemesh" tex="Data/Objects/cedartex.png"/>
-			</model>
+			<model location="Data/Objects/cedarTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Cedar" shortname="cedar" type="tree">
-			<model location="Data/Objects/cedarTree.dae" scale="8">
-				<mesh name="treemesh" tex="Data/Objects/cedartex.png"/>
-			</model>
+			<model location="Data/Objects/cedarTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Cedar (big)" shortname="cedarB" type="tree">
-			<model location="Data/Objects/cedarTree.dae" scale="16">
-				<mesh name="treemesh" tex="Data/Objects/cedartex.png"/>
-			</model>
+			<model location="Data/Objects/cedarTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Birch (small)" shortname="birchS" type="tree">
-			<model location="Data/Objects/birchTree.dae" scale="4">
-				<mesh name="birch" tex="Data/Objects/birchtex.png"/>
-			</model>
+			<model location="Data/Objects/birchTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Birch" shortname="birch" type="tree">
-			<model location="Data/Objects/birchTree.dae" scale="8">
-				<mesh name="birch" tex="Data/Objects/birchtex.png"/>
-			</model>
+			<model location="Data/Objects/birchTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Birch (big)" shortname="birchB" type="tree">
-			<model location="Data/Objects/birchTree.dae" scale="16">
-				<mesh name="birch" tex="Data/Objects/birchtex.png"/>
-			</model>
+			<model location="Data/Objects/birchTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Walnut (small)" shortname="walnutS" type="tree">
-			<model location="Data/Objects/walnutTree.dae" scale="4">
-				<mesh name="walnut" tex="Data/Objects/walnut.png"/>
-			</model>
+			<model location="Data/Objects/walnutTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Walnut" shortname="walnut" type="tree">
-			<model location="Data/Objects/walnutTree.dae" scale="8">
-				<mesh name="walnut" tex="Data/Objects/walnut.png"/>
-			</model>
+			<model location="Data/Objects/walnutTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Walnut (big)" shortname="walnutB" type="tree">
-			<model location="Data/Objects/walnutTree.dae" scale="16">
-				<mesh name="walnut" tex="Data/Objects/walnut.png"/>
-			</model>
+			<model location="Data/Objects/walnutTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Linden (small)" shortname="lindenS" type="tree">
-			<model location="Data/Objects/lindenTree.dae" scale="4">
-				<mesh name="linden" tex="Data/Objects/linden.png"/>
-			</model>
+			<model location="Data/Objects/lindenTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Linden" shortname="linden" type="tree">
-			<model location="Data/Objects/lindenTree.dae" scale="8">
-				<mesh name="linden" tex="Data/Objects/linden.png"/>
-			</model>
+			<model location="Data/Objects/lindenTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Linden (big)" shortname="lindenB" type="tree">
-			<model location="Data/Objects/lindenTree.dae" scale="16">
-				<mesh name="linden" tex="Data/Objects/linden.png"/>
-			</model>
+			<model location="Data/Objects/lindenTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Fir (small)" shortname="firS" type="tree">
-			<model location="Data/Objects/firTree.dae" scale="4">
-				<mesh name="fir" tex="Data/Objects/fir.png"/>
-			</model>
+			<model location="Data/Objects/firTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Fir" shortname="fir" type="tree">
-			<model location="Data/Objects/firTree.dae" scale="8">
-				<mesh name="fir" tex="Data/Objects/fir.png"/>
-			</model>
+			<model location="Data/Objects/firTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Fir (big)" shortname="firB" type="tree">
-			<model location="Data/Objects/firTree.dae" scale="16">
-				<mesh name="fir" tex="Data/Objects/fir.png"/>
-			</model>
+			<model location="Data/Objects/firTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Chestnut (small)" shortname="chestnutS" type="tree">
-			<model location="Data/Objects/chestnutTree.dae" scale="4">
-				<mesh name="chestnut" tex="Data/Objects/chestnut.png"/>
-			</model>
+			<model location="Data/Objects/chestnutTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Chestnut" shortname="chestnut" type="tree">
-			<model location="Data/Objects/chestnutTree.dae" scale="8">
-				<mesh name="chestnut" tex="Data/Objects/chestnut.png"/>
-			</model>
+			<model location="Data/Objects/chestnutTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Chestnut (big)" shortname="chestnutB" type="tree">
-			<model location="Data/Objects/chestnutTree.dae" scale="16">
-				<mesh name="chestnut" tex="Data/Objects/chestnut.png"/>
-			</model>
+			<model location="Data/Objects/chestnutTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Apple (small)" shortname="appS" type="tree">
-			<model location="Data/Objects/AppleTree.dae" scale="4">
-				<mesh name="polysurface" tex="Data/Objects/appletex.png"/>
-			</model>
+			<model location="Data/Objects/AppleTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Apple" shortname="app" type="tree">
-			<model location="Data/Objects/AppleTree.dae" scale="8">
-				<mesh name="polysurface" tex="Data/Objects/appletex.png"/>
-			</model>
+			<model location="Data/Objects/AppleTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Apple (big)" shortname="appB" type="tree">
-			<model location="Data/Objects/AppleTree.dae" scale="16">
-				<mesh name="polysurface" tex="Data/Objects/appletex.png"/>
-			</model>
+			<model location="Data/Objects/AppleTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Cherry (small)" shortname="cherryS" type="tree">
-			<model location="Data/Objects/CherryTree.dae" scale="4">
-				<mesh name="cherrytree" tex="Data/Objects/cherrytex.png"/>
-			</model>
+			<model location="Data/Objects/CherryTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Cherry" shortname="cherry" type="tree">
-			<model location="Data/Objects/CherryTree.dae" scale="8">
-				<mesh name="cherrytree" tex="Data/Objects/cherrytex.png"/>
-			</model>
+			<model location="Data/Objects/CherryTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Cherry (big)" shortname="cherryB" type="tree">
-			<model location="Data/Objects/CherryTree.dae" scale="16">
-				<mesh name="cherrytree" tex="Data/Objects/cherrytex.png"/>
-			</model>
+			<model location="Data/Objects/CherryTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Lemon (small)" shortname="lemonS" type="tree">
-			<model location="Data/Objects/LemonTree.dae" scale="4">
-				<mesh name="lemontree" tex="Data/Objects/lemontex.png"/>
-			</model>
+			<model location="Data/Objects/LemonTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Lemon" shortname="lemon" type="tree">
-			<model location="Data/Objects/LemonTree.dae" scale="8">
-				<mesh name="lemontree" tex="Data/Objects/lemontex.png"/>
-			</model>
+			<model location="Data/Objects/LemonTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Lemon (big)" shortname="lemonB" type="tree">
-			<model location="Data/Objects/LemonTree.dae" scale="16">
-				<mesh name="lemontree" tex="Data/Objects/lemontex.png"/>
-			</model>
+			<model location="Data/Objects/LemonTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		<object name="Olive (small)" shortname="oliveS" type="tree">
-			<model location="Data/Objects/OliveTree.dae" scale="4">
-				<mesh name="olivetree" tex="Data/Objects/olivetex.png"/>
-			</model>
+			<model location="Data/Objects/OliveTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
 		<object name="Olive" shortname="olive" type="tree">
-			<model location="Data/Objects/OliveTree.dae" scale="8">
-				<mesh name="olivetree" tex="Data/Objects/olivetex.png"/>
-			</model>
+			<model location="Data/Objects/OliveTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
 		<object name="Olive (big)" shortname="oliveB" type="tree">
-			<model location="Data/Objects/OliveTree.dae" scale="16">
-				<mesh name="olivetree" tex="Data/Objects/olivetex.png"/>
-			</model>
+			<model location="Data/Objects/OliveTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		
 		<object name="Fountain" shortname="foun" type="normal">
-			<model location="Data/Objects/Fountain.dae">
-				<mesh name="fountain" tex="Data/Objects/fountain.jpg"/>
-			</model>
+			<model location="Data/Objects/Fountain.wom"/>
 			<category>Fountains</category>
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Ornate fountain" shortname="ofoun" type="normal">
-			<model location="Data/Objects/Ornate_Fountain.dae">
-				<mesh name="fountain" tex="Data/Objects/ornateFountain.jpg"/>
-			</model>
+			<model location="Data/Objects/Ornate_Fountain.wom"/>
 			<category>Fountains</category>
 			<category>Materials/Stone</category>
 		</object>
 		
 		<object name="Statue of boy" shortname="statBoy" type="normal">
-			<model location="Data/Objects/boyStatue.dae">
-				<mesh name="boystatue" tex="Data/Objects/boy_statue_512.jpg"/>
-			</model>
+			<model location="Data/Objects/boyStatue.wom"/>
 			<category>Statues</category>
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Statue of demon" shortname="statDemon" type="normal">
-			<model location="Data/Objects/solDemonStatue.dae">
-				<mesh name="sundemon" tex="Data/Objects/SolDemonStatue512.png"/>
-			</model>
+			<model location="Data/Objects/solDemonStatue.wom"/>
 			<category>Statues</category>
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Statue of dog" shortname="statDog" type="normal">
-			<model location="Data/Objects/dogStatue.dae">
-				<mesh name="dogstatue" tex="Data/Objects/DogStatue.png"/>
-			</model>
+			<model location="Data/Objects/dogStatue.wom"/>
 			<category>Statues</category>
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Statue of girl" shortname="statGirl" type="normal">
-			<model location="Data/Objects/girlStatue.dae">
-				<mesh name="girlstatue" tex="Data/Objects/girlStatue512.jpg"/>
-			</model>
+			<model location="Data/Objects/girlStatue.wom"/>
 			<category>Statues</category>
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Statue of horse" shortname="statHorse" type="normal">
-			<model location="Data/Objects/horseStatue.dae">
-				<mesh name="horse" tex="Data/Objects/horseStatue.png"/>
-			</model>
+			<model location="Data/Objects/horseStatue.wom"/>
 			<category>Statues</category>
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Statue of nymph" shortname="statNymph" type="normal">
-			<model location="Data/Objects/Nymph.dae">
-				<mesh name="nymph" tex="Data/Objects/Nymph512.jpg"/>
-			</model>
+			<model location="Data/Objects/Nymph.wom"/>
 			<category>Statues</category>
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Statue of troll" shortname="statTroll" type="normal">
-			<model location="Data/Objects/trollStatue.dae">
-				<mesh name="troll" tex="Data/Objects/trollStatue.png"/>
-			</model>
+			<model location="Data/Objects/trollStatue.wom"/>
 			<category>Statues</category>
 			<category>Materials/Stone</category>
 		</object>
 		
 		<object name="Vynora colossus" shortname="vynCol" type="centered">
-			<model location="Data/Objects/colossusVynora.dae">
-				<mesh name="polysurface" tex="Data/Objects/vynoraColossus_D.png"/>
-			</model>
+			<model location="Data/Objects/colossusVynora.wom"/>
 			<materials>
 				Clay = 2000,
 				Colossus bricks = 2000,
@@ -2246,9 +1918,7 @@
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Fo colossus" shortname="foCol" type="centered">
-			<model location="Data/Objects/colossusFo.dae">
-				<mesh name="colossusfo" tex="Data/Objects/colossusFo.png"/>
-			</model>
+			<model location="Data/Objects/colossusFo.wom"/>
 			<materials>
 				Clay = 2000,
 				Colossus bricks = 2000,
@@ -2259,10 +1929,7 @@
 		</object>
 		
 		<object name="Freedom guard tower" shortname="freeGT" type="centered">
-			<model location="Data/Objects/freedomTower.dae">
-				<mesh name="main" tex="Data/Objects/FreedomTower_D.png"/>
-				<mesh name="detail" tex="Data/Objects/towerdetail.png"/>
-			</model>
+			<model location="Data/Objects/freedomTower.wom"/>
 			<materials>
 				Clay = 500,
 				Stone bricks = 500,
@@ -2271,19 +1938,15 @@
 			<category>Towers</category>
 			<category>Materials/Stone</category>
 		</object>
-                <object name="Archery tower" shortname="archGT" type="centered">
-			<model location="Data/Objects/archeryTower.dae">
-				<mesh name="archerytower" tex="Data/Objects/archeryTower.jpg"/>
-			</model>
+		<object name="Archery tower" shortname="archGT" type="centered">
+			<model location="Data/Objects/archeryTower.wom"/>
 			
 			<category>Towers</category>
 			<category>Materials/Stone</category>
 		</object>
 		
 		<object name="Stool" shortname="stool" type="normal">
-			<model location="Data/Objects/Stool.dae">
-				<mesh name="stool" tex="Data/Objects/chair.jpg"/>
-			</model>
+			<model location="Data/Objects/Stool.wom"/>
 			<materials>
 				Shafts = 2,
 				Planks = 2
@@ -2292,9 +1955,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Chair" shortname="chair" type="normal">
-			<model location="Data/Objects/Chair.dae">
-				<mesh name="chair" tex="Data/Objects/chair.jpg"/>
-			</model>
+			<model location="Data/Objects/Chair.wom"/>
 			<materials>
 				Shafts = 3,
 				Planks = 3
@@ -2303,9 +1964,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Armchair" shortname="aChair" type="normal">
-			<model location="Data/Objects/Armchair.dae">
-				<mesh name="armchair" tex="Data/Objects/chair.jpg"/>
-			</model>
+			<model location="Data/Objects/Armchair.wom"/>
 			<materials>
 				Shafts = 3,
 				Planks = 3,
@@ -2315,9 +1974,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Royal throne" shortname="throne" type="normal">
-			<model location="Data/Objects/RoyalThrone.dae">
-				<mesh name="royal" tex="Data/Objects/Royal_Throne.jpg"/>
-			</model>
+			<model location="Data/Objects/RoyalThrone.wom"/>
 			<materials>
 				Large nails = 4,
 				Planks = 8,
@@ -2328,9 +1985,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="High chair" shortname="hChair" type="normal">
-			<model location="Data/Objects/HighChair2.dae">
-				<mesh name="high" tex="Data/Objects/HighChair_2.png"/>
-			</model>
+			<model location="Data/Objects/HighChair2.wom"/>
 			<materials>
 				Planks = 3,
 				Small nails = 2,
@@ -2340,9 +1995,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Fine high chair" shortname="fhChair" type="normal">
-			<model location="Data/Objects/HighChair1.dae">
-				<mesh name="high" tex="Data/Objects/HighChair_1.png"/>
-			</model>
+			<model location="Data/Objects/HighChair1.wom"/>
 			<materials>
 				Planks = 3,
 				Square pieces of cloth = 2,
@@ -2352,9 +2005,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Pauper high chair" shortname="phChair" type="normal">
-			<model location="Data/Objects/HighChair3.dae">
-				<mesh name="high" tex="Data/Objects/HighChair_3.png"/>
-			</model>
+			<model location="Data/Objects/HighChair3.wom"/>
 			<materials>
 				Shafts = 3,
 				Planks = 2,
@@ -2365,9 +2016,7 @@
 		</object>
 		
 		<object name="Large dining table" shortname="lTable" type="normal">
-			<model location="Data/Objects/largeTable.dae">
-				<mesh name="largetable" tex="Data/Objects/table.jpg"/>
-			</model>
+			<model location="Data/Objects/largeTable.wom"/>
 			<materials>
 				Shafts = 4,
 				Planks = 7
@@ -2376,9 +2025,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Small square table" shortname="sTable" type="normal">
-			<model location="Data/Objects/squareTable.dae">
-				<mesh name="squaretable" tex="Data/Objects/table.jpg"/>
-			</model>
+			<model location="Data/Objects/squareTable.wom"/>
 			<materials>
 				Shafts = 4,
 				Planks = 4
@@ -2387,9 +2034,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Round table" shortname="rTable" type="normal">
-			<model location="Data/Objects/roundTable.dae">
-				<mesh name="roundtable" tex="Data/Objects/table.jpg"/>
-			</model>
+			<model location="Data/Objects/roundTable.wom"/>
 			<materials>
 				Shafts = 4,
 				Planks = 4
@@ -2399,9 +2044,7 @@
 		</object>
 		
 		<object name="Campfire" shortname="camp" type="normal">
-			<model location="Data/Objects/campfire.dae">
-				<mesh name="campfire" tex="Data/Objects/Campfire_unlit.jpg"/>
-			</model>
+			<model location="Data/Objects/campfire.wom"/>
 			<materials>
 				Kindlings = 1
 			</materials>
@@ -2411,9 +2054,7 @@
 		
 		
 		<object name="Large anvil" shortname="lAnvil" type="normal">
-			<model location="Data/Objects/Anvil_large.dae">
-				<mesh name="anvil" tex="Data/Objects/Anvil_256.png"/>
-			</model>
+			<model location="Data/Objects/Anvil_large.wom"/>
 			<materials>
 				Iron lumps = 10
 			</materials>
@@ -2421,9 +2062,7 @@
 			<category>Materials/Iron</category>
 		</object>
 		<object name="Small anvil" shortname="sAnvil" type="normal">
-			<model location="Data/Objects/Anvil_small.dae">
-				<mesh name="anvil" tex="Data/Objects/Anvil_256.png"/>
-			</model>
+			<model location="Data/Objects/Anvil_small.wom"/>
 			<materials>
 				Iron lumps = 2
 			</materials>
@@ -2432,9 +2071,7 @@
 		</object>
 		
 		<object name="Tapestry of Faeldray" shortname="tFaeldray" type="normal">
-			<model location="Data/Objects/tapestry.dae">
-				<mesh name="tapestry" tex="Data/Objects/TapestryComp1.png"/>
-			</model>
+			<model location="Data/Objects/tapestry.wom"/>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -2443,9 +2080,7 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Green tapestry" shortname="tGreen" type="normal">
-			<model location="Data/Objects/tapestry.dae">
-				<mesh name="tapestry" tex="Data/Objects/Tapestry1.png"/>
-			</model>
+			<model location="Data/Objects/tapestry.wom"/>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -2454,9 +2089,7 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Beige tapestry" shortname="tBeige" type="normal">
-			<model location="Data/Objects/tapestry.dae">
-				<mesh name="tapestry" tex="Data/Objects/Tapestry2.png"/>
-			</model>
+			<model location="Data/Objects/tapestry.wom"/>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -2465,9 +2098,7 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Orange tapestry" shortname="tOrange" type="normal">
-			<model location="Data/Objects/tapestry.dae">
-				<mesh name="tapestry" tex="Data/Objects/Tapestry3.png"/>
-			</model>
+			<model location="Data/Objects/tapestry.wom"/>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -2476,9 +2107,7 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Cavalry motif tapestry" shortname="tCavalry" type="normal">
-			<model location="Data/Objects/tapestry.dae">
-				<mesh name="tapestry" tex="Data/Objects/Tapestry4.png"/>
-			</model>
+			<model location="Data/Objects/tapestry.wom"/>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -2487,9 +2116,7 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Festivities motif tapestry" shortname="tFestivities" type="normal">
-			<model location="Data/Objects/tapestry.dae">
-				<mesh name="tapestry" tex="Data/Objects/Tapestry5.png"/>
-			</model>
+			<model location="Data/Objects/tapestry.wom"/>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -2498,9 +2125,7 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Battle of Kyara tapestry" shortname="tKyara" type="normal">
-			<model location="Data/Objects/tapestry.dae">
-				<mesh name="tapestry" tex="Data/Objects/Tapestry6.png"/>
-			</model>
+			<model location="Data/Objects/tapestry.wom"/>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -2510,10 +2135,7 @@
 		</object>
 
 		<object name="Freedom banner" shortname="bFree" type="normal">
-			<model location="Data/Objects/Banner_main.dae">
-				<mesh name="pole" tex="Data/Objects/Pole.png"/>
-				<mesh name="cloth" tex="Data/Objects/Banner4.png"/>
-			</model>
+			<model location="Data/Objects/Banner_main.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2521,10 +2143,7 @@
 			<category>Banners</category>
 		</object>
 		<object name="JK banner" shortname="bJK" type="normal">
-			<model location="Data/Objects/Banner_main.dae">
-				<mesh name="pole" tex="Data/Objects/Pole.png"/>
-				<mesh name="cloth" tex="Data/Objects/Banner3.png"/>
-			</model>
+			<model location="Data/Objects/Banner_main.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2532,10 +2151,7 @@
 			<category>Banners</category>
 		</object>
 		<object name="HoTS banner" shortname="bHoTS" type="normal">
-			<model location="Data/Objects/Banner_main.dae">
-				<mesh name="pole" tex="Data/Objects/Pole.png"/>
-				<mesh name="cloth" tex="Data/Objects/Banner2.png"/>
-			</model>
+			<model location="Data/Objects/Banner_main.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2543,10 +2159,7 @@
 			<category>Banners</category>
 		</object>
 		<object name="MR banner" shortname="bMR" type="normal">
-			<model location="Data/Objects/Banner_main.dae">
-				<mesh name="pole" tex="Data/Objects/Pole.png"/>
-				<mesh name="cloth" tex="Data/Objects/Banner.png"/>
-			</model>
+			<model location="Data/Objects/Banner_main.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2555,10 +2168,7 @@
 		</object>
 
 		<object name="Freedom flag" shortname="fFree" type="normal">
-			<model location="Data/Objects/Flag_main.dae">
-				<mesh name="pole" tex="Data/Objects/Pole.png"/>
-				<mesh name="flag" tex="Data/Objects/Flag4.png"/>
-			</model>
+			<model location="Data/Objects/Flag_main.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2566,10 +2176,7 @@
 			<category>Flags</category>
 		</object>
 		<object name="JK flag" shortname="fJK" type="normal">
-			<model location="Data/Objects/Flag_main.dae">
-				<mesh name="pole" tex="Data/Objects/Pole.png"/>
-				<mesh name="flag" tex="Data/Objects/Flag3.png"/>
-			</model>
+			<model location="Data/Objects/Flag_main.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2577,10 +2184,7 @@
 			<category>Flags</category>
 		</object>
 		<object name="HoTS flag" shortname="fHoTS" type="normal">
-			<model location="Data/Objects/Flag_main.dae">
-				<mesh name="pole" tex="Data/Objects/Pole.png"/>
-				<mesh name="flag" tex="Data/Objects/Flag2.png"/>
-			</model>
+			<model location="Data/Objects/Flag_main.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2588,10 +2192,7 @@
 			<category>Flags</category>
 		</object>
 		<object name="MR flag" shortname="fMR" type="normal">
-			<model location="Data/Objects/Flag_main.dae">
-				<mesh name="pole" tex="Data/Objects/Pole.png"/>
-				<mesh name="flag" tex="Data/Objects/Flag.png"/>
-			</model>
+			<model location="Data/Objects/Flag_main.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2600,16 +2201,12 @@
 		</object>
 		
 		<object name="Gravestone" shortname="graves" type="normal">
-			<model location="Data/Objects/Gravestone.dae">
-				<mesh name="gravestone" tex="Data/Objects/gravestone.jpg"/>
-			</model>
+			<model location="Data/Objects/Gravestone.wom"/>
 			<category>Misc</category>
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Pillar" shortname="pill" type="normal">
-			<model location="Data/Objects/Pillar.dae">
-				<mesh name="pillar" tex="Data/Objects/pillar.jpg"/>
-			</model>
+			<model location="Data/Objects/Pillar.wom"/>
 			<materials>
 				Clay = 51,
 				Stone bricks = 51
@@ -2618,9 +2215,7 @@
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Epic portal" shortname="ePortal" type="normal">
-			<model location="Data/Objects/playerportal.dae">
-				<mesh name="playerportal" tex="Data/Objects/playerportal.jpg"/>
-			</model>
+			<model location="Data/Objects/playerportal.wom"/>
 			<materials>
 				Logs = 4,
 				Stone bricks = 11
@@ -2629,9 +2224,7 @@
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Archery target" shortname="aTarget" type="normal">
-			<model location="Data/Objects/archery-target.dae">
-				<mesh name="archerytarget" tex="Data/Objects/archery-target.jpg"/>
-			</model>
+			<model location="Data/Objects/archery-target.wom"/>
 			<materials>
 				Shafts = 2,
 				Planks = 4,
@@ -2643,9 +2236,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Practice doll" shortname="pDoll" type="normal">
-			<model location="Data/Objects/practiceDoll_main.dae">
-				<mesh name="practice" tex="Data/Objects/practiceDoll.png"/>
-			</model>
+			<model location="Data/Objects/practiceDoll_main.wom"/>
 			<materials>
 				Shafts = 4,
 				Planks = 2,
@@ -2656,9 +2247,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Loom" shortname="loom" type="normal">
-			<model location="Data/Objects/Loom.dae">
-				<mesh name="loom" tex="Data/Objects/loom.png"/>
-			</model>
+			<model location="Data/Objects/Loom.wom"/>
 			<materials>
 				Shafts = 10,
 				Planks = 3,
@@ -2669,231 +2258,159 @@
 			<category>Materials/Wood</category>
 		</object>
 		<object name="Settlement token" shortname="token" type="centered">
-			<model location="Data/Objects/deed_sundail.dae">
-				<mesh name="default" tex="Data/Objects/sundial.jpg"/>
-			</model>
+			<model location="Data/Objects/deed_sundail.wom"/>
 			<category>Misc</category>
 		</object>
-                <object name="Forge" shortname="forge" type="normal">
-                    <model location="Data/Objects/forge.dae">
-                        <mesh name="forge-mesh" material="forge" tex="Data/Objects/forge.jpg"/>
-                        <mesh name="forge-mesh" material="forgecauldron" tex="Data/Objects/forgecauldron.jpg"/>
-                        <mesh name="forge-mesh" material="coal" tex="Data/Objects/forge.jpg"/>
-                    </model>
-                    <materials>
-                        Clay = 11,
-                        Stone bricks = 11
-                    </materials>
-                    <category>Furnaces</category>
-                    <category>Materials/Stone</category>
-                </object>
-                <object name="Forge (lit)" shortname="forgelit" type="normal">
-                    <model location="Data/Objects/forge.dae">
-                        <mesh name="forge-mesh" material="forge" tex="Data/Objects/forgelit.jpg"/>
-                        <mesh name="forge-mesh" material="forgecauldron" tex="Data/Objects/forgecauldron.jpg"/>                        
-                        <mesh name="forge-mesh" material="forgecauldronglow" tex="Data/Objects/forgecauldronglow.jpg"/>
-                        <mesh name="forge-mesh" material="coal" tex="Data/Objects/forgelit.jpg"/>
-                    </model>
-                    <materials>
-                        Clay = 11,
-                        Stone bricks = 11
-                    </materials>
-                    <category>Furnaces</category>
-                    <category>Materials/Stone</category>
-                </object>
-                <object name="Oven" shortname="oven" type="normal">
-                    <model location="Data/Objects/oven.dae">
-                        <mesh name="oven" material="oven" tex="Data/Objects/oven.jpg"/>
-                        <mesh name="oven" material="ovenpan" tex="Data/Objects/ovenpan.jpg"/>
-                        <mesh name="oven" material="coal" tex="Data/Objects/oven.jpg"/>
-                    </model>
-                    <materials>
-                        Clay = 11,
-                        Stone bricks = 11
-                    </materials>
-                    <category>Furnaces</category>
-                    <category>Materials/Stone</category>
-                </object>
-                <object name="Oven (lit)" shortname="ovenlit" type="normal">
-                    <model location="Data/Objects/oven.dae">
-                        <mesh name="oven" material="oven" tex="Data/Objects/ovenlit.jpg"/>
-                        <mesh name="oven" material="ovenpan" tex="Data/Objects/ovenpanlit.jpg"/>
-                        <mesh name="oven" material="coal" tex="Data/Objects/ovenlit.jpg"/>
-                    </model>
-                    <materials>
-                        Clay = 11,
-                        Stone bricks = 11
-                    </materials>
-                    <category>Furnaces</category>
-                    <category>Materials/Stone</category>
-                </object>
-                <object name="Market stall" shortname="mstall" type="normal">
-                    <model location="Data/Objects/MarketStall.dae">
-                        <mesh name="MarketstallMesh" tex="Data/Objects/MarketStall.png"/>
-                    </model>
-                    <materials>
-                        Large nails = 1,
-                        Planks = 21,
-                        Square piece of cloth = 4,
-                        Shafts = 4
-                    </materials>
-                    <category>Decoration</category>
-                </object>
-                <object name="Belltower" shortname="belltower" type="normal">
-                    <model location="Data/Objects/Belltower_Main.dae">
-                        <mesh name="Belltower" tex="Data/Objects/bell.jpg"/>
-                    </model>
-                    <category>Decoration</category>
-                </object>
-                <object name="Bear vs Bull" shortname="bearvbullhota" type="normal">
-                    <model location="Data/Objects/bearBullStatue.dae">
-                        <mesh name="BearBullMesh" tex="Data/Objects/BearFightingBull512.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Dragon" shortname="dragonhota" type="normal">
-                    <model location="Data/Objects/blackDragonStatue.dae">
-                        <mesh name="blackDragonStatueMesh" tex="Data/Objects/blackDragonStatue.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Deer" shortname="dearhota" type="normal">
-                    <model location="Data/Objects/deerStatue.dae">
-                        <mesh name="Deer_statueMesh" tex="Data/Objects/DeerStatue.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Dogs vs Boar" shortname="dogvboarhota" type="normal">
-                    <model location="Data/Objects/dogsBoarStatue.dae">
-                        <mesh name="Dogs_Boar_statueMesh" tex="Data/Objects/dogsBoarStatue512.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Lady vs Anaconda" shortname="ladyvanahota" type="normal">
-                    <model location="Data/Objects/femaleAnacondaStatue.dae">
-                        <mesh name="femaleanacondaStatueMesh" tex="Data/Objects/femaleAnacondaStatue512.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Lady of the Lake" shortname="ladylakehota" type="normal">
-                    <model location="Data/Objects/ladyOfTheLakeStatue.dae">
-                        <mesh name="Lady_of_the_lake_StatueMesh" tex="Data/Objects/LadyLake512.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Man vs Bear" shortname="manvbearhota" type="normal">
-                    <model location="Data/Objects/manBearstatue.dae">
-                        <mesh name="Man_fighting_Bear_Statue_ReducedMesh" tex="Data/Objects/manBearstatue512.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Nogump" shortname="nogumphota" type="normal">
-                    <model location="Data/Objects/nogumpStatue.dae">
-                        <mesh name="NogumpStatueMesh" tex="Data/Objects/nogumpStatue512.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Scorpion" shortname="scorphota" type="normal">
-                    <model location="Data/Objects/scorpionStatue.dae">
-                        <mesh name="ScorpionStatueMesh" tex="Data/Objects/Scorpionstatue512.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Sol demon" shortname="soldhota" type="normal">
-                    <model location="Data/Objects/soldDemonStatueHota.dae">
-                        <mesh name="SunDemonStoneHotaMesh" tex="Data/Objects/SolDemonStatue512Hota.png"/>
-                        <mesh name="SunDemonStoneHotaGlowMesh" tex="Data/Objects/SolDemonStatue512Hota.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Wolf vs Bison" shortname="wolfbisonhota" type="normal">
-                    <model location="Data/Objects/wolfBisonStatue.dae">
-                        <mesh name="Wolf_fighting_bison_statueMesh" tex="Data/Objects/wolfBisonstatue512.png"/>
-                    </model>
-                    <category>HOTA Statues</category>
-                </object>
-                <object name="Marble Planter (empty)" shortname="marbplantempty" type="normal">
-                    <model location="Data/Objects/marblePlanter_empty.dae">
-                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
-                    </model>
-                    <category>Decoration</category>
-                </object>
-                <object name="Marble Planter (blue flowers)" shortname="marbplantblue" type="normal">
-                    <model location="Data/Objects/marblePlanter.dae">
-                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
-                        <mesh name="FlowersMesh" tex="Data/Objects/flower_blue.png"/>
-                    </model>
-                    <category>Decoration</category>
-                </object>
-                <object name="Marble Planter (dotted flowers)" shortname="marbplantdotted" type="normal">
-                    <model location="Data/Objects/marblePlanter.dae">
-                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
-                        <mesh name="FlowersMesh" tex="Data/Objects/flower_dotted.png"/>
-                    </model>
-                    <category>Decoration</category>
-                </object>
-                <object name="Marble Planter (greenish flowers)" shortname="marbplantgreen" type="normal">
-                    <model location="Data/Objects/marblePlanter.dae">
-                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
-                        <mesh name="FlowersMesh" tex="Data/Objects/flower_greenish.png"/>
-                    </model>
-                    <category>Decoration</category>
-                </object>
-                <object name="Marble Planter (orange flowers)" shortname="marbplantorange" type="normal">
-                    <model location="Data/Objects/marblePlanter.dae">
-                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
-                        <mesh name="FlowersMesh" tex="Data/Objects/flower_orange.png"/>
-                    </model>
-                    <category>Decoration</category>
-                </object>
-                <object name="Marble Planter (purple flowers)" shortname="marbplantpurple" type="normal">
-                    <model location="Data/Objects/marblePlanter.dae">
-                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
-                        <mesh name="FlowersMesh" tex="Data/Objects/flower_purple.png"/>
-                    </model>
-                    <category>Decoration</category>
-                </object>
-                <object name="Marble Planter (white flowers)" shortname="marbplantwhite" type="normal">
-                    <model location="Data/Objects/marblePlanter.dae">
-                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
-                        <mesh name="FlowersMesh" tex="Data/Objects/flower_white.png"/>
-                    </model>
-                    <category>Decoration</category>
-                </object>
-                <object name="Marble Planter (yellow flowers)" shortname="marbplantyellow" type="normal">
-                    <model location="Data/Objects/marblePlanter.dae">
-                        <mesh name="marblePlanterMesh" tex="Data/Objects/planter.png"/>
-                        <mesh name="FlowersMesh" tex="Data/Objects/flower_yellow.png"/>
-                    </model>
-                    <category>Decoration</category>
-                </object>
-                <object name="Spirit castle" shortname="spiritcastle" type="normal">
-                    <model location="Data/Objects/mailbox-spirit-castle.dae">
-                        <mesh name="mailboxMesh" material="cloth" tex="Data/Objects/clothe.jpg"/>
-                        <mesh name="mailboxMesh" material="stone" tex="Data/Objects/stonewall.jpg"/>
-                    </model>
-                    <category>Mailboxes</category>
-                </object>
-                <object name="Spirit cottage" shortname="spiritcottage" type="normal">
-                    <model location="Data/Objects/mailbox-spirit-cottage.dae">
-                        <mesh name="mailboxMesh" material="stone" tex="Data/Objects/stonewall.jpg"/>
-                    </model>
-                    <category>Mailboxes</category>
-                </object>
-                <object name="Spirit mansion" shortname="spiritmansion" type="normal">
-                    <model location="Data/Objects/mailbox-spirit-mansion.dae">
-                        <mesh name="mailboxMesh" material="wood" tex="Data/Objects/wurmhousetext.jpg"/>
-                    </model>
-                    <category>Mailboxes</category>
-                </object>
-                <object name="Spirit house" shortname="spirithouse" type="normal">
-                    <model location="Data/Objects/mailbox-spirit-house.dae">
-                        <mesh name="mailboxMesh" material="wood" tex="Data/Objects/wurmhousetext.jpg"/>
-                    </model>
-                    <category>Mailboxes</category>
-                </object>
-        </objects>
+		<object name="Forge" shortname="forge" type="normal">
+			<model location="Data/Objects/forge.wom"/>
+			<materials>
+				Clay = 11,
+				Stone bricks = 11
+			</materials>
+			<category>Furnaces</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Forge (lit)" shortname="forgelit" type="normal">
+			<model location="Data/Objects/forge.wom"/>
+			<materials>
+				Clay = 11,
+				Stone bricks = 11
+			</materials>
+			<category>Furnaces</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Oven" shortname="oven" type="normal">
+			<model location="Data/Objects/oven.wom"/>
+			<materials>
+				Clay = 11,
+				Stone bricks = 11
+			</materials>
+			<category>Furnaces</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Oven (lit)" shortname="ovenlit" type="normal">
+			<model location="Data/Objects/oven.wom"/>
+			<materials>
+				Clay = 11,
+				Stone bricks = 11
+			</materials>
+			<category>Furnaces</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Market stall" shortname="mstall" type="normal">
+			<model location="Data/Objects/MarketStall.wom"/>
+			<materials>
+				Large nails = 1,
+				Planks = 21,
+				Square piece of cloth = 4,
+				Shafts = 4
+			</materials>
+			<category>Decoration</category>
+		</object>
+		<object name="Belltower" shortname="belltower" type="normal">
+			<model location="Data/Objects/Belltower_Main.wom"/>
+			<category>Decoration</category>
+		</object>
+		<object name="Bear vs Bull" shortname="bearvbullhota" type="normal">
+			<model location="Data/Objects/bearBullStatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Dragon" shortname="dragonhota" type="normal">
+			<model location="Data/Objects/blackDragonStatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Deer" shortname="dearhota" type="normal">
+			<model location="Data/Objects/deerStatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Dogs vs Boar" shortname="dogvboarhota" type="normal">
+			<model location="Data/Objects/dogsBoarStatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Lady vs Anaconda" shortname="ladyvanahota" type="normal">
+			<model location="Data/Objects/femaleAnacondaStatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Lady of the Lake" shortname="ladylakehota" type="normal">
+			<model location="Data/Objects/ladyOfTheLakeStatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Man vs Bear" shortname="manvbearhota" type="normal">
+			<model location="Data/Objects/manBearstatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Nogump" shortname="nogumphota" type="normal">
+			<model location="Data/Objects/nogumpStatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Scorpion" shortname="scorphota" type="normal">
+			<model location="Data/Objects/scorpionStatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Sol demon" shortname="soldhota" type="normal">
+			<model location="Data/Objects/soldDemonStatueHota.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Wolf vs Bison" shortname="wolfbisonhota" type="normal">
+			<model location="Data/Objects/wolfBisonStatue.wom"/>
+			<category>HOTA Statues</category>
+		</object>
+		<object name="Marble Planter (empty)" shortname="marbplantempty" type="normal">
+			<model location="Data/Objects/marblePlanter_empty.wom"/>
+			<category>Decoration</category>
+		</object>
+		<object name="Marble Planter (blue flowers)" shortname="marbplantblue" type="normal">
+			<model location="Data/Objects/marblePlanter.wom"/>
+			<category>Decoration</category>
+		</object>
+		<object name="Marble Planter (dotted flowers)" shortname="marbplantdotted" type="normal">
+			<model location="Data/Objects/marblePlanter.wom"/>
+			<category>Decoration</category>
+		</object>
+		<object name="Marble Planter (greenish flowers)" shortname="marbplantgreen" type="normal">
+			<model location="Data/Objects/marblePlanter.wom"/>
+			<category>Decoration</category>
+		</object>
+		<object name="Marble Planter (orange flowers)" shortname="marbplantorange" type="normal">
+			<model location="Data/Objects/marblePlanter.wom"/>
+			<category>Decoration</category>
+		</object>
+		<object name="Marble Planter (purple flowers)" shortname="marbplantpurple" type="normal">
+			<model location="Data/Objects/marblePlanter.wom"/>
+			<category>Decoration</category>
+		</object>
+		<object name="Marble Planter (white flowers)" shortname="marbplantwhite" type="normal">
+			<model location="Data/Objects/marblePlanter.wom"/>
+			<category>Decoration</category>
+		</object>
+		<object name="Marble Planter (yellow flowers)" shortname="marbplantyellow" type="normal">
+			<model location="Data/Objects/marblePlanter.wom"/>
+			<category>Decoration</category>
+		</object>
+		<object name="Spirit castle" shortname="spiritcastle" type="normal">
+			<model location="Data/Objects/spiritCastle.wom"/>
+			<category>Mailboxes</category>
+		</object>
+		<object name="Spirit cottage" shortname="spiritcottage" type="normal">
+			<model location="Data/Objects/spiritCottage.wom"/>
+			<category>Mailboxes</category>
+		</object>
+		<object name="Spirit mansion" shortname="spiritmansion" type="normal">
+			<model location="Data/Objects/spiritMansion.wom"/>
+			<category>Mailboxes</category>
+		</object>
+		<object name="Spirit house" shortname="spirithouse" type="normal">
+			<model location="Data/Objects/spiritHouse.wom"/>
+			<category>Mailboxes</category>
+		</object>
+	</objects>
+		
+		
+		
+		
+		
 	<caves>
+	
 		<rock name="Stone wall" shortname="sw" type="wall" tex="Data/Caves/cave_512.png">
 			<category>Walls</category>
 			<hidden/>

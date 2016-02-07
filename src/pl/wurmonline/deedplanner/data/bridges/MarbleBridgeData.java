@@ -4,71 +4,68 @@ import java.util.HashMap;
 import pl.wurmonline.deedplanner.data.Materials;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.jogl.Mesh;
+import pl.wurmonline.deedplanner.util.jogl.Model;
 import pl.wurmonline.deedplanner.util.jogl.Renderable;
 import pl.wurmonline.deedplanner.util.jogl.Tex;
 
 public class MarbleBridgeData extends BridgeData {
-
-    private final Tex marbleTex;
     
-    private final Mesh narrowFloating;
-    private final Mesh narrowAbutment;
-    private final Mesh narrowDoubleAbutment;
-    private final Mesh narrowBracing;
-    private final Mesh narrowDoubleBracing;
-    private final Mesh narrowCrown;
-    private final Mesh narrowSupport;
-    private final Mesh narrowExtension;
+    private final Model narrowFloating;
+    private final Model narrowAbutment;
+    private final Model narrowDoubleAbutment;
+    private final Model narrowBracing;
+    private final Model narrowDoubleBracing;
+    private final Model narrowCrown;
+    private final Model narrowSupport;
+    private final Model narrowExtension;
     
-    private final Mesh centralFloating;
-    private final Mesh centralAbutment;
-    private final Mesh centralDoubleAbutment;
-    private final Mesh centralBracing;
-    private final Mesh centralDoubleBracing;
-    private final Mesh centralCrown;
-    private final Mesh centralSupport;
-    private final Mesh centralExtension;
+    private final Model centralFloating;
+    private final Model centralAbutment;
+    private final Model centralDoubleAbutment;
+    private final Model centralBracing;
+    private final Model centralDoubleBracing;
+    private final Model centralCrown;
+    private final Model centralSupport;
+    private final Model centralExtension;
     
-    private final Mesh sideFloating;
-    private final Mesh sideAbutment;
-    private final Mesh sideDoubleAbutment;
-    private final Mesh sideBracing;
-    private final Mesh sideDoubleBracing;
-    private final Mesh sideCrown;
-    private final Mesh sideSupport;
-    private final Mesh sideExtension;
+    private final Model sideFloating;
+    private final Model sideAbutment;
+    private final Model sideDoubleAbutment;
+    private final Model sideBracing;
+    private final Model sideDoubleBracing;
+    private final Model sideCrown;
+    private final Model sideSupport;
+    private final Model sideExtension;
     
     public MarbleBridgeData() {
         super(3);
         
-        this.marbleTex = Tex.getTexture("Data/Bridges/Marble/bridgeTilingMarble.png");
+        this.narrowFloating = new Model("Data/Bridges/Marble/FloatingMarble.wom");
+        this.narrowAbutment = new Model("Data/Bridges/Marble/AbutmentMarble.wom");
+        this.narrowDoubleAbutment = new Model("Data/Bridges/Marble/DoubleAbutmentMarble.wom");
+        this.narrowBracing = new Model("Data/Bridges/Marble/BracingMarble.wom");
+        this.narrowDoubleBracing = new Model("Data/Bridges/Marble/DoubleBracingMarble.wom");
+        this.narrowCrown = new Model("Data/Bridges/Marble/CrownMarble.wom");
+        this.narrowSupport = new Model("Data/Bridges/Marble/SupportMarble.wom");
+        this.narrowExtension = new Model("Data/Bridges/Marble/ExtensionMarble.wom");
         
-        this.narrowFloating = new Mesh("Data/Bridges/Marble/FloatingMarble.dae", "marble", marbleTex, 1);
-        this.narrowAbutment = new Mesh("Data/Bridges/Marble/AbutmentMarble.dae", "marble", marbleTex, 1);
-        this.narrowDoubleAbutment = new Mesh("Data/Bridges/Marble/DoubleAbutmentMarble.dae", "marble", marbleTex, 1);
-        this.narrowBracing = new Mesh("Data/Bridges/Marble/BracingMarble.dae", "marble", marbleTex, 1);
-        this.narrowDoubleBracing = new Mesh("Data/Bridges/Marble/DoubleBracingMarble.dae", "marble", marbleTex, 1);
-        this.narrowCrown = new Mesh("Data/Bridges/Marble/CrownMarble.dae", "marble", marbleTex, 1);
-        this.narrowSupport = new Mesh("Data/Bridges/Marble/SupportMarble.dae", "marble", marbleTex, 1);
-        this.narrowExtension = new Mesh("Data/Bridges/Marble/ExtensionMarble.dae", "marble", marbleTex, 1);
+        this.centralFloating = new Model("Data/Bridges/Marble/FloatingMarbleCenter.wom");
+        this.centralAbutment = new Model("Data/Bridges/Marble/AbutmentMarbleCenter.wom");
+        this.centralDoubleAbutment = new Model("Data/Bridges/Marble/AbutmentDoubleCenter.wom");
+        this.centralBracing = new Model("Data/Bridges/Marble/BracingMarbleCenter.wom");
+        this.centralDoubleBracing = new Model("Data/Bridges/Marble/BracingDoubleCenter.wom");
+        this.centralCrown = new Model("Data/Bridges/Marble/CrownMarbleCenter.wom");
+        this.centralSupport = new Model("Data/Bridges/Marble/SupportMarbleCenter.wom");
+        this.centralExtension = new Model("Data/Bridges/Marble/ExtensionMarbleCenter.wom");
         
-        this.centralFloating = new Mesh("Data/Bridges/Marble/FloatingMarbleCenter.dae", "marble", marbleTex, 1);
-        this.centralAbutment = new Mesh("Data/Bridges/Marble/AbutmentMarbleCenter.dae", "marble", marbleTex, 1);
-        this.centralDoubleAbutment = new Mesh("Data/Bridges/Marble/AbutmentDoubleCenter.dae", "double", marbleTex, 1);
-        this.centralBracing = new Mesh("Data/Bridges/Marble/BracingMarbleCenter.dae", "marble", marbleTex, 1);
-        this.centralDoubleBracing = new Mesh("Data/Bridges/Marble/BracingDoubleCenter.dae", "double", marbleTex, 1);
-        this.centralCrown = new Mesh("Data/Bridges/Marble/CrownMarbleCenter.dae", "marble", marbleTex, 1);
-        this.centralSupport = new Mesh("Data/Bridges/Marble/SupportMarbleCenter.dae", "marble", marbleTex, 1);
-        this.centralExtension = new Mesh("Data/Bridges/Marble/ExtensionMarbleCenter.dae", "marble", marbleTex, 1);
-        
-        this.sideFloating = new Mesh("Data/Bridges/Marble/FloatingMarbleDouble.dae", "marble", marbleTex, 1);
-        this.sideAbutment = new Mesh("Data/Bridges/Marble/AbutmentMarbleRight.dae", "marble", marbleTex, 1);
-        this.sideDoubleAbutment = new Mesh("Data/Bridges/Marble/DoubleAbutmentDouble.dae", "double", marbleTex, 1);
-        this.sideBracing = new Mesh("Data/Bridges/Marble/BracingMarbleRight.dae", "marble", marbleTex, 1);
-        this.sideDoubleBracing = new Mesh("Data/Bridges/Marble/DoubleBracingDouble.dae", "double", marbleTex, 1);
-        this.sideCrown = new Mesh("Data/Bridges/Marble/CrownMarbleDouble.dae", "marble", marbleTex, 1);
-        this.sideSupport = new Mesh("Data/Bridges/Marble/SupportMarbleRight.dae", "marble", marbleTex, 1);
-        this.sideExtension = new Mesh("Data/Bridges/Marble/ExtensionMarbleDouble.dae", "marble", marbleTex, 1);
+        this.sideFloating = new Model("Data/Bridges/Marble/FloatingMarbleDouble.wom");
+        this.sideAbutment = new Model("Data/Bridges/Marble/AbutmentMarbleRight.wom");
+        this.sideDoubleAbutment = new Model("Data/Bridges/Marble/DoubleAbutmentDouble.wom");
+        this.sideBracing = new Model("Data/Bridges/Marble/BracingMarbleRight.wom");
+        this.sideDoubleBracing = new Model("Data/Bridges/Marble/DoubleBracingDouble.wom");
+        this.sideCrown = new Model("Data/Bridges/Marble/CrownMarbleDouble.wom");
+        this.sideSupport = new Model("Data/Bridges/Marble/SupportMarbleRight.wom");
+        this.sideExtension = new Model("Data/Bridges/Marble/ExtensionMarbleDouble.wom");
     }
     
     protected void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials) {

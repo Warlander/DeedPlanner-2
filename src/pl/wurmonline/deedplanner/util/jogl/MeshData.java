@@ -5,6 +5,8 @@ import pl.wurmonline.deedplanner.util.DeedPlannerException;
 
 public class MeshData {
     
+    private String name;
+    
     private float[] vertices;
     private float[] normals;
     private float[] texcoords;
@@ -19,36 +21,19 @@ public class MeshData {
             throw new DeedPlannerException("Invalid model");
         }
         
-        final int increase;
-        if (normals!=null) {
-            increase = 3;
-        }
-        else {
-            increase = 2;
-        }
-        
         int list = g.glGenLists(1);
         g.glNewList(list, GL2.GL_COMPILE);
             g.glPushMatrix();
                 g.glRotatef(90, 1, 0, 0);
                 g.glBegin(GL2.GL_TRIANGLES);
-                    for (int i=0; i<triangles.length; i+=increase) {
-                        int vertLoc = triangles[i]*3;
-                        int normalLoc;
-                        int textureLoc;
-                        if (normals!=null) {
-                            normalLoc = triangles[i+1]*3;
-                            textureLoc = triangles[i+2]*2;
-                        }
-                        else {
-                            normalLoc = 0;
-                            textureLoc = triangles[i+1]*2;
-                        }
+                    for (int i=0; i<triangles.length; i++) {
+                        int point = triangles[i];
+                        int vertLoc = point * 3;
+                        int normalLoc = point * 3;
+                        int textureLoc = point * 2;
 
-                        g.glTexCoord2f(texcoords[textureLoc], texcoords[textureLoc+1]);
-                        if (normals!=null) {
-                            g.glNormal3f(normals[normalLoc], normals[normalLoc+1], normals[normalLoc+2]);
-                        }
+                        g.glTexCoord2f(texcoords[textureLoc], 1 - texcoords[textureLoc+1]);
+                        g.glNormal3f(normals[normalLoc], normals[normalLoc+1], normals[normalLoc+2]);
                         g.glVertex3f(vertices[vertLoc], vertices[vertLoc+1], vertices[vertLoc+2]);
                     }
                 g.glEnd();
@@ -76,5 +61,13 @@ public class MeshData {
     
     public void setTriangles(int[] triangles) {
         this.triangles = triangles;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
     }
 }

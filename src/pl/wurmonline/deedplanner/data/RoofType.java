@@ -1,85 +1,84 @@
 package pl.wurmonline.deedplanner.data;
 
 import java.util.ArrayList;
-import pl.wurmonline.deedplanner.util.jogl.Mesh;
+import pl.wurmonline.deedplanner.util.jogl.Model;
 
 public final class RoofType {
 
     public static final RoofType[] roofTypes;
     
-    public final Mesh mesh;
+    public final Model model;
     private final byte[][] conditions;
     
     static {
         ArrayList<RoofType> list = new ArrayList<>();
         
-        list.add(new RoofType(new Mesh("Data/Special/side.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/side.wom", false),
                               new byte[][] {{ 1, 1, 1},
                                             { 0, 0, 0},
                                             {-1,-2,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/sideCorner.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/sideCorner.wom", false),
                               new byte[][] {{-1,-2,-1},
                                             { 0, 0,-2},
                                             { 1, 0,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/sideCut.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/sideCut.wom", false),
                               new byte[][] {{ 1, 1, 1},
                                             { 0, 0, 1},
                                             {-2, 0, 1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/sideToSpine.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/sideToSpine.wom", false),
                               new byte[][] {{ 1, 0,-2},
                                             { 1, 0, 0},
                                             { 1, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spine.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/spine.wom", false),
                               new byte[][] {{-1,-2,-1},
                                             { 0, 0, 0},
                                             {-1,-2,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineEnd.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/spineEnd.wom", false),
                               new byte[][] {{-1,-2,-1},
                                             { 0, 0,-2},
                                             {-1,-2,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineEndUp.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/spineEndUp.wom", false),
                               new byte[][] {{-1,-2,-1},
                                             { 0, 0, 3},
                                             { 1, 0,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineEndUp.dae", "roof", null,
-                                new float[] {-1.0f, 1.0f, 1.0f}),
+        list.add(new RoofType(new Model("Data/Special/spineEndUp.wom", new float[] {-1.0f, 1.0f, 1.0f}, false),
                               new byte[][] {{-1,-2,-1},
                                             { 3, 0, 0},
                                             {-1, 0, 1}}));
 
-        list.add(new RoofType(new Mesh("Data/Special/spineCorner.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/spineCorner.wom", false),
                               new byte[][] {{-1,-2,-1},
                                             {-2, 0, 0},
                                             {-1, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineCornerUp.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/spineCornerUp.wom", false),
                               new byte[][] {{-2, 0,-2},
                                             { 0, 0, 0},
                                             { 1, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineCross.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/spineCross.wom", false),
                               new byte[][] {{-2, 0,-2},
                                             { 0, 0, 0},
                                             {-2, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineTCross.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/spineTCross.wom", false),
                               new byte[][] {{-1, 0,-2},
                                             {-2, 0, 0},
                                             {-1, 0,-2}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/spineTip.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/spineTip.wom", false),
                               new byte[][] {{-1,-2,-1},
                                             {-2, 0,-2},
                                             {-1,-2,-1}}));
         
-        list.add(new RoofType(new Mesh("Data/Special/levelsCross.dae", "roof", null, 1),
+        list.add(new RoofType(new Model("Data/Special/levelsCross.wom", false),
                               new byte[][] {{-2, 0, 1},
                                             { 0, 0, 0},
                                             { 1, 0,-2}}));
@@ -88,8 +87,8 @@ public final class RoofType {
         list.toArray(roofTypes);
     }
     
-    private RoofType(Mesh mesh, byte[][] conditions) {
-        this.mesh = mesh;
+    private RoofType(Model model, byte[][] conditions) {
+        this.model = model;
         this.conditions = conditions;
     }
     

@@ -3,26 +3,22 @@ package pl.wurmonline.deedplanner.data.bridges;
 import java.util.HashMap;
 import pl.wurmonline.deedplanner.data.Materials;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
-import pl.wurmonline.deedplanner.util.jogl.Mesh;
+import pl.wurmonline.deedplanner.util.jogl.Model;
 import pl.wurmonline.deedplanner.util.jogl.Renderable;
 import pl.wurmonline.deedplanner.util.jogl.Tex;
 
 public class RopeBridgeData extends BridgeData {
     
-    private final Tex ropeTex;
-    
-    private final Mesh narrowCrown;
-    private final Mesh narrowAbutment;
-    private final Mesh narrowDoubleAbutment;
+    private final Model narrowCrown;
+    private final Model narrowAbutment;
+    private final Model narrowDoubleAbutment;
     
     public RopeBridgeData() {
         super(1);
         
-        this.ropeTex = Tex.getTexture("Data/Bridges/Rope/ropebridge.png");
-        
-        this.narrowCrown = new Mesh("Data/Bridges/Rope/RopeBridgeCrown.dae", "rope", ropeTex, 1);
-        this.narrowAbutment = new Mesh("Data/Bridges/Rope/RopeBridgeEnd.dae", "rope", ropeTex, 1);
-        this.narrowDoubleAbutment = new Mesh("Data/Bridges/Rope/RopeBridgeDA.dae", "rope", ropeTex, 1);
+        this.narrowCrown = new Model("Data/Bridges/Rope/RopeBridgeCrown.wom");
+        this.narrowAbutment = new Model("Data/Bridges/Rope/RopeBridgeEnd.wom");
+        this.narrowDoubleAbutment = new Model("Data/Bridges/Rope/RopeBridgeDA.wom");
     }
     
     protected void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials) {

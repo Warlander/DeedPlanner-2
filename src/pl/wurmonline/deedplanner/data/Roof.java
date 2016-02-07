@@ -6,6 +6,7 @@ import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.util.jogl.Mesh;
+import pl.wurmonline.deedplanner.util.jogl.Model;
 
 public class Roof implements TileEntity {
 
@@ -48,7 +49,7 @@ public class Roof implements TileEntity {
     
     private final RoofData data;
     public int level;
-    private Mesh mesh;
+    private Model model;
     private byte rotation;
     
     public Roof(Element roof) {
@@ -77,8 +78,8 @@ public class Roof implements TileEntity {
                 g.glMultMatrixf(downMatrix);
                 break;
         }
-        if (mesh!=null) {
-            mesh.render(g);
+        if (model!=null) {
+            model.render(g);
         }
     }
     
@@ -108,16 +109,16 @@ public class Roof implements TileEntity {
         level = currRadius - 1;
     }
     
-    public void recalculateMesh(Tile currTile, int floor) {
+    public void recalculateModel(Tile currTile, int floor) {
         for (RoofType type : RoofType.roofTypes) {
             byte match = type.checkMatch(currTile, floor);
             if (match!=-1) {
                 rotation = match;
-                mesh = type.mesh;
+                model = type.model;
                 return;
             }
         }
-        mesh = null;
+        model = null;
     }
     
     public Materials getMaterials() {

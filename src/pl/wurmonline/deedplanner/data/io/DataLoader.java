@@ -159,7 +159,7 @@ public final class DataLoader {
                 switch (node.getNodeName()) {
                     case "model":
                         Model model = new Model((Element) node);
-                        if (model.tag.equals("bottom")) {
+                        if (model.getTag().equals("bottom")) {
                             bottomModel = model;
                         }
                         else {

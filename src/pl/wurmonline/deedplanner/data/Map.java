@@ -907,7 +907,7 @@ public final class Map {
             for (int i2=0; i2<=height; i2++) {
                 for (int i3=0; i3<Constants.FLOORS_LIMIT; i3++) {
                     if (tiles[i][i2].getTileContent(i3) instanceof Roof) {
-                        ((Roof) tiles[i][i2].getTileContent(i3)).recalculateMesh(tiles[i][i2], i3);
+                        ((Roof) tiles[i][i2].getTileContent(i3)).recalculateModel(tiles[i][i2], i3);
                     }
                 }
             }

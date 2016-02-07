@@ -3,38 +3,34 @@ package pl.wurmonline.deedplanner.data.bridges;
 import java.util.HashMap;
 import pl.wurmonline.deedplanner.data.Materials;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
-import pl.wurmonline.deedplanner.util.jogl.Mesh;
+import pl.wurmonline.deedplanner.util.jogl.Model;
 import pl.wurmonline.deedplanner.util.jogl.Renderable;
 import pl.wurmonline.deedplanner.util.jogl.Tex;
 
 public class WoodenBridgeData extends BridgeData {
 
-    private final Tex woodenTex;
+    private final Model narrowCrown;
+    private final Model narrowAbutment;
+    private final Model narrowSupport;
     
-    private final Mesh narrowCrown;
-    private final Mesh narrowAbutment;
-    private final Mesh narrowSupport;
+    private final Model sideCrown;
+    private final Model sideAbutment;
+    private final Model sideSupport;
     
-    private final Mesh sideCrown;
-    private final Mesh sideAbutment;
-    private final Mesh sideSupport;
-    
-    private final Mesh extension;
+    private final Model extension;
     
     public WoodenBridgeData() {
         super(2);
         
-        this.woodenTex = Tex.getTexture("Data/Bridges/Wooden/woodbridge.png");
+        this.narrowCrown = new Model("Data/Bridges/Wooden/WoodBridge.wom");
+        this.narrowAbutment = new Model("Data/Bridges/Wooden/WoodBridgeAbutmentNarrow.wom");
+        this.narrowSupport = new Model("Data/Bridges/Wooden/WoodBridgeSupport.wom");
         
-        this.narrowCrown = new Mesh("Data/Bridges/Wooden/WoodBridge.dae", "wood", woodenTex, 1);
-        this.narrowAbutment = new Mesh("Data/Bridges/Wooden/WoodBridgeAbutmentNarrow.dae", "wood", woodenTex, 1);
-        this.narrowSupport = new Mesh("Data/Bridges/Wooden/WoodBridgeSupport.dae", "wood", woodenTex, 1);
+        this.sideCrown = new Model("Data/Bridges/Wooden/WoodBridgeRight.wom");
+        this.sideAbutment = new Model("Data/Bridges/Wooden/WoodBridgeAbutmentRight.wom");
+        this.sideSupport = new Model("Data/Bridges/Wooden/WoodBridgeSupportRight.wom");
         
-        this.sideCrown = new Mesh("Data/Bridges/Wooden/WoodBridgeRight.dae", "wood", woodenTex, 1);
-        this.sideAbutment = new Mesh("Data/Bridges/Wooden/WoodBridgeAbutmentRight.dae", "wood", woodenTex, 1);
-        this.sideSupport = new Mesh("Data/Bridges/Wooden/WoodBridgeSupportRight.dae", "wood", woodenTex, 1);
-        
-        this.extension = new Mesh("Data/Bridges/Wooden/WoodBridgeExtension.dae", "wood", woodenTex, 1);
+        this.extension = new Model("Data/Bridges/Wooden/WoodBridgeExtension.wom");
     }
     
     protected void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials) {
