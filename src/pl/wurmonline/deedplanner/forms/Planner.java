@@ -2,6 +2,8 @@ package pl.wurmonline.deedplanner.forms;
 
 import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.tree.*;
@@ -197,6 +199,7 @@ public class Planner extends javax.swing.JFrame {
         cavesTree = new javax.swing.JTree();
         symmetryPanel = new pl.wurmonline.deedplanner.forms.SymmetryEditor();
         bridgesPanel = new BridgesEditor(this);
+        jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         newMapItem = new javax.swing.JMenuItem();
@@ -329,7 +332,7 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(groundModeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 384, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.groundPanel.TabConstraints.tabTitle"), groundPanel); // NOI18N
@@ -471,7 +474,7 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.heightPanel.TabConstraints.tabTitle"), heightPanel); // NOI18N
@@ -526,7 +529,7 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(floorOrientationBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.floorsPanel.TabConstraints.tabTitle"), floorsPanel); // NOI18N
@@ -574,7 +577,7 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(wallReversedAutoBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.wallsPanel.TabConstraints.tabTitle"), wallsPanel); // NOI18N
@@ -602,7 +605,7 @@ public class Planner extends javax.swing.JFrame {
         );
         roofsPanelLayout.setVerticalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.roofsPanel.TabConstraints.tabTitle"), roofsPanel); // NOI18N
@@ -626,7 +629,7 @@ public class Planner extends javax.swing.JFrame {
         );
         objectsPanelLayout.setVerticalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.objectsPanel.TabConstraints.tabTitle"), objectsPanel); // NOI18N
@@ -650,7 +653,7 @@ public class Planner extends javax.swing.JFrame {
         );
         bordersPanelLayout.setVerticalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.bordersPanel.TabConstraints.tabTitle"), bordersPanel); // NOI18N
@@ -674,12 +677,22 @@ public class Planner extends javax.swing.JFrame {
         );
         cavesPanelLayout.setVerticalGroup(
             cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab(bundle.getString("Planner.cavesPanel.TabConstraints.tabTitle"), cavesPanel); // NOI18N
         tabbedPane.addTab(bundle.getString("Planner.symmetryPanel.TabConstraints.tabTitle"), symmetryPanel); // NOI18N
         tabbedPane.addTab(bundle.getString("Planner.bridgesPanel.TabConstraints.tabTitle"), bridgesPanel); // NOI18N
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/btn_donate_LG.gif"))); // NOI18N
+        jLabel8.setText(bundle.getString("Planner.jLabel8.text")); // NOI18N
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
         sidePanel.setLayout(sidePanelLayout);
@@ -690,6 +703,10 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinner4))
             .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         sidePanelLayout.setVerticalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -698,7 +715,10 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPane))
+                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addContainerGap())
         );
 
         tabbedPane.getAccessibleContext().setAccessibleDescription(bundle.getString("Planner.tabbedPane.AccessibleContext.accessibleDescription")); // NOI18N
@@ -1185,6 +1205,14 @@ public class Planner extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_exitItemActionPerformed
 
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        try {
+            Desktop.getDesktop().browse(new URI("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NYTYWR5MV2U68"));
+        } catch (URISyntaxException | IOException ex) {
+            Log.err(ex);
+        }
+    }//GEN-LAST:event_jLabel8MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JList bordersList;
@@ -1220,6 +1248,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;

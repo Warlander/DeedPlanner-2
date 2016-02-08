@@ -18,6 +18,7 @@ public final class Tex {
     
     private final File file;
     private Texture texture = null;
+    private boolean loaded = false;
     
     public static Tex getTexture(String path) {
         return getTexture(new File(path));
@@ -89,15 +90,16 @@ public final class Tex {
     }
     
     private void init(GL g) {
-        if (texture==null) {
+        if (!loaded) {
+            loaded = true;
             try {
                 texture = TextureIO.newTexture(file, true);
                 texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_S, GL2.GL_REPEAT);
                 texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_T, GL2.GL_REPEAT);
+                Log.out(this, "Texture loaded and ready to use!");
             } catch (GLException | IOException ex) {
                 Log.err(ex);
             }
-            Log.out(this, "Texture loaded and ready to use!");
         }
     }
     

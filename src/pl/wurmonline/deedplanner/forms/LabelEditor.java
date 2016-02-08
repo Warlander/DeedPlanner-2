@@ -11,6 +11,9 @@ import pl.wurmonline.deedplanner.util.jogl.Color;
 
 public class LabelEditor extends javax.swing.JPanel {
 
+    private static final String MATERIALS_BUILDING = "Materials (building)";
+    private static final String MATERIALS_SELECTION = "Materials (selection)";
+    
     public LabelEditor() {
         initComponents();
         
@@ -36,6 +39,7 @@ public class LabelEditor extends javax.swing.JPanel {
             newLabelButton.setEnabled(false);
             calculateTileButton.setEnabled(false);
             calculateMapButton.setEnabled(false);
+            deleteBuildingButton.setEnabled(false);
             innerPanel.setVisible(false);
             return;
         }
@@ -43,7 +47,9 @@ public class LabelEditor extends javax.swing.JPanel {
         calculateMapButton.setEnabled(true);
         Tile singleTile = frag.getSingleTile();
         if (singleTile != null) {
+            deleteBuildingButton.setEnabled(true);
             newLabelButton.setEnabled(true);
+            calculateTileButton.setText(MATERIALS_BUILDING);
             Label label;
             if (Globals.floor>=0) {
                 label = singleTile.getLabel();
@@ -59,6 +65,11 @@ public class LabelEditor extends javax.swing.JPanel {
                 newLabelButton.setText("Edit label on tile");
                 innerPanel.setVisible(true);
             }
+        }
+        else {
+            newLabelButton.setEnabled(false);
+            deleteBuildingButton.setEnabled(false);
+            calculateTileButton.setText(MATERIALS_SELECTION);
         }
         repaint();
     }
