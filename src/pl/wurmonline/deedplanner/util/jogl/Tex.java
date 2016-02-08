@@ -76,8 +76,14 @@ public final class Tex {
         if (this!=activeTex[target]) {
             init(g);
             g.glActiveTexture(glTarget);
-            texture.bind(g);
-            activeTex[target] = this;
+            if (texture != null) {
+                texture.bind(g);
+                activeTex[target] = this;
+            }
+            else {
+                g.glBindTexture(GL2.GL_TEXTURE_2D, target);
+                activeTex[target] = null;
+            }
         }
     }
     
