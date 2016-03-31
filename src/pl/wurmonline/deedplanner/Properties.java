@@ -13,7 +13,7 @@ public class Properties {
     public static final transient String SLASH = System.getProperty("file.separator");
     public static final transient String BR = System.getProperty("line.separator");
     public static final transient String HOME = System.getProperty("user.home");
-    public static final transient String SAVE_DIR = HOME+SLASH+"DeedPlanner"+SLASH;
+    public static final transient String SAVE_DIR;
     
     public static String lookAndFeel = "PGS";
     public static String lastDir = HOME;
@@ -40,6 +40,14 @@ public class Properties {
     public static double mouseFractionFpp = 0.2;
     
     static {
+        File file = new File(HOME+SLASH+"DeedPlanner"+SLASH);
+        if (file.exists()) {
+            SAVE_DIR = HOME+SLASH+"DeedPlanner"+SLASH;
+        }
+        else {
+            SAVE_DIR = HOME+SLASH+".DeedPlanner"+SLASH;
+        }
+        
         try {
             loadProperties();
             saveProperties();
