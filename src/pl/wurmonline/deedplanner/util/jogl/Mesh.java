@@ -1,27 +1,22 @@
 package pl.wurmonline.deedplanner.util.jogl;
 
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 import javax.media.opengl.GL2;
+import pl.wurmonline.deedplanner.util.Vec3;
 
 public final class Mesh implements Renderable {
 
+    private final Model parent;
+    
     private final Tex tex;
     private final int listID;
     private final String name;
-    private final float[] scale;
     
-    Mesh(Tex tex, int listID, String name, float scale) {
+    Mesh(Model parent, Tex tex, int listID, String name) {
+        this.parent = parent;
         this.tex = tex;
         this.listID = listID;
         this.name = name;
-        this.scale = new float[3];
-        this.scale[0] = this.scale[1] = this.scale[2] = scale;
-    }
-    
-    Mesh(Tex tex, int listID, String name, float[] scale) {
-        this.tex = tex;
-        this.listID = listID;
-        this.name = name;
-        this.scale = scale;
     }
     
     public void render(GL2 g) {
@@ -29,7 +24,9 @@ public final class Mesh implements Renderable {
             tex.bind(g);
         }
         
-        g.glScalef(scale[0], scale[1], scale[2]);
+        Vec3 scale = parent.getScale();
+        
+        g.glScalef(scale.x, scale.y, scale.z);
         g.glCallList(listID);
     }
     

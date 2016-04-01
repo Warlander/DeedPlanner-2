@@ -1,5 +1,6 @@
 package pl.wurmonline.deedplanner.data.io;
 
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.function.Consumer;

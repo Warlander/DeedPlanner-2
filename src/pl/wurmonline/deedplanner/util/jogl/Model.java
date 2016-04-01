@@ -1,6 +1,6 @@
 package pl.wurmonline.deedplanner.util.jogl;
 
-import java.io.File;
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
@@ -14,19 +14,13 @@ import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.Log;
+import pl.wurmonline.deedplanner.util.Vec3;
 
 public final class Model implements Renderable {
     
-    private static final float[] defaultScale;
-    
-    static {
-        defaultScale = new float[3];
-        defaultScale[0] = defaultScale[1] = defaultScale[2] = 1;
-    }
-    
     private final String location;
     private final String tag;
-    private final float[] scale;
+    private final Vec3 scale;
     
     private final boolean loadTextures;
     private final Map<String, String> textureOverrides;
@@ -34,18 +28,14 @@ public final class Model implements Renderable {
     private Mesh[] meshes;
     
     public Model(String location) {
-        this(location, defaultScale, true);
+        this(location, new Vec3(1, 1, 1), true);
     }
     
     public Model(String location, boolean loadTextures) {
-        this(location, defaultScale, loadTextures);
+        this(location, new Vec3(1, 1, 1), loadTextures);
     }
     
-    public Model(String location, float[] scale, boolean loadTextures) {
-        if (scale.length !=3) {
-            throw new IllegalArgumentException("Invalid model: scale must be array of 3 values");
-        }
-        
+    public Model(String location, Vec3 scale, boolean loadTextures) {
         this.location = location;
         this.tag = "";
         this.scale = scale;
@@ -59,8 +49,8 @@ public final class Model implements Renderable {
         location = node.getAttribute("location");
         String scaleStr = node.getAttribute("scale");
         float scaleFloat = parseScale(scaleStr);
-        scale = new float[3];
-        scale[0] = scale[1] = scale[2] = scaleFloat;
+        scale = new Vec3();
+        scale.x = scale.y = scale.z = scaleFloat;
         
         loadTextures = !node.getAttribute("loadTextures").equals("false");
         
@@ -124,7 +114,7 @@ public final class Model implements Renderable {
             }
             
             
-            meshes[i] = new Mesh(texture, displayList, data.getName(), scale);
+            meshes[i] = new Mesh(this, texture, displayList, data.getName());
         }
     }
     
@@ -246,6 +236,14 @@ public final class Model implements Renderable {
             Log.err(ex);
             throw new DeedPlannerRuntimeException("This exception is impossible. If it happened... Something is very, very wrong.");
         }
+    }
+    
+    public Vec3 getScale() {
+        return scale;
+    }
+    
+    public void setScale(Vec3 other) {
+        scale.set(other);
     }
     
     public String getTag() {

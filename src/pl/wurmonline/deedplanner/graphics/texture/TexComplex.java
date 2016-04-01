@@ -1,6 +1,5 @@
 package pl.wurmonline.deedplanner.graphics.texture;
 
-import pl.wurmonline.deedplanner.util.jogl.Tex;
 import javax.media.opengl.GL2;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;

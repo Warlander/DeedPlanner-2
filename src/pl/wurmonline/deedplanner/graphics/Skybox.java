@@ -2,7 +2,7 @@ package pl.wurmonline.deedplanner.graphics;
 
 import javax.media.opengl.GL2;
 import pl.wurmonline.deedplanner.MapPanel;
-import pl.wurmonline.deedplanner.util.jogl.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 
 public class Skybox {
 

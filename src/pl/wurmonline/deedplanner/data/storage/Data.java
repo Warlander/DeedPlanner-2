@@ -4,7 +4,7 @@ import java.util.HashMap;
 import javax.swing.DefaultListModel;
 import javax.swing.tree.*;
 import pl.wurmonline.deedplanner.data.*;
-import pl.wurmonline.deedplanner.util.jogl.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 
 public class Data {
 

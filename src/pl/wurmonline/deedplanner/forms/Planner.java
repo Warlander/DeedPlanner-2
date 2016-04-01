@@ -23,7 +23,7 @@ import pl.wurmonline.deedplanner.logic.objects.ObjectsUpdater;
 import pl.wurmonline.deedplanner.logic.roofs.RoofUpdater;
 import pl.wurmonline.deedplanner.logic.walls.WallUpdater;
 import pl.wurmonline.deedplanner.util.*;
-import pl.wurmonline.deedplanner.util.jogl.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 
 public class Planner extends javax.swing.JFrame {
     

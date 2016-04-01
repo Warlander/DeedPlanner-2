@@ -5,7 +5,7 @@ import pl.wurmonline.deedplanner.data.Materials;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.jogl.Model;
 import pl.wurmonline.deedplanner.util.jogl.Renderable;
-import pl.wurmonline.deedplanner.util.jogl.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 
 public class RopeBridgeData extends BridgeData {
     

@@ -1,6 +1,7 @@
 package pl.wurmonline.deedplanner.data;
 
 import java.util.ArrayList;
+import pl.wurmonline.deedplanner.util.Vec3;
 import pl.wurmonline.deedplanner.util.jogl.Model;
 
 public final class RoofType {
@@ -48,7 +49,7 @@ public final class RoofType {
                                             { 0, 0, 3},
                                             { 1, 0,-1}}));
         
-        list.add(new RoofType(new Model("Data/Special/spineEndUp.wom", new float[] {-1.0f, 1.0f, 1.0f}, false),
+        list.add(new RoofType(new Model("Data/Special/spineEndUp.wom", new Vec3(-1, 1, 1), false),
                               new byte[][] {{-1,-2,-1},
                                             { 3, 0, 0},
                                             {-1, 0, 1}}));

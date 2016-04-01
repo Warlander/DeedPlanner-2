@@ -6,7 +6,7 @@ import org.w3c.dom.Element;
 import pl.wurmonline.deedplanner.Constants;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.util.jogl.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 
 public class CaveData implements TileEntity {
 

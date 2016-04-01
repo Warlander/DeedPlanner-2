@@ -1,6 +1,6 @@
 package pl.wurmonline.deedplanner.data;
 
-import pl.wurmonline.deedplanner.util.jogl.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 
 public class RoofData {
 

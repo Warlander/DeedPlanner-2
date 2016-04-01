@@ -6,7 +6,7 @@ import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.jogl.Mesh;
 import pl.wurmonline.deedplanner.util.jogl.Model;
 import pl.wurmonline.deedplanner.util.jogl.Renderable;
-import pl.wurmonline.deedplanner.util.jogl.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.Tex;
 
 public class MarbleBridgeData extends BridgeData {
     
