@@ -12,6 +12,7 @@ public class GLInit {
         Log.out(GLInit.class, "GL4 support: "+profile.isGL4());
         Log.out(GLInit.class, "GLSL support: "+profile.hasGLSL());
         Log.out(GLInit.class, "Hardware rendering: "+profile.isHardwareRasterizer());
+        Log.out(GLInit.class, "Profile: " + profile.getName());
     }
     
     public static GLCapabilities prepareGLCapabilities() {

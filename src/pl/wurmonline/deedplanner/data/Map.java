@@ -1,5 +1,6 @@
 package pl.wurmonline.deedplanner.data;
 
+import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
 import pl.wurmonline.deedplanner.data.bridges.Bridge;
 import com.google.common.io.LittleEndianDataInputStream;
 import com.jogamp.opengl.util.glsl.ShaderProgram;

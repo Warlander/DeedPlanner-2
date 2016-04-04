@@ -1,4 +1,4 @@
-package pl.wurmonline.deedplanner.graphics;
+package pl.wurmonline.deedplanner.graphics.shaders;
 
 import com.jogamp.opengl.util.glsl.ShaderCode;
 import com.jogamp.opengl.util.glsl.ShaderProgram;
@@ -27,8 +27,8 @@ public final class Shaders {
     
     private ShaderProgram loadShader(GL2 g, String vert, String frag) {
         ShaderProgram shader = new ShaderProgram();
-        ShaderCode vertCode = ShaderCode.create(g, GL2.GL_VERTEX_SHADER, this.getClass(), "shaders", null, vert, false);
-        ShaderCode fragCode = ShaderCode.create(g, GL2.GL_FRAGMENT_SHADER, this.getClass(), "shaders", null, frag, false);
+        ShaderCode vertCode = ShaderCode.create(g, GL2.GL_VERTEX_SHADER, this.getClass(), "", null, vert, false);
+        ShaderCode fragCode = ShaderCode.create(g, GL2.GL_FRAGMENT_SHADER, this.getClass(), "", null, frag, false);
         shader.add(g, vertCode, System.err);
         shader.add(g, fragCode, System.err);
         shader.link(g, System.err);
