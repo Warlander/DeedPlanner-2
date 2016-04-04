@@ -109,6 +109,21 @@ public final class Tex {
         }
     }
     
+    public int getId(GL g) {
+        init(g);
+        return texture.getTextureObject();
+    }
+    
+    public int getWidth(GL g) {
+        init(g);
+        return texture.getWidth();
+    }
+    
+    public int getHeight(GL g) {
+        init(g);
+        return texture.getHeight();
+    }
+    
     public File getFile() {
         return file;
     }
