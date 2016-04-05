@@ -12,6 +12,7 @@ import java.util.Stack;
 import java.util.function.Consumer;
 import java.util.function.IntSupplier;
 import javax.media.opengl.GL2;
+import javax.media.opengl.GL3;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
@@ -22,6 +23,7 @@ import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.*;
+import pl.wurmonline.deedplanner.graphics.shaders.SimpleProgram;
 import pl.wurmonline.deedplanner.logic.Tab;
 import pl.wurmonline.deedplanner.logic.TileSelection;
 import pl.wurmonline.deedplanner.logic.symmetry.Symmetry;
@@ -412,8 +414,8 @@ public final class Map {
     }
     
     public void render(GL2 g) {
-        ShaderProgram program = Shaders.getShaders(g).simple;
-        program.useProgram(g, true);
+        SimpleProgram program = Shaders.getShaders().simple;
+        program.bind(g);
         int startX = Math.max(0, Globals.visibleDownX);
         int endX = Math.min(width, Globals.visibleUpX);
         int startY = Math.max(0, Globals.visibleDownY);

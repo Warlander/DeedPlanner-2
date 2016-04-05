@@ -5,7 +5,9 @@ import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.graphics.shaders.DiagonalProgram;
 import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
+import pl.wurmonline.deedplanner.graphics.shaders.SimpleProgram;
 
 public class Ground implements TileEntity {
     
@@ -105,16 +107,9 @@ public class Ground implements TileEntity {
         }
         
         if (dir!=RoadDirection.CENTER) {
-            ShaderProgram program = Shaders.getShaders(g).diagonal;
-            program.useProgram(g, true);
-            int direction = g.glGetUniformLocation(program.program(), "dir");
-            g.glUniform1i(direction, RoadDirection.toInt(dir));
-            int tex0 = g.glGetUniformLocation(program.program(), "tex0");
-            g.glUniform1i(tex0, 0);
-            int tex1 = g.glGetUniformLocation(program.program(), "tex1");
-            g.glUniform1i(tex1, 1);
-            int tex2 = g.glGetUniformLocation(program.program(), "tex2");
-            g.glUniform1i(tex2, 2);
+            DiagonalProgram program = Shaders.getShaders().diagonal;
+            program.setDirection(RoadDirection.toInt(dir));
+            program.bind(g);
         }
         
         float h00 = (tile.getHeight()) / Constants.HEIGHT_MOD;
@@ -153,10 +148,10 @@ public class Ground implements TileEntity {
         g.glEnd();
         
         if (dir!=RoadDirection.CENTER) {
-            ShaderProgram program = Shaders.getShaders(g).diagonal;
-            program.useProgram(g, false);
-            program = Shaders.getShaders(g).simple;
-            program.useProgram(g, true);
+            DiagonalProgram diagonal = Shaders.getShaders().diagonal;
+            diagonal.unbind(g);
+            SimpleProgram simple = Shaders.getShaders().simple;
+            simple.bind(g);
         }
     }
 
