@@ -1,13 +1,11 @@
 package pl.wurmonline.deedplanner.data;
 
-import com.jogamp.opengl.util.glsl.ShaderProgram;
 import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.graphics.shaders.DiagonalProgram;
+import pl.wurmonline.deedplanner.graphics.shaders.Program;
 import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
-import pl.wurmonline.deedplanner.graphics.shaders.SimpleProgram;
 
 public class Ground implements TileEntity {
     
@@ -107,8 +105,11 @@ public class Ground implements TileEntity {
         }
         
         if (dir!=RoadDirection.CENTER) {
-            DiagonalProgram program = Shaders.getShaders().diagonal;
-            program.setDirection(RoadDirection.toInt(dir));
+            Program program = Shaders.getShaders().diagonal;
+            program.setInt(g, "dir", RoadDirection.toInt(dir));
+            program.setInt(g, "tex0", 0);
+            program.setInt(g, "tex1", 1);
+            program.setInt(g, "tex2", 2);
             program.bind(g);
         }
         
@@ -148,9 +149,9 @@ public class Ground implements TileEntity {
         g.glEnd();
         
         if (dir!=RoadDirection.CENTER) {
-            DiagonalProgram diagonal = Shaders.getShaders().diagonal;
+            Program diagonal = Shaders.getShaders().diagonal;
             diagonal.unbind(g);
-            SimpleProgram simple = Shaders.getShaders().simple;
+            Program simple = Shaders.getShaders().simple;
             simple.bind(g);
         }
     }

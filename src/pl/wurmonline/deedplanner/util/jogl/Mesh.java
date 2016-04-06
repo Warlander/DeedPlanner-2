@@ -2,7 +2,7 @@ package pl.wurmonline.deedplanner.util.jogl;
 
 import pl.wurmonline.deedplanner.graphics.texture.Tex;
 import javax.media.opengl.GL2;
-import pl.wurmonline.deedplanner.util.Vec3;
+import org.joml.Vector3f;
 
 public final class Mesh implements Renderable {
 
@@ -24,7 +24,7 @@ public final class Mesh implements Renderable {
             tex.bind(g);
         }
         
-        Vec3 scale = parent.getScale();
+        Vector3f scale = parent.getScale();
         
         g.glScalef(scale.x, scale.y, scale.z);
         g.glCallList(listID);

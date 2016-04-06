@@ -12,12 +12,12 @@ public final class Shaders {
         return shaders;
     }
     
-    public final SimpleProgram simple;
-    public final DiagonalProgram diagonal;
+    public final Program simple;
+    public final Program diagonal;
     
     public Shaders() {
-        simple = new SimpleProgram();
-        diagonal = new DiagonalProgram();
+        simple = ShaderUtils.loadVertFragProgram("Simple");
+        diagonal = ShaderUtils.loadVertFragProgram("Diagonal");
     }
     
     public String toString() {

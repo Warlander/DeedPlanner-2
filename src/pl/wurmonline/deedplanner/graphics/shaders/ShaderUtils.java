@@ -4,7 +4,7 @@ import java.net.URL;
 
 class ShaderUtils {
     
-    static Shader[] loadVertFragShaders(String shader) {
+    static Program loadVertFragProgram(String shader) {
         String vertexString = shader + ".vert.glsl";
         URL vertexUrl = Shaders.class.getResource(vertexString);
         Shader vertexShader = new Shader(vertexUrl);
@@ -15,7 +15,7 @@ class ShaderUtils {
         
         Shader[] shaders = { vertexShader, fragmentShader };
         
-        return shaders;
+        return new Program(shaders);
     }
     
 }

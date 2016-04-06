@@ -10,17 +10,17 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import javax.media.opengl.GL2;
+import org.joml.Vector3f;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.Log;
-import pl.wurmonline.deedplanner.util.Vec3;
 
 public final class Model implements Renderable {
     
     private final String location;
     private final String tag;
-    private final Vec3 scale;
+    private final Vector3f scale;
     
     private final boolean loadTextures;
     private final Map<String, String> textureOverrides;
@@ -28,14 +28,14 @@ public final class Model implements Renderable {
     private Mesh[] meshes;
     
     public Model(String location) {
-        this(location, new Vec3(1, 1, 1), true);
+        this(location, new Vector3f(1, 1, 1), true);
     }
     
     public Model(String location, boolean loadTextures) {
-        this(location, new Vec3(1, 1, 1), loadTextures);
+        this(location, new Vector3f(1, 1, 1), loadTextures);
     }
     
-    public Model(String location, Vec3 scale, boolean loadTextures) {
+    public Model(String location, Vector3f scale, boolean loadTextures) {
         this.location = location;
         this.tag = "";
         this.scale = scale;
@@ -49,7 +49,7 @@ public final class Model implements Renderable {
         location = node.getAttribute("location");
         String scaleStr = node.getAttribute("scale");
         float scaleFloat = parseScale(scaleStr);
-        scale = new Vec3();
+        scale = new Vector3f();
         scale.x = scale.y = scale.z = scaleFloat;
         
         loadTextures = !node.getAttribute("loadTextures").equals("false");
@@ -238,11 +238,11 @@ public final class Model implements Renderable {
         }
     }
     
-    public Vec3 getScale() {
+    public Vector3f getScale() {
         return scale;
     }
     
-    public void setScale(Vec3 other) {
+    public void setScale(Vector3f other) {
         scale.set(other);
     }
     

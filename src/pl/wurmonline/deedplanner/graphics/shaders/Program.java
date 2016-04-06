@@ -1,19 +1,28 @@
 package pl.wurmonline.deedplanner.graphics.shaders;
 
+import com.sun.scenario.effect.impl.BufferUtil;
 import java.nio.ByteBuffer;
+import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+import java.util.HashMap;
+import java.util.Map;
 import javax.media.opengl.GL2;
+import javax.media.opengl.GL2GL3;
+import org.joml.Vector3f;
 
-public abstract class Program {
+public final class Program {
     
     private final Shader[] sources;
     private int programId = -1;
     
+    private Map<String, Integer> uniformsLocations;
+    
     protected Program(Shader[] sources) {
         this.sources = sources;
+        this.uniformsLocations = new HashMap<>();
     }
     
-    public synchronized int createOrGetProgram(GL2 g) {
+    public synchronized int createOrGetProgram(GL2GL3 g) {
         if (programId == -1) {
             programId = g.glCreateProgram();
             for (Shader shader : sources) {
@@ -38,29 +47,67 @@ public abstract class Program {
                     System.err.println("Unknown OpenGL shader link error");
                 }
             }
-            else {
-                findUniformsLocations(g, programId);
-            }
         }
         
         return programId;
     }
     
-    public void bind(GL2 g) {
+    public void bind(GL2GL3 g) {
         if (programId == -1) {
             createOrGetProgram(g);
         }
         
         g.glUseProgram(programId);
-        updateUniforms(g);
     }
     
-    public void unbind(GL2 g) {
+    public void unbind(GL2GL3 g) {
         g.glUseProgram(0);
     }
     
-    protected abstract void findUniformsLocations(GL2 g, int programId);
+    private int getUniformLocation(GL2GL3 g, String name) {
+        Integer location = uniformsLocations.get(name);
+        if (location == null) {
+            location = g.glGetUniformLocation(programId, name);
+            uniformsLocations.put(name, location);
+        }
+        
+        return location;
+    }
     
-    public abstract void updateUniforms(GL2 g);
+    public void setInt(GL2GL3 g, String name, int value) {
+        int location = getUniformLocation(g, name);
+        g.glUniform1i(location, value);
+    }
+    
+    public int getInt(GL2GL3 g, String name) {
+        int location = getUniformLocation(g, name);
+        IntBuffer buffer = BufferUtil.newIntBuffer(1);
+        g.glGetUniformiv(programId, location, buffer);
+        return buffer.get();
+    }
+    
+    public void setFloat(GL2GL3 g, String name, float value) {
+        int location = getUniformLocation(g, name);
+        g.glUniform1f(location, value);
+    }
+    
+    public float getFloat(GL2GL3 g, String name) {
+        int location = getUniformLocation(g, name);
+        FloatBuffer buffer = BufferUtil.newFloatBuffer(1);
+        g.glGetUniformfv(programId, location, buffer);
+        return buffer.get();
+    }
+    
+    public void setVector3f(GL2GL3 g, String name, Vector3f value) {
+        int location = getUniformLocation(g, name);
+        g.glUniform3f(location, value.x, value.y, value.z);
+    }
+    
+    public Vector3f getVector3f(GL2GL3 g, String name) {
+        int location = getUniformLocation(g, name);
+        FloatBuffer buffer = BufferUtil.newFloatBuffer(3);
+        g.glGetUniformfv(programId, location, buffer);
+        return new Vector3f(buffer.get(), buffer.get(), buffer.get());
+    }
     
 }
