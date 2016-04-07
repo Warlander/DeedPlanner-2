@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.media.opengl.GL2;
 import javax.media.opengl.GL2GL3;
+import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
 public final class Program {
@@ -108,6 +109,21 @@ public final class Program {
         FloatBuffer buffer = BufferUtil.newFloatBuffer(3);
         g.glGetUniformfv(programId, location, buffer);
         return new Vector3f(buffer.get(), buffer.get(), buffer.get());
+    }
+    
+    public void setMatrix4f(GL2GL3 g, String name, Matrix4f value) {
+        int location = getUniformLocation(g, name);
+        FloatBuffer buffer = BufferUtil.newFloatBuffer(16);
+        value.get(buffer);
+        g.glUniformMatrix4fv(location, 1, false, buffer);
+    }
+    
+    public Matrix4f getMatrix4f(GL2GL3 g, String name) {
+        int location = getUniformLocation(g, name);
+        FloatBuffer buffer = BufferUtil.newFloatBuffer(16);
+        g.glGetUniformfv(programId, location, buffer);
+        Matrix4f matrix = new Matrix4f(buffer);
+        return matrix;
     }
     
 }
