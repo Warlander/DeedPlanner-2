@@ -1,6 +1,6 @@
 package pl.wurmonline.deedplanner.data;
 
-import pl.wurmonline.deedplanner.util.jogl.Model;
+import pl.wurmonline.deedplanner.graphics.wom.Model;
 
 public class GameObjectData {
 

@@ -2,7 +2,7 @@ package pl.wurmonline.deedplanner.data;
 
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.util.jogl.Model;
+import pl.wurmonline.deedplanner.graphics.wom.Model;
 
 public final class FloorData {
 

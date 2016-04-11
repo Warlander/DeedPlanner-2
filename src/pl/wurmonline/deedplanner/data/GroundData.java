@@ -9,19 +9,19 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import pl.wurmonline.deedplanner.Properties;
-import pl.wurmonline.deedplanner.graphics.texture.TexComplex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public final class GroundData {
 
     public final String name;
     public final String shortName;
     
-    public final TexComplex tex;
+    public final SimpleTex tex;
     private Icon icon;
     
     public final boolean diagonal;
     
-    public GroundData(String name, String shortName, TexComplex tex, boolean diagonal) {
+    public GroundData(String name, String shortName, SimpleTex tex, boolean diagonal) {
         this.name = name;
         this.shortName = shortName;
         this.tex = tex;
@@ -34,7 +34,7 @@ public final class GroundData {
         }
         else if (icon==null) {
             try {
-                Image img = resizeImage(ImageIO.read(tex.getDefault().getFile()), Properties.iconSize, Properties.iconSize);
+                Image img = resizeImage(ImageIO.read(tex.getFile()), Properties.iconSize, Properties.iconSize);
                 icon = new ImageIcon(img);
             } catch (IOException ex) {
                 Logger.getLogger(GroundData.class.getName()).log(Level.SEVERE, null, ex);

@@ -23,7 +23,7 @@ import pl.wurmonline.deedplanner.logic.objects.ObjectsUpdater;
 import pl.wurmonline.deedplanner.logic.roofs.RoofUpdater;
 import pl.wurmonline.deedplanner.logic.walls.WallUpdater;
 import pl.wurmonline.deedplanner.util.*;
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public class Planner extends javax.swing.JFrame {
     
@@ -222,11 +222,6 @@ public class Planner extends javax.swing.JFrame {
         jMenu10 = new javax.swing.JMenu();
         elevationOnItem = new javax.swing.JRadioButtonMenuItem();
         elevationOffItem = new javax.swing.JRadioButtonMenuItem();
-        jMenu11 = new javax.swing.JMenu();
-        springItem = new javax.swing.JRadioButtonMenuItem();
-        summerItem = new javax.swing.JRadioButtonMenuItem();
-        fallItem = new javax.swing.JRadioButtonMenuItem();
-        winterItem = new javax.swing.JRadioButtonMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
@@ -289,7 +284,6 @@ public class Planner extends javax.swing.JFrame {
         groundsTree.setModel(new DefaultTreeModel(Data.groundsTree));
         groundsTree.setCellRenderer(null);
         groundsTree.setRootVisible(false);
-        groundsTree.setShowsRootHandles(true);
         groundsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 groundsTreeValueChanged(evt);
@@ -341,7 +335,7 @@ public class Planner extends javax.swing.JFrame {
         jLabel1.setText(bundle.getString("Planner.jLabel1.text")); // NOI18N
 
         heightLeftSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), null, null, Integer.valueOf(1)));
+        heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(5, null, null, 1));
         heightLeftSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 heightLeftSpinnerStateChanged(evt);
@@ -349,7 +343,7 @@ public class Planner extends javax.swing.JFrame {
         });
 
         heightRightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightRightSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-5), null, null, Integer.valueOf(1)));
+        heightRightSpinner.setModel(new javax.swing.SpinnerNumberModel(-5, null, null, 1));
         heightRightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 heightRightSpinnerStateChanged(evt);
@@ -360,7 +354,7 @@ public class Planner extends javax.swing.JFrame {
         jLabel2.setText(bundle.getString("Planner.jLabel2.text")); // NOI18N
 
         addHeightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
+        addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
         addHeightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 addHeightSpinnerStateChanged(evt);
@@ -482,7 +476,6 @@ public class Planner extends javax.swing.JFrame {
         floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
         floorsTree.setRootVisible(false);
-        floorsTree.setShowsRootHandles(true);
         floorsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 floorsTreeValueChanged(evt);
@@ -537,7 +530,6 @@ public class Planner extends javax.swing.JFrame {
         wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
         wallsTree.setRootVisible(false);
-        wallsTree.setShowsRootHandles(true);
         wallsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 wallsTreeValueChanged(evt);
@@ -613,7 +605,6 @@ public class Planner extends javax.swing.JFrame {
         objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
         objectsTree.setRootVisible(false);
-        objectsTree.setShowsRootHandles(true);
         objectsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 objectsTreeValueChanged(evt);
@@ -661,7 +652,6 @@ public class Planner extends javax.swing.JFrame {
         cavesTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cavesTree.setModel(new DefaultTreeModel(Data.cavesTree));
         cavesTree.setRootVisible(false);
-        cavesTree.setShowsRootHandles(true);
         cavesTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 cavesTreeValueChanged(evt);
@@ -854,47 +844,6 @@ public class Planner extends javax.swing.JFrame {
 
         jMenu8.add(jMenu10);
 
-        jMenu11.setText(bundle.getString("Planner.jMenu11.text")); // NOI18N
-
-        seasonGroup.add(springItem);
-        springItem.setText(bundle.getString("Planner.springItem.text")); // NOI18N
-        springItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seasonChanged(evt);
-            }
-        });
-        jMenu11.add(springItem);
-
-        seasonGroup.add(summerItem);
-        summerItem.setSelected(true);
-        summerItem.setText(bundle.getString("Planner.summerItem.text")); // NOI18N
-        summerItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seasonChanged(evt);
-            }
-        });
-        jMenu11.add(summerItem);
-
-        seasonGroup.add(fallItem);
-        fallItem.setText(bundle.getString("Planner.fallItem.text")); // NOI18N
-        fallItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seasonChanged(evt);
-            }
-        });
-        jMenu11.add(fallItem);
-
-        seasonGroup.add(winterItem);
-        winterItem.setText(bundle.getString("Planner.winterItem.text")); // NOI18N
-        winterItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                seasonChanged(evt);
-            }
-        });
-        jMenu11.add(winterItem);
-
-        jMenu8.add(jMenu11);
-
         jMenuBar1.add(jMenu8);
 
         jMenu6.setText(bundle.getString("Planner.jMenu6.text")); // NOI18N
@@ -981,25 +930,6 @@ public class Planner extends javax.swing.JFrame {
             Globals.fixedHeight = (evt.getSource()==wurmianItem);
         });
     }//GEN-LAST:event_viewSwitched
-
-    private void seasonChanged(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seasonChanged
-        mapPanel.getLoop().syncAndExecute(() -> {
-            Object source = evt.getSource();
-            if (source==springItem) {
-                Globals.season = Season.SPRING;
-            }
-            else if (source==summerItem) {
-                Globals.season = Season.SUMMER;
-            }
-            else if (source==fallItem) {
-                Globals.season = Season.FALL;
-            }
-            else if (source==winterItem) {
-                Globals.season = Season.WINTER;
-            }
-            Tex.destroyAll(mapPanel.getGL());
-        });
-    }//GEN-LAST:event_seasonChanged
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         new SettingsWindow().setVisible(true);
@@ -1146,7 +1076,7 @@ public class Planner extends javax.swing.JFrame {
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         mapPanel.getLoop().syncAndExecute(() -> {
-            Tex.destroyAll(mapPanel.getGL());
+            SimpleTex.destroyAll(mapPanel.getGL());
         });
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
@@ -1225,7 +1155,6 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem elevationOffItem;
     private javax.swing.JRadioButtonMenuItem elevationOnItem;
     private javax.swing.JMenuItem exitItem;
-    private javax.swing.JRadioButtonMenuItem fallItem;
     private javax.swing.JComboBox floorOrientationBox;
     private javax.swing.JComboBox floorsModeCombo;
     private javax.swing.JPanel floorsPanel;
@@ -1251,7 +1180,6 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
@@ -1286,9 +1214,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.ButtonGroup seasonGroup;
     private javax.swing.JPanel sidePanel;
     private javax.swing.JRadioButton sizeRadio;
-    private javax.swing.JRadioButtonMenuItem springItem;
     private javax.swing.JPanel statusBar;
-    private javax.swing.JRadioButtonMenuItem summerItem;
     private pl.wurmonline.deedplanner.forms.SymmetryEditor symmetryPanel;
     private javax.swing.JTabbedPane tabbedPane;
     public javax.swing.JLabel tileLabel;
@@ -1300,7 +1226,6 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.ButtonGroup wallsGroup;
     private javax.swing.JPanel wallsPanel;
     private javax.swing.JTree wallsTree;
-    private javax.swing.JRadioButtonMenuItem winterItem;
     private javax.swing.JRadioButtonMenuItem wurmianItem;
     // End of variables declaration//GEN-END:variables
 }

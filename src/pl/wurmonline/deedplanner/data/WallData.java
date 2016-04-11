@@ -11,7 +11,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.util.jogl.Color;
-import pl.wurmonline.deedplanner.util.jogl.Model;
+import pl.wurmonline.deedplanner.graphics.wom.Model;
 
 public class WallData {
 

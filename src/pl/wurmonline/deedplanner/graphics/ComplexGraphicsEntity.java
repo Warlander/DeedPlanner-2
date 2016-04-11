@@ -1,7 +1,7 @@
 package pl.wurmonline.deedplanner.graphics;
 
 import org.joml.Vector3f;
-import pl.wurmonline.deedplanner.util.jogl.Model;
+import pl.wurmonline.deedplanner.graphics.wom.Model;
 
 public abstract class ComplexGraphicsEntity extends GraphicsEntity {
     

@@ -1,235 +1,147 @@
 <entities>
 	<grounds>
 		<ground name="Grass" shortname="gr">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/grass.jpg"/>
-				<universal season="fall" location="Data/GroundTextures/Fall/grass_fall.jpg"/>
-				<universal season="winter" location="Data/GroundTextures/Winter/winter-grass.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/grass.jpg"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Dirt" shortname="di">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/dirt.jpg"/>
-				<universal season="fall" location="Data/GroundTextures/Fall/dirt_fall.jpg"/>
-				<universal season="winter" location="Data/GroundTextures/Winter/winter-dirt.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/dirt.jpg"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Packed dirt" shortname="pd">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/packed-dirt.jpg"/>
-				<universal season="fall" location="Data/GroundTextures/Fall/packed_dirt_fall.jpg"/>
-				<universal season="winter" location="Data/GroundTextures/Winter/winter-packed-dirt.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/packed-dirt.jpg"/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Sand" shortname="sa">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/sand.jpg"/>
-				<universal season="fall" location="Data/GroundTextures/Fall/sand_fall.jpg"/>
-				<universal season="winter" location="Data/GroundTextures/Winter/winter-sand.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/sand.jpg"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Water" shortname="wa">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/water.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/water.png"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Forest" shortname="fo">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/forest.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/forest.jpg"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Marsh" shortname="ma">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/marsh.png"/>
-				<universal season="winter" location="Data/GroundTextures/winter-marsh.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/marsh.png"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Steppe" shortname="st">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/steppe.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/steppe.jpg"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Tundra" shortname="tu">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/tundra.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/tundra.png"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Field" shortname="fi">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/farm.jpg"/>
-				<universal season="winter" location="Data/GroundTextures/Winter/winter-farm.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/farm.jpg"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Gravel" shortname="gv">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/gravel.jpg"/>
-				<universal season="fall" location="Data/GroundTextures/Fall/gravel_fall.jpg"/>
-				<universal season="winter" location="Data/GroundTextures/Winter/winter-gravel.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/gravel.jpg"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Cobblestone" shortname="cs">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/cobble.png"/>
-				<universal season="winter" location="Data/GroundTextures/Winter/winter-cobble.png"/>
-			</tex>
-			<diagonal/>
-			<category>Roads</category>
+                        <tex location="Data/GroundTextures/cobble.png"/>
+                        <diagonal/>
+                        <category>Roads</category>
 		</ground>
 		<ground name="Rough Cobblestone" shortname="rcs">
-		    <tex>
-		        <universal season="all" location="Data/GroundTextures/cobble2.png"/>
-		        <universal season="winter" location="Data/GroundTextures/Winter/cobble2_snow.png"/>
-		    </tex>
-			<diagonal/>
-		    <category>Roads</category>
+                        <tex location="Data/GroundTextures/cobble2.png"/>
+                        <diagonal/>
+                        <category>Roads</category>
 		</ground>
 		<ground name="Round Cobblestone" shortname="csr">
-		    <tex>
-		        <universal season="all" location="Data/GroundTextures/cobble3.png"/>
-		        <universal season="winter" location="Data/GroundTextures/Winter/cobble3_snow.png"/>
-		    </tex>
-			<diagonal/>
-		    <category>Roads</category>
+                        <tex location="Data/GroundTextures/cobble3.png"/>
+                        <diagonal/>
+                        <category>Roads</category>
 		</ground>
 		<ground name="Stone slab" shortname="sl">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/slab.jpg"/>
-				<universal season="winter" location="Data/GroundTextures/Winter/winter-slab.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/slab.jpg"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Marble slab" shortname="msl">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/marbleslab.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/marbleslab.jpg"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Slate slab" shortname="ssl">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/slateslab.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/slateslab.jpg"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Planks" shortname="pl">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/planks.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/planks.png"/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Enchanted forest" shortname="ef">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/enchantedforest.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/enchantedforest.jpg"/>
 			<category>Enchanted terrain</category>
 		</ground>
 		<ground name="Enchanted grass" shortname="eg">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/enchantedgrass.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/enchantedgrass.jpg"/>
 			<category>Enchanted terrain</category>
 		</ground>
 		<ground name="Lawn" shortname="lw">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/lawn.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/lawn.png"/>
 			<category>Enchanted terrain</category>
 		</ground>
 		<ground name="Forest mycelium" shortname="fm">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/forest-Mycelium.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/forest-Mycelium.jpg"/>
 			<category>Infected terrain</category>
 		</ground>
 		<ground name="Mycelium" shortname="my">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/mycelium.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/mycelium.jpg"/>
 			<category>Infected terrain</category>
 		</ground>
 		<ground name="Wooden cave door" shortname="wcaDoor">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/door-wood.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/door-wood.png"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Metal cave door" shortname="mcaDoor">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/door-metal.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/door-metal.png"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Silver cave door" shortname="scaDoor">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/door-silver.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/door-silver.png"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Golden cave door" shortname="gcaDoor">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/door-gold.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/door-gold.png"/>
 			<category>Cave doors</category>
 		</ground>
 		
 		<ground name="Rock" shortname="ro">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/rock.jpg"/>
-				<universal season="fall" location="Data/GroundTextures/Fall/rock_fall.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/rock.jpg"/>
 			<category>Natural terrain/Mountain</category>
 		</ground>
 		<ground name="Cliff" shortname="cl">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/cliff.jpg"/>
-				<universal season="winter" location="Data/GroundTextures/winter-cliff.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/cliff.jpg"/>
 			<category>Natural terrain/Mountain</category>
 		</ground>
 		<ground name="Lava" shortname="la">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/lava.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/lava.jpg"/>
 			<category>Natural terrain/Mountain</category>
 		</ground>
 		<ground name="Clay" shortname="cy">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/clay.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/clay.jpg"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 		<ground name="Moss" shortname="mo">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/moss.png"/>
-				<universal season="winter" location="Data/GroundTextures/winter-moss.png"/>
-			</tex>
+			<tex location="Data/GroundTextures/moss.png"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 		<ground name="Peat" shortname="pe">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/peat.jpg"/>
-				<universal season="winter" location="Data/GroundTextures/winter-peat.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/peat.jpg"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 		<ground name="Tar" shortname="ta">
-			<tex>
-				<universal season="all" location="Data/GroundTextures/tar.jpg"/>
-			</tex>
+			<tex location="Data/GroundTextures/tar.jpg"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 	</grounds>

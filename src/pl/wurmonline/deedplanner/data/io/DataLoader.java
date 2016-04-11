@@ -1,6 +1,7 @@
 package pl.wurmonline.deedplanner.data.io;
 
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.wom.Model;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.function.Consumer;
@@ -12,7 +13,6 @@ import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.forms.Loading;
-import pl.wurmonline.deedplanner.graphics.texture.TexComplex;
 import pl.wurmonline.deedplanner.util.*;
 import pl.wurmonline.deedplanner.util.jogl.*;
 
@@ -46,7 +46,7 @@ public final class DataLoader {
         for (int i=0; i<entities.getLength(); i++) {
             String name;
             String shortName;
-            TexComplex tex = null;
+            SimpleTex tex = null;
             ArrayList<String[]> categories = new ArrayList<>();
             boolean diagonal = false;
             
@@ -62,7 +62,7 @@ public final class DataLoader {
                 Node node = list.item(i2);
                 switch (node.getNodeName()) {
                     case "tex":
-                        tex = new TexComplex(node);
+                        tex = SimpleTex.getTexture((Element) node);
                         break;
                     case "category":
                         categories.add(node.getTextContent().split("/"));
@@ -257,7 +257,7 @@ public final class DataLoader {
         for (int i=0; i<entities.getLength(); i++) {
             String name;
             String shortName;
-            Tex tex;
+            SimpleTex tex;
             Materials materials = null;
             
             Node entity = entities.item(i);
@@ -265,7 +265,7 @@ public final class DataLoader {
             NamedNodeMap map = entity.getAttributes();
             name = map.getNamedItem("name").getNodeValue();
             shortName = map.getNamedItem("shortname").getNodeValue();
-            tex = Tex.getTexture(map.getNamedItem("tex").getNodeValue());
+            tex = SimpleTex.getTexture(map.getNamedItem("tex").getNodeValue());
             Node materialsNode = entity.getChildNodes().item(1);
             if (materialsNode!=null) {
                 materials = new Materials(materialsNode);
@@ -327,7 +327,7 @@ public final class DataLoader {
         for (int i=0; i<entities.getLength(); i++) {
             String name;
             String shortName;
-            Tex tex;
+            SimpleTex tex;
             ArrayList<String[]> categories = new ArrayList<>();
             boolean wall;
             boolean show = true;
@@ -337,7 +337,7 @@ public final class DataLoader {
             NamedNodeMap map = entity.getAttributes();
             name = map.getNamedItem("name").getNodeValue();
             shortName = map.getNamedItem("shortname").getNodeValue();
-            tex = Tex.getTexture(map.getNamedItem("tex").getNodeValue());
+            tex = SimpleTex.getTexture(map.getNamedItem("tex").getNodeValue());
             wall = map.getNamedItem("type").getNodeValue().equals("wall");
             
             NodeList list = entity.getChildNodes();

@@ -2,7 +2,7 @@ package pl.wurmonline.deedplanner.data;
 
 import java.util.ArrayList;
 import org.joml.Vector3f;
-import pl.wurmonline.deedplanner.util.jogl.Model;
+import pl.wurmonline.deedplanner.graphics.wom.Model;
 
 public final class RoofType {
 

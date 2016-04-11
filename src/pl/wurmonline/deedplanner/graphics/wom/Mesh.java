@@ -1,18 +1,19 @@
-package pl.wurmonline.deedplanner.util.jogl;
+package pl.wurmonline.deedplanner.graphics.wom;
 
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import javax.media.opengl.GL2;
 import org.joml.Vector3f;
+import pl.wurmonline.deedplanner.util.jogl.Renderable;
 
 public final class Mesh implements Renderable {
 
     private final Model parent;
     
-    private final Tex tex;
+    private final SimpleTex tex;
     private final int listID;
     private final String name;
     
-    Mesh(Model parent, Tex tex, int listID, String name) {
+    Mesh(Model parent, SimpleTex tex, int listID, String name) {
         this.parent = parent;
         this.tex = tex;
         this.listID = listID;

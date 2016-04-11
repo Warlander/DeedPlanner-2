@@ -1,6 +1,6 @@
-package pl.wurmonline.deedplanner.util.jogl;
+package pl.wurmonline.deedplanner.graphics.wom;
 
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
@@ -15,6 +15,7 @@ import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.Log;
+import pl.wurmonline.deedplanner.util.jogl.Renderable;
 
 public final class Model implements Renderable {
     
@@ -104,10 +105,10 @@ public final class Model implements Renderable {
             int displayList = data.createModel(g);
             
             int materialCount = buffer.getInt();
-            Tex texture = loadTexture(buffer);
+            SimpleTex texture = loadTexture(buffer);
             if (textureOverrides.containsKey(data.getName())) {
                 String textureOverride = textureOverrides.get(data.getName());
-                texture = Tex.getTexture(textureOverride);
+                texture = SimpleTex.getTexture(textureOverride);
             }
             else if (!loadTextures) {
                 texture = null;
@@ -180,7 +181,7 @@ public final class Model implements Renderable {
         return data;
     }
     
-    private Tex loadTexture(ByteBuffer buffer) {
+    private SimpleTex loadTexture(ByteBuffer buffer) {
         String texName = readString(buffer);
         String matName = readString(buffer);
         
@@ -221,7 +222,7 @@ public final class Model implements Renderable {
             }
         }
         
-        return Tex.getTexture(texLoc);
+        return SimpleTex.getTexture(texLoc);
     }
     
     private String readString(ByteBuffer buffer) {

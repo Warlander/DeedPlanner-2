@@ -6,11 +6,11 @@ import org.w3c.dom.Element;
 import pl.wurmonline.deedplanner.Constants;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public class CaveData implements TileEntity {
 
-    public final Tex texture;
+    public final SimpleTex texture;
     public final String name;
     public final String shortName;
     public final boolean wall;
@@ -21,7 +21,7 @@ public class CaveData implements TileEntity {
         return Data.caves.get(shortName);
     }
     
-    public CaveData(Tex texture, String name, String shortName, boolean wall, boolean show) {
+    public CaveData(SimpleTex texture, String name, String shortName, boolean wall, boolean show) {
         this.texture = texture;
         this.name = name;
         this.shortName = shortName;

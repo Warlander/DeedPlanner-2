@@ -16,7 +16,7 @@ public final class Program {
     private final Shader[] sources;
     private int programId = -1;
     
-    private Map<String, Integer> uniformsLocations;
+    private final Map<String, Integer> uniformsLocations;
     
     protected Program(Shader[] sources) {
         this.sources = sources;
@@ -68,6 +68,7 @@ public final class Program {
     private int getUniformLocation(GL2GL3 g, String name) {
         Integer location = uniformsLocations.get(name);
         if (location == null) {
+            createOrGetProgram(g);
             location = g.glGetUniformLocation(programId, name);
             uniformsLocations.put(name, location);
         }

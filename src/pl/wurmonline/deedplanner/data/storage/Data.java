@@ -4,7 +4,7 @@ import java.util.HashMap;
 import javax.swing.DefaultListModel;
 import javax.swing.tree.*;
 import pl.wurmonline.deedplanner.data.*;
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public class Data {
 
@@ -29,6 +29,6 @@ public class Data {
     public static final HashMap<String, CaveData> caves = new HashMap<>();
     public static final DefaultMutableTreeNode cavesTree = new DefaultMutableTreeNode("Caves");
     
-    public static final Tex water = Tex.getTexture("Data/Special/water.png");
+    public static final SimpleTex water = SimpleTex.getTexture("Data/Special/water.png");
     
 }

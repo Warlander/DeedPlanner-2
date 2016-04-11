@@ -4,7 +4,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 import javax.media.opengl.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.util.Log;
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import pl.wurmonline.deedplanner.util.jogl.*;
 
 public class GraphicsLoop implements GLEventListener {
@@ -51,7 +51,7 @@ public class GraphicsLoop implements GLEventListener {
             g.glClearColor(0, 0, 0, 1);
             g.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 
-            Tex.resetInfo();
+            SimpleTex.resetInfo();
             
             if (Globals.upCamera) {
                 panel.getUpCamera().set(g);

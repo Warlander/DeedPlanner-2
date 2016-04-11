@@ -2,12 +2,12 @@ package pl.wurmonline.deedplanner.graphics;
 
 import javax.media.opengl.GL2;
 import pl.wurmonline.deedplanner.MapPanel;
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public class Skybox {
 
     private static boolean texturesAreLoaded = false;
-    private static Tex[] tex;
+    private static SimpleTex[] tex;
     
     public static void render(MapPanel panel, GL2 g) {
         if (!texturesAreLoaded) {
@@ -97,9 +97,9 @@ public class Skybox {
     }
     
     private static void loadSkyboxTextures(GL2 g) {
-        tex = new Tex[6];
+        tex = new SimpleTex[6];
         for(int i = 0; i < tex.length; i++) {
-            tex[i] = Tex.getTexture("Data/Special/skybox/sb" + i + ".png");
+            tex[i] = SimpleTex.getTexture("Data/Special/skybox/sb" + i + ".png");
         }
         texturesAreLoaded = true;
     }

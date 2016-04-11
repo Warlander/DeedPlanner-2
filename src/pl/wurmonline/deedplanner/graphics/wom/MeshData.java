@@ -1,4 +1,4 @@
-package pl.wurmonline.deedplanner.util.jogl;
+package pl.wurmonline.deedplanner.graphics.wom;
 
 import javax.media.opengl.GL2;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;

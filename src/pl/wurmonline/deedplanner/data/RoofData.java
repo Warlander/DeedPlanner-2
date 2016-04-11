@@ -1,16 +1,16 @@
 package pl.wurmonline.deedplanner.data;
 
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public class RoofData {
 
     public final String name;
     public final String shortName;
-    public final Tex tex;
+    public final SimpleTex tex;
     
     private final Materials materials;
     
-    public RoofData(String name, String shortName, Tex tex, Materials materials) {
+    public RoofData(String name, String shortName, SimpleTex tex, Materials materials) {
         this.name = name;
         this.shortName = shortName;
         this.tex = tex;

@@ -3,9 +3,9 @@ package pl.wurmonline.deedplanner.data.bridges;
 import java.util.HashMap;
 import pl.wurmonline.deedplanner.data.Materials;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
-import pl.wurmonline.deedplanner.util.jogl.Model;
+import pl.wurmonline.deedplanner.graphics.wom.Model;
 import pl.wurmonline.deedplanner.util.jogl.Renderable;
-import pl.wurmonline.deedplanner.graphics.texture.Tex;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public class RopeBridgeData extends BridgeData {
     
