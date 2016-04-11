@@ -12,6 +12,7 @@ import java.util.Map;
 import javax.media.opengl.GL2;
 import org.joml.Vector3f;
 import org.w3c.dom.*;
+import pl.wurmonline.deedplanner.graphics.texture.Material;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.Log;
@@ -105,7 +106,8 @@ public final class Model implements Renderable {
             int displayList = data.createModel(g);
             
             int materialCount = buffer.getInt();
-            SimpleTex texture = loadTexture(buffer);
+            Material material = loadMaterial(buffer);
+            SimpleTex texture = (SimpleTex) material.getTexture();
             if (textureOverrides.containsKey(data.getName())) {
                 String textureOverride = textureOverrides.get(data.getName());
                 texture = SimpleTex.getTexture(textureOverride);
@@ -114,6 +116,7 @@ public final class Model implements Renderable {
                 texture = null;
             }
             
+            material.setTexture(texture);
             
             meshes[i] = new Mesh(this, texture, displayList, data.getName());
         }
@@ -181,48 +184,42 @@ public final class Model implements Renderable {
         return data;
     }
     
-    private SimpleTex loadTexture(ByteBuffer buffer) {
+    private Material loadMaterial(ByteBuffer buffer) {
         String texName = readString(buffer);
         String matName = readString(buffer);
+        Material material = new Material();
         
         String parentLoc = location.substring(0, location.lastIndexOf("/") + 1);
         
         String texLoc = parentLoc + texName;
+        SimpleTex texture = SimpleTex.getTexture(texLoc);
+        material.setTexture(texture);
         
         boolean hasMaterialProperties = buffer.get() != 0;
         
         if (hasMaterialProperties) {
             boolean hasEmissive = buffer.get() != 0;
             if (hasEmissive) {
-                buffer.getFloat();
-                buffer.getFloat();
-                buffer.getFloat();
-                buffer.getFloat();
+                material.getEmissive().set(buffer.getFloat(), buffer.getFloat(), buffer.getFloat(), buffer.getFloat());
             }
             
             boolean hasShininess = buffer.get() != 0;
             if (hasShininess) {
-                buffer.getFloat();
+                material.setShininess(buffer.getFloat());
             }
             
             boolean hasSpecular = buffer.get() != 0;
             if (hasSpecular) {
-                buffer.getFloat();
-                buffer.getFloat();
-                buffer.getFloat();
-                buffer.getFloat();
+                material.getSpecular().set(buffer.getFloat(), buffer.getFloat(), buffer.getFloat(), buffer.getFloat());
             }
             
             boolean hasTransparencyColor = buffer.get() != 0;
             if (hasTransparencyColor) {
-                buffer.getFloat();
-                buffer.getFloat();
-                buffer.getFloat();
-                buffer.getFloat();
+                material.getTransparencyColor().set(buffer.getFloat(), buffer.getFloat(), buffer.getFloat(), buffer.getFloat());
             }
         }
         
-        return SimpleTex.getTexture(texLoc);
+        return material;
     }
     
     private String readString(ByteBuffer buffer) {

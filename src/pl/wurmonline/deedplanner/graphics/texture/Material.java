@@ -4,7 +4,7 @@ import org.joml.Vector4f;
 
 public class Material {
     
-    
+    private Tex texture;
     
     private float shininess;
     private final Vector4f emissive;
@@ -44,6 +44,14 @@ public class Material {
 
     public Vector4f getTransparencyColor() {
         return transparencyColor;
+    }
+
+    public Tex getTexture() {
+        return texture;
+    }
+
+    public void setTexture(Tex texture) {
+        this.texture = texture;
     }
     
 }

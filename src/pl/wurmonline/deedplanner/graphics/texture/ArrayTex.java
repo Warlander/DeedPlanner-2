@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.nio.IntBuffer;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.media.opengl.GL2GL3;
 import javax.media.opengl.GLException;
 import javax.media.opengl.GLProfile;
