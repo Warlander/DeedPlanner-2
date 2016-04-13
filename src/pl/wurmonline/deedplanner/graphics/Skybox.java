@@ -22,12 +22,12 @@ public class Skybox {
         g.glBegin(GL2.GL_QUADS);
             g.glTexCoord2f(0, 0);
             g.glVertex3d(-250,-250, 249);
-            g.glTexCoord2f(1, 0);
-            g.glVertex3d( 250,-250, 249);
-            g.glTexCoord2f(1, 1);
-            g.glVertex3d( 250, 250, 249);
             g.glTexCoord2f(0, 1);
             g.glVertex3d(-250, 250, 249);
+            g.glTexCoord2f(1, 1);
+            g.glVertex3d( 250, 250, 249);
+            g.glTexCoord2f(1, 0);
+            g.glVertex3d( 250,-250, 249);
         g.glEnd();
 
         //bottom
@@ -47,26 +47,26 @@ public class Skybox {
         tex[2].bind(g);    
         g.glBegin(GL2.GL_QUADS);
             g.glTexCoord2f(0, 0);
-            g.glVertex3d(-249,250,-250);
-            g.glTexCoord2f(1, 0);
-            g.glVertex3d(-249,-250, -250);
-            g.glTexCoord2f(1, 1);
-            g.glVertex3d(-249,-250, 250);
+            g.glVertex3d(-249, 250,-250);
             g.glTexCoord2f(0, 1);
             g.glVertex3d(-249, 250, 250);
+            g.glTexCoord2f(1, 1);
+            g.glVertex3d(-249,-250, 250);
+            g.glTexCoord2f(1, 0);
+            g.glVertex3d(-249,-250,-250);
         g.glEnd();
 
         //front
         tex[3].bind(g);
         g.glBegin(GL2.GL_QUADS);
             g.glTexCoord2f(0, 0);
-            g.glVertex3d( -250,-249,-250);
-            g.glTexCoord2f(1, 0);
-            g.glVertex3d( 250,-249, -250);
-            g.glTexCoord2f(1, 1);
-            g.glVertex3d( 250, -249, +250);
+            g.glVertex3d(-250,-249,-250);
             g.glTexCoord2f(0, 1);
-            g.glVertex3d( -250, -249,+250);
+            g.glVertex3d(-250,-249, 250);
+            g.glTexCoord2f(1, 1);
+            g.glVertex3d( 250,-249, 250);
+            g.glTexCoord2f(1, 0);
+            g.glVertex3d( 250,-249,-250);
         g.glEnd();
 
         //right
@@ -74,12 +74,12 @@ public class Skybox {
         g.glBegin(GL2.GL_QUADS);
             g.glTexCoord2f(0, 0);
             g.glVertex3d(249, -250,-250);
-            g.glTexCoord2f(1, 0);
-            g.glVertex3d(249, 250, -250);
-            g.glTexCoord2f(1, 1);
-            g.glVertex3d(249, 250, 250);
             g.glTexCoord2f(0, 1);
             g.glVertex3d(249, -250, 250);
+            g.glTexCoord2f(1, 1);
+            g.glVertex3d(249, 250, 250);
+            g.glTexCoord2f(1, 0);
+            g.glVertex3d(249, 250, -250);
         g.glEnd();
         
         //back
@@ -87,12 +87,12 @@ public class Skybox {
         g.glBegin(GL2.GL_QUADS);
             g.glTexCoord2f(0, 0);
             g.glVertex3d(250, 249, -250);
-            g.glTexCoord2f(1, 0);
-            g.glVertex3d(-250, 249, -250);
-            g.glTexCoord2f(1, 1);
-            g.glVertex3d(-250, 249, 250);
             g.glTexCoord2f(0, 1);
             g.glVertex3d(250, 249,250);
+            g.glTexCoord2f(1, 1);
+            g.glVertex3d(-250, 249, 250);
+            g.glTexCoord2f(1, 0);
+            g.glVertex3d(-250, 249, -250);
         g.glEnd();
     }
     
