@@ -1602,6 +1602,10 @@
 			<model location="Data/Objects/rose.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
+		<object name="Oleander" shortname="olea" type="tree">
+			<model location="Data/Objects/oleanderBush.wom" scale="3"/>
+			<category>Bushes</category>
+		</object>
 		
 		<object name="Willow (small)" shortname="willS" type="tree">
 			<model location="Data/Objects/willowTree.wom" scale="4"/>
@@ -1850,6 +1854,38 @@
 			<category>Towers</category>
 			<category>Materials/Stone</category>
 		</object>
+		<object name="JK guard tower" shortname="jkGT" type="centered">
+			<model location="Data/Objects/guard-tower-jenn.wom">
+				<override mesh="woodMesh" texture="Data/Objects/tower plank.jpg"/>
+			</model>
+			<materials>
+				Clay = 500,
+				Stone bricks = 500,
+				Planks = 100
+			</materials>
+			<category>Towers</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="HoTS guard tower" shortname="hotsGT" type="centered">
+			<model location="Data/Objects/HotsGuardTower.wom"/>
+			<materials>
+				Clay = 500,
+				Stone bricks = 500,
+				Planks = 100
+			</materials>
+			<category>Towers</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="MR guard tower" shortname="mrGT" type="centered">
+			<model location="Data/Objects/guardTower_molrehan.wom"/>
+			<materials>
+				Clay = 500,
+				Stone bricks = 500,
+				Planks = 100
+			</materials>
+			<category>Towers</category>
+			<category>Materials/Stone</category>
+		</object>
 		<object name="Archery tower" shortname="archGT" type="centered">
 			<model location="Data/Objects/archeryTower.wom"/>
 			
@@ -2046,8 +2082,43 @@
 			<category>Tapestries</category>
 		</object>
 
+		<object name="Freedom tall banner" shortname="tbFree" type="normal">
+			<model location="Data/Objects/freedom_tall_banner.wom"/>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+		</object>
+		<object name="JK tall banner" shortname="tbJK" type="normal">
+			<model location="Data/Objects/jk_tall_banner.wom"/>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+		</object>
+		<object name="HoTS tall banner" shortname="tbHoTS" type="normal">
+			<model location="Data/Objects/hots_tall_banner.wom"/>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+		</object>
+		<object name="MR tall banner" shortname="tbMR" type="normal">
+			<model location="Data/Objects/mr_tall_banner.wom"/>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+		</object>
+		
 		<object name="Freedom banner" shortname="bFree" type="normal">
-			<model location="Data/Objects/Banner_main.wom"/>
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner4.png"/>
+			</model>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2055,7 +2126,9 @@
 			<category>Banners</category>
 		</object>
 		<object name="JK banner" shortname="bJK" type="normal">
-			<model location="Data/Objects/Banner_main.wom"/>
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner3.png"/>
+			</model>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2063,7 +2136,9 @@
 			<category>Banners</category>
 		</object>
 		<object name="HoTS banner" shortname="bHoTS" type="normal">
-			<model location="Data/Objects/Banner_main.wom"/>
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner2.png"/>
+			</model>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2071,7 +2146,9 @@
 			<category>Banners</category>
 		</object>
 		<object name="MR banner" shortname="bMR" type="normal">
-			<model location="Data/Objects/Banner_main.wom"/>
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner.png"/>
+			</model>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2080,7 +2157,9 @@
 		</object>
 
 		<object name="Freedom flag" shortname="fFree" type="normal">
-			<model location="Data/Objects/Flag_main.wom"/>
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag4.png"/>
+			</model>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2088,7 +2167,9 @@
 			<category>Flags</category>
 		</object>
 		<object name="JK flag" shortname="fJK" type="normal">
-			<model location="Data/Objects/Flag_main.wom"/>
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag3.png"/>
+			</model>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2096,7 +2177,9 @@
 			<category>Flags</category>
 		</object>
 		<object name="HoTS flag" shortname="fHoTS" type="normal">
-			<model location="Data/Objects/Flag_main.wom"/>
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag2.png"/>
+			</model>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -2104,7 +2187,9 @@
 			<category>Flags</category>
 		</object>
 		<object name="MR flag" shortname="fMR" type="normal">
-			<model location="Data/Objects/Flag_main.wom"/>
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag.png"/>
+			</model>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1

@@ -242,7 +242,7 @@ public class Planner extends javax.swing.JFrame {
         );
         mapPanelLayout.setVerticalGroup(
             mapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 713, Short.MAX_VALUE)
         );
 
         tileLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -284,6 +284,7 @@ public class Planner extends javax.swing.JFrame {
         groundsTree.setModel(new DefaultTreeModel(Data.groundsTree));
         groundsTree.setCellRenderer(null);
         groundsTree.setRootVisible(false);
+        groundsTree.setShowsRootHandles(true);
         groundsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 groundsTreeValueChanged(evt);
@@ -335,7 +336,7 @@ public class Planner extends javax.swing.JFrame {
         jLabel1.setText(bundle.getString("Planner.jLabel1.text")); // NOI18N
 
         heightLeftSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(5, null, null, 1));
+        heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), null, null, Integer.valueOf(1)));
         heightLeftSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 heightLeftSpinnerStateChanged(evt);
@@ -343,7 +344,7 @@ public class Planner extends javax.swing.JFrame {
         });
 
         heightRightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightRightSpinner.setModel(new javax.swing.SpinnerNumberModel(-5, null, null, 1));
+        heightRightSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-5), null, null, Integer.valueOf(1)));
         heightRightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 heightRightSpinnerStateChanged(evt);
@@ -354,7 +355,7 @@ public class Planner extends javax.swing.JFrame {
         jLabel2.setText(bundle.getString("Planner.jLabel2.text")); // NOI18N
 
         addHeightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
         addHeightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 addHeightSpinnerStateChanged(evt);
@@ -476,6 +477,7 @@ public class Planner extends javax.swing.JFrame {
         floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
         floorsTree.setRootVisible(false);
+        floorsTree.setShowsRootHandles(true);
         floorsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 floorsTreeValueChanged(evt);
@@ -530,6 +532,7 @@ public class Planner extends javax.swing.JFrame {
         wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
         wallsTree.setRootVisible(false);
+        wallsTree.setShowsRootHandles(true);
         wallsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 wallsTreeValueChanged(evt);
@@ -605,6 +608,7 @@ public class Planner extends javax.swing.JFrame {
         objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
         objectsTree.setRootVisible(false);
+        objectsTree.setShowsRootHandles(true);
         objectsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 objectsTreeValueChanged(evt);
@@ -652,6 +656,7 @@ public class Planner extends javax.swing.JFrame {
         cavesTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cavesTree.setModel(new DefaultTreeModel(Data.cavesTree));
         cavesTree.setRootVisible(false);
+        cavesTree.setShowsRootHandles(true);
         cavesTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
                 cavesTreeValueChanged(evt);
@@ -705,7 +710,7 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addContainerGap())

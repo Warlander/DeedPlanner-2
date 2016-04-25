@@ -88,7 +88,7 @@ public final class SimpleTex implements Tex {
                 activeTex[target] = this;
             }
             else {
-                g.glBindTexture(GL2.GL_TEXTURE_2D, target);
+                g.glBindTexture(GL2.GL_TEXTURE_2D, 0);
                 activeTex[target] = null;
             }
         }
