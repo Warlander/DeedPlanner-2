@@ -77,11 +77,13 @@ public final class Program {
     }
     
     public void setInt(GL2GL3 g, String name, int value) {
+        bind(g);
         int location = getUniformLocation(g, name);
         g.glUniform1i(location, value);
     }
     
     public int getInt(GL2GL3 g, String name) {
+        bind(g);
         int location = getUniformLocation(g, name);
         IntBuffer buffer = BufferUtil.newIntBuffer(1);
         g.glGetUniformiv(programId, location, buffer);
@@ -89,11 +91,13 @@ public final class Program {
     }
     
     public void setFloat(GL2GL3 g, String name, float value) {
+        bind(g);
         int location = getUniformLocation(g, name);
         g.glUniform1f(location, value);
     }
     
     public float getFloat(GL2GL3 g, String name) {
+        bind(g);
         int location = getUniformLocation(g, name);
         FloatBuffer buffer = BufferUtil.newFloatBuffer(1);
         g.glGetUniformfv(programId, location, buffer);
@@ -101,11 +105,13 @@ public final class Program {
     }
     
     public void setVector3f(GL2GL3 g, String name, Vector3f value) {
+        bind(g);
         int location = getUniformLocation(g, name);
         g.glUniform3f(location, value.x, value.y, value.z);
     }
     
     public Vector3f getVector3f(GL2GL3 g, String name) {
+        bind(g);
         int location = getUniformLocation(g, name);
         FloatBuffer buffer = BufferUtil.newFloatBuffer(3);
         g.glGetUniformfv(programId, location, buffer);
@@ -113,6 +119,7 @@ public final class Program {
     }
     
     public void setMatrix4f(GL2GL3 g, String name, Matrix4f value) {
+        bind(g);
         int location = getUniformLocation(g, name);
         FloatBuffer buffer = BufferUtil.newFloatBuffer(16);
         value.get(buffer);
@@ -120,6 +127,7 @@ public final class Program {
     }
     
     public Matrix4f getMatrix4f(GL2GL3 g, String name) {
+        bind(g);
         int location = getUniformLocation(g, name);
         FloatBuffer buffer = BufferUtil.newFloatBuffer(16);
         g.glGetUniformfv(programId, location, buffer);

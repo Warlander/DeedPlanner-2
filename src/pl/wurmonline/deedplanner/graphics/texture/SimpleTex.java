@@ -99,6 +99,7 @@ public final class SimpleTex implements Tex {
             texture.destroy(g);
             Log.out(this, "Texture removed from memory!");
             texture = null;
+            loaded = false;
         }
     }
     
