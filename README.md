@@ -15,4 +15,4 @@ Program official forum thread: http://forum.wurmonline.com/index.php?/topic/7935
 1. Creation of the most advanced, professional-looking deed planner for Wurm Online<br>
 2. Access to the widest possible audience - as little platform-dependent code as possible<br>
 3. The program usage should be as simple as possible<br>
-4. Cooperation with other Wurm-related programs and (possibly in the future) the game itself.
+4. Cooperation with other Wurm-related programs and the game itself.
