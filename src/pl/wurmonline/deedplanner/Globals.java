@@ -6,6 +6,9 @@ import pl.wurmonline.deedplanner.logic.Tab;
 
 public class Globals {
 
+    public static boolean renderTrees3d = true;
+    public static boolean renderTrees2d = true;
+    
     public static boolean upCamera = true;
     public static boolean fixedHeight = false;
     public static boolean renderHeight = false;

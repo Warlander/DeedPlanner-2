@@ -254,9 +254,14 @@ public final class Tile implements XMLSerializable {
                         ObjectEntityData objData = (ObjectEntityData) key;
                         ObjectLocation loc = objData.getLocation();
                         GameObject obj = (GameObject) entity;
-                        g.glColor3f(colorMod, colorMod, colorMod);
-                        g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), 3*floor + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
-                        obj.render(g, this);
+                        GameObjectData goData = obj.getData();
+                        boolean isTree = goData.type.equals(Constants.TREE_TYPE);
+                        boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.upCamera) || (Globals.renderTrees3d && !Globals.upCamera);
+                        if (!isTree || (isTree && treeRenderingAllowed)) {
+                            g.glColor3f(colorMod, colorMod, colorMod);
+                            g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), 3*floor + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
+                            obj.render(g, this);
+                        }
                         break;
                 }
             g.glPopMatrix();

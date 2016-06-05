@@ -1586,23 +1586,23 @@
 			<category>Materials/Wood</category>
 		</object>
 		
-		<object name="Camellia" shortname="cam" type="tree">
+		<object name="Camellia" shortname="cam" type="bush">
 			<model location="Data/Objects/camellia.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Grape bush" shortname="grape" type="tree">
+		<object name="Grape bush" shortname="grape" type="bush">
 			<model location="Data/Objects/grapebush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Lavender" shortname="laven" type="tree">
+		<object name="Lavender" shortname="laven" type="bush">
 			<model location="Data/Objects/lavenderBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Rose bush" shortname="rose" type="tree">
+		<object name="Rose bush" shortname="rose" type="bush">
 			<model location="Data/Objects/rose.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Oleander" shortname="olea" type="tree">
+		<object name="Oleander" shortname="olea" type="bush">
 			<model location="Data/Objects/oleanderBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>

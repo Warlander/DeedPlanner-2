@@ -7,14 +7,16 @@ public class GameObjectData {
     public final Model model;
     public final String name;
     public final String shortName;
+    public final String type;
     public final boolean centerOnly;
     
     private final Materials materials;
     
-    public GameObjectData(Model model, String name, String shortName, boolean centerOnly, Materials materials) {
+    public GameObjectData(Model model, String name, String shortName, String type, boolean centerOnly, Materials materials) {
         this.model = model;
         this.name = name;
         this.shortName = shortName;
+        this.type = type;
         this.centerOnly = centerOnly;
         if (materials!=null) {
             this.materials = materials;

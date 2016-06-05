@@ -145,6 +145,7 @@ public class Planner extends javax.swing.JFrame {
         wallsGroup = new javax.swing.ButtonGroup();
         elevationGroup = new javax.swing.ButtonGroup();
         heightEditGroup = new javax.swing.ButtonGroup();
+        treesVisibilityGroup = new javax.swing.ButtonGroup();
         mapPanel = new pl.wurmonline.deedplanner.MapPanel();
         statusBar = new javax.swing.JPanel();
         tileLabel = new javax.swing.JLabel();
@@ -217,6 +218,10 @@ public class Planner extends javax.swing.JFrame {
         fppViewItem = new javax.swing.JRadioButtonMenuItem();
         wurmianItem = new javax.swing.JRadioButtonMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenu3 = new javax.swing.JMenu();
+        treesAllItem = new javax.swing.JRadioButtonMenuItem();
+        trees3dItem = new javax.swing.JRadioButtonMenuItem();
+        treesNothingItem = new javax.swing.JRadioButtonMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
         jMenu10 = new javax.swing.JMenu();
@@ -817,6 +822,38 @@ public class Planner extends javax.swing.JFrame {
         jMenu8.add(wurmianItem);
         jMenu8.add(jSeparator2);
 
+        jMenu3.setText(bundle.getString("Planner.jMenu3.text")); // NOI18N
+
+        treesVisibilityGroup.add(treesAllItem);
+        treesAllItem.setSelected(true);
+        treesAllItem.setText(bundle.getString("Planner.treesAllItem.text")); // NOI18N
+        treesAllItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vegetationDisplayChanged(evt);
+            }
+        });
+        jMenu3.add(treesAllItem);
+
+        treesVisibilityGroup.add(trees3dItem);
+        trees3dItem.setText(bundle.getString("Planner.trees3dItem.text")); // NOI18N
+        trees3dItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vegetationDisplayChanged(evt);
+            }
+        });
+        jMenu3.add(trees3dItem);
+
+        treesVisibilityGroup.add(treesNothingItem);
+        treesNothingItem.setText(bundle.getString("Planner.treesNothingItem.text")); // NOI18N
+        treesNothingItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vegetationDisplayChanged(evt);
+            }
+        });
+        jMenu3.add(treesNothingItem);
+
+        jMenu8.add(jMenu3);
+
         jMenu7.setText(bundle.getString("Planner.jMenu7.text")); // NOI18N
 
         wallsGroup.add(jRadioButtonMenuItem1);
@@ -1148,6 +1185,21 @@ public class Planner extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel8MouseClicked
 
+    private void vegetationDisplayChanged(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vegetationDisplayChanged
+        if (treesAllItem.isSelected()) {
+            Globals.renderTrees2d = true;
+            Globals.renderTrees3d = true;
+        }
+        else if (trees3dItem.isSelected()) {
+            Globals.renderTrees2d = false;
+            Globals.renderTrees3d = true;
+        }
+        else if (treesNothingItem.isSelected()) {
+            Globals.renderTrees2d = false;
+            Globals.renderTrees3d = false;
+        }
+    }//GEN-LAST:event_vegetationDisplayChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JList bordersList;
@@ -1186,6 +1238,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
@@ -1223,6 +1276,10 @@ public class Planner extends javax.swing.JFrame {
     private pl.wurmonline.deedplanner.forms.SymmetryEditor symmetryPanel;
     private javax.swing.JTabbedPane tabbedPane;
     public javax.swing.JLabel tileLabel;
+    private javax.swing.JRadioButtonMenuItem trees3dItem;
+    private javax.swing.JRadioButtonMenuItem treesAllItem;
+    private javax.swing.JRadioButtonMenuItem treesNothingItem;
+    private javax.swing.ButtonGroup treesVisibilityGroup;
     private javax.swing.JMenuItem undoItem;
     private javax.swing.JRadioButtonMenuItem upViewItem;
     private javax.swing.ButtonGroup viewGroup;

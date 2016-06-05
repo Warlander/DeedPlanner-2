@@ -313,7 +313,7 @@ public final class DataLoader {
                 }
             }
                 
-            GameObjectData data = new GameObjectData(model, name, shortName, centerOnly, materials);
+            GameObjectData data = new GameObjectData(model, name, shortName, type, centerOnly, materials);
             Log.out(DataLoader.class, "Object data "+data+" loaded and ready to use!");
             Data.objects.put(shortName, data);
 
