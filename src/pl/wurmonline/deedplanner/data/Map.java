@@ -739,7 +739,6 @@ public final class Map {
     
     public void addBridge(Bridge bridge) {
         bridges.add(bridge);
-        Thread.dumpStack();
     }
     
     public void removeBridge(Bridge bridge) {
