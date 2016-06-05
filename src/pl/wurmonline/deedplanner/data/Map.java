@@ -105,7 +105,7 @@ public final class Map {
         NodeList bridgesList = doc.getElementsByTagName("bridge");
         for (int i=0; i<bridgesList.getLength(); i++) {
             Element bridgeElement = (Element) bridgesList.item(i);
-            bridges.add(Bridge.createBridge(this, bridgeElement));
+            Bridge.createBridge(this, bridgeElement);
         }
         
         createHeightData();
@@ -739,6 +739,7 @@ public final class Map {
     
     public void addBridge(Bridge bridge) {
         bridges.add(bridge);
+        Thread.dumpStack();
     }
     
     public void removeBridge(Bridge bridge) {
