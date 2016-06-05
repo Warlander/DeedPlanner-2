@@ -1,8 +1,0 @@
-[2015-10-04 18:59:38] <Tex> {water.png} Texture data loaded!
-[2015-10-04 18:59:39] <GLInit> GL2 support: true
-[2015-10-04 18:59:39] <GLInit> GL3 support: true
-[2015-10-04 18:59:39] <GLInit> GL4 support: true
-[2015-10-04 18:59:39] <GLInit> GLSL support: true
-[2015-10-04 18:59:39] <GLInit> Hardware rendering: true
-[2015-10-04 18:59:39] <Shaders> Shader loaded from files: "Simple" and "Simple"
-[2015-10-04 18:59:39] <Shaders> Shader loaded from files: "Diagonal" and "Diagonal"
