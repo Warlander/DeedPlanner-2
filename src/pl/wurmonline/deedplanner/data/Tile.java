@@ -4,6 +4,7 @@ import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import java.util.*;
 import java.util.Map.Entry;
 import javax.media.opengl.GL2;
+import javax.media.opengl.GL2GL3;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
@@ -187,12 +188,14 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderEntities(GL2 g) {
+        boolean isUnderground = Globals.floor < 0;
+        
         for (Entry<EntityData, TileEntity> e : entities.entrySet()) {
             EntityData key = e.getKey();
             final int floor = key.getFloor();
             float colorMod = 1;
             if (Globals.upCamera) {
-                switch (Globals.floor-floor) {
+                switch (Math.abs(Globals.floor) - Math.abs(floor)) {
                     case 0:
                         colorMod = 1;
                         break;
@@ -208,65 +211,88 @@ public final class Tile implements XMLSerializable {
             }
             TileEntity entity = e.getValue();
             g.glPushMatrix();
-                switch (key.getType()) {
-                    case FLOORROOF:
-                        g.glTranslatef(4, 0, 3*floor + getFloorHeight()/Constants.HEIGHT_MOD);
-                        g.glColor3f(colorMod, colorMod, colorMod);
-                        entity.render(g, this);
-                        break;
-                    case VWALL: case VFENCE:
-                        g.glTranslatef(0, 0, 3*floor + getVerticalWallHeight()/Constants.HEIGHT_MOD);
-                        g.glRotatef(90, 0, 0, 1);
-                        float vdiff = getVerticalWallHeightDiff()/47f;
-                        if (vdiff<0) {
-                            g.glTranslatef(0, 0, -vdiff*4f);
-                        }
-                        deform(g, vdiff);
-
-                        Wall vwall = (Wall) entity;
-                        if (Globals.upCamera) {
-                            vwall.data.color.use(g, colorMod);
-                        }
-                        else {
-                            g.glColor3f(1, 1, 1);
-                        }
-                        vwall.render(g, this);
-                        g.glColor3f(1, 1, 1);
-                        break;
-                    case HWALL: case HFENCE:
-                        g.glTranslatef(0, 0, 3*floor + getHorizontalWallHeight()/Constants.HEIGHT_MOD);
-                        float hdiff = getHorizontalWallHeightDiff()/47f;
-                        if (hdiff<0) {
-                            g.glTranslatef(0, 0, -hdiff*4f);
-                        }
-                        deform(g, hdiff);
-                        Wall hwall = (Wall) entity;
-                        if (Globals.upCamera) {
-                            hwall.data.color.use(g, colorMod);
-                        }
-                        else {
-                            g.glColor3f(1, 1, 1);
-                        }
-                        hwall.render(g, this);
-                        g.glColor3f(1, 1, 1);
-                        break;
-                    case OBJECT:
-                        ObjectEntityData objData = (ObjectEntityData) key;
-                        ObjectLocation loc = objData.getLocation();
-                        GameObject obj = (GameObject) entity;
-                        GameObjectData goData = obj.getData();
-                        boolean isTree = goData.type.equals(Constants.TREE_TYPE);
-                        boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.upCamera) || (Globals.renderTrees3d && !Globals.upCamera);
-                        if (!isTree || (isTree && treeRenderingAllowed)) {
-                            g.glColor3f(colorMod, colorMod, colorMod);
-                            g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), 3*floor + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
-                            obj.render(g, this);
-                        }
-                        break;
+                if (isUnderground) {
+                    renderUndergroundEntity(g, key, entity, colorMod);
                 }
+                else {
+                    renderGroundEntity(g, key, entity, colorMod);
+                }
+                
             g.glPopMatrix();
             g.glColor3f(1, 1, 1);
         }
+    }
+    
+    private void renderGroundEntity(GL2 g, EntityData data, TileEntity entity, float colorMod) {
+        int floor = data.getFloor();
+        
+        switch (data.getType()) {
+            case FLOORROOF:
+                g.glTranslatef(4, 0, 3 * floor + getFloorHeight()/Constants.HEIGHT_MOD);
+                g.glColor3f(colorMod, colorMod, colorMod);
+                entity.render(g, this);
+                break;
+            case VWALL: case VFENCE:
+                float verticalWallHeight = getVerticalWallHeight();
+                float verticalWallHeightDiff = getVerticalWallHeightDiff();
+                renderWall(g, (Wall) entity, floor, colorMod, verticalWallHeight, verticalWallHeightDiff, true);
+                break;
+            case HWALL: case HFENCE:
+                float horizontalWallHeight = getHorizontalWallHeight();
+                float horizontalWallHeightDiff = getHorizontalWallHeightDiff();
+                renderWall(g, (Wall) entity, floor, colorMod, horizontalWallHeight, horizontalWallHeightDiff, false);
+                break;
+            case OBJECT:
+                ObjectEntityData objData = (ObjectEntityData) data;
+                ObjectLocation loc = objData.getLocation();
+                GameObject obj = (GameObject) entity;
+                GameObjectData goData = obj.getData();
+                boolean isTree = goData.type.equals(Constants.TREE_TYPE);
+                boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.upCamera) || (Globals.renderTrees3d && !Globals.upCamera);
+                if (!isTree || (isTree && treeRenderingAllowed)) {
+                    g.glColor3f(colorMod, colorMod, colorMod);
+                    g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), 3*floor + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
+                    obj.render(g, this);
+                }
+                break;
+        }
+    }
+    
+    private void renderUndergroundEntity(GL2 g, EntityData data, TileEntity entity, float colorMod) {
+        int floor = data.getFloor();
+        
+        switch (data.getType()) {
+            case UVWALL:
+                float verticalWallHeight = getVerticalWallHeight();
+                float verticalWallHeightDiff = getVerticalWallHeightDiff();
+                renderWall(g, (Wall) entity, floor, colorMod, verticalWallHeight, verticalWallHeightDiff, true);
+                break;
+            case UHWALL:
+                float horizontalWallHeight = getHorizontalWallHeight();
+                float horizontalWallHeightDiff = getHorizontalWallHeightDiff();
+                renderWall(g, (Wall) entity, floor, colorMod, horizontalWallHeight, horizontalWallHeightDiff, false);
+                break;
+        }
+    }
+    
+    private void renderWall(GL2 g, Wall wall, int floor, float colorMod, float wallElevation, float wallHeightDiff, boolean isVertical) {
+        g.glTranslatef(0, 0, 3*floor + wallElevation / Constants.HEIGHT_MOD);
+        if (isVertical) {
+            g.glRotatef(90, 0, 0, 1);
+        }
+        float diff = wallHeightDiff / 47f;
+        if (diff<0) {
+            g.glTranslatef(0, 0, -diff*4f);
+        }
+        deform(g, diff);
+        if (Globals.upCamera) {
+            wall.data.color.use(g, colorMod);
+        }
+        else {
+            g.glColor3f(1, 1, 1);
+        }
+        wall.render(g, this);
+        g.glColor3f(1, 1, 1);
     }
     
     private void renderUnderground(GL2 g) {
