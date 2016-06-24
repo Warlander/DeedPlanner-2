@@ -21,21 +21,6 @@ public class Launcher {
         }
         Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.getExceptionHandler());
         
-//        if (DataUpdater.isUpdater()) {
-//            try {
-//                DataUpdater.doUpdate(null);
-//            } catch (IOException | GitAPIException ex) {
-//                Log.err(ex);
-//            }
-//        }
-        
-        Properties.wake();
-        if (!Properties.useTranslation) {
-            Locale.setDefault(Locale.ENGLISH);
-        }
-        
-        SwingUtils.setLookAndFeel(Properties.lookAndFeel);
-        
         //before continuing, check if libraries are accessable and catch exception otherwise
         try {
             Class anyExternalLibraryClass = GL.class;
@@ -56,6 +41,21 @@ public class Launcher {
                                           JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
+        
+//        if (DataUpdater.isUpdater()) {
+//            try {
+//                DataUpdater.doUpdate(null);
+//            } catch (IOException | GitAPIException ex) {
+//                Log.err(ex);
+//            }
+//        }
+        
+        Properties.wake();
+        if (!Properties.useTranslation) {
+            Locale.setDefault(Locale.ENGLISH);
+        }
+        
+        SwingUtils.setLookAndFeel(Properties.lookAndFeel);
         
         new Loading();
     }
