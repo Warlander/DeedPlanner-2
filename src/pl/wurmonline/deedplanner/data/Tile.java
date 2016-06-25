@@ -188,7 +188,7 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderEntities(GL2 g) {
-        boolean isUnderground = Globals.floor < 0;
+        boolean isUnderground = Globals.floor <= 0;
         
         for (Entry<EntityData, TileEntity> e : entities.entrySet()) {
             EntityData key = e.getKey();
