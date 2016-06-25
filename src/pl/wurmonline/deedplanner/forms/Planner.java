@@ -12,7 +12,6 @@ import javax.xml.transform.TransformerException;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.graphics.texture.*;
 import pl.wurmonline.deedplanner.logic.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
 import pl.wurmonline.deedplanner.logic.caves.CaveUpdater;
@@ -269,7 +268,7 @@ public class Planner extends javax.swing.JFrame {
         );
 
         jSpinner4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jSpinner4.setModel(new javax.swing.SpinnerNumberModel(1, 0, 17, 1));
+        jSpinner4.setModel(new javax.swing.SpinnerNumberModel(1, -7, 17, 1));
         jSpinner4.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinner4StateChanged(evt);
@@ -341,7 +340,7 @@ public class Planner extends javax.swing.JFrame {
         jLabel1.setText(bundle.getString("Planner.jLabel1.text")); // NOI18N
 
         heightLeftSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(5), null, null, Integer.valueOf(1)));
+        heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(5, null, null, 1));
         heightLeftSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 heightLeftSpinnerStateChanged(evt);
@@ -349,7 +348,7 @@ public class Planner extends javax.swing.JFrame {
         });
 
         heightRightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightRightSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(-5), null, null, Integer.valueOf(1)));
+        heightRightSpinner.setModel(new javax.swing.SpinnerNumberModel(-5, null, null, 1));
         heightRightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 heightRightSpinnerStateChanged(evt);
@@ -360,7 +359,7 @@ public class Planner extends javax.swing.JFrame {
         jLabel2.setText(bundle.getString("Planner.jLabel2.text")); // NOI18N
 
         addHeightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), null, null, Integer.valueOf(1)));
+        addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
         addHeightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 addHeightSpinnerStateChanged(evt);
