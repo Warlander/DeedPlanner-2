@@ -7,7 +7,7 @@ public class Constants {
     public static final Random random = new Random();
     
     public static final int FLOORS_LIMIT = 17;
-    public static final int CAVE_LIMIT = 8;
+    public static final int CAVE_LIMIT = -7;
     
     public static final float HEIGHT_MOD = 10f;
     
