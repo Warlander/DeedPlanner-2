@@ -5,7 +5,6 @@ import java.awt.geom.Rectangle2D;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import pl.wurmonline.deedplanner.Launcher;
-import pl.wurmonline.deedplanner.Properties;
 
 public class SwingUtils {
 
