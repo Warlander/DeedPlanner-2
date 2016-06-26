@@ -188,13 +188,17 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderEntities(GL2 g) {
-        boolean isUnderground = Globals.floor <= 0;
-        
         for (Entry<EntityData, TileEntity> e : entities.entrySet()) {
             EntityData key = e.getKey();
             final int floor = key.getFloor();
+            
+            if (!MathUtils.isSameSign(floor, Globals.floor)) {
+                return;
+            }
+            
             float colorMod = 1;
             if (Globals.upCamera) {
+                // in case of negative floors (cave dwellings) color modifier will be reversed
                 switch (Math.abs(Globals.floor) - Math.abs(floor)) {
                     case 0:
                         colorMod = 1;
@@ -211,36 +215,31 @@ public final class Tile implements XMLSerializable {
             }
             TileEntity entity = e.getValue();
             g.glPushMatrix();
-                if (isUnderground) {
-                    renderUndergroundEntity(g, key, entity, colorMod);
-                }
-                else {
-                    renderGroundEntity(g, key, entity, colorMod);
-                }
-                
+                renderEntity(g, key, entity, colorMod);
             g.glPopMatrix();
             g.glColor3f(1, 1, 1);
         }
     }
     
-    private void renderGroundEntity(GL2 g, EntityData data, TileEntity entity, float colorMod) {
+    private void renderEntity(GL2 g, EntityData data, TileEntity entity, float colorMod) {
         int floor = data.getFloor();
+        int floorOffset = getFloorOffset(floor);
         
         switch (data.getType()) {
             case FLOORROOF:
-                g.glTranslatef(4, 0, 3 * floor + getFloorHeight()/Constants.HEIGHT_MOD);
+                g.glTranslatef(4, 0, floorOffset + getFloorHeight()/Constants.HEIGHT_MOD);
                 g.glColor3f(colorMod, colorMod, colorMod);
                 entity.render(g, this);
                 break;
             case VWALL: case VFENCE:
                 float verticalWallHeight = getVerticalWallHeight();
                 float verticalWallHeightDiff = getVerticalWallHeightDiff();
-                renderWall(g, (Wall) entity, floor, colorMod, verticalWallHeight, verticalWallHeightDiff, true);
+                renderWall(g, (Wall) entity, floorOffset, colorMod, verticalWallHeight, verticalWallHeightDiff, true);
                 break;
             case HWALL: case HFENCE:
                 float horizontalWallHeight = getHorizontalWallHeight();
                 float horizontalWallHeightDiff = getHorizontalWallHeightDiff();
-                renderWall(g, (Wall) entity, floor, colorMod, horizontalWallHeight, horizontalWallHeightDiff, false);
+                renderWall(g, (Wall) entity, floorOffset, colorMod, horizontalWallHeight, horizontalWallHeightDiff, false);
                 break;
             case OBJECT:
                 ObjectEntityData objData = (ObjectEntityData) data;
@@ -251,32 +250,22 @@ public final class Tile implements XMLSerializable {
                 boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.upCamera) || (Globals.renderTrees3d && !Globals.upCamera);
                 if (!isTree || (isTree && treeRenderingAllowed)) {
                     g.glColor3f(colorMod, colorMod, colorMod);
-                    g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), 3*floor + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
+                    g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), floorOffset + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
                     obj.render(g, this);
                 }
                 break;
         }
     }
     
-    private void renderUndergroundEntity(GL2 g, EntityData data, TileEntity entity, float colorMod) {
-        int floor = data.getFloor();
-        
-        switch (data.getType()) {
-            case UVWALL:
-                float verticalWallHeight = getVerticalWallHeight();
-                float verticalWallHeightDiff = getVerticalWallHeightDiff();
-                renderWall(g, (Wall) entity, floor, colorMod, verticalWallHeight, verticalWallHeightDiff, true);
-                break;
-            case UHWALL:
-                float horizontalWallHeight = getHorizontalWallHeight();
-                float horizontalWallHeightDiff = getHorizontalWallHeightDiff();
-                renderWall(g, (Wall) entity, floor, colorMod, horizontalWallHeight, horizontalWallHeightDiff, false);
-                break;
+    private int getFloorOffset(int floor) {
+        if (floor < 0) {
+            floor = Math.abs(floor) - 1;
         }
+        return 3 * floor;
     }
     
-    private void renderWall(GL2 g, Wall wall, int floor, float colorMod, float wallElevation, float wallHeightDiff, boolean isVertical) {
-        g.glTranslatef(0, 0, 3*floor + wallElevation / Constants.HEIGHT_MOD);
+    private void renderWall(GL2 g, Wall wall, int floorOffset, float colorMod, float wallElevation, float wallHeightDiff, boolean isVertical) {
+        g.glTranslatef(0, 0, floorOffset + wallElevation / Constants.HEIGHT_MOD);
         if (isVertical) {
             g.glRotatef(90, 0, 0, 1);
         }
