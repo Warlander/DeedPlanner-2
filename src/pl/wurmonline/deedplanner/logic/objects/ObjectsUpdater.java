@@ -2,13 +2,12 @@ package pl.wurmonline.deedplanner.logic.objects;
 
 import java.awt.event.KeyEvent;
 import java.awt.geom.Point2D;
+import pl.wurmonline.deedplanner.Constants;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
-import pl.wurmonline.deedplanner.input.Keybindings;
 import pl.wurmonline.deedplanner.input.Keyboard;
 import pl.wurmonline.deedplanner.input.Mouse;
-import pl.wurmonline.deedplanner.util.Log;
 
 public class ObjectsUpdater {
 
@@ -21,6 +20,10 @@ public class ObjectsUpdater {
     
     public static void update(Mouse mouse, Keyboard keyboard, Map map, UpCamera cam) {
         if (currentData!=null) {
+            if (Globals.floor < 0 && (currentData.type.equals(Constants.TREE_TYPE) || currentData.type.equals(Constants.BUSH_TYPE))) {
+                return;
+            }
+            
             if (mouse.pressed.left) {
                 tile = cam.tile;
                 if (currentData.centerOnly) {
