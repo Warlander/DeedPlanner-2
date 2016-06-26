@@ -3,9 +3,7 @@ package pl.wurmonline.deedplanner;
 import java.io.*;
 import java.util.Locale;
 import javax.media.opengl.GL;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 import pl.wurmonline.deedplanner.forms.Loading;
 import pl.wurmonline.deedplanner.util.*;
 
