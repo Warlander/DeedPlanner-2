@@ -3,6 +3,7 @@ package pl.wurmonline.deedplanner.data;
 import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.function.Function;
 import javax.media.opengl.GL2;
 import javax.media.opengl.GL2GL3;
 import org.w3c.dom.*;
@@ -149,26 +150,22 @@ public final class Tile implements XMLSerializable {
     public void render3d(GL2 g, boolean edge) {
         if (!edge) {
             if (Globals.floor>=0) {
-                renderWorld(g);
+                renderGround(g);
             }
             else {
                 renderUnderground(g);
             }
         }
-    }
-    
-    private void renderWorld(GL2 g) {
-        if (bridgePart != null) {
-            g.glColor3f(1, 1, 1);
-            bridgePart.render(g, this);
-        }
-        
-        renderGround(g);
         
         renderEntities(g);
     }
     
     private void renderGround(GL2 g) {
+        if (bridgePart != null) {
+            g.glColor3f(1, 1, 1);
+            bridgePart.render(g, this);
+        }
+        
         if ((Globals.upCamera && Globals.floor>=0 && Globals.floor<3) || !Globals.upCamera) {
             if (Globals.upCamera && Globals.floor>=0 && Globals.floor<3) {
                 switch (Globals.floor) {
@@ -316,27 +313,27 @@ public final class Tile implements XMLSerializable {
     }
     
     private float getFloorHeight() {
-        float h00 = getHeight();
-        float h10 = getMap().getTile(this, 1, 0)!=null ? getMap().getTile(this, 1, 0).getHeight() : 0;
-        float h01 = getMap().getTile(this, 0, 1)!=null ? getMap().getTile(this, 0, 1).getHeight() : 0;
-        float h11 = getMap().getTile(this, 1, 1)!=null ? getMap().getTile(this, 1, 1).getHeight() : 0;
+        float h00 = getCurrentLayerHeight();
+        float h10 = getMap().getTile(this, 1, 0)!=null ? getMap().getTile(this, 1, 0).getCurrentLayerHeight(): 0;
+        float h01 = getMap().getTile(this, 0, 1)!=null ? getMap().getTile(this, 0, 1).getCurrentLayerHeight() : 0;
+        float h11 = getMap().getTile(this, 1, 1)!=null ? getMap().getTile(this, 1, 1).getCurrentLayerHeight() : 0;
         return Math.max(Math.max(h00, h10), Math.max(h01, h11));
     }
     
     private float getVerticalWallHeight() {
-        return Math.min(getHeight(), getMap().getTile(this, 0, 1).getHeight());
+        return Math.min(getCurrentLayerHeight(), getMap().getTile(this, 0, 1).getCurrentLayerHeight());
     }
     
     private float getVerticalWallHeightDiff() {
-        return getMap().getTile(this, 0, 1).getHeight() - getHeight();
+        return getMap().getTile(this, 0, 1).getCurrentLayerHeight() - getCurrentLayerHeight();
     }
     
     private float getHorizontalWallHeight() {
-        return Math.min(getHeight(), getMap().getTile(this, 1, 0).getHeight());
+        return Math.min(getCurrentLayerHeight(), getMap().getTile(this, 1, 0).getCurrentLayerHeight());
     }
     
     private float getHorizontalWallHeightDiff() {
-        return getMap().getTile(this, 1, 0).getHeight() - getHeight();
+        return getMap().getTile(this, 1, 0).getCurrentLayerHeight() - getCurrentLayerHeight();
     }
     
     private void deform(GL2 g, float scale) {
@@ -544,10 +541,10 @@ public final class Tile implements XMLSerializable {
         final float xPartRev = 1f - xPart;
         final float yPartRev = 1f - yPart;
         
-        final float h00 = height;
-        final float h10 = x!=map.getWidth() ? map.getTile(this, 1, 0).height : 0;
-        final float h01 = y!=map.getHeight() ? map.getTile(this, 0, 1).height : 0;
-        final float h11 = (x!=map.getWidth() && y!=map.getHeight()) ? map.getTile(this, 1, 1).height : 0;
+        final float h00 = getCurrentLayerHeight();
+        final float h10 = x!=map.getWidth() ? map.getTile(this, 1, 0).getCurrentLayerHeight() : 0;
+        final float h01 = y!=map.getHeight() ? map.getTile(this, 0, 1).getCurrentLayerHeight() : 0;
+        final float h11 = (x!=map.getWidth() && y!=map.getHeight()) ? map.getTile(this, 1, 1).getCurrentLayerHeight() : 0;
         
         final float x0 = (h00*xPartRev + h10*xPart);
         final float x1 = (h01*xPartRev + h11*xPart);
@@ -572,6 +569,15 @@ public final class Tile implements XMLSerializable {
     
     public int getCaveHeight() {
         return caveHeight;
+    }
+    
+    private int getCurrentLayerHeight() {
+        if (Globals.floor < 0) {
+            return caveHeight;
+        }
+        else {
+            return height;
+        }
     }
     
     void setCaveSize(int size, boolean undo) {
