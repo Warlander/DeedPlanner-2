@@ -1853,6 +1853,7 @@
 			</materials>
 			<category>Towers</category>
 			<category>Materials/Stone</category>
+			<category>Kingdoms/Freedom</category>
 		</object>
 		<object name="JK guard tower" shortname="jkGT" type="centered">
 			<model location="Data/Objects/guard-tower-jenn.wom">
@@ -1865,6 +1866,7 @@
 			</materials>
 			<category>Towers</category>
 			<category>Materials/Stone</category>
+			<category>Kingdoms/Jenn-Kellon</category>
 		</object>
 		<object name="HoTS guard tower" shortname="hotsGT" type="centered">
 			<model location="Data/Objects/HotsGuardTower.wom"/>
@@ -1875,6 +1877,7 @@
 			</materials>
 			<category>Towers</category>
 			<category>Materials/Stone</category>
+			<category>Kingdoms/Horde of The Summoned</category>
 		</object>
 		<object name="MR guard tower" shortname="mrGT" type="centered">
 			<model location="Data/Objects/guardTower_molrehan.wom"/>
@@ -1885,6 +1888,7 @@
 			</materials>
 			<category>Towers</category>
 			<category>Materials/Stone</category>
+			<category>Kingdoms/Mol-Rehan</category>
 		</object>
 		<object name="Archery tower" shortname="archGT" type="centered">
 			<model location="Data/Objects/archeryTower.wom"/>
@@ -2089,6 +2093,7 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Freedom</category>
 		</object>
 		<object name="JK tall banner" shortname="tbJK" type="normal">
 			<model location="Data/Objects/jk_tall_banner.wom"/>
@@ -2097,6 +2102,7 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Jenn-Kellon</category>
 		</object>
 		<object name="HoTS tall banner" shortname="tbHoTS" type="normal">
 			<model location="Data/Objects/hots_tall_banner.wom"/>
@@ -2105,6 +2111,7 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Horde of The Summoned</category>
 		</object>
 		<object name="MR tall banner" shortname="tbMR" type="normal">
 			<model location="Data/Objects/mr_tall_banner.wom"/>
@@ -2113,6 +2120,73 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Mol-Rehan</category>
+		</object>
+		<object name="TRR tall banner" shortname="tbTRR" type="normal">
+			<model location="Data/Objects/jk_tall_banner.wom">
+				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/Tall_Banner_TRR.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/The Roman Republic</category>
+		</object>
+		<object name="BL tall banner" shortname="tbBL" type="normal">
+			<model location="Data/Objects/hots_tall_banner.wom">
+				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/tall_Banner_blac.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Black Legion</category>
+		</object>
+		<object name="Ebonaura tall banner" shortname="tbEbon" type="normal">
+			<model location="Data/Objects/hots_tall_banner.wom">
+				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/tall_Banner_ebon.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Ebonaura</category>
+		</object>
+		<object name="EMR tall banner" shortname="tbEMR" type="normal">
+			<model location="Data/Objects/mr_tall_banner.wom">
+				<override mesh="mr_tall_BannerMesh" texture="Data/Objects/tall_Banner_empi.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Empire of MR</category>
+		</object>
+		<object name="JK PMK tall banner" shortname="tbJKPMK" type="normal">
+			<model location="Data/Objects/jk_tall_banner.wom">
+				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/tall_Banner_zjen.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Jenn-Kellon PMK</category>
+		</object>
+		<object name="VD tall banner" shortname="tbVD" type="normal">
+			<model location="Data/Objects/jk_tall_banner.wom">
+				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/tall_Banner_valh.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Valhalla Descendants</category>
 		</object>
 		
 		<object name="Freedom banner" shortname="bFree" type="normal">
@@ -2124,6 +2198,7 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Banners</category>
+			<category>Kingdoms/Freedom</category>
 		</object>
 		<object name="JK banner" shortname="bJK" type="normal">
 			<model location="Data/Objects/Banner_main.wom">
@@ -2134,6 +2209,7 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Banners</category>
+			<category>Kingdoms/Jenn-Kellon</category>
 		</object>
 		<object name="HoTS banner" shortname="bHoTS" type="normal">
 			<model location="Data/Objects/Banner_main.wom">
@@ -2144,6 +2220,7 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Banners</category>
+			<category>Kingdoms/Horde of The Summoned</category>
 		</object>
 		<object name="MR banner" shortname="bMR" type="normal">
 			<model location="Data/Objects/Banner_main.wom">
@@ -2154,6 +2231,73 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Banners</category>
+			<category>Kingdoms/Mol-Rehan</category>
+		</object>
+		<object name="TRR banner" shortname="bTRR" type="normal">
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner_TRR.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/The Roman Republic</category>
+		</object>
+		<object name="BL banner" shortname="bBL" type="normal">
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/blac_banner.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Black Legion</category>
+		</object>
+		<object name="Ebonaura banner" shortname="bEbon" type="normal">
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/ebon_banner.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Ebonaura</category>
+		</object>
+		<object name="EMR banner" shortname="bEMR" type="normal">
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/empi_banner.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Empire of MR</category>
+		</object>
+		<object name="JK PMK banner" shortname="bJKPMK" type="normal">
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/jenn_banner.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Jenn-Kellon PMK</category>
+		</object>
+		<object name="VD banner" shortname="bVD" type="normal">
+			<model location="Data/Objects/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/valh_banner.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Valhalla Descendants</category>
 		</object>
 
 		<object name="Freedom flag" shortname="fFree" type="normal">
@@ -2165,6 +2309,7 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Flags</category>
+			<category>Kingdoms/Freedom</category>
 		</object>
 		<object name="JK flag" shortname="fJK" type="normal">
 			<model location="Data/Objects/Flag_main.wom">
@@ -2175,6 +2320,7 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Flags</category>
+			<category>Kingdoms/Jenn-Kellon</category>
 		</object>
 		<object name="HoTS flag" shortname="fHoTS" type="normal">
 			<model location="Data/Objects/Flag_main.wom">
@@ -2185,6 +2331,7 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Flags</category>
+			<category>Kingdoms/Horde of The Summoned</category>
 		</object>
 		<object name="MR flag" shortname="fMR" type="normal">
 			<model location="Data/Objects/Flag_main.wom">
@@ -2195,6 +2342,73 @@
 				Square piece of cloth = 1
 			</materials>
 			<category>Flags</category>
+			<category>Kingdoms/Mol-Rehan</category>
+		</object>
+		<object name="TRR flag" shortname="fTRR" type="normal">
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag_TRR.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/The Roman Republic</category>
+		</object>
+		<object name="BL flag" shortname="fBL" type="normal">
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/blac_flag.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Black Legion</category>
+		</object>
+		<object name="Ebonaura flag" shortname="fEbon" type="normal">
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/ebon_flag.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Ebonaura</category>
+		</object>
+		<object name="EMR flag" shortname="fEMR" type="normal">
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/empi_flag.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Empire of MR</category>
+		</object>
+		<object name="JK PMK flag" shortname="fJKPMK" type="normal">
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/jenn_flag.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Jenn-Kellon PMK</category>
+		</object>
+		<object name="VD flag" shortname="fJKPMK" type="normal">
+			<model location="Data/Objects/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/valh_flag.png"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Valhalla Descendants</category>
 		</object>
 		
 		<object name="Gravestone" shortname="graves" type="normal">
