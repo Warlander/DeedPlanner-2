@@ -10,7 +10,7 @@ public class RoofUpdater {
     public static RoofData currentData = null;
     
     public static void update(Mouse mouse, Map map, UpCamera cam) {
-        if (Globals.floor==0) {
+        if (Globals.floor <= 0) {
             return;
         }
         if (mouse.hold.left) {
