@@ -185,9 +185,7 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderEntities(GL2 g) {
-        System.out.println("Element count: " + entities.size());
         for (Entry<EntityData, TileEntity> e : entities.entrySet()) {
-            System.out.println("Element : " + e);
             EntityData key = e.getKey();
             final int floor = key.getFloor();
             
