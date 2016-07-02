@@ -388,6 +388,7 @@ public final class Map {
     public Map(Map map, int startX, int startY, int width, int height) {
         this.width = width;
         this.height = height;
+        this.bridges.addAll(map.bridges);
         this.tiles = new Tile[width+1][height+1];
         for (int x=0; x<=width; x++) {
             for (int y=0; y<=height; y++) {
