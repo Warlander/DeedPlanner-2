@@ -11,6 +11,8 @@ import java.util.Stack;
 import java.util.function.Consumer;
 import java.util.function.IntSupplier;
 import javax.media.opengl.GL2;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
@@ -92,6 +94,25 @@ public final class Map {
         Element map = doc.getDocumentElement();
         width = Integer.parseInt(map.getAttribute("width"));
         height = Integer.parseInt(map.getAttribute("height"));
+        
+        String exporter = map.getAttribute("exporter");
+        if (("".equals(exporter) || !exporter.startsWith("DeedPlanner")) && Properties.showImportWarning) {
+            SwingUtilities.invokeLater(() -> {
+                JOptionPane.showMessageDialog(null,
+                                              "DeedPlanner map loaded from unknown source detected.\n" +
+                                              "This can happen in one of these cases:\n" +
+                                              "1. Map was exported using DeedPlanner 2.6.2 or below.\n" +
+                                              "1. Map was exported from Wurm Online or Unlimited.\n" +
+                                              "2. Map was exported from other program or edited by hand.\n\n" +
+                                              "In 2nd and 3rd case, map could need global height add\n" +
+                                              "in order to correct the water level on map.\n" +
+                                              "You can achieve that using File > Resize dialog.\n\n" +
+                                              "You can disable this message in settings window.",
+                                              "External map detected",
+                                              JOptionPane.INFORMATION_MESSAGE);
+            });
+        }
+        
         tiles = new Tile[width+1][height+1];
         
         NodeList list = doc.getElementsByTagName("tile");
