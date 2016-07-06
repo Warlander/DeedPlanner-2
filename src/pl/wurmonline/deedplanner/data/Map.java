@@ -106,7 +106,7 @@ public final class Map {
                                               "2. Map was exported from other program or edited by hand.\n\n" +
                                               "In 2nd and 3rd case, map could need global height add\n" +
                                               "in order to correct the water level on map.\n" +
-                                              "You can achieve that using File > Resize dialog.\n\n" +
+                                              "You can achieve this using File > Resize dialog.\n\n" +
                                               "You can disable this message in settings window.",
                                               "External map detected",
                                               JOptionPane.INFORMATION_MESSAGE);
