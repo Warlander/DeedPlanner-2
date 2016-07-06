@@ -20,6 +20,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         translationBox.setSelected(Properties.useTranslation);
         colorblindBox.setSelected(Properties.colorblind);
         tipBox.setSelected(Properties.showTip);
+        importBox.setSelected(Properties.showImportWarning);
         scaleUpSelect.getModel().setValue(Properties.scale);
 
         mouseFractionFppSelect.getModel().setValue(Properties.mouseFractionFpp);
@@ -88,6 +89,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         translationBox = new javax.swing.JCheckBox();
         colorblindBox = new javax.swing.JCheckBox();
         tipBox = new javax.swing.JCheckBox();
+        importBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
@@ -192,6 +194,9 @@ public class SettingsWindow extends javax.swing.JFrame {
         tipBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tipBox.setText(bundle.getString("SettingsWindow.tipBox.text")); // NOI18N
 
+        importBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        importBox.setText(bundle.getString("SettingsWindow.importBox.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -252,7 +257,8 @@ public class SettingsWindow extends javax.swing.JFrame {
                                 .addComponent(jLabel13))
                             .addComponent(translationBox)
                             .addComponent(colorblindBox)
-                            .addComponent(tipBox))
+                            .addComponent(tipBox)
+                            .addComponent(importBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -315,6 +321,8 @@ public class SettingsWindow extends javax.swing.JFrame {
                                     .addComponent(lookCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(importBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tipBox)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(colorblindBox)
@@ -335,6 +343,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         Properties.useTranslation = translationBox.isSelected();
         Properties.colorblind = colorblindBox.isSelected();
         Properties.showTip = tipBox.isSelected();
+        Properties.showImportWarning = importBox.isSelected();
         Properties.keyboardFractionUp = (double) keyboardFractionUpSelect.getModel().getValue();
         Properties.mouseFractionUp = (double) mouseFractionUpSelect.getModel().getValue();
         Properties.scale = (int) scaleUpSelect.getModel().getValue();
@@ -364,6 +373,7 @@ public class SettingsWindow extends javax.swing.JFrame {
     private javax.swing.Box.Filler filler1;
     private javax.swing.JSpinner graphicsFpsSelect;
     private javax.swing.JComboBox iconsCombo;
+    private javax.swing.JCheckBox importBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
