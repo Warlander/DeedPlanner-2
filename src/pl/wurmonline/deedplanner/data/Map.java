@@ -630,6 +630,7 @@ public final class Map {
         Element main = doc.createElement("map");
         main.setAttribute("width", Integer.toString(width));
         main.setAttribute("height", Integer.toString(height));
+        main.setAttribute("exporter", Constants.VERSION_STRING);
         doc.appendChild(main);
         
         for (int i=0; i<=width; i++) {
