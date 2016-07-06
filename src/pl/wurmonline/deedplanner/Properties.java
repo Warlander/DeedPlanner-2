@@ -21,7 +21,8 @@ public class Properties {
     public static boolean showGrid = true;
     public static boolean useTranslation = true;
     public static boolean colorblind = false;
-    public static boolean showTip = true;
+    public static boolean showTip = false;
+    public static boolean showImportWarning = true;
     
     public static int antialiasing = 2;
     
