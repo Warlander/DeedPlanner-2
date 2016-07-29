@@ -1466,6 +1466,15 @@
 	
 	
 	<objects>
+		<object name="Coffer" shortname="coffer" type="normal">
+			<model location="Data/Objects/Coffer.wom"/>
+			<materials>
+				Planks = 6,
+				Small nails = 3
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
 		<object name="Large chest" shortname="lChest" type="normal">
 			<model location="Data/Objects/LargeChest_main.wom"/>
 			<materials>
@@ -1543,6 +1552,39 @@
 				Planks = 25,
 				Large nails = 4,
 				Iron ribbons = 1
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Wardrobe" shortname="wardrobe" type="normal">
+			<model location="Data/Objects/Wardrobe.wom"/>
+			<materials>
+				Planks = 12,
+				Shafts = 4,
+				Small nails = 2,
+				Large nails = 4
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Armor stand (empty)" shortname="arStandE" type="normal">
+			<model location="Data/Objects/armorStand01.wom"/>
+			<materials>
+				Planks = 13,
+				Shafts = 6,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Armor stand (full)" shortname="arStandF" type="normal">
+			<model location="Data/Objects/armorStand01Filled.wom"/>
+			<materials>
+				Planks = 13,
+				Shafts = 6,
+				Small nails = 1,
+				Pegs = 7
 			</materials>
 			<category>Containers</category>
 			<category>Materials/Wood</category>
@@ -1967,6 +2009,33 @@
 			<category>Materials/Wood</category>
 		</object>
 		
+		<object name="Bed" shortname="bed" type="normal">
+			<model location="Data/Objects/bed.wom"/>
+			<materials>
+				Shafts = 4,
+				Planks = 15,
+				Small nails = 2,
+				Large nails = 1,
+				Cotton sheets = 2,
+				Furs = 3
+			</materials>
+			<category>Furniture/Beds</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Canopy bed" shortname="cBed" type="normal">
+			<model location="Data/Objects/canopyBed.wom"/>
+			<materials>
+				Shafts = 4,
+				Planks = 15,
+				Small nails = 2,
+				Large nails = 1,
+				Cotton sheets = 8,
+				Furs = 8
+			</materials>
+			<category>Furniture/Beds</category>
+			<category>Materials/Wood</category>
+		</object>
+		
 		<object name="Large dining table" shortname="lTable" type="normal">
 			<model location="Data/Objects/largeTable.wom"/>
 			<materials>
@@ -1994,11 +2063,42 @@
 			<category>Furniture/Tables</category>
 			<category>Materials/Wood</category>
 		</object>
+		<object name="High bookcase" shortname="hBook" type="normal">
+			<model location="Data/Objects/Bookshelf_high.wom"/>
+			<materials>
+				Shafts = 2,
+				Planks = 8,
+				Large nails = 4
+			</materials>
+			<category>Furniture/Bookcases</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Low bookcase" shortname="lBook" type="normal">
+			<model location="Data/Objects/Bookshelf_low.wom"/>
+			<materials>
+				Shafts = 1,
+				Planks = 4,
+				Large nails = 2
+			</materials>
+			<category>Furniture/Bookcases</category>
+			<category>Materials/Wood</category>
+		</object>
+		
+		
 		
 		<object name="Campfire" shortname="camp" type="normal">
 			<model location="Data/Objects/campfire.wom"/>
 			<materials>
 				Kindlings = 1
+			</materials>
+			<category>Fires</category>
+		</object>
+		<object name="Fireplace" shortname="fPlace" type="normal">
+			<model location="Data/Objects/Fireplace.wom"/>
+			<materials>
+				Planks = 2,
+				Mortar = 10,
+				Stone brick = 10
 			</materials>
 			<category>Fires</category>
 		</object>
