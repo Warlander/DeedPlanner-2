@@ -1,7 +1,6 @@
 package pl.wurmonline.deedplanner.forms;
 
 import java.awt.*;
-import java.awt.geom.Rectangle2D;
 import javax.swing.JComponent;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.Tile;

@@ -5,8 +5,6 @@ import java.net.*;
 import java.util.logging.*;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileFilter;
-import javax.xml.parsers.ParserConfigurationException;
-import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.MapPanel;
 import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.data.Map;

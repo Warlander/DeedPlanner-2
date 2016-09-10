@@ -7,7 +7,6 @@ import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.SelectionType;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.logic.TileSelection;
-import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 
 public class HeightUpdater {
 

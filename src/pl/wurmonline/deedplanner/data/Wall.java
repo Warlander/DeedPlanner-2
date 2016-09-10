@@ -1,6 +1,5 @@
 package pl.wurmonline.deedplanner.data;
 
-import java.util.Map.Entry;
 import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.Globals;

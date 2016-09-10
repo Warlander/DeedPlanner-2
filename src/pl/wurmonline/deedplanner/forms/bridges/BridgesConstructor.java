@@ -9,9 +9,7 @@ import javax.swing.JPanel;
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.data.bridges.Bridge;
-import pl.wurmonline.deedplanner.data.bridges.BridgeData;
 import pl.wurmonline.deedplanner.data.bridges.BridgePartType;
-import pl.wurmonline.deedplanner.data.bridges.BridgeType;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class BridgesConstructor extends JFrame {

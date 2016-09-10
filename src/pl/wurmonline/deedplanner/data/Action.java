@@ -1,6 +1,5 @@
 package pl.wurmonline.deedplanner.data;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public final class Action {

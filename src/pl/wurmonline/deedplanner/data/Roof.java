@@ -5,7 +5,6 @@ import java.nio.FloatBuffer;
 import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.graphics.wom.Mesh;
 import pl.wurmonline.deedplanner.graphics.wom.Model;
 
 public class Roof implements TileEntity {

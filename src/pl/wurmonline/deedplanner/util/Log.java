@@ -4,8 +4,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import pl.wurmonline.deedplanner.forms.ErrorWindow;
 
 public class Log {
