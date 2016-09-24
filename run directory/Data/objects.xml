@@ -1343,6 +1343,17 @@
 			<category>Materials/Rope</category>
 		</wall>
 		
+		<wall name="Woven fence" shortname="wovFence" scale="10" type="lowfence">
+			<model location="Data/Walls/WovenFence.wom"/>
+			<color type="dec" r="0.1" g="0.1" b="1"/>
+			<materials>
+				Wood scraps = 10
+			</materials>
+			<icon location="Data/Walls/Icons/WovenFence.png"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
+		
 		<wall name="High hedge" shortname="hHedge" scale="1" type="highfence">
 			<model location="Data/Walls/Hedge01_High.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="0.5"/>
