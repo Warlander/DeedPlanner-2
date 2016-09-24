@@ -73,6 +73,10 @@ public final class Tile implements XMLSerializable {
                         entities.put(new EntityData(floor, EntityType.FLOORROOF), new Floor(entity));
                         break;
                     case "hwall":
+                        if (x == map.getWidth()) {
+                            Log.out(this, "Detected wall on the edge of visible area, deleting");
+                            continue;
+                        }
                         Wall hwall = new Wall(entity);
                         if (hwall.data.houseWall) {
                             entities.put(new EntityData(floor, EntityType.HWALL), hwall);
@@ -82,6 +86,10 @@ public final class Tile implements XMLSerializable {
                         }
                         break;
                     case "vwall":
+                        if (y == map.getHeight()) {
+                            Log.out(this, "Detected wall on the edge of visible area, deleting");
+                            continue;
+                        }
                         Wall vwall = new Wall(entity);
                         if (vwall.data.houseWall) {
                             entities.put(new EntityData(floor, EntityType.VWALL), vwall);
@@ -100,6 +108,10 @@ public final class Tile implements XMLSerializable {
                         entities.put(new EntityData(floor, EntityType.FLOORROOF), new Roof(entity));
                         break;
                     case "object":
+                        if (x == map.getWidth() || y == map.getHeight()) {
+                            Log.out(this, "Detected object on the edge of visible area, deleting");
+                            continue;
+                        }
                         ObjectLocation loc = ObjectLocation.parse(entity.getAttribute("position"));
                         entities.put(new ObjectEntityData(floor, loc), new GameObject(entity));
                         break;
