@@ -41,8 +41,8 @@ public final class Materials extends HashMap<String, Integer> {
     public String toString() {
         StringBuilder build = new StringBuilder();
         
-        build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("MATERIALS NEEDED:")).append(Constants.ENTER);
-        build.append(Constants.ENTER);
+        build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("MATERIALS NEEDED:")).append(System.lineSeparator());
+        build.append(System.lineSeparator());
         
         forEach((name, count) -> {build.append(name).append(" = ").append(count).append(System.getProperty("line.separator"));});
         if (isEmpty()) {
