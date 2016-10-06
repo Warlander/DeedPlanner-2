@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import pl.wurmonline.deedplanner.Constants;
 import pl.wurmonline.deedplanner.forms.ErrorWindow;
 
 public class Log {
@@ -40,14 +41,16 @@ public class Log {
         Calendar calendar = Calendar.getInstance();
         
         String message = new StringWriter().append("[").append(sdf.format(calendar.getTime()))
-                .append("] Error has occurred!").append(System.getProperty("line.separator"))
-                .append("Java vendor: ").append(System.getProperty("java.vendor")).append(System.getProperty("line.separator"))
-                .append("Java version: ").append(System.getProperty("java.version")).toString();
+                .append("] Error has occurred!").append(System.lineSeparator())
+                .append("Java vendor: ").append(System.getProperty("java.vendor")).append(System.lineSeparator())
+                .append("Java version: ").append(System.getProperty("java.version")).append(System.lineSeparator())
+                .append(Constants.VERSION_STRING)
+                .toString();
         
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         error.printStackTrace(pw);
-        String finalMessage = message+System.getProperty("line.separator")+sw.toString();
+        String finalMessage = message + System.lineSeparator() + sw.toString();
         
         System.err.println(finalMessage);
         if (showError) {
