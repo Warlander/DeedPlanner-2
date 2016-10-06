@@ -17,4 +17,6 @@ public class Constants {
     public static final String TREE_TYPE = "tree";
     public static final String BUSH_TYPE = "bush";
     
+    public static final float FLOOR_MODEL_HEIGHT = 0.25f;
+    
 }

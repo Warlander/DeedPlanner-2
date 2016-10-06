@@ -254,6 +254,13 @@ public final class Tile implements XMLSerializable {
                 ObjectLocation loc = objData.getLocation();
                 GameObject obj = (GameObject) entity;
                 GameObjectData goData = obj.getData();
+                
+                boolean onAbovegroundFloor = objData.getFloor() > 0 || this.getTileContent(0) != null;
+                boolean onUndergroundFloor = objData.getFloor() < -1 || this.getTileContent(-1) != null;
+                if (onAbovegroundFloor || onUndergroundFloor) {
+                    g.glTranslatef(0, 0, Constants.FLOOR_MODEL_HEIGHT);
+                }
+                
                 boolean isTree = goData.type.equals(Constants.TREE_TYPE);
                 boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.upCamera) || (Globals.renderTrees3d && !Globals.upCamera);
                 if (!isTree || (isTree && treeRenderingAllowed)) {
