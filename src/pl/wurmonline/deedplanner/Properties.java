@@ -10,8 +10,6 @@ import pl.wurmonline.deedplanner.util.Log;
 
 public class Properties {
     
-    public static final transient String SLASH = System.getProperty("file.separator");
-    public static final transient String BR = System.getProperty("line.separator");
     public static final transient String HOME = System.getProperty("user.home");
     public static final transient String SAVE_DIR;
     
@@ -41,12 +39,12 @@ public class Properties {
     public static double mouseFractionFpp = 0.2;
     
     static {
-        File file = new File(HOME+SLASH+"DeedPlanner"+SLASH);
+        File file = new File(HOME + File.separator + "DeedPlanner" + File.separator);
         if (file.exists()) {
-            SAVE_DIR = HOME+SLASH+"DeedPlanner"+SLASH;
+            SAVE_DIR = HOME + File.separator + "DeedPlanner" + File.separator;
         }
         else {
-            SAVE_DIR = HOME+SLASH+".DeedPlanner"+SLASH;
+            SAVE_DIR = HOME + File.separator + ".DeedPlanner" + File.separator;
         }
         
         try {
@@ -123,7 +121,7 @@ public class Properties {
                 f.setAccessible(true);
                 if (Modifier.isTransient(f.getModifiers())) continue;
                 build.append(f.getType().getCanonicalName()).append(" ").append(f.getName()).append(" = ").append(f.get(null));
-                build.append(BR);
+                build.append(System.lineSeparator());
             } catch (IllegalArgumentException | IllegalAccessException ex) {
                 Logger.getLogger(Properties.class.getName()).log(Level.SEVERE, null, ex);
             }

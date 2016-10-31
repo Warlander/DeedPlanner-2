@@ -213,7 +213,7 @@ public class SaveWindow extends javax.swing.JFrame {
             out.print(serializedMap);
             out.close();
             String ph = file.getPath();
-            Properties.lastDir = ph.substring(0, ph.lastIndexOf(Properties.SLASH)+1);
+            Properties.lastDir = ph.substring(0, ph.lastIndexOf(File.separator)+1);
             Properties.saveProperties();
         } catch (IOException ex) {
             Logger.getLogger(SaveWindow.class.getName()).log(Level.SEVERE, null, ex);

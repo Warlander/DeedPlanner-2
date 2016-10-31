@@ -13,8 +13,6 @@ import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class LoadWindow extends javax.swing.JFrame {
-
-    private final String endl = System.getProperty("line.separator");
     
     MapPanel panel;
     
@@ -169,7 +167,7 @@ public class LoadWindow extends javax.swing.JFrame {
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             String ph = file.getPath();
-            Properties.lastDir = ph.substring(0, ph.lastIndexOf(Properties.SLASH)+1);
+            Properties.lastDir = ph.substring(0, ph.lastIndexOf(File.separator)+1);
             Properties.saveProperties();
             try {
                 FileInputStream fis = new FileInputStream(file);

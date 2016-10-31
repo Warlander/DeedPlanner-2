@@ -44,7 +44,7 @@ public final class Materials extends HashMap<String, Integer> {
         build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("MATERIALS NEEDED:")).append(System.lineSeparator());
         build.append(System.lineSeparator());
         
-        forEach((name, count) -> {build.append(name).append(" = ").append(count).append(System.getProperty("line.separator"));});
+        forEach((name, count) -> {build.append(name).append(" = ").append(count).append(System.lineSeparator());});
         if (isEmpty()) {
             build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("NO MATERIALS. IF THERE ARE ANY STRUCTURES ON MAP AND THIS MESSAGE IS SHOWN, PLEASE CONTACT PROGRAM DEVELOPER ON WURM ONLINE FORUM."));
         }
