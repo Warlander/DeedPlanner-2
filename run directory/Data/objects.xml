@@ -2536,6 +2536,27 @@
 			<category>Misc</category>
 			<category>Materials/Stone</category>
 		</object>
+		<object name="Pylon" shortname="pyl" type="normal">
+			<model location="Data/Objects/pylon.wom"/>
+			<materials>
+				Clay = 2000,
+				Stone bricks = 1000,
+				Brass lumps = 1000,
+				Stone slabs = 150
+			</materials>
+			<category>Misc</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Obelisk" shortname="obel" type="normal">
+			<model location="Data/Objects/obelisque.wom"/>
+			<materials>
+				Clay = 1001,
+				Stone bricks = 1001,
+				Brass lumps = 100
+			</materials>
+			<category>Misc</category>
+			<category>Materials/Stone</category>
+		</object>
 		<object name="Epic portal" shortname="ePortal" type="normal">
 			<model location="Data/Objects/playerportal.wom"/>
 			<materials>
