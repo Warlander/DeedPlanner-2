@@ -10,9 +10,8 @@ import pl.wurmonline.deedplanner.input.Mouse;
 public class GroundUpdater {
 
     public static GroundMode currentMode;
-    public static GroundData currentData = Data.grounds.get("gr");
-    
-    private static final GroundData defaultData = Data.grounds.get("gr");
+    public static GroundData lmbData = Data.grounds.get("gr");
+    public static GroundData rmbData = Data.grounds.get("gr");
     
     public static void update(Mouse mouse, Map map, UpCamera cam) {
         currentMode.update(mouse, map, cam);
@@ -25,15 +24,15 @@ public class GroundUpdater {
 
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.hold.left) {
-                    if (currentData!=null) {
-                        tile.setGround(currentData);
-                        map.getSymmetry().mirrorGround(tile, currentData);
+                    if (lmbData!=null) {
+                        tile.setGround(lmbData);
+                        map.getSymmetry().mirrorGround(tile, lmbData);
                     }
                 }
                 else if (mouse.hold.right) {
-                    if (currentData!=null) {
-                        tile.setGround(defaultData);
-                        map.getSymmetry().mirrorGround(tile, defaultData);
+                    if (lmbData!=null) {
+                        tile.setGround(rmbData);
+                        map.getSymmetry().mirrorGround(tile, rmbData);
                     }
                 }
                 else if (mouse.released.left || mouse.released.right) {
@@ -47,10 +46,10 @@ public class GroundUpdater {
             
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.pressed.left) {
-                    floodFill(map, tile, currentData, tile.getGround().getData());
+                    floodFill(map, tile, lmbData, tile.getGround().getData());
                 }
                 else if (mouse.pressed.right) {
-                    floodFill(map, tile, defaultData, tile.getGround().getData());
+                    floodFill(map, tile, rmbData, tile.getGround().getData());
                 }
                 else if (mouse.released.left || mouse.released.right) {
                     map.newAction();
@@ -79,12 +78,12 @@ public class GroundUpdater {
 
             public void action(Mouse mouse, Map map, Tile tile) {
                 if (mouse.hold.left) {
-                    tile.setGround(defaultData);
-                    map.getSymmetry().mirrorGround(tile, defaultData);
+                    tile.setGround(rmbData);
+                    map.getSymmetry().mirrorGround(tile, rmbData);
                 }
                 else if (mouse.hold.right) {
-                    tile.setGround(defaultData);
-                    map.getSymmetry().mirrorGround(tile, defaultData);
+                    tile.setGround(rmbData);
+                    map.getSymmetry().mirrorGround(tile, rmbData);
                 }
                 else if (mouse.released.left || mouse.released.right) {
                     map.newAction();

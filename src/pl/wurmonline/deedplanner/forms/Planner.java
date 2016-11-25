@@ -157,6 +157,10 @@ public class Planner extends javax.swing.JFrame {
         groundsTree = new javax.swing.JTree();
         diagonalPanel1 = new DiagonalPanel(this);
         groundModeCombo = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lmbSelectedGroundLabel = new javax.swing.JLabel();
+        rmbSelectedGroundLabel = new javax.swing.JLabel();
         heightPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         heightLeftSpinner = new javax.swing.JSpinner();
@@ -258,7 +262,7 @@ public class Planner extends javax.swing.JFrame {
         statusBar.setLayout(statusBarLayout);
         statusBarLayout.setHorizontalGroup(
             statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tileLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
+            .addComponent(tileLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
         );
         statusBarLayout.setVerticalGroup(
             statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,9 +293,9 @@ public class Planner extends javax.swing.JFrame {
         groundsTree.setCellRenderer(null);
         groundsTree.setRootVisible(false);
         groundsTree.setShowsRootHandles(true);
-        groundsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                groundsTreeValueChanged(evt);
+        groundsTree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                groundsTreeMousePressed(evt);
             }
         });
         jScrollPane1.setViewportView(groundsTree);
@@ -314,6 +318,18 @@ public class Planner extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setText(bundle.getString("Planner.jLabel9.text")); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel10.setText(bundle.getString("Planner.jLabel10.text")); // NOI18N
+
+        lmbSelectedGroundLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lmbSelectedGroundLabel.setText(bundle.getString("Planner.lmbSelectedGroundLabel.text")); // NOI18N
+
+        rmbSelectedGroundLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rmbSelectedGroundLabel.setText(bundle.getString("Planner.rmbSelectedGroundLabel.text")); // NOI18N
+
         javax.swing.GroupLayout groundPanelLayout = new javax.swing.GroupLayout(groundPanel);
         groundPanel.setLayout(groundPanelLayout);
         groundPanelLayout.setHorizontalGroup(
@@ -321,13 +337,31 @@ public class Planner extends javax.swing.JFrame {
             .addComponent(jScrollPane1)
             .addGroup(groundPanelLayout.createSequentialGroup()
                 .addComponent(diagonalPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(rmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
             .addComponent(groundModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         groundPanelLayout.setVerticalGroup(
             groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(groundPanelLayout.createSequentialGroup()
-                .addComponent(diagonalPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(diagonalPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(groundPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(lmbSelectedGroundLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(rmbSelectedGroundLabel))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(groundModeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -433,12 +467,12 @@ public class Planner extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                         .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(heightPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
                             .addGroup(heightPanelLayout.createSequentialGroup()
                                 .addComponent(heightRadio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -511,7 +545,7 @@ public class Planner extends javax.swing.JFrame {
         floorsPanel.setLayout(floorsPanelLayout);
         floorsPanelLayout.setHorizontalGroup(
             floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
             .addComponent(floorsModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
@@ -600,7 +634,7 @@ public class Planner extends javax.swing.JFrame {
         roofsPanel.setLayout(roofsPanelLayout);
         roofsPanelLayout.setHorizontalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
         );
         roofsPanelLayout.setVerticalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -624,7 +658,7 @@ public class Planner extends javax.swing.JFrame {
         objectsPanel.setLayout(objectsPanelLayout);
         objectsPanelLayout.setHorizontalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
         );
         objectsPanelLayout.setVerticalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -648,7 +682,7 @@ public class Planner extends javax.swing.JFrame {
         bordersPanel.setLayout(bordersPanelLayout);
         bordersPanelLayout.setHorizontalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
         );
         bordersPanelLayout.setVerticalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -672,7 +706,7 @@ public class Planner extends javax.swing.JFrame {
         cavesPanel.setLayout(cavesPanelLayout);
         cavesPanelLayout.setHorizontalGroup(
             cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
         );
         cavesPanelLayout.setVerticalGroup(
             cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -953,15 +987,6 @@ public class Planner extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_redoItemActionPerformed
 
-    private void groundsTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_groundsTreeValueChanged
-        DefaultMutableTreeNode node = (DefaultMutableTreeNode) groundsTree.getLastSelectedPathComponent();
-        if (node!=null && node.isLeaf() && node.getUserObject()!=GroundUpdater.currentData) {
-            mapPanel.getLoop().syncAndExecute(() -> {
-                GroundUpdater.currentData = (GroundData) node.getUserObject();
-            });
-        }
-    }//GEN-LAST:event_groundsTreeValueChanged
-
     private void viewSwitched(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSwitched
         mapPanel.getLoop().syncAndExecute(() -> {
             final boolean upView = (evt.getSource()==upViewItem);
@@ -1199,6 +1224,36 @@ public class Planner extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_vegetationDisplayChanged
 
+    private void groundsTreeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_groundsTreeMousePressed
+        boolean isRightClick = SwingUtilities.isRightMouseButton(evt);
+        
+        if (isRightClick) {
+            int selRow = groundsTree.getRowForLocation(evt.getX(), evt.getY());
+            TreePath selPath = groundsTree.getPathForLocation(evt.getX(), evt.getY());
+            groundsTree.setSelectionPath(selPath); 
+            if (selRow > -1) {
+               groundsTree.setSelectionRow(selRow); 
+            }
+        }
+        
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) groundsTree.getLastSelectedPathComponent();
+        if (node != null && node.isLeaf()) {
+            GroundData selectedData = (GroundData) node.getUserObject();
+            if (!isRightClick && node.getUserObject() != GroundUpdater.lmbData) {
+                lmbSelectedGroundLabel.setText(selectedData.name);
+                mapPanel.getLoop().syncAndExecute(() -> {
+                    GroundUpdater.lmbData = selectedData;
+                });
+            }
+            else if (isRightClick && node.getUserObject() != GroundUpdater.rmbData) {
+                rmbSelectedGroundLabel.setText(selectedData.name);
+                mapPanel.getLoop().syncAndExecute(() -> {
+                    GroundUpdater.rmbData = selectedData;
+                });
+            }
+        }
+    }//GEN-LAST:event_groundsTreeMousePressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JList bordersList;
@@ -1227,6 +1282,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JSpinner heightRightSpinner;
     public pl.wurmonline.deedplanner.forms.HeightShow heightShow;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1234,6 +1290,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
@@ -1258,6 +1315,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JSpinner jSpinner4;
     private pl.wurmonline.deedplanner.forms.LabelEditor labelsPanel;
+    private javax.swing.JLabel lmbSelectedGroundLabel;
     private javax.swing.JMenuItem loadItem;
     private pl.wurmonline.deedplanner.MapPanel mapPanel;
     private javax.swing.JMenuItem newMapItem;
@@ -1265,6 +1323,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JTree objectsTree;
     private javax.swing.JMenuItem redoItem;
     private javax.swing.JMenuItem resizeItem;
+    private javax.swing.JLabel rmbSelectedGroundLabel;
     private javax.swing.JList roofsList;
     private javax.swing.JPanel roofsPanel;
     private javax.swing.JMenuItem saveItem;
