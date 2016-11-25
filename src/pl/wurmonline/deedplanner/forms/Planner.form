@@ -333,10 +333,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <Component id="sidePanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="mapPanel" max="32767" attributes="0"/>
-                  <Component id="statusBar" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="statusBar" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="mapPanel" max="32767" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -373,7 +378,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="tileLabel" alignment="1" pref="575" max="32767" attributes="0"/>
+              <Component id="tileLabel" alignment="1" pref="534" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -496,7 +501,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lmbSelectedGroundLabel" pref="183" max="32767" attributes="0"/>
+                              <Component id="lmbSelectedGroundLabel" pref="174" max="32767" attributes="0"/>
                               <Component id="rmbSelectedGroundLabel" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -666,13 +671,13 @@
                                           <Component id="addHeightSpinner" min="-2" pref="90" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="164" max="32767" attributes="0"/>
+                                  <EmptySpace pref="155" max="32767" attributes="0"/>
                                   <Component id="heightShow" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel7" alignment="1" pref="342" max="32767" attributes="0"/>
+                                      <Component id="jLabel7" alignment="1" pref="333" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Component id="heightRadio" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -907,7 +912,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane3" pref="362" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="353" max="32767" attributes="0"/>
                       <Component id="floorsModeCombo" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
@@ -1099,7 +1104,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane5" alignment="0" pref="362" max="32767" attributes="0"/>
+                      <Component id="jScrollPane5" alignment="0" pref="353" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1151,7 +1156,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane6" alignment="0" pref="362" max="32767" attributes="0"/>
+                      <Component id="jScrollPane6" alignment="0" pref="353" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1212,7 +1217,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane7" alignment="0" pref="362" max="32767" attributes="0"/>
+                      <Component id="jScrollPane7" alignment="0" pref="353" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1262,7 +1267,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane8" alignment="0" pref="362" max="32767" attributes="0"/>
+                      <Component id="jScrollPane8" alignment="0" pref="353" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
