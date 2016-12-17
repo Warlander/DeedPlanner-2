@@ -47,9 +47,9 @@ public class LoadWindow extends javax.swing.JFrame {
 
         codeField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         codeField.setText(bundle.getString("LoadWindow.codeField.text")); // NOI18N
-        codeField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                codeFieldMouseClicked(evt);
+        codeField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                codeFieldFocusGained(evt);
             }
         });
 
@@ -71,9 +71,9 @@ public class LoadWindow extends javax.swing.JFrame {
 
         urlField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         urlField.setText(bundle.getString("LoadWindow.urlField.text")); // NOI18N
-        urlField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                urlFieldMouseClicked(evt);
+        urlField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                urlFieldFocusGained(evt);
             }
         });
 
@@ -198,13 +198,13 @@ public class LoadWindow extends javax.swing.JFrame {
         }
     }
     
-    private void urlFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_urlFieldMouseClicked
-        urlField.setText("");
-    }//GEN-LAST:event_urlFieldMouseClicked
+    private void codeFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codeFieldFocusGained
+        codeField.selectAll();
+    }//GEN-LAST:event_codeFieldFocusGained
 
-    private void codeFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_codeFieldMouseClicked
-        codeField.setText("");
-    }//GEN-LAST:event_codeFieldMouseClicked
+    private void urlFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_urlFieldFocusGained
+        urlField.selectAll();
+    }//GEN-LAST:event_urlFieldFocusGained
 
     private class ExtensionFileFilter extends FileFilter {
         String description;

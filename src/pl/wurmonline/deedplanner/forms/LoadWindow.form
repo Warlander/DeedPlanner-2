@@ -77,7 +77,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="codeFieldMouseClicked"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="codeFieldFocusGained"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="codeButton">
@@ -116,7 +116,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="urlFieldMouseClicked"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="urlFieldFocusGained"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="fileButton">
