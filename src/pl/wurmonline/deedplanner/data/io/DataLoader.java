@@ -46,7 +46,8 @@ public final class DataLoader {
         for (int i=0; i<entities.getLength(); i++) {
             String name;
             String shortName;
-            SimpleTex tex = null;
+            SimpleTex tex2d = null;
+            SimpleTex tex3d = null;
             ArrayList<String[]> categories = new ArrayList<>();
             boolean diagonal = false;
             
@@ -62,7 +63,18 @@ public final class DataLoader {
                 Node node = list.item(i2);
                 switch (node.getNodeName()) {
                     case "tex":
-                        tex = SimpleTex.getTexture((Element) node);
+                        Element texElement = (Element) node;
+                        String target = texElement.getAttribute("target");
+                        if (target.equals("editmode")) {
+                            tex2d = SimpleTex.getTexture(texElement);
+                        }
+                        else if (target.equals("previewmode")) {
+                            tex3d = SimpleTex.getTexture(texElement);
+                        }
+                        else {
+                            tex2d = SimpleTex.getTexture(texElement);
+                            tex3d = tex2d;
+                        }
                         break;
                     case "category":
                         categories.add(node.getTextContent().split("/"));
@@ -73,7 +85,7 @@ public final class DataLoader {
                 }
             }
             
-            GroundData data = new GroundData(name, shortName, tex, diagonal);
+            GroundData data = new GroundData(name, shortName, tex2d, tex3d, diagonal);
             Log.out(DataLoader.class, "Ground data "+data+" loaded and ready to use!");
             Data.grounds.put(shortName, data);
             addToCategories(Data.groundsTree, categories, data, name);

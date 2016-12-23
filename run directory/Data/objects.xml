@@ -40,6 +40,101 @@
 			<tex location="Data/GroundTextures/farm.jpg"/>
 			<category>Farm</category>
 		</ground>
+		<ground name="Barley Field" shortname="bafi">
+			<tex location="Data/GroundTextures/2d-crop-barley.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Cabbage Field" shortname="cafi">
+			<tex location="Data/GroundTextures/2d-crop-cabbage.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Corn Field" shortname="cornfi">
+			<tex location="Data/GroundTextures/2d-crop-corn.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Cotton Field" shortname="cottfi">
+			<tex location="Data/GroundTextures/2d-crop-cotton.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Cucumber Field" shortname="cufi">
+			<tex location="Data/GroundTextures/2d-crop-cucumber.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Garlic Field" shortname="gafi">
+			<tex location="Data/GroundTextures/2d-crop-garlic.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Lettuce Field" shortname="lefi">
+			<tex location="Data/GroundTextures/2d-crop-lettuce.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Oat Field" shortname="oafi">
+			<tex location="Data/GroundTextures/2d-crop-oat.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Onion Field" shortname="onfi">
+			<tex location="Data/GroundTextures/2d-crop-onion.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Peapod Field" shortname="pefi">
+			<tex location="Data/GroundTextures/2d-crop-peapod.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Potato Field" shortname="pofi">
+			<tex location="Data/GroundTextures/2d-crop-potato.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Pumpkin Field" shortname="pufi">
+			<tex location="Data/GroundTextures/2d-crop-pumpkin.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Rice Field" shortname="rifi">
+			<tex location="Data/GroundTextures/2d-crop-rice.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Rye Field" shortname="ryfi">
+			<tex location="Data/GroundTextures/2d-crop-rye.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Strawberry Field" shortname="stfi">
+			<tex location="Data/GroundTextures/2d-crop-strawberry.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Sugarbeet Field" shortname="sufi">
+			<tex location="Data/GroundTextures/2d-crop-sugarbeet.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Tomato Field" shortname="tofi">
+			<tex location="Data/GroundTextures/2d-crop-tomato.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Wemp Field" shortname="wefi">
+			<tex location="Data/GroundTextures/2d-crop-wemp.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Wheat Field" shortname="whfi">
+			<tex location="Data/GroundTextures/2d-crop-wheat.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
 		<ground name="Gravel" shortname="gv">
 			<tex location="Data/GroundTextures/gravel.jpg"/>
 			<diagonal/>

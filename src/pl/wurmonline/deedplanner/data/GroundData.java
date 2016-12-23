@@ -16,25 +16,27 @@ public final class GroundData {
     public final String name;
     public final String shortName;
     
-    public final SimpleTex tex;
+    private final SimpleTex tex2d;
+    private final SimpleTex tex3d;
     private Icon icon;
     
     public final boolean diagonal;
     
-    public GroundData(String name, String shortName, SimpleTex tex, boolean diagonal) {
+    public GroundData(String name, String shortName, SimpleTex tex2d, SimpleTex tex3d, boolean diagonal) {
         this.name = name;
         this.shortName = shortName;
-        this.tex = tex;
+        this.tex2d = tex2d;
+        this.tex3d = tex3d;
         this.diagonal = diagonal;
     }
     
-    public Icon getIcon() {
+    public Icon createIcon() {
         if (Properties.iconSize==0) {
             return null;
         }
         else if (icon==null) {
             try {
-                Image img = resizeImage(ImageIO.read(tex.getFile()), Properties.iconSize, Properties.iconSize);
+                Image img = resizeImage(ImageIO.read(tex2d.getFile()), Properties.iconSize, Properties.iconSize);
                 icon = new ImageIcon(img);
             } catch (IOException ex) {
                 Logger.getLogger(GroundData.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,8 +50,24 @@ public final class GroundData {
         return originalImage.getScaledInstance(width, height, Image.SCALE_SMOOTH);
     }
     
+    public SimpleTex getTexture(TextureType type) {
+        if (type == TextureType.TEXTURE_2D_VIEW) {
+            return tex2d;
+        }
+        else if (type == TextureType.TEXTURE_3D_VIEW) {
+            return tex3d;
+        }
+        else {
+            throw new IllegalArgumentException("Invalid parameter - TEXTURE_2D_VIEW or TEXTURE_3D_VIEW expected.");
+        }
+    }
+    
     public String toString() {
         return name;
+    }
+    
+    public static enum TextureType {
+        TEXTURE_2D_VIEW, TEXTURE_3D_VIEW;
     }
     
 }

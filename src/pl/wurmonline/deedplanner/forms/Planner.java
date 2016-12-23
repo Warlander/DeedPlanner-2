@@ -50,7 +50,7 @@ public class Planner extends javax.swing.JFrame {
                     DefaultMutableTreeNode node = (DefaultMutableTreeNode) value;
                     if (node.getUserObject() instanceof GroundData) {
                         GroundData data = (GroundData) node.getUserObject();
-                        setIcon(data.getIcon());
+                        setIcon(data.createIcon());
                     }
                     else {
                         setIcon(null);
