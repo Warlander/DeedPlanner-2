@@ -25,6 +25,7 @@ public class Data {
     
     public static final HashMap<String, GameObjectData> objects = new HashMap<>();
     public static final DefaultMutableTreeNode objectsTree = new DefaultMutableTreeNode("Objects");
+    public static DefaultMutableTreeNode filteredObjectsTree = objectsTree;
     
     public static final HashMap<String, CaveData> caves = new HashMap<>();
     public static final DefaultMutableTreeNode cavesTree = new DefaultMutableTreeNode("Caves");

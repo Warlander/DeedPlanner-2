@@ -2208,6 +2208,95 @@
 			</materials>
 			<category>Fires</category>
 		</object>
+		
+		
+		
+		<object name="Brass hanging lamp" shortname="bhLamp" type="normal">
+			<model location="Data/Objects/Brass_Pole.wom"/>
+			<materials>
+				Logs = 1,
+				Brass hanging lamp heads = 1
+			</materials>
+			<category>Lamps</category>
+		</object>
+		<object name="Brass lamp" shortname="bhLamp" type="normal">
+			<model location="Data/Objects/Brass_Post.wom"/>
+			<materials>
+				Logs = 1,
+				Brass lamp heads = 1
+			</materials>
+			<category>Lamps</category>
+		</object>
+		<object name="Bronze hanging lamp" shortname="b2hLamp" type="normal">
+			<model location="Data/Objects/Bronze_pole.wom"/>
+			<materials>
+				Logs = 1,
+				Bronze hanging lamp heads = 1
+			</materials>
+			<category>Lamps</category>
+		</object>
+		<object name="Copper candelabra" shortname="cCandel" type="normal">
+			<model location="Data/Objects/Candelabra_copper.wom"/>
+			<category>Lamps</category>
+		</object>
+		<object name="Golden candelabra" shortname="gCandel" type="normal">
+			<model location="Data/Objects/Candelabra_gold.wom"/>
+			<category>Lamps</category>
+		</object>
+		<object name="Silver candelabra" shortname="sCandel" type="normal">
+			<model location="Data/Objects/Candelabra_silver.wom"/>
+			<category>Lamps</category>
+		</object>
+		<object name="Iron candelabra" shortname="iCandel" type="normal">
+			<model location="Data/Objects/Candelabra_iron.wom"/>
+			<category>Lamps</category>
+		</object>
+		<object name="Seryll candelabra" shortname="s2Candel" type="normal">
+			<model location="Data/Objects/Candelabra_silver.wom">
+				<override mesh="silverCandelabraMesh" texture="Data/Objects/seryllcandelabra.dds"/>
+			</model>
+			<category>Lamps</category>
+		</object>
+		<object name="Copper hanging lamp" shortname="chLamp" type="normal">
+			<model location="Data/Objects/Copper_Pole.wom"/>
+			<materials>
+				Logs = 1,
+				Copper hanging lamp heads = 1
+			</materials>
+			<category>Lamps</category>
+		</object>
+		<object name="Gold hanging lamp" shortname="ghLamp" type="normal">
+			<model location="Data/Objects/Gold_Pole.wom"/>
+			<materials>
+				Logs = 1,
+				Gold hanging lamp heads = 1
+			</materials>
+			<category>Lamps</category>
+		</object>
+		<object name="Iron lamp" shortname="iLamp" type="normal">
+			<model location="Data/Objects/Iron_Post.wom"/>
+			<materials>
+				Logs = 1,
+				Iron lamp heads = 1
+			</materials>
+			<category>Lamps</category>
+		</object>
+		<object name="Iron imperial lamp" shortname="iiLamp" type="normal">
+			<model location="Data/Objects/Iron_Post_Iron.wom"/>
+			<materials>
+				Iron lumps = 25,
+				Iron imperial lamp heads = 1
+			</materials>
+			<category>Lamps</category>
+		</object>
+		<object name="Iron torch lamp" shortname="itLamp" type="normal">
+			<model location="Data/Objects/Iron_Torch.wom"/>
+			<materials>
+				Logs = 1,
+				Metal torches = 1
+			</materials>
+			<category>Lamps</category>
+		</object>
 
 		
 		

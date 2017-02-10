@@ -373,7 +373,7 @@ public final class DataLoader {
         }
     }
     
-    private static void addToCategories(DefaultMutableTreeNode node, ArrayList<String[]> categories, Object data, String name) {
+    public static void addToCategories(DefaultMutableTreeNode node, ArrayList<String[]> categories, Object data, String name) {
         for (String[] path : categories) {
             DefaultMutableTreeNode current = node;
             dirLoop:

@@ -179,17 +179,20 @@ public final class Tile implements XMLSerializable {
         
         if ((Globals.upCamera && Globals.floor>=0 && Globals.floor<3) || !Globals.upCamera) {
             if (Globals.upCamera && Globals.floor>=0 && Globals.floor<3) {
+                float lightModifier = 0;
                 switch (Globals.floor) {
                     case 0:
-                        g.glColor3f(1, 1, 1);
+                        lightModifier = 1;
                         break;
                     case 1:
-                        g.glColor3f(0.6f, 0.6f, 0.6f);
+                        lightModifier = 0.6f;
                         break;
                     case 2:
-                        g.glColor3f(0.25f, 0.25f, 0.25f);
+                        lightModifier = 0.25f;
                         break;
                 }
+                
+                g.glColor3f(lightModifier, lightModifier, lightModifier);
             }
             ground.render(g, this);
         }
@@ -300,6 +303,7 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderUnderground(GL2 g) {
+        g.glColor3f(0.7f, 0.7f, 0.7f);
         cave.render(g, this);
     }
     

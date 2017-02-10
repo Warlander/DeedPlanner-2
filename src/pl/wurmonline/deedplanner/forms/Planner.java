@@ -4,13 +4,19 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map.Entry;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.tree.*;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
+import pl.wurmonline.deedplanner.data.io.DataLoader;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.logic.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
@@ -96,6 +102,20 @@ public class Planner extends javax.swing.JFrame {
                 return this;
             }
         };
+        
+        objectsSearchBox.getDocument().addDocumentListener(new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) {
+                applyObjectsTreeFilter();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                applyObjectsTreeFilter();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                applyObjectsTreeFilter();
+            }
+        });
         
         floorsTree.setCellRenderer(defaultRenderer);
         objectsTree.setCellRenderer(defaultRenderer);
@@ -194,6 +214,8 @@ public class Planner extends javax.swing.JFrame {
         objectsPanel = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         objectsTree = new javax.swing.JTree();
+        objectsSearchBox = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
         labelsPanel = new pl.wurmonline.deedplanner.forms.LabelEditor();
         bordersPanel = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -654,15 +676,30 @@ public class Planner extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(objectsTree);
 
+        objectsSearchBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        objectsSearchBox.setText(bundle.getString("Planner.objectsSearchBox.text")); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel11.setText(bundle.getString("Planner.jLabel11.text")); // NOI18N
+
         javax.swing.GroupLayout objectsPanelLayout = new javax.swing.GroupLayout(objectsPanel);
         objectsPanel.setLayout(objectsPanelLayout);
         objectsPanelLayout.setHorizontalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+            .addGroup(objectsPanelLayout.createSequentialGroup()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(objectsSearchBox))
         );
         objectsPanelLayout.setVerticalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, objectsPanelLayout.createSequentialGroup()
+                .addGroup(objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(objectsSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab(bundle.getString("Planner.objectsPanel.TabConstraints.tabTitle"), objectsPanel); // NOI18N
@@ -1047,15 +1084,29 @@ public class Planner extends javax.swing.JFrame {
 
     private void jSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner4StateChanged
         mapPanel.getLoop().syncAndExecute(() -> {
+            int newFloor = (int) jSpinner4.getModel().getValue() - 1;
+            boolean switchedUnderground = newFloor == -1 && Globals.floor == 0;
+            boolean switchedAboveground = newFloor == 0 && Globals.floor == -1;
             Globals.floor = (int)jSpinner4.getModel().getValue()-1;
-            if (Globals.floor==-1) {
-                tabbedPane.addTab("Caves", cavesPanel);
+            if (switchedUnderground) {
+                boolean groundTabSelected = tabbedPane.getSelectedComponent() == groundPanel;
+                tabbedPane.insertTab("Caves", null, cavesPanel, null, 0);
+                tabbedPane.remove(groundPanel);
                 sizeRadio.setEnabled(true);
+                
+                if (groundTabSelected) {
+                    tabbedPane.setSelectedComponent(cavesPanel);
+                }
             }
-            else if (Globals.floor>=0) {
+            else if (switchedAboveground) {
+                boolean cavesTabSelected = tabbedPane.getSelectedComponent() == cavesPanel;
+                tabbedPane.insertTab("Ground", null, groundPanel, null, 0);
                 tabbedPane.remove(cavesPanel);
                 sizeRadio.setEnabled(false);
-                heightRadio.setSelected(true);
+                
+                if (cavesTabSelected) {
+                    tabbedPane.setSelectedComponent(groundPanel);
+                }
             }
         });
     }//GEN-LAST:event_jSpinner4StateChanged
@@ -1256,7 +1307,56 @@ public class Planner extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_groundsTreeMousePressed
-
+    
+    private void applyObjectsTreeFilter() {
+        String toFind = objectsSearchBox.getText();
+        
+        if (toFind.equals("")) {
+            objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
+        }
+        
+        ArrayList<GameObjectData> sortedObjects = new ArrayList();
+        
+        for (Entry<String, GameObjectData> entry : Data.objects.entrySet()) {
+            GameObjectData gameObjectData = entry.getValue();
+            if (gameObjectData.name.toUpperCase().contains(toFind.toUpperCase())) {
+                sortedObjects.add(gameObjectData);
+            }
+        }
+        
+        Data.filteredObjectsTree = createFilteredTree(Data.objectsTree, sortedObjects);
+        objectsTree.setModel(new DefaultTreeModel(Data.filteredObjectsTree));
+    }
+    
+    private DefaultMutableTreeNode createFilteredTree(DefaultMutableTreeNode currentNode, ArrayList allowedObjects) {
+        if (currentNode.isLeaf()) {
+            if (allowedObjects.contains(currentNode.getUserObject())) {
+                return new DefaultMutableTreeNode(currentNode.getUserObject());
+            }
+            else {
+                return null;
+            }
+        }
+        
+        DefaultMutableTreeNode filteredNode = null;
+        for (int i = 0; i < currentNode.getChildCount(); i++) {
+            DefaultMutableTreeNode child = (DefaultMutableTreeNode) currentNode.getChildAt(i);
+            
+            DefaultMutableTreeNode filteredChild = createFilteredTree(child, allowedObjects);
+            if (filteredChild == null) {
+                continue;
+            }
+            
+            if (filteredNode == null) {
+                filteredNode = new DefaultMutableTreeNode(currentNode.getUserObject());
+            }
+            
+            filteredNode.add(filteredChild);
+        }
+        
+        return filteredNode;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JList bordersList;
@@ -1286,6 +1386,7 @@ public class Planner extends javax.swing.JFrame {
     public pl.wurmonline.deedplanner.forms.HeightShow heightShow;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1323,6 +1424,7 @@ public class Planner extends javax.swing.JFrame {
     private pl.wurmonline.deedplanner.MapPanel mapPanel;
     private javax.swing.JMenuItem newMapItem;
     private javax.swing.JPanel objectsPanel;
+    private javax.swing.JTextField objectsSearchBox;
     private javax.swing.JTree objectsTree;
     private javax.swing.JMenuItem redoItem;
     private javax.swing.JMenuItem resizeItem;

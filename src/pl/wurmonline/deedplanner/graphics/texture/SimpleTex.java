@@ -17,6 +17,7 @@ public final class SimpleTex implements Tex {
     
     private static final ArrayList<SimpleTex> textures = new ArrayList<>();
     private static SimpleTex[] activeTex = new SimpleTex[3];
+    private static boolean lastTextureFlippedVertically = false;
     
     private final File file;
     private Texture texture = null;
@@ -61,11 +62,11 @@ public final class SimpleTex implements Tex {
         this(new File(file));
     }
     
-    public void bind(GL g) {
+    public void bind(GL2 g) {
         bind(g, 0);
     }
     
-    public void bind(GL g, int target) {
+    public void bind(GL2 g, int target) {
         final int glTarget;
         switch (target) {
             case 0:
@@ -82,6 +83,18 @@ public final class SimpleTex implements Tex {
         }
         if (this!=activeTex[target]) {
             init(g);
+            
+            boolean flipTexture = lastTextureFlippedVertically != texture.getMustFlipVertically();
+            lastTextureFlippedVertically = texture.getMustFlipVertically();
+            if (flipTexture) {
+                g.glMatrixMode(GL2.GL_TEXTURE);
+                g.glLoadIdentity();
+                if (texture.getMustFlipVertically()) {
+                    g.glScalef(1.0f, -1.0f, 1.0f);
+                }
+                g.glMatrixMode(GL2.GL_MODELVIEW);
+            }
+            
             g.glActiveTexture(glTarget);
             if (texture != null) {
                 texture.bind(g);
@@ -108,6 +121,9 @@ public final class SimpleTex implements Tex {
             loaded = true;
             try {
                 texture = TextureIO.newTexture(file, true);
+                if (file.getName().endsWith(".dds")) {
+                    texture.setMustFlipVertically(true);
+                }
                 texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_S, GL2.GL_REPEAT);
                 texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_T, GL2.GL_REPEAT);
                 Log.out(this, "Texture loaded and ready to use!");
