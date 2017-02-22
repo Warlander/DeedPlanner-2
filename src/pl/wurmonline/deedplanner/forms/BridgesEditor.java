@@ -89,7 +89,7 @@ public class BridgesEditor extends javax.swing.JPanel {
         });
 
         destroyBridgeButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        destroyBridgeButton.setText("Destroy start tile bridge");
+        destroyBridgeButton.setText("Destroy bridge on start tile");
         destroyBridgeButton.setEnabled(false);
         destroyBridgeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +115,7 @@ public class BridgesEditor extends javax.swing.JPanel {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(startTileLabel)
                             .addComponent(endTileLabel))
-                        .addGap(0, 2, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(endTileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(destroyBridgeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
