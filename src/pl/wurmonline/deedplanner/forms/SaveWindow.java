@@ -1,11 +1,13 @@
 package pl.wurmonline.deedplanner.forms;
 
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.*;
 import java.net.*;
 import java.util.logging.*;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.util.Log;
@@ -130,27 +132,29 @@ public class SaveWindow extends javax.swing.JFrame {
             data = URLEncoder.encode("api_dev_key", "UTF-8") + "=" + URLEncoder.encode("24844c99ae9971a2da79a2f7d0da7642", "UTF-8");
             data += "&" + URLEncoder.encode("api_paste_code", "UTF-8") + "=" + URLEncoder.encode(serializedMap, "UTF-8");
             data += "&" + URLEncoder.encode("api_option", "UTF-8") + "=" + URLEncoder.encode("paste", "UTF-8");
+            
+            data += "&" + URLEncoder.encode("api_paste_expire_date", "UTF-8") + "=";
             switch ((String)pasteExpiration.getModel().getSelectedItem()) {
                 case "10 minutes":
-                data += "&" + URLEncoder.encode("api_paste_expire_date", "UTF-8") + "=" + URLEncoder.encode("10M", "UTF-8");
+                data += URLEncoder.encode("10M", "UTF-8");
                 break;
                 case "1 hour":
-                data += "&" + URLEncoder.encode("api_paste_expire_date", "UTF-8") + "=" + URLEncoder.encode("1H", "UTF-8");
+                data += URLEncoder.encode("1H", "UTF-8");
                 break;
                 case "1 day":
-                data += "&" + URLEncoder.encode("api_paste_expire_date", "UTF-8") + "=" + URLEncoder.encode("1D", "UTF-8");
+                data += URLEncoder.encode("1D", "UTF-8");
                 break;
                 case "1 week":
-                data += "&" + URLEncoder.encode("api_paste_expire_date", "UTF-8") + "=" + URLEncoder.encode("1W", "UTF-8");
+                data += URLEncoder.encode("1W", "UTF-8");
                 break;
                 case "2 weeks":
-                data += "&" + URLEncoder.encode("api_paste_expire_date", "UTF-8") + "=" + URLEncoder.encode("2W", "UTF-8");
+                data += URLEncoder.encode("2W", "UTF-8");
                 break;
                 case "1 month":
-                data += "&" + URLEncoder.encode("api_paste_expire_date", "UTF-8") + "=" + URLEncoder.encode("1M", "UTF-8");
+                data += URLEncoder.encode("1M", "UTF-8");
                 break;
                 case "Never delete":
-                data += "&" + URLEncoder.encode("api_paste_expire_date", "UTF-8") + "=" + URLEncoder.encode("N", "UTF-8");
+                data += URLEncoder.encode("N", "UTF-8");
                 break;
             }
             URL url = new URL("http://pastebin.com/api/api_post.php");
@@ -163,7 +167,15 @@ public class SaveWindow extends javax.swing.JFrame {
             BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
             while ((line = rd.readLine()) != null) {
-                Desktop.getDesktop().browse(new URI(line));
+                if (false && Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                    Desktop.getDesktop().browse(new URI(line));
+                }
+                else {
+                    StringSelection stringSelection = new StringSelection(line);
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    clipboard.setContents(stringSelection, null);
+                    JOptionPane.showMessageDialog(null, "Your map is now saved to Pastebin.\n\nAs your Java implementation does not support direct navigation to the web page, link was copied to the system clipboard instead.", "Save to Pastebin", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
             wr.close();
             rd.close();
