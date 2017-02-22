@@ -2706,6 +2706,11 @@
 			<category>Kingdoms/Valhalla Descendants</category>
 		</object>
 		
+		<object name="Bee hive" shortname="hive" type="normal">
+			<model location="Data/Objects/Hive.wom"/>
+			<category>Misc</category>
+			<category>Materials/Wood</category>
+		</object>
 		<object name="Gravestone" shortname="graves" type="normal">
 			<model location="Data/Objects/Gravestone.wom"/>
 			<category>Misc</category>
@@ -2823,6 +2828,28 @@
 			</materials>
 			<category>Furnaces</category>
 			<category>Materials/Stone</category>
+		</object>
+		<object name="Still" shortname="still" type="normal">
+			<model location="Data/Objects/Still.wom"/>
+			<materials>
+				Copper Sheets = 7,
+				Rivets = 25,
+				Planks = 1,
+				Ribbons = 2
+			</materials>
+			<category>Furnaces</category>
+			<category>Materials/Copper</category>
+		</object>
+		<object name="Still (lit)" shortname="stilllit" type="normal">
+			<model location="Data/Objects/Still_lit.wom"/>
+			<materials>
+				Copper Sheets = 7,
+				Rivets = 25,
+				Planks = 1,
+				Ribbons = 2
+			</materials>
+			<category>Furnaces</category>
+			<category>Materials/Copper</category>
 		</object>
 		<object name="Market stall" shortname="mstall" type="normal">
 			<model location="Data/Objects/MarketStall.wom"/>
