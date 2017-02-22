@@ -11,7 +11,7 @@ public class Constants {
     
     public static final float HEIGHT_MOD = 10f;
     
-    public static final String VERSION_STRING = "DeedPlanner 2.7.0";
+    public static final String VERSION_STRING = "DeedPlanner 2.7.1";
     
     public static final String TREE_TYPE = "tree";
     public static final String BUSH_TYPE = "bush";
