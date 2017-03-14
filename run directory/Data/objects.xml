@@ -1572,6 +1572,94 @@
 	
 	
 	<objects>
+		<object name="Small barrel" shortname="sBarrel" type="normal">
+			<model location="Data/Objects/barrel-small.wom"/>
+			<materials>
+				Planks = 5,
+				Small nails = 1
+			</materials>
+			<category>Containers/Barrels</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Large barrel" shortname="lBarrel" type="normal">
+			<model location="Data/Objects/barrel-large.wom"/>
+			<materials>
+				Planks = 5,
+				Iron ribbons = 2
+			</materials>
+			<category>Containers/Barrels</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Huge tub" shortname="hTub" type="normal">
+			<model location="Data/Objects/barrel-huge.wom"/>
+			<materials>
+				Planks = 25,
+				Iron ribbons = 4
+			</materials>
+			<category>Containers/Barrels</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Huge oil barrel" shortname="hBarrel" type="normal">
+			<model location="Data/Objects/oiltub.wom"/>
+			<materials>
+				Planks = 25,
+				Iron ribbons = 4
+			</materials>
+			<category>Containers/Barrels</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Small wine barrel" shortname="wBarrel" type="normal">
+			<model location="Data/Objects/winebarrel.wom"/>
+			<materials>
+				Small nails = 1,
+				Planks = 5,
+				Iron ribbons = 1
+			</materials>
+			<category>Containers/Barrels</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Amphora rack" shortname="aRack" type="normal">
+			<model location="Data/Objects/shelfAmphora.wom"/>
+			<materials>
+				Large nails = 1,
+				Wooden beams = 1,
+				Planks = 4
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Planter rack" shortname="pRack" type="normal">
+			<model location="Data/Objects/shelfPlanter.wom"/>
+			<materials>
+				Large nails = 1,
+				Wooden beams = 1,
+				Planks = 4
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Armor stand (empty)" shortname="arStandE" type="normal">
+			<model location="Data/Objects/armorStand01.wom"/>
+			<materials>
+				Planks = 13,
+				Shafts = 6,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Armor stand (full)" shortname="arStandF" type="normal">
+			<model location="Data/Objects/armorStand01Filled.wom"/>
+			<materials>
+				Planks = 13,
+				Shafts = 6,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
 		<object name="Coffer" shortname="coffer" type="normal">
 			<model location="Data/Objects/Coffer.wom"/>
 			<materials>
@@ -1673,24 +1761,22 @@
 			<category>Containers</category>
 			<category>Materials/Wood</category>
 		</object>
-		<object name="Armor stand (empty)" shortname="arStandE" type="normal">
-			<model location="Data/Objects/armorStand01.wom"/>
+		<object name="Trash heap (empty)" shortname="trashE" type="normal">
+			<model location="Data/Objects/TrashBin_Empty.wom"/>
 			<materials>
-				Planks = 13,
-				Shafts = 6,
-				Small nails = 1,
-				Pegs = 7
+				Planks = 11,
+				Ribbons = 1,
+				Small nails = 2
 			</materials>
 			<category>Containers</category>
 			<category>Materials/Wood</category>
 		</object>
-		<object name="Armor stand (full)" shortname="arStandF" type="normal">
-			<model location="Data/Objects/armorStand01Filled.wom"/>
+		<object name="Trash heap (full)" shortname="trashF" type="normal">
+			<model location="Data/Objects/TrashBin_Full.wom"/>
 			<materials>
-				Planks = 13,
-				Shafts = 6,
-				Small nails = 1,
-				Pegs = 7
+				Planks = 11,
+				Ribbons = 1,
+				Small nails = 2
 			</materials>
 			<category>Containers</category>
 			<category>Materials/Wood</category>
@@ -1926,12 +2012,17 @@
 		
 		<object name="Fountain" shortname="foun" type="normal">
 			<model location="Data/Objects/Fountain.wom"/>
-			<category>Fountains</category>
+			<category>Water Sources</category>
 			<category>Materials/Stone</category>
 		</object>
 		<object name="Ornate fountain" shortname="ofoun" type="normal">
 			<model location="Data/Objects/Ornate_Fountain.wom"/>
-			<category>Fountains</category>
+			<category>Water Sources</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Well" shortname="well" type="normal">
+			<model location="Data/Objects/Well.wom"/>
+			<category>Water Sources</category>
 			<category>Materials/Stone</category>
 		</object>
 		
@@ -1971,6 +2062,35 @@
 			<category>Materials/Stone</category>
 		</object>
 		
+		<object name="Colossus" shortname="col" type="centered">
+			<model location="Data/Objects/colossus.wom"/>
+			<materials>
+				Clay = 2000,
+				Colossus bricks = 2000
+			</materials>
+			<category>Giants</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Magranon colossus" shortname="magCol" type="centered">
+			<model location="Data/Objects/colossusMagranon.wom"/>
+			<materials>
+				Clay = 2000,
+				Colossus bricks = 2000,
+				Sheets = 10
+			</materials>
+			<category>Giants</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Libila colossus" shortname="libCol" type="centered">
+			<model location="Data/Objects/colossusLibila.wom"/>
+			<materials>
+				Clay = 2000,
+				Colossus bricks = 2000,
+				Sheets = 10
+			</materials>
+			<category>Giants</category>
+			<category>Materials/Stone</category>
+		</object>
 		<object name="Vynora colossus" shortname="vynCol" type="centered">
 			<model location="Data/Objects/colossusVynora.wom"/>
 			<materials>
@@ -2045,6 +2165,27 @@
 			<category>Materials/Stone</category>
 		</object>
 		
+		<object name="Wooden bench" shortname="wBench" type="normal">
+			<model location="Data/Objects/WoodenBench.wom"/>
+			<materials>
+				Shafts = 4,
+				Planks = 8,
+				Small nails = 4,
+				Ribbons = 2
+			</materials>
+			<category>Furniture/Benches</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Stone bench" shortname="sBench" type="normal">
+			<model location="Data/Objects/bench-stone.wom"/>
+			<materials>
+				Slabs = 1,
+				Stone bricks = 2,
+				Clay = 2
+			</materials>
+			<category>Furniture/Benches</category>
+			<category>Materials/Stone</category>
+		</object>
 		<object name="Stool" shortname="stool" type="normal">
 			<model location="Data/Objects/Stool.wom"/>
 			<materials>
@@ -2114,6 +2255,18 @@
 			<category>Furniture/Chairs</category>
 			<category>Materials/Wood</category>
 		</object>
+		<object name="Royal lounge chaise" shortname="rlChaise" type="normal">
+			<model location="Data/Objects/royalLoungeChaise.wom"/>
+			<materials>
+				Yarns = 4,
+				Planks = 5,
+				Shafts = 2,
+				Square piece of wool cloth = 10,
+				Small nails = 6
+			</materials>
+			<category>Furniture/Chairs</category>
+			<category>Materials/Wood</category>
+		</object>
 		
 		<object name="Bed" shortname="bed" type="normal">
 			<model location="Data/Objects/bed.wom"/>
@@ -2168,6 +2321,44 @@
 			</materials>
 			<category>Furniture/Tables</category>
 			<category>Materials/Wood</category>
+		</object>
+		<object name="Small tripod table" shortname="tTable" type="normal">
+			<model location="Data/Objects/TripodTable.wom"/>
+			<materials>
+				Shafts = 2,
+				Planks = 2,
+				Small nails = 2
+			</materials>
+			<category>Furniture/Tables</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Small bedside table" shortname="bTable" type="normal">
+			<model location="Data/Objects/Bedtable.wom"/>
+			<materials>
+				Shafts = 4,
+				Planks = 4,
+				Small nails = 1
+			</materials>
+			<category>Furniture/Tables</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Round marble table" shortname="roundMTable" type="normal">
+			<model location="Data/Objects/roundMarbleTable.wom"/>
+			<materials>
+				Clay = 4,
+				Marble slabs = 2
+			</materials>
+			<category>Furniture/Tables</category>
+			<category>Materials/Marble</category>
+		</object>
+		<object name="Rectangular marble table" shortname="recMTable" type="normal">
+			<model location="Data/Objects/rectangularMarbleTable.wom"/>
+			<materials>
+				Clay = 4,
+				Marble slabs = 2
+			</materials>
+			<category>Furniture/Tables</category>
+			<category>Materials/Marble</category>
 		</object>
 		<object name="High bookcase" shortname="hBook" type="normal">
 			<model location="Data/Objects/Bookshelf_high.wom"/>
@@ -2296,6 +2487,17 @@
 				Metal torches = 1
 			</materials>
 			<category>Lamps</category>
+		</object>
+		
+		
+		
+		<object name="Small brazier" shortname="sBrazier" type="normal">
+			<model location="Data/Objects/CopperBrazier.wom"/>
+			<category>Braziers</category>
+		</object>
+		<object name="Marble brazier pillar" shortname="mBrazier" type="normal">
+			<model location="Data/Objects/BrazierPillar.wom"/>
+			<category>Braziers</category>
 		</object>
 
 		
@@ -2789,8 +2991,38 @@
 			<category>Misc</category>
 			<category>Materials/Wood</category>
 		</object>
+		<object name="Spinning Wheel" shortname="sWheel" type="normal">
+			<model location="Data/Objects/spinningWheel_main.wom"/>
+			<materials>
+				Shafts = 4,
+				Planks = 6,
+				Small nails = 2,
+				Tar = 2
+			</materials>
+			<category>Misc</category>
+			<category>Materials/Wood</category>
+		</object>
 		<object name="Settlement token" shortname="token" type="centered">
 			<model location="Data/Objects/deed_sundail.wom"/>
+			<category>Misc</category>
+		</object>
+		<object name="Village recruitment board" shortname="vrBoard" type="normal">
+			<model location="Data/Objects/RecruitmentBoard.wom"/>
+			<materials>
+				Shafts = 2,
+				Planks = 3,
+				Small nails = 3
+			</materials>
+			<category>Misc</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Washing bowl" shortname="wBowl" type="normal">
+			<model location="Data/Objects/WashingBowl.wom"/>
+			<materials>
+				Brass lumps = 1,
+				Brass ribbons = 3,
+				Pottery bowls = 1
+			</materials>
 			<category>Misc</category>
 		</object>
 		<object name="Forge" shortname="forge" type="normal">
@@ -2850,6 +3082,26 @@
 			</materials>
 			<category>Furnaces</category>
 			<category>Materials/Copper</category>
+		</object>
+		<object name="Kiln" shortname="kiln" type="normal">
+			<model location="Data/Objects/Kiln.wom"/>
+			<materials>
+				Stone Bricks = 20,
+				Clay = 20,
+				Dirt = 2
+			</materials>
+			<category>Furnaces</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Smelter" shortname="sme" type="normal">
+			<model location="Data/Objects/Smelter.wom"/>
+			<materials>
+				Stone Bricks = 50,
+				Clay = 50,
+				Sand = 5
+			</materials>
+			<category>Furnaces</category>
+			<category>Materials/Stone</category>
 		</object>
 		<object name="Market stall" shortname="mstall" type="normal">
 			<model location="Data/Objects/MarketStall.wom"/>
@@ -2956,6 +3208,332 @@
 		<object name="Spirit house" shortname="spirithouse" type="normal">
 			<model location="Data/Objects/spiritHouse.wom"/>
 			<category>Mailboxes</category>
+		</object>
+		
+		<object name="Shop sign (blank)" shortname="shSign0" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom"/>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (bowl)" shortname="shSign1" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_01.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (beer)" shortname="shSign2" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_02.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (bear and beer)" shortname="shSign3" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_03.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (crops)" shortname="shSign4" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_04.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (construction)" shortname="shSign5" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_05.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (sleep)" shortname="shSign6" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_06.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (wine)" shortname="shSign7" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_07.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (coins)" shortname="shSign8" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_08.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (horse)" shortname="shSign9" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_09.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (hunt)" shortname="shSign10" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_10.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (sword and bowl)" shortname="shSign11" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_11.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (lumber)" shortname="shSign12" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_12.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (swordsmith)" shortname="shSign13" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_13.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (anvil)" shortname="shSign14" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_14.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (helmet)" shortname="shSign15" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_15.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (baker)" shortname="shSign16" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_16.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (shipwright)" shortname="shSign17" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_17.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (anchor)" shortname="shSign18" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_18.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (pirate)" shortname="shSign19" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_19.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (mystery)" shortname="shSign20" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_20.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (tailor)" shortname="shSign21" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_21.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Shop sign (alchemy)" shortname="shSign22" type="normal">
+			<model location="Data/Objects/ShopSign_main.wom">
+				<override mesh="SignMesh" texture="Data/Objects/Sign_22.dds"/>
+			</model>
+			<materials>
+				Small nails = 1,
+				Planks = 3,
+				Shafts = 2
+			</materials>
+			<category>Signs/Shop Signs</category>
+		</object>
+		<object name="Small sign" shortname="sSign" type="normal">
+			<model location="Data/Objects/SmallSign.wom"/>
+			<materials>
+				Small nails = 1,
+				Planks = 1,
+				Shafts = 1
+			</materials>
+			<category>Signs</category>
+		</object>
+		<object name="Large sign" shortname="lSign" type="normal">
+			<model location="Data/Objects/LargeSign.wom"/>
+			<materials>
+				Small nails = 1,
+				Planks = 2,
+				Shafts = 1
+			</materials>
+			<category>Signs</category>
+		</object>
+		<object name="Pointing sign" shortname="pSign" type="normal">
+			<model location="Data/Objects/signpoint.wom"/>
+			<materials>
+				Small nails = 1,
+				Planks = 1,
+				Shafts = 1
+			</materials>
+			<category>Signs</category>
+		</object>
+		
+		<object name="Pavilion (freedom)" shortname="pavFree" type="normal">
+			<model location="Data/Objects/pavilionTent.wom"/>
+			<materials>
+				Square piece of cloth = 7,
+				Pegs = 10,
+				Shafts = 11,
+				Cordage ropes = 10
+			</materials>
+			<category>Tents</category>
+		</object>
+		<object name="Pavilion (HoTS)" shortname="pavHoTS" type="normal">
+			<model location="Data/Objects/pavilionTent.wom">
+				<override mesh="Tent_3Mesh" texture="Data/Objects/pavilionTent_Hots_D.dds"/>
+			</model>
+			<materials>
+				Square piece of cloth = 7,
+				Pegs = 10,
+				Shafts = 11,
+				Cordage ropes = 10
+			</materials>
+			<category>Tents</category>
+		</object>
+		<object name="Pavilion (JK)" shortname="pavJK" type="normal">
+			<model location="Data/Objects/pavilionTent.wom">
+				<override mesh="Tent_3Mesh" texture="Data/Objects/pavilionTent_JK_D.dds"/>
+			</model>
+			<materials>
+				Square piece of cloth = 7,
+				Pegs = 10,
+				Shafts = 11,
+				Cordage ropes = 10
+			</materials>
+			<category>Tents</category>
+		</object>
+		<object name="Pavilion (MR)" shortname="pavMR" type="normal">
+			<model location="Data/Objects/pavilionTent.wom">
+				<override mesh="Tent_3Mesh" texture="Data/Objects/pavilionTent_MR_D.dds"/>
+			</model>
+			<materials>
+				Square piece of cloth = 7,
+				Pegs = 10,
+				Shafts = 11,
+				Cordage ropes = 10
+			</materials>
+			<category>Tents</category>
 		</object>
 	</objects>
 		
