@@ -3489,7 +3489,7 @@
 			<category>Signs</category>
 		</object>
 		
-		<object name="Pavilion (freedom)" shortname="pavFree" type="normal">
+		<object name="Freedom pavilion" shortname="pavFree" type="normal">
 			<model location="Data/Objects/pavilionTent.wom"/>
 			<materials>
 				Square piece of cloth = 7,
@@ -3498,8 +3498,9 @@
 				Cordage ropes = 10
 			</materials>
 			<category>Tents</category>
+			<category>Kingdoms/Freedom</category>
 		</object>
-		<object name="Pavilion (HoTS)" shortname="pavHoTS" type="normal">
+		<object name="HoTS pavilion" shortname="pavHoTS" type="normal">
 			<model location="Data/Objects/pavilionTent.wom">
 				<override mesh="Tent_3Mesh" texture="Data/Objects/pavilionTent_Hots_D.dds"/>
 			</model>
@@ -3510,8 +3511,9 @@
 				Cordage ropes = 10
 			</materials>
 			<category>Tents</category>
+			<category>Kingdoms/HoTS</category>
 		</object>
-		<object name="Pavilion (JK)" shortname="pavJK" type="normal">
+		<object name="JK pavilion" shortname="pavJK" type="normal">
 			<model location="Data/Objects/pavilionTent.wom">
 				<override mesh="Tent_3Mesh" texture="Data/Objects/pavilionTent_JK_D.dds"/>
 			</model>
@@ -3522,8 +3524,9 @@
 				Cordage ropes = 10
 			</materials>
 			<category>Tents</category>
+			<category>Kingdoms/Jenn-Kellon</category>
 		</object>
-		<object name="Pavilion (MR)" shortname="pavMR" type="normal">
+		<object name="MR pavilion" shortname="pavMR" type="normal">
 			<model location="Data/Objects/pavilionTent.wom">
 				<override mesh="Tent_3Mesh" texture="Data/Objects/pavilionTent_MR_D.dds"/>
 			</model>
@@ -3534,6 +3537,7 @@
 				Cordage ropes = 10
 			</materials>
 			<category>Tents</category>
+			<category>Kingdoms/Mol-Rehan</category>
 		</object>
 	</objects>
 		
