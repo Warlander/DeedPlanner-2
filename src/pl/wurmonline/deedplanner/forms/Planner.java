@@ -165,6 +165,7 @@ public class Planner extends javax.swing.JFrame {
         elevationGroup = new javax.swing.ButtonGroup();
         heightEditGroup = new javax.swing.ButtonGroup();
         treesVisibilityGroup = new javax.swing.ButtonGroup();
+        bridgesVisibilityGroup = new javax.swing.ButtonGroup();
         mapPanel = new pl.wurmonline.deedplanner.MapPanel();
         statusBar = new javax.swing.JPanel();
         tileLabel = new javax.swing.JLabel();
@@ -252,6 +253,9 @@ public class Planner extends javax.swing.JFrame {
         jMenu10 = new javax.swing.JMenu();
         elevationOnItem = new javax.swing.JRadioButtonMenuItem();
         elevationOffItem = new javax.swing.JRadioButtonMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        bridgesAllItem = new javax.swing.JRadioButtonMenuItem();
+        bridges3dItem = new javax.swing.JRadioButtonMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
@@ -956,6 +960,29 @@ public class Planner extends javax.swing.JFrame {
 
         jMenu8.add(jMenu10);
 
+        jMenu4.setText(bundle.getString("Planner.jMenu4.text")); // NOI18N
+
+        bridgesVisibilityGroup.add(bridgesAllItem);
+        bridgesAllItem.setSelected(true);
+        bridgesAllItem.setText(bundle.getString("Planner.bridgesAllItem.text")); // NOI18N
+        bridgesAllItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bridgesDisplayChanged(evt);
+            }
+        });
+        jMenu4.add(bridgesAllItem);
+
+        bridgesVisibilityGroup.add(bridges3dItem);
+        bridges3dItem.setText(bundle.getString("Planner.bridges3dItem.text")); // NOI18N
+        bridges3dItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bridgesDisplayChanged(evt);
+            }
+        });
+        jMenu4.add(bridges3dItem);
+
+        jMenu8.add(jMenu4);
+
         jMenuBar1.add(jMenu8);
 
         jMenu6.setText(bundle.getString("Planner.jMenu6.text")); // NOI18N
@@ -1307,6 +1334,10 @@ public class Planner extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_groundsTreeMousePressed
+
+    private void bridgesDisplayChanged(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bridgesDisplayChanged
+        Globals.renderBridges2d = bridgesAllItem.isSelected();
+    }//GEN-LAST:event_bridgesDisplayChanged
     
     private void applyObjectsTreeFilter() {
         String toFind = objectsSearchBox.getText();
@@ -1361,7 +1392,10 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JSpinner addHeightSpinner;
     private javax.swing.JList bordersList;
     private javax.swing.JPanel bordersPanel;
+    private javax.swing.JRadioButtonMenuItem bridges3dItem;
+    private javax.swing.JRadioButtonMenuItem bridgesAllItem;
     private pl.wurmonline.deedplanner.forms.BridgesEditor bridgesPanel;
+    private javax.swing.ButtonGroup bridgesVisibilityGroup;
     private javax.swing.JPanel cavesPanel;
     private javax.swing.JTree cavesTree;
     private pl.wurmonline.deedplanner.forms.DiagonalPanel diagonalPanel1;
@@ -1399,6 +1433,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;

@@ -172,7 +172,7 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderGround(GL2 g) {
-        if (bridgePart != null) {
+        if (bridgePart != null && (Globals.renderBridges2d || !Globals.upCamera)) {
             g.glColor3f(1, 1, 1);
             bridgePart.render(g, this);
         }
