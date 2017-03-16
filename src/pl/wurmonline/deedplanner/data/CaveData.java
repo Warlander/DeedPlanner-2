@@ -1,5 +1,6 @@
 package pl.wurmonline.deedplanner.data;
 
+import java.io.File;
 import javax.media.opengl.GL2;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -10,6 +11,8 @@ import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public class CaveData implements TileEntity {
 
+    private static final SimpleTex CEILING_TEXTURE = SimpleTex.getTexture("Data/Caves/cave_512.png");
+    
     public final SimpleTex texture;
     public final String name;
     public final String shortName;
@@ -57,6 +60,7 @@ public class CaveData implements TileEntity {
             float ht10 = h10 + (tile.getMap().getTile(tile, 1, 0).getCaveSize()) / Constants.HEIGHT_MOD;
             float ht11 = h11 + (tile.getMap().getTile(tile, 1, 1).getCaveSize()) / Constants.HEIGHT_MOD;
             float ht01 = h01 + (tile.getMap().getTile(tile, 0, 1).getCaveSize()) / Constants.HEIGHT_MOD;
+            CEILING_TEXTURE.bind(g);
             g.glBegin(GL2.GL_QUADS);
                 g.glTexCoord2f(0, 0);
                 g.glVertex3f(0, 0, ht00);

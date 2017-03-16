@@ -3594,6 +3594,9 @@
 		<rock name="Stone floor" shortname="sfl" type="floor" tex="Data/Caves/cave_512.png">
 			<category>Floors</category>
 		</rock>
+		<rock name="Reinforced stone floor" shortname="rsfl" type="floor" tex="Data/Caves/reinforcedcaveFloor_v1.dds">
+			<category>Floors</category>
+		</rock>
 		
 	</caves>
 </entities>

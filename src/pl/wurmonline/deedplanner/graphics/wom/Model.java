@@ -7,7 +7,9 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.media.opengl.GL2;
 import org.joml.Vector3f;
@@ -99,14 +101,20 @@ public final class Model implements Renderable {
         buffer.order(ByteOrder.LITTLE_ENDIAN);
         
         int meshCount = buffer.getInt();
-        meshes = new Mesh[meshCount];
+        List<Mesh> meshesList = new ArrayList(meshCount);
         
-        for (int i = 0; i < meshes.length; i++) {
+        for (int i = 0; i < meshCount; i++) {
             MeshData data = loadMeshData(buffer);
             int displayList = data.createModel(g);
             
             int materialCount = buffer.getInt();
             Material material = loadMaterial(buffer);
+            
+            //we need to load material first in order to keep the proper buffer position
+            if (data.getName().contains("BoundingBox") || data.getName().contains("Lod")) {
+                continue;
+            }
+            
             SimpleTex texture = (SimpleTex) material.getTexture();
             if (textureOverrides.containsKey(data.getName())) {
                 String textureOverride = textureOverrides.get(data.getName());
@@ -118,8 +126,10 @@ public final class Model implements Renderable {
             
             material.setTexture(texture);
             
-            meshes[i] = new Mesh(this, texture, displayList, data.getName());
+            meshesList.add(new Mesh(this, texture, displayList, data.getName()));
         }
+        
+        meshes = meshesList.toArray(new Mesh[0]);
     }
     
     private MeshData loadMeshData(ByteBuffer buffer) {

@@ -303,7 +303,15 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderUnderground(GL2 g) {
-        g.glColor3f(0.7f, 0.7f, 0.7f);
+        if (!Globals.upCamera) {
+            g.glColor3f(1f, 1f, 1f);
+        }
+        else if (cave.wall) {
+            g.glColor3f(0.9f, 0.9f, 0.9f);
+        }
+        else {
+            g.glColor3f(0.7f, 0.7f, 0.7f);
+        }
         cave.render(g, this);
     }
     
