@@ -2,6 +2,7 @@ package pl.wurmonline.deedplanner.logic.symmetry;
 
 import javax.media.opengl.GL2;
 import pl.wurmonline.deedplanner.Globals;
+import pl.wurmonline.deedplanner.data.AnimalData;
 import pl.wurmonline.deedplanner.data.BorderData;
 import pl.wurmonline.deedplanner.data.CaveData;
 import pl.wurmonline.deedplanner.data.Floor;
@@ -20,6 +21,7 @@ import pl.wurmonline.deedplanner.data.TileEntity;
 import pl.wurmonline.deedplanner.data.WallData;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
+import pl.wurmonline.deedplanner.data.GridTileEntity;
 
 /**
  * Symmetry
@@ -815,6 +817,37 @@ public class Symmetry {
         }
     }
     
+    public void mirrorAnimal(Tile tile, AnimalData data, ObjectLocation location, int floor) {
+        if(Globals.xSymLock && getX() > -1) {
+            int mX = mirrorX(tile.getX());
+            if(mX >= 0) {
+                Tile t = tile.getMap().getTile(mX, tile.getY());
+                if(t != null)
+                    t.setAnimal(data, mirrorObjectLocationX(location), floor);
+            }
+        }
+
+        if(Globals.ySymLock && getY() > -1) {
+            int mY = mirrorY(tile.getY());
+            if(mY >= 0) {
+                Tile t = tile.getMap().getTile(tile.getX(), mY);
+                if(t != null)
+                    t.setAnimal(data, mirrorObjectLocationY(location), floor);
+            }
+        }
+        
+        if(Globals.ySymLock && Globals.xSymLock 
+                && getX() > -1 && getY() > -1) {
+            int mX = mirrorX(tile.getX());
+            int mY = mirrorY(tile.getY());
+            if(mX >= 0 && mY >= 0) {
+                Tile t = tile.getMap().getTile(mX, mY);
+                if( t != null)
+                    t.setAnimal(data, mirrorObjectLocationXY(location), floor);
+            }
+        }
+    }
+    
     /**
      *
      * @param tile
@@ -823,7 +856,7 @@ public class Symmetry {
      * @param location
      * @param floor
      */
-    public void mirrorObjectRotation(Tile tile, GameObject object, double rotation,
+    public void mirrorObjectRotation(Tile tile, GridTileEntity object, double rotation,
             ObjectLocation location, int floor) {
         if(Globals.xSymLock && getX() > -1) {
             int mX = mirrorX(tile.getX());
@@ -831,7 +864,7 @@ public class Symmetry {
             if(mX >= 0) {
                 Tile t = tile.getMap().getTile(mX, tile.getY());
                 if(t != null) {
-                    GameObject o = t.getGameObject(floor, l);
+                    GridTileEntity o = t.getGridEntity(floor, l);
                     if(o != null) {
                         double r = (Math.PI * 2) - rotation;
                         o.setRotation(r);
@@ -846,7 +879,7 @@ public class Symmetry {
             if(mY >= 0) {
                 Tile t = tile.getMap().getTile(tile.getX(), mY);
                 if(t != null) {
-                    GameObject o = t.getGameObject(floor, l);
+                    GridTileEntity o = t.getGridEntity(floor, l);
                     if(o != null) {
                         double r = Math.PI - rotation;
                         o.setRotation(r);
@@ -863,7 +896,7 @@ public class Symmetry {
             if(mX >= 0 && mY >= 0) {
                 Tile t = tile.getMap().getTile(mX, mY);
                 if(t != null) {
-                    GameObject o = t.getGameObject(floor, l);
+                    GridTileEntity o = t.getGridEntity(floor, l);
                     if(o != null) {
                         double r = Math.PI + rotation;
                         o.setRotation(r);

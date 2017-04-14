@@ -141,19 +141,19 @@
 			<category>Roads</category>
 		</ground>
 		<ground name="Cobblestone" shortname="cs">
-                        <tex location="Data/GroundTextures/cobble.png"/>
-                        <diagonal/>
-                        <category>Roads</category>
+			<tex location="Data/GroundTextures/cobble.png"/>
+			<diagonal/>
+			<category>Roads</category>
 		</ground>
-		<ground name="Rough Cobblestone" shortname="rcs">
-                        <tex location="Data/GroundTextures/cobble2.png"/>
-                        <diagonal/>
-                        <category>Roads</category>
+		<ground name="Rough cobblestone" shortname="rcs">
+			<tex location="Data/GroundTextures/cobble2.png"/>
+			<diagonal/>
+			<category>Roads</category>
 		</ground>
-		<ground name="Round Cobblestone" shortname="csr">
-                        <tex location="Data/GroundTextures/cobble3.png"/>
-                        <diagonal/>
-                        <category>Roads</category>
+		<ground name="Round cobblestone" shortname="csr">
+			<tex location="Data/GroundTextures/cobble3.png"/>
+			<diagonal/>
+			<category>Roads</category>
 		</ground>
 		<ground name="Stone slab" shortname="sl">
 			<tex location="Data/GroundTextures/slab.jpg"/>
@@ -165,8 +165,33 @@
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
-		<ground name="Slate slab" shortname="ssl">
+		<ground name="Marble brick" shortname="mb">
+			<tex location="Data/GroundTextures/marbleBricks.png"/>
+			<diagonal/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Slate slab" shortname="ssl2">
+			<tex location="Data/GroundTextures/slateTiles.png"/>
+			<diagonal/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Slate brick" shortname="ssl">
 			<tex location="Data/GroundTextures/slateslab.jpg"/>
+			<diagonal/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Sandstone slab" shortname="sas">
+			<tex location="Data/GroundTextures/sandstoneslab.png"/>
+			<diagonal/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Sandstone brick" shortname="sab">
+			<tex location="Data/GroundTextures/sandstonebrick.png"/>
+			<diagonal/>
+			<category>Roads</category>
+		</ground>
+		<ground name="Pottery brick" shortname="sab">
+			<tex location="Data/GroundTextures/potterybrickpaving.png"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
@@ -809,7 +834,7 @@
 				Large nails = 1
 			</materials>
 			<icon location="Data/Walls/Icons/wood.png"/>
-			<category>House walls</category>
+			<category>House walls/Wood</category>
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden window" shortname="wWindow" scale="4" type="house">
@@ -820,7 +845,7 @@
 				Large nails = 1
 			</materials>
 			<icon location="Data/Walls/Icons/wood_window.png"/>
-			<category>House walls</category>
+			<category>House walls/Wood</category>
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden wide window" shortname="wwWindow" scale="4" type="house">
@@ -831,7 +856,7 @@
 				Large nails = 1
 			</materials>
 			<icon location="Data/Walls/Icons/wooden_widewindow.png"/>
-			<category>House walls</category>
+			<category>House walls/Wood</category>
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden arched wall" shortname="wArch" scale="4" type="arch">
@@ -842,7 +867,40 @@
 				Large nails = 1
 			</materials>
 			<icon location="Data/Walls/Icons/wood_arch.png"/>
-			<category>House walls</category>
+			<category>House walls/Wood</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Wooden left arched wall" shortname="wlArch" scale="4" type="arch">
+			<model location="Data/Walls/woodArchLeft.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Planks = 20,
+				Large nails = 1
+			</materials>
+			<icon location="Data/Walls/Icons/woodarchleft.png"/>
+			<category>House walls/Wood</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Wooden right arched wall" shortname="wrArch" scale="4" type="arch">
+			<model location="Data/Walls/woodArchRight.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Planks = 20,
+				Large nails = 1
+			</materials>
+			<icon location="Data/Walls/Icons/woodarchright.png"/>
+			<category>House walls/Wood</category>
+			<category>Materials/Wood</category>
+		</wall>
+		<wall name="Wooden T arched wall" shortname="wtArch" scale="4" type="arch">
+			<model location="Data/Walls/woodArchT.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Planks = 20,
+				Large nails = 1
+			</materials>
+			<icon location="Data/Walls/Icons/woodarcht.png"/>
+			<category>House walls/Wood</category>
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden door" shortname="wDoor" scale="4" type="house">
@@ -853,7 +911,7 @@
 				Large nails = 1
 			</materials>
 			<icon location="Data/Walls/Icons/wood_door.png"/>
-			<category>House walls</category>
+			<category>House walls/Wood</category>
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden canopy" shortname="wCanopy" scale="1" type="house">
@@ -864,7 +922,7 @@
 				Large nails = 1
 			</materials>
 			<icon location="Data/Walls/Icons/wooden_canopy.png"/>
-			<category>House walls</category>
+			<category>House walls/Wood</category>
 			<category>Materials/Wood</category>
 		</wall>
 		<wall name="Wooden double door" shortname="wdDoor" scale="4" type="house">
@@ -875,7 +933,7 @@
 				Large nails = 1
 			</materials>
 			<icon location="Data/Walls/Icons/wood_doubledoor.png"/>
-			<category>House walls</category>
+			<category>House walls/Wood</category>
 			<category>Materials/Wood</category>
 		</wall>
 		
@@ -888,7 +946,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone-wall.png"/>
-			<category>House walls</category>
+			<category>House walls/Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone window" shortname="sWindow" scale="1" type="house">
@@ -900,7 +958,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone-window.png"/>
-			<category>House walls</category>
+			<category>House walls/Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone arched wall" shortname="sArch" scale="1" type="arch">
@@ -911,7 +969,43 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone-arch.png"/>
-			<category>House walls</category>
+			<category>House walls/Stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Stone left arched wall" shortname="slArch" scale="1" type="arch">
+			<model location="Data/Walls/StoneArchLeft.wom" tag="bottom"/>
+			<model location="Data/Walls/StoneArchLeftUpper.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/stonearchleft.png"/>
+			<category>House walls/Stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Stone right arched wall" shortname="srArch" scale="1" type="arch">
+			<model location="Data/Walls/StoneArchRight.wom" tag="bottom"/>
+			<model location="Data/Walls/StoneArchRightUpper.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/stonearchright.png"/>
+			<category>House walls/Stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Stone T arched wall" shortname="stArch" scale="1" type="arch">
+			<model location="Data/Walls/StoneArchT.wom" tag="bottom"/>
+			<model location="Data/Walls/StoneArchTUpper.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/stonearcht.png"/>
+			<category>House walls/Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone door" shortname="sDoor" scale="1" type="house">
@@ -923,7 +1017,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone-door.png"/>
-			<category>House walls</category>
+			<category>House walls/Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone double door" shortname="sdDoor" scale="1" type="house">
@@ -935,7 +1029,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone-doubledoor.png"/>
-			<category>House walls</category>
+			<category>House walls/Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone portcullis" shortname="sPort" scale="1" type="house">
@@ -946,7 +1040,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone_wall_portcullis_distance.png"/>
-			<category>House walls</category>
+			<category>House walls/Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Stone oriel" shortname="sOriel" scale="1" type="house">
@@ -957,7 +1051,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/House_Stone_Wall_Upper_Oriel1.png"/>
-			<category>House walls</category>
+			<category>House walls/Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		
@@ -970,7 +1064,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone_wall_plain.png"/>
-			<category>House walls</category>
+			<category>House walls/Plain Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone window" shortname="psWindow" scale="1" type="house">
@@ -982,7 +1076,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone_window_plain.png"/>
-			<category>House walls</category>
+			<category>House walls/Plain Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone narrow window" shortname="psnWindow" scale="1" type="house">
@@ -994,7 +1088,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone_window_narrow_plain.png"/>
-			<category>House walls</category>
+			<category>House walls/Plain Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone arched wall" shortname="psArch" scale="1" type="arch">
@@ -1005,7 +1099,43 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone_arch_plain.png"/>
-			<category>House walls</category>
+			<category>House walls/Plain Stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone left arched wall" shortname="pslArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchLeft.wom" tag="bottom"/>
+			<model location="Data/Walls/HalfArchLeftUpper.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/stonearchleft.png"/>
+			<category>House walls/Plain Stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone right arched wall" shortname="psrArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchRight.wom" tag="bottom"/>
+			<model location="Data/Walls/HalfArchRightUpper.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/stonearchright.png"/>
+			<category>House walls/Plain Stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Plain stone T arched wall" shortname="pstArch" scale="1" type="arch">
+			<model location="Data/Walls/archT.wom" tag="bottom"/>
+			<model location="Data/Walls/archTUpper.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/stonearcht.png"/>
+			<category>House walls/Plain Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone door" shortname="psDoor" scale="1" type="house">
@@ -1017,7 +1147,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone_door_plain.png"/>
-			<category>House walls</category>
+			<category>House walls/Plain Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone double door" shortname="psdDoor" scale="1" type="house">
@@ -1029,7 +1159,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone_doubledoor_plain.png"/>
-			<category>House walls</category>
+			<category>House walls/Plain Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone portcullis" shortname="psPort" scale="1" type="house">
@@ -1040,7 +1170,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone_wall_plain_portcullis.png"/>
-			<category>House walls</category>
+			<category>House walls/Plain Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone bars" shortname="psBars" scale="1" type="house">
@@ -1051,7 +1181,7 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/stone_wall_plain_bars1.png"/>
-			<category>House walls</category>
+			<category>House walls/Plain Stone</category>
 			<category>Materials/Stone</category>
 		</wall>
 		<wall name="Plain stone oriel" shortname="psOriel" scale="1" type="house">
@@ -1062,7 +1192,1105 @@
 				Stone bricks = 20
 			</materials>
 			<icon location="Data/Walls/Icons/plain_stone_oriel2.png"/>
-			<category>House walls</category>
+			<category>House walls/Plain Stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		
+		<wall name="Slate wall" shortname="dsWall" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Plain.wom" tag="bottom">
+				<override mesh="StoneWallPlainMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.wom">
+				<override mesh="StoneWallPlainUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/wall.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate window" shortname="dsWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Plain.wom" tag="bottom">
+				<override mesh="StoneWindowPlainMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Plain_Upper.wom">
+				<override mesh="StoneWindowPlainUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/window.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate narrow window" shortname="dsWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
+				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Narrow_Upper.wom">
+				<override mesh="StoneWindowNarrowUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/windownarrow.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate arched wall" shortname="dsArch" scale="1" type="arch">
+			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.wom">
+				<override mesh="StoneArchPlainUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/arch.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate left arched wall" shortname="dslArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchLeft.wom" tag="bottom">
+				<override mesh="HalfArchLeftMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchLeftUpper.wom">
+				<override mesh="HalfArchLeftUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/archleft.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate right arched wall" shortname="dsrArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchRight.wom" tag="bottom">
+				<override mesh="HalfArchRightMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchRightUpper.wom">
+				<override mesh="HalfArchRightUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/archright.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate T arched wall" shortname="dstArch" scale="1" type="arch">
+			<model location="Data/Walls/archT.wom" tag="bottom">
+				<override mesh="archTMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<model location="Data/Walls/archTUpper.wom">
+				<override mesh="archTUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/archt.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate door" shortname="dsDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoorPlainMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main_Upper.wom">
+				<override mesh="StoneDoorPlainUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/door.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate double door" shortname="dsdDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoubleDoorPlainMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main_Upper.wom">
+				<override mesh="StoneDoubleDoorPlainUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/doubledoor.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate portcullis" shortname="dsPort" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.wom">
+				<override mesh="PlainStoneWallPortcullisUpperMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/pcullis.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate bars" shortname="dsBars" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWall_bars1_upper.wom">
+				<override mesh="StoneWallPlain3Mesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/bars.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Slate oriel" shortname="dsOriel" scale="1" type="house">
+			<model location="Data/Walls/House_Plain_Stone_Wall_Upper_Oriel2.wom">
+				<override mesh="oriel2Mesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/oriel.png"/>
+			<category>House walls/Slate</category>
+			<category>Materials/Slate</category>
+		</wall>
+		
+		<wall name="Marble wall" shortname="mbWall" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Plain.wom" tag="bottom">
+				<override mesh="StoneWallPlainMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.wom">
+				<override mesh="StoneWallPlainUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/wall.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble window" shortname="mbWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Plain.wom" tag="bottom">
+				<override mesh="StoneWindowPlainMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Plain_Upper.wom">
+				<override mesh="StoneWindowPlainUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/window.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble narrow window" shortname="mbWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
+				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Narrow_Upper.wom">
+				<override mesh="StoneWindowNarrowUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/windownarrow.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble arched wall" shortname="mbArch" scale="1" type="arch">
+			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.wom">
+				<override mesh="StoneArchPlainUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/arch.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble left arched wall" shortname="mblArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchLeft.wom" tag="bottom">
+				<override mesh="HalfArchLeftMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchLeftUpper.wom">
+				<override mesh="HalfArchLeftUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/archleft.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble right arched wall" shortname="mbrArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchRight.wom" tag="bottom">
+				<override mesh="HalfArchRightMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchRightUpper.wom">
+				<override mesh="HalfArchRightUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/archright.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble T arched wall" shortname="mbtArch" scale="1" type="arch">
+			<model location="Data/Walls/archT.wom" tag="bottom">
+				<override mesh="archTMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<model location="Data/Walls/archTUpper.wom">
+				<override mesh="archTUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/archt.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble door" shortname="mbDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoorPlainMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main_Upper.wom">
+				<override mesh="StoneDoorPlainUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/door.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble double door" shortname="mbdDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoubleDoorPlainMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main_Upper.wom">
+				<override mesh="StoneDoubleDoorPlainUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/doubledoor.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble portcullis" shortname="mbPort" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.wom">
+				<override mesh="PlainStoneWallPortcullisUpperMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/pcullis.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble bars" shortname="mbBars" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWall_bars1_upper.wom">
+				<override mesh="StoneWallPlain3Mesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/bars.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Marble oriel" shortname="mbOriel" scale="1" type="house">
+			<model location="Data/Walls/House_Plain_Stone_Wall_Upper_Oriel2.wom">
+				<override mesh="oriel2Mesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/oriel.png"/>
+			<category>House walls/Marble</category>
+			<category>Materials/Marble</category>
+		</wall>
+		
+		<wall name="Sandstone wall" shortname="sbWall" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Plain.wom" tag="bottom">
+				<override mesh="StoneWallPlainMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.wom">
+				<override mesh="StoneWallPlainUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/wall.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone window" shortname="sbWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Plain.wom" tag="bottom">
+				<override mesh="StoneWindowPlainMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Plain_Upper.wom">
+				<override mesh="StoneWindowPlainUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/window.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone narrow window" shortname="sbWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
+				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Narrow_Upper.wom">
+				<override mesh="StoneWindowNarrowUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/windownarrow.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone arched wall" shortname="sbArch" scale="1" type="arch">
+			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.wom">
+				<override mesh="StoneArchPlainUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/arch.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone left arched wall" shortname="sblArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchLeft.wom" tag="bottom">
+				<override mesh="HalfArchLeftMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchLeftUpper.wom">
+				<override mesh="HalfArchLeftUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/archleft.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone right arched wall" shortname="sbrArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchRight.wom" tag="bottom">
+				<override mesh="HalfArchRightMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchRightUpper.wom">
+				<override mesh="HalfArchRightUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/archright.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone T arched wall" shortname="sbtArch" scale="1" type="arch">
+			<model location="Data/Walls/archT.wom" tag="bottom">
+				<override mesh="archTMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<model location="Data/Walls/archTUpper.wom">
+				<override mesh="archTUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/archt.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone door" shortname="sbDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoorPlainMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main_Upper.wom">
+				<override mesh="StoneDoorPlainUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/door.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone double door" shortname="sbdDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoubleDoorPlainMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main_Upper.wom">
+				<override mesh="StoneDoubleDoorPlainUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/doubledoor.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone portcullis" shortname="sbPort" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.wom">
+				<override mesh="PlainStoneWallPortcullisUpperMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/pcullis.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone bars" shortname="sbBars" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWall_bars1_upper.wom">
+				<override mesh="StoneWallPlain3Mesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/bars.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Sandstone oriel" shortname="sbOriel" scale="1" type="house">
+			<model location="Data/Walls/House_Plain_Stone_Wall_Upper_Oriel2.wom">
+				<override mesh="oriel2Mesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/oriel.png"/>
+			<category>House walls/Sandstone</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		
+		<wall name="Pottery wall" shortname="pbWall" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Plain.wom" tag="bottom">
+				<override mesh="StoneWallPlainMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.wom">
+				<override mesh="StoneWallPlainUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/wall.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery window" shortname="pbWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Plain.wom" tag="bottom">
+				<override mesh="StoneWindowPlainMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Plain_Upper.wom">
+				<override mesh="StoneWindowPlainUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/window.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery narrow window" shortname="pbWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
+				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Narrow_Upper.wom">
+				<override mesh="StoneWindowNarrowUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/windownarrow.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery arched wall" shortname="pbArch" scale="1" type="arch">
+			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.wom">
+				<override mesh="StoneArchPlainUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/arch.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery left arched wall" shortname="pblArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchLeft.wom" tag="bottom">
+				<override mesh="HalfArchLeftMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchLeftUpper.wom">
+				<override mesh="HalfArchLeftUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/archleft.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery right arched wall" shortname="pbrArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchRight.wom" tag="bottom">
+				<override mesh="HalfArchRightMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchRightUpper.wom">
+				<override mesh="HalfArchRightUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/archright.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery T arched wall" shortname="pbtArch" scale="1" type="arch">
+			<model location="Data/Walls/archT.wom" tag="bottom">
+				<override mesh="archTMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<model location="Data/Walls/archTUpper.wom">
+				<override mesh="archTUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/archt.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery door" shortname="pbDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoorPlainMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main_Upper.wom">
+				<override mesh="StoneDoorPlainUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/door.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery double door" shortname="pbdDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoubleDoorPlainMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main_Upper.wom">
+				<override mesh="StoneDoubleDoorPlainUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/doubledoor.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery portcullis" shortname="pbPort" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.wom">
+				<override mesh="PlainStoneWallPortcullisUpperMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/pcullis.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery bars" shortname="pbBars" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWall_bars1_upper.wom">
+				<override mesh="StoneWallPlain3Mesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/bars.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Pottery oriel" shortname="pbOriel" scale="1" type="house">
+			<model location="Data/Walls/House_Plain_Stone_Wall_Upper_Oriel2.wom">
+				<override mesh="oriel2Mesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/oriel.png"/>
+			<category>House walls/Pottery</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		
+		<wall name="Rounded stone wall" shortname="rsWall" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Plain.wom" tag="bottom">
+				<override mesh="StoneWallPlainMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.wom">
+				<override mesh="StoneWallPlainUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/wall.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone window" shortname="rsWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Plain.wom" tag="bottom">
+				<override mesh="StoneWindowPlainMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Plain_Upper.wom">
+				<override mesh="StoneWindowPlainUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/window.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone narrow window" shortname="rsWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
+				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Narrow_Upper.wom">
+				<override mesh="StoneWindowNarrowUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/windownarrow.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone arched wall" shortname="rsArch" scale="1" type="arch">
+			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.wom">
+				<override mesh="StoneArchPlainUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/arch.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone left arched wall" shortname="rslArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchLeft.wom" tag="bottom">
+				<override mesh="HalfArchLeftMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchLeftUpper.wom">
+				<override mesh="HalfArchLeftUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/archleft.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone right arched wall" shortname="rsrArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchRight.wom" tag="bottom">
+				<override mesh="HalfArchRightMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchRightUpper.wom">
+				<override mesh="HalfArchRightUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/archright.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone T arched wall" shortname="rstArch" scale="1" type="arch">
+			<model location="Data/Walls/archT.wom" tag="bottom">
+				<override mesh="archTMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<model location="Data/Walls/archTUpper.wom">
+				<override mesh="archTUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/archt.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone door" shortname="rsDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoorPlainMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main_Upper.wom">
+				<override mesh="StoneDoorPlainUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/door.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone double door" shortname="rsdDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoubleDoorPlainMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main_Upper.wom">
+				<override mesh="StoneDoubleDoorPlainUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/doubledoor.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone portcullis" shortname="rsPort" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.wom">
+				<override mesh="PlainStoneWallPortcullisUpperMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/pcullis.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone bars" shortname="rsBars" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWall_bars1_upper.wom">
+				<override mesh="StoneWallPlain3Mesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/bars.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rounded stone oriel" shortname="rsOriel" scale="1" type="house">
+			<model location="Data/Walls/House_Plain_Stone_Wall_Upper_Oriel2.wom">
+				<override mesh="oriel2Mesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Round stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/oriel.png"/>
+			<category>House walls/Rounded stone</category>
+			<category>Materials/Stone</category>
+		</wall>
+		
+		<wall name="Rendered wall" shortname="rWall" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Plain.wom" tag="bottom">
+				<override mesh="StoneWallPlainMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Plain_Upper.wom">
+				<override mesh="StoneWallPlainUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="1" g="0.8" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/wall.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered window" shortname="rWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Plain.wom" tag="bottom">
+				<override mesh="StoneWindowPlainMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Plain_Upper.wom">
+				<override mesh="StoneWindowPlainUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/window.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered narrow window" shortname="rnWindow" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
+				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Window_Narrow_Upper.wom">
+				<override mesh="StoneWindowNarrowUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="0.8" g="0.8" b="1"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/windownarrow.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered arched wall" shortname="rArch" scale="1" type="arch">
+			<model location="Data/Walls/Stone_Arched_Door_Plain_Upper.wom">
+				<override mesh="StoneArchPlainUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/arch.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered left arched wall" shortname="rlArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchLeft.wom" tag="bottom">
+				<override mesh="HalfArchLeftMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchLeftUpper.wom">
+				<override mesh="HalfArchLeftUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/archleft.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered right arched wall" shortname="rrArch" scale="1" type="arch">
+			<model location="Data/Walls/HalfArchRight.wom" tag="bottom">
+				<override mesh="HalfArchRightMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<model location="Data/Walls/HalfArchRightUpper.wom">
+				<override mesh="HalfArchRightUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/archright.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered T arched wall" shortname="rtArch" scale="1" type="arch">
+			<model location="Data/Walls/archT.wom" tag="bottom">
+				<override mesh="archTMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<model location="Data/Walls/archTUpper.wom">
+				<override mesh="archTUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/archt.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered door" shortname="rDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoorPlainMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Door_Plain_Main_Upper.wom">
+				<override mesh="StoneDoorPlainUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="0.8" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/door.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered double door" shortname="rdDoor" scale="1" type="house">
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main.wom" tag="bottom">
+				<override mesh="StoneDoubleDoorPlainMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<model location="Data/Walls/House_Stone_Wall_Doubledoor_Plain_Main_Upper.wom">
+				<override mesh="StoneDoubleDoorPlainUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="1" g="0.7" b="1"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/doubledoor.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered portcullis" shortname="rPort" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWallPortcullisUpper_main.wom">
+				<override mesh="PlainStoneWallPortcullisUpperMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/pcullis.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered bars" shortname="rBars" scale="1" type="house">
+			<model location="Data/Walls/PlainStoneWall_bars1_upper.wom">
+				<override mesh="StoneWallPlain3Mesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/bars.png"/>
+			<category>House walls/Rendered</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered oriel" shortname="rOriel" scale="1" type="house">
+			<model location="Data/Walls/House_Plain_Stone_Wall_Upper_Oriel2.wom">
+				<override mesh="oriel2Mesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Mortar = 20,
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/oriel.png"/>
+			<category>House walls/Rendered</category>
 			<category>Materials/Stone</category>
 		</wall>
 		
@@ -1076,7 +2304,7 @@
 				Mixed grass = 10
 			</materials>
 			<icon location="Data/Walls/Icons/timber_wall.png"/>
-			<category>House walls</category>
+			<category>House walls/Timber</category>
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber window" shortname="tWindow" scale="4" type="house">
@@ -1089,7 +2317,7 @@
 				Mixed grass = 10
 			</materials>
 			<icon location="Data/Walls/Icons/timber_window.png"/>
-			<category>House walls</category>
+			<category>House walls/Timber</category>
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber arched wall" shortname="tArch" scale="4" type="arch">
@@ -1101,7 +2329,43 @@
 				Mixed grass = 10
 			</materials>
 			<icon location="Data/Walls/Icons/timber_arch.png"/>
-			<category>House walls</category>
+			<category>House walls/Timber</category>
+			<category>Materials/Timber</category>
+		</wall>
+		<wall name="Timber left arched wall" shortname="tlArch" scale="4" type="arch">
+			<model location="Data/Walls/timberArchLeft.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Wooden beams = 5,
+				Clay = 20,
+				Mixed grass = 10
+			</materials>
+			<icon location="Data/Walls/Icons/timberarchleft.png"/>
+			<category>House walls/Timber</category>
+			<category>Materials/Timber</category>
+		</wall>
+		<wall name="Timber right arched wall" shortname="trArch" scale="4" type="arch">
+			<model location="Data/Walls/timberArchRight.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Wooden beams = 5,
+				Clay = 20,
+				Mixed grass = 10
+			</materials>
+			<icon location="Data/Walls/Icons/timberarchright.png"/>
+			<category>House walls/Timber</category>
+			<category>Materials/Timber</category>
+		</wall>
+		<wall name="Timber T arched wall" shortname="ttArch" scale="4" type="arch">
+			<model location="Data/Walls/timberArchT.wom"/>
+			<color type="dec" r="0.8" g="1" b="0.8"/>
+			<materials>
+				Wooden beams = 5,
+				Clay = 20,
+				Mixed grass = 10
+			</materials>
+			<icon location="Data/Walls/Icons/timbert.png"/>
+			<category>House walls/Timber</category>
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber door" shortname="tDoor" scale="4" type="house">
@@ -1114,7 +2378,7 @@
 				Mixed grass = 10
 			</materials>
 			<icon location="Data/Walls/Icons/timber_door.png"/>
-			<category>House walls</category>
+			<category>House walls/Timber</category>
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber double door" shortname="tdDoor" scale="4" type="house">
@@ -1127,7 +2391,7 @@
 				Mixed grass = 10
 			</materials>
 			<icon location="Data/Walls/Icons/timber_doubledoor.png"/>
-			<category>House walls</category>
+			<category>House walls/Timber</category>
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber jetty" shortname="tJetty" scale="1" type="house">
@@ -1139,7 +2403,7 @@
 				Mixed grass = 10
 			</materials>
 			<icon location="Data/Walls/Icons/timber_jetty.png"/>
-			<category>House walls</category>
+			<category>House walls/Timber</category>
 			<category>Materials/Timber</category>
 		</wall>
 		<wall name="Timber balcony" shortname="tBalcony" scale="1" type="house">
@@ -1151,7 +2415,7 @@
 				Mixed grass = 10
 			</materials>
 			<icon location="Data/Walls/Icons/timber_balcony.png"/>
-			<category>House walls</category>
+			<category>House walls/Timber</category>
 			<category>Materials/Timber</category>
 		</wall>
 		
@@ -1352,7 +2616,7 @@
 			<model location="Data/Walls/IronFence.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="1"/>
 			<materials>
-				Stone bricks = 9,
+				Stone bricks = 10,
 				Iron fence bars = 1
 			</materials>
 			<icon location="Data/Walls/Icons/IronFence.png"/>
@@ -1363,10 +2627,168 @@
 			<model location="Data/Walls/IronFenceGate_Main.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="1"/>
 			<materials>
-				Stone bricks = 9,
+				Stone bricks = 10,
 				Iron fence bars = 1
 			</materials>
 			<icon location="Data/Walls/Icons/IronFence_Gate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Pottery iron fence" shortname="pbiFence" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFence.wom">
+				<override mesh="IronFence2Mesh" texture="Data/Walls/IronFencePottery.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Pottery bricks = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/brick/ironfence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Pottery iron fence gate" shortname="pbiFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFenceGate_Main.wom">
+				<override mesh="IronFenceGate1Mesh" texture="Data/Walls/IronFencePottery.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Pottery bricks = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/brick/irongate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rounded stone iron fence" shortname="rsiFence" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFence.wom">
+				<override mesh="IronFence2Mesh" texture="Data/Walls/IronFenceRounded.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Rounded stones = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/ironfence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rounded stone iron fence gate" shortname="rsiFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFenceGate_Main.wom">
+				<override mesh="IronFenceGate1Mesh" texture="Data/Walls/IronFenceRounded.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Rounded stones = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/irongate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Sandstone iron fence" shortname="siFence" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFence.wom">
+				<override mesh="IronFence2Mesh" texture="Data/Walls/IronFenceSandstone.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Sandstone bricks = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/sand/ironfence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Sandstone iron fence gate" shortname="siFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFenceGate_Main.wom">
+				<override mesh="IronFenceGate1Mesh" texture="Data/Walls/IronFenceSandstone.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Sandstone bricks = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/sand/irongate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Slate iron fence" shortname="seiFence" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFence.wom">
+				<override mesh="IronFence2Mesh" texture="Data/Walls/IronFenceSlate.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Slate bricks = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/slate/ironfence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Slate iron fence gate" shortname="seiFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFenceGate_Main.wom">
+				<override mesh="IronFenceGate1Mesh" texture="Data/Walls/IronFenceSlate.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Slate bricks = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/slate/irongate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Marble iron fence" shortname="miFence" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFence.wom">
+				<override mesh="IronFence2Mesh" texture="Data/Walls/IronFenceMarble.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Marble bricks = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/marble/ironfence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Marble iron fence gate" shortname="miFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFenceGate_Main.wom">
+				<override mesh="IronFenceGate1Mesh" texture="Data/Walls/IronFenceMarble.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Marble bricks = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/marble/irongate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rendered iron fence" shortname="reFence" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFence.wom">
+				<override mesh="IronFence2Mesh" texture="Data/Walls/IronFenceRendered.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Stone bricks = 10,
+				Clay = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/rend/ironfence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rendered iron fence gate" shortname="reFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/IronFenceGate_Main.wom">
+				<override mesh="IronFenceGate1Mesh" texture="Data/Walls/IronFenceRendered.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="1"/>
+			<materials>
+				Stone bricks = 10,
+				Clay = 10,
+				Iron fence bars = 1
+			</materials>
+			<icon location="Data/Walls/Icons/rend/irongate.png"/>
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
@@ -2007,6 +3429,18 @@
 		</object>
 		<object name="Olive (big)" shortname="oliveB" type="tree">
 			<model location="Data/Objects/OliveTree.wom" scale="16"/>
+			<category>Trees</category>
+		</object>
+		<object name="Orange (small)" shortname="orangeS" type="tree">
+			<model location="Data/Objects/orangeTree.wom" scale="4"/>
+			<category>Trees</category>
+		</object>
+		<object name="Orange" shortname="orange" type="tree">
+			<model location="Data/Objects/orangeTree.wom" scale="8"/>
+			<category>Trees</category>
+		</object>
+		<object name="Orange (big)" shortname="orangeB" type="tree">
+			<model location="Data/Objects/orangeTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
 		
@@ -3117,6 +4551,18 @@
 			<model location="Data/Objects/Belltower_Main.wom"/>
 			<category>Decoration</category>
 		</object>
+		<object name="Yule goat" shortname="ygoat" type="normal">
+			<model location="Data/Objects/bucketthree.wom"/>
+			<category>Unique items</category>
+		</object>
+		<object name="Yule reindeer" shortname="yrein" type="normal">
+			<model location="Data/Objects/bucketfour.wom"/>
+			<category>Unique items</category>
+		</object>
+		<object name="Valentine pottery" shortname="vPottery" type="normal">
+			<model location="Data/Objects/valentine_roses1.wom"/>
+			<category>Unique items</category>
+		</object>
 		<object name="Bear vs Bull" shortname="bearvbullhota" type="normal">
 			<model location="Data/Objects/bearBullStatue.wom"/>
 			<category>HOTA Statues</category>
@@ -3539,10 +4985,169 @@
 			<category>Tents</category>
 			<category>Kingdoms/Mol-Rehan</category>
 		</object>
+		
+		<object name="Grape trellis" shortname="gTrellis" type="normal">
+			<model location="Data/Objects/grapeTrellis.wom"/>
+			<materials>
+				Shafts = 6,
+				Small nails = 1,
+				Grape seedlings = 1
+			</materials>
+			<category>Trellises</category>
+		</object>
+		<object name="Hops trellis" shortname="hTrellis" type="normal">
+			<model location="Data/Objects/hopTrellis.wom"/>
+			<materials>
+				Shafts = 6,
+				Small nails = 1,
+				Hops seedlings = 1
+			</materials>
+			<category>Trellises</category>
+		</object>
+		<object name="Ivy trellis" shortname="iTrellis" type="normal">
+			<model location="Data/Objects/ivyTrellis.wom"/>
+			<materials>
+				Shafts = 6,
+				Small nails = 1,
+				Ivy seedlings = 1
+			</materials>
+			<category>Trellises</category>
+		</object>
+		<object name="Rose trellis" shortname="rTrellis" type="normal">
+			<model location="Data/Objects/roseTrellis.wom"/>
+			<materials>
+				Shafts = 6,
+				Small nails = 1,
+				Rose seedlings = 1
+			</materials>
+			<category>Trellises</category>
+		</object>
 	</objects>
 		
 		
+	
+	<animals>
+		<animal name="Cow/Bull" shortname="cow">
+			<model location="Data/Animals/Cow_main.wom"/>
+			<model location="Data/Animals/Bull_Main2_bb.wom" tag="male"/>
+			<category>Farm animals</category>
+		</animal>
 		
+		<animal name="Horse (white)" shortname="whiteHorse">
+			<model location="Data/Animals/Horse_main.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/Horse_White_512.dds"/>
+			</model>
+			<category>Horses</category>
+		</animal>
+		<animal name="Horse (gray)" shortname="grayHorse">
+			<model location="Data/Animals/Horse_main.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/Horse_Gray_512.dds"/>
+			</model>
+			<category>Horses</category>
+		</animal>
+		<animal name="Horse (brown)" shortname="brownHorse">
+			<model location="Data/Animals/Horse_main.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/Horse_Brown_512.dds"/>
+			</model>
+			<category>Horses</category>
+		</animal>
+		<animal name="Horse (black)" shortname="blackHorse">
+			<model location="Data/Animals/Horse_main.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/Horse_Black_512.dds"/>
+			</model>
+			<category>Horses</category>
+		</animal>
+		<animal name="Horse (yellow)" shortname="yellowHorse">
+			<model location="Data/Animals/Horse_main.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/Horse_Yellow_512.dds"/>
+			</model>
+			<category>Horses</category>
+		</animal>
+		<animal name="Horse (blood bay)" shortname="bloodHorse">
+			<model location="Data/Animals/Horse_main.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/Horse_BloodBay_512.dds"/>
+			</model>
+			<category>Horses</category>
+		</animal>
+		<animal name="Horse (ebony black)" shortname="ebonyHorse">
+			<model location="Data/Animals/Horse_main.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/Horse_EbonyBlack_512.dds"/>
+			</model>
+			<category>Horses</category>
+		</animal>
+		<animal name="Horse (piebald pinto)" shortname="pintoHorse">
+			<model location="Data/Animals/Horse_main.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/Horse_PiebaldPinto_512.dds"/>
+			</model>
+			<category>Horses</category>
+		</animal>
+		
+		<animal name="Hell horse (mat)" shortname="matHell">
+			<model location="Data/Animals/hellHorse.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/HellHorse_mat.dds"/>
+			</model>
+			<category>Hell horses</category>
+		</animal>
+		<animal name="Hell horse (white)" shortname="whiteHell">
+			<model location="Data/Animals/hellHorse.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/HellHorse_white.dds"/>
+			</model>
+			<category>Hell horses</category>
+		</animal>
+		<animal name="Hell horse (brown)" shortname="brownHell">
+			<model location="Data/Animals/hellHorse.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/HellHorse_brown.dds"/>
+			</model>
+			<category>Hell horses</category>
+		</animal>
+		<animal name="Hell horse (black)" shortname="blackHell">
+			<model location="Data/Animals/hellHorse.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/HellHorse_black.dds"/>
+			</model>
+			<category>Hell horses</category>
+		</animal>
+		<animal name="Hell horse (gold)" shortname="goldHell">
+			<model location="Data/Animals/hellHorse.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/HellHorse_gold.dds"/>
+			</model>
+			<category>Hell horses</category>
+		</animal>
+		<animal name="Hell horse (blood)" shortname="bloodHell">
+			<model location="Data/Animals/hellHorse.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/HellHorse_blood.dds"/>
+			</model>
+			<category>Hell horses</category>
+		</animal>
+		<animal name="Hell horse (jet black)" shortname="jetHell">
+			<model location="Data/Animals/hellHorse.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/HellHorse_jetblack.dds"/>
+			</model>
+			<category>Hell horses</category>
+		</animal>
+		<animal name="Hell horse (piebald)" shortname="piebaldHell">
+			<model location="Data/Animals/hellHorse.wom">
+				<include mesh="bodyMeshMesh"/>
+				<override mesh="bodyMeshMesh" texture="Data/Animals/HellHorse_piebald.dds"/>
+			</model>
+			<category>Hell horses</category>
+		</animal>
+	</animals>
+	
 		
 		
 	<caves>
@@ -3587,6 +5192,10 @@
 			<category>Veins</category>
 		</rock>
 		<rock name="Marble vein" shortname="mv" type="wall" tex="Data/Caves/marblevein_512.png">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Sandstone vein" shortname="ssv" type="wall" tex="Data/Caves/sandstonevein.png">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>

@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map.Entry;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -16,7 +15,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
-import pl.wurmonline.deedplanner.data.io.DataLoader;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.logic.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
@@ -35,7 +33,11 @@ public class Planner extends javax.swing.JFrame {
     public Planner() {
         initComponents();
         try {
-            setIconImage(ImageIO.read(Planner.class.getResourceAsStream("SimpleLogo.png")));
+            ArrayList<Image> images = new ArrayList();
+            images.add(ImageIO.read(Planner.class.getResourceAsStream("logoL.jpg")));
+            images.add(ImageIO.read(Planner.class.getResourceAsStream("logoM.png")));
+            images.add(ImageIO.read(Planner.class.getResourceAsStream("logoS.png")));
+            setIconImages(images);
         } catch (IOException ex) {
             Log.err(ex);
         }
@@ -120,6 +122,7 @@ public class Planner extends javax.swing.JFrame {
         floorsTree.setCellRenderer(defaultRenderer);
         objectsTree.setCellRenderer(defaultRenderer);
         cavesTree.setCellRenderer(defaultRenderer);
+        animalsTree.setCellRenderer(defaultRenderer);
         
         heightList.setModel(HeightUpdater.createListModel());
         heightList.setSelectedIndex(0);
@@ -166,6 +169,8 @@ public class Planner extends javax.swing.JFrame {
         heightEditGroup = new javax.swing.ButtonGroup();
         treesVisibilityGroup = new javax.swing.ButtonGroup();
         bridgesVisibilityGroup = new javax.swing.ButtonGroup();
+        animalSizeGroup = new javax.swing.ButtonGroup();
+        animalSexGroup = new javax.swing.ButtonGroup();
         mapPanel = new pl.wurmonline.deedplanner.MapPanel();
         statusBar = new javax.swing.JPanel();
         tileLabel = new javax.swing.JLabel();
@@ -217,6 +222,17 @@ public class Planner extends javax.swing.JFrame {
         objectsTree = new javax.swing.JTree();
         objectsSearchBox = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        animalsPanel = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        childAnimalSizeRadio = new javax.swing.JRadioButton();
+        adultAnimalSizeRadio = new javax.swing.JRadioButton();
+        championAnimalSizeRadio = new javax.swing.JRadioButton();
+        jLabel13 = new javax.swing.JLabel();
+        maleAnimalSexRadio = new javax.swing.JRadioButton();
+        unisexAnimalSexRadio = new javax.swing.JRadioButton();
+        femaleAnimalSexRadio = new javax.swing.JRadioButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        animalsTree = new javax.swing.JTree();
         labelsPanel = new pl.wurmonline.deedplanner.forms.LabelEditor();
         bordersPanel = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -288,7 +304,7 @@ public class Planner extends javax.swing.JFrame {
         statusBar.setLayout(statusBarLayout);
         statusBarLayout.setHorizontalGroup(
             statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tileLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+            .addComponent(tileLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
         statusBarLayout.setVerticalGroup(
             statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,6 +324,7 @@ public class Planner extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel5.setText(bundle.getString("Planner.jLabel5.text")); // NOI18N
 
+        tabbedPane.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 tabbedPaneStateChanged(evt);
@@ -369,7 +386,7 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                    .addComponent(lmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
                     .addComponent(rmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(10, 10, 10))
             .addComponent(groundModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -493,12 +510,12 @@ public class Planner extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
                         .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(heightPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
                             .addGroup(heightPanelLayout.createSequentialGroup()
                                 .addComponent(heightRadio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -571,7 +588,7 @@ public class Planner extends javax.swing.JFrame {
         floorsPanel.setLayout(floorsPanelLayout);
         floorsPanelLayout.setHorizontalGroup(
             floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
             .addComponent(floorsModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
@@ -660,7 +677,7 @@ public class Planner extends javax.swing.JFrame {
         roofsPanel.setLayout(roofsPanelLayout);
         roofsPanelLayout.setHorizontalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
         );
         roofsPanelLayout.setVerticalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -690,7 +707,7 @@ public class Planner extends javax.swing.JFrame {
         objectsPanel.setLayout(objectsPanelLayout);
         objectsPanelLayout.setHorizontalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
             .addGroup(objectsPanelLayout.createSequentialGroup()
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -707,6 +724,124 @@ public class Planner extends javax.swing.JFrame {
         );
 
         tabbedPane.addTab(bundle.getString("Planner.objectsPanel.TabConstraints.tabTitle"), objectsPanel); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel12.setText(bundle.getString("Planner.jLabel12.text")); // NOI18N
+
+        animalSizeGroup.add(childAnimalSizeRadio);
+        childAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        childAnimalSizeRadio.setText(bundle.getString("Planner.childAnimalSizeRadio.text")); // NOI18N
+        childAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalSizeRadioActionPerformed(evt);
+            }
+        });
+
+        animalSizeGroup.add(adultAnimalSizeRadio);
+        adultAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        adultAnimalSizeRadio.setSelected(true);
+        adultAnimalSizeRadio.setText(bundle.getString("Planner.adultAnimalSizeRadio.text")); // NOI18N
+        adultAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalSizeRadioActionPerformed(evt);
+            }
+        });
+
+        animalSizeGroup.add(championAnimalSizeRadio);
+        championAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        championAnimalSizeRadio.setText(bundle.getString("Planner.championAnimalSizeRadio.text")); // NOI18N
+        championAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalSizeRadioActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel13.setText(bundle.getString("Planner.jLabel13.text")); // NOI18N
+
+        animalSexGroup.add(maleAnimalSexRadio);
+        maleAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        maleAnimalSexRadio.setText(bundle.getString("Planner.maleAnimalSexRadio.text")); // NOI18N
+        maleAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalGenderRadioActionPerformed(evt);
+            }
+        });
+
+        animalSexGroup.add(unisexAnimalSexRadio);
+        unisexAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        unisexAnimalSexRadio.setSelected(true);
+        unisexAnimalSexRadio.setText(bundle.getString("Planner.unisexAnimalSexRadio.text")); // NOI18N
+        unisexAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalGenderRadioActionPerformed(evt);
+            }
+        });
+
+        animalSexGroup.add(femaleAnimalSexRadio);
+        femaleAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        femaleAnimalSexRadio.setText(bundle.getString("Planner.femaleAnimalSexRadio.text")); // NOI18N
+        femaleAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalGenderRadioActionPerformed(evt);
+            }
+        });
+
+        animalsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        animalsTree.setModel(new DefaultTreeModel(Data.animalsTree));
+        animalsTree.setRootVisible(false);
+        animalsTree.setShowsRootHandles(true);
+        animalsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                animalsTreeValueChanged(evt);
+            }
+        });
+        jScrollPane9.setViewportView(animalsTree);
+
+        javax.swing.GroupLayout animalsPanelLayout = new javax.swing.GroupLayout(animalsPanel);
+        animalsPanel.setLayout(animalsPanelLayout);
+        animalsPanelLayout.setHorizontalGroup(
+            animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(animalsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(childAnimalSizeRadio)
+                    .addComponent(adultAnimalSizeRadio)
+                    .addComponent(championAnimalSizeRadio))
+                .addGap(66, 66, 66)
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(unisexAnimalSexRadio)
+                    .addComponent(jLabel13)
+                    .addComponent(maleAnimalSexRadio)
+                    .addComponent(femaleAnimalSexRadio))
+                .addContainerGap(135, Short.MAX_VALUE))
+            .addComponent(jScrollPane9)
+        );
+        animalsPanelLayout.setVerticalGroup(
+            animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(animalsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(childAnimalSizeRadio)
+                    .addComponent(unisexAnimalSexRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adultAnimalSizeRadio)
+                    .addComponent(maleAnimalSexRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(championAnimalSizeRadio)
+                    .addComponent(femaleAnimalSexRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE))
+        );
+
+        tabbedPane.addTab(bundle.getString("Planner.animalsPanel.TabConstraints.tabTitle"), animalsPanel); // NOI18N
         tabbedPane.addTab(bundle.getString("Planner.labelsPanel.TabConstraints.tabTitle"), labelsPanel); // NOI18N
 
         bordersList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -723,7 +858,7 @@ public class Planner extends javax.swing.JFrame {
         bordersPanel.setLayout(bordersPanelLayout);
         bordersPanelLayout.setHorizontalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
         );
         bordersPanelLayout.setVerticalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -747,7 +882,7 @@ public class Planner extends javax.swing.JFrame {
         cavesPanel.setLayout(cavesPanelLayout);
         cavesPanelLayout.setHorizontalGroup(
             cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
         );
         cavesPanelLayout.setVerticalGroup(
             cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1074,38 +1209,41 @@ public class Planner extends javax.swing.JFrame {
 
     private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
         Component tab = tabbedPane.getSelectedComponent();
-        if (tab==groundPanel) {
+        if (tab == groundPanel) {
             Globals.tab = Tab.ground;
         }
-        else if (tab==heightPanel) {
+        else if (tab == heightPanel) {
             Globals.tab = Tab.height;
         }
-        else if (tab==floorsPanel) {
+        else if (tab == floorsPanel) {
             Globals.tab = Tab.floors;
         }
-        else if (tab==wallsPanel) {
+        else if (tab == wallsPanel) {
             Globals.tab = Tab.walls;
         }
-        else if (tab==roofsPanel) {
+        else if (tab == roofsPanel) {
             Globals.tab = Tab.roofs;
         }
-        else if (tab==bordersPanel) {
+        else if (tab == bordersPanel) {
             Globals.tab = Tab.borders;
         }
-        else if (tab==objectsPanel) {
+        else if (tab == objectsPanel) {
             Globals.tab = Tab.objects;
         }
-        else if (tab==labelsPanel) {
+        else if (tab == labelsPanel) {
             Globals.tab = Tab.labels;
         }
-        else if (tab==cavesPanel) {
+        else if (tab == cavesPanel) {
             Globals.tab = Tab.caves;
         }
-        else if (tab==symmetryPanel) {
+        else if (tab == symmetryPanel) {
             Globals.tab = Tab.symmetry;
         }
-        else if (tab==bridgesPanel) {
+        else if (tab == bridgesPanel) {
             Globals.tab = Tab.bridges;
+        }
+        else if (tab == animalsPanel) {
+            Globals.tab = Tab.animals;
         }
     }//GEN-LAST:event_tabbedPaneStateChanged
 
@@ -1139,7 +1277,7 @@ public class Planner extends javax.swing.JFrame {
     }//GEN-LAST:event_jSpinner4StateChanged
 
     private void heightListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_heightListValueChanged
-        HeightUpdater.currentMode = (HeightMode) heightList.getSelectedValue();
+        HeightUpdater.setCurrentMode((HeightMode) heightList.getSelectedValue());
     }//GEN-LAST:event_heightListValueChanged
 
     private void heightLeftSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_heightLeftSpinnerStateChanged
@@ -1214,9 +1352,9 @@ public class Planner extends javax.swing.JFrame {
 
     private void objectsTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_objectsTreeValueChanged
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) objectsTree.getLastSelectedPathComponent();
-        if (node!=null && node.isLeaf() && node.getUserObject()!=ObjectsUpdater.currentData) {
+        if (node!=null && node.isLeaf() && node.getUserObject()!=ObjectsUpdater.objectsCurrentData) {
             mapPanel.getLoop().syncAndExecute(() -> {
-                ObjectsUpdater.currentData = (GameObjectData) node.getUserObject();
+                ObjectsUpdater.objectsCurrentData = (GameObjectData) node.getUserObject();
             });
         }
     }//GEN-LAST:event_objectsTreeValueChanged
@@ -1258,7 +1396,7 @@ public class Planner extends javax.swing.JFrame {
 
     private void cavesTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_cavesTreeValueChanged
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) cavesTree.getLastSelectedPathComponent();
-        if (node!=null && node.isLeaf() && node.getUserObject()!=ObjectsUpdater.currentData) {
+        if (node!=null && node.isLeaf() && node.getUserObject() != CaveUpdater.currentData) {
             mapPanel.getLoop().syncAndExecute(() -> {
                 CaveUpdater.currentData = (CaveData) node.getUserObject();
             });
@@ -1338,6 +1476,39 @@ public class Planner extends javax.swing.JFrame {
     private void bridgesDisplayChanged(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bridgesDisplayChanged
         Globals.renderBridges2d = bridgesAllItem.isSelected();
     }//GEN-LAST:event_bridgesDisplayChanged
+
+    private void animalsTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_animalsTreeValueChanged
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) animalsTree.getLastSelectedPathComponent();
+        if (node!=null && node.isLeaf() && node.getUserObject() != ObjectsUpdater.animalsCurrentData) {
+            mapPanel.getLoop().syncAndExecute(() -> {
+                ObjectsUpdater.animalsCurrentData = (AnimalData) node.getUserObject();
+            });
+        }
+    }//GEN-LAST:event_animalsTreeValueChanged
+
+    private void animalSizeRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animalSizeRadioActionPerformed
+        if (childAnimalSizeRadio.isSelected()) {
+            Globals.animalAge = AnimalAge.CHILD;
+        }
+        else if (adultAnimalSizeRadio.isSelected()) {
+            Globals.animalAge = AnimalAge.ADULT;
+        }
+        else if (championAnimalSizeRadio.isSelected()) {
+            Globals.animalAge = AnimalAge.CHAMPION;
+        }
+    }//GEN-LAST:event_animalSizeRadioActionPerformed
+
+    private void animalGenderRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animalGenderRadioActionPerformed
+        if (unisexAnimalSexRadio.isSelected()) {
+            Globals.animalGender = AnimalGender.UNISEX;
+        }
+        else if (maleAnimalSexRadio.isSelected()) {
+            Globals.animalGender = AnimalGender.MALE;
+        }
+        else if (femaleAnimalSexRadio.isSelected()) {
+            Globals.animalGender = AnimalGender.FEMALE;
+        }
+    }//GEN-LAST:event_animalGenderRadioActionPerformed
     
     private void applyObjectsTreeFilter() {
         String toFind = objectsSearchBox.getText();
@@ -1390,6 +1561,11 @@ public class Planner extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner addHeightSpinner;
+    private javax.swing.JRadioButton adultAnimalSizeRadio;
+    private javax.swing.ButtonGroup animalSexGroup;
+    private javax.swing.ButtonGroup animalSizeGroup;
+    private javax.swing.JPanel animalsPanel;
+    private javax.swing.JTree animalsTree;
     private javax.swing.JList bordersList;
     private javax.swing.JPanel bordersPanel;
     private javax.swing.JRadioButtonMenuItem bridges3dItem;
@@ -1398,11 +1574,14 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bridgesVisibilityGroup;
     private javax.swing.JPanel cavesPanel;
     private javax.swing.JTree cavesTree;
+    private javax.swing.JRadioButton championAnimalSizeRadio;
+    private javax.swing.JRadioButton childAnimalSizeRadio;
     private pl.wurmonline.deedplanner.forms.DiagonalPanel diagonalPanel1;
     private javax.swing.ButtonGroup elevationGroup;
     private javax.swing.JRadioButtonMenuItem elevationOffItem;
     private javax.swing.JRadioButtonMenuItem elevationOnItem;
     private javax.swing.JMenuItem exitItem;
+    private javax.swing.JRadioButton femaleAnimalSexRadio;
     private javax.swing.JComboBox floorOrientationBox;
     private javax.swing.JComboBox floorsModeCombo;
     private javax.swing.JPanel floorsPanel;
@@ -1421,6 +1600,8 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1449,6 +1630,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
@@ -1456,6 +1638,7 @@ public class Planner extends javax.swing.JFrame {
     private pl.wurmonline.deedplanner.forms.LabelEditor labelsPanel;
     private javax.swing.JLabel lmbSelectedGroundLabel;
     private javax.swing.JMenuItem loadItem;
+    private javax.swing.JRadioButton maleAnimalSexRadio;
     private pl.wurmonline.deedplanner.MapPanel mapPanel;
     private javax.swing.JMenuItem newMapItem;
     private javax.swing.JPanel objectsPanel;
@@ -1479,6 +1662,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem treesNothingItem;
     private javax.swing.ButtonGroup treesVisibilityGroup;
     private javax.swing.JMenuItem undoItem;
+    private javax.swing.JRadioButton unisexAnimalSexRadio;
     private javax.swing.JRadioButtonMenuItem upViewItem;
     private javax.swing.ButtonGroup viewGroup;
     private javax.swing.JCheckBox wallReversedAutoBox;

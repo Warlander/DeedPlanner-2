@@ -1,6 +1,8 @@
 package pl.wurmonline.deedplanner.forms;
 
+import java.awt.Image;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.logging.*;
 import javax.imageio.ImageIO;
 import javax.xml.parsers.ParserConfigurationException;
@@ -16,7 +18,11 @@ public class Loading extends javax.swing.JFrame {
     public Loading() {
         initComponents();
         try {
-            setIconImage(ImageIO.read(Planner.class.getResourceAsStream("SimpleLogo.png")));
+            ArrayList<Image> images = new ArrayList();
+            images.add(ImageIO.read(Planner.class.getResourceAsStream("logoL.jpg")));
+            images.add(ImageIO.read(Planner.class.getResourceAsStream("logoM.png")));
+            images.add(ImageIO.read(Planner.class.getResourceAsStream("logoS.png")));
+            setIconImages(images);
         } catch (IOException ex) {
             Log.err(ex);
         }
@@ -55,6 +61,8 @@ public class Loading extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/logo.png"))); // NOI18N
         jLabel3.setMinimumSize(new java.awt.Dimension(0, 0));
 
+        jLayeredPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -69,10 +77,9 @@ public class Loading extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jLayeredPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         progressBar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        progressBar.setMaximum(8);
+        progressBar.setMaximum(9);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
         progressBar.setString(bundle.getString("Loading.progressBar.string")); // NOI18N
         progressBar.setStringPainted(true);

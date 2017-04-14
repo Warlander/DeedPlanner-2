@@ -6,6 +6,8 @@ import pl.wurmonline.deedplanner.util.*;
 
 public class Color implements XMLSerializable {
     
+    public static final Color WHITE = new Color(1, 1, 1);
+    
     public final float r;
     public final float g;
     public final float b;

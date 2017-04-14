@@ -21,6 +21,10 @@ public abstract class HeightMode {
         action(mouse, map, tile, frag);
     }
     
+    public void onModeSelected() {
+        // empty by default, possible but not forced overriding in implementations
+    }
+    
     public abstract void action(Mouse mouse, Map map, Tile tile, TileFragment frag);
     
     public abstract SelectionType getSelectionType();

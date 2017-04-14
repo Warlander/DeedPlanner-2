@@ -2,15 +2,17 @@ package pl.wurmonline.deedplanner.logic.height;
 
 import javax.swing.*;
 import pl.wurmonline.deedplanner.data.*;
+import pl.wurmonline.deedplanner.forms.HeightImportWizard;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.SelectionType;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.logic.TileSelection;
+import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class HeightUpdater {
 
-    public static HeightMode currentMode;
+    private static HeightMode currentMode;
     public static boolean sizeEdit = false;
     
     public static JSpinner setRMB;
@@ -23,6 +25,11 @@ public class HeightUpdater {
     public static SelectionType update(Mouse mouse, Map map, UpCamera cam) {
         currentMode.update(mouse, map, cam);
         return currentMode.getSelectionType();
+    }
+    
+    public static void setCurrentMode(HeightMode newMode) {
+        currentMode = newMode;
+        currentMode.onModeSelected();
     }
     
     public static ListModel<HeightMode> createListModel() {
@@ -249,6 +256,31 @@ public class HeightUpdater {
             }
             
         });
+        
+//        model.addElement(new HeightMode("Import heights from game") {
+//            
+//            private HeightImportWizard heightImportWizard;
+//            
+//            public void onModeSelected() {
+//                if (heightImportWizard != null && heightImportWizard.isVisible()) {
+//                    return;
+//                }
+//                
+//                heightImportWizard = new HeightImportWizard();
+//                SwingUtils.centerFrame(heightImportWizard);
+//                heightImportWizard.setVisible(true);
+//            }
+//            
+//            public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
+//                
+//            }
+//
+//            
+//            public SelectionType getSelectionType() {
+//                return SelectionType.MULTIPLE;
+//            }
+//            
+//        });
         
         return model;
     }

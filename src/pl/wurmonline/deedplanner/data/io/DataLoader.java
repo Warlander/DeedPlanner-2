@@ -37,6 +37,8 @@ public final class DataLoader {
         loadObjects(doc);
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING CAVE DATA"));
         loadCaves(doc);
+        loading.increaseProgress("Loading animal data");
+        loadAnimals(doc);
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LAUNCHING"));
     }
     
@@ -370,6 +372,56 @@ public final class DataLoader {
             Log.out(DataLoader.class, "Cave data "+data+" loaded and ready to use!");
             Data.caves.put(shortName, data);
             addToCategories(Data.cavesTree, categories, data, name);
+        }
+    }
+    
+    private static void loadAnimals(Document doc) throws IOException {
+        NodeList entities = doc.getElementsByTagName("animal");
+        
+        for (int i=0; i<entities.getLength(); i++) {
+            final String name;
+            final String shortName;
+            Model unisexModel = null;
+            Model maleModel = null;
+            Model femaleModel = null;
+            ArrayList<String[]> categories = new ArrayList<>();
+            
+            Node entity = entities.item(i);
+            
+            NamedNodeMap map = entity.getAttributes();
+            name = map.getNamedItem("name").getNodeValue();
+            shortName = map.getNamedItem("shortname").getNodeValue();
+            
+            NodeList list = entity.getChildNodes();
+            
+            for (int i2=0; i2<list.getLength(); i2++) {
+                Node node = list.item(i2);
+                switch (node.getNodeName()) {
+                    case "model":
+                        Model model = new Model((Element) node);
+                        String modelTag = model.getTag();
+                        if (modelTag.equals("male")) {
+                            maleModel = model;
+                        }
+                        else if (modelTag.equals("female")) {
+                            femaleModel = model;
+                        }
+                        else {
+                            unisexModel = model;
+                            maleModel = model;
+                            femaleModel = model;
+                        }
+                        break;
+                    case "category":
+                        categories.add(node.getTextContent().split("/"));
+                }
+            }
+                
+            AnimalData data = new AnimalData(unisexModel, maleModel, femaleModel, name, shortName);
+            Log.out(DataLoader.class, "Animal data "+data+" loaded and ready to use!");
+            Data.animals.put(shortName, data);
+
+            addToCategories(Data.animalsTree, categories, data, name);
         }
     }
     

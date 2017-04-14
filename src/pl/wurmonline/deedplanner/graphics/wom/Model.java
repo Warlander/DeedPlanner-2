@@ -27,6 +27,7 @@ public final class Model implements Renderable {
     private final Vector3f scale;
     
     private final boolean loadTextures;
+    private final String oneIncludedMesh;
     private final Map<String, String> textureOverrides;
     
     private Mesh[] meshes;
@@ -46,6 +47,7 @@ public final class Model implements Renderable {
         this.loadTextures = loadTextures;
         
         this.textureOverrides = new HashMap<>();
+        this.oneIncludedMesh = null;
     }
     
     public Model(Element node) {
@@ -67,6 +69,19 @@ public final class Model implements Renderable {
             String mesh = override.getAttribute("mesh");
             String texture = override.getAttribute("texture");
             textureOverrides.put(mesh, texture);
+        }
+        
+        NodeList includes = node.getElementsByTagName("include");
+        //assumption - only one include allowed for now
+        if (includes.getLength() == 1) {
+            Element include = (Element) includes.item(0);
+            oneIncludedMesh = include.getAttribute("mesh");
+        }
+        else if (includes.getLength() > 1) {
+            throw new DeedPlannerRuntimeException("Only one include per model allowed for now");
+        }
+        else {
+            oneIncludedMesh = null;
         }
     }
     
@@ -111,7 +126,7 @@ public final class Model implements Renderable {
             Material material = loadMaterial(buffer);
             
             //we need to load material first in order to keep the proper buffer position
-            if (data.getName().contains("BoundingBox") || data.getName().contains("Lod")) {
+            if (data.getName().contains("BoundingBox") || data.getName().contains("Lod") || !isMeshIncluded(data.getName())) {
                 continue;
             }
             
@@ -130,6 +145,14 @@ public final class Model implements Renderable {
         }
         
         meshes = meshesList.toArray(new Mesh[0]);
+    }
+    
+    private boolean isMeshIncluded(String name) {
+        if (oneIncludedMesh == null) {
+            return true;
+        }
+        
+        return oneIncludedMesh.equals(name);
     }
     
     private MeshData loadMeshData(ByteBuffer buffer) {

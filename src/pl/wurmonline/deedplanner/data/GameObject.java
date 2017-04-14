@@ -5,7 +5,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import pl.wurmonline.deedplanner.data.storage.Data;
 
-public class GameObject implements TileEntity {
+public class GameObject implements GridTileEntity {
     
     private final GameObjectData data;
     private double rotation = 0;

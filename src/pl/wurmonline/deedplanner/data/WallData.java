@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.util.jogl.Color;
 import pl.wurmonline.deedplanner.graphics.wom.Model;
+import pl.wurmonline.deedplanner.util.Log;
 
 public class WallData {
 
@@ -58,7 +59,8 @@ public class WallData {
                 Image img = resizeImage(ImageIO.read(new File(iconLocation)), Properties.iconSize, Properties.iconSize);
                 icon = new ImageIcon(img);
             } catch (IOException ex) {
-                Logger.getLogger(GroundData.class.getName()).log(Level.SEVERE, null, ex);
+                Log.out(this, "Failed to load icon from: " + iconLocation);
+                Log.err(ex);
             }
         }
         

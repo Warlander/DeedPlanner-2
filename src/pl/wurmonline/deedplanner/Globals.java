@@ -1,5 +1,7 @@
 package pl.wurmonline.deedplanner;
 
+import pl.wurmonline.deedplanner.data.AnimalAge;
+import pl.wurmonline.deedplanner.data.AnimalGender;
 import pl.wurmonline.deedplanner.data.EntityOrientation;
 import pl.wurmonline.deedplanner.data.RoadDirection;
 import pl.wurmonline.deedplanner.logic.Tab;
@@ -23,6 +25,9 @@ public class Globals {
     public static RoadDirection roadDirection = RoadDirection.CENTER;
     public static EntityOrientation floorOrientation = EntityOrientation.UP;
     public static Tab tab = Tab.ground;
+    
+    public static AnimalGender animalGender = AnimalGender.UNISEX;
+    public static AnimalAge animalAge = AnimalAge.ADULT;
     
     public static int floor = 0;
     public static int visibleDownX;

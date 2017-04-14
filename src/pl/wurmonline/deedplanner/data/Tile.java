@@ -113,7 +113,12 @@ public final class Tile implements XMLSerializable {
                             continue;
                         }
                         ObjectLocation loc = ObjectLocation.parse(entity.getAttribute("position"));
-                        entities.put(new ObjectEntityData(floor, loc), new GameObject(entity));
+                        if (entity.getAttribute("age").equals("")) {
+                            entities.put(new ObjectEntityData(floor, loc), new GameObject(entity));
+                        }
+                        else {
+                            entities.put(new ObjectEntityData(floor, loc), new Animal(entity));
+                        }
                         break;
                     case "cave":
                         cave = CaveData.get(entity);
@@ -255,8 +260,6 @@ public final class Tile implements XMLSerializable {
             case OBJECT:
                 ObjectEntityData objData = (ObjectEntityData) data;
                 ObjectLocation loc = objData.getLocation();
-                GameObject obj = (GameObject) entity;
-                GameObjectData goData = obj.getData();
                 
                 boolean onAbovegroundFloor = objData.getFloor() > 0 || this.getTileContent(0) != null;
                 boolean onUndergroundFloor = objData.getFloor() < -1 || this.getTileContent(-1) != null;
@@ -264,13 +267,25 @@ public final class Tile implements XMLSerializable {
                     g.glTranslatef(0, 0, Constants.FLOOR_MODEL_HEIGHT);
                 }
                 
-                boolean isTree = goData.type.equals(Constants.TREE_TYPE);
-                boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.upCamera) || (Globals.renderTrees3d && !Globals.upCamera);
-                if (!isTree || (isTree && treeRenderingAllowed)) {
-                    g.glColor3f(colorMod, colorMod, colorMod);
-                    g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), floorOffset + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
-                    obj.render(g, this);
+                if (entity instanceof GameObject) {
+                    GameObject obj = (GameObject) entity;
+                    GameObjectData goData = obj.getData();
+                    
+                    boolean isTree = goData.type.equals(Constants.TREE_TYPE);
+                    boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.upCamera) || (Globals.renderTrees3d && !Globals.upCamera);
+                    if (!isTree || (isTree && treeRenderingAllowed)) {
+                        g.glColor3f(colorMod, colorMod, colorMod);
+                        g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), floorOffset + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
+                        obj.render(g, this);
+                    }
                 }
+                else if (entity instanceof Animal) {
+                    Animal animal = (Animal) entity;
+                    animal.getTintColor().use(g, colorMod);
+                    g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), floorOffset + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
+                    animal.render(g, this);
+                }
+                
                 break;
         }
     }
@@ -961,9 +976,28 @@ public final class Tile implements XMLSerializable {
         }
     }
     
-    public GameObject getGameObject(int level, ObjectLocation location) {
+    public void setAnimal(AnimalData data, ObjectLocation location, int floor) {
+        setAnimal(data, location, floor, true);
+    }
+    
+    void setAnimal(AnimalData data, ObjectLocation location, int floor, boolean undo) {
+        Tile oldTile = new Tile(this);
+        if (data!=null) {
+            entities.put(new ObjectEntityData(floor, location), new Animal(data, Globals.animalAge, Globals.animalGender));
+        }
+        else {
+            for (ObjectLocation loc : ObjectLocation.values()) {
+                entities.remove(new ObjectEntityData(floor, loc));
+            }
+        }
+        if (undo) {
+            map.addUndo(this, oldTile);
+        }
+    }
+    
+    public GridTileEntity getGridEntity(int level, ObjectLocation location) {
         //assumption - ObjectEntityData key always have GameObject value.
-        return (GameObject) entities.get(new ObjectEntityData(level, location));
+        return (GridTileEntity) entities.get(new ObjectEntityData(level, location));
     }
     
     public void destroyBridge() {

@@ -27,6 +27,9 @@ public class Data {
     public static final DefaultMutableTreeNode objectsTree = new DefaultMutableTreeNode("Objects");
     public static DefaultMutableTreeNode filteredObjectsTree = objectsTree;
     
+    public static final HashMap<String, AnimalData> animals = new HashMap<>();
+    public static final DefaultMutableTreeNode animalsTree = new DefaultMutableTreeNode("Animals");
+    
     public static final HashMap<String, CaveData> caves = new HashMap<>();
     public static final DefaultMutableTreeNode cavesTree = new DefaultMutableTreeNode("Caves");
     

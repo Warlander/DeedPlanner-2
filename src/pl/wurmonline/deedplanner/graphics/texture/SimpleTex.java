@@ -126,6 +126,8 @@ public final class SimpleTex implements Tex {
                 }
                 texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_S, GL2.GL_REPEAT);
                 texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_T, GL2.GL_REPEAT);
+                texture.setTexParameteri(g, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
+                texture.setTexParameteri(g, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR_MIPMAP_NEAREST);
                 Log.out(this, "Texture loaded and ready to use!");
             } catch (GLException | IOException ex) {
                 Log.err(ex);

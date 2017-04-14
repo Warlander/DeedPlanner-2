@@ -27,48 +27,64 @@ public class HeightShow extends JComponent {
     protected void paintComponent(Graphics g) {
         if (cam!=null && cam.tile!=null) {
             TileFragment frag = TileFragment.calculateTileFragment(cam.xTile, cam.yTile);
-            if (!frag.isCorner()) {
-                return;
-            }
-            Tile tile = frag.getTileByCorner(cam.tile);
             g.setColor(Color.black);
             g.setFont(basicFont);
-            drawHeightString(g, tile, tile.getMap().getTile(tile, -1, 1), 10, 10);
-            drawHeightString(g, tile, tile.getMap().getTile(tile, 0, 1), 35, 10);
-            drawHeightString(g, tile, tile.getMap().getTile(tile, 1, 1), 60, 10);
-            
-            drawHeightString(g, tile, tile.getMap().getTile(tile, -1, 0), 10, 35);
-            String heightStr;
-            if (Globals.floor>=0) {
-                heightStr = Integer.toString(tile.getHeight());
+            if (frag.isCorner()) {
+                Tile tile = frag.getTileByCorner(cam.tile);
+                paintCorner(g, tile);
             }
-            else {
-                heightStr = Integer.toString(tile.getCaveHeight());
+            else if (frag.isCenter()) {
+                Tile tile = cam.tile;
+                paintCenter(g, tile);
             }
-            g.setFont(boldFont);
-            SwingUtils.drawCenteredString(g, heightStr, 35, 35);
-            g.setFont(basicFont);
-            drawHeightString(g, tile, tile.getMap().getTile(tile, 1, 0), 60, 35);
-            
-            drawHeightString(g, tile, tile.getMap().getTile(tile, -1, -1), 10, 60);
-            drawHeightString(g, tile, tile.getMap().getTile(tile, 0, -1), 35, 60);
-            drawHeightString(g, tile, tile.getMap().getTile(tile, 1, -1), 60, 60);
         }
     }
     
+    private void paintCorner(Graphics g, Tile tile) {
+        drawHeightString(g, tile, tile.getMap().getTile(tile, -1, 1), 10, 10);
+        drawHeightString(g, tile, tile.getMap().getTile(tile, 0, 1), 35, 10);
+        drawHeightString(g, tile, tile.getMap().getTile(tile, 1, 1), 60, 10);
+
+        drawHeightString(g, tile, tile.getMap().getTile(tile, -1, 0), 10, 35);
+        g.setFont(boldFont);
+        drawHeightString(g, tile, tile, 35, 35);
+        g.setFont(basicFont);
+        drawHeightString(g, tile, tile.getMap().getTile(tile, 1, 0), 60, 35);
+
+        drawHeightString(g, tile, tile.getMap().getTile(tile, -1, -1), 10, 60);
+        drawHeightString(g, tile, tile.getMap().getTile(tile, 0, -1), 35, 60);
+        drawHeightString(g, tile, tile.getMap().getTile(tile, 1, -1), 60, 60);
+    }
+    
+    private void paintCenter(Graphics g, Tile tile) {
+        g.setFont(boldFont);
+        drawHeightString(g, tile.getMap().getTile(tile, 0, 1), tile.getMap().getTile(tile, 0, 1), 10, 10);
+        drawHeightString(g, tile.getMap().getTile(tile, 1, 1), tile.getMap().getTile(tile, 1, 1), 60, 10);
+        drawHeightString(g, tile, tile, 10, 60);
+        drawHeightString(g, tile.getMap().getTile(tile, 1, 0), tile.getMap().getTile(tile, 1, 0), 60, 60);
+        g.setFont(basicFont);
+    }
+    
     private void drawHeightString(Graphics g, Tile main, Tile diff, int x, int y) {
-        if (diff==null) {
+        if (main == null || diff == null) {
             return;
         }
         
-        int heightDiff;
-        if (Globals.floor>=0) {
-            heightDiff = diff.getHeight()-main.getHeight();
+        int shownHeight;
+        
+        if (main == diff && Globals.floor >= 0) {
+            shownHeight = main.getHeight();
+        }
+        else if (main == diff) {
+            shownHeight = main.getCaveHeight();
+        }
+        else if (Globals.floor >= 0) {
+            shownHeight = diff.getHeight() - main.getHeight();
         }
         else {
-            heightDiff = diff.getCaveHeight()-main.getCaveHeight();
+            shownHeight = diff.getCaveHeight() - main.getCaveHeight();
         }
-        String heightStr = Integer.toString(heightDiff);
+        String heightStr = Integer.toString(shownHeight);
         
         SwingUtils.drawCenteredString(g, heightStr, x, y);
     }

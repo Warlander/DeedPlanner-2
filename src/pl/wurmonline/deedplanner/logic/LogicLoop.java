@@ -80,7 +80,7 @@ public class LogicLoop extends TimerTask {
                         case roofs:
                             RoofUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
                             break;
-                        case objects:
+                        case objects: case animals:
                             ObjectsUpdater.update(mouse, keyboard, panel.getMap(), panel.getUpCamera());
                             break;
                         case labels:
@@ -137,7 +137,7 @@ public class LogicLoop extends TimerTask {
                             break;
                         case objects:
                             ObjectLocation loc = ObjectLocation.calculateObjectLocation(panel.getUpCamera().xTile, panel.getUpCamera().yTile);
-                            GameObject obj = t.getGameObject(Globals.floor, loc);
+                            GridTileEntity obj = t.getGridEntity(Globals.floor, loc);
                             if (obj!=null) {
                                 build.append(obj);
                             }

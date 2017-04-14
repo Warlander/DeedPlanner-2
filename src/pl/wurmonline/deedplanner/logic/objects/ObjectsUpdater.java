@@ -8,61 +8,94 @@ import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Keyboard;
 import pl.wurmonline.deedplanner.input.Mouse;
+import pl.wurmonline.deedplanner.logic.Tab;
 
 public class ObjectsUpdater {
 
-    public static GameObjectData currentData = null;
+    public static GameObjectData objectsCurrentData = null;
+    public static AnimalData animalsCurrentData = null;
     
     private static Tile tile;
     private static Point2D point;
-    private static GameObject object;
+    private static GridTileEntity object;
     private static ObjectLocation location;
     
     public static void update(Mouse mouse, Keyboard keyboard, Map map, UpCamera cam) {
-        if (currentData!=null) {
-            if (Globals.floor < 0 && (currentData.type.equals(Constants.TREE_TYPE) || currentData.type.equals(Constants.BUSH_TYPE))) {
+        if (mouse.pressed.left) {
+            if (!containsData() || !checkUndergroundPermissions()) {
                 return;
             }
-            
-            if (mouse.pressed.left) {
-                tile = cam.tile;
-                if (currentData.centerOnly) {
-                    location = ObjectLocation.MIDDLE_CENTER;
-                }
-                else {
-                    location = ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
-                }
-                point = new Point2D.Double(tile.getX()+location.getHorizontalAlign()/4f, tile.getY()+location.getVerticalAlign()/4f);
-                cam.tile.setGameObject(currentData, location, Globals.floor);
-                map.getSymmetry().mirrorObject(cam.tile, currentData, location, Globals.floor);
-                object = cam.tile.getGameObject(Globals.floor, location);
-                map.newAction();
-            }
-            else if (object!=null && mouse.hold.left) {
-                float deltaX = cam.xMap - (float) point.getX();
-                float deltaY = cam.yMap - (float) point.getY();
-                double rotation = Math.atan2(deltaY, deltaX)+Math.PI/2f;
-                if (!keyboard.isHold(KeyEvent.VK_SHIFT)) {
-                    rotation = getClampedRotation(rotation);
-                }
-                object.setRotation(rotation);
-                map.getSymmetry().mirrorObjectRotation(tile, object, rotation, location, Globals.floor);
-            }
-            
-            if (mouse.released.left) {
-                tile = null;
-                point = null;
-                object = null;
-                location = null;
-            }
-            
-            if (mouse.hold.right && !mouse.hold.left) {
-                location = ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
-                cam.tile.setGameObject(null, location, Globals.floor);
-                map.getSymmetry().mirrorObject(cam.tile, null, location, Globals.floor);
-                map.newAction();
-            }
+            tile = cam.tile;
+            location = calculateLocation(cam);
+            point = new Point2D.Double(tile.getX()+location.getHorizontalAlign()/4f, tile.getY()+location.getVerticalAlign()/4f);
+            placeEntity(map, cam.tile, location, Globals.floor);
+            object = cam.tile.getGridEntity(Globals.floor, location);
+            map.newAction();
         }
+        else if (object!=null && mouse.hold.left) {
+            float deltaX = cam.xMap - (float) point.getX();
+            float deltaY = cam.yMap - (float) point.getY();
+            double rotation = Math.atan2(deltaY, deltaX)+Math.PI/2f;
+            if (!keyboard.isHold(KeyEvent.VK_SHIFT)) {
+                rotation = getClampedRotation(rotation);
+            }
+            object.setRotation(rotation);
+            map.getSymmetry().mirrorObjectRotation(tile, object, rotation, location, Globals.floor);
+        }
+
+        if (mouse.released.left) {
+            tile = null;
+            point = null;
+            object = null;
+            location = null;
+        }
+
+        if (mouse.hold.right && !mouse.hold.left) {
+            location = ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
+            cam.tile.setGameObject(null, location, Globals.floor);
+            map.getSymmetry().mirrorObject(cam.tile, null, location, Globals.floor);
+            map.newAction();
+        }
+    }
+    
+    private static boolean containsData() {
+        if (isObjectEditor()) {
+            return objectsCurrentData != null;
+        }
+        else {
+            return animalsCurrentData != null;
+        }
+    }
+    
+    private static boolean checkUndergroundPermissions() {
+        if (!isObjectEditor()) {
+            return true;
+        }
+        
+        return !(Globals.floor < 0 && (objectsCurrentData.type.equals(Constants.TREE_TYPE) || objectsCurrentData.type.equals(Constants.BUSH_TYPE)));
+    }
+    
+    private static ObjectLocation calculateLocation(UpCamera cam) {
+        if (isObjectEditor() && objectsCurrentData.centerOnly) {
+            return ObjectLocation.MIDDLE_CENTER;
+        }
+        
+        return ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
+    }
+    
+    private static void placeEntity(Map map, Tile tile, ObjectLocation location, int floor) {
+        if (isObjectEditor()) {
+            tile.setGameObject(objectsCurrentData, location, Globals.floor);
+            map.getSymmetry().mirrorObject(tile, objectsCurrentData, location, Globals.floor);
+        }
+        else {
+            tile.setAnimal(animalsCurrentData, location, Globals.floor);
+            map.getSymmetry().mirrorAnimal(tile, animalsCurrentData, location, Globals.floor);
+        }
+    }
+    
+    private static boolean isObjectEditor() {
+        return Globals.tab == Tab.objects;
     }
     
     private static double getClampedRotation(double rotation) {

@@ -55,6 +55,10 @@ public enum TileFragment {
         return this==NW || this==NE || this==SW || this==SE;
     }
     
+    public boolean isCenter() {
+        return this == CENTER;
+    }
+    
     public Tile getTileByCorner(Tile tile) {
         switch (this) {
             case SW:
