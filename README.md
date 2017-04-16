@@ -19,4 +19,4 @@ Program official forum thread: http://forum.wurmonline.com/index.php?/topic/7935
 3. The program usage should be as simple as possible<br>
 4. Cooperation with other Wurm-related programs and the game itself.
 
-Graphical assets in Data folder are © Code Club AB and may not be reused, modified or distributed without written permission.
+Graphical assets in Data folder are © Code Club AB or their respective authors and may not be reused, modified or distributed without written permission.
