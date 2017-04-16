@@ -18,3 +18,5 @@ Program official forum thread: http://forum.wurmonline.com/index.php?/topic/7935
 2. Access to the widest possible audience - as little platform-dependent code as possible (support for Windows, Linux and Mac systems)<br>
 3. The program usage should be as simple as possible<br>
 4. Cooperation with other Wurm-related programs and the game itself.
+
+Graphical assets in Data folder are © Code Club AB and may not be reused, modified or distributed without written permission.
