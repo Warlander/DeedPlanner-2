@@ -492,10 +492,8 @@
 			<model location="Data/Floors/wideStaircase.wom"/>
 			<opening/>
 			<materials>
-				Planks = 15,
-				Shafts = 10,
-				Small nails = 1,
-				Large nails = 1
+				Planks = 30,
+				Large nails = 2
 			</materials>
 			<category>Staircases</category>
 		</floor>
@@ -503,10 +501,10 @@
 			<model location="Data/Floors/wideStaircaseBanister.wom"/>
 			<opening/>
 			<materials>
-				Planks = 15,
+				Planks = 30,
 				Shafts = 10,
 				Small nails = 1,
-				Large nails = 1
+				Large nails = 2
 			</materials>
 			<category>Staircases</category>
 		</floor>
@@ -514,10 +512,10 @@
 			<model location="Data/Floors/wideStaircaseBanisterL.wom"/>
 			<opening/>
 			<materials>
-				Planks = 15,
-				Shafts = 10,
+				Planks = 30,
+				Shafts = 5,
 				Small nails = 1,
-				Large nails = 1
+				Large nails = 2
 			</materials>
 			<category>Staircases</category>
 		</floor>
@@ -525,10 +523,10 @@
 			<model location="Data/Floors/wideStaircaseBanisterR.wom"/>
 			<opening/>
 			<materials>
-				Planks = 15,
-				Shafts = 10,
+				Planks = 30,
+				Shafts = 5,
 				Small nails = 1,
-				Large nails = 1
+				Large nails = 2
 			</materials>
 			<category>Staircases</category>
 		</floor>
@@ -1590,7 +1588,7 @@
 			<category>House walls/Sandstone</category>
 			<category>Materials/Sandstone</category>
 		</wall>
-		<wall name="Sandstone narrow window" shortname="sbWindow" scale="1" type="house">
+		<wall name="Sandstone narrow window" shortname="sbnWindow" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
 				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/sandstone.png"/>
 			</model>
@@ -1771,7 +1769,7 @@
 			<category>House walls/Pottery</category>
 			<category>Materials/Pottery</category>
 		</wall>
-		<wall name="Pottery narrow window" shortname="pbWindow" scale="1" type="house">
+		<wall name="Pottery narrow window" shortname="pbnWindow" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
 				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/brick.png"/>
 			</model>
@@ -1952,7 +1950,7 @@
 			<category>House walls/Rounded stone</category>
 			<category>Materials/Stone</category>
 		</wall>
-		<wall name="Rounded stone narrow window" shortname="rsWindow" scale="1" type="house">
+		<wall name="Rounded stone narrow window" shortname="rsnWindow" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
 				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/rounded.png"/>
 			</model>
@@ -2445,6 +2443,79 @@
 			<icon location="Data/Walls/Icons/StoneFence.png"/>
 			<category>Fences</category>
 			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Slate fence" shortname="sstFence" scale="1" type="lowfence">
+			<model location="Data/Walls/StoneFence.wom">
+				<override mesh="stoneFenceMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Slate bricks = 10
+			</materials>
+			<icon location="Data/Walls/Icons/slate/stonefence.png"/>
+			<category>Fences</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Marble fence" shortname="mstFence" scale="1" type="lowfence">
+			<model location="Data/Walls/StoneFence.wom">
+				<override mesh="stoneFenceMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Marble bricks = 10
+			</materials>
+			<icon location="Data/Walls/Icons/marble/stonefence.png"/>
+			<category>Fences</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Sandstone fence" shortname="sastFence" scale="1" type="lowfence">
+			<model location="Data/Walls/StoneFence.wom">
+				<override mesh="stoneFenceMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Marble bricks = 10
+			</materials>
+			<icon location="Data/Walls/Icons/sand/stonefence.png"/>
+			<category>Fences</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Pottery fence" shortname="pstFence" scale="1" type="lowfence">
+			<model location="Data/Walls/StoneFence.wom">
+				<override mesh="stoneFenceMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Pottery bricks = 10
+			</materials>
+			<icon location="Data/Walls/Icons/brick/stonefence.png"/>
+			<category>Fences</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Rounded stone fence" shortname="rstFence" scale="1" type="lowfence">
+			<model location="Data/Walls/StoneFence.wom">
+				<override mesh="stoneFenceMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Rounded stones = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/stonefence.png"/>
+			<category>Fences</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered fence" shortname="restFence" scale="1" type="lowfence">
+			<model location="Data/Walls/StoneFence.wom">
+				<override mesh="stoneFenceMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Stone bricks = 10,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/stonefence.png"/>
+			<category>Fences</category>
+			<category>Materials/Pottery</category>
 		</wall>
 		<wall name="Tall stone wall" shortname="tsFence" scale="1" type="highfence">
 			<model location="Data/Walls/Tall_Stone_Wall.wom"/>

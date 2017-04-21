@@ -662,9 +662,9 @@ public final class Tile implements XMLSerializable {
     }
     
     public boolean isFlat() {
-        return map.getTile(this, 1, 1)!=null && getHeight()==map.getTile(this, 1, 1).getHeight() &&
-               map.getTile(this, 1, 0)!=null && getHeight()==map.getTile(this, 1, 0).getHeight() &&
-               map.getTile(this, 0, 1)!=null && getHeight()==map.getTile(this, 0, 1).getHeight();
+        return map.getTile(this, 1, 1)!=null && getCurrentLayerHeight()==map.getTile(this, 1, 1).getCurrentLayerHeight() &&
+               map.getTile(this, 1, 0)!=null && getCurrentLayerHeight()==map.getTile(this, 1, 0).getCurrentLayerHeight() &&
+               map.getTile(this, 0, 1)!=null && getCurrentLayerHeight()==map.getTile(this, 0, 1).getCurrentLayerHeight();
     }
     
     public void setTileContent(TileEntity entity, int level) {
@@ -674,14 +674,6 @@ public final class Tile implements XMLSerializable {
     void setTileContent(TileEntity entity, int level, boolean undo) {
         if (!isFlat()) {
             return;
-        }
-        
-        if (entity instanceof Roof) {
-            for (TileEntity e : entities.values()) {
-                if (e instanceof Roof) {
-                    return;
-                }
-            }
         }
         
         final EntityData entityData = new EntityData(level, EntityType.FLOORROOF);
