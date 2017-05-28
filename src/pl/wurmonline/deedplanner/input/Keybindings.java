@@ -133,7 +133,7 @@ public final class Keybindings {
         Scanner scan = null;
         
         try {
-            File file = new File(Properties.SAVE_DIR+"Properties.txt");
+            File file = new File(Properties.SAVE_DIR+"Properties/Keybindings.prop");
             File path = new File(Properties.SAVE_DIR+"Properties");
             if (!file.exists()) {
                 try {
