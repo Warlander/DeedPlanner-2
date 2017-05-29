@@ -3,11 +3,10 @@ package pl.wurmonline.deedplanner.forms;
 import java.awt.Image;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.logging.*;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
-import pl.wurmonline.deedplanner.MapPanel;
 import pl.wurmonline.deedplanner.data.io.DataLoader;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.Log;
@@ -31,10 +30,23 @@ public class Loading extends javax.swing.JFrame {
         new Thread(() -> {
             try {
                 DataLoader.loadData(this, new File("Data/objects.xml"));
+                new Planner();
             } catch (DeedPlannerException | ParserConfigurationException | IOException | SAXException ex) {
-                Logger.getLogger(MapPanel.class.getName()).log(Level.SEVERE, null, ex);
+                Log.err(ex);
+                JOptionPane.showMessageDialog(null,
+                                          "Critical DeedPlanner error occured.\n" +
+                                          "DeedPlanner objects definitions are not found or corrupted.\n" +
+                                          "This is possible in one of these scenarios:\n" +
+                                          "1. Program download is corrupted.\n" +
+                                          "2. Program doesn't have permissions to read files inside \"Data\" folder.\n" +
+                                          "3. Program objects definitions got incorrectly modified by user.\n" +
+                                          "If this message appears in other situations than mentioned,\n" +
+                                          "please copy content of ErrorLog.txt file and report\n" +
+                                          "the error in a program thread.",
+                                          "DeedPlanner critical error",
+                                          JOptionPane.ERROR_MESSAGE);
             }
-            new Planner();
+            
             dispose();
         }).start();
     }

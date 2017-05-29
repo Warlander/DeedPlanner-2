@@ -71,6 +71,10 @@ public class MeshData {
         return name;
     }
     
+    public boolean isNameContaining(String other) {
+        return name.toUpperCase().contains(other.toUpperCase());
+    }
+    
     public String toString() {
         return name;
     }

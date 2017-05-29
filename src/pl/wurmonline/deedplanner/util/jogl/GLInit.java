@@ -34,7 +34,6 @@ public class GLInit {
         
         g.glEnable(GL2.GL_ALPHA_TEST);
         g.glAlphaFunc(GL2.GL_GREATER, 0.5f);
-        g.glHint(GL2.GL_GENERATE_MIPMAP_HINT, GL2.GL_LINEAR);
     }
     
 }

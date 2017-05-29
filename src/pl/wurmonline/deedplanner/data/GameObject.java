@@ -4,6 +4,7 @@ import javax.media.opengl.GL2;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 
 public class GameObject implements GridTileEntity {
     
@@ -17,6 +18,9 @@ public class GameObject implements GridTileEntity {
     public GameObject(Element object) {
         String shortname = object.getAttribute("id");
         this.data = Data.objects.get(shortname);
+        if (data == null) {
+            throw new DeedPlannerRuntimeException("Non-existing GameObjectData with shortname " + shortname);
+        }
         rotation = Double.parseDouble(object.getAttribute("rotation"));
     }
     

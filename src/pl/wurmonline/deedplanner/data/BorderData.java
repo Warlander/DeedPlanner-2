@@ -9,8 +9,8 @@ import pl.wurmonline.deedplanner.util.jogl.Color;
 
 public class BorderData implements TileEntity {
     
-    private final String name;
-    private final String shortName;
+    public final String name;
+    public final String shortName;
     
     private final Consumer<GL2> drawFunction;
     private final Color color;

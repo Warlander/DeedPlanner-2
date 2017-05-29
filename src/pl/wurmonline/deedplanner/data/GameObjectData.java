@@ -9,15 +9,17 @@ public class GameObjectData {
     public final String shortName;
     public final String type;
     public final boolean centerOnly;
+    public final boolean floating;
     
     private final Materials materials;
     
-    public GameObjectData(Model model, String name, String shortName, String type, boolean centerOnly, Materials materials) {
+    public GameObjectData(Model model, String name, String shortName, String type, boolean centerOnly, boolean floating, Materials materials) {
         this.model = model;
         this.name = name;
         this.shortName = shortName;
-        this.type = type;
+        this.type = type == null ? "" : type;
         this.centerOnly = centerOnly;
+        this.floating = floating;
         if (materials!=null) {
             this.materials = materials;
         }

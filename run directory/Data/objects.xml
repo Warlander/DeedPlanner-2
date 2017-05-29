@@ -190,7 +190,7 @@
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
-		<ground name="Pottery brick" shortname="sab">
+		<ground name="Pottery brick" shortname="pb">
 			<tex location="Data/GroundTextures/potterybrickpaving.png"/>
 			<diagonal/>
 			<category>Roads</category>
@@ -1226,7 +1226,7 @@
 			<category>House walls/Slate</category>
 			<category>Materials/Slate</category>
 		</wall>
-		<wall name="Slate narrow window" shortname="dsWindow" scale="1" type="house">
+		<wall name="Slate narrow window" shortname="dsnWindow" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
 				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/slate.png"/>
 			</model>
@@ -1407,7 +1407,7 @@
 			<category>House walls/Marble</category>
 			<category>Materials/Marble</category>
 		</wall>
-		<wall name="Marble narrow window" shortname="mbWindow" scale="1" type="house">
+		<wall name="Marble narrow window" shortname="mbnWindow" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Window_Narrow.wom" tag="bottom">
 				<override mesh="StoneWindowNarrowMesh" texture="Data/Walls/marble.png"/>
 			</model>
@@ -3333,6 +3333,10 @@
 			<model location="Data/Objects/oleanderBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
+		<object name="Thorn" shortname="thorn" type="bush">
+			<model location="Data/Objects/thornbush.wom" scale="3"/>
+			<category>Bushes</category>
+		</object>
 		
 		<object name="Willow (small)" shortname="willS" type="tree">
 			<model location="Data/Objects/willowTree.wom" scale="4"/>
@@ -3565,6 +3569,13 @@
 			<model location="Data/Objects/trollStatue.wom"/>
 			<category>Statues</category>
 			<category>Materials/Stone</category>
+		</object>
+		
+		<object name="Freedom wagon" shortname="wagonFree" type="normal">
+			<model location="Data/Objects/Wagon_main.wom">
+				<override mesh="TentMesh" texture="Data/Objects/wagon_cloth_free.dds"/>
+			</model>
+			<category>Vehicles/Wagons</category>
 		</object>
 		
 		<object name="Colossus" shortname="col" type="centered">
@@ -3915,7 +3926,7 @@
 			</materials>
 			<category>Lamps</category>
 		</object>
-		<object name="Brass lamp" shortname="bhLamp" type="normal">
+		<object name="Brass lamp" shortname="bLamp" type="normal">
 			<model location="Data/Objects/Brass_Post.wom"/>
 			<materials>
 				Logs = 1,
@@ -4401,7 +4412,7 @@
 			<category>Flags</category>
 			<category>Kingdoms/Jenn-Kellon PMK</category>
 		</object>
-		<object name="VD flag" shortname="fJKPMK" type="normal">
+		<object name="VD flag" shortname="fVD" type="normal">
 			<model location="Data/Objects/Flag_main.wom">
 				<override mesh="Flag_flagMesh" texture="Data/Objects/valh_flag.png"/>
 			</model>
@@ -4428,27 +4439,6 @@
 			<materials>
 				Clay = 51,
 				Stone bricks = 51
-			</materials>
-			<category>Misc</category>
-			<category>Materials/Stone</category>
-		</object>
-		<object name="Pylon" shortname="pyl" type="normal">
-			<model location="Data/Objects/pylon.wom"/>
-			<materials>
-				Clay = 2000,
-				Stone bricks = 1000,
-				Brass lumps = 1000,
-				Stone slabs = 150
-			</materials>
-			<category>Misc</category>
-			<category>Materials/Stone</category>
-		</object>
-		<object name="Obelisk" shortname="obel" type="normal">
-			<model location="Data/Objects/obelisque.wom"/>
-			<materials>
-				Clay = 1001,
-				Stone bricks = 1001,
-				Brass lumps = 100
 			</materials>
 			<category>Misc</category>
 			<category>Materials/Stone</category>
@@ -5093,6 +5083,74 @@
 			</materials>
 			<category>Trellises</category>
 		</object>
+		
+		<object name="Rowing Boat" shortname="boatRB" type="floating">
+			<model location="Data/Objects/RowingBoat.wom"/>
+			<category>Ships</category>
+		</object>
+		<object name="Sailing Boat" shortname="boatSB" type="floating">
+			<model location="Data/Objects/SailingShip.wom"/>
+			<category>Ships</category>
+		</object>
+		<object name="Corbita" shortname="boatCorb" type="floating">
+			<model location="Data/Objects/Corbita.wom"/>
+			<category>Ships</category>
+		</object>
+		<object name="Cog" shortname="boatCog" type="floating">
+			<model location="Data/Objects/Cog.wom"/>
+			<category>Ships</category>
+		</object>
+		<object name="Knarr" shortname="boatKnarr" type="floating">
+			<model location="Data/Objects/Knarr.wom"/>
+			<category>Ships</category>
+		</object>
+		<object name="Caravel" shortname="boatCara" type="floating">
+			<model location="Data/Objects/caravel.wom"/>
+			<category>Ships</category>
+		</object>
+		
+		<object name="Spirit gate" shortname="sGate" type="normal">
+			<model location="Data/Objects/spiritgate.wom"/>
+			<materials>
+				Gold lumps = 1000,
+				Clay = 1001,
+				Stone bricks = 1001
+			</materials>
+			<category>Epic structures</category>
+		</object>
+		<object name="Shrine" shortname="shrine" type="normal">
+			<model location="Data/Objects/shrine.wom"/>
+			<materials>
+				Brass lumps = 100,
+				Clay = 1,
+				Planks = 100,
+				Small nails = 10,
+				Stone slabs = 11,
+				Blue flowers = 10
+			</materials>
+			<category>Epic structures</category>
+		</object>
+		<object name="Pylon" shortname="pyl" type="normal">
+			<model location="Data/Objects/pylon.wom"/>
+			<materials>
+				Clay = 2000,
+				Stone bricks = 1000,
+				Brass lumps = 1000,
+				Stone slabs = 150
+			</materials>
+			<category>Epic structures</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Obelisk" shortname="obel" type="normal">
+			<model location="Data/Objects/obelisque.wom"/>
+			<materials>
+				Clay = 1001,
+				Stone bricks = 1001,
+				Brass lumps = 100
+			</materials>
+			<category>Epic structures</category>
+			<category>Materials/Stone</category>
+		</object>
 	</objects>
 		
 		
@@ -5270,12 +5328,78 @@
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
+		<rock name="Stone brick reinforced cave wall" shortname="rswStone" type="wall" tex="Data/Caves/cave_stonehouse.dds">
+			<category>Walls/Decorative</category>
+		</rock>
+		<rock name="Marble brick reinforced cave wall" shortname="rswMarble" type="wall" tex="Data/Caves/cave_marble.dds">
+			<category>Walls/Decorative</category>
+		</rock>
+		<rock name="Slate brick reinforced cave wall" shortname="rswSlate" type="wall" tex="Data/Caves/cave_slate.dds">
+			<category>Walls/Decorative</category>
+		</rock>
+		<rock name="Pottery brick reinforced cave wall" shortname="rswPottery" type="wall" tex="Data/Caves/cave_brick.dds">
+			<category>Walls/Decorative</category>
+		</rock>
+		<rock name="Rounded stone reinforced cave wall" shortname="rswRound" type="wall" tex="Data/Caves/cave_rounded.dds">
+			<category>Walls/Decorative</category>
+		</rock>
+		<rock name="Rendered reinforced cave wall" shortname="rswRend" type="wall" tex="Data/Caves/cave_rendered.dds">
+			<category>Walls/Decorative</category>
+		</rock>
+		<rock name="Sandstone reinforced cave wall" shortname="rswSand" type="wall" tex="Data/Caves/cave_sandstone.dds">
+			<category>Walls/Decorative</category>
+		</rock>
+		<rock name="Wooden reinforced cave wall" shortname="rswWood" type="wall" tex="Data/Caves/cave_wood.dds">
+			<category>Walls/Decorative</category>
+		</rock>
 		
 		<rock name="Stone floor" shortname="sfl" type="floor" tex="Data/Caves/cave_512.png">
 			<category>Floors</category>
 		</rock>
 		<rock name="Reinforced stone floor" shortname="rsfl" type="floor" tex="Data/Caves/reinforcedcaveFloor_v1.dds">
 			<category>Floors</category>
+		</rock>
+		<rock name="Cobblestone" shortname="cobble" type="floor" tex="Data/Caves/reinforcedcaveFloor_v1.dds">
+			<category>Floors</category>
+		</rock>
+		<rock name="Gravel" shortname="grav" type="floor" tex="Data/GroundTextures/gravel.jpg">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Cobblestone" shortname="cs" type="floor" tex="Data/GroundTextures/cobble.png">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Rough cobblestone" shortname="rcs" type="floor" tex="Data/GroundTextures/cobble2.png">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Round cobblestone" shortname="csr" type="floor" tex="Data/GroundTextures/cobble3.png">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Stone slab" shortname="sl" type="floor" tex="Data/GroundTextures/slab.jpg">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Marble slab" shortname="msl" type="floor" tex="Data/GroundTextures/marbleslab.jpg">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Marble brick" shortname="mb" type="floor" tex="Data/GroundTextures/marbleBricks.png">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Slate slab" shortname="ssl2" type="floor" tex="Data/GroundTextures/slateTiles.png">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Slate brick" shortname="ssl" type="floor" tex="Data/GroundTextures/slateslab.jpg">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Sandstone slab" shortname="sas" type="floor" tex="Data/GroundTextures/sandstoneslab.png">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Sandstone brick" shortname="sab" type="floor" tex="Data/GroundTextures/sandstonebrick.png">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Pottery brick" shortname="pb" type="floor" tex="Data/GroundTextures/potterybrickpaving.png">
+			<category>Floors/Decorative</category>
+		</rock>
+		<rock name="Planks" shortname="pl" type="floor" tex="Data/GroundTextures/planks.png">
+			<category>Floors/Decorative</category>
 		</rock>
 		
 	</caves>

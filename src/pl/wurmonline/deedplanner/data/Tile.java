@@ -275,7 +275,14 @@ public final class Tile implements XMLSerializable {
                     boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.upCamera) || (Globals.renderTrees3d && !Globals.upCamera);
                     if (!isTree || (isTree && treeRenderingAllowed)) {
                         g.glColor3f(colorMod, colorMod, colorMod);
-                        g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), floorOffset + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
+                        final float renderHeight;
+                        if (obj.getData().floating) {
+                            renderHeight = Math.max(0, floorOffset + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD);
+                        }
+                        else {
+                            renderHeight = floorOffset + getHeight(loc.getHorizontalAlign()/4f, loc.getVerticalAlign()/4f)/Constants.HEIGHT_MOD;
+                        }
+                        g.glTranslatef(loc.getHorizontalAlign(), loc.getVerticalAlign(), renderHeight);
                         obj.render(g, this);
                     }
                 }
@@ -529,6 +536,11 @@ public final class Tile implements XMLSerializable {
     }
     
     void setGround(GroundData data, RoadDirection dir, boolean undo) {
+        if (data == null) {
+            Log.out(this, "Attempt to set ground with null GroundData");
+            return;
+        }
+        
         if (!new Ground(data).equals(ground)) {
             Tile oldTile = new Tile(this);
             if (!data.diagonal) {

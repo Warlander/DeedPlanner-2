@@ -4,6 +4,7 @@ import pl.wurmonline.deedplanner.graphics.wom.Model;
 import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.function.Consumer;
 import javax.media.opengl.GL2;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -25,24 +26,32 @@ public final class DataLoader {
         
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING GROUND DATA"));
         loadGrounds(doc);
+        Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING FLOOR DATA"));
         loadFloors(doc);
+        Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING WALL DATA"));
         loadWalls(doc);
+        Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING BORDERS DATA"));
         loadBorders();
+        Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING ROOF DATA"));
         loadRoofs(doc);
+        Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING OBJECT DATA"));
         loadObjects(doc);
+        Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING CAVE DATA"));
         loadCaves(doc);
+        Data.clearShortnames();
         loading.increaseProgress("Loading animal data");
         loadAnimals(doc);
+        Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LAUNCHING"));
     }
     
-    private static void loadGrounds(Document doc) {
+    private static void loadGrounds(Document doc) throws DeedPlannerException {
         NodeList entities = doc.getElementsByTagName("ground");
         
         for (int i=0; i<entities.getLength(); i++) {
@@ -87,6 +96,7 @@ public final class DataLoader {
                 }
             }
             
+            Data.verifyShortname(shortName);
             GroundData data = new GroundData(name, shortName, tex2d, tex3d, diagonal);
             Log.out(DataLoader.class, "Ground data "+data+" loaded and ready to use!");
             Data.grounds.put(shortName, data);
@@ -94,7 +104,7 @@ public final class DataLoader {
         }
     }
     
-    private static void loadFloors(Document doc) throws IOException {
+    private static void loadFloors(Document doc) throws IOException, DeedPlannerException {
         NodeList entities = doc.getElementsByTagName("floor");
         
         for (int i=0; i<entities.getLength(); i++) {
@@ -130,7 +140,8 @@ public final class DataLoader {
                         break;
                 }
             }
-                
+            
+            Data.verifyShortname(shortName);
             FloorData data = new FloorData(model, name, shortName, opening, materials);
             Log.out(DataLoader.class, "Floor data "+data+" loaded and ready to use!");
             Data.floors.put(shortName, data);
@@ -200,6 +211,7 @@ public final class DataLoader {
                 bottomModel = normalModel;
             }
             
+            Data.verifyShortname(shortName);
             WallData data = new WallData(bottomModel, normalModel, name, shortName, color, scale, houseWall, arch, archBuildable, materials, iconLocation);
             Log.out(DataLoader.class, "Wall data "+data+" loaded and ready to use!");
             Data.walls.put(shortName, data);
@@ -208,13 +220,13 @@ public final class DataLoader {
         }
     }
     
-    private static void loadBorders() {
+    private static void loadBorders() throws DeedPlannerException {
         loadBorderCategory("line", "l", DataLoader::straightLineRender);
         loadBorderCategory("dotted line", "dl", DataLoader::dottedLineRender);
         loadBorderCategory("zigzag line", "zl", DataLoader::zigzagLineRender);
     }
     
-    private static void loadBorderCategory(String name, String shortName, Consumer<GL2> drawCall) {
+    private static void loadBorderCategory(String name, String shortName, Consumer<GL2> drawCall) throws DeedPlannerException {
         loadBorder("Blue "+name, "be"+shortName, drawCall, new Color(java.awt.Color.blue));
         loadBorder("Black "+name, "bk"+shortName, drawCall, new Color(java.awt.Color.black));
         loadBorder("Cyan "+name, "cn"+shortName, drawCall, new Color(java.awt.Color.cyan));
@@ -228,7 +240,8 @@ public final class DataLoader {
         loadBorder("Yellow "+name, "yw"+shortName, drawCall, new Color(java.awt.Color.yellow));
     }
     
-    private static void loadBorder(String name, String shortName, Consumer<GL2> drawCall, Color color) {
+    private static void loadBorder(String name, String shortName, Consumer<GL2> drawCall, Color color) throws DeedPlannerException {
+        Data.verifyShortname(shortName);
         BorderData data = new BorderData(name, shortName, drawCall, color);
         Data.borders.put(shortName, data);
         Data.bordersList.addElement(data);
@@ -265,7 +278,7 @@ public final class DataLoader {
         g.glEnd();
     }
     
-    private static void loadRoofs(Document doc) throws IOException {
+    private static void loadRoofs(Document doc) throws IOException, DeedPlannerException {
         NodeList entities = doc.getElementsByTagName("roof");
         
         for (int i=0; i<entities.getLength(); i++) {
@@ -285,6 +298,7 @@ public final class DataLoader {
                 materials = new Materials(materialsNode);
             }
             
+            Data.verifyShortname(shortName);
             RoofData data = new RoofData(name, shortName, tex, materials);
             Log.out(DataLoader.class, "Roof data "+data+" loaded and ready to use!");
             Data.roofs.put(shortName, data);
@@ -292,13 +306,14 @@ public final class DataLoader {
         }
     }
     
-    private static void loadObjects(Document doc) throws IOException {
+    private static void loadObjects(Document doc) throws IOException, DeedPlannerException {
         NodeList entities = doc.getElementsByTagName("object");
         
         for (int i=0; i<entities.getLength(); i++) {
             final String name;
             final String shortName;
             final boolean centerOnly;
+            final boolean floating;
             Model model = null;
             ArrayList<String[]> categories = new ArrayList<>();
             Materials materials = null;
@@ -310,6 +325,7 @@ public final class DataLoader {
             shortName = map.getNamedItem("shortname").getNodeValue();
             String type = map.getNamedItem("type").getNodeValue();
             centerOnly = "centered".equals(type);
+            floating = "floating".equals(type);
             
             NodeList list = entity.getChildNodes();
             
@@ -326,8 +342,9 @@ public final class DataLoader {
                         materials = new Materials(node);
                 }
             }
-                
-            GameObjectData data = new GameObjectData(model, name, shortName, type, centerOnly, materials);
+            
+            Data.verifyShortname(shortName);
+            GameObjectData data = new GameObjectData(model, name, shortName, type, centerOnly, floating, materials);
             Log.out(DataLoader.class, "Object data "+data+" loaded and ready to use!");
             Data.objects.put(shortName, data);
 
@@ -335,7 +352,7 @@ public final class DataLoader {
         }
     }
     
-    private static void loadCaves(Document doc) throws IOException {
+    private static void loadCaves(Document doc) throws IOException, DeedPlannerException {
         NodeList entities = doc.getElementsByTagName("rock");
         
         for (int i=0; i<entities.getLength(); i++) {
@@ -368,6 +385,7 @@ public final class DataLoader {
                 }
             }
             
+            Data.verifyShortname(shortName);
             CaveData data = new CaveData(tex, name, shortName, wall, show);
             Log.out(DataLoader.class, "Cave data "+data+" loaded and ready to use!");
             Data.caves.put(shortName, data);
@@ -375,7 +393,7 @@ public final class DataLoader {
         }
     }
     
-    private static void loadAnimals(Document doc) throws IOException {
+    private static void loadAnimals(Document doc) throws IOException, DeedPlannerException {
         NodeList entities = doc.getElementsByTagName("animal");
         
         for (int i=0; i<entities.getLength(); i++) {
@@ -416,7 +434,8 @@ public final class DataLoader {
                         categories.add(node.getTextContent().split("/"));
                 }
             }
-                
+            
+            Data.verifyShortname(shortName);
             AnimalData data = new AnimalData(unisexModel, maleModel, femaleModel, name, shortName);
             Log.out(DataLoader.class, "Animal data "+data+" loaded and ready to use!");
             Data.animals.put(shortName, data);
