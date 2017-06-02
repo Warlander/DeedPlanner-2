@@ -684,7 +684,7 @@ public final class Tile implements XMLSerializable {
     }
     
     void setTileContent(TileEntity entity, int level, boolean undo) {
-        if (!isFlat()) {
+        if (!isFlat() && entity != null) {
             return;
         }
         
