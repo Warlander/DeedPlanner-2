@@ -3,6 +3,7 @@ package pl.wurmonline.deedplanner.forms;
 import java.awt.Image;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.ParserConfigurationException;
@@ -29,7 +30,11 @@ public class Loading extends javax.swing.JFrame {
         setVisible(true);
         new Thread(() -> {
             try {
-                DataLoader.loadData(this, new File("Data/objects.xml"));
+                File dataFolder = new File("Data");
+                File[] filesInFolder = dataFolder.listFiles();
+                File[] dataFiles = Arrays.stream(filesInFolder).filter(file -> file.getName().endsWith(".xml") && file.getName().startsWith("objects")).toArray(File[]::new);
+                
+                DataLoader.loadData(this, dataFiles);
                 new Planner();
             } catch (DeedPlannerException | ParserConfigurationException | IOException | SAXException ex) {
                 Log.err(ex);

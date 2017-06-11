@@ -21,32 +21,49 @@ public final class DataLoader {
 
     private DataLoader() {}
     
-    public static void loadData(Loading loading, File file) throws ParserConfigurationException, IOException, SAXException, DeedPlannerException {
-        Document doc = XMLUtils.fileToXMLDoc(file);
+    public static void loadData(Loading loading, File[] files) throws ParserConfigurationException, IOException, SAXException, DeedPlannerException {
+        Document[] docs = new Document[files.length];
+        for (int i = 0; i < docs.length; i++) {
+            docs[i] = XMLUtils.fileToXMLDoc(files[i]);
+        }
         
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING GROUND DATA"));
-        loadGrounds(doc);
+        for (Document doc : docs) {
+            loadGrounds(doc);
+        }
         Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING FLOOR DATA"));
-        loadFloors(doc);
+        for (Document doc : docs) {
+            loadFloors(doc);
+        }
         Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING WALL DATA"));
-        loadWalls(doc);
+        for (Document doc : docs) {
+            loadWalls(doc);
+        }
         Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING BORDERS DATA"));
         loadBorders();
         Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING ROOF DATA"));
-        loadRoofs(doc);
+        for (Document doc : docs) {
+            loadRoofs(doc);
+        }
         Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING OBJECT DATA"));
-        loadObjects(doc);
+        for (Document doc : docs) {
+            loadObjects(doc);
+        }
         Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LOADING CAVE DATA"));
-        loadCaves(doc);
+        for (Document doc : docs) {
+            loadCaves(doc);
+        }
         Data.clearShortnames();
         loading.increaseProgress("Loading animal data");
-        loadAnimals(doc);
+        for (Document doc : docs) {
+            loadAnimals(doc);
+        }
         Data.clearShortnames();
         loading.increaseProgress(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("LAUNCHING"));
     }
