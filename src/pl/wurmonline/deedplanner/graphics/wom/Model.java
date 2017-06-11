@@ -272,6 +272,17 @@ public final class Model implements Renderable {
         }
     }
     
+    public void addTextureOverride(String meshName, String texture) {
+        textureOverrides.put(meshName, texture);
+        if (meshes != null) {
+            for (Mesh mesh : meshes) {
+                if (meshName.equals(mesh.getName())) {
+                    mesh.setTexture(SimpleTex.getTexture(texture));
+                }
+            }
+        }
+    }
+    
     public Vector3f getScale() {
         return scale;
     }

@@ -9,7 +9,7 @@ public final class Mesh implements Renderable {
 
     private final Model parent;
     
-    private final SimpleTex tex;
+    private SimpleTex tex;
     private final int listID;
     private final String name;
     
@@ -29,6 +29,18 @@ public final class Mesh implements Renderable {
         
         g.glScalef(scale.x, scale.y, scale.z);
         g.glCallList(listID);
+    }
+    
+    public void setTexture(SimpleTex tex) {
+        this.tex = tex;
+    }
+    
+    public SimpleTex getTexture() {
+        return tex;
+    }
+    
+    public String getName() {
+        return name;
     }
     
     public String toString() {
