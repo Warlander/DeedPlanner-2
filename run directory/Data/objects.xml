@@ -3337,6 +3337,22 @@
 			<model location="Data/Objects/thornbush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
+		<object name="Blueberry" shortname="blueberry" type="bush">
+			<model location="Data/Objects/blueberryBush.wom" scale="3"/>
+			<category>Bushes</category>
+		</object>
+		<object name="Hazel" shortname="hazel" type="bush">
+			<model location="Data/Objects/hazelBush.wom" scale="3"/>
+			<category>Bushes</category>
+		</object>
+		<object name="Lingonberry" shortname="lingonberry" type="bush">
+			<model location="Data/Objects/lingonberryBush.wom" scale="3"/>
+			<category>Bushes</category>
+		</object>
+		<object name="Raspberry" shortname="raspberry" type="bush">
+			<model location="Data/Objects/raspberryBush.wom" scale="3"/>
+			<category>Bushes</category>
+		</object>
 		
 		<object name="Willow (small)" shortname="willS" type="tree">
 			<model location="Data/Objects/willowTree.wom" scale="4"/>
@@ -3576,6 +3592,23 @@
 				<override mesh="TentMesh" texture="Data/Objects/wagon_cloth_free.dds"/>
 			</model>
 			<category>Vehicles/Wagons</category>
+		</object>
+		
+		<object name="Small cart" shortname="sCart" type="normal">
+			<model location="Data/Objects/smallCart_main.wom"/>
+			<category>Vehicles/Carts</category>
+		</object>
+		<object name="Large cart" shortname="lCart" type="normal">
+			<model location="Data/Objects/largecart_main.wom"/>
+			<category>Vehicles/Carts</category>
+		</object>
+		<object name="Ship transporter (empty)" shortname="sTransportE" type="normal">
+			<model location="Data/Objects/ShipTransporter.wom"/>
+			<category>Vehicles/Ship transporter</category>
+		</object>
+		<object name="Ship transporter (loaded)" shortname="sTransportL" type="normal">
+			<model location="Data/Objects/ShipTransporter_loaded.wom"/>
+			<category>Vehicles/Ship transporter</category>
 		</object>
 		
 		<object name="Colossus" shortname="col" type="centered">
@@ -4612,6 +4645,19 @@
 			<model location="Data/Objects/Belltower_Main.wom"/>
 			<category>Decoration</category>
 		</object>
+		<object name="Birdcage" shortname="bCage" type="normal">
+			<model location="Data/Objects/Birdcage.wom"/>
+			<materials>
+				Brass ribbons = 2,
+				Wires = 5,
+				Rivets = 10,
+				Metal bowls = 1,
+				Brass lumps = 10,
+				Eggs = 1
+			</materials>
+			<category>Decoration</category>
+		</object>
+		
 		<object name="Yule goat" shortname="ygoat" type="normal">
 			<model location="Data/Objects/bucketthree.wom"/>
 			<category>Unique items</category>
@@ -4624,6 +4670,15 @@
 			<model location="Data/Objects/valentine_roses1.wom"/>
 			<category>Unique items</category>
 		</object>
+		<object name="Garden gnome" shortname="gGnome" type="normal">
+			<model location="Data/Objects/bucket2.wom"/>
+			<category>Unique items</category>
+		</object>
+		<object name="Green cap garden gnome" shortname="gcgGnome" type="normal">
+			<model location="Data/Objects/greenGnome.wom"/>
+			<category>Unique items</category>
+		</object>
+		
 		<object name="Bear vs Bull" shortname="bearvbullhota" type="normal">
 			<model location="Data/Objects/bearBullStatue.wom"/>
 			<category>HOTA Statues</category>
