@@ -20,5 +20,8 @@
 	<animals>
 		<!-- add custom animal types here -->
 	</animals>
+	<caves>
+		<!-- add custom cave wall/floor types here -->
+	</caves>
 	<!-- no way to add custom borders or bridges (for now) -->
 </entities>
