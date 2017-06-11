@@ -27,7 +27,9 @@ public final class Mesh implements Renderable {
         
         Vector3f scale = parent.getScale();
         
-        g.glScalef(scale.x, scale.y, scale.z);
+        if (scale.x != 1 || scale.y != 1 || scale.z != 1) {
+            g.glScalef(scale.x, scale.y, scale.z);
+        }
         g.glCallList(listID);
     }
     
