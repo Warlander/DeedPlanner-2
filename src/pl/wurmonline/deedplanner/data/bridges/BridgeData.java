@@ -78,12 +78,22 @@ public abstract class BridgeData {
     public static final BridgeData WOODEN_BRIDGE;
     public static final BridgeData MARBLE_BRIDGE;
     public static final BridgeData STONE_BRIDGE;
+    public static final BridgeData POTTERY_BRIDGE;
+    public static final BridgeData RENDERED_BRIDGE;
+    public static final BridgeData ROUNDED_BRIDGE;
+    public static final BridgeData SANDSTONE_BRIDGE;
+    public static final BridgeData SLATE_BRIDGE;
     
     static {
         ROPE_BRIDGE = addBridgeData(new RopeBridgeData());
         WOODEN_BRIDGE = addBridgeData(new WoodenBridgeData());
         MARBLE_BRIDGE = addBridgeData(new MarbleBridgeData());
         STONE_BRIDGE = addBridgeData(new StoneBridgeData());
+        POTTERY_BRIDGE = addBridgeData(new PotteryBridgeData());
+        RENDERED_BRIDGE = addBridgeData(new RenderedBridgeData());
+        ROUNDED_BRIDGE = addBridgeData(new RoundedBridgeData());
+        SANDSTONE_BRIDGE = addBridgeData(new SandstoneBridgeData());
+        SLATE_BRIDGE = addBridgeData(new SlateBridgeData());
     }
     
     private static BridgeData addBridgeData(BridgeData data) {
@@ -99,14 +109,16 @@ public abstract class BridgeData {
         return bridgeTypes.values().stream().toArray(BridgeData[]::new);
     }
     
-    private final HashMap<BridgePartType, Materials> materials;
+    private final HashMap<BridgePartType, Materials> typeMaterials;
+    private final HashMap<BridgePartSide, Materials> sideMaterials;
     protected final int maxWidth;
     
     public BridgeData(int maxWidth) {
         this.maxWidth = maxWidth;
         
-        this.materials = new HashMap<>();
-        prepareMaterialsMap(materials);
+        this.typeMaterials = new HashMap<>();
+        this.sideMaterials = new HashMap<>();
+        prepareMaterialsMap(typeMaterials, sideMaterials);
     }
     
     public final void constructBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgeType type, BridgePartType[] segments, int additionalData, boolean verticalOrientation) {
@@ -278,8 +290,13 @@ public abstract class BridgeData {
         return maxWidth;
     }
     
-    public final Materials getMaterialsForPartType(BridgePartType type) {
-        return materials.get(type);
+    public final Materials getMaterialsForPart(BridgePartType type, BridgePartSide side) {
+        Materials typeMats = typeMaterials.get(type);
+        Materials sideMats = sideMaterials.get(side);
+        Materials totalMaterials = new Materials();
+        totalMaterials.put(typeMats);
+        totalMaterials.put(sideMats);
+        return totalMaterials;
     }
     
     public abstract boolean isCompatibleType(BridgeType type);
@@ -287,7 +304,7 @@ public abstract class BridgeData {
     public abstract int getSupportHeight();
     public abstract String getName();
     
-    protected abstract void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials);
+    protected abstract void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials, HashMap<BridgePartSide, Materials> additionalMaterials);
     
     protected BridgePartSide getPartSide(int startX, int startY, int endX, int endY, Tile checkedTile, boolean isVertical) {
         if (startX == endX || startY == endY) {

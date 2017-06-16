@@ -40,10 +40,10 @@ public class BridgePart implements TileEntity {
     public Materials getMaterials() {
         Materials totalMaterials = new Materials();
         
-        totalMaterials.put(bridge.getData().getMaterialsForPartType(type));
+        totalMaterials.put(bridge.getData().getMaterialsForPart(type, side));
         
         if (type == BridgePartType.SUPPORT) {
-            Materials extensionMaterials = bridge.getData().getMaterialsForPartType(BridgePartType.EXTENSION);
+            Materials extensionMaterials = bridge.getData().getMaterialsForPart(BridgePartType.EXTENSION, BridgePartSide.CENTER);
             float relativeHeight =  height - tile.getHeight();
             relativeHeight -= bridge.getData().getSupportHeight();
             relativeHeight -= bridge.getData().getSupportHeight();

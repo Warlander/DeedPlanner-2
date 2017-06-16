@@ -32,32 +32,26 @@ public class WoodenBridgeData extends BridgeData {
         this.extension = new Model("Data/Bridges/Wooden/WoodBridgeExtension.wom");
     }
     
-    protected void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials) {
+    protected void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials, HashMap<BridgePartSide, Materials> additionalMaterials) {
         Materials crownMaterials = new Materials();
         crownMaterials.put("Wooden beams", 4);
-        crownMaterials.put("Planks", 22);
-        crownMaterials.put("Shafts", 2);
+        crownMaterials.put("Planks", 20);
         crownMaterials.put("Iron ribbons", 2);
         crownMaterials.put("Large nails", 3);
-        crownMaterials.put("Small nails", 1);
         materials.put(BridgePartType.CROWN, crownMaterials);
         
         Materials abutmentMaterials = new Materials();
         abutmentMaterials.put("Wooden beams", 8);
-        abutmentMaterials.put("Planks", 22);
-        abutmentMaterials.put("Shafts", 2);
+        abutmentMaterials.put("Planks", 20);
         abutmentMaterials.put("Iron ribbons", 4);
         abutmentMaterials.put("Large nails", 4);
-        abutmentMaterials.put("Small nails", 1);
         materials.put(BridgePartType.ABUTMENT, abutmentMaterials);
         
         Materials supportMaterials = new Materials();
         supportMaterials.put("Wooden beams", 12);
-        supportMaterials.put("Planks", 22);
-        supportMaterials.put("Shafts", 2);
+        supportMaterials.put("Planks", 20);
         supportMaterials.put("Iron ribbons", 6);
         supportMaterials.put("Large nails", 5);
-        supportMaterials.put("Small nails", 1);
         materials.put(BridgePartType.SUPPORT, supportMaterials);
         
         Materials extensionMaterials = new Materials();
@@ -65,6 +59,19 @@ public class WoodenBridgeData extends BridgeData {
         extensionMaterials.put("Iron ribbons", 2);
         extensionMaterials.put("Large nails", 1);
         materials.put(BridgePartType.EXTENSION, extensionMaterials);
+        
+        Materials oneWallMaterials = new Materials();
+        oneWallMaterials.put("Planks", 2);
+        oneWallMaterials.put("Shafts", 2);
+        oneWallMaterials.put("Small nails", 1);
+        additionalMaterials.put(BridgePartSide.LEFT, oneWallMaterials);
+        additionalMaterials.put(BridgePartSide.RIGHT, oneWallMaterials);
+        
+        Materials twoWallsMaterials = new Materials();
+        twoWallsMaterials.put("Planks", 4);
+        twoWallsMaterials.put("Shafts", 4);
+        twoWallsMaterials.put("Small nails", 2);
+        additionalMaterials.put(BridgePartSide.NARROW, twoWallsMaterials);
     }
 
     public boolean isCompatibleType(BridgeType type) {

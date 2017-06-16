@@ -20,7 +20,7 @@ public class RopeBridgeData extends BridgeData {
         this.narrowDoubleAbutment = new Model("Data/Bridges/Rope/RopeBridgeDA.wom");
     }
     
-    protected void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials) {
+    protected void prepareMaterialsMap(HashMap<BridgePartType, Materials> materials, HashMap<BridgePartSide, Materials> additionalMaterials) {
         Materials crownMaterials = new Materials();
         crownMaterials.put("Planks", 10);
         crownMaterials.put("Mooring ropes", 6);
@@ -42,6 +42,9 @@ public class RopeBridgeData extends BridgeData {
         doubleAbutmentMaterials.put("Thick ropes", 4);
         doubleAbutmentMaterials.put("Logs", 8);
         materials.put(BridgePartType.DOUBLE_ABUTMENT, doubleAbutmentMaterials);
+        
+        Materials twoWallsMaterials = new Materials();
+        additionalMaterials.put(BridgePartSide.NARROW, twoWallsMaterials);
     }
 
     public boolean isCompatibleType(BridgeType type) {
