@@ -159,10 +159,10 @@ public final class FPPCamera {
             final double xPartRev = 1f - xPart;
             final double yPartRev = 1f - yPart;
 
-            final double h00 = map.getTile(currX, currZ).getHeight()/Constants.HEIGHT_MOD;
-            final double h10 = map.getTile(currX+1, currZ).getHeight()/Constants.HEIGHT_MOD;
-            final double h01 = map.getTile(currX, currZ+1).getHeight()/Constants.HEIGHT_MOD;
-            final double h11 = map.getTile(currX+1, currZ+1).getHeight()/Constants.HEIGHT_MOD;
+            final double h00 = map.getTile(currX, currZ).getCurrentLayerHeight()/Constants.HEIGHT_MOD;
+            final double h10 = map.getTile(currX+1, currZ).getCurrentLayerHeight()/Constants.HEIGHT_MOD;
+            final double h01 = map.getTile(currX, currZ+1).getCurrentLayerHeight()/Constants.HEIGHT_MOD;
+            final double h11 = map.getTile(currX+1, currZ+1).getCurrentLayerHeight()/Constants.HEIGHT_MOD;
 
             final double x0 = (h00*xPartRev + h10*xPart);
             final double x1 = (h01*xPartRev + h11*xPart);

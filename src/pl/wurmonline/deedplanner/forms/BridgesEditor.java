@@ -12,11 +12,11 @@ public class BridgesEditor extends javax.swing.JPanel {
     
     private int startX = 0;
     private int startY = 0;
-    private int startFloor = -1;
+    private int startFloor = Integer.MIN_VALUE;
     
     private int endX = 0;
     private int endY = 0;
-    private int endFloor = -1;
+    private int endFloor = Integer.MIN_VALUE;
     
     public BridgesEditor() {
         this(null);
@@ -152,7 +152,7 @@ public class BridgesEditor extends javax.swing.JPanel {
     private void startTileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startTileButtonActionPerformed
         Tile tile = TileSelection.getSelectedTile();
         if (tile == null) {
-            startFloor = -1;
+            startFloor = Integer.MIN_VALUE;
         }
         else {
             startX = tile.getX();
@@ -165,7 +165,7 @@ public class BridgesEditor extends javax.swing.JPanel {
     private void endTileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endTileButtonActionPerformed
         Tile tile = TileSelection.getSelectedTile();
         if (tile == null) {
-            endFloor = -1;
+            endFloor = Integer.MIN_VALUE;
         }
         else {
             endX = tile.getX();
@@ -190,7 +190,7 @@ public class BridgesEditor extends javax.swing.JPanel {
     }//GEN-LAST:event_createBridgeButtonActionPerformed
 
     private void destroyBridgeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destroyBridgeButtonActionPerformed
-        if (startFloor == -1) {
+        if (startFloor == Integer.MIN_VALUE) {
             // no starting tile is set, so returning
             return;
         }
@@ -198,9 +198,13 @@ public class BridgesEditor extends javax.swing.JPanel {
         Map map = planner.getMapPanel().getMap();
         Tile startTile = map.getTile(map.getTile(0, 0), startX, startY);
         
-        if (startTile.getBridgePart() != null) {
+        if (startFloor >= 0 && startTile.getBridgePart() != null) {
             startTile.getBridgePart().destroy();
         }
+        else if (startFloor < 0 && startTile.getCaveBridgePart() != null) {
+            startTile.getCaveBridgePart().destroy();
+        }
+        
         
         updateState();
     }//GEN-LAST:event_destroyBridgeButtonActionPerformed
@@ -212,14 +216,14 @@ public class BridgesEditor extends javax.swing.JPanel {
     }
     
     private void updateTileLabels() {
-        if (startFloor == -1) {
+        if (startFloor == Integer.MIN_VALUE) {
             startTileLabel.setText("Start tile: none");
         }
         else {
             startTileLabel.setText("Start tile X:"+startX + ", Y:" + startY + ", floor "+ startFloor);
         }
         
-        if (endFloor == -1) {
+        if (endFloor == Integer.MIN_VALUE) {
             endTileLabel.setText("End tile: none");
         }
         else {
@@ -228,7 +232,7 @@ public class BridgesEditor extends javax.swing.JPanel {
     }
     
     private void updateBridgeDeletion() {
-        if (startFloor == -1) {
+        if (startFloor == Integer.MIN_VALUE) {
             destroyBridgeButton.setEnabled(false);
             // no starting tile is set, so returning
             return;
@@ -237,7 +241,7 @@ public class BridgesEditor extends javax.swing.JPanel {
         Map map = planner.getMapPanel().getMap();
         Tile startTile = map.getTile(map.getTile(0, 0), startX, startY);
         
-        if (startTile.getBridgePart() != null) {
+        if (startTile.getCurrentLayerBridgePart() != null) {
             destroyBridgeButton.setEnabled(true);
         }
         else {
@@ -247,11 +251,15 @@ public class BridgesEditor extends javax.swing.JPanel {
     
     private void updateWarnings() {
         StringBuilder warningsString = new StringBuilder();
-        if (startFloor == -1) {
+        if (startFloor == Integer.MIN_VALUE) {
             warningsString.append("Start tile is not set<br>");
         }
-        if (endFloor == -1) {
+        if (endFloor == Integer.MIN_VALUE) {
             warningsString.append("End tile is not set<br>");
+        }
+        
+        if ((startFloor >= 0 && endFloor < 0) || (startFloor < 0 && endFloor >= 0)) {
+            warningsString.append("Bridge cannot go from surface to the cave<br>");
         }
         
         if (planner == null) {
@@ -277,13 +285,13 @@ public class BridgesEditor extends javax.swing.JPanel {
         int distMax = Math.max(distX, distY);
 
         if (distMin > 2) {
-            warningsString.append("Bridge cannot be more than 3 tiles wide.<br>");
+            warningsString.append("Bridge cannot be more than 3 tiles wide<br>");
         }
         if (distMax < 2) {
-            warningsString.append("Bridge cannot be 0 tiles long.<br>");
+            warningsString.append("Bridge cannot be 0 tiles long<br>");
         }
         if (distMax > 40) {
-            warningsString.append("Bridge cannot be longer than 38 tiles.<br>");
+            warningsString.append("Bridge cannot be longer than 38 tiles<br>");
         }
         
         if (warningsString.length() == 0) {

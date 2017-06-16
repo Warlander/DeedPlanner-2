@@ -134,6 +134,7 @@ public abstract class BridgeData {
     }
     
     private void constructFlatBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, boolean verticalOrientation) {
+        boolean surfaced = firstFloor >= 0;
         int bridgeWidth = Math.max(endX - startX, endY - startY) + 1;
         float startHeight = getAbsoluteHeight(map.getTile(startX, startY), firstFloor);
         float endHeight = getAbsoluteHeight(map.getTile(endX + 1, endY + 1), secondFloor);
@@ -147,12 +148,13 @@ public abstract class BridgeData {
                 BridgePartSide side = getPartSide(startX, startY, endX, endY, map.getTile(x, y), verticalOrientation);
                 EntityOrientation orientation = getPartOrientation(segments, verticalOrientation, currentSegment);
                 
-                map.getTile(x, y).setBridgePart(new BridgePart(bridge, map.getTile(x, y), side, segment, orientation, currentHeight, heightStep));
+                map.getTile(x, y).setBridgePart(new BridgePart(bridge, map.getTile(x, y), side, segment, orientation, currentHeight, heightStep), surfaced);
             }
         }
     }
     
     private void constructArchedBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData, boolean verticalOrientation) {
+        boolean surfaced = firstFloor >= 0;
         int bridgeWidth = Math.max(endX - startX, endY - startY) + 1;
         float startHeight = getAbsoluteHeight(map.getTile(startX, startY), firstFloor);
         float endHeight = getAbsoluteHeight(map.getTile(endX + 1, endY + 1), secondFloor);
@@ -192,12 +194,13 @@ public abstract class BridgeData {
                 BridgePartSide side = getPartSide(startX, startY, endX, endY, map.getTile(x, y), verticalOrientation);
                 EntityOrientation orientation = getPartOrientation(segments, verticalOrientation, currentSegment);
                 
-                map.getTile(x, y).setBridgePart(new BridgePart(bridge, map.getTile(x, y), side, segment, orientation, currentHeight + previousArch, heightStep + (archHeight - previousArch)));
+                map.getTile(x, y).setBridgePart(new BridgePart(bridge, map.getTile(x, y), side, segment, orientation, currentHeight + previousArch, heightStep + (archHeight - previousArch)), surfaced);
             }
         }
     }
     
     private void constructRopeBridge(Map map, Bridge bridge, int startX, int startY, int endX, int endY, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData, boolean verticalOrientation) {
+        boolean surfaced = firstFloor >= 0;
         int bridgeWidth = Math.max(endX - startX, endY - startY) + 1;
         float startHeight = getAbsoluteHeight(map.getTile(startX, startY), firstFloor);
         float endHeight = getAbsoluteHeight(map.getTile(endX + 1, endY + 1), secondFloor);
@@ -215,17 +218,35 @@ public abstract class BridgeData {
                 BridgePartSide side = getPartSide(startX, startY, endX, endY, map.getTile(x, y), verticalOrientation);
                 EntityOrientation orientation = getPartOrientation(segments, verticalOrientation, currentSegment);
                 
-                map.getTile(x, y).setBridgePart(new BridgePart(bridge, map.getTile(x, y), side, segment, orientation, sags[currentSegment], heightStep + currentSag));
+                map.getTile(x, y).setBridgePart(new BridgePart(bridge, map.getTile(x, y), side, segment, orientation, sags[currentSegment], heightStep + currentSag), surfaced);
             }
         }
     }
     
     private int getAbsoluteHeight(Tile tile, int floor) {
-        if (floor == 0) {
-            return tile.getHeight();
+        int calculationsFloor = floor;
+        if (calculationsFloor < 0) {
+            calculationsFloor = -calculationsFloor - 1;
+        }
+        
+        if (calculationsFloor == 0) {
+            if (floor < 0) {
+                return tile.getCaveHeight();
+            }
+            else {
+                return tile.getHeight();
+            }
         }
         else {
-            return tile.getHeight() + floor * 30 + 3;
+            int tileHeight;
+            if (floor < 0) {
+                tileHeight = tile.getCaveHeight();
+            }
+            else {
+                tileHeight = tile.getHeight();
+            }
+            
+            return tileHeight + calculationsFloor * 30 + 3;
         }
     }
     

@@ -2,6 +2,7 @@ package pl.wurmonline.deedplanner.data.bridges;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.util.XMLSerializable;
@@ -21,10 +22,14 @@ public class Bridge implements XMLSerializable {
         int secondFloor = Integer.parseInt(element.getAttribute("secondFloor"));
         int additionalData = Integer.parseInt(element.getAttribute("sag"));
         boolean verticalOrientation = Boolean.parseBoolean(element.getAttribute("orientation"));
+        boolean surfaced = true;
+        if (element.hasAttribute("surfaced")) {
+            surfaced = Boolean.parseBoolean(element.getAttribute("surfaced"));
+        }
         
         BridgePartType[] segments = BridgePartType.decodeSegments(element.getTextContent());
         
-        Bridge bridge = new Bridge(map, data, type, firstTile, secondTile, firstFloor, secondFloor, segments, additionalData, verticalOrientation);
+        Bridge bridge = new Bridge(map, data, type, firstTile, secondTile, firstFloor, secondFloor, segments, additionalData, verticalOrientation, surfaced);
         data.constructBridge(map, bridge, firstX, firstY, secondX, secondY, firstFloor, secondFloor, type, segments, additionalData, verticalOrientation);
         map.addBridge(bridge);
         return bridge;
@@ -34,6 +39,8 @@ public class Bridge implements XMLSerializable {
         if (!data.isCompatibleType(type)) {
             return null;
         }
+        
+        boolean surfaced = Globals.floor >= 0;
         
         int startX = Math.min(firstTile.getX(), secondTile.getX());
         int endX = Math.max(firstTile.getX(), secondTile.getX());
@@ -59,7 +66,7 @@ public class Bridge implements XMLSerializable {
             return null;
         }
         
-        Bridge bridge = new Bridge(map, data, type, firstTile, secondTile, firstFloor, secondFloor, segments, additionalData, verticalOrientation);
+        Bridge bridge = new Bridge(map, data, type, firstTile, secondTile, firstFloor, secondFloor, segments, additionalData, verticalOrientation, surfaced);
         data.constructBridge(map, bridge, startX, startY, endX, endY, firstFloor, secondFloor, type, segments, additionalData, verticalOrientation);
         map.addBridge(bridge);
         
@@ -76,8 +83,9 @@ public class Bridge implements XMLSerializable {
     private final BridgePartType[] segments;
     private final int additionalData;
     private final boolean verticalOrientation;
+    private final boolean aboveGround;
     
-    private Bridge(Map map, BridgeData data, BridgeType type, Tile firstTile, Tile secondTile, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData, boolean verticalOrientation) {
+    private Bridge(Map map, BridgeData data, BridgeType type, Tile firstTile, Tile secondTile, int firstFloor, int secondFloor, BridgePartType[] segments, int additionalData, boolean verticalOrientation, boolean aboveGround) {
         this.map = map;
         this.data = data;
         this.type = type;
@@ -88,6 +96,7 @@ public class Bridge implements XMLSerializable {
         this.segments = segments;
         this.additionalData = additionalData;
         this.verticalOrientation = verticalOrientation;
+        this.aboveGround = aboveGround;
     }
     
     public void destroy() {
@@ -98,7 +107,7 @@ public class Bridge implements XMLSerializable {
         
         for (int x = startX; x <= endX; x++) {
             for (int y = startY; y <= endY; y++) {
-                map.getTile(x, y).setBridgePart(null);
+                map.getTile(x, y).setBridgePart(null, aboveGround);
             }
         }
         
@@ -111,6 +120,10 @@ public class Bridge implements XMLSerializable {
     
     public BridgeType getType() {
         return type;
+    }
+    
+    public boolean isAboveGround() {
+        return aboveGround;
     }
 
     public void serialize(Document doc, Element root) {
@@ -125,6 +138,7 @@ public class Bridge implements XMLSerializable {
         bridgeElement.setAttribute("type", type.toString());
         bridgeElement.setAttribute("sag", Integer.toString(additionalData));
         bridgeElement.setAttribute("orientation", Boolean.toString(verticalOrientation));
+        bridgeElement.setAttribute("surfaced", Boolean.toString(aboveGround));
         
         bridgeElement.setTextContent(BridgePartType.encodeSegments(segments));
         

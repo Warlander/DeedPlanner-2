@@ -33,6 +33,7 @@ public final class Tile implements XMLSerializable {
     private int caveSize = 30;
     private CaveData cave = Data.caves.get("sw");
     private Label caveLabel;
+    private BridgePart caveBridgePart;
     
     public Tile(Map map, int x, int y, Element tile) {
         this.map = map;
@@ -325,6 +326,11 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderUnderground(GL2 g) {
+        if (caveBridgePart != null && (Globals.renderBridges2d || !Globals.upCamera)) {
+            g.glColor3f(1, 1, 1);
+            caveBridgePart.render(g, this);
+        }
+        
         if (!Globals.upCamera) {
             g.glColor3f(1f, 1f, 1f);
         }
@@ -628,7 +634,7 @@ public final class Tile implements XMLSerializable {
         return caveHeight;
     }
     
-    private int getCurrentLayerHeight() {
+    public int getCurrentLayerHeight() {
         if (Globals.floor < 0) {
             return caveHeight;
         }
@@ -1013,12 +1019,30 @@ public final class Tile implements XMLSerializable {
     /**
      * This method shouldn't be called to destroy bridge manually - use destroyBridge() instead!
      */
-    public void setBridgePart(BridgePart bridgePart) {
-        this.bridgePart = bridgePart;
+    public void setBridgePart(BridgePart bridgePart, boolean surfaced) {
+        if (surfaced) {
+            this.bridgePart = bridgePart;
+        }
+        else {
+            this.caveBridgePart = bridgePart;
+        }
+    }
+    
+    public BridgePart getCurrentLayerBridgePart() {
+        if (Globals.floor < 0) {
+            return getCaveBridgePart();
+        }
+        else {
+            return getBridgePart();
+        }
     }
     
     public BridgePart getBridgePart() {
         return bridgePart;
+    }
+    
+    public BridgePart getCaveBridgePart() {
+        return caveBridgePart;
     }
     
     public Materials getMaterials() {
