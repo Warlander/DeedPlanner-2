@@ -4678,6 +4678,10 @@
 			<model location="Data/Objects/greenGnome.wom"/>
 			<category>Unique items</category>
 		</object>
+		<object name="Snow lantern" shortname="snowLantern" type="normal">
+			<model location="Data/Objects/SnowLamp.wom"/>
+			<category>Unique items</category>
+		</object>
 		
 		<object name="Bear vs Bull" shortname="bearvbullhota" type="normal">
 			<model location="Data/Objects/bearBullStatue.wom"/>
