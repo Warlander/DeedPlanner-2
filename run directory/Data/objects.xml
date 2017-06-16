@@ -5387,6 +5387,10 @@
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
+		<rock name="Rocksalt" shortname="rs" type="wall" tex="Data/Caves/rocksalt.dds">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
 		<rock name="Stone brick reinforced cave wall" shortname="rswStone" type="wall" tex="Data/Caves/cave_stonehouse.dds">
 			<category>Walls/Decorative</category>
 		</rock>
@@ -5416,9 +5420,6 @@
 			<category>Floors</category>
 		</rock>
 		<rock name="Reinforced stone floor" shortname="rsfl" type="floor" tex="Data/Caves/reinforcedcaveFloor_v1.dds">
-			<category>Floors</category>
-		</rock>
-		<rock name="Cobblestone" shortname="cobble" type="floor" tex="Data/Caves/reinforcedcaveFloor_v1.dds">
 			<category>Floors</category>
 		</rock>
 		<rock name="Gravel" shortname="grav" type="floor" tex="Data/GroundTextures/gravel.jpg">
