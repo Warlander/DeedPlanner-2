@@ -2561,6 +2561,16 @@
 			<category>Fences</category>
 			<category>Materials/Wood</category>
 		</wall>
+		<wall name="Palisade gate (unfinished)" shortname="pFenceGU" scale="3" type="highfence">
+			<model location="Data/Walls/PalisadeGate_Unf.wom"/>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Felled trees = 10
+			</materials>
+			<icon location="Data/Walls/Icons/palisadeGatePlan.png"/>
+			<category>Fences</category>
+			<category>Materials/Wood</category>
+		</wall>
 		
 		<wall name="Wooden parapet" shortname="wPar" scale="4" type="highfence">
 			<model location="Data/Walls/Wooden_Parapet.wom"/>
@@ -3065,6 +3075,15 @@
 	
 	
 	<objects>
+		<object name="Small bucket" shortname="sBucket" type="normal">
+			<model location="Data/Objects/bucket.wom"/>
+			<materials>
+				Planks = 5,
+				Small nails = 1
+			</materials>
+			<category>Containers/Barrels</category>
+			<category>Materials/Wood</category>
+		</object>
 		<object name="Small barrel" shortname="sBarrel" type="normal">
 			<model location="Data/Objects/barrel-small.wom"/>
 			<materials>
@@ -3147,6 +3166,66 @@
 			<materials>
 				Planks = 13,
 				Shafts = 6,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Bow rack (empty)" shortname="bRackE" type="normal">
+			<model location="Data/Objects/bowrack_empty.wom"/>
+			<materials>
+				Planks = 10,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Bow rack (full)" shortname="bRackF" type="normal">
+			<model location="Data/Objects/bowrack_filled.wom"/>
+			<materials>
+				Planks = 10,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Weapons rack (empty)" shortname="wRackE" type="normal">
+			<model location="Data/Objects/rack_empty.wom"/>
+			<materials>
+				Planks = 10,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Weapons rack (full)" shortname="wRackF" type="normal">
+			<model location="Data/Objects/rack_full.wom"/>
+			<materials>
+				Planks = 10,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Polearms rack (empty)" shortname="pRackE" type="normal">
+			<model location="Data/Objects/spearrackempty.wom"/>
+			<materials>
+				Planks = 10,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Polearms rack (full)" shortname="pRackF" type="normal">
+			<model location="Data/Objects/spearrackfull.wom"/>
+			<materials>
+				Planks = 10,
 				Small nails = 1,
 				Pegs = 7
 			</materials>
@@ -3270,6 +3349,30 @@
 				Planks = 11,
 				Ribbons = 1,
 				Small nails = 2
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Alchemist's cupboard" shortname="aCupboard" type="normal">
+			<model location="Data/Objects/alchemyCupboard.wom"/>
+			<materials>
+				Planks = 6,
+				Beeswax = 5,
+				Small nails = 3,
+				Shafts = 2,
+				Pottery jars = 10
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Larder" shortname="larder" type="normal">
+			<model location="Data/Objects/Larder.wom"/>
+			<materials>
+				Lead lumps = 5,
+				Shafts = 4,
+				Planks = 20,
+				Ribbons = 2,
+				Small nails = 3
 			</materials>
 			<category>Containers</category>
 			<category>Materials/Wood</category>
@@ -4068,8 +4171,70 @@
 			<category>Materials/Iron</category>
 		</object>
 		
+		<object name="Small colourful carpet" shortname="sCarpet" type="normal">
+			<model location="Data/Objects/Carpet1.wom"/>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Colourful carpet" shortname="mCarpet" type="normal">
+			<model location="Data/Objects/Carpet2.wom"/>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Large colourful carpet" shortname="lCarpet" type="normal">
+			<model location="Data/Objects/Carpet3.wom"/>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Meditation rug" shortname="mRug" type="normal">
+			<model location="Data/Objects/MeditationRug.wom">
+				<override mesh="MeditationRugMesh" texture="Data/Objects/Rug_01.dds"/>
+			</model>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Fine meditation rug" shortname="fmRug" type="normal">
+			<model location="Data/Objects/MeditationRug.wom">
+				<override mesh="MeditationRugMesh" texture="Data/Objects/Rug_02.dds"/>
+			</model>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Beautiful meditation rug" shortname="bmRug" type="normal">
+			<model location="Data/Objects/MeditationRug.wom">
+				<override mesh="MeditationRugMesh" texture="Data/Objects/Rug_03.dds"/>
+			</model>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Exquisite meditation rug" shortname="emRug" type="normal">
+			<model location="Data/Objects/MeditationRug.wom">
+				<override mesh="MeditationRugMesh" texture="Data/Objects/Rug_04.dds"/>
+			</model>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Black wolf rug" shortname="bwRug" type="normal">
+			<model location="Data/Objects/WolfRug.wom"/>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Mountain lion rug" shortname="mlRug" type="normal">
+			<model location="Data/Objects/MountainlionRug.wom"/>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Brown bear rug" shortname="bbRug" type="normal">
+			<model location="Data/Objects/BrownbearRug.wom"/>
+			<category>Rugs and carpets</category>
+		</object>
+		<object name="Black bear rug" shortname="bb2Rug" type="normal">
+			<model location="Data/Objects/BlackbearRug.wom"/>
+			<category>Rugs and carpets</category>
+		</object>
+		
+		<object name="Tapestry stand" shortname="tStand" type="normal">
+			<model location="Data/Objects/tapestry_stand.wom"/>
+			<materials>
+				Tapestry stand = 1
+			</materials>
+			<category>Tapestries</category>
+		</object>
 		<object name="Tapestry of Faeldray" shortname="tFaeldray" type="normal">
-			<model location="Data/Objects/tapestry.wom"/>
+			<model location="Data/Objects/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/TapestryComp1.png"/>
+			</model>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -4087,7 +4252,9 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Beige tapestry" shortname="tBeige" type="normal">
-			<model location="Data/Objects/tapestry.wom"/>
+			<model location="Data/Objects/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry2.png"/>
+			</model>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -4096,7 +4263,9 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Orange tapestry" shortname="tOrange" type="normal">
-			<model location="Data/Objects/tapestry.wom"/>
+			<model location="Data/Objects/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry3.png"/>
+			</model>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -4105,7 +4274,9 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Cavalry motif tapestry" shortname="tCavalry" type="normal">
-			<model location="Data/Objects/tapestry.wom"/>
+			<model location="Data/Objects/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry4.png"/>
+			</model>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -4114,7 +4285,9 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Festivities motif tapestry" shortname="tFestivities" type="normal">
-			<model location="Data/Objects/tapestry.wom"/>
+			<model location="Data/Objects/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry5.png"/>
+			</model>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -4123,7 +4296,9 @@
 			<category>Tapestries</category>
 		</object>
 		<object name="Battle of Kyara tapestry" shortname="tKyara" type="normal">
-			<model location="Data/Objects/tapestry.wom"/>
+			<model location="Data/Objects/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry6.png"/>
+			</model>
 			<materials>
 				Tapestry stand = 1,
 				Square piece of wool cloth = 8,
@@ -4530,6 +4705,17 @@
 			<category>Misc</category>
 			<category>Materials/Wood</category>
 		</object>
+		<object name="Press" shortname="press" type="normal">
+			<model location="Data/Objects/papyrusPress.wom"/>
+			<materials>
+				Shafts = 1,
+				Planks = 4,
+				Ribbons = 2,
+				Small nails = 2
+			</materials>
+			<category>Misc</category>
+			<category>Materials/Wood</category>
+		</object>
 		<object name="Settlement token" shortname="token" type="centered">
 			<model location="Data/Objects/deed_sundail.wom"/>
 			<category>Misc</category>
@@ -4553,6 +4739,42 @@
 			</materials>
 			<category>Misc</category>
 		</object>
+		<object name="Village marker" shortname="vMarker" type="centered">
+			<model location="Data/Objects/Deed_Marker.wom">
+				<override mesh="DeedmarkerMesh" texture="Data/Objects/Deed_Marker.dds"/>
+			</model>
+			<category>Misc</category>
+		</object>
+		<object name="Perimeter marker" shortname="pMarker" type="centered">
+			<model location="Data/Objects/Deed_Marker.wom">
+				<override mesh="DeedmarkerMesh" texture="Data/Objects/Deed_Marker_02.dds"/>
+			</model>
+			<category>Misc</category>
+		</object>
+		<object name="Construction marker" shortname="cMarker" type="normal">
+			<model location="Data/Objects/Deed_Marker.wom">
+				<override mesh="DeedmarkerMesh" texture="Data/Objects/Deed_Marker_03.dds"/>
+			</model>
+			<materials>
+				Shafts = 2,
+				Large nails = 1,
+				Planks = 4
+			</materials>
+			<category>Misc</category>
+		</object>
+		<object name="Dioptra" shortname="dioptra" type="normal">
+			<model location="Data/Objects/Dioptra.wom"/>
+			<category>Misc</category>
+		</object>
+		<object name="Range pole" shortname="rPole" type="normal">
+			<model location="Data/Objects/RangePole.wom"/>
+			<category>Misc</category>
+		</object>
+		<object name="Dragon skull" shortname="skullDragon" type="normal">
+			<model location="Data/Objects/dragonSkull_green.wom"/>
+			<category>Misc</category>
+		</object>
+		
 		<object name="Forge" shortname="forge" type="normal">
 			<model location="Data/Objects/forge.wom"/>
 			<materials>
@@ -5105,6 +5327,67 @@
 			<category>Tents</category>
 			<category>Kingdoms/Mol-Rehan</category>
 		</object>
+		<object name="Freedom military tent" shortname="mTentFree" type="normal">
+			<model location="Data/Objects/militaryTent.wom"/>
+			<materials>
+				Square piece of cloth = 13,
+				Pegs = 10,
+				Shafts = 11,
+				Cordage ropes = 10
+			</materials>
+			<category>Tents</category>
+			<category>Kingdoms/Freedom</category>
+		</object>
+		<object name="HoTS military tent" shortname="mTentHoTS" type="normal">
+			<model location="Data/Objects/militaryTent.wom">
+				<override mesh="tentMesh1Mesh" texture="Data/Objects/militaryTent_Hots_D.dds"/>
+			</model>
+			<materials>
+				Square piece of cloth = 13,
+				Pegs = 10,
+				Shafts = 11,
+				Cordage ropes = 10
+			</materials>
+			<category>Tents</category>
+			<category>Kingdoms/HoTS</category>
+		</object>
+		<object name="JK military tent" shortname="mTentJK" type="normal">
+			<model location="Data/Objects/militaryTent.wom">
+				<override mesh="tentMesh1Mesh" texture="Data/Objects/militaryTent_JK_D.dds"/>
+			</model>
+			<materials>
+				Square piece of cloth = 13,
+				Pegs = 10,
+				Shafts = 11,
+				Cordage ropes = 10
+			</materials>
+			<category>Tents</category>
+			<category>Kingdoms/Jenn-Kellon</category>
+		</object>
+		<object name="MR military tent" shortname="mTentMR" type="normal">
+			<model location="Data/Objects/militaryTent.wom">
+				<override mesh="tentMesh1Mesh" texture="Data/Objects/militaryTent_MR_D.dds"/>
+			</model>
+			<materials>
+				Square piece of cloth = 13,
+				Pegs = 10,
+				Shafts = 11,
+				Cordage ropes = 10
+			</materials>
+			<category>Tents</category>
+			<category>Kingdoms/Mol-Rehan</category>
+		</object>
+		<object name="Explorer tent" shortname="expTent" type="normal">
+			<model location="Data/Objects/smallTent.wom"/>
+			<materials>
+				Square piece of cloth = 9,
+				Pegs = 6,
+				Shafts = 9,
+				Cordage ropes = 6
+			</materials>
+			<category>Tents</category>
+			<category>Kingdoms/Freedom</category>
+		</object>
 		
 		<object name="Grape trellis" shortname="gTrellis" type="normal">
 			<model location="Data/Objects/grapeTrellis.wom"/>
@@ -5210,6 +5493,117 @@
 			<category>Epic structures</category>
 			<category>Materials/Stone</category>
 		</object>
+		
+		<object name="Small catapult" shortname="sCatapult" type="normal">
+			<model location="Data/Objects/Catapult_main.wom"/>
+			<materials>
+				Logs = 7,
+				Planks = 12,
+				Shafts = 11,
+				Ropes = 5
+			</materials>
+			<category>War machines</category>
+		</object>
+		<object name="Battering ram" shortname="bRam" type="normal">
+			<model location="Data/Objects/Ram_main.wom"/>
+			<materials>
+				Battering ram heads = 1,
+				Planks = 12,
+				Shafts = 10,
+				Ropes = 2,
+				Large nails = 5,
+				Logs = 3,
+				Wooden beams = 10
+			</materials>
+			<category>War machines</category>
+		</object>
+		<object name="Ballista" shortname="ballista" type="normal">
+			<model location="Data/Objects/Ballista_main.wom"/>
+			<materials>
+				Planks = 4,
+				Shafts = 1,
+				Cordage ropes = 4,
+				Small nails = 1,
+				Brass ribbons = 2
+			</materials>
+			<category>War machines</category>
+		</object>
+		<object name="Trebuchet" shortname="trebuchet" type="normal">
+			<model location="Data/Objects/Trebuchet_main.wom"/>
+			<materials>
+				Planks = 52,
+				Shafts = 10,
+				Ropes = 5,
+				Logs = 20
+			</materials>
+			<category>War machines</category>
+		</object>
+		
+		<object name="Strange device" shortname="sDevice" type="normal">
+			<model location="Data/Objects/magicTurret_uncarged.wom"/>
+			<materials>
+				Planks = 5,
+				Logs = 1,
+				Large nails = 1,
+				Ribbons = 2,
+				Large chain links = 3
+			</materials>
+			<category>Magic turrets</category>
+		</object>
+		<object name="Acid turret" shortname="acidTurret" type="normal">
+			<model location="Data/Objects/magicTurret_mainAcid.wom"/>
+			<materials>
+				Planks = 5,
+				Logs = 1,
+				Large nails = 1,
+				Ribbons = 2,
+				Large chain links = 3
+			</materials>
+			<category>Magic turrets</category>
+		</object>
+		<object name="Fire turret" shortname="fireTurret" type="normal">
+			<model location="Data/Objects/magicTurret_mainFire.wom"/>
+			<materials>
+				Planks = 5,
+				Logs = 1,
+				Large nails = 1,
+				Ribbons = 2,
+				Large chain links = 3
+			</materials>
+			<category>Magic turrets</category>
+		</object>
+		<object name="Frost turret" shortname="frostTurret" type="normal">
+			<model location="Data/Objects/magicTurret_mainIce.wom"/>
+			<materials>
+				Planks = 5,
+				Logs = 1,
+				Large nails = 1,
+				Ribbons = 2,
+				Large chain links = 3
+			</materials>
+			<category>Magic turrets</category>
+		</object>
+		<object name="Lightning turret" shortname="lightningTurret" type="normal">
+			<model location="Data/Objects/magicTurret_main.wom"/>
+			<materials>
+				Planks = 5,
+				Logs = 1,
+				Large nails = 1,
+				Ribbons = 2,
+				Large chain links = 3
+			</materials>
+			<category>Magic turrets</category>
+		</object>
+		
+		<object name="Axe display" shortname="displayAxe" type="normal">
+			<model location="Data/Objects/hangersSwords.wom"/>
+			<category>Displays</category>
+		</object>
+		<object name="Sword display" shortname="displaySword" type="normal">
+			<model location="Data/Objects/hangersAxes.wom"/>
+			<category>Displays</category>
+		</object>
+		
 	</objects>
 		
 		
