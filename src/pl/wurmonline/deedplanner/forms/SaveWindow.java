@@ -165,17 +165,18 @@ public class SaveWindow extends javax.swing.JFrame {
             wr.flush();
 
             BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            String line;
-            while ((line = rd.readLine()) != null) {
-                if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                    Desktop.getDesktop().browse(new URI(line));
-                }
-                else {
-                    StringSelection stringSelection = new StringSelection(line);
-                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-                    clipboard.setContents(stringSelection, null);
-                    JOptionPane.showMessageDialog(null, "Your map is now saved to Pastebin.\n\nAs your Java implementation does not support direct navigation to the web page, link was copied to the system clipboard instead.", "Save to Pastebin", JOptionPane.INFORMATION_MESSAGE);
-                }
+            String response = rd.readLine();
+            if (response.contains("Bad API request")) {
+                JOptionPane.showMessageDialog(null, response, "Save to Pastebin", JOptionPane.ERROR_MESSAGE);
+            }
+            else if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI(response));
+            }
+            else {
+                StringSelection stringSelection = new StringSelection(response);
+                Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                clipboard.setContents(stringSelection, null);
+                JOptionPane.showMessageDialog(null, "Your map is now saved to Pastebin.\n\nAs your Java implementation does not support direct navigation to the web page, link was copied to the system clipboard instead.", "Save to Pastebin", JOptionPane.INFORMATION_MESSAGE);
             }
             wr.close();
             rd.close();
