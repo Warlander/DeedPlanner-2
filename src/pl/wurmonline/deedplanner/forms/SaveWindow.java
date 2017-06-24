@@ -157,7 +157,7 @@ public class SaveWindow extends javax.swing.JFrame {
                 data += URLEncoder.encode("N", "UTF-8");
                 break;
             }
-            URL url = new URL("http://pastebin.com/api/api_post.php");
+            URL url = new URL("https://pastebin.com/api/api_post.php");
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());

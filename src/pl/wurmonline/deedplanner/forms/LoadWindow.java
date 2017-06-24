@@ -141,7 +141,7 @@ public class LoadWindow extends javax.swing.JFrame {
         }
         else {
             String id = urlField.getText().substring(urlField.getText().lastIndexOf("/")+1);
-            url = "http://pastebin.com/raw.php?i="+id;
+            url = "https://pastebin.com/raw.php?i="+id;
         }
         try {
             URL uri = new URL(url);
