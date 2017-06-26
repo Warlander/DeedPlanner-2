@@ -16,7 +16,7 @@ public class MeshData {
         
     }
     
-    public int createModel(GL2 g) throws DeedPlannerException {
+    public int createDisplayList(GL2 g) throws DeedPlannerException {
         if (!isValid()) {
             throw new DeedPlannerException("Invalid model");
         }

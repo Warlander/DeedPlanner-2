@@ -120,7 +120,7 @@ public final class Model implements Renderable {
         
         for (int i = 0; i < meshCount; i++) {
             MeshData data = loadMeshData(buffer);
-            int displayList = data.createModel(g);
+            int displayList = data.createDisplayList(g);
             
             int materialCount = buffer.getInt();
             Material material = loadMaterial(buffer);
