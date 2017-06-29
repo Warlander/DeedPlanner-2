@@ -27,10 +27,13 @@ public class Wall implements TileEntity {
         if (Globals.upCamera) {
             g.glScalef(1, data.scale, 1);
         }
+        
         if (reversed) {
-            g.glScalef(1, -1, 1);
+            g.glScalef(-1, -1, 1);
         }
-        g.glTranslatef(4, 0, 0);
+        else {
+            g.glTranslatef(4, 0, 0);
+        }
         
         Model model;
         if (data.houseWall) {
