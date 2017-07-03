@@ -293,9 +293,20 @@
 			<category>Floors</category>
 			<category>Materials/Stone brick</category>
 		</floor>
+		<floor name="Stone slab floor" shortname="sFloor3">
+			<model location="Data/Floors/Floor.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/stoneslab_floor.dds"/>
+			</model>
+			<materials>
+				Slabs = 2,
+				Mortar = 10
+			</materials>
+			<category>Floors</category>
+			<category>Materials/Stone slab</category>
+		</floor>
 		<floor name="Pottery brick floor" shortname="pbFloor">
 			<model location="Data/Floors/Floor.wom">
-				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.png"/>
+				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.dds"/>
 			</model>
 			<materials>
 				Pottery bricks = 10,
@@ -317,7 +328,7 @@
 		</floor>
 		<floor name="Slate slab floor" shortname="sFloor">
 			<model location="Data/Floors/Floor.wom">
-				<override mesh="FloorMesh" texture="Data/Floors/slate_floor.png"/>
+				<override mesh="FloorMesh" texture="Data/Floors/slateslab_floor.dds"/>
 			</model>
 			<materials>
 				Slate slabs = 2,
@@ -326,16 +337,16 @@
 			<category>Floors</category>
 			<category>Materials/Slate slab</category>
 		</floor>
-		<floor name="Stone slab floor" shortname="sFloor2">
+		<floor name="Sandstone slab floor" shortname="sFloor2">
 			<model location="Data/Floors/Floor.wom">
 				<override mesh="FloorMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<materials>
-				Slabs = 2,
+				Sandstone slabs = 2,
 				Mortar = 10
 			</materials>
 			<category>Floors</category>
-			<category>Materials/Stone slab</category>
+			<category>Materials/Sandstone slab</category>
 		</floor>
 		
 		<floor name="Wooden plank opening" shortname="wOpen">
@@ -362,9 +373,21 @@
 			<category>Openings</category>
 			<category>Materials/Stone brick</category>
 		</floor>
+		<floor name="Stone slab opening" shortname="sOpen3">
+			<model location="Data/Floors/Floor_Opening.wom">
+				<override mesh="OpeningMesh" texture="Data/Floors/stoneslab_floor.dds"/>
+			</model>
+			<opening/>
+			<materials>
+				Slabs = 2,
+				Mortar = 10
+			</materials>
+			<category>Openings</category>
+			<category>Materials/Stone slab</category>
+		</floor>
 		<floor name="Pottery brick opening" shortname="pbOpen">
 			<model location="Data/Floors/Floor_Opening.wom">
-				<override mesh="OpeningMesh" texture="Data/Floors/clay_brick.png"/>
+				<override mesh="OpeningMesh" texture="Data/Floors/clay_brick.dds"/>
 			</model>
 			<opening/>
 			<materials>
@@ -388,7 +411,7 @@
 		</floor>
 		<floor name="Slate slab opening" shortname="sOpen">
 			<model location="Data/Floors/Floor_Opening.wom">
-				<override mesh="OpeningMesh" texture="Data/Floors/slate_floor.png"/>
+				<override mesh="OpeningMesh" texture="Data/Floors/slateslab_floor.dds"/>
 			</model>
 			<opening/>
 			<materials>
@@ -398,17 +421,17 @@
 			<category>Openings</category>
 			<category>Materials/Slate slab</category>
 		</floor>
-		<floor name="Stone slab opening" shortname="sOpen2">
+		<floor name="Sandstone slab opening" shortname="sOpen2">
 			<model location="Data/Floors/Floor_Opening.wom">
 				<override mesh="OpeningMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
-				Slabs = 2,
+				Sandstone slabs = 2,
 				Mortar = 10
 			</materials>
 			<category>Openings</category>
-			<category>Materials/Stone slab</category>
+			<category>Materials/Sandstone slab</category>
 		</floor>
 		
 		<floor name="Spiral staircase" shortname="spStair">
@@ -530,6 +553,7 @@
 			</materials>
 			<category>Staircases</category>
 		</floor>
+		
 		<floor name="Wooden plank staircase" shortname="wStair">
 			<model location="Data/Floors/Staircase.wom">
 				<override mesh="FloorMesh" texture="Data/Floors/floor.png"/>
@@ -560,9 +584,25 @@
 			<category>Staircases</category>
 			<category>Materials/Stone brick</category>
 		</floor>
+		<floor name="Stone slab staircase" shortname="sStair3">
+			<model location="Data/Floors/Staircase.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/stoneslab_floor.dds"/>
+			</model>
+			<opening/>
+			<materials>
+				Stone slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Stone slab</category>
+		</floor>
 		<floor name="Pottery brick staircase" shortname="pbStair">
 			<model location="Data/Floors/Staircase.wom">
-				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.png"/>
+				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.dds"/>
 			</model>
 			<opening/>
 			<materials>
@@ -594,7 +634,7 @@
 		</floor>
 		<floor name="Slate slab staircase" shortname="sStair">
 			<model location="Data/Floors/Staircase.wom">
-				<override mesh="FloorMesh" texture="Data/Floors/slate_floor.png"/>
+				<override mesh="FloorMesh" texture="Data/Floors/slateslab_floor.dds"/>
 			</model>
 			<opening/>
 			<materials>
@@ -608,13 +648,13 @@
 			<category>Staircases</category>
 			<category>Materials/Slate slab</category>
 		</floor>
-		<floor name="Stone slab staircase" shortname="sStair2">
+		<floor name="Sandstone slab staircase" shortname="sStair2">
 			<model location="Data/Floors/Staircase.wom">
 				<override mesh="FloorMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
-				Stone slabs = 2,
+				Sandstone slabs = 2,
 				Mortar = 10,
 				Planks = 15,
 				Shafts = 10,
@@ -622,8 +662,9 @@
 				Large nails = 1
 			</materials>
 			<category>Staircases</category>
-			<category>Materials/Stone slab</category>
+			<category>Materials/Sandstone slab</category>
 		</floor>
+		
 		<floor name="Wooden plank left staircase" shortname="wlStair">
 			<model location="Data/Floors/staircaseLeft.wom">
 				<override mesh="FloorMesh" texture="Data/Floors/floor.png"/>
@@ -654,9 +695,25 @@
 			<category>Staircases</category>
 			<category>Materials/Stone brick</category>
 		</floor>
+		<floor name="Stone slab left staircase" shortname="slStair3">
+			<model location="Data/Floors/staircaseLeft.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/stoneslab_floor.dds"/>
+			</model>
+			<opening/>
+			<materials>
+				Stone slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Stone slab</category>
+		</floor>
 		<floor name="Pottery brick left staircase" shortname="pblStair">
 			<model location="Data/Floors/staircaseLeft.wom">
-				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.png"/>
+				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.dds"/>
 			</model>
 			<opening/>
 			<materials>
@@ -688,7 +745,7 @@
 		</floor>
 		<floor name="Slate slab left staircase" shortname="slStair">
 			<model location="Data/Floors/staircaseLeft.wom">
-				<override mesh="FloorMesh" texture="Data/Floors/slate_floor.png"/>
+				<override mesh="FloorMesh" texture="Data/Floors/slateslab_floor.dds"/>
 			</model>
 			<opening/>
 			<materials>
@@ -702,13 +759,13 @@
 			<category>Staircases</category>
 			<category>Materials/Slate slab</category>
 		</floor>
-		<floor name="Stone slab left staircase" shortname="slStair2">
+		<floor name="Sandstone slab left staircase" shortname="slStair2">
 			<model location="Data/Floors/staircaseLeft.wom">
 				<override mesh="FloorMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
-				Stone slabs = 2,
+				Sandstone slabs = 2,
 				Mortar = 10,
 				Planks = 15,
 				Shafts = 10,
@@ -716,8 +773,9 @@
 				Large nails = 1
 			</materials>
 			<category>Staircases</category>
-			<category>Materials/Stone slab</category>
+			<category>Materials/Sandstone slab</category>
 		</floor>
+		
 		<floor name="Wooden plank right staircase" shortname="wrStair">
 			<model location="Data/Floors/staircaseRight.wom">
 				<override mesh="FloorMesh" texture="Data/Floors/floor.png"/>
@@ -748,9 +806,25 @@
 			<category>Staircases</category>
 			<category>Materials/Stone brick</category>
 		</floor>
+		<floor name="Stone slab right staircase" shortname="srStair3">
+			<model location="Data/Floors/staircaseRight.wom">
+				<override mesh="FloorMesh" texture="Data/Floors/stoneslab_floor.dds"/>
+			</model>
+			<opening/>
+			<materials>
+				Stone slabs = 2,
+				Mortar = 10,
+				Planks = 15,
+				Shafts = 10,
+				Small nails = 1,
+				Large nails = 1
+			</materials>
+			<category>Staircases</category>
+			<category>Materials/Stone slab</category>
+		</floor>
 		<floor name="Pottery brick right staircase" shortname="pbrStair">
 			<model location="Data/Floors/staircaseRight.wom">
-				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.png"/>
+				<override mesh="FloorMesh" texture="Data/Floors/clay_brick.dds"/>
 			</model>
 			<opening/>
 			<materials>
@@ -782,7 +856,7 @@
 		</floor>
 		<floor name="Slate slab right staircase" shortname="srStair">
 			<model location="Data/Floors/staircaseRight.wom">
-				<override mesh="FloorMesh" texture="Data/Floors/slate_floor.png"/>
+				<override mesh="FloorMesh" texture="Data/Floors/slateslab_floor.dds"/>
 			</model>
 			<opening/>
 			<materials>
@@ -796,13 +870,13 @@
 			<category>Staircases</category>
 			<category>Materials/Slate slab</category>
 		</floor>
-		<floor name="Stone slab right staircase" shortname="srStair2">
+		<floor name="Sandstone slab right staircase" shortname="srStair2">
 			<model location="Data/Floors/staircaseRight.wom">
 				<override mesh="FloorMesh" texture="Data/Floors/slab_floor.png"/>
 			</model>
 			<opening/>
 			<materials>
-				Stone slabs = 2,
+				Sandstone slabs = 2,
 				Mortar = 10,
 				Planks = 15,
 				Shafts = 10,
@@ -810,7 +884,7 @@
 				Large nails = 1
 			</materials>
 			<category>Staircases</category>
-			<category>Materials/Stone slab</category>
+			<category>Materials/Sandstone slab</category>
 		</floor>
 		
 		<floor name="Unfinished floor" shortname="uFloor">
