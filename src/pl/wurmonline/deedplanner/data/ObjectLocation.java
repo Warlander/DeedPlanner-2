@@ -22,21 +22,8 @@ public enum ObjectLocation {
     private static final float FIRST_THRESHOLD = 1f/3f;
     private static final float SECOND_THRESHOLD = 2f/3f;
     
-    private final float horizontalAlign;
-    private final float verticalAlign;
-    
-    private ObjectLocation(float horizontalAlign, float verticalAlign) {
-        this.horizontalAlign = horizontalAlign;
-        this.verticalAlign = verticalAlign;
-    }
-    
-    public float getHorizontalAlign() {
-        return horizontalAlign;
-    }
-    
-    public float getVerticalAlign() {
-        return verticalAlign;
-    }
+    // JVM creates new array on every values() call, so we are caching it
+    private static final ObjectLocation[] values = values();
     
     public static ObjectLocation calculateObjectLocation(float x, float y) {
         if (x<TILE_SIZE*FIRST_THRESHOLD) {
@@ -81,6 +68,26 @@ public enum ObjectLocation {
             }
         }
         throw new DeedPlannerRuntimeException("Corrupted save file - invalid object location.");
+    }
+    
+    public static ObjectLocation[] getValues() {
+        return values;
+    }
+    
+    private final float horizontalAlign;
+    private final float verticalAlign;
+    
+    private ObjectLocation(float horizontalAlign, float verticalAlign) {
+        this.horizontalAlign = horizontalAlign;
+        this.verticalAlign = verticalAlign;
+    }
+    
+    public float getHorizontalAlign() {
+        return horizontalAlign;
+    }
+    
+    public float getVerticalAlign() {
+        return verticalAlign;
     }
     
 }

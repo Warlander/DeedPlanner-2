@@ -3,6 +3,7 @@ package pl.wurmonline.deedplanner.data;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.graphics.wom.Model;
+import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 
 public final class FloorData {
 
@@ -14,7 +15,12 @@ public final class FloorData {
     
     public static FloorData get(Element floor) {
         String shortname = floor.getAttribute("id");
-        return Data.floors.get(shortname);
+        FloorData floorData = Data.floors.get(shortname);
+        
+        if (floorData == null) {
+            throw new DeedPlannerRuntimeException("Unable to find floor data with id: " + floor);
+        }
+        return floorData;
     }
     
     public FloorData(Model model, String name, String shortName, boolean opening, Materials materials) {

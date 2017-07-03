@@ -52,7 +52,7 @@ public class ObjectsUpdater {
 
         if (mouse.hold.right && !mouse.hold.left) {
             location = ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
-            cam.tile.setGameObject(null, location, Globals.floor);
+            cam.tile.setGameObject(null, null, Globals.floor);
             map.getSymmetry().mirrorObject(cam.tile, null, location, Globals.floor);
             map.newAction();
         }

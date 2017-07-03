@@ -255,6 +255,15 @@ public class Planner extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         undoItem = new javax.swing.JMenuItem();
         redoItem = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        jMenu5 = new javax.swing.JMenu();
+        objectsRemoveItem = new javax.swing.JMenuItem();
+        treesRemoveItem = new javax.swing.JMenuItem();
+        bushesRemoveItem = new javax.swing.JMenuItem();
+        jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        wallsFencesRemoveItem = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
+        bordersRemoveItem = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         upViewItem = new javax.swing.JRadioButtonMenuItem();
         fppViewItem = new javax.swing.JRadioButtonMenuItem();
@@ -997,6 +1006,53 @@ public class Planner extends javax.swing.JFrame {
             }
         });
         jMenu2.add(redoItem);
+        jMenu2.add(jSeparator4);
+
+        jMenu5.setText(bundle.getString("Planner.jMenu5.text")); // NOI18N
+
+        objectsRemoveItem.setText(bundle.getString("Planner.objectsRemoveItem.text")); // NOI18N
+        objectsRemoveItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeAllMenuActionPerformed(evt);
+            }
+        });
+        jMenu5.add(objectsRemoveItem);
+
+        treesRemoveItem.setText(bundle.getString("Planner.treesRemoveItem.text")); // NOI18N
+        treesRemoveItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeAllMenuActionPerformed(evt);
+            }
+        });
+        jMenu5.add(treesRemoveItem);
+
+        bushesRemoveItem.setText(bundle.getString("Planner.bushesRemoveItem.text")); // NOI18N
+        bushesRemoveItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeAllMenuActionPerformed(evt);
+            }
+        });
+        jMenu5.add(bushesRemoveItem);
+        jMenu5.add(jSeparator5);
+
+        wallsFencesRemoveItem.setText(bundle.getString("Planner.wallsFencesRemoveItem.text")); // NOI18N
+        wallsFencesRemoveItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeAllMenuActionPerformed(evt);
+            }
+        });
+        jMenu5.add(wallsFencesRemoveItem);
+        jMenu5.add(jSeparator6);
+
+        bordersRemoveItem.setText(bundle.getString("Planner.bordersRemoveItem.text")); // NOI18N
+        bordersRemoveItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeAllMenuActionPerformed(evt);
+            }
+        });
+        jMenu5.add(bordersRemoveItem);
+
+        jMenu2.add(jMenu5);
 
         jMenuBar1.add(jMenu2);
 
@@ -1509,6 +1565,50 @@ public class Planner extends javax.swing.JFrame {
             Globals.animalGender = AnimalGender.FEMALE;
         }
     }//GEN-LAST:event_animalGenderRadioActionPerformed
+
+    private void removeAllMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeAllMenuActionPerformed
+        Object source = evt.getSource();
+        mapPanel.getLoop().syncAndExecute(() -> {
+            Map map = mapPanel.getMap();
+            for (int i = 0; i <= map.getWidth(); i++) {
+                for (int i2 = 0; i2 <= map.getHeight(); i2++) {
+                    Tile tile = map.getTile(i, i2);
+                    
+                    for (int h = Constants.CAVE_LIMIT; h < Constants.FLOORS_LIMIT; h++) {
+                        if (source == objectsRemoveItem) {
+                            tile.setGameObject(null, null, h);
+                        }
+                        else if (source == treesRemoveItem) {
+                            for (ObjectLocation loc : ObjectLocation.getValues()) {
+                                GameObject obj = tile.getGameObject(loc, h);
+                                if (obj != null && obj.getData().type.equals("tree")) {
+                                    tile.setGameObject(null, loc, h);
+                                }
+                            }
+                        }
+                        else if (source == bushesRemoveItem) {
+                            for (ObjectLocation loc : ObjectLocation.getValues()) {
+                                GameObject obj = tile.getGameObject(loc, h);
+                                if (obj != null && obj.getData().type.equals("bush")) {
+                                    tile.setGameObject(null, loc, h);
+                                }
+                            }
+                        }
+                        else if (source == wallsFencesRemoveItem) {
+                            tile.setHorizontalWall(null, h);
+                            tile.setVerticalWall(null, h);
+                        }
+                        else if (source == bordersRemoveItem) {
+                            tile.setHorizontalBorder(null);
+                            tile.setVerticalBorder(null);
+                        }
+                    }
+                }
+            }
+            
+            map.newAction();
+        });
+    }//GEN-LAST:event_removeAllMenuActionPerformed
     
     private void applyObjectsTreeFilter() {
         String toFind = objectsSearchBox.getText();
@@ -1568,10 +1668,12 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JTree animalsTree;
     private javax.swing.JList bordersList;
     private javax.swing.JPanel bordersPanel;
+    private javax.swing.JMenuItem bordersRemoveItem;
     private javax.swing.JRadioButtonMenuItem bridges3dItem;
     private javax.swing.JRadioButtonMenuItem bridgesAllItem;
     private pl.wurmonline.deedplanner.forms.BridgesEditor bridgesPanel;
     private javax.swing.ButtonGroup bridgesVisibilityGroup;
+    private javax.swing.JMenuItem bushesRemoveItem;
     private javax.swing.JPanel cavesPanel;
     private javax.swing.JTree cavesTree;
     private javax.swing.JRadioButton championAnimalSizeRadio;
@@ -1615,6 +1717,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
@@ -1634,6 +1737,9 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator6;
     private javax.swing.JSpinner jSpinner4;
     private pl.wurmonline.deedplanner.forms.LabelEditor labelsPanel;
     private javax.swing.JLabel lmbSelectedGroundLabel;
@@ -1642,6 +1748,7 @@ public class Planner extends javax.swing.JFrame {
     private pl.wurmonline.deedplanner.MapPanel mapPanel;
     private javax.swing.JMenuItem newMapItem;
     private javax.swing.JPanel objectsPanel;
+    private javax.swing.JMenuItem objectsRemoveItem;
     private javax.swing.JTextField objectsSearchBox;
     private javax.swing.JTree objectsTree;
     private javax.swing.JMenuItem redoItem;
@@ -1660,6 +1767,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem trees3dItem;
     private javax.swing.JRadioButtonMenuItem treesAllItem;
     private javax.swing.JRadioButtonMenuItem treesNothingItem;
+    private javax.swing.JMenuItem treesRemoveItem;
     private javax.swing.ButtonGroup treesVisibilityGroup;
     private javax.swing.JMenuItem undoItem;
     private javax.swing.JRadioButton unisexAnimalSexRadio;
@@ -1667,6 +1775,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.ButtonGroup viewGroup;
     private javax.swing.JCheckBox wallReversedAutoBox;
     private javax.swing.JCheckBox wallReversedBox;
+    private javax.swing.JMenuItem wallsFencesRemoveItem;
     private javax.swing.ButtonGroup wallsGroup;
     private javax.swing.JPanel wallsPanel;
     private javax.swing.JTree wallsTree;

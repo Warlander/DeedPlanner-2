@@ -976,14 +976,22 @@ public final class Tile implements XMLSerializable {
         if (data!=null) {
             entities.put(new ObjectEntityData(floor, location), new GameObject(data));
         }
+        else if (location != null) {
+            entities.remove(new ObjectEntityData(floor, location));
+        }
         else {
             for (ObjectLocation loc : ObjectLocation.values()) {
                 entities.remove(new ObjectEntityData(floor, loc));
             }
         }
+        
         if (undo) {
             map.addUndo(this, oldTile);
         }
+    }
+    
+    public GameObject getGameObject(ObjectLocation location, int floor) {
+        return (GameObject) entities.get(new ObjectEntityData(floor, location));
     }
     
     public void setAnimal(AnimalData data, ObjectLocation location, int floor) {
