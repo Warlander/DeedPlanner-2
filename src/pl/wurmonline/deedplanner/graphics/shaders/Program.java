@@ -13,6 +13,8 @@ import org.joml.Vector3f;
 
 public final class Program {
     
+    private static Program currentProgram;
+    
     private final Shader[] sources;
     private int programId = -1;
     
@@ -58,11 +60,15 @@ public final class Program {
             createOrGetProgram(g);
         }
         
-        g.glUseProgram(programId);
+        if (currentProgram != this) {
+            g.glUseProgram(programId);
+            currentProgram = this;
+        }
     }
     
     public void unbind(GL2GL3 g) {
         g.glUseProgram(0);
+        currentProgram = null;
     }
     
     private int getUniformLocation(GL2GL3 g, String name) {

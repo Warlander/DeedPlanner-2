@@ -515,6 +515,10 @@ public final class Tile implements XMLSerializable {
         }
     }
     
+    public void destroy(GL2 g) {
+        ground.destroy(g);
+    }
+    
     protected int getEntityFloor(TileEntity entity) {
         for (Entry<EntityData, TileEntity> entry : entities.entrySet()) {
             if (entry.getValue() == entity) {
@@ -585,6 +589,16 @@ public final class Tile implements XMLSerializable {
             Tile oldTile = new Tile(this);
             this.height = height;
             map.recalculateHeight();
+            
+            for (int i = -1; i <= 0; i++) {
+                for (int i2 = -1; i2 <= 0; i2++) {
+                    Tile tile = map.getTile(this, i, i2);
+                    if (tile != null) {
+                        tile.getGround().markDirty();
+                    }
+                }
+            }
+            
             if (undo) {
                 map.addUndo(this, oldTile);
                 for (int i = -1; i <= 0; i++) {
@@ -595,7 +609,6 @@ public final class Tile implements XMLSerializable {
                         }
                     }
                 }
-                
             }
         }
     }

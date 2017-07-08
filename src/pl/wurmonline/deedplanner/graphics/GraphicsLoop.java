@@ -3,6 +3,7 @@ package pl.wurmonline.deedplanner.graphics;
 import com.jogamp.opengl.util.FPSAnimator;
 import javax.media.opengl.*;
 import pl.wurmonline.deedplanner.*;
+import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import pl.wurmonline.deedplanner.util.jogl.*;
@@ -47,6 +48,11 @@ public class GraphicsLoop implements GLEventListener {
             long startTime = System.currentTimeMillis();
             stopped = false;
             GL2 g = glautodrawable.getGL().getGL2();
+            
+            Map destroyingMap = panel.getAndClearDestroyingMap();
+            if (destroyingMap != null) {
+                destroyingMap.destroy(g);
+            }
             
             g.glClearColor(0, 0, 0, 1);
             g.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);

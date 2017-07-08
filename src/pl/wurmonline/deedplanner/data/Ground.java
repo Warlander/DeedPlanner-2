@@ -12,6 +12,9 @@ public class Ground implements TileEntity {
     private final GroundData data;
     private final RoadDirection dir;
     
+    private boolean dirty = true;
+    private int listId;
+    
     public Ground(Element ground) {
         String shortname = ground.getAttribute("id");
         this.data = Data.grounds.get(shortname);
@@ -117,40 +120,51 @@ public class Ground implements TileEntity {
             program.bind(g);
         }
         
-        float h00 = (tile.getHeight()) / Constants.HEIGHT_MOD;
-        float h10 = (tile.getMap().getTile(tile, 1, 0).getHeight()) / Constants.HEIGHT_MOD;
-        float h11 = (tile.getMap().getTile(tile, 1, 1).getHeight()) / Constants.HEIGHT_MOD;
-        float h01 = (tile.getMap().getTile(tile, 0, 1).getHeight()) / Constants.HEIGHT_MOD;
-        float hC = (tile.getHeight(0.5f, 0.5f)) / Constants.HEIGHT_MOD;
-        g.glBegin(GL2.GL_TRIANGLES);
-            g.glTexCoord2f(0, 0);
-            g.glVertex3f(0, 0, h00);
-            g.glTexCoord2f(1, 0);
-            g.glVertex3f(4, 0, h10);
-            g.glTexCoord2f(0.5f, 0.5f);
-            g.glVertex3f(2, 2, hC);
+        if (dirty || listId == 0) {
+            if (listId == 0) {
+                listId = g.glGenLists(1);
+            }
             
-            g.glTexCoord2f(1, 0);
-            g.glVertex3f(4, 0, h10);
-            g.glTexCoord2f(1, 1);
-            g.glVertex3f(4, 4, h11);
-            g.glTexCoord2f(0.5f, 0.5f);
-            g.glVertex3f(2, 2, hC);
-            
-            g.glTexCoord2f(1, 1);
-            g.glVertex3f(4, 4, h11);
-            g.glTexCoord2f(0, 1);
-            g.glVertex3f(0, 4, h01);
-            g.glTexCoord2f(0.5f, 0.5f);
-            g.glVertex3f(2, 2, hC);
-            
-            g.glTexCoord2f(0, 1);
-            g.glVertex3f(0, 4, h01);
-            g.glTexCoord2f(0, 0);
-            g.glVertex3f(0, 0, h00);
-            g.glTexCoord2f(0.5f, 0.5f);
-            g.glVertex3f(2, 2, hC);
-        g.glEnd();
+            float h00 = (tile.getHeight()) / Constants.HEIGHT_MOD;
+            float h10 = (tile.getMap().getTile(tile, 1, 0).getHeight()) / Constants.HEIGHT_MOD;
+            float h11 = (tile.getMap().getTile(tile, 1, 1).getHeight()) / Constants.HEIGHT_MOD;
+            float h01 = (tile.getMap().getTile(tile, 0, 1).getHeight()) / Constants.HEIGHT_MOD;
+            float hC = (tile.getHeight(0.5f, 0.5f)) / Constants.HEIGHT_MOD;
+            g.glNewList(listId, GL2.GL_COMPILE);
+                g.glBegin(GL2.GL_TRIANGLES);
+                    g.glTexCoord2f(0, 0);
+                    g.glVertex3f(0, 0, h00);
+                    g.glTexCoord2f(1, 0);
+                    g.glVertex3f(4, 0, h10);
+                    g.glTexCoord2f(0.5f, 0.5f);
+                    g.glVertex3f(2, 2, hC);
+
+                    g.glTexCoord2f(1, 0);
+                    g.glVertex3f(4, 0, h10);
+                    g.glTexCoord2f(1, 1);
+                    g.glVertex3f(4, 4, h11);
+                    g.glTexCoord2f(0.5f, 0.5f);
+                    g.glVertex3f(2, 2, hC);
+
+                    g.glTexCoord2f(1, 1);
+                    g.glVertex3f(4, 4, h11);
+                    g.glTexCoord2f(0, 1);
+                    g.glVertex3f(0, 4, h01);
+                    g.glTexCoord2f(0.5f, 0.5f);
+                    g.glVertex3f(2, 2, hC);
+
+                    g.glTexCoord2f(0, 1);
+                    g.glVertex3f(0, 4, h01);
+                    g.glTexCoord2f(0, 0);
+                    g.glVertex3f(0, 0, h00);
+                    g.glTexCoord2f(0.5f, 0.5f);
+                    g.glVertex3f(2, 2, hC);
+                g.glEnd();
+            g.glEndList();
+            dirty = false;
+        }
+        
+        g.glCallList(listId);
         
         if (dir!=RoadDirection.CENTER) {
             Program diagonal = Shaders.getShaders().diagonal;
@@ -198,6 +212,19 @@ public class Ground implements TileEntity {
                 return true;
             }
         }
+    }
+    
+    public void markDirty() {
+        dirty = true;
+    }
+    
+    public void destroy(GL2 g) {
+        if (listId == 0) {
+            return;
+        }
+        
+        g.glDeleteLists(listId, 1);
+        listId = 0;
     }
     
     public String toString() {

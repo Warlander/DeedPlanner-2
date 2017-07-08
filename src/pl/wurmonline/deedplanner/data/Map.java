@@ -676,6 +676,14 @@ public final class Map {
         return writer.getBuffer().toString();
     }
     
+    public void destroy(GL2 g) {
+        for (int i = 0; i <= getWidth(); i++) {
+            for (int i2 = 0; i2 <= getHeight(); i2++) {
+                getTile(i, i2).destroy(g);
+            }
+        }
+    }
+    
     public void undo() {
         if (!undo.isEmpty()) {
             Action action = undo.pop();

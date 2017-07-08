@@ -11,6 +11,7 @@ import pl.wurmonline.deedplanner.util.jogl.GLInit;
 public class MapPanel extends GLJPanel implements ComponentListener {
 
     private Map map;
+    private Map destroyingMap;
     
     private final MainLoop loop;
     
@@ -50,9 +51,16 @@ public class MapPanel extends GLJPanel implements ComponentListener {
     }
     
     public void setMap(Map map) {
+        destroyingMap = map;
         loop.syncAndExecute(() -> {
             this.map = map;
         });
+    }
+    
+    public Map getAndClearDestroyingMap() {
+        Map map = destroyingMap;
+        destroyingMap = null;
+        return map;
     }
 
     public void componentResized(ComponentEvent e) {
