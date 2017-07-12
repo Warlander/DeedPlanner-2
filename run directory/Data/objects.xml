@@ -1008,6 +1008,17 @@
 			<category>House walls/Wood</category>
 			<category>Materials/Wood</category>
 		</wall>
+		<wall name="Wooden portcullis" shortname="wPort" scale="1" type="house">
+			<model location="Data/Walls/woodWallPortcullis.wom"/>
+			<color type="dec" r="1" g="1" b="0.7"/>
+			<materials>
+				Planks = 20,
+				Large nails = 1
+			</materials>
+			<icon location="Data/Walls/Icons/Wood_wall_portcullis_distance.png"/>
+			<category>House walls/Wood</category>
+			<category>Materials/Wood</category>
+		</wall>
 		
 		<wall name="Stone wall" shortname="sWall" scale="1" type="house">
 			<model location="Data/Walls/House_Stone_Wall.wom" tag="bottom"/>
