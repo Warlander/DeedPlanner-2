@@ -88,9 +88,9 @@ public final class FPPCamera {
             posz += dirz * fraction * Properties.delta;
         }
         if (keybindings.hold(Keybindings.FPP_MOVE_DOWN)) {
-            posx -= dirx*fraction * Properties.delta;
-            posy -= diry*fraction * Properties.delta;
-            posz -= dirz*fraction * Properties.delta;
+            posx -= dirx * fraction * Properties.delta;
+            posy -= diry * fraction * Properties.delta;
+            posz -= dirz * fraction * Properties.delta;
         }
         
         if (keybindings.hold(Keybindings.FPP_CAMERA_LEFT) || keybindings.hold(Keybindings.FPP_CAMERA_LEFT_ALT)) {
