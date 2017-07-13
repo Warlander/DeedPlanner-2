@@ -89,13 +89,13 @@ public abstract class GenericStoneBridgeData extends BridgeData {
         this.sideFloating = new Model("Data/Bridges/Stone/StoneBridge_FloatingSide.wom");
         sideFloating.addTextureOverride("FloatingSideWMesh", bridgeTexture);
         sideFloating.addTextureOverride("BridgeFloatingSideMesh", tilingTexture);
-        this.sideAbutment = new Model("Data/Bridges/Stone/StoneBridge_AbutmentSide.wom");
+        this.sideAbutment = new Model("Data/Bridges/Stone/StoneBridge_AbutmentDoubleRight.wom");
         sideAbutment.addTextureOverride("StoneBridgeAbutmentSideWMesh", bridgeTexture);
         sideAbutment.addTextureOverride("StoneBridgeAbutmentSideMesh", tilingTexture);
         this.sideDoubleAbutment = new Model("Data/Bridges/Stone/StoneBridge_AbutmentDoubleRight.wom");
         sideDoubleAbutment.addTextureOverride("AbutmentDoubleTMesh", bridgeTexture);
         sideDoubleAbutment.addTextureOverride("AbutmentDoubleMesh", tilingTexture);
-        this.sideBracing = new Model("Data/Bridges/Stone/StoneBridge_BracingDoubleSide.wom");
+        this.sideBracing = new Model("Data/Bridges/Stone/StoneBridge_BracingDoubleRight.wom");
         sideBracing.addTextureOverride("DoubleBracingSideWMesh", bridgeTexture);
         sideBracing.addTextureOverride("DoubleBracingSideMesh", tilingTexture);
         this.sideDoubleBracing = new Model("Data/Bridges/Stone/StoneBridge_BracingDoubleRight.wom");
