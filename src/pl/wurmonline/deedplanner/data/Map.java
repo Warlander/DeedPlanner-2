@@ -6,6 +6,7 @@ import com.google.common.io.LittleEndianDataInputStream;
 import java.awt.Font;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Scanner;
 import java.util.Stack;
 import java.util.function.Consumer;
@@ -27,6 +28,7 @@ import pl.wurmonline.deedplanner.logic.Tab;
 import pl.wurmonline.deedplanner.logic.TileSelection;
 import pl.wurmonline.deedplanner.logic.symmetry.Symmetry;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
+import pl.wurmonline.deedplanner.util.GZIPCompression;
 import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.jogl.Color;
 
@@ -59,6 +61,20 @@ public final class Map {
     private Symmetry symmetry = new Symmetry();
     
     public static Map parseMap(byte[] mapData) throws DeedPlannerException {
+        try {
+            byte[] decodedBytes = Base64.getDecoder().decode(mapData);
+            
+            if (GZIPCompression.isCompressed(decodedBytes)) {
+                String decompressedString = GZIPCompression.decompress(decodedBytes);
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document doc = dBuilder.parse(new ByteArrayInputStream(decompressedString.getBytes()));
+                return new Map(doc);
+            }
+        } catch (IOException | SAXException | ParserConfigurationException | IllegalArgumentException ex) {
+            Log.out(Map.class, "Unable to load map as a DeedPlanner 2 compressed map, trying to load as DeedPlanner 2 map.");
+        }
+        
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

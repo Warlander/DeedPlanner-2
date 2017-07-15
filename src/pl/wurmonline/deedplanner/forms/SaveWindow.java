@@ -5,11 +5,13 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.*;
 import java.net.*;
+import java.util.Base64;
 import java.util.logging.*;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import pl.wurmonline.deedplanner.Properties;
+import pl.wurmonline.deedplanner.util.GZIPCompression;
 import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 
@@ -128,40 +130,43 @@ public class SaveWindow extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            String data;
-            data = URLEncoder.encode("api_dev_key", "UTF-8") + "=" + URLEncoder.encode("24844c99ae9971a2da79a2f7d0da7642", "UTF-8");
-            data += "&" + URLEncoder.encode("api_paste_code", "UTF-8") + "=" + URLEncoder.encode(serializedMap, "UTF-8");
-            data += "&" + URLEncoder.encode("api_option", "UTF-8") + "=" + URLEncoder.encode("paste", "UTF-8");
+            byte[] compressedMap = GZIPCompression.compress(serializedMap);
+            String compressedString = Base64.getEncoder().encodeToString(compressedMap);
             
-            data += "&" + URLEncoder.encode("api_paste_expire_date", "UTF-8") + "=";
+            StringBuilder data = new StringBuilder();
+            data.append(URLEncoder.encode("api_dev_key", "UTF-8")).append("=").append(URLEncoder.encode("24844c99ae9971a2da79a2f7d0da7642", "UTF-8"));
+            data.append("&").append(URLEncoder.encode("api_paste_code", "UTF-8")).append("=").append(URLEncoder.encode(compressedString, "UTF-8"));
+            data.append("&").append(URLEncoder.encode("api_option", "UTF-8")).append("=").append(URLEncoder.encode("paste", "UTF-8"));
+            
+            data.append("&").append(URLEncoder.encode("api_paste_expire_date", "UTF-8")).append("=");
             switch ((String)pasteExpiration.getModel().getSelectedItem()) {
                 case "10 minutes":
-                data += URLEncoder.encode("10M", "UTF-8");
-                break;
+                    data.append(URLEncoder.encode("10M", "UTF-8"));
+                    break;
                 case "1 hour":
-                data += URLEncoder.encode("1H", "UTF-8");
-                break;
+                    data.append(URLEncoder.encode("1H", "UTF-8"));
+                    break;
                 case "1 day":
-                data += URLEncoder.encode("1D", "UTF-8");
+                    data.append(URLEncoder.encode("1D", "UTF-8"));
                 break;
                 case "1 week":
-                data += URLEncoder.encode("1W", "UTF-8");
-                break;
+                    data.append(URLEncoder.encode("1W", "UTF-8"));
+                    break;
                 case "2 weeks":
-                data += URLEncoder.encode("2W", "UTF-8");
-                break;
+                    data.append(URLEncoder.encode("2W", "UTF-8"));
+                    break;
                 case "1 month":
-                data += URLEncoder.encode("1M", "UTF-8");
-                break;
+                    data.append(URLEncoder.encode("1M", "UTF-8"));
+                    break;
                 case "Never delete":
-                data += URLEncoder.encode("N", "UTF-8");
-                break;
+                    data.append(URLEncoder.encode("N", "UTF-8"));
+                    break;
             }
             URL url = new URL("https://pastebin.com/api/api_post.php");
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-            wr.write(data);
+            wr.write(data.toString());
             wr.flush();
 
             BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
