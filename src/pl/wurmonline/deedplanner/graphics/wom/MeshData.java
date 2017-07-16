@@ -23,21 +23,18 @@ public class MeshData {
         
         int list = g.glGenLists(1);
         g.glNewList(list, GL2.GL_COMPILE);
-            g.glPushMatrix();
-                g.glRotatef(90, 1, 0, 0);
-                g.glBegin(GL2.GL_TRIANGLES);
-                    for (int i=0; i<triangles.length; i++) {
-                        int point = triangles[i];
-                        int vertLoc = point * 3;
-                        int normalLoc = point * 3;
-                        int textureLoc = point * 2;
+            g.glBegin(GL2.GL_TRIANGLES);
+                for (int i=0; i<triangles.length; i++) {
+                    int point = triangles[i];
+                    int vertLoc = point * 3;
+                    int normalLoc = point * 3;
+                    int textureLoc = point * 2;
 
-                        g.glTexCoord2f(texcoords[textureLoc], 1 - texcoords[textureLoc+1]);
-                        g.glNormal3f(normals[normalLoc], normals[normalLoc+1], normals[normalLoc+2]);
-                        g.glVertex3f(vertices[vertLoc], vertices[vertLoc+1], vertices[vertLoc+2]);
-                    }
-                g.glEnd();
-            g.glPopMatrix();
+                    g.glTexCoord2f(texcoords[textureLoc], 1 - texcoords[textureLoc+1]);
+                    g.glNormal3f(normals[normalLoc], normals[normalLoc+1], normals[normalLoc+2]);
+                    g.glVertex3f(vertices[vertLoc], -vertices[vertLoc+2], vertices[vertLoc+1]);
+                }
+            g.glEnd();
         g.glEndList();
         
         return list;
