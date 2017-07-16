@@ -104,6 +104,10 @@ public final class Model implements Renderable {
             }
         }
         
+        if (scale.x != 1 || scale.y != 1 || scale.z != 1) {
+            g.glScalef(scale.x, scale.y, scale.z);
+        }
+        
         for (Mesh mesh : meshes) {
             mesh.render(g);
         }
@@ -144,7 +148,7 @@ public final class Model implements Renderable {
             
             material.setTexture(texture);
             
-            meshesList.add(new Mesh(this, texture, displayList, data.getName()));
+            meshesList.add(new Mesh(texture, displayList, data.getName()));
         }
         
         meshes = meshesList.toArray(new Mesh[0]);
