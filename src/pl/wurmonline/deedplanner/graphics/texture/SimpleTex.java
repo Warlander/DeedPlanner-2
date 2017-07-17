@@ -31,6 +31,7 @@ public final class SimpleTex implements Tex {
     private final File file;
     private Texture texture;
     private TextureData textureData;
+    private boolean loading = false;
     
     static {
         backgroundTextureLoader = Executors.newSingleThreadExecutor();
@@ -70,14 +71,7 @@ public final class SimpleTex implements Tex {
         this.file = file;
         Log.out(this, "Texture data starts loading!");
         
-        backgroundTextureLoader.submit(() -> {
-            try {
-                textureData = TextureIO.newTextureData(GLInit.getProfile(), file, true, null);
-                Log.out(this, "Texture data loaded!");
-            } catch (IOException ex) {
-                Log.err(ex);
-            }
-        });
+        loadTextureData();
     }
     
     private SimpleTex(String file) {
@@ -140,6 +134,11 @@ public final class SimpleTex implements Tex {
     }
     
     private void init(GL g) {
+        if (texture == null && textureData == null) {
+            loadTextureData();
+            return;
+        }
+        
         if (texture != null || textureData == null) {
             return;
         }
@@ -159,6 +158,24 @@ public final class SimpleTex implements Tex {
         } catch (GLException ex) {
             Log.err(ex);
         }
+    }
+    
+    private void loadTextureData() {
+        if (loading || texture != null || textureData != null) {
+            return;
+        }
+        
+        loading = true;
+        backgroundTextureLoader.submit(() -> {
+            try {
+                textureData = TextureIO.newTextureData(GLInit.getProfile(), file, true, null);
+                Log.out(this, "Texture data loaded!");
+            } catch (IOException ex) {
+                Log.err(ex);
+            }
+            loading = false;
+        });
+        
     }
     
     /**
