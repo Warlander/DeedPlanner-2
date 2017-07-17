@@ -19,7 +19,7 @@ public class MapPanel extends GLJPanel implements ComponentListener {
     private final UpCamera upCamera;
     
     public MapPanel() {
-        this(GLInit.prepareGLCapabilities());
+        this(GLInit.getCapabilities());
     }
     
     public MapPanel(GLCapabilities capabilities) {

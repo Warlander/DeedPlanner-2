@@ -6,6 +6,11 @@ import pl.wurmonline.deedplanner.util.Log;
 
 public class GLInit {
 
+    private static GLProfile profile;
+    private static GLCapabilities capabilities;
+    
+    private static final Object capabilitiesLock = new Object();
+    
     public static void printCapabilities(GLProfile profile) {
         Log.out(GLInit.class, "GL2 support: "+profile.isGL2());
         Log.out(GLInit.class, "GL3 support: "+profile.isGL3());
@@ -15,16 +20,36 @@ public class GLInit {
         Log.out(GLInit.class, "Profile: " + profile.getName());
     }
     
-    public static GLCapabilities prepareGLCapabilities() {
-        GLProfile profile = GLProfile.getDefault();
-        GLCapabilities caps = new GLCapabilities(profile);
-        caps.setHardwareAccelerated(true);
-        caps.setDoubleBuffered(true);
+    private static GLCapabilities prepareGLCapabilities() {
+        profile = GLProfile.getDefault();
+        capabilities = new GLCapabilities(profile);
+        capabilities.setHardwareAccelerated(true);
+        capabilities.setDoubleBuffered(true);
         if (Properties.antialiasing>0) {
-            caps.setSampleBuffers(true);
-            caps.setNumSamples(Properties.antialiasing);
+            capabilities.setSampleBuffers(true);
+            capabilities.setNumSamples(Properties.antialiasing);
         }
-        return caps;
+        return capabilities;
+    }
+    
+    public static GLProfile getProfile() {
+        synchronized (capabilitiesLock) {
+            if (profile == null) {
+                prepareGLCapabilities();
+            }
+            
+            return profile;
+        }
+    }
+    
+    public static GLCapabilities getCapabilities() {
+        synchronized (capabilitiesLock) {
+            if (capabilities == null) {
+                prepareGLCapabilities();
+            }
+            
+            return capabilities;
+        }
     }
     
     public static void initializeGL(GL2 g) {

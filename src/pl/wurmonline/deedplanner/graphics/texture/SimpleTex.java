@@ -1,27 +1,40 @@
 package pl.wurmonline.deedplanner.graphics.texture;
 
 import com.jogamp.opengl.util.texture.Texture;
+import com.jogamp.opengl.util.texture.TextureData;
 import com.jogamp.opengl.util.texture.TextureIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 import javax.media.opengl.GL2GL3;
 import javax.media.opengl.GLException;
+import javax.media.opengl.GLProfile;
 import org.w3c.dom.Element;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.Log;
+import pl.wurmonline.deedplanner.util.jogl.GLInit;
 
 public final class SimpleTex implements Tex {
+    
+    private static final ExecutorService backgroundTextureLoader;
     
     private static final ArrayList<SimpleTex> textures = new ArrayList<>();
     private static SimpleTex[] activeTex = new SimpleTex[3];
     private static boolean lastTextureFlippedVertically = false;
     
     private final File file;
-    private Texture texture = null;
-    private boolean loaded = false;
+    private Texture texture;
+    private TextureData textureData;
+    
+    static {
+        backgroundTextureLoader = Executors.newSingleThreadExecutor();
+    }
     
     public static SimpleTex getTexture(Element element) {
         String path = element.getAttribute("location");
@@ -55,7 +68,16 @@ public final class SimpleTex implements Tex {
     
     private SimpleTex(File file) {
         this.file = file;
-        Log.out(this, "Texture data loaded!");
+        Log.out(this, "Texture data starts loading!");
+        
+        backgroundTextureLoader.submit(() -> {
+            try {
+                textureData = TextureIO.newTextureData(GLInit.getProfile(), file, true, null);
+                Log.out(this, "Texture data loaded!");
+            } catch (IOException ex) {
+                Log.err(ex);
+            }
+        });
     }
     
     private SimpleTex(String file) {
@@ -81,57 +103,61 @@ public final class SimpleTex implements Tex {
             default:
                 throw new DeedPlannerRuntimeException("Invalid texture unit!");
         }
-        if (this!=activeTex[target]) {
+        if (this != activeTex[target]) {
             init(g);
             
-            boolean flipTexture = lastTextureFlippedVertically != texture.getMustFlipVertically();
-            lastTextureFlippedVertically = texture.getMustFlipVertically();
-            if (flipTexture) {
-                g.glMatrixMode(GL2.GL_TEXTURE);
-                g.glLoadIdentity();
-                if (texture.getMustFlipVertically()) {
-                    g.glScalef(1.0f, -1.0f, 1.0f);
-                }
-                g.glMatrixMode(GL2.GL_MODELVIEW);
-            }
-            
             g.glActiveTexture(glTarget);
-            if (texture != null) {
-                texture.bind(g);
-                activeTex[target] = this;
-            }
-            else {
+            if (texture == null) {
                 g.glBindTexture(GL2.GL_TEXTURE_2D, 0);
                 activeTex[target] = null;
+            }
+            else {
+                boolean flipTexture = lastTextureFlippedVertically != texture.getMustFlipVertically();
+                lastTextureFlippedVertically = texture.getMustFlipVertically();
+                if (flipTexture) {
+                    g.glMatrixMode(GL2.GL_TEXTURE);
+                    g.glLoadIdentity();
+                    if (texture.getMustFlipVertically()) {
+                        g.glScalef(1.0f, -1.0f, 1.0f);
+                    }
+                    g.glMatrixMode(GL2.GL_MODELVIEW);
+                }
+                
+                texture.bind(g);
+                activeTex[target] = this;
             }
         }
     }
     
     public void destroy(GL g) {
-        if (texture!=null) {
-            texture.destroy(g);
-            Log.out(this, "Texture removed from memory!");
-            texture = null;
-            loaded = false;
+        if (texture==null) {
+            return;
         }
+        
+        texture.destroy(g);
+        Log.out(this, "Texture removed from memory!");
+        texture = null;
     }
     
     private void init(GL g) {
-        if (!loaded) {
-            loaded = true;
-            try {
-                texture = TextureIO.newTexture(file, true);
-                if (file.getName().endsWith(".dds")) {
-                    texture.setMustFlipVertically(true);
-                }
-                texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_S, GL2.GL_REPEAT);
-                texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_T, GL2.GL_REPEAT);
-                texture.setTexParameteri(g, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
-                texture.setTexParameteri(g, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR_MIPMAP_NEAREST);
-                Log.out(this, "Texture loaded and ready to use!");
-            } catch (GLException | IOException ex) {
-                Log.err(ex);
+        if (texture != null || textureData == null) {
+            return;
+        }
+        
+        try {
+            texture = TextureIO.newTexture(g, textureData);
+            if (file.getName().endsWith(".dds")) {
+                texture.setMustFlipVertically(true);
             }
+            texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_S, GL2.GL_REPEAT);
+            texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_T, GL2.GL_REPEAT);
+            texture.setTexParameteri(g, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
+            texture.setTexParameteri(g, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR_MIPMAP_NEAREST);
+            Log.out(this, "Texture loaded and ready to use!");
+            
+            textureData = null;
+        } catch (GLException ex) {
+            Log.err(ex);
         }
     }
     
