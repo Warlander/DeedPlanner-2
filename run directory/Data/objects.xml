@@ -2559,7 +2559,7 @@
 			</model>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
-				Marble bricks = 10
+				Sandstone bricks = 10
 			</materials>
 			<icon location="Data/Walls/Icons/sand/stonefence.png"/>
 			<category>Fences</category>
