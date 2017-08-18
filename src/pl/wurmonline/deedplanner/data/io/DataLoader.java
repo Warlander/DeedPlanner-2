@@ -330,6 +330,7 @@ public final class DataLoader {
             final String name;
             final String shortName;
             final boolean centerOnly;
+            final boolean cornerOnly;
             final boolean floating;
             Model model = null;
             ArrayList<String[]> categories = new ArrayList<>();
@@ -342,6 +343,7 @@ public final class DataLoader {
             shortName = map.getNamedItem("shortname").getNodeValue();
             String type = map.getNamedItem("type").getNodeValue();
             centerOnly = "centered".equals(type);
+            cornerOnly = "corner".equals(type);
             floating = "floating".equals(type);
             
             NodeList list = entity.getChildNodes();
@@ -361,8 +363,8 @@ public final class DataLoader {
             }
             
             Data.verifyShortname(shortName);
-            GameObjectData data = new GameObjectData(model, name, shortName, type, centerOnly, floating, materials);
-            Log.out(DataLoader.class, "Object data "+data+" loaded and ready to use!");
+            GameObjectData data = new GameObjectData(model, name, shortName, type, centerOnly, cornerOnly, floating, materials);
+            Log.out(DataLoader.class, "Object data " + data + " loaded and ready to use!");
             Data.objects.put(shortName, data);
 
             addToCategories(Data.objectsTree, categories, data, name);

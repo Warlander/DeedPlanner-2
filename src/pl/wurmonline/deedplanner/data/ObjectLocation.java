@@ -3,6 +3,7 @@ package pl.wurmonline.deedplanner.data;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 
 public enum ObjectLocation {
+    CORNER(0, 0),
     TOP_LEFT(Constants.LEFT_ALIGN, Constants.TOP_ALIGN), TOP_CENTER(Constants.CENTER_ALIGN, Constants.TOP_ALIGN), TOP_RIGHT(Constants.RIGHT_ALIGN, Constants.TOP_ALIGN),
     MIDDLE_LEFT(Constants.LEFT_ALIGN, Constants.MIDDLE_ALIGN), MIDDLE_CENTER(Constants.CENTER_ALIGN, Constants.MIDDLE_ALIGN), MIDDLE_RIGHT(Constants.RIGHT_ALIGN, Constants.MIDDLE_ALIGN),
     BOTTOM_LEFT(Constants.LEFT_ALIGN, Constants.BOTTOM_ALIGN), BOTTOM_CENTER(Constants.CENTER_ALIGN, Constants.BOTTOM_ALIGN), BOTTOM_RIGHT(Constants.RIGHT_ALIGN, Constants.BOTTOM_ALIGN);
@@ -19,6 +20,7 @@ public enum ObjectLocation {
     }
     
     private static final float TILE_SIZE = 1;
+    private static final float CORNER_RADIUS = 0.15f;
     private static final float FIRST_THRESHOLD = 1f/3f;
     private static final float SECOND_THRESHOLD = 2f/3f;
     
@@ -68,6 +70,10 @@ public enum ObjectLocation {
             }
         }
         throw new DeedPlannerRuntimeException("Corrupted save file - invalid object location.");
+    }
+    
+    public static float getCornerRadius() {
+        return CORNER_RADIUS;
     }
     
     public static ObjectLocation[] getValues() {

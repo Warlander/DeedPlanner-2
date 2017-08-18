@@ -28,11 +28,11 @@ public class ObjectsUpdater {
             tile = cam.tile;
             location = calculateLocation(cam);
             point = new Point2D.Double(tile.getX()+location.getHorizontalAlign()/4f, tile.getY()+location.getVerticalAlign()/4f);
-            placeEntity(map, cam.tile, location, Globals.floor);
-            object = cam.tile.getGridEntity(Globals.floor, location);
+            placeEntity(map, tile, location, Globals.floor);
+            object = tile.getGridEntity(Globals.floor, location);
             map.newAction();
         }
-        else if (object!=null && mouse.hold.left) {
+        else if (object != null && mouse.hold.left) {
             float deltaX = cam.xMap - (float) point.getX();
             float deltaY = cam.yMap - (float) point.getY();
             double rotation = Math.atan2(deltaY, deltaX)+Math.PI/2f;
@@ -76,6 +76,24 @@ public class ObjectsUpdater {
     }
     
     private static ObjectLocation calculateLocation(UpCamera cam) {
+        float xPos = cam.xTile;
+        float yPos = cam.yTile;
+        float xDist = Math.min(xPos, 1 - xPos);
+        float yDist = Math.min(yPos, 1 - yPos);
+        float distToCorner = (float) Math.sqrt(xDist * xDist + yDist * yDist);
+        boolean corner = distToCorner < ObjectLocation.getCornerRadius();
+        
+        if (corner || (isObjectEditor() && objectsCurrentData.cornerOnly)) {
+            if (xPos > 0.5f) {
+                tile = tile.getMap().getTile(tile, 1, 0);
+            }
+            if (yPos > 0.5f) {
+                tile = tile.getMap().getTile(tile, 0, 1);
+            }
+            
+            return ObjectLocation.CORNER;
+        }
+        
         if (isObjectEditor() && objectsCurrentData.centerOnly) {
             return ObjectLocation.MIDDLE_CENTER;
         }
