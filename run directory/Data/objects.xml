@@ -2600,7 +2600,7 @@
 			</materials>
 			<icon location="Data/Walls/Icons/rend/stonefence.png"/>
 			<category>Fences</category>
-			<category>Materials/Pottery</category>
+			<category>Materials/Rendered</category>
 		</wall>
 		<wall name="Tall stone wall" shortname="tsFence" scale="1" type="highfence">
 			<model location="Data/Walls/Tall_Stone_Wall.wom"/>
@@ -2612,7 +2612,80 @@
 			<category>Fences</category>
 			<category>Materials/Stone</category>
 		</wall>
-		<wall name="Tall stone wall portcullis" shortname="tsPort" scale="1" type="highfence">
+		<wall name="Tall slate stone wall" shortname="stsFence" scale="1" type="highfence">
+			<model location="Data/Walls/Tall_Stone_Wall.wom">
+				<override mesh="TallStoneWallMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Slate bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/slate/TallStoneWall.png"/>
+			<category>Fences</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Tall marble wall" shortname="mtsFence" scale="1" type="highfence">
+			<model location="Data/Walls/Tall_Stone_Wall.wom">
+				<override mesh="TallStoneWallMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Marble bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/marble/TallStoneWall.png"/>
+			<category>Fences</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Tall sandstone wall" shortname="satsFence" scale="1" type="highfence">
+			<model location="Data/Walls/Tall_Stone_Wall.wom">
+				<override mesh="TallStoneWallMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Sandstone bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/sand/TallStoneWall.png"/>
+			<category>Fences</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Tall pottery wall" shortname="ptsFence" scale="1" type="highfence">
+			<model location="Data/Walls/Tall_Stone_Wall.wom">
+				<override mesh="TallStoneWallMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Pottery bricks = 20
+			</materials>
+			<icon location="Data/Walls/Icons/brick/TallStoneWall.png"/>
+			<category>Fences</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Tall rounded stone wall" shortname="rtsFence" scale="1" type="highfence">
+			<model location="Data/Walls/Tall_Stone_Wall.wom">
+				<override mesh="TallStoneWallMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Rounded stones = 20
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/TallStoneWall.png"/>
+			<category>Fences</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Tall rendered wall" shortname="retsFence" scale="1" type="highfence">
+			<model location="Data/Walls/Tall_Stone_Wall.wom">
+				<override mesh="TallStoneWallMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Stone bricks = 20,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/TallStoneWall.png"/>
+			<category>Fences</category>
+			<category>Materials/Rendered</category>
+		</wall>
+		<wall name="Portcullis" shortname="tsPort" scale="1" type="highfence">
 			<model location="Data/Walls/tallStoneWallPortcullis.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<materials>
@@ -2624,6 +2697,97 @@
 			<icon location="Data/Walls/Icons/TallStoneWallPortCullis.png"/>
 			<category>Fences</category>
 			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Slate portcullis" shortname="stsPort" scale="1" type="highfence">
+			<model location="Data/Walls/tallStoneWallPortcullis.wom">
+				<override mesh="thewallMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Slate bricks = 15,
+				Iron fence bars = 2,
+				Small wheel = 2,
+				Cordage rope = 1
+			</materials>
+			<icon location="Data/Walls/Icons/slate/TallStoneWallPortCullis.png"/>
+			<category>Fences</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Marble portcullis" shortname="mtsPort" scale="1" type="highfence">
+			<model location="Data/Walls/tallStoneWallPortcullis.wom">
+				<override mesh="thewallMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Marble bricks = 15,
+				Iron fence bars = 2,
+				Small wheel = 2,
+				Cordage rope = 1
+			</materials>
+			<icon location="Data/Walls/Icons/marble/TallStoneWallPortCullis.png"/>
+			<category>Fences</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Sandstone portcullis" shortname="satsPort" scale="1" type="highfence">
+			<model location="Data/Walls/tallStoneWallPortcullis.wom">
+				<override mesh="thewallMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Sandstone bricks = 15,
+				Iron fence bars = 2,
+				Small wheel = 2,
+				Cordage rope = 1
+			</materials>
+			<icon location="Data/Walls/Icons/sand/TallStoneWallPortCullis.png"/>
+			<category>Fences</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Pottery portcullis" shortname="ptsPort" scale="1" type="highfence">
+			<model location="Data/Walls/tallStoneWallPortcullis.wom">
+				<override mesh="thewallMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Pottery bricks = 15,
+				Iron fence bars = 2,
+				Small wheel = 2,
+				Cordage rope = 1
+			</materials>
+			<icon location="Data/Walls/Icons/brick/TallStoneWallPortCullis.png"/>
+			<category>Fences</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Rounded stone portcullis" shortname="rtsPort" scale="1" type="highfence">
+			<model location="Data/Walls/tallStoneWallPortcullis.wom">
+				<override mesh="thewallMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Rounded stones = 15,
+				Iron fence bars = 2,
+				Small wheel = 2,
+				Cordage rope = 1
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/TallStoneWallPortCullis.png"/>
+			<category>Fences</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Rendered portcullis" shortname="retsPort" scale="1" type="highfence">
+			<model location="Data/Walls/tallStoneWallPortcullis.wom">
+				<override mesh="thewallMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<materials>
+				Stone bricks = 15,
+				Iron fence bars = 2,
+				Small wheel = 2,
+				Cordage rope = 1,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/TallStoneWallPortCullis.png"/>
+			<category>Fences</category>
+			<category>Materials/Rendered</category>
 		</wall>
 		
 		<wall name="Palisade" shortname="pFence" scale="3" type="highfence">
@@ -2657,7 +2821,7 @@
 			<category>Materials/Wood</category>
 		</wall>
 		
-		<wall name="Wooden parapet" shortname="wPar" scale="4" type="highfence">
+		<wall name="Wooden parapet" shortname="wPar" scale="4" type="lowfence">
 			<model location="Data/Walls/Wooden_Parapet.wom"/>
 			<color type="dec" r="1" g="1" b="1"/>
 			<house/>
@@ -2679,7 +2843,86 @@
 			</materials>
 			<icon location="Data/Walls/Icons/StoneParapet.png"/>
 			<category>Parapets</category>
-			<category>Materials/Wood</category>
+			<category>Materials/Stone</category>
+		</wall>
+		<wall name="Slate parapet" shortname="ssPar" scale="2" type="lowfence">
+			<model location="Data/Walls/Stone_Parapet.wom">
+				<override mesh="StoneParapetMesh" texture="Data/Walls/slate.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<materials>
+				Slate bricks = 15
+			</materials>
+			<icon location="Data/Walls/Icons/slate/StoneParapet.png"/>
+			<category>Parapets</category>
+			<category>Materials/Slate</category>
+		</wall>
+		<wall name="Marble parapet" shortname="msPar" scale="2" type="lowfence">
+			<model location="Data/Walls/Stone_Parapet.wom">
+				<override mesh="StoneParapetMesh" texture="Data/Walls/marble.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<materials>
+				Marble bricks = 15
+			</materials>
+			<icon location="Data/Walls/Icons/marble/StoneParapet.png"/>
+			<category>Parapets</category>
+			<category>Materials/Marble</category>
+		</wall>
+		<wall name="Sandstone parapet" shortname="sasPar" scale="2" type="lowfence">
+			<model location="Data/Walls/Stone_Parapet.wom">
+				<override mesh="StoneParapetMesh" texture="Data/Walls/sandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<materials>
+				Sandstone bricks = 15
+			</materials>
+			<icon location="Data/Walls/Icons/sand/StoneParapet.png"/>
+			<category>Parapets</category>
+			<category>Materials/Sandstone</category>
+		</wall>
+		<wall name="Pottery parapet" shortname="psPar" scale="2" type="lowfence">
+			<model location="Data/Walls/Stone_Parapet.wom">
+				<override mesh="StoneParapetMesh" texture="Data/Walls/brick.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<materials>
+				Pottery bricks = 15
+			</materials>
+			<icon location="Data/Walls/Icons/brick/StoneParapet.png"/>
+			<category>Parapets</category>
+			<category>Materials/Pottery</category>
+		</wall>
+		<wall name="Rounded stone parapet" shortname="rsPar" scale="2" type="lowfence">
+			<model location="Data/Walls/Stone_Parapet.wom">
+				<override mesh="StoneParapetMesh" texture="Data/Walls/rounded.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<materials>
+				Rounded stones = 15
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/StoneParapet.png"/>
+			<category>Parapets</category>
+			<category>Materials/Rounded stone</category>
+		</wall>
+		<wall name="Rendered parapet" shortname="resPar" scale="2" type="lowfence">
+			<model location="Data/Walls/Stone_Parapet.wom">
+				<override mesh="StoneParapetMesh" texture="Data/Walls/plaster.png"/>
+			</model>
+			<color type="dec" r="1" g="1" b="1"/>
+			<house/>
+			<materials>
+				Stone bricks = 15,
+				Clay = 10
+			</materials>
+			<icon location="Data/Walls/Icons/rend/StoneParapet.png"/>
+			<category>Parapets</category>
+			<category>Materials/Rendered</category>
 		</wall>
 		<wall name="Stone and iron parapet" shortname="siPar" scale="2" type="lowfence">
 			<model location="Data/Walls/Stone_Iron_Parapet.wom"/>
@@ -2980,6 +3223,164 @@
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
+		<wall name="Pottery high iron fence" shortname="pbhiFence" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFence.wom">
+				<override mesh="HighIronFenceMesh" texture="Data/Walls/IronFencePottery.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Pottery bricks = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/brick/HighIron.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Pottery high iron fence gate" shortname="pbhiFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFenceGate_main.wom">
+				<override mesh="HighIronFenceGate4_HighIronFenceGate_ironfenceMesh" texture="Data/Walls/IronFencePottery.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Pottery bricks = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/brick/HighIronGate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rounded stone high iron fence" shortname="rshiFence" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFence.wom">
+				<override mesh="HighIronFenceMesh" texture="Data/Walls/IronFenceRounded.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Rounded stones = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/HighIron.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rounded stone high iron fence gate" shortname="rshiFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFenceGate_main.wom">
+				<override mesh="HighIronFenceGate4_HighIronFenceGate_ironfenceMesh" texture="Data/Walls/IronFenceRounded.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Rounded stones = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/HighIronGate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Sandstone high iron fence" shortname="shiFence" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFence.wom">
+				<override mesh="HighIronFenceMesh" texture="Data/Walls/IronFenceSandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Sandstone bricks = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/sand/HighIron.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Sandstone high iron fence gate" shortname="shiFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFenceGate_main.wom">
+				<override mesh="HighIronFenceGate4_HighIronFenceGate_ironfenceMesh" texture="Data/Walls/IronFenceSandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Sandstone bricks = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/sand/HighIronGate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Slate high iron fence" shortname="sehiFence" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFence.wom">
+				<override mesh="HighIronFenceMesh" texture="Data/Walls/IronFenceSlate.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Slate bricks = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/slate/HighIron.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Slate high iron fence gate" shortname="sehiFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFenceGate_main.wom">
+				<override mesh="HighIronFenceGate4_HighIronFenceGate_ironfenceMesh" texture="Data/Walls/IronFenceSlate.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Slate bricks = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/slate/HighIronGate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Marble high iron fence" shortname="mhiFence" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFence.wom">
+				<override mesh="HighIronFenceMesh" texture="Data/Walls/IronFenceMarble.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Marble bricks = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/marble/HighIron.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Marble high iron fence gate" shortname="mhiFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFenceGate_main.wom">
+				<override mesh="HighIronFenceGate4_HighIronFenceGate_ironfenceMesh" texture="Data/Walls/IronFenceMarble.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Marble bricks = 16,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/marble/HighIronGate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rendered high iron fence" shortname="rehiFence" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFence.wom">
+				<override mesh="HighIronFenceMesh" texture="Data/Walls/IronFenceRendered.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Stone bricks = 16,
+				Clay = 10,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/rend/HighIron.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rendered high iron fence gate" shortname="rehiFenceG" scale="2" type="lowfence">
+			<model location="Data/Walls/HighIronFenceGate_main.wom">
+				<override mesh="HighIronFenceGate4_HighIronFenceGate_ironfenceMesh" texture="Data/Walls/IronFenceRendered.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Stone bricks = 16,
+				Clay = 10,
+				Iron fence bars = 2
+			</materials>
+			<icon location="Data/Walls/Icons/rend/HighIronGate.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
 		<wall name="Chain fence" shortname="icFence" scale="2" type="lowfence">
 			<model location="Data/Walls/ChainMediumFence.wom"/>
 			<color type="dec" r="1" g="0.5" b="0.5"/>
@@ -2988,6 +3389,85 @@
 				Large chain links = 6
 			</materials>
 			<icon location="Data/Walls/Icons/ChainMediumFence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Slate chain fence" shortname="sicFence" scale="2" type="lowfence">
+			<model location="Data/Walls/ChainMediumFence.wom">
+				<override mesh="chainMeduimFenceMesh" texture="Data/Walls/IronFenceSlate.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Slate bricks = 10,
+				Large chain links = 6
+			</materials>
+			<icon location="Data/Walls/Icons/slate/ChainMediumFence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Marble chain fence" shortname="micFence" scale="2" type="lowfence">
+			<model location="Data/Walls/ChainMediumFence.wom">
+				<override mesh="chainMeduimFenceMesh" texture="Data/Walls/IronFenceMarble.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Marble bricks = 10,
+				Large chain links = 6
+			</materials>
+			<icon location="Data/Walls/Icons/marble/ChainMediumFence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Sandstone chain fence" shortname="saicFence" scale="2" type="lowfence">
+			<model location="Data/Walls/ChainMediumFence.wom">
+				<override mesh="chainMeduimFenceMesh" texture="Data/Walls/IronFenceSandstone.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Sandstone bricks = 10,
+				Large chain links = 6
+			</materials>
+			<icon location="Data/Walls/Icons/sand/ChainMediumFence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Pottery chain fence" shortname="picFence" scale="2" type="lowfence">
+			<model location="Data/Walls/ChainMediumFence.wom">
+				<override mesh="chainMeduimFenceMesh" texture="Data/Walls/IronFencePottery.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Pottery bricks = 10,
+				Large chain links = 6
+			</materials>
+			<icon location="Data/Walls/Icons/brick/ChainMediumFence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rounded stone chain fence" shortname="ricFence" scale="2" type="lowfence">
+			<model location="Data/Walls/ChainMediumFence.wom">
+				<override mesh="chainMeduimFenceMesh" texture="Data/Walls/IronFenceRounded.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Rounded stones = 10,
+				Large chain links = 6
+			</materials>
+			<icon location="Data/Walls/Icons/rounded/ChainMediumFence.png"/>
+			<category>Fences</category>
+			<category>Materials/Iron</category>
+		</wall>
+		<wall name="Rendered chain fence" shortname="reicFence" scale="2" type="lowfence">
+			<model location="Data/Walls/ChainMediumFence.wom">
+				<override mesh="chainMeduimFenceMesh" texture="Data/Walls/IronFenceRendered.png"/>
+			</model>
+			<color type="dec" r="1" g="0.5" b="0.5"/>
+			<materials>
+				Stone bricks = 10,
+				Clay = 10,
+				Large chain links = 6
+			</materials>
+			<icon location="Data/Walls/Icons/rend/ChainMediumFence.png"/>
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
