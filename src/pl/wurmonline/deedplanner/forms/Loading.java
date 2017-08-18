@@ -70,6 +70,8 @@ public class Loading extends javax.swing.JFrame {
         progressBar = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
+        setTitle(bundle.getString("Loading.title")); // NOI18N
         setUndecorated(true);
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
@@ -97,7 +99,6 @@ public class Loading extends javax.swing.JFrame {
 
         progressBar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         progressBar.setMaximum(9);
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
         progressBar.setString(bundle.getString("Loading.progressBar.string")); // NOI18N
         progressBar.setStringPainted(true);
 
