@@ -3797,6 +3797,7 @@
 			<category>Containers/Racks and Stands</category>
 			<category>Materials/Wood</category>
 		</object>
+		
 		<object name="Coffer" shortname="coffer" type="normal">
 			<model location="Data/Objects/Coffer.wom"/>
 			<materials>
@@ -3938,6 +3939,18 @@
 				Planks = 20,
 				Ribbons = 2,
 				Small nails = 3
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Large storage unit" shortname="lsu" type="normal">
+			<model location="Data/Objects/storageUnit.wom"/>
+			<materials>
+				Planks = 15,
+				Large nails = 4,
+				Pegs = 10,
+				Small rafts = 3,
+				Ribbons = 4
 			</materials>
 			<category>Containers</category>
 			<category>Materials/Wood</category>
