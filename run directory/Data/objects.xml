@@ -6182,6 +6182,15 @@
 			<category>Displays</category>
 		</object>
 		
+		<object name="Waystone" shortname="waystone" type="corner">
+			<model location="Data/Objects/Waystone.wom"/>
+			<category>Highway</category>
+		</object>
+		<object name="Catseye" shortname="catseye" type="corner">
+			<model location="Data/Objects/catseye.wom"/>
+			<category>Highway</category>
+		</object>
+		
 	</objects>
 		
 		
