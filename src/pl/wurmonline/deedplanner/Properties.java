@@ -4,6 +4,7 @@ import java.io.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Scanner;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pl.wurmonline.deedplanner.util.Log;
@@ -37,6 +38,8 @@ public class Properties {
     public static double mod2Fpp = 0.2;
     public static double mouseFractionUp = 0.2;
     public static double mouseFractionFpp = 0.2;
+    
+    public static String uuid = UUID.randomUUID().toString();
     
     static {
         File file = new File(HOME + File.separator + "DeedPlanner" + File.separator);
