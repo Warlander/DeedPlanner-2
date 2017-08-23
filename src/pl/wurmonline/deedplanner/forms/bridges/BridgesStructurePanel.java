@@ -100,6 +100,7 @@ public class BridgesStructurePanel extends BridgesPanel {
                 return;
             }
             selectedValue = Integer.parseInt(((JRadioButton) e.getSource()).getText());
+            updateErrors();
         };
         
         bridgePlanPanel.setLayout(new FlowLayout(0, 0, 0));
