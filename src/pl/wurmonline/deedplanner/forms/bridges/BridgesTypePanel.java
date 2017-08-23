@@ -54,17 +54,17 @@ public class BridgesTypePanel extends BridgesPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        typesList = new javax.swing.JList<BridgeListItem>();
+        typesList = new javax.swing.JList<>();
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Stage 1 - select bridge type");
 
         typesList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        typesList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+        typesList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                typesListMouseClicked(evt);
+            }
         });
         jScrollPane1.setViewportView(typesList);
 
@@ -89,6 +89,12 @@ public class BridgesTypePanel extends BridgesPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void typesListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_typesListMouseClicked
+        if (evt.getClickCount() == 2) {
+            getConstructor().advanceIfAllowed();
+        }
+    }//GEN-LAST:event_typesListMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

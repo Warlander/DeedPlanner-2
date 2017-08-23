@@ -1,6 +1,7 @@
 package pl.wurmonline.deedplanner.forms.bridges;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -13,6 +14,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.SwingConstants;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.data.bridges.BridgePartType;
 import pl.wurmonline.deedplanner.data.bridges.BridgeType;
@@ -134,7 +136,8 @@ public class BridgesStructurePanel extends BridgesPanel {
             JPanel segmentPanel = new JPanel();
             segmentPanel.setLayout(new BoxLayout(segmentPanel, BoxLayout.Y_AXIS));
             
-            JLabel indexLabel = new JLabel(Integer.toString(i + 1));
+            JLabel indexLabel = new JLabel(Integer.toString(i + 1), SwingConstants.CENTER);
+            indexLabel.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
             
             currentSegments[i] = new BridgeSegmentLabel(BridgeSegment.getValidSegmentFor(getConstructor().getBridgeSpecs().data, segments[i]), previousDist, nextDist);
             currentSegments[i].addMouseListener(currentSegmentListener);

@@ -82,6 +82,12 @@ public class BridgesConstructor extends JFrame {
         return button;
     }
     
+    public void advanceIfAllowed() {
+        if (nextButton.isEnabled()) {
+            setPanel(1);
+        }
+    }
+    
     protected Map getMap() {
         return map;
     }
