@@ -108,12 +108,13 @@ public class HeightUpdater {
         model.addElement(new HeightMode(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("SELECT HEIGHT")) {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
-                if (frag.isCorner()) {
+                if (frag.isCorner() || tile.isFlat()) {
+                    Tile pickTile = tile.getAffectedTiles(frag)[0];
                     if (mouse.pressed.left) {
-                        setLMB.getModel().setValue(tile.getHeight());
+                        setLMB.getModel().setValue(pickTile.getHeight());
                     }
                     else if (mouse.pressed.right) {
-                        setRMB.getModel().setValue(tile.getHeight());
+                        setRMB.getModel().setValue(pickTile.getHeight());
                     }
                 }
             }
