@@ -198,7 +198,31 @@ public final class Tile implements XMLSerializable {
                         break;
                 }
                 
-                g.glColor3f(lightModifier, lightModifier, lightModifier);
+                float heightR = 1;
+                float heightG = 1;
+                float heightB = 1;
+                boolean renderColors = (Globals.renderHeight || Globals.tab==Tab.height);
+                if (renderColors) {
+                    if (isFlat()) {
+                        if (!pl.wurmonline.deedplanner.Properties.colorblind) {
+                            heightR = 0.8f;
+                            heightG = 1.0f;
+                            heightB = 0.8f;
+                        }
+                        else {
+                            heightR = 0.8f;
+                            heightG = 0.8f;
+                            heightB = 1.0f;
+                        }
+                    }
+                    else {
+                        heightR = 1.0f;
+                        heightG = 0.8f;
+                        heightB = 0.8f;
+                    }
+                }
+                
+                g.glColor3f(lightModifier * heightR, lightModifier * heightG, lightModifier * heightB);
             }
             ground.render(g, this);
         }

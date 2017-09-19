@@ -114,6 +114,14 @@ public class LogicLoop extends TimerTask {
                                 build.append(t.getCaveEntity());
                             }
                             break;
+                        case height:
+                            if (t.isFlat()) {
+                                build.append("Flat Tile");
+                            }
+                            else {
+                                build.append("Uneven Tile");
+                            }
+                            break;
                         case floors: case roofs:
                             if (t.getTileContent(Globals.floor)!=null) {
                                 build.append(t.getTileContent(Globals.floor));
