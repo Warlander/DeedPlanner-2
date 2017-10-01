@@ -1,6 +1,7 @@
 package pl.wurmonline.deedplanner.logic.height;
 
 import javax.swing.*;
+import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.forms.HeightImportWizard;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
@@ -63,11 +64,12 @@ public class HeightUpdater {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 for (Tile t : tile.getAffectedTiles(frag)) {
+                    int height = (Globals.editSize && Globals.floor < 0) ? t.getCaveSize() : t.getHeight();
                     if (mouse.pressed.left) {
-                        t.setHeight(t.getHeight()+add);
+                        t.setHeight(height + add);
                     }
                     else if (mouse.pressed.right) {
-                        t.setHeight(t.getHeight()-add);
+                        t.setHeight(height - add);
                     }
                     else if (mouse.released.left || mouse.released.right) {
                         map.newAction();
@@ -87,11 +89,12 @@ public class HeightUpdater {
 
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 for (Tile t : tile.getAffectedTiles(frag)) {
+                    int height = (Globals.editSize && Globals.floor < 0) ? t.getCaveSize() : t.getHeight();
                     if (mouse.pressed.left) {
-                        t.setHeight(t.getHeight()-add);
+                        t.setHeight(height - add);
                     }
                     else if (mouse.pressed.right) {
-                        t.setHeight(t.getHeight()+add);
+                        t.setHeight(height + add);
                     }
                     else if (mouse.released.left || mouse.released.right) {
                         map.newAction();
@@ -110,11 +113,21 @@ public class HeightUpdater {
             public void action(Mouse mouse, Map map, Tile tile, TileFragment frag) {
                 if (frag.isCorner() || tile.isFlat()) {
                     Tile pickTile = tile.getAffectedTiles(frag)[0];
-                    if (mouse.pressed.left) {
-                        setLMB.getModel().setValue(pickTile.getHeight());
+                    if (Globals.editSize && Globals.floor < 0) {
+                        if (mouse.pressed.left) {
+                            setLMB.getModel().setValue(pickTile.getCaveSize());
+                        }
+                        else if (mouse.pressed.right) {
+                            setRMB.getModel().setValue(pickTile.getCaveSize());
+                        }
                     }
-                    else if (mouse.pressed.right) {
-                        setRMB.getModel().setValue(pickTile.getHeight());
+                    else {
+                        if (mouse.pressed.left) {
+                            setLMB.getModel().setValue(pickTile.getCurrentLayerHeight());
+                        }
+                        else if (mouse.pressed.right) {
+                            setRMB.getModel().setValue(pickTile.getCurrentLayerHeight());
+                        }
                     }
                 }
             }
