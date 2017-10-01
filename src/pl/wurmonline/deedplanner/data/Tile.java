@@ -150,6 +150,8 @@ public final class Tile implements XMLSerializable {
         this.y = y;
         
         this.height = tile.height;
+        this.caveHeight = tile.caveHeight;
+        this.caveSize = tile.caveSize;
         this.ground = tile.ground;
         this.cave = tile.cave;
         this.label = tile.label;
