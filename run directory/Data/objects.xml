@@ -50,6 +50,11 @@
 			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
+		<ground name="Carrot Field" shortname="carfi">
+			<tex location="Data/GroundTextures/2d-crop-carrot.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
 		<ground name="Corn Field" shortname="cornfi">
 			<tex location="Data/GroundTextures/2d-crop-corn.jpg" target="editmode"/>
 			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
@@ -97,6 +102,11 @@
 		</ground>
 		<ground name="Pumpkin Field" shortname="pufi">
 			<tex location="Data/GroundTextures/2d-crop-pumpkin.jpg" target="editmode"/>
+			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<category>Farm</category>
+		</ground>
+		<ground name="Reed Field" shortname="refi">
+			<tex location="Data/GroundTextures/2d-crop-wemp.jpg" target="editmode"/>
 			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
