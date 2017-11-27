@@ -126,6 +126,7 @@ public class LoadWindow extends javax.swing.JFrame {
         if (!codeField.getText().contains("|")) {
             return;
         }
+        Log.out(LoadWindow.class, "Opened DeedPlanner map from code, parsing now.");
         loadManager(codeField.getText().getBytes());
         setVisible(false);
         dispose();
@@ -149,6 +150,7 @@ public class LoadWindow extends javax.swing.JFrame {
             InputStream in = conn.getInputStream();
             byte[] bytes = getBytesFromInputStream(in);
             in.close();
+            Log.out(LoadWindow.class, "Downloaded DeedPlanner map from Pastebin, parsing now.");
             loadManager(bytes);
         } catch (IOException ex) {
             Logger.getLogger(LoadWindow.class.getName()).log(Level.SEVERE, null, ex);
@@ -173,6 +175,7 @@ public class LoadWindow extends javax.swing.JFrame {
                 FileInputStream fis = new FileInputStream(file);
                 byte[] bytes = getBytesFromInputStream(fis);
                 fis.close();
+                Log.out(LoadWindow.class, "Opened DeedPlanner map from file, parsing now.");
                 loadManager(bytes);
             } catch (IOException ex) {
                 Logger.getLogger(SaveWindow.class.getName()).log(Level.SEVERE, null, ex);
@@ -205,7 +208,7 @@ public class LoadWindow extends javax.swing.JFrame {
     private void urlFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_urlFieldFocusGained
         urlField.selectAll();
     }//GEN-LAST:event_urlFieldFocusGained
-
+  
     private class ExtensionFileFilter extends FileFilter {
         String description;
 
