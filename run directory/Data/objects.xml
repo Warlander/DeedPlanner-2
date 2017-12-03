@@ -4242,6 +4242,84 @@
 			<category>Materials/Stone</category>
 		</object>
 		
+		<object name="Bear vs Bull" shortname="bearvbullhota" type="normal">
+			<model location="Data/Objects/bearBullStatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Dragon" shortname="dragonhota" type="normal">
+			<model location="Data/Objects/blackDragonStatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Deer" shortname="dearhota" type="normal">
+			<model location="Data/Objects/deerStatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Dogs vs Boar" shortname="dogvboarhota" type="normal">
+			<model location="Data/Objects/dogsBoarStatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Lady vs Anaconda" shortname="ladyvanahota" type="normal">
+			<model location="Data/Objects/femaleAnacondaStatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Lady of the Lake" shortname="ladylakehota" type="normal">
+			<model location="Data/Objects/ladyOfTheLakeStatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Man vs Bear" shortname="manvbearhota" type="normal">
+			<model location="Data/Objects/manBearstatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Nogump" shortname="nogumphota" type="normal">
+			<model location="Data/Objects/nogumpStatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Scorpion" shortname="scorphota" type="normal">
+			<model location="Data/Objects/scorpionStatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Sol demon" shortname="soldhota" type="normal">
+			<model location="Data/Objects/soldDemonStatueHota.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		<object name="Wolf vs Bison" shortname="wolfbisonhota" type="normal">
+			<model location="Data/Objects/wolfBisonStatue.wom"/>
+			<category>Statues/HOTA</category>
+		</object>
+		
+		<object name="Eagle statue" shortname="eaglearch" type="normal">
+			<model location="Data/Objects/eagleStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Hatchling statue" shortname="hatchlingarch" type="normal">
+			<model location="Data/Objects/hatchlingStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Hell horse statue" shortname="hellhorsearch" type="normal">
+			<model location="Data/Objects/hellHorseStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Worg statue" shortname="worgarch" type="normal">
+			<model location="Data/Objects/worgStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Fo statue" shortname="foarch" type="normal">
+			<model location="Data/Objects/foStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Libila statue" shortname="libilaarch" type="normal">
+			<model location="Data/Objects/libilaStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Magranon statue" shortname="magarch" type="normal">
+			<model location="Data/Objects/magStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Vynora statue" shortname="vynarch" type="normal">
+			<model location="Data/Objects/vynStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		
 		<object name="Statue of boy" shortname="statBoy" type="normal">
 			<model location="Data/Objects/boyStatue.wom"/>
 			<category>Statues</category>
@@ -5491,84 +5569,6 @@
 		<object name="Snow lantern" shortname="snowLantern" type="normal">
 			<model location="Data/Objects/SnowLamp.wom"/>
 			<category>Unique items</category>
-		</object>
-		
-		<object name="Bear vs Bull" shortname="bearvbullhota" type="normal">
-			<model location="Data/Objects/bearBullStatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Dragon" shortname="dragonhota" type="normal">
-			<model location="Data/Objects/blackDragonStatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Deer" shortname="dearhota" type="normal">
-			<model location="Data/Objects/deerStatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Dogs vs Boar" shortname="dogvboarhota" type="normal">
-			<model location="Data/Objects/dogsBoarStatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Lady vs Anaconda" shortname="ladyvanahota" type="normal">
-			<model location="Data/Objects/femaleAnacondaStatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Lady of the Lake" shortname="ladylakehota" type="normal">
-			<model location="Data/Objects/ladyOfTheLakeStatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Man vs Bear" shortname="manvbearhota" type="normal">
-			<model location="Data/Objects/manBearstatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Nogump" shortname="nogumphota" type="normal">
-			<model location="Data/Objects/nogumpStatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Scorpion" shortname="scorphota" type="normal">
-			<model location="Data/Objects/scorpionStatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Sol demon" shortname="soldhota" type="normal">
-			<model location="Data/Objects/soldDemonStatueHota.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		<object name="Wolf vs Bison" shortname="wolfbisonhota" type="normal">
-			<model location="Data/Objects/wolfBisonStatue.wom"/>
-			<category>HOTA Statues</category>
-		</object>
-		
-		<object name="Eagle statue" shortname="eaglearch" type="normal">
-			<model location="Data/Objects/eagleStatue.wom"/>
-			<category>Archaeology Statues</category>
-		</object>
-		<object name="Hatchling statue" shortname="hatchlingarch" type="normal">
-			<model location="Data/Objects/hatchlingStatue.wom"/>
-			<category>Archaeology Statues</category>
-		</object>
-		<object name="Hell horse statue" shortname="hellhorsearch" type="normal">
-			<model location="Data/Objects/hellHorseStatue.wom"/>
-			<category>Archaeology Statues</category>
-		</object>
-		<object name="Worg statue" shortname="worgarch" type="normal">
-			<model location="Data/Objects/worgStatue.wom"/>
-			<category>Archaeology Statues</category>
-		</object>
-		<object name="Fo statue" shortname="foarch" type="normal">
-			<model location="Data/Objects/foStatue.wom"/>
-			<category>Archaeology Statues</category>
-		</object>
-		<object name="Libila statue" shortname="libilaarch" type="normal">
-			<model location="Data/Objects/libilaStatue.wom"/>
-			<category>Archaeology Statues</category>
-		</object>
-		<object name="Magranon statue" shortname="magarch" type="normal">
-			<model location="Data/Objects/magStatue.wom"/>
-			<category>Archaeology Statues</category>
-		</object>
-		<object name="Vynora statue" shortname="vynarch" type="normal">
-			<model location="Data/Objects/vynStatue.wom"/>
-			<category>Archaeology Statues</category>
 		</object>
 		
 		<object name="Marble Planter (empty)" shortname="marbplantempty" type="normal">
