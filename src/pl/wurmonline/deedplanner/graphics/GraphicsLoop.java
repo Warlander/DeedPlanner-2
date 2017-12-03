@@ -39,6 +39,7 @@ public class GraphicsLoop implements GLEventListener {
     public void init(GLAutoDrawable glautodrawable) {
         GLInit.printCapabilities(glautodrawable.getGLProfile());
         GLInit.initializeGL(glautodrawable.getGL().getGL2());
+        GLInit.sendGpuCapabilities(glautodrawable.getGLProfile(), glautodrawable.getGL().getGL2());
     }
 
     public void dispose(GLAutoDrawable glautodrawable) {}

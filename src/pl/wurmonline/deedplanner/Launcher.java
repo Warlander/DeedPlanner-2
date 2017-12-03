@@ -2,9 +2,17 @@ package pl.wurmonline.deedplanner;
 
 import java.io.*;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.media.opengl.GL;
 import javax.swing.JOptionPane;
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
+import org.json.JSONArray;
+import org.json.JSONML;
 import pl.wurmonline.deedplanner.forms.Loading;
+import pl.wurmonline.deedplanner.forms.NewVersionWindow;
 import pl.wurmonline.deedplanner.util.*;
 
 public class Launcher {
@@ -53,9 +61,61 @@ public class Launcher {
             Locale.setDefault(Locale.ENGLISH);
         }
         
+        if (!Properties.acceptedAnalytics) {
+            int selectedOption = JOptionPane.showConfirmDialog(null,
+                    "This application is using Google Analytics in order to track usage data.\n" +
+                    "Once agreed, following data will be collected:\n" +
+                    "1. Graphics card information (driver vendor, model, OpenGL capabilities)\n" +
+                    "2. Program usage data (total time spent using program and on each tab, features usage)\n" +
+                    "3. Exception reporting (basic informations about crashes when they happen)\n" +
+                    "\n" +
+                    "All data is anonymized before being sent.\n" +
+                    "Gathered data is very important for application development - using this feature is mandatory for all application users.\n" +
+                    "Do you agree to these terms? Once agreed, this message will not appear again unless terms above will change.",
+                    "DeedPlanner terms", JOptionPane.YES_NO_OPTION);
+            if (selectedOption != JOptionPane.YES_OPTION) {
+                return;
+            }
+            
+            Properties.acceptedAnalytics = true;
+            Properties.saveProperties();
+        }
+        
         SwingUtils.setLookAndFeel(Properties.lookAndFeel);
         
-        new Loading();
+        try {
+            JSONArray releasesArray = JSONUtils.downloadJSONArray(Constants.GITHUB_API_RELEASES_URL);
+            if (Updater.checkUpdate(releasesArray)) {
+                String markdownChangelog = Updater.parseMarkdownChangelog(releasesArray);
+                Parser parser = Parser.builder().build();
+                Node document = parser.parse(markdownChangelog);
+                HtmlRenderer renderer = HtmlRenderer.builder().build();
+                String htmlChangelog = renderer.render(document);
+                
+                String currentVersion = Constants.VERSION_STRING;
+                String newVersion = Updater.getNewestVersionString(releasesArray);
+                
+                String releaseUrl = Updater.getLatestReleaseUrl(releasesArray);
+                String downloadUrl = Updater.getLatestDownloadUrl(releasesArray);
+                
+                NewVersionWindow newVersionWindow = new NewVersionWindow();
+                newVersionWindow.setSize(800, 600);
+                SwingUtils.centerFrame(newVersionWindow);
+                newVersionWindow.setChangelog(htmlChangelog);
+                newVersionWindow.setCurrentVersion(currentVersion);
+                newVersionWindow.setNewVersion(newVersion);
+                newVersionWindow.setReleaseUrl(releaseUrl);
+                newVersionWindow.setDownloadUrl(downloadUrl);
+                newVersionWindow.setVisible(true);
+            }
+            else {
+                new Loading();
+            }
+        } catch (IOException ex) {
+            new Loading();
+        }
+        
+        
     }
     
 }

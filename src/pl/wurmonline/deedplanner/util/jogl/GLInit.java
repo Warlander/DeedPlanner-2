@@ -1,6 +1,8 @@
 package pl.wurmonline.deedplanner.util.jogl;
 
 import javax.media.opengl.*;
+import pl.wurmonline.deedplanner.Analytics;
+import pl.wurmonline.deedplanner.Constants;
 import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.util.Log;
 
@@ -59,6 +61,21 @@ public class GLInit {
         
         g.glEnable(GL2.GL_ALPHA_TEST);
         g.glAlphaFunc(GL2.GL_GREATER, 0.5f);
+        
+        
+    }
+    
+    public static void sendGpuCapabilities(GLProfile profile, GL2 g) {
+        String shadingVersionString = g.glGetString(GL2.GL_SHADING_LANGUAGE_VERSION);
+        String shadingVersion = shadingVersionString.split(" ")[0];
+        
+        Analytics.getInstance()
+                .event()
+                .eventCategory("Renderer")
+                .eventAction("GL Capabilities")
+                .customDimension(Constants.GOOGLE_ANALYTICS_DIMENSION_SHADING_LANGUAGE_VERSION, shadingVersion)
+                .customDimension(Constants.GOOGLE_ANALYTICS_DIMENSION_OPENGL_PROFILE, profile.getName())
+                .postAsync();
     }
     
 }

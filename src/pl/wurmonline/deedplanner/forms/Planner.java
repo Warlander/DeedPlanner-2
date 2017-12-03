@@ -41,10 +41,12 @@ public class Planner extends javax.swing.JFrame {
         } catch (IOException ex) {
             Log.err(ex);
         }
-        setTitle(Constants.VERSION_STRING);
+        setTitle(Constants.TITLE_STRING);
         SwingUtils.centerFrame(this);
         mapPanel.grabFocus();
         setVisible(true);
+        
+        Analytics.getInstance().screenView().screenName(Globals.tab.toString()).sessionControl("start").postAsync();
         
         groundsTree.setCellRenderer(new DefaultTreeCellRenderer() {
             public Component getTreeCellRendererComponent(JTree tree, Object value, boolean selected, boolean expanded,boolean leaf, int row, boolean hasFocus) {
@@ -1228,6 +1230,7 @@ public class Planner extends javax.swing.JFrame {
         int option = JOptionPane.showConfirmDialog(null, java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("DO YOU REALLY WANT TO CLOSE PROGRAM? ALL UNSAVED CHANGES WILL BE LOST!"), java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("CLOSE PROGRAM CONFIRMATION"), JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (option==JOptionPane.OK_OPTION) {
             mapPanel.getLoop().syncAndExecute(() -> {
+                Analytics.getInstance().event().sessionControl("end").post();
                 System.exit(0);
             });
         }
@@ -1301,6 +1304,8 @@ public class Planner extends javax.swing.JFrame {
         else if (tab == animalsPanel) {
             Globals.tab = Tab.animals;
         }
+        
+        Analytics.getInstance().screenView().screenName(Globals.tab.toString()).postAsync();
     }//GEN-LAST:event_tabbedPaneStateChanged
 
     private void jSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner4StateChanged

@@ -44,7 +44,7 @@ public class Log {
                 .append("] Error has occurred!").append(System.lineSeparator())
                 .append("Java vendor: ").append(System.getProperty("java.vendor")).append(System.lineSeparator())
                 .append("Java version: ").append(System.getProperty("java.version")).append(System.lineSeparator())
-                .append(Constants.VERSION_STRING)
+                .append(Constants.TITLE_STRING)
                 .toString();
         
         StringWriter sw = new StringWriter();

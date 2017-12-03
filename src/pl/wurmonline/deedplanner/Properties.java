@@ -39,7 +39,10 @@ public class Properties {
     public static double mouseFractionUp = 0.2;
     public static double mouseFractionFpp = 0.2;
     
+    public static boolean checkUpdates = true;
+    
     public static String uuid = UUID.randomUUID().toString();
+    public static boolean acceptedAnalytics = false;
     
     static {
         File file = new File(HOME + File.separator + "DeedPlanner" + File.separator);
