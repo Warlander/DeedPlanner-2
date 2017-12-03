@@ -1,7 +1,5 @@
 package pl.wurmonline.deedplanner.data;
 
-import pl.wurmonline.deedplanner.Constants;
-
 public final class HouseResults {
 
     public final Materials materials;

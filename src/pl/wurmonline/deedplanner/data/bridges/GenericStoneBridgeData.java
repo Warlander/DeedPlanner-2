@@ -1,9 +1,7 @@
 package pl.wurmonline.deedplanner.data.bridges;
 
-import java.util.HashMap;
-import pl.wurmonline.deedplanner.data.Materials;
-import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.graphics.wom.Model;
+import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.jogl.Renderable;
 
 public abstract class GenericStoneBridgeData extends BridgeData {

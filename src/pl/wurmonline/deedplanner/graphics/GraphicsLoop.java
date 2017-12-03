@@ -4,8 +4,8 @@ import com.jogamp.opengl.util.FPSAnimator;
 import javax.media.opengl.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.Map;
-import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
+import pl.wurmonline.deedplanner.util.Log;
 import pl.wurmonline.deedplanner.util.jogl.*;
 
 public class GraphicsLoop implements GLEventListener {

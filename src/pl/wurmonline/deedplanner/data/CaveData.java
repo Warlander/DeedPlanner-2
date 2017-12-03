@@ -1,6 +1,5 @@
 package pl.wurmonline.deedplanner.data;
 
-import java.io.File;
 import javax.media.opengl.GL2;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

@@ -4,15 +4,13 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import pl.wurmonline.deedplanner.Properties;
-import pl.wurmonline.deedplanner.util.jogl.Color;
 import pl.wurmonline.deedplanner.graphics.wom.Model;
 import pl.wurmonline.deedplanner.util.Log;
+import pl.wurmonline.deedplanner.util.jogl.Color;
 
 public class WallData {
 

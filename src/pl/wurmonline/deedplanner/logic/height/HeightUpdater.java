@@ -3,13 +3,11 @@ package pl.wurmonline.deedplanner.logic.height;
 import javax.swing.*;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
-import pl.wurmonline.deedplanner.forms.HeightImportWizard;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.SelectionType;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.logic.TileSelection;
-import pl.wurmonline.deedplanner.util.SwingUtils;
 
 public class HeightUpdater {
 

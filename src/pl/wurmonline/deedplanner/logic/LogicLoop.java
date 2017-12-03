@@ -1,10 +1,10 @@
 package pl.wurmonline.deedplanner.logic;
 
-import pl.wurmonline.deedplanner.data.bridges.BridgePart;
-import java.util.*;
+import java.util.Timer;
+import java.util.TimerTask;
 import pl.wurmonline.deedplanner.*;
-import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.data.*;
+import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import pl.wurmonline.deedplanner.forms.Planner;
 import pl.wurmonline.deedplanner.input.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;

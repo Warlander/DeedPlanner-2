@@ -2,7 +2,6 @@ package pl.wurmonline.deedplanner.data;
 
 import java.util.HashMap;
 import org.w3c.dom.Node;
-import pl.wurmonline.deedplanner.Constants;
 
 public final class Materials extends HashMap<String, Integer> {
 

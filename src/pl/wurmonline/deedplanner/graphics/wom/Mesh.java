@@ -1,7 +1,7 @@
 package pl.wurmonline.deedplanner.graphics.wom;
 
-import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import javax.media.opengl.GL2;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import pl.wurmonline.deedplanner.util.jogl.Renderable;
 
 public final class Mesh implements Renderable {

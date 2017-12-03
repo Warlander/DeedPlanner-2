@@ -1,7 +1,5 @@
 package pl.wurmonline.deedplanner.data;
 
-import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
-import pl.wurmonline.deedplanner.data.bridges.Bridge;
 import com.google.common.io.LittleEndianDataInputStream;
 import java.awt.Font;
 import java.io.*;
@@ -21,9 +19,11 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.*;
+import pl.wurmonline.deedplanner.data.bridges.Bridge;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.shaders.Program;
+import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
 import pl.wurmonline.deedplanner.logic.Tab;
 import pl.wurmonline.deedplanner.logic.TileSelection;
 import pl.wurmonline.deedplanner.logic.symmetry.Symmetry;

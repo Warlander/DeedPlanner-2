@@ -16,6 +16,7 @@ import javax.xml.transform.TransformerException;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import pl.wurmonline.deedplanner.logic.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
 import pl.wurmonline.deedplanner.logic.caves.CaveUpdater;
@@ -26,7 +27,6 @@ import pl.wurmonline.deedplanner.logic.objects.ObjectsUpdater;
 import pl.wurmonline.deedplanner.logic.roofs.RoofUpdater;
 import pl.wurmonline.deedplanner.logic.walls.WallUpdater;
 import pl.wurmonline.deedplanner.util.*;
-import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public class Planner extends javax.swing.JFrame {
     

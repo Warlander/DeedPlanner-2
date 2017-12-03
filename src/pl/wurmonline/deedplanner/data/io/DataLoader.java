@@ -1,10 +1,7 @@
 package pl.wurmonline.deedplanner.data.io;
 
-import pl.wurmonline.deedplanner.graphics.wom.Model;
-import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.function.Consumer;
 import javax.media.opengl.GL2;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -14,6 +11,8 @@ import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.forms.Loading;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
+import pl.wurmonline.deedplanner.graphics.wom.Model;
 import pl.wurmonline.deedplanner.util.*;
 import pl.wurmonline.deedplanner.util.jogl.*;
 

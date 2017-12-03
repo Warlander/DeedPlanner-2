@@ -1,6 +1,5 @@
 package pl.wurmonline.deedplanner.graphics.wom;
 
-import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
@@ -15,6 +14,7 @@ import javax.media.opengl.GL2;
 import org.joml.Vector3f;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.graphics.texture.Material;
+import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import pl.wurmonline.deedplanner.util.DeedPlannerException;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.Log;

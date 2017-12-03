@@ -2,15 +2,12 @@ package pl.wurmonline.deedplanner;
 
 import java.io.*;
 import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.media.opengl.GL;
 import javax.swing.JOptionPane;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.json.JSONArray;
-import org.json.JSONML;
 import pl.wurmonline.deedplanner.forms.Loading;
 import pl.wurmonline.deedplanner.forms.NewVersionWindow;
 import pl.wurmonline.deedplanner.util.*;
@@ -114,8 +111,6 @@ public class Launcher {
         } catch (IOException ex) {
             new Loading();
         }
-        
-        
     }
     
 }

@@ -5,11 +5,11 @@ import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.AnimalData;
 import pl.wurmonline.deedplanner.data.BorderData;
 import pl.wurmonline.deedplanner.data.CaveData;
+import pl.wurmonline.deedplanner.data.EntityOrientation;
 import pl.wurmonline.deedplanner.data.Floor;
 import pl.wurmonline.deedplanner.data.FloorData;
-import pl.wurmonline.deedplanner.data.EntityOrientation;
-import pl.wurmonline.deedplanner.data.GameObject;
 import pl.wurmonline.deedplanner.data.GameObjectData;
+import pl.wurmonline.deedplanner.data.GridTileEntity;
 import pl.wurmonline.deedplanner.data.GroundData;
 import pl.wurmonline.deedplanner.data.ObjectLocation;
 import pl.wurmonline.deedplanner.data.RoadDirection;
@@ -21,7 +21,6 @@ import pl.wurmonline.deedplanner.data.TileEntity;
 import pl.wurmonline.deedplanner.data.WallData;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
-import pl.wurmonline.deedplanner.data.GridTileEntity;
 
 /**
  * Symmetry
