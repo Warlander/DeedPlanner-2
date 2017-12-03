@@ -5537,6 +5537,40 @@
 			<model location="Data/Objects/wolfBisonStatue.wom"/>
 			<category>HOTA Statues</category>
 		</object>
+		
+		<object name="Eagle statue" shortname="eaglearch" type="normal">
+			<model location="Data/Objects/eagleStatue.wom"/>
+			<category>Archaeology Statues</category>
+		</object>
+		<object name="Hatchling statue" shortname="hatchlingarch" type="normal">
+			<model location="Data/Objects/hatchlingStatue.wom"/>
+			<category>Archaeology Statues</category>
+		</object>
+		<object name="Hell horse statue" shortname="hellhorsearch" type="normal">
+			<model location="Data/Objects/hellHorseStatue.wom"/>
+			<category>Archaeology Statues</category>
+		</object>
+		<object name="Worg statue" shortname="worgarch" type="normal">
+			<model location="Data/Objects/worgStatue.wom"/>
+			<category>Archaeology Statues</category>
+		</object>
+		<object name="Fo statue" shortname="foarch" type="normal">
+			<model location="Data/Objects/foStatue.wom"/>
+			<category>Archaeology Statues</category>
+		</object>
+		<object name="Libila statue" shortname="libilaarch" type="normal">
+			<model location="Data/Objects/libilaStatue.wom"/>
+			<category>Archaeology Statues</category>
+		</object>
+		<object name="Magranon statue" shortname="magarch" type="normal">
+			<model location="Data/Objects/magStatue.wom"/>
+			<category>Archaeology Statues</category>
+		</object>
+		<object name="Vynora statue" shortname="vynarch" type="normal">
+			<model location="Data/Objects/vynStatue.wom"/>
+			<category>Archaeology Statues</category>
+		</object>
+		
 		<object name="Marble Planter (empty)" shortname="marbplantempty" type="normal">
 			<model location="Data/Objects/marblePlanter_empty.wom"/>
 			<category>Decoration</category>
