@@ -80,6 +80,11 @@ public class Launcher {
         
         SwingUtils.setLookAndFeel(Properties.lookAndFeel);
         
+        if (!Properties.checkUpdates) {
+            new Loading();
+            return;
+        }
+        
         try {
             JSONArray releasesArray = JSONUtils.downloadJSONArray(Constants.GITHUB_API_RELEASES_URL);
             if (Updater.checkUpdate(releasesArray)) {
