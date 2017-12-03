@@ -1,4 +1,3 @@
 Manifest-Version: 1.0
-Class-Path: lib/jogl-all.jar lib/gluegen-rt.jar lib/kryonet-2.18-all.jar lib/pgslookandfeel-1.1.2.jar lib/guava-17.0.jar lib/joml-1.8.0-SNAPSHOT.jar lib/commons-io-2.4.jar
 X-COMMENT: Main-Class will be added automatically by build
 
