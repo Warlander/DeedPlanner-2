@@ -60,7 +60,7 @@ public class GraphicsLoop implements GLEventListener {
 
             SimpleTex.resetInfo();
             
-            if (Globals.upCamera) {
+            if (Globals.cameraType == CameraType.TOP_VIEW) {
                 panel.getUpCamera().set(g);
                 panel.getMap().render(g);
             }

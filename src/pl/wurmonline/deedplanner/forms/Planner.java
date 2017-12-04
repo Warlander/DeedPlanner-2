@@ -16,6 +16,7 @@ import javax.xml.transform.TransformerException;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import pl.wurmonline.deedplanner.logic.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
@@ -1251,7 +1252,7 @@ public class Planner extends javax.swing.JFrame {
     private void viewSwitched(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSwitched
         mapPanel.getLoop().syncAndExecute(() -> {
             final boolean upView = (evt.getSource()==upViewItem);
-            Globals.upCamera = upView;
+            Globals.cameraType = upView ? CameraType.TOP_VIEW : CameraType.SPECTATOR;
             sidePanel.setVisible(upView);
             statusBar.setVisible(upView);
             Globals.fixedHeight = (evt.getSource()==wurmianItem);

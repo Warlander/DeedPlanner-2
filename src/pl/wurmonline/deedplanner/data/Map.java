@@ -22,6 +22,7 @@ import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.bridges.Bridge;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.data.storage.WAKData;
+import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.graphics.shaders.Program;
 import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
 import pl.wurmonline.deedplanner.logic.Tab;
@@ -473,7 +474,7 @@ public final class Map {
             waterID = Water.prepareWater(g, this);
         }
         
-        if (Globals.upCamera && Globals.floor>=0 && Globals.floor<3) {
+        if (Globals.cameraType == CameraType.TOP_VIEW && Globals.floor>=0 && Globals.floor<3) {
             switch (Globals.floor) {
                 case 0:
                     g.glColor4f(1, 1, 1, 0.5f);
@@ -488,13 +489,13 @@ public final class Map {
             renderWater(g);
             g.glColor4f(1, 1, 1, 1);
         }
-        else if (!Globals.upCamera) {
+        else if (Globals.cameraType == CameraType.SPECTATOR) {
             g.glColor4f(1, 1, 1, 0.5f);
             renderWater(g);
             g.glColor4f(1, 1, 1, 1);
         }
         
-        if (Globals.upCamera) {
+        if (Globals.cameraType == CameraType.TOP_VIEW) {
             g.glDisable(GL2.GL_TEXTURE_2D);
             g.glDisable(GL2.GL_DEPTH_TEST);
             if (Properties.showGrid) {

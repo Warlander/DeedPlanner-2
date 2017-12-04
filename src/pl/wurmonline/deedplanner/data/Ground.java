@@ -4,6 +4,7 @@ import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.graphics.shaders.Program;
 import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
 
@@ -175,7 +176,7 @@ public class Ground implements TileEntity {
     }
     
     private GroundData.TextureType getValidGroundTextureType() {
-        if (Globals.upCamera) {
+        if (Globals.cameraType == CameraType.TOP_VIEW) {
             return GroundData.TextureType.TEXTURE_2D_VIEW;
         }
         else {

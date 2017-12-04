@@ -4,6 +4,7 @@ import pl.wurmonline.deedplanner.data.AnimalAge;
 import pl.wurmonline.deedplanner.data.AnimalGender;
 import pl.wurmonline.deedplanner.data.EntityOrientation;
 import pl.wurmonline.deedplanner.data.RoadDirection;
+import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.logic.Tab;
 
 public class Globals {
@@ -13,7 +14,7 @@ public class Globals {
     public static boolean renderTrees3d = true;
     public static boolean renderTrees2d = true;
     
-    public static boolean upCamera = true;
+    public static CameraType cameraType = CameraType.TOP_VIEW;
     public static boolean fixedHeight = false;
     public static boolean renderHeight = false;
     

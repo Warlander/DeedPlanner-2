@@ -6,6 +6,7 @@ import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import pl.wurmonline.deedplanner.forms.Planner;
+import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.input.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
 import pl.wurmonline.deedplanner.logic.caves.CaveUpdater;
@@ -57,7 +58,7 @@ public class LogicLoop extends TimerTask {
             mouse.update();
             keyboard.update();
 
-            if (Globals.upCamera) {
+            if (Globals.cameraType == CameraType.TOP_VIEW) {
                 panel.getUpCamera().update(mouse, keybindings);
                 if (panel.getUpCamera().tile!=null) {
                     switch (Globals.tab) {

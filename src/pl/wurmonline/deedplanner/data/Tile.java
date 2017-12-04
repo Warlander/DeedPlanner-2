@@ -7,6 +7,7 @@ import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.logic.Tab;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.logic.symmetry.Symmetry;
@@ -180,13 +181,13 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderGround(GL2 g) {
-        if (bridgePart != null && (Globals.renderBridges2d || !Globals.upCamera)) {
+        if (bridgePart != null && (Globals.renderBridges2d || Globals.cameraType == CameraType.SPECTATOR)) {
             g.glColor3f(1, 1, 1);
             bridgePart.render(g, this);
         }
         
-        if ((Globals.upCamera && Globals.floor>=0 && Globals.floor<3) || !Globals.upCamera) {
-            if (Globals.upCamera && Globals.floor>=0 && Globals.floor<3) {
+        if ((Globals.cameraType == CameraType.TOP_VIEW && Globals.floor>=0 && Globals.floor<3) || Globals.cameraType == CameraType.SPECTATOR) {
+            if (Globals.cameraType == CameraType.TOP_VIEW && Globals.floor>=0 && Globals.floor<3) {
                 float lightModifier = 0;
                 switch (Globals.floor) {
                     case 0:
@@ -240,7 +241,7 @@ public final class Tile implements XMLSerializable {
             }
             
             float colorMod = 1;
-            if (Globals.upCamera) {
+            if (Globals.cameraType == CameraType.TOP_VIEW) {
                 // in case of negative floors (cave dwellings) color modifier will be reversed
                 switch (Math.abs(Globals.floor) - Math.abs(floor)) {
                     case 0:
@@ -299,7 +300,7 @@ public final class Tile implements XMLSerializable {
                     GameObjectData goData = obj.getData();
                     
                     boolean isTree = goData.type.equals(Constants.TREE_TYPE);
-                    boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.upCamera) || (Globals.renderTrees3d && !Globals.upCamera);
+                    boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.cameraType == CameraType.TOP_VIEW) || (Globals.renderTrees3d && Globals.cameraType == CameraType.SPECTATOR);
                     if (!isTree || (isTree && treeRenderingAllowed)) {
                         g.glColor3f(colorMod, colorMod, colorMod);
                         final float renderHeight;
@@ -341,7 +342,7 @@ public final class Tile implements XMLSerializable {
             g.glTranslatef(0, 0, -diff*4f);
         }
         deform(g, diff);
-        if (Globals.upCamera) {
+        if (Globals.cameraType == CameraType.TOP_VIEW) {
             wall.data.color.use(g, colorMod);
         }
         else {
@@ -352,12 +353,12 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderUnderground(GL2 g) {
-        if (caveBridgePart != null && (Globals.renderBridges2d || !Globals.upCamera)) {
+        if (caveBridgePart != null && (Globals.renderBridges2d || Globals.cameraType == CameraType.SPECTATOR)) {
             g.glColor3f(1, 1, 1);
             caveBridgePart.render(g, this);
         }
         
-        if (!Globals.upCamera) {
+        if (Globals.cameraType == CameraType.SPECTATOR) {
             g.glColor3f(1f, 1f, 1f);
         }
         else if (cave.wall) {
@@ -378,14 +379,14 @@ public final class Tile implements XMLSerializable {
                     case VBORDER:
                         g.glRotatef(90, 0, 0, 1);
                         BorderData vBorder = (BorderData) entity;
-                        if (Globals.upCamera) {
+                        if (Globals.cameraType == CameraType.TOP_VIEW) {
                             vBorder.render(g, this);
                         }
                         g.glColor3f(1, 1, 1);
                         break;
                     case HBORDER:
                         BorderData hBorder = (BorderData) entity;
-                        if (Globals.upCamera) {
+                        if (Globals.cameraType == CameraType.TOP_VIEW) {
                             hBorder.render(g, this);
                         }
                         g.glColor3f(1, 1, 1);

@@ -4,6 +4,7 @@ import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.graphics.wom.Model;
 
 public class Wall implements TileEntity {
@@ -24,7 +25,7 @@ public class Wall implements TileEntity {
     }
     
     public void render(GL2 g, Tile tile) {
-        if (Globals.upCamera) {
+        if (Globals.cameraType == CameraType.TOP_VIEW) {
             g.glScalef(1, data.scale, 1);
         }
         
