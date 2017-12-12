@@ -16,12 +16,14 @@ import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import org.joml.Vector2i;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.bridges.Bridge;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.data.storage.WAKData;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.graphics.shaders.Program;
 import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
@@ -449,13 +451,17 @@ public final class Map {
         recalculateRoofs();
     }
     
-    public void render(GL2 g) {
+    public void render(GL2 g, Camera camera) {
         Program program = Shaders.getShaders().simple;
         program.bind(g);
-        int startX = Math.max(0, Globals.visibleDownX);
-        int endX = Math.min(width, Globals.visibleUpX);
-        int startY = Math.max(0, Globals.visibleDownY);
-        int endY = Math.min(height, Globals.visibleUpY);
+        
+        Vector2i startBounds = camera.getLowerRenderBounds();
+        Vector2i endBounds = camera.getUpperRenderBounds();
+        
+        int startX = Math.max(0, startBounds.x);
+        int endX = Math.min(width, endBounds.x);
+        int startY = Math.max(0, startBounds.y);
+        int endY = Math.min(height, endBounds.y);
         for (int i=startX; i<=endX; i++) {
             for (int i2=startY; i2<=endY; i2++) {
                 g.glPushMatrix();
@@ -499,7 +505,7 @@ public final class Map {
             g.glDisable(GL2.GL_TEXTURE_2D);
             g.glDisable(GL2.GL_DEPTH_TEST);
             if (Properties.showGrid) {
-                renderGrid(g);
+                renderGrid(g, camera);
             }
             for (int i=startX; i<=endX; i++) {
                 for (int i2=startY; i2<=endY; i2++) {
@@ -572,13 +578,16 @@ public final class Map {
         g.glDisable(GL2.GL_BLEND);
     }
     
-    private void renderGrid(GL2 g) {
+    private void renderGrid(GL2 g, Camera camera) {
         boolean renderColors = (Globals.renderHeight || Globals.tab==Tab.height);
+        
+        Vector2i startBounds = camera.getLowerRenderBounds();
+        Vector2i endBounds = camera.getUpperRenderBounds();
         
         g.glUseProgram(0);
         g.glColor3f(0.4f, 0.4f, 0.4f);
-        for (int i=Globals.visibleDownX; i<Globals.visibleUpX; i++) {
-            for (int i2=Globals.visibleDownY; i2<Globals.visibleUpY; i2++) {
+        for (int i = startBounds.x; i < endBounds.x; i++) {
+            for (int i2 = startBounds.y; i2 < endBounds.y; i2++) {
                 if (i<0 || i2<0 || i>=width || i2>=height) {
                     continue;
                 }

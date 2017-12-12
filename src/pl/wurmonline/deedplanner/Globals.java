@@ -31,10 +31,6 @@ public class Globals {
     public static AnimalAge animalAge = AnimalAge.ADULT;
     
     public static int floor = 0;
-    public static int visibleDownX;
-    public static int visibleUpX;
-    public static int visibleDownY;
-    public static int visibleUpY;
     
     public static int glWindowWidth;
     public static int glWindowHeight;

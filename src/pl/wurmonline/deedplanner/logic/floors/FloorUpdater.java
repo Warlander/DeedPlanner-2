@@ -3,7 +3,7 @@ package pl.wurmonline.deedplanner.logic.floors;
 import javax.swing.DefaultComboBoxModel;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.input.Mouse;
 
 public class FloorUpdater {
@@ -11,7 +11,7 @@ public class FloorUpdater {
     public static FloorMode currentMode;
     public static FloorData currentData = null;
     
-    public static void update(Mouse mouse, Map map, UpCamera cam) {
+    public static void update(Mouse mouse, Map map, Camera cam) {
         currentMode.update(mouse, map, cam);
     }
     

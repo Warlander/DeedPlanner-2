@@ -3,7 +3,7 @@ package pl.wurmonline.deedplanner.logic.height;
 import javax.swing.*;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.SelectionType;
 import pl.wurmonline.deedplanner.logic.TileFragment;
@@ -21,7 +21,7 @@ public class HeightUpdater {
     public static int setRight = -5;
     public static int add = 1;
     
-    public static SelectionType update(Mouse mouse, Map map, UpCamera cam) {
+    public static SelectionType update(Mouse mouse, Map map, Camera cam) {
         currentMode.update(mouse, map, cam);
         return currentMode.getSelectionType();
     }

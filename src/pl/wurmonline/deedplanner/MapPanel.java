@@ -2,10 +2,12 @@ package pl.wurmonline.deedplanner;
 
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
+import java.util.HashMap;
 import javax.media.opengl.*;
 import javax.media.opengl.awt.GLJPanel;
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.graphics.*;
+import pl.wurmonline.deedplanner.util.DeedPlannerRuntimeException;
 import pl.wurmonline.deedplanner.util.jogl.GLInit;
 
 public class MapPanel extends GLJPanel implements ComponentListener {
@@ -15,8 +17,8 @@ public class MapPanel extends GLJPanel implements ComponentListener {
     
     private final MainLoop loop;
     
-    private final FPPCamera fppCamera;
-    private final UpCamera upCamera;
+    private final HashMap<CameraType, Camera> cameras;
+    private Camera currentCamera;
     
     public MapPanel() {
         this(GLInit.getCapabilities());
@@ -28,22 +30,41 @@ public class MapPanel extends GLJPanel implements ComponentListener {
         
         map = new Map(50, 50);
         
-        fppCamera = new FPPCamera(this);
-        upCamera = new UpCamera(this);
+        cameras = new HashMap();
+        addCamera(new UpCamera());
+        addCamera(new FPPCamera());
         
         loop = new MainLoop(this);
     }
     
+    private void addCamera(Camera camera) {
+        CameraType type = camera.getCameraType();
+        if (cameras.containsKey(type)) {
+            throw new DeedPlannerRuntimeException("Camera already exists for type " + type);
+        }
+        
+        cameras.put(type, camera);
+        if (currentCamera == null) {
+            currentCamera = camera;
+        }
+    }
+    
+    public Camera getCamera() {
+        return currentCamera;
+    }
+    
+    public void setCamera(CameraType type) {
+        Camera camera = cameras.get(type);
+        if (camera == null) {
+            throw new DeedPlannerRuntimeException("Camera not existing for type " + type);
+        }
+        
+        currentCamera = camera;
+        Globals.cameraType = type;
+    }
+    
     public MainLoop getLoop() {
         return loop;
-    }
-    
-    public FPPCamera getFPPCamera() {
-        return fppCamera;
-    }
-    
-    public UpCamera getUpCamera() {
-        return upCamera;
     }
     
     public Map getMap() {

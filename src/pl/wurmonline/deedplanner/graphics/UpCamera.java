@@ -1,12 +1,16 @@
 package pl.wurmonline.deedplanner.graphics;
 
 import javax.media.opengl.GL2;
+import org.joml.Vector2f;
+import org.joml.Vector2i;
+import org.joml.Vector3d;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.input.*;
+import pl.wurmonline.deedplanner.logic.TileFragment;
 
-public final class UpCamera {
+public final class UpCamera implements Camera {
     
     private static final int OFFSCREEN_TILES_RENDERED = 3;
     
@@ -19,23 +23,15 @@ public final class UpCamera {
     public float xMap;
     public float yMap;
     
-    private final MapPanel panel;
+    private float tileScaler;
     
-    public UpCamera(MapPanel panel) {
-        this.panel = panel;
-    }
-    
-    public void update(Mouse mouse, Keybindings keybindings) {
+    public void update(MapPanel panel, Mouse mouse, Keybindings keybindings) {
         Map map = panel.getMap();
         
-        float tileScaler = (float) panel.getWidth() / panel.getHeight();
+        tileScaler = (float) panel.getWidth() / panel.getHeight();
         
         int currX = (int) (x / 4);
         int currZ = (int) (y / 4);
-        Globals.visibleDownX = currX - OFFSCREEN_TILES_RENDERED;
-        Globals.visibleUpX = currX + (int) (Properties.scale * tileScaler) + OFFSCREEN_TILES_RENDERED;
-        Globals.visibleDownY = currZ - OFFSCREEN_TILES_RENDERED;
-        Globals.visibleUpY = currZ + Properties.scale + OFFSCREEN_TILES_RENDERED;
         
         float tileSize = (float) panel.getHeight() / Properties.scale / 4;
         float tileX = ((mouse.x + x * tileSize) / ((float) panel.getWidth() / Properties.scale / tileScaler));
@@ -114,7 +110,7 @@ public final class UpCamera {
         }
     }
     
-    public void set(GL2 g) {
+    public void set(GL2 g, MapPanel panel) {
         g.glMatrixMode(GL2.GL_PROJECTION);
         g.glLoadIdentity();
         g.glOrtho(0, Properties.scale * 4f * (float)panel.getWidth() / (float)panel.getHeight(), 0, Properties.scale * 4, 0.001f, 8192);
@@ -126,6 +122,63 @@ public final class UpCamera {
     public void reset() {
         x=0;
         y=0;
+    }
+
+    public boolean isEditEnabled() {
+        return true;
+    }
+
+    public Tile getHoveredTile() {
+        return tile;
+    }
+
+    public TileFragment getHoveredTileFragment() {
+        return TileFragment.calculateTileFragment(xTile, yTile);
+    }
+    
+    public Vector2f getHoveredTilePosition() {
+        return new Vector2f(xTile, yTile);
+    }
+
+    public float getLevelVisibility(int level) {
+        switch (Math.abs(Globals.floor) - Math.abs(level)) {
+            case 0:
+                return 1;
+            case 1:
+                return 0.6f;
+            case 2:
+                return 0.25f;
+            default:
+                return 0;
+        }
+    }
+
+    public Vector2i getLowerRenderBounds() {
+        int currX = (int) (x / 4);
+        int currY = (int) (y / 4);
+        
+        return new Vector2i(currX - OFFSCREEN_TILES_RENDERED, currY - OFFSCREEN_TILES_RENDERED);
+    }
+
+    public Vector2i getUpperRenderBounds() {
+        int currX = (int) (x / 4);
+        int currY = (int) (y / 4);
+        
+        int upperXBound = currX + (int) (Properties.scale * tileScaler) + OFFSCREEN_TILES_RENDERED;
+        int upperYBound = currY + Properties.scale + OFFSCREEN_TILES_RENDERED;
+        return new Vector2i(upperXBound, upperYBound);
+    }
+
+    public boolean isSkyboxRendered() {
+        return false;
+    }
+
+    public CameraType getCameraType() {
+        return CameraType.TOP_VIEW;
+    }
+
+    public Vector3d getPosition() {
+        return new Vector3d(xMap, yMap, 0);
     }
     
 }

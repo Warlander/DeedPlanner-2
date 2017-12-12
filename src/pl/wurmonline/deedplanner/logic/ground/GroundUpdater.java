@@ -4,7 +4,7 @@ import java.util.Stack;
 import javax.swing.DefaultComboBoxModel;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.input.Mouse;
 
 public class GroundUpdater {
@@ -13,7 +13,7 @@ public class GroundUpdater {
     public static GroundData lmbData = Data.grounds.get("gr");
     public static GroundData rmbData = Data.grounds.get("gr");
     
-    public static void update(Mouse mouse, Map map, UpCamera cam) {
+    public static void update(Mouse mouse, Map map, Camera cam) {
         currentMode.update(mouse, map, cam);
     }
     

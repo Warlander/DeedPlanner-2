@@ -2,10 +2,12 @@ package pl.wurmonline.deedplanner.logic;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import org.joml.Vector2f;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import pl.wurmonline.deedplanner.forms.Planner;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.input.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
@@ -58,119 +60,115 @@ public class LogicLoop extends TimerTask {
             mouse.update();
             keyboard.update();
 
-            if (Globals.cameraType == CameraType.TOP_VIEW) {
-                panel.getUpCamera().update(mouse, keybindings);
-                if (panel.getUpCamera().tile!=null) {
-                    switch (Globals.tab) {
-                        case ground:
-                            GroundUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                            break;
-                        case height:
-                            SelectionType selectionType = HeightUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                            TileSelection.update(mouse, keyboard, panel.getMap(), panel.getUpCamera(), selectionType);
-                            break;
-                        case floors:
-                            FloorUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                            break;
-                        case walls:
-                            WallUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                            break;
-                        case borders:
-                            BorderUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                            break;
-                        case roofs:
-                            RoofUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                            break;
-                        case objects: case animals:
-                            ObjectsUpdater.update(mouse, keyboard, panel.getMap(), panel.getUpCamera());
-                            break;
-                        case labels:
-                            TileSelection.update(mouse, keyboard, panel.getMap(), panel.getUpCamera(), SelectionType.MULTIPLE);
-                            break;
-                        case caves:
-                            CaveUpdater.update(mouse, panel.getMap(), panel.getUpCamera());
-                            break;
-                        case symmetry: case bridges:
-                            TileSelection.update(mouse, keyboard, panel.getMap(), panel.getUpCamera(), SelectionType.SINGLE);
-                            break;
-                    }
+            Camera camera = panel.getCamera();
+            camera.update(panel, mouse, keybindings);
+            if (panel.getCamera().getHoveredTile() != null) {
+                switch (Globals.tab) {
+                    case ground:
+                        GroundUpdater.update(mouse, panel.getMap(), camera);
+                        break;
+                    case height:
+                        SelectionType selectionType = HeightUpdater.update(mouse, panel.getMap(), camera);
+                        TileSelection.update(mouse, keyboard, panel.getMap(), camera, selectionType);
+                        break;
+                    case floors:
+                        FloorUpdater.update(mouse, panel.getMap(), camera);
+                        break;
+                    case walls:
+                        WallUpdater.update(mouse, panel.getMap(), camera);
+                        break;
+                    case borders:
+                        BorderUpdater.update(mouse, panel.getMap(), camera);
+                        break;
+                    case roofs:
+                        RoofUpdater.update(mouse, panel.getMap(), camera);
+                        break;
+                    case objects: case animals:
+                        ObjectsUpdater.update(mouse, keyboard, panel.getMap(), camera);
+                        break;
+                    case labels:
+                        TileSelection.update(mouse, keyboard, panel.getMap(), camera, SelectionType.MULTIPLE);
+                        break;
+                    case caves:
+                        CaveUpdater.update(mouse, panel.getMap(), camera);
+                        break;
+                    case symmetry: case bridges:
+                        TileSelection.update(mouse, keyboard, panel.getMap(), camera, SelectionType.SINGLE);
+                        break;
                 }
-                if (panel.getUpCamera().tile!=null) {
-                    Tile t = panel.getUpCamera().tile;
-                    TileFragment frag = TileFragment.calculateTileFragment(panel.getUpCamera().xTile, panel.getUpCamera().yTile);
-                    planner.heightShow.setUpCamera(panel.getUpCamera());
-                    StringBuilder build = new StringBuilder();
-                    
-                    BridgePart part = t.getBridgePart();
-                    if (part != null) {
-                        build.append("Bridge: ").append(part.getType().toString()).append(" ").append(part.getSide().toString()).append(" ").append(part.getOrientation().toString()).append("     ");
-                    }
-                    
-                    switch (Globals.tab) {
-                        case ground: case caves:
-                            if (Globals.floor>=0) {
-                                build.append(t.getGround());
-                            }
-                            else {
-                                build.append(t.getCaveEntity());
-                            }
-                            break;
-                        case height:
-                            if (t.isFlat()) {
-                                build.append("Flat Tile");
-                            }
-                            else {
-                                build.append("Uneven Tile");
-                            }
-                            break;
-                        case floors: case roofs:
-                            if (t.getTileContent(Globals.floor)!=null) {
-                                build.append(t.getTileContent(Globals.floor));
-                            }
-                            break;
-                        case walls:
-                            if (frag == TileFragment.S) {
-                                appendWalls(t.getHorizontalWall(Globals.floor), t.getHorizontalFence(Globals.floor), build);
-                            }
-                            else if (frag == TileFragment.W) {
-                                appendWalls(t.getVerticalWall(Globals.floor), t.getVerticalFence(Globals.floor), build);
-                            }
-                            else if (frag == TileFragment.N) {
-                                Tile temp = t.getMap().getTile(t, 0, 1);
-                                appendWalls(temp.getHorizontalWall(Globals.floor), temp.getHorizontalFence(Globals.floor), build);
-                            }
-                            else if (frag == TileFragment.E) {
-                                Tile temp = t.getMap().getTile(t, 1, 0);
-                                appendWalls(temp.getVerticalWall(Globals.floor), temp.getVerticalFence(Globals.floor), build);
-                            }
-                            break;
-                        case objects:
-                            ObjectLocation loc = ObjectLocation.calculateObjectLocation(panel.getUpCamera().xTile, panel.getUpCamera().yTile);
-                            GridTileEntity obj = t.getGridEntity(Globals.floor, loc);
-                            if (obj!=null) {
-                                build.append(obj);
-                            }
-                            break;
-                    }
-                    if (frag.isCorner()) {
-                        int height;
+                
+                Tile t = camera.getHoveredTile();
+                TileFragment frag = camera.getHoveredTileFragment();
+                planner.heightShow.setCamera(camera);
+                StringBuilder build = new StringBuilder();
+
+                BridgePart part = t.getBridgePart();
+                if (part != null) {
+                    build.append("Bridge: ").append(part.getType().toString()).append(" ").append(part.getSide().toString()).append(" ").append(part.getOrientation().toString()).append("     ");
+                }
+
+                switch (Globals.tab) {
+                    case ground: case caves:
                         if (Globals.floor>=0) {
-                            height = frag.getTileByCorner(t).getHeight();
+                            build.append(t.getGround());
                         }
                         else {
-                            height = frag.getTileByCorner(t).getCaveHeight();
+                            build.append(t.getCaveEntity());
                         }
-                        build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("     HEIGHT: ")).append(height);
-                        if (Globals.floor==-1) {
-                            build.append("     Cave size: ").append(frag.getTileByCorner(t).getCaveSize());
+                        break;
+                    case height:
+                        if (t.isFlat()) {
+                            build.append("Flat Tile");
                         }
-                    }
-                    build.append("     X: ").append(t.getX()).append(" Y: ").append(t.getY());
-                    planner.tileLabel.setText(build.toString());
+                        else {
+                            build.append("Uneven Tile");
+                        }
+                        break;
+                    case floors: case roofs:
+                        if (t.getTileContent(Globals.floor)!=null) {
+                            build.append(t.getTileContent(Globals.floor));
+                        }
+                        break;
+                    case walls:
+                        if (frag == TileFragment.S) {
+                            appendWalls(t.getHorizontalWall(Globals.floor), t.getHorizontalFence(Globals.floor), build);
+                        }
+                        else if (frag == TileFragment.W) {
+                            appendWalls(t.getVerticalWall(Globals.floor), t.getVerticalFence(Globals.floor), build);
+                        }
+                        else if (frag == TileFragment.N) {
+                            Tile temp = t.getMap().getTile(t, 0, 1);
+                            appendWalls(temp.getHorizontalWall(Globals.floor), temp.getHorizontalFence(Globals.floor), build);
+                        }
+                        else if (frag == TileFragment.E) {
+                            Tile temp = t.getMap().getTile(t, 1, 0);
+                            appendWalls(temp.getVerticalWall(Globals.floor), temp.getVerticalFence(Globals.floor), build);
+                        }
+                        break;
+                    case objects:
+                        Vector2f tileCoords = camera.getHoveredTilePosition();
+                        ObjectLocation loc = ObjectLocation.calculateObjectLocation(tileCoords.x, tileCoords.y);
+                        GridTileEntity obj = t.getGridEntity(Globals.floor, loc);
+                        if (obj!=null) {
+                            build.append(obj);
+                        }
+                        break;
                 }
-            }
-            else {
-                panel.getFPPCamera().update(mouse, keybindings);
+                if (frag.isCorner()) {
+                    int height;
+                    if (Globals.floor>=0) {
+                        height = frag.getTileByCorner(t).getHeight();
+                    }
+                    else {
+                        height = frag.getTileByCorner(t).getCaveHeight();
+                    }
+                    build.append(java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle").getString("     HEIGHT: ")).append(height);
+                    if (Globals.floor==-1) {
+                        build.append("     Cave size: ").append(frag.getTileByCorner(t).getCaveSize());
+                    }
+                }
+                build.append("     X: ").append(t.getX()).append(" Y: ").append(t.getY());
+                planner.tileLabel.setText(build.toString());
             }
 
             if (timerFPS!=Properties.logicFps) {

@@ -2,6 +2,7 @@ package pl.wurmonline.deedplanner.logic.height;
 
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.data.Tile;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.SelectionType;
@@ -15,9 +16,9 @@ public abstract class HeightMode {
         this.name = name;
     }
     
-    public final void update(Mouse mouse, Map map, UpCamera cam) {
-        TileFragment frag = TileFragment.calculateTileFragment(cam.xTile, cam.yTile);
-        Tile tile = cam.tile;
+    public final void update(Mouse mouse, Map map, Camera cam) {
+        TileFragment frag = cam.getHoveredTileFragment();
+        Tile tile = cam.getHoveredTile();
         action(mouse, map, tile, frag);
     }
     

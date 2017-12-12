@@ -3,6 +3,7 @@ package pl.wurmonline.deedplanner.logic.walls;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.TileFragment;
@@ -11,13 +12,13 @@ public class WallUpdater {
 
     public static WallData currentData = Data.walls.values().iterator().next();
     
-    public static void update(Mouse mouse, Map map, UpCamera cam) {
-        TileFragment frag = TileFragment.calculateTileFragment(cam.xTile, cam.yTile);
+    public static void update(Mouse mouse, Map map, Camera cam) {
+        TileFragment frag = cam.getHoveredTileFragment();
         if (mouse.hold.left) {
-            setWalls(map, cam.tile, currentData, frag);
+            setWalls(map, cam.getHoveredTile(), currentData, frag);
         }
         else if (mouse.hold.right) {
-            deleteWalls(map, cam.tile, frag);
+            deleteWalls(map, cam.getHoveredTile(), frag);
         }
         
         if (mouse.released.left || mouse.released.right) {

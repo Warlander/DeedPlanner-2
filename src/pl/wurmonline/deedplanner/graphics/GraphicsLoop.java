@@ -60,13 +60,9 @@ public class GraphicsLoop implements GLEventListener {
 
             SimpleTex.resetInfo();
             
-            if (Globals.cameraType == CameraType.TOP_VIEW) {
-                panel.getUpCamera().set(g);
-                panel.getMap().render(g);
-            }
-            else {
-                panel.getFPPCamera().set(g);
-                panel.getMap().render(g);
+            panel.getCamera().set(g, panel);
+            panel.getMap().render(g, panel.getCamera());
+            if (panel.getCamera().isSkyboxRendered()) {
                 Skybox.render(panel, g);
             }
             

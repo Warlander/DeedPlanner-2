@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.JComponent;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.Tile;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.util.SwingUtils;
@@ -13,28 +14,28 @@ public class HeightShow extends JComponent {
     private static final Font basicFont = Font.decode("Arial-10");
     private static final Font boldFont = Font.decode("Arial-BOLD-12");
     
-    private UpCamera cam;
+    private Camera cam;
     
     public HeightShow() {
         setPreferredSize(new Dimension(70, 70));
     }
     
-    public void setUpCamera(UpCamera cam) {
+    public void setCamera(Camera cam) {
         this.cam = cam;
         repaint();
     }
     
     protected void paintComponent(Graphics g) {
-        if (cam!=null && cam.tile!=null) {
-            TileFragment frag = TileFragment.calculateTileFragment(cam.xTile, cam.yTile);
+        if (cam != null && cam.getHoveredTile() != null) {
+            TileFragment frag = cam.getHoveredTileFragment();
             g.setColor(Color.black);
             g.setFont(basicFont);
             if (frag.isCorner()) {
-                Tile tile = frag.getTileByCorner(cam.tile);
+                Tile tile = frag.getTileByCorner(cam.getHoveredTile());
                 paintCorner(g, tile);
             }
             else if (frag.isCenter()) {
-                Tile tile = cam.tile;
+                Tile tile = cam.getHoveredTile();
                 paintCenter(g, tile);
             }
         }

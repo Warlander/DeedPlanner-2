@@ -1252,7 +1252,7 @@ public class Planner extends javax.swing.JFrame {
     private void viewSwitched(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSwitched
         mapPanel.getLoop().syncAndExecute(() -> {
             final boolean upView = (evt.getSource()==upViewItem);
-            Globals.cameraType = upView ? CameraType.TOP_VIEW : CameraType.SPECTATOR;
+            mapPanel.setCamera(upView ? CameraType.TOP_VIEW : CameraType.SPECTATOR);
             sidePanel.setVisible(upView);
             statusBar.setVisible(upView);
             Globals.fixedHeight = (evt.getSource()==wurmianItem);

@@ -1,6 +1,7 @@
 package pl.wurmonline.deedplanner.graphics;
 
 import javax.media.opengl.GL2;
+import org.joml.Vector3d;
 import pl.wurmonline.deedplanner.MapPanel;
 import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
@@ -14,8 +15,9 @@ public class Skybox {
             loadSkyboxTextures(g);
         }
         
-        FPPCamera camera = panel.getFPPCamera();
-        g.glTranslated(camera.posx, -camera.posz, camera.posy);
+        Camera camera = panel.getCamera();
+        Vector3d camPosition = camera.getPosition();
+        g.glTranslated(camPosition.x, -camPosition.z, camPosition.y);
         
         //top
         tex[0].bind(g);

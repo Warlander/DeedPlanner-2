@@ -4,7 +4,7 @@ import pl.wurmonline.deedplanner.data.CaveData;
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.input.Mouse;
 
 public class CaveUpdater {
@@ -13,8 +13,8 @@ public class CaveUpdater {
     
     private static final CaveData defaultData = Data.caves.get("sw");
     
-    public static void update(Mouse mouse, Map map, UpCamera cam) {
-        Tile tile = cam.tile;
+    public static void update(Mouse mouse, Map map, Camera cam) {
+        Tile tile = cam.getHoveredTile();
         if (mouse.hold.left) {
             if (currentData!=null) {
                 tile.setCaveEntity(currentData);

@@ -2,9 +2,13 @@ package pl.wurmonline.deedplanner.logic.objects;
 
 import java.awt.event.KeyEvent;
 import java.awt.geom.Point2D;
+import org.joml.Vector2d;
+import org.joml.Vector2f;
+import org.joml.Vector3d;
 import pl.wurmonline.deedplanner.Constants;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Keyboard;
 import pl.wurmonline.deedplanner.input.Mouse;
@@ -16,25 +20,26 @@ public class ObjectsUpdater {
     public static AnimalData animalsCurrentData = null;
     
     private static Tile tile;
-    private static Point2D point;
+    private static Vector2d point;
     private static GridTileEntity object;
     private static ObjectLocation location;
     
-    public static void update(Mouse mouse, Keyboard keyboard, Map map, UpCamera cam) {
+    public static void update(Mouse mouse, Keyboard keyboard, Map map, Camera cam) {
         if (mouse.pressed.left) {
             if (!containsData() || !checkUndergroundPermissions()) {
                 return;
             }
-            tile = cam.tile;
+            tile = cam.getHoveredTile();
             location = calculateLocation(cam);
-            point = new Point2D.Double(tile.getX()+location.getHorizontalAlign()/4f, tile.getY()+location.getVerticalAlign()/4f);
+            point = new Vector2d(tile.getX()+location.getHorizontalAlign()/4f, tile.getY()+location.getVerticalAlign()/4f);
             placeEntity(map, tile, location, Globals.floor);
             object = tile.getGridEntity(Globals.floor, location);
             map.newAction();
         }
         else if (object != null && mouse.hold.left) {
-            float deltaX = cam.xMap - (float) point.getX();
-            float deltaY = cam.yMap - (float) point.getY();
+            Vector3d camPosition = cam.getPosition();
+            double deltaX = camPosition.x - point.x;
+            double deltaY = camPosition.y - point.y;
             double rotation = Math.atan2(deltaY, deltaX)+Math.PI/2f;
             if (!keyboard.isHold(KeyEvent.VK_SHIFT)) {
                 rotation = getClampedRotation(rotation);
@@ -51,9 +56,9 @@ public class ObjectsUpdater {
         }
 
         if (mouse.hold.right && !mouse.hold.left) {
-            location = ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
-            cam.tile.setGameObject(null, null, Globals.floor);
-            map.getSymmetry().mirrorObject(cam.tile, null, location, Globals.floor);
+            location = calculateLocation(cam);
+            cam.getHoveredTile().setGameObject(null, null, Globals.floor);
+            map.getSymmetry().mirrorObject(cam.getHoveredTile(), null, location, Globals.floor);
             map.newAction();
         }
     }
@@ -75,9 +80,10 @@ public class ObjectsUpdater {
         return !(Globals.floor < 0 && (objectsCurrentData.type.equals(Constants.TREE_TYPE) || objectsCurrentData.type.equals(Constants.BUSH_TYPE)));
     }
     
-    private static ObjectLocation calculateLocation(UpCamera cam) {
-        float xPos = cam.xTile;
-        float yPos = cam.yTile;
+    private static ObjectLocation calculateLocation(Camera cam) {
+        Vector2f tilePos = cam.getHoveredTilePosition();
+        float xPos = tilePos.x;
+        float yPos = tilePos.y;
         float xDist = Math.min(xPos, 1 - xPos);
         float yDist = Math.min(yPos, 1 - yPos);
         float distToCorner = (float) Math.sqrt(xDist * xDist + yDist * yDist);
@@ -98,7 +104,7 @@ public class ObjectsUpdater {
             return ObjectLocation.MIDDLE_CENTER;
         }
         
-        return ObjectLocation.calculateObjectLocation(cam.xTile, cam.yTile);
+        return ObjectLocation.calculateObjectLocation(xPos, yPos);
     }
     
     private static void placeEntity(Map map, Tile tile, ObjectLocation location, int floor) {

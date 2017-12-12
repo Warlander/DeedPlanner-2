@@ -4,11 +4,18 @@ import com.jogamp.common.nio.Buffers;
 import java.nio.FloatBuffer;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
+import org.joml.Vector2f;
+import org.joml.Vector2i;
+import org.joml.Vector3d;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.Map;
+import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.input.*;
+import pl.wurmonline.deedplanner.logic.TileFragment;
 
-public final class FPPCamera {
+public final class FPPCamera implements Camera {
+    
+    private static final int RENDER_RADIUS_TILES = 65;
     
     public boolean fixedHeight = false;
     
@@ -20,12 +27,13 @@ public final class FPPCamera {
     private float diry=0;
     private float dirz=0;
     
+    private int currentTileX = 0;
+    private int currentTileY = 0;
+    
     private float anglex=-(float) Math.PI / 4;
     private float angley=(float) Math.PI / 2;
     
     private double stickedHeight = 1.4;
-    
-    private final MapPanel panel;
     
     private static final FloatBuffer matrix;
     
@@ -38,11 +46,7 @@ public final class FPPCamera {
         matrix.rewind();
     }
     
-    public FPPCamera(MapPanel panel) {
-        this.panel = panel;
-    }
-    
-    public void update(Mouse mouse, Keybindings keybindings) {
+    public void update(MapPanel panel, Mouse mouse, Keybindings keybindings) {
         final Map map = panel.getMap();
         
         double fraction = Properties.mouseFractionFpp;
@@ -56,12 +60,8 @@ public final class FPPCamera {
         double xDivine = posx / 4d;
         double zDivine = posz / 4d;
         
-        int currX = (int) xDivine;
-        int currZ = (int) zDivine;
-        Globals.visibleDownX = currX - 65;
-        Globals.visibleUpX = currX + 65;
-        Globals.visibleDownY = -currZ - 65;
-        Globals.visibleUpY = -currZ + 65;
+        currentTileX = (int) xDivine;
+        currentTileY = (int) -zDivine;
         
         if (mouse.pressed.left) {
             mouse.setGrabbed(true);
@@ -153,16 +153,16 @@ public final class FPPCamera {
             xDivine = posx / 4d;
             zDivine = -posz / 4d;
         
-            currX = (int) xDivine;
-            currZ = (int) zDivine;
+            currentTileX = (int) xDivine;
+            currentTileY = (int) zDivine;
             
             final double xPartRev = 1f - xPart;
             final double yPartRev = 1f - yPart;
 
-            final double h00 = map.getTile(currX, currZ).getCurrentLayerHeight() / Constants.HEIGHT_MOD;
-            final double h10 = map.getTile(currX + 1, currZ).getCurrentLayerHeight() / Constants.HEIGHT_MOD;
-            final double h01 = map.getTile(currX, currZ + 1).getCurrentLayerHeight() / Constants.HEIGHT_MOD;
-            final double h11 = map.getTile(currX + 1, currZ + 1).getCurrentLayerHeight() / Constants.HEIGHT_MOD;
+            final double h00 = map.getTile(currentTileX, currentTileY).getCurrentLayerHeight() / Constants.HEIGHT_MOD;
+            final double h10 = map.getTile(currentTileX + 1, currentTileY).getCurrentLayerHeight() / Constants.HEIGHT_MOD;
+            final double h01 = map.getTile(currentTileX, currentTileY + 1).getCurrentLayerHeight() / Constants.HEIGHT_MOD;
+            final double h11 = map.getTile(currentTileX + 1, currentTileY + 1).getCurrentLayerHeight() / Constants.HEIGHT_MOD;
 
             final double x0 = (h00 * xPartRev + h10 * xPart);
             final double x1 = (h01 * xPartRev + h11 * xPart);
@@ -194,7 +194,7 @@ public final class FPPCamera {
         diry = (float) -Math.cos(angley);
     }
     
-    public void set(GL2 g) {
+    public void set(GL2 g, MapPanel panel) {
         int width = panel.getWidth();
         int height = panel.getHeight();
         
@@ -216,6 +216,49 @@ public final class FPPCamera {
         posx = 0;
         posy = 2;
         posz = 0;
+        
+        currentTileX = 0;
+        currentTileY = 0;
+    }
+
+    public boolean isEditEnabled() {
+        return false;
+    }
+
+    public Tile getHoveredTile() {
+        return null;
+    }
+
+    public TileFragment getHoveredTileFragment() {
+        return null;
+    }
+    
+    public Vector2f getHoveredTilePosition() {
+        return null;
+    }
+
+    public float getLevelVisibility(int level) {
+        return 1; //always render all levels
+    }
+
+    public Vector2i getLowerRenderBounds() {
+        return new Vector2i(currentTileX - RENDER_RADIUS_TILES, currentTileY - RENDER_RADIUS_TILES);
+    }
+
+    public Vector2i getUpperRenderBounds() {
+        return new Vector2i(currentTileX + RENDER_RADIUS_TILES, currentTileY + RENDER_RADIUS_TILES);
+    }
+    
+    public boolean isSkyboxRendered() {
+        return true;
+    }
+
+    public CameraType getCameraType() {
+        return CameraType.SPECTATOR;
+    }
+
+    public Vector3d getPosition() {
+        return new Vector3d(posx, posy, posz);
     }
     
 }
