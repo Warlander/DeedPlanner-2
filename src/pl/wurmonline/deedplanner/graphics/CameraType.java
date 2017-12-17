@@ -1,5 +1,5 @@
 package pl.wurmonline.deedplanner.graphics;
 
 public enum CameraType {
-    TOP_VIEW, SPECTATOR;
+    TOP_VIEW, ISOMETRIC, SPECTATOR;
 }

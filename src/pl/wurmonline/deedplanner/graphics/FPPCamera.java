@@ -221,7 +221,7 @@ public final class FPPCamera implements Camera {
         currentTileY = 0;
     }
 
-    public boolean isEditEnabled() {
+    public boolean isEditingCapable() {
         return false;
     }
 

@@ -30,9 +30,6 @@ public final class UpCamera implements Camera {
         
         tileScaler = (float) panel.getWidth() / panel.getHeight();
         
-        int currX = (int) (x / 4);
-        int currZ = (int) (y / 4);
-        
         float tileSize = (float) panel.getHeight() / Properties.scale / 4;
         float tileX = ((mouse.x + x * tileSize) / ((float) panel.getWidth() / Properties.scale / tileScaler));
         float tileY = (((panel.getHeight() - mouse.y) + y * tileSize) / ((float) panel.getHeight() / Properties.scale));
@@ -45,7 +42,7 @@ public final class UpCamera implements Camera {
             keyboardFraction *= Properties.mod2Fpp;
         }
         
-        currX = (int) tileX;
+        int currX = (int) tileX;
         int currY = (int) tileY;
         
         if (currX >= 0 && currX < map.getWidth() && currY >= 0 && currY < map.getHeight()) {
@@ -124,7 +121,7 @@ public final class UpCamera implements Camera {
         y=0;
     }
 
-    public boolean isEditEnabled() {
+    public boolean isEditingCapable() {
         return true;
     }
 

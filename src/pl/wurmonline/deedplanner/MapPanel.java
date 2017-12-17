@@ -32,6 +32,7 @@ public class MapPanel extends GLJPanel implements ComponentListener {
         
         cameras = new HashMap();
         addCamera(new UpCamera());
+        addCamera(new IsometricCamera());
         addCamera(new FPPCamera());
         
         loop = new MainLoop(this);
@@ -45,7 +46,7 @@ public class MapPanel extends GLJPanel implements ComponentListener {
         
         cameras.put(type, camera);
         if (currentCamera == null) {
-            currentCamera = camera;
+            setCamera(type);
         }
     }
     
@@ -60,7 +61,7 @@ public class MapPanel extends GLJPanel implements ComponentListener {
         }
         
         currentCamera = camera;
-        Globals.cameraType = type;
+        Globals.camera = currentCamera;
     }
     
     public MainLoop getLoop() {

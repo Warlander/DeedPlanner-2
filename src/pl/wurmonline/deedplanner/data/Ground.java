@@ -176,7 +176,7 @@ public class Ground implements TileEntity {
     }
     
     private GroundData.TextureType getValidGroundTextureType() {
-        if (Globals.cameraType == CameraType.TOP_VIEW) {
+        if (Globals.camera.isEditing()) {
             return GroundData.TextureType.TEXTURE_2D_VIEW;
         }
         else {

@@ -4,6 +4,7 @@ import javax.media.opengl.GL2;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
 import org.joml.Vector3d;
+import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.MapPanel;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.input.Keybindings;
@@ -11,6 +12,13 @@ import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 
 public interface Camera {
+    
+    public default boolean isEditing() {
+        if (!Globals.editMode) {
+            return false;
+        }
+        return isEditingCapable();
+    }
     
     /**
      * Updates logic behind the camera - it's the logic phase, no render specific logic should be implemented there.
@@ -34,7 +42,7 @@ public interface Camera {
      * Checks if current camera can be used for editing the map or is preview only.
      * @return is editing the map possible using this camera
      */
-    public abstract boolean isEditEnabled();
+    public abstract boolean isEditingCapable();
     /**
      * Returns currently hovered tile. Should always return tile on valid maps.
      * Can return null if edit is not enabled.

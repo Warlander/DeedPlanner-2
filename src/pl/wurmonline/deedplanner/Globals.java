@@ -4,17 +4,19 @@ import pl.wurmonline.deedplanner.data.AnimalAge;
 import pl.wurmonline.deedplanner.data.AnimalGender;
 import pl.wurmonline.deedplanner.data.EntityOrientation;
 import pl.wurmonline.deedplanner.data.RoadDirection;
+import pl.wurmonline.deedplanner.graphics.Camera;
 import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.logic.Tab;
 
 public class Globals {
     
-    public static boolean renderBridges2d = true;
+    public static boolean renderBridgesEditing = true;
     
-    public static boolean renderTrees3d = true;
-    public static boolean renderTrees2d = true;
+    public static boolean renderTreesSpectating = true;
+    public static boolean renderTreesEditing = true;
     
-    public static CameraType cameraType = CameraType.TOP_VIEW;
+    public static Camera camera;
+    public static boolean editMode = true;
     public static boolean fixedHeight = false;
     public static boolean renderHeight = false;
     

@@ -25,7 +25,7 @@ public class Wall implements TileEntity {
     }
     
     public void render(GL2 g, Tile tile) {
-        if (Globals.cameraType == CameraType.TOP_VIEW) {
+        if (Globals.camera.getCameraType() == CameraType.TOP_VIEW) {
             g.glScalef(1, data.scale, 1);
         }
         

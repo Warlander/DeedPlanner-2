@@ -480,28 +480,14 @@ public final class Map {
             waterID = Water.prepareWater(g, this);
         }
         
-        if (Globals.cameraType == CameraType.TOP_VIEW && Globals.floor>=0 && Globals.floor<3) {
-            switch (Globals.floor) {
-                case 0:
-                    g.glColor4f(1, 1, 1, 0.5f);
-                    break;
-                case 1:
-                    g.glColor4f(0.6f, 0.6f, 0.6f, 0.5f);
-                    break;
-                case 2:
-                    g.glColor4f(0.25f, 0.25f, 0.25f, 0.5f);
-                    break;
-            }
-            renderWater(g);
-            g.glColor4f(1, 1, 1, 1);
-        }
-        else if (Globals.cameraType == CameraType.SPECTATOR) {
-            g.glColor4f(1, 1, 1, 0.5f);
+        float waterVisibility = camera.getLevelVisibility(Globals.floor);
+        if (waterVisibility > 0) {
+            g.glColor4f(waterVisibility, waterVisibility, waterVisibility, 0.5f);
             renderWater(g);
             g.glColor4f(1, 1, 1, 1);
         }
         
-        if (Globals.cameraType == CameraType.TOP_VIEW) {
+        if (camera.isEditingCapable()) {
             g.glDisable(GL2.GL_TEXTURE_2D);
             g.glDisable(GL2.GL_DEPTH_TEST);
             if (Properties.showGrid) {

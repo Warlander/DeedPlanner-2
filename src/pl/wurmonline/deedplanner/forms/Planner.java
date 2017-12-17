@@ -269,6 +269,7 @@ public class Planner extends javax.swing.JFrame {
         bordersRemoveItem = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         upViewItem = new javax.swing.JRadioButtonMenuItem();
+        isoViewItem = new javax.swing.JRadioButtonMenuItem();
         fppViewItem = new javax.swing.JRadioButtonMenuItem();
         wurmianItem = new javax.swing.JRadioButtonMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -1071,6 +1072,15 @@ public class Planner extends javax.swing.JFrame {
         });
         jMenu8.add(upViewItem);
 
+        viewGroup.add(isoViewItem);
+        isoViewItem.setText(bundle.getString("Planner.isoViewItem.text")); // NOI18N
+        isoViewItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewSwitched(evt);
+            }
+        });
+        jMenu8.add(isoViewItem);
+
         viewGroup.add(fppViewItem);
         fppViewItem.setText(bundle.getString("Planner.fppViewItem.text")); // NOI18N
         fppViewItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1251,10 +1261,21 @@ public class Planner extends javax.swing.JFrame {
 
     private void viewSwitched(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSwitched
         mapPanel.getLoop().syncAndExecute(() -> {
-            final boolean upView = (evt.getSource()==upViewItem);
-            mapPanel.setCamera(upView ? CameraType.TOP_VIEW : CameraType.SPECTATOR);
-            sidePanel.setVisible(upView);
-            statusBar.setVisible(upView);
+            CameraType cameraType;
+            if (evt.getSource() == upViewItem) {
+                cameraType = CameraType.TOP_VIEW;
+            }
+            else if (evt.getSource() == isoViewItem) {
+                cameraType = CameraType.ISOMETRIC;
+            }
+            else {
+                cameraType = CameraType.SPECTATOR;
+            }
+            
+            mapPanel.setCamera(cameraType);
+            final boolean editable = mapPanel.getCamera().isEditingCapable();
+            sidePanel.setVisible(editable);
+            statusBar.setVisible(editable);
             Globals.fixedHeight = (evt.getSource()==wurmianItem);
         });
     }//GEN-LAST:event_viewSwitched
@@ -1492,16 +1513,16 @@ public class Planner extends javax.swing.JFrame {
 
     private void vegetationDisplayChanged(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vegetationDisplayChanged
         if (treesAllItem.isSelected()) {
-            Globals.renderTrees2d = true;
-            Globals.renderTrees3d = true;
+            Globals.renderTreesEditing = true;
+            Globals.renderTreesSpectating = true;
         }
         else if (trees3dItem.isSelected()) {
-            Globals.renderTrees2d = false;
-            Globals.renderTrees3d = true;
+            Globals.renderTreesEditing = false;
+            Globals.renderTreesSpectating = true;
         }
         else if (treesNothingItem.isSelected()) {
-            Globals.renderTrees2d = false;
-            Globals.renderTrees3d = false;
+            Globals.renderTreesEditing = false;
+            Globals.renderTreesSpectating = false;
         }
     }//GEN-LAST:event_vegetationDisplayChanged
 
@@ -1536,7 +1557,7 @@ public class Planner extends javax.swing.JFrame {
     }//GEN-LAST:event_groundsTreeMousePressed
 
     private void bridgesDisplayChanged(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bridgesDisplayChanged
-        Globals.renderBridges2d = bridgesAllItem.isSelected();
+        Globals.renderBridgesEditing = bridgesAllItem.isSelected();
     }//GEN-LAST:event_bridgesDisplayChanged
 
     private void animalsTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_animalsTreeValueChanged
@@ -1705,6 +1726,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JRadioButton heightRadio;
     private javax.swing.JSpinner heightRightSpinner;
     public pl.wurmonline.deedplanner.forms.HeightShow heightShow;
+    private javax.swing.JRadioButtonMenuItem isoViewItem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

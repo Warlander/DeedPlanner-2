@@ -181,54 +181,44 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderGround(GL2 g) {
-        if (bridgePart != null && (Globals.renderBridges2d || Globals.cameraType == CameraType.SPECTATOR)) {
+        if (bridgePart != null && (Globals.renderBridgesEditing || Globals.camera.getCameraType() == CameraType.SPECTATOR)) {
             g.glColor3f(1, 1, 1);
             bridgePart.render(g, this);
         }
         
-        if ((Globals.cameraType == CameraType.TOP_VIEW && Globals.floor>=0 && Globals.floor<3) || Globals.cameraType == CameraType.SPECTATOR) {
-            if (Globals.cameraType == CameraType.TOP_VIEW && Globals.floor>=0 && Globals.floor<3) {
-                float lightModifier = 0;
-                switch (Globals.floor) {
-                    case 0:
-                        lightModifier = 1;
-                        break;
-                    case 1:
-                        lightModifier = 0.6f;
-                        break;
-                    case 2:
-                        lightModifier = 0.25f;
-                        break;
-                }
-                
-                float heightR = 1;
-                float heightG = 1;
-                float heightB = 1;
-                boolean renderColors = (Globals.renderHeight || Globals.tab==Tab.height);
-                if (renderColors) {
-                    if (isFlat()) {
-                        if (!pl.wurmonline.deedplanner.Properties.colorblind) {
-                            heightR = 0.8f;
-                            heightG = 1.0f;
-                            heightB = 0.8f;
-                        }
-                        else {
-                            heightR = 0.8f;
-                            heightG = 0.8f;
-                            heightB = 1.0f;
-                        }
-                    }
-                    else {
-                        heightR = 1.0f;
-                        heightG = 0.8f;
-                        heightB = 0.8f;
-                    }
-                }
-                
-                g.glColor3f(lightModifier * heightR, lightModifier * heightG, lightModifier * heightB);
-            }
-            ground.render(g, this);
+        float lightModifier = Globals.camera.getLevelVisibility(Globals.floor);
+        if (lightModifier == 0) {
+            return;
         }
+        
+        float heightR = 1;
+        float heightG = 1;
+        float heightB = 1;
+        boolean renderColors = (Globals.renderHeight || Globals.tab == Tab.height);
+        if (renderColors) {
+            if (isFlat()) {
+                if (!pl.wurmonline.deedplanner.Properties.colorblind) {
+                    heightR = 0.8f;
+                    heightG = 1.0f;
+                    heightB = 0.8f;
+                }
+                else {
+                    heightR = 0.8f;
+                    heightG = 0.8f;
+                    heightB = 1.0f;
+                }
+            }
+            else {
+                heightR = 1.0f;
+                heightG = 0.8f;
+                heightB = 0.8f;
+            }
+        }
+        if (lightModifier < 1 && renderColors) {
+            g.glColor3f(lightModifier * heightR, lightModifier * heightG, lightModifier * heightB);
+        }
+        
+        ground.render(g, this);
     }
     
     private void renderEntities(GL2 g) {
@@ -240,23 +230,11 @@ public final class Tile implements XMLSerializable {
                 continue;
             }
             
-            float colorMod = 1;
-            if (Globals.cameraType == CameraType.TOP_VIEW) {
-                // in case of negative floors (cave dwellings) color modifier will be reversed
-                switch (Math.abs(Globals.floor) - Math.abs(floor)) {
-                    case 0:
-                        colorMod = 1;
-                        break;
-                    case 1:
-                        colorMod = 0.6f;
-                        break;
-                    case 2:
-                        colorMod = 0.25f;
-                        break;
-                    default:
-                        continue;
-                }
+            float colorMod = Globals.camera.getLevelVisibility(floor);
+            if (colorMod == 0) {
+                continue;
             }
+            
             TileEntity entity = e.getValue();
             g.glPushMatrix();
                 renderEntity(g, key, entity, colorMod);
@@ -300,7 +278,7 @@ public final class Tile implements XMLSerializable {
                     GameObjectData goData = obj.getData();
                     
                     boolean isTree = goData.type.equals(Constants.TREE_TYPE);
-                    boolean treeRenderingAllowed = (Globals.renderTrees2d && Globals.cameraType == CameraType.TOP_VIEW) || (Globals.renderTrees3d && Globals.cameraType == CameraType.SPECTATOR);
+                    boolean treeRenderingAllowed = (Globals.renderTreesEditing && Globals.camera.isEditing()) || (Globals.renderTreesSpectating && !Globals.camera.isEditing());
                     if (!isTree || (isTree && treeRenderingAllowed)) {
                         g.glColor3f(colorMod, colorMod, colorMod);
                         final float renderHeight;
@@ -342,7 +320,7 @@ public final class Tile implements XMLSerializable {
             g.glTranslatef(0, 0, -diff*4f);
         }
         deform(g, diff);
-        if (Globals.cameraType == CameraType.TOP_VIEW) {
+        if (Globals.camera.getCameraType() == CameraType.TOP_VIEW) {
             wall.data.color.use(g, colorMod);
         }
         else {
@@ -353,12 +331,12 @@ public final class Tile implements XMLSerializable {
     }
     
     private void renderUnderground(GL2 g) {
-        if (caveBridgePart != null && (Globals.renderBridges2d || Globals.cameraType == CameraType.SPECTATOR)) {
+        if (caveBridgePart != null && (Globals.renderBridgesEditing || Globals.camera.isEditing())) {
             g.glColor3f(1, 1, 1);
             caveBridgePart.render(g, this);
         }
         
-        if (Globals.cameraType == CameraType.SPECTATOR) {
+        if (Globals.camera.getCameraType() != CameraType.SPECTATOR) {
             g.glColor3f(1f, 1f, 1f);
         }
         else if (cave.wall) {
@@ -379,14 +357,14 @@ public final class Tile implements XMLSerializable {
                     case VBORDER:
                         g.glRotatef(90, 0, 0, 1);
                         BorderData vBorder = (BorderData) entity;
-                        if (Globals.cameraType == CameraType.TOP_VIEW) {
+                        if (Globals.camera.isEditing()) {
                             vBorder.render(g, this);
                         }
                         g.glColor3f(1, 1, 1);
                         break;
                     case HBORDER:
                         BorderData hBorder = (BorderData) entity;
-                        if (Globals.cameraType == CameraType.TOP_VIEW) {
+                        if (Globals.camera.isEditing()) {
                             hBorder.render(g, this);
                         }
                         g.glColor3f(1, 1, 1);
