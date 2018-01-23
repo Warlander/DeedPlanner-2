@@ -48,7 +48,7 @@ public final class IsometricCamera implements Camera {
         
         float tileSize = (float) panel.getHeight() / Properties.scale / 4;
         float tileX = ((mouse.x / (float) Math.sqrt(2) + cartPos.x * tileSize) / ((float) panel.getWidth() / Properties.scale / tileScaler));
-        float tileY = (((panel.getHeight() - mouse.y) + cartPos.y * tileSize) / (float) Math.sqrt(2) / ((float) panel.getHeight() / Properties.scale));
+        float tileY = (((panel.getHeight() - mouse.y) / (float) Math.sqrt(2) + cartPos.y * tileSize) / ((float) panel.getHeight() / Properties.scale));
         Vector2f cartTileCoord = new Vector2f(tileX, tileY);
         Vector2f isoTileCoord = isoToCart(cartTileCoord);
         tileX = isoTileCoord.x;
