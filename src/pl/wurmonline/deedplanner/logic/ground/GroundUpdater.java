@@ -11,7 +11,7 @@ public class GroundUpdater {
 
     public static GroundMode currentMode;
     public static GroundData lmbData = Data.grounds.get("gr");
-    public static GroundData rmbData = Data.grounds.get("gr");
+    public static GroundData rmbData = Data.grounds.get("di");
     
     public static void update(Mouse mouse, Map map, Camera cam) {
         currentMode.update(mouse, map, cam);
