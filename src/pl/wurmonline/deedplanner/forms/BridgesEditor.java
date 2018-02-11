@@ -26,8 +26,6 @@ public class BridgesEditor extends javax.swing.JPanel {
         initComponents();
         
         this.planner = planner;
-        
-        updateState();
     }
 
     @SuppressWarnings("unchecked")
@@ -209,7 +207,7 @@ public class BridgesEditor extends javax.swing.JPanel {
         updateState();
     }//GEN-LAST:event_destroyBridgeButtonActionPerformed
 
-    private void updateState() {
+    public void updateState() {
         updateTileLabels();
         updateBridgeDeletion();
         updateWarnings();

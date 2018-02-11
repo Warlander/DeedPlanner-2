@@ -30,7 +30,7 @@ public final class GroundData {
         this.diagonal = diagonal;
     }
     
-    public Icon createIcon() {
+    public Icon getOrCreateIcon() {
         if (Properties.iconSize==0) {
             return null;
         }

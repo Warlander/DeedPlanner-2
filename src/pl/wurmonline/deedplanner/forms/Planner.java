@@ -47,6 +47,8 @@ public class Planner extends javax.swing.JFrame {
         mapPanel.grabFocus();
         setVisible(true);
         
+        bridgesPanel.updateState();
+        
         Analytics.getInstance().screenView().screenName(Globals.tab.toString()).sessionControl("start").postAsync();
         
         groundsTree.setCellRenderer(new DefaultTreeCellRenderer() {
@@ -61,7 +63,7 @@ public class Planner extends javax.swing.JFrame {
                     DefaultMutableTreeNode node = (DefaultMutableTreeNode) value;
                     if (node.getUserObject() instanceof GroundData) {
                         GroundData data = (GroundData) node.getUserObject();
-                        setIcon(data.createIcon());
+                        setIcon(data.getOrCreateIcon());
                     }
                     else {
                         setIcon(null);
@@ -142,7 +144,11 @@ public class Planner extends javax.swing.JFrame {
         groundModeCombo.setModel(GroundUpdater.createComboModel());
         groundModeCombo.setSelectedIndex(0);
         
-        tabbedPane.remove(cavesPanel);
+        lmbSelectedGroundLabel.setText(GroundUpdater.lmbData.name);
+        lmbSelectedGroundLabel.setIcon(GroundUpdater.lmbData.getOrCreateIcon());
+        
+        rmbSelectedGroundLabel.setText(GroundUpdater.rmbData.name);
+        rmbSelectedGroundLabel.setIcon(GroundUpdater.rmbData.getOrCreateIcon());
         
         mapPanel.getLoop().start(this);
         
@@ -165,7 +171,8 @@ public class Planner extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        viewGroup = new javax.swing.ButtonGroup();
+        viewMenuGroup = new javax.swing.ButtonGroup();
+        viewSidebarGroup = new javax.swing.ButtonGroup();
         seasonGroup = new javax.swing.ButtonGroup();
         wallsGroup = new javax.swing.ButtonGroup();
         elevationGroup = new javax.swing.ButtonGroup();
@@ -174,22 +181,8 @@ public class Planner extends javax.swing.JFrame {
         bridgesVisibilityGroup = new javax.swing.ButtonGroup();
         animalSizeGroup = new javax.swing.ButtonGroup();
         animalSexGroup = new javax.swing.ButtonGroup();
-        mapPanel = new pl.wurmonline.deedplanner.MapPanel();
-        statusBar = new javax.swing.JPanel();
-        tileLabel = new javax.swing.JLabel();
-        sidePanel = new javax.swing.JPanel();
-        jSpinner4 = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
-        tabbedPane = new javax.swing.JTabbedPane();
-        groundPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        groundsTree = new javax.swing.JTree();
-        diagonalPanel1 = new DiagonalPanel(this);
-        groundModeCombo = new javax.swing.JComboBox();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        lmbSelectedGroundLabel = new javax.swing.JLabel();
-        rmbSelectedGroundLabel = new javax.swing.JLabel();
+        tabGroup = new javax.swing.ButtonGroup();
+        floorGroup = new javax.swing.ButtonGroup();
         heightPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         heightLeftSpinner = new javax.swing.JSpinner();
@@ -245,7 +238,65 @@ public class Planner extends javax.swing.JFrame {
         cavesTree = new javax.swing.JTree();
         symmetryPanel = new pl.wurmonline.deedplanner.forms.SymmetryEditor();
         bridgesPanel = new BridgesEditor(this);
+        cavesToggle = new javax.swing.JToggleButton();
+        mapHolderPanel = new javax.swing.JPanel();
+        mapPanel = new pl.wurmonline.deedplanner.MapPanel();
+        statusBar = new javax.swing.JPanel();
+        tileLabel = new javax.swing.JLabel();
+        sideHolderPanel = new javax.swing.JPanel();
+        sidePanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        tabIconsPanel = new javax.swing.JPanel();
+        groundToggle = new javax.swing.JToggleButton();
+        heightToggle = new javax.swing.JToggleButton();
+        floorsToggle = new javax.swing.JToggleButton();
+        wallsToggle = new javax.swing.JToggleButton();
+        roofsToggle = new javax.swing.JToggleButton();
+        objectsToggle = new javax.swing.JToggleButton();
+        animalsToggle = new javax.swing.JToggleButton();
+        labelsToggle = new javax.swing.JToggleButton();
+        bordersToggle = new javax.swing.JToggleButton();
+        bridgesToggle = new javax.swing.JToggleButton();
+        symmetryToggle = new javax.swing.JToggleButton();
+        tabPanel = new javax.swing.JPanel();
+        groundPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        groundsTree = new javax.swing.JTree();
+        diagonalPanel = new DiagonalPanel(this);
+        groundModeCombo = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lmbSelectedGroundLabel = new javax.swing.JLabel();
+        rmbSelectedGroundLabel = new javax.swing.JLabel();
+        floorSelectionPanel = new javax.swing.JPanel();
+        upViewToggle = new javax.swing.JToggleButton();
+        fppViewToggle = new javax.swing.JToggleButton();
+        isoViewToggle = new javax.swing.JToggleButton();
+        wurmianViewToggle = new javax.swing.JToggleButton();
+        filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 27), new java.awt.Dimension(0, 27), new java.awt.Dimension(32767, 23));
+        floorToggle16 = new javax.swing.JToggleButton();
+        floorToggle15 = new javax.swing.JToggleButton();
+        floorToggle14 = new javax.swing.JToggleButton();
+        floorToggle13 = new javax.swing.JToggleButton();
+        floorToggle12 = new javax.swing.JToggleButton();
+        floorToggle11 = new javax.swing.JToggleButton();
+        floorToggle10 = new javax.swing.JToggleButton();
+        floorToggle9 = new javax.swing.JToggleButton();
+        floorToggle8 = new javax.swing.JToggleButton();
+        floorToggle7 = new javax.swing.JToggleButton();
+        floorToggle6 = new javax.swing.JToggleButton();
+        floorToggle5 = new javax.swing.JToggleButton();
+        floorToggle4 = new javax.swing.JToggleButton();
+        floorToggle3 = new javax.swing.JToggleButton();
+        floorToggle2 = new javax.swing.JToggleButton();
+        floorToggle1 = new javax.swing.JToggleButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 27), new java.awt.Dimension(0, 27), new java.awt.Dimension(32767, 23));
+        floorToggleNegative1 = new javax.swing.JToggleButton();
+        floorToggleNegative2 = new javax.swing.JToggleButton();
+        floorToggleNegative3 = new javax.swing.JToggleButton();
+        floorToggleNegative4 = new javax.swing.JToggleButton();
+        floorToggleNegative5 = new javax.swing.JToggleButton();
+        floorToggleNegative6 = new javax.swing.JToggleButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         newMapItem = new javax.swing.JMenuItem();
@@ -269,8 +320,8 @@ public class Planner extends javax.swing.JFrame {
         bordersRemoveItem = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         upViewItem = new javax.swing.JRadioButtonMenuItem();
-        isoViewItem = new javax.swing.JRadioButtonMenuItem();
         fppViewItem = new javax.swing.JRadioButtonMenuItem();
+        isoViewItem = new javax.swing.JRadioButtonMenuItem();
         wurmianItem = new javax.swing.JRadioButtonMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenu3 = new javax.swing.JMenu();
@@ -289,144 +340,8 @@ public class Planner extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 600));
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
-
-        javax.swing.GroupLayout mapPanelLayout = new javax.swing.GroupLayout(mapPanel);
-        mapPanel.setLayout(mapPanelLayout);
-        mapPanelLayout.setHorizontalGroup(
-            mapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        mapPanelLayout.setVerticalGroup(
-            mapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 713, Short.MAX_VALUE)
-        );
-
-        tileLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tileLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
-        tileLabel.setText(bundle.getString("Planner.tileLabel.text")); // NOI18N
-
-        javax.swing.GroupLayout statusBarLayout = new javax.swing.GroupLayout(statusBar);
-        statusBar.setLayout(statusBarLayout);
-        statusBarLayout.setHorizontalGroup(
-            statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tileLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
-        );
-        statusBarLayout.setVerticalGroup(
-            statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusBarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(tileLabel))
-        );
-
-        jSpinner4.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jSpinner4.setModel(new javax.swing.SpinnerNumberModel(1, -7, 17, 1));
-        jSpinner4.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSpinner4StateChanged(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel5.setText(bundle.getString("Planner.jLabel5.text")); // NOI18N
-
-        tabbedPane.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
-        tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                tabbedPaneStateChanged(evt);
-            }
-        });
-
-        groundsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        groundsTree.setModel(new DefaultTreeModel(Data.groundsTree));
-        groundsTree.setCellRenderer(null);
-        groundsTree.setRootVisible(false);
-        groundsTree.setShowsRootHandles(true);
-        groundsTree.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                groundsTreeMousePressed(evt);
-            }
-        });
-        jScrollPane1.setViewportView(groundsTree);
-
-        javax.swing.GroupLayout diagonalPanel1Layout = new javax.swing.GroupLayout(diagonalPanel1);
-        diagonalPanel1.setLayout(diagonalPanel1Layout);
-        diagonalPanel1Layout.setHorizontalGroup(
-            diagonalPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        diagonalPanel1Layout.setVerticalGroup(
-            diagonalPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 70, Short.MAX_VALUE)
-        );
-
-        groundModeCombo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        groundModeCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groundModeComboActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel9.setText(bundle.getString("Planner.jLabel9.text")); // NOI18N
-
-        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel10.setText(bundle.getString("Planner.jLabel10.text")); // NOI18N
-
-        lmbSelectedGroundLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        lmbSelectedGroundLabel.setText(bundle.getString("Planner.lmbSelectedGroundLabel.text")); // NOI18N
-
-        rmbSelectedGroundLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        rmbSelectedGroundLabel.setText(bundle.getString("Planner.rmbSelectedGroundLabel.text")); // NOI18N
-
-        javax.swing.GroupLayout groundPanelLayout = new javax.swing.GroupLayout(groundPanel);
-        groundPanel.setLayout(groundPanelLayout);
-        groundPanelLayout.setHorizontalGroup(
-            groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-            .addGroup(groundPanelLayout.createSequentialGroup()
-                .addComponent(diagonalPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                    .addComponent(rmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(10, 10, 10))
-            .addComponent(groundModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        groundPanelLayout.setVerticalGroup(
-            groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(groundPanelLayout.createSequentialGroup()
-                .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(diagonalPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(groundPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(lmbSelectedGroundLabel))
-                        .addGap(18, 18, 18)
-                        .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(rmbSelectedGroundLabel))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(groundModeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE))
-        );
-
-        tabbedPane.addTab(bundle.getString("Planner.groundPanel.TabConstraints.tabTitle"), groundPanel); // NOI18N
-
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
         jLabel1.setText(bundle.getString("Planner.jLabel1.text")); // NOI18N
 
         heightLeftSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -523,12 +438,12 @@ public class Planner extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                         .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(heightPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
                             .addGroup(heightPanelLayout.createSequentialGroup()
                                 .addComponent(heightRadio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -563,10 +478,8 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
         );
-
-        tabbedPane.addTab(bundle.getString("Planner.heightPanel.TabConstraints.tabTitle"), heightPanel); // NOI18N
 
         floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
@@ -601,7 +514,7 @@ public class Planner extends javax.swing.JFrame {
         floorsPanel.setLayout(floorsPanelLayout);
         floorsPanelLayout.setHorizontalGroup(
             floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
             .addComponent(floorsModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
@@ -618,10 +531,8 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(floorOrientationBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 539, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
         );
-
-        tabbedPane.addTab(bundle.getString("Planner.floorsPanel.TabConstraints.tabTitle"), floorsPanel); // NOI18N
 
         wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
@@ -666,10 +577,8 @@ public class Planner extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(wallReversedAutoBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE))
         );
-
-        tabbedPane.addTab(bundle.getString("Planner.wallsPanel.TabConstraints.tabTitle"), wallsPanel); // NOI18N
 
         roofsList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         roofsList.setModel(new javax.swing.AbstractListModel() {
@@ -690,14 +599,12 @@ public class Planner extends javax.swing.JFrame {
         roofsPanel.setLayout(roofsPanelLayout);
         roofsPanelLayout.setHorizontalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
         );
         roofsPanelLayout.setVerticalGroup(
             roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
         );
-
-        tabbedPane.addTab(bundle.getString("Planner.roofsPanel.TabConstraints.tabTitle"), roofsPanel); // NOI18N
 
         objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
@@ -720,7 +627,7 @@ public class Planner extends javax.swing.JFrame {
         objectsPanel.setLayout(objectsPanelLayout);
         objectsPanelLayout.setHorizontalGroup(
             objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
             .addGroup(objectsPanelLayout.createSequentialGroup()
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -733,10 +640,8 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(objectsSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE))
         );
-
-        tabbedPane.addTab(bundle.getString("Planner.objectsPanel.TabConstraints.tabTitle"), objectsPanel); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel12.setText(bundle.getString("Planner.jLabel12.text")); // NOI18N
@@ -828,7 +733,7 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(maleAnimalSexRadio)
                     .addComponent(femaleAnimalSexRadio))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
             .addComponent(jScrollPane9)
         );
         animalsPanelLayout.setVerticalGroup(
@@ -851,11 +756,8 @@ public class Planner extends javax.swing.JFrame {
                     .addComponent(championAnimalSizeRadio)
                     .addComponent(femaleAnimalSexRadio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE))
         );
-
-        tabbedPane.addTab(bundle.getString("Planner.animalsPanel.TabConstraints.tabTitle"), animalsPanel); // NOI18N
-        tabbedPane.addTab(bundle.getString("Planner.labelsPanel.TabConstraints.tabTitle"), labelsPanel); // NOI18N
 
         bordersList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         bordersList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -871,14 +773,12 @@ public class Planner extends javax.swing.JFrame {
         bordersPanel.setLayout(bordersPanelLayout);
         bordersPanelLayout.setHorizontalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
         );
         bordersPanelLayout.setVerticalGroup(
             bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
         );
-
-        tabbedPane.addTab(bundle.getString("Planner.bordersPanel.TabConstraints.tabTitle"), bordersPanel); // NOI18N
 
         cavesTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cavesTree.setModel(new DefaultTreeModel(Data.cavesTree));
@@ -895,55 +795,661 @@ public class Planner extends javax.swing.JFrame {
         cavesPanel.setLayout(cavesPanelLayout);
         cavesPanelLayout.setHorizontalGroup(
             cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
         );
         cavesPanelLayout.setVerticalGroup(
             cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
         );
 
-        tabbedPane.addTab(bundle.getString("Planner.cavesPanel.TabConstraints.tabTitle"), cavesPanel); // NOI18N
-        tabbedPane.addTab(bundle.getString("Planner.symmetryPanel.TabConstraints.tabTitle"), symmetryPanel); // NOI18N
-        tabbedPane.addTab(bundle.getString("Planner.bridgesPanel.TabConstraints.tabTitle"), bridgesPanel); // NOI18N
+        tabGroup.add(cavesToggle);
+        cavesToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        cavesToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/007-cave.png"))); // NOI18N
+        cavesToggle.setText(bundle.getString("Planner.cavesToggle.text")); // NOI18N
+        cavesToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        cavesToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        cavesToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        cavesToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        mapHolderPanel.setLayout(new java.awt.BorderLayout());
+
+        javax.swing.GroupLayout mapPanelLayout = new javax.swing.GroupLayout(mapPanel);
+        mapPanel.setLayout(mapPanelLayout);
+        mapPanelLayout.setHorizontalGroup(
+            mapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        mapPanelLayout.setVerticalGroup(
+            mapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 731, Short.MAX_VALUE)
+        );
+
+        mapHolderPanel.add(mapPanel, java.awt.BorderLayout.CENTER);
+
+        tileLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tileLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        tileLabel.setText(bundle.getString("Planner.tileLabel.text")); // NOI18N
+
+        javax.swing.GroupLayout statusBarLayout = new javax.swing.GroupLayout(statusBar);
+        statusBar.setLayout(statusBarLayout);
+        statusBarLayout.setHorizontalGroup(
+            statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tileLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+        );
+        statusBarLayout.setVerticalGroup(
+            statusBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusBarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tileLabel))
+        );
+
+        mapHolderPanel.add(statusBar, java.awt.BorderLayout.SOUTH);
+
+        getContentPane().add(mapHolderPanel, java.awt.BorderLayout.CENTER);
+
+        sideHolderPanel.setLayout(new java.awt.BorderLayout());
+
+        sidePanel.setLayout(new java.awt.BorderLayout());
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/btn_donate_LG.gif"))); // NOI18N
         jLabel8.setText(bundle.getString("Planner.jLabel8.text")); // NOI18N
+        jLabel8.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel8MouseClicked(evt);
             }
         });
+        sidePanel.add(jLabel8, java.awt.BorderLayout.SOUTH);
 
-        javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
-        sidePanel.setLayout(sidePanelLayout);
-        sidePanelLayout.setHorizontalGroup(
-            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidePanelLayout.createSequentialGroup()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSpinner4))
-            .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        tabIconsPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        tabIconsPanel.setLayout(new java.awt.GridLayout(2, 6, 3, 3));
+
+        tabGroup.add(groundToggle);
+        groundToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        groundToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/017-flowers.png"))); // NOI18N
+        groundToggle.setSelected(true);
+        groundToggle.setText(bundle.getString("Planner.groundToggle.text")); // NOI18N
+        groundToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        groundToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        groundToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        groundToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(groundToggle);
+
+        tabGroup.add(heightToggle);
+        heightToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        heightToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/013-mountain.png"))); // NOI18N
+        heightToggle.setText(bundle.getString("Planner.heightToggle.text")); // NOI18N
+        heightToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        heightToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        heightToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        heightToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(heightToggle);
+
+        tabGroup.add(floorsToggle);
+        floorsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        floorsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/011-parquet.png"))); // NOI18N
+        floorsToggle.setText(bundle.getString("Planner.floorsToggle.text")); // NOI18N
+        floorsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        floorsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        floorsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        floorsToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(floorsToggle);
+
+        tabGroup.add(wallsToggle);
+        wallsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        wallsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/015-fence.png"))); // NOI18N
+        wallsToggle.setText(bundle.getString("Planner.wallsToggle.text")); // NOI18N
+        wallsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        wallsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        wallsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        wallsToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(wallsToggle);
+
+        tabGroup.add(roofsToggle);
+        roofsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        roofsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/016-roof.png"))); // NOI18N
+        roofsToggle.setText(bundle.getString("Planner.roofsToggle.text")); // NOI18N
+        roofsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        roofsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        roofsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        roofsToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(roofsToggle);
+
+        tabGroup.add(objectsToggle);
+        objectsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        objectsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/014-armchair.png"))); // NOI18N
+        objectsToggle.setText(bundle.getString("Planner.objectsToggle.text")); // NOI18N
+        objectsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        objectsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        objectsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        objectsToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(objectsToggle);
+
+        tabGroup.add(animalsToggle);
+        animalsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        animalsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/012-bird.png"))); // NOI18N
+        animalsToggle.setText(bundle.getString("Planner.animalsToggle.text")); // NOI18N
+        animalsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        animalsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        animalsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        animalsToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(animalsToggle);
+
+        tabGroup.add(labelsToggle);
+        labelsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        labelsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/009-price-tag.png"))); // NOI18N
+        labelsToggle.setText(bundle.getString("Planner.labelsToggle.text")); // NOI18N
+        labelsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        labelsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        labelsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        labelsToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(labelsToggle);
+
+        tabGroup.add(bordersToggle);
+        bordersToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        bordersToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/006-broken-lines-square-border.png"))); // NOI18N
+        bordersToggle.setText(bundle.getString("Planner.bordersToggle.text")); // NOI18N
+        bordersToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bordersToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        bordersToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bordersToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(bordersToggle);
+
+        tabGroup.add(bridgesToggle);
+        bridgesToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        bridgesToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/010-bridge.png"))); // NOI18N
+        bridgesToggle.setText(bundle.getString("Planner.bridgesToggle.text")); // NOI18N
+        bridgesToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bridgesToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        bridgesToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        bridgesToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(bridgesToggle);
+
+        tabGroup.add(symmetryToggle);
+        symmetryToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        symmetryToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/008-horizontal-symmetry.png"))); // NOI18N
+        symmetryToggle.setText(bundle.getString("Planner.symmetryToggle.text")); // NOI18N
+        symmetryToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        symmetryToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        symmetryToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        symmetryToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabToggleActionPerformed(evt);
+            }
+        });
+        tabIconsPanel.add(symmetryToggle);
+
+        sidePanel.add(tabIconsPanel, java.awt.BorderLayout.NORTH);
+
+        tabPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 3));
+        tabPanel.setLayout(new java.awt.BorderLayout());
+
+        groundPanel.setPreferredSize(new java.awt.Dimension(320, 587));
+
+        groundsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        groundsTree.setModel(new DefaultTreeModel(Data.groundsTree));
+        groundsTree.setCellRenderer(null);
+        groundsTree.setRootVisible(false);
+        groundsTree.setShowsRootHandles(true);
+        groundsTree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                groundsTreeMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(groundsTree);
+
+        javax.swing.GroupLayout diagonalPanelLayout = new javax.swing.GroupLayout(diagonalPanel);
+        diagonalPanel.setLayout(diagonalPanelLayout);
+        diagonalPanelLayout.setHorizontalGroup(
+            diagonalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
         );
-        sidePanelLayout.setVerticalGroup(
-            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidePanelLayout.createSequentialGroup()
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addContainerGap())
+        diagonalPanelLayout.setVerticalGroup(
+            diagonalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 70, Short.MAX_VALUE)
         );
 
-        tabbedPane.getAccessibleContext().setAccessibleDescription(bundle.getString("Planner.tabbedPane.AccessibleContext.accessibleDescription")); // NOI18N
+        groundModeCombo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        groundModeCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groundModeComboActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/004-mouse-left-button.png"))); // NOI18N
+        jLabel9.setText(bundle.getString("Planner.jLabel9.text")); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/005-mouse-right-button.png"))); // NOI18N
+        jLabel10.setText(bundle.getString("Planner.jLabel10.text")); // NOI18N
+
+        lmbSelectedGroundLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lmbSelectedGroundLabel.setText(bundle.getString("Planner.lmbSelectedGroundLabel.text")); // NOI18N
+
+        rmbSelectedGroundLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rmbSelectedGroundLabel.setText(bundle.getString("Planner.rmbSelectedGroundLabel.text")); // NOI18N
+
+        javax.swing.GroupLayout groundPanelLayout = new javax.swing.GroupLayout(groundPanel);
+        groundPanel.setLayout(groundPanelLayout);
+        groundPanelLayout.setHorizontalGroup(
+            groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addGroup(groundPanelLayout.createSequentialGroup()
+                .addComponent(diagonalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                    .addComponent(rmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addComponent(groundModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        groundPanelLayout.setVerticalGroup(
+            groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(groundPanelLayout.createSequentialGroup()
+                .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(diagonalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(groundPanelLayout.createSequentialGroup()
+                        .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(groundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rmbSelectedGroundLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(groundModeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
+        );
+
+        tabPanel.add(groundPanel, java.awt.BorderLayout.CENTER);
+
+        sidePanel.add(tabPanel, java.awt.BorderLayout.CENTER);
+
+        sideHolderPanel.add(sidePanel, java.awt.BorderLayout.CENTER);
+
+        floorSelectionPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        floorSelectionPanel.setPreferredSize(new java.awt.Dimension(40, 734));
+        floorSelectionPanel.setLayout(new javax.swing.BoxLayout(floorSelectionPanel, javax.swing.BoxLayout.PAGE_AXIS));
+
+        viewSidebarGroup.add(upViewToggle);
+        upViewToggle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        upViewToggle.setSelected(true);
+        upViewToggle.setText(bundle.getString("Planner.upViewToggle.text")); // NOI18N
+        upViewToggle.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        upViewToggle.setMaximumSize(new java.awt.Dimension(99, 23));
+        upViewToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewSwitched(evt);
+            }
+        });
+        floorSelectionPanel.add(upViewToggle);
+
+        viewSidebarGroup.add(fppViewToggle);
+        fppViewToggle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        fppViewToggle.setText(bundle.getString("Planner.fppViewToggle.text")); // NOI18N
+        fppViewToggle.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        fppViewToggle.setMaximumSize(new java.awt.Dimension(99, 23));
+        fppViewToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewSwitched(evt);
+            }
+        });
+        floorSelectionPanel.add(fppViewToggle);
+
+        viewSidebarGroup.add(isoViewToggle);
+        isoViewToggle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        isoViewToggle.setText(bundle.getString("Planner.isoViewToggle.text")); // NOI18N
+        isoViewToggle.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        isoViewToggle.setMaximumSize(new java.awt.Dimension(99, 23));
+        isoViewToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewSwitched(evt);
+            }
+        });
+        floorSelectionPanel.add(isoViewToggle);
+
+        viewSidebarGroup.add(wurmianViewToggle);
+        wurmianViewToggle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        wurmianViewToggle.setText(bundle.getString("Planner.wurmianViewToggle.text")); // NOI18N
+        wurmianViewToggle.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        wurmianViewToggle.setMaximumSize(new java.awt.Dimension(99, 23));
+        wurmianViewToggle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewSwitched(evt);
+            }
+        });
+        floorSelectionPanel.add(wurmianViewToggle);
+        floorSelectionPanel.add(filler2);
+
+        floorGroup.add(floorToggle16);
+        floorToggle16.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle16.setText(bundle.getString("Planner.floorToggle16.text")); // NOI18N
+        floorToggle16.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle16.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle16);
+
+        floorGroup.add(floorToggle15);
+        floorToggle15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle15.setText(bundle.getString("Planner.floorToggle15.text")); // NOI18N
+        floorToggle15.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle15.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle15);
+
+        floorGroup.add(floorToggle14);
+        floorToggle14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle14.setText(bundle.getString("Planner.floorToggle14.text")); // NOI18N
+        floorToggle14.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle14.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle14);
+
+        floorGroup.add(floorToggle13);
+        floorToggle13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle13.setText(bundle.getString("Planner.floorToggle13.text")); // NOI18N
+        floorToggle13.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle13.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle13);
+
+        floorGroup.add(floorToggle12);
+        floorToggle12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle12.setText(bundle.getString("Planner.floorToggle12.text")); // NOI18N
+        floorToggle12.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle12.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle12);
+
+        floorGroup.add(floorToggle11);
+        floorToggle11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle11.setText(bundle.getString("Planner.floorToggle11.text")); // NOI18N
+        floorToggle11.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle11.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle11);
+
+        floorGroup.add(floorToggle10);
+        floorToggle10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle10.setText(bundle.getString("Planner.floorToggle10.text")); // NOI18N
+        floorToggle10.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle10.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle10);
+
+        floorGroup.add(floorToggle9);
+        floorToggle9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle9.setText(bundle.getString("Planner.floorToggle9.text")); // NOI18N
+        floorToggle9.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle9.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle9);
+
+        floorGroup.add(floorToggle8);
+        floorToggle8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle8.setText(bundle.getString("Planner.floorToggle8.text")); // NOI18N
+        floorToggle8.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle8.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle8);
+
+        floorGroup.add(floorToggle7);
+        floorToggle7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle7.setText(bundle.getString("Planner.floorToggle7.text")); // NOI18N
+        floorToggle7.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle7.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle7);
+
+        floorGroup.add(floorToggle6);
+        floorToggle6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle6.setText(bundle.getString("Planner.floorToggle6.text")); // NOI18N
+        floorToggle6.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle6.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle6);
+
+        floorGroup.add(floorToggle5);
+        floorToggle5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle5.setText(bundle.getString("Planner.floorToggle5.text")); // NOI18N
+        floorToggle5.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle5.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle5);
+
+        floorGroup.add(floorToggle4);
+        floorToggle4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle4.setText(bundle.getString("Planner.floorToggle4.text")); // NOI18N
+        floorToggle4.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle4.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle4);
+
+        floorGroup.add(floorToggle3);
+        floorToggle3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle3.setText(bundle.getString("Planner.floorToggle3.text")); // NOI18N
+        floorToggle3.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle3.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle3);
+
+        floorGroup.add(floorToggle2);
+        floorToggle2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle2.setText(bundle.getString("Planner.floorToggle2.text")); // NOI18N
+        floorToggle2.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle2.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle2);
+
+        floorGroup.add(floorToggle1);
+        floorToggle1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggle1.setSelected(true);
+        floorToggle1.setText(bundle.getString("Planner.floorToggle1.text")); // NOI18N
+        floorToggle1.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggle1.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggle1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggle1);
+        floorSelectionPanel.add(filler1);
+
+        floorGroup.add(floorToggleNegative1);
+        floorToggleNegative1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggleNegative1.setText(bundle.getString("Planner.floorToggleNegative1.text")); // NOI18N
+        floorToggleNegative1.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggleNegative1.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggleNegative1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggleNegative1);
+
+        floorGroup.add(floorToggleNegative2);
+        floorToggleNegative2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggleNegative2.setText(bundle.getString("Planner.floorToggleNegative2.text")); // NOI18N
+        floorToggleNegative2.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggleNegative2.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggleNegative2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggleNegative2);
+
+        floorGroup.add(floorToggleNegative3);
+        floorToggleNegative3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggleNegative3.setText(bundle.getString("Planner.floorToggleNegative3.text")); // NOI18N
+        floorToggleNegative3.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggleNegative3.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggleNegative3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggleNegative3);
+
+        floorGroup.add(floorToggleNegative4);
+        floorToggleNegative4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggleNegative4.setText(bundle.getString("Planner.floorToggleNegative4.text")); // NOI18N
+        floorToggleNegative4.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggleNegative4.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggleNegative4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggleNegative4);
+
+        floorGroup.add(floorToggleNegative5);
+        floorToggleNegative5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggleNegative5.setText(bundle.getString("Planner.floorToggleNegative5.text")); // NOI18N
+        floorToggleNegative5.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggleNegative5.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggleNegative5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggleNegative5);
+
+        floorGroup.add(floorToggleNegative6);
+        floorToggleNegative6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorToggleNegative6.setText(bundle.getString("Planner.floorToggleNegative6.text")); // NOI18N
+        floorToggleNegative6.setMargin(new java.awt.Insets(2, 2, 2, 2));
+        floorToggleNegative6.setMaximumSize(new java.awt.Dimension(99, 23));
+        floorToggleNegative6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorToggleActionPerformed(evt);
+            }
+        });
+        floorSelectionPanel.add(floorToggleNegative6);
+
+        sideHolderPanel.add(floorSelectionPanel, java.awt.BorderLayout.WEST);
+
+        getContentPane().add(sideHolderPanel, java.awt.BorderLayout.EAST);
 
         jMenu1.setText(bundle.getString("Planner.jMenu1.text")); // NOI18N
 
@@ -1062,7 +1568,7 @@ public class Planner extends javax.swing.JFrame {
 
         jMenu8.setText(bundle.getString("Planner.jMenu8.text")); // NOI18N
 
-        viewGroup.add(upViewItem);
+        viewMenuGroup.add(upViewItem);
         upViewItem.setSelected(true);
         upViewItem.setText(bundle.getString("Planner.upViewItem.text")); // NOI18N
         upViewItem.addActionListener(new java.awt.event.ActionListener() {
@@ -1072,16 +1578,7 @@ public class Planner extends javax.swing.JFrame {
         });
         jMenu8.add(upViewItem);
 
-        viewGroup.add(isoViewItem);
-        isoViewItem.setText(bundle.getString("Planner.isoViewItem.text")); // NOI18N
-        isoViewItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewSwitched(evt);
-            }
-        });
-        jMenu8.add(isoViewItem);
-
-        viewGroup.add(fppViewItem);
+        viewMenuGroup.add(fppViewItem);
         fppViewItem.setText(bundle.getString("Planner.fppViewItem.text")); // NOI18N
         fppViewItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1090,7 +1587,16 @@ public class Planner extends javax.swing.JFrame {
         });
         jMenu8.add(fppViewItem);
 
-        viewGroup.add(wurmianItem);
+        viewMenuGroup.add(isoViewItem);
+        isoViewItem.setText(bundle.getString("Planner.isoViewItem.text")); // NOI18N
+        isoViewItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewSwitched(evt);
+            }
+        });
+        jMenu8.add(isoViewItem);
+
+        viewMenuGroup.add(wurmianItem);
         wurmianItem.setText(bundle.getString("Planner.wurmianItem.text")); // NOI18N
         wurmianItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1211,29 +1717,6 @@ public class Planner extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(statusBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(mapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(statusBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(sidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1262,14 +1745,28 @@ public class Planner extends javax.swing.JFrame {
     private void viewSwitched(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSwitched
         mapPanel.getLoop().syncAndExecute(() -> {
             CameraType cameraType;
-            if (evt.getSource() == upViewItem) {
+            if (evt.getSource() == upViewItem || evt.getSource() == upViewToggle) {
                 cameraType = CameraType.TOP_VIEW;
+                upViewItem.setSelected(true);
+                upViewToggle.setSelected(true);
             }
-            else if (evt.getSource() == isoViewItem) {
+            else if (evt.getSource() == isoViewItem || evt.getSource() == isoViewToggle) {
                 cameraType = CameraType.ISOMETRIC;
+                isoViewItem.setSelected(true);
+                isoViewToggle.setSelected(true);
+            }
+            else if (evt.getSource() == fppViewItem || evt.getSource() == fppViewToggle) {
+                cameraType = CameraType.SPECTATOR;
+                fppViewItem.setSelected(true);
+                fppViewToggle.setSelected(true);
+            }
+            else if (evt.getSource() == wurmianItem || evt.getSource() == wurmianViewToggle) {
+                cameraType = CameraType.SPECTATOR;
+                wurmianItem.setSelected(true);
+                wurmianViewToggle.setSelected(true);
             }
             else {
-                cameraType = CameraType.SPECTATOR;
+                return;
             }
             
             mapPanel.setCamera(cameraType);
@@ -1287,77 +1784,6 @@ public class Planner extends javax.swing.JFrame {
     private void resizeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resizeItemActionPerformed
         new ResizeWindow(mapPanel).setVisible(true);
     }//GEN-LAST:event_resizeItemActionPerformed
-
-    private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
-        Component tab = tabbedPane.getSelectedComponent();
-        if (tab == groundPanel) {
-            Globals.tab = Tab.ground;
-        }
-        else if (tab == heightPanel) {
-            Globals.tab = Tab.height;
-        }
-        else if (tab == floorsPanel) {
-            Globals.tab = Tab.floors;
-        }
-        else if (tab == wallsPanel) {
-            Globals.tab = Tab.walls;
-        }
-        else if (tab == roofsPanel) {
-            Globals.tab = Tab.roofs;
-        }
-        else if (tab == bordersPanel) {
-            Globals.tab = Tab.borders;
-        }
-        else if (tab == objectsPanel) {
-            Globals.tab = Tab.objects;
-        }
-        else if (tab == labelsPanel) {
-            Globals.tab = Tab.labels;
-        }
-        else if (tab == cavesPanel) {
-            Globals.tab = Tab.caves;
-        }
-        else if (tab == symmetryPanel) {
-            Globals.tab = Tab.symmetry;
-        }
-        else if (tab == bridgesPanel) {
-            Globals.tab = Tab.bridges;
-        }
-        else if (tab == animalsPanel) {
-            Globals.tab = Tab.animals;
-        }
-        
-        Analytics.getInstance().screenView().screenName(Globals.tab.toString()).postAsync();
-    }//GEN-LAST:event_tabbedPaneStateChanged
-
-    private void jSpinner4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner4StateChanged
-        mapPanel.getLoop().syncAndExecute(() -> {
-            int newFloor = (int) jSpinner4.getModel().getValue() - 1;
-            boolean switchedUnderground = newFloor == -1 && Globals.floor == 0;
-            boolean switchedAboveground = newFloor == 0 && Globals.floor == -1;
-            Globals.floor = (int)jSpinner4.getModel().getValue()-1;
-            if (switchedUnderground) {
-                boolean groundTabSelected = tabbedPane.getSelectedComponent() == groundPanel;
-                tabbedPane.insertTab("Caves", null, cavesPanel, null, 0);
-                tabbedPane.remove(groundPanel);
-                sizeRadio.setEnabled(true);
-                
-                if (groundTabSelected) {
-                    tabbedPane.setSelectedComponent(cavesPanel);
-                }
-            }
-            else if (switchedAboveground) {
-                boolean cavesTabSelected = tabbedPane.getSelectedComponent() == cavesPanel;
-                tabbedPane.insertTab("Ground", null, groundPanel, null, 0);
-                tabbedPane.remove(cavesPanel);
-                sizeRadio.setEnabled(false);
-                
-                if (cavesTabSelected) {
-                    tabbedPane.setSelectedComponent(groundPanel);
-                }
-            }
-        });
-    }//GEN-LAST:event_jSpinner4StateChanged
 
     private void heightListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_heightListValueChanged
         HeightUpdater.setCurrentMode((HeightMode) heightList.getSelectedValue());
@@ -1543,12 +1969,14 @@ public class Planner extends javax.swing.JFrame {
             GroundData selectedData = (GroundData) node.getUserObject();
             if (!isRightClick && node.getUserObject() != GroundUpdater.lmbData) {
                 lmbSelectedGroundLabel.setText(selectedData.name);
+                lmbSelectedGroundLabel.setIcon(selectedData.getOrCreateIcon());
                 mapPanel.getLoop().syncAndExecute(() -> {
                     GroundUpdater.lmbData = selectedData;
                 });
             }
             else if (isRightClick && node.getUserObject() != GroundUpdater.rmbData) {
                 rmbSelectedGroundLabel.setText(selectedData.name);
+                rmbSelectedGroundLabel.setIcon(selectedData.getOrCreateIcon());
                 mapPanel.getLoop().syncAndExecute(() -> {
                     GroundUpdater.rmbData = selectedData;
                 });
@@ -1636,6 +2064,102 @@ public class Planner extends javax.swing.JFrame {
             map.newAction();
         });
     }//GEN-LAST:event_removeAllMenuActionPerformed
+
+    private void tabToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabToggleActionPerformed
+        Object source = evt.getSource();
+        
+        if (source == groundToggle) {
+            Globals.tab = Tab.ground;
+            setCurrentTab(groundPanel);
+        }
+        else if (source == heightToggle) {
+            Globals.tab = Tab.height;
+            setCurrentTab(heightPanel);
+        }
+        else if (source == floorsToggle) {
+            Globals.tab = Tab.floors;
+            setCurrentTab(floorsPanel);
+        }
+        else if (source == wallsToggle) {
+            Globals.tab = Tab.walls;
+            setCurrentTab(wallsPanel);
+        }
+        else if (source == roofsToggle) {
+            Globals.tab = Tab.roofs;
+            setCurrentTab(roofsPanel);
+        }
+        else if (source == objectsToggle) {
+            Globals.tab = Tab.objects;
+            setCurrentTab(objectsPanel);
+        }
+        else if (source == animalsToggle) {
+            Globals.tab = Tab.animals;
+            setCurrentTab(animalsPanel);
+        }
+        else if (source == labelsToggle) {
+            Globals.tab = Tab.labels;
+            setCurrentTab(labelsPanel);
+        }
+        else if (source == bordersToggle) {
+            Globals.tab = Tab.borders;
+            setCurrentTab(bordersPanel);
+        }
+        else if (source == bridgesToggle) {
+            Globals.tab = Tab.bridges;
+            setCurrentTab(bridgesPanel);
+        }
+        else if (source == symmetryToggle) {
+            Globals.tab = Tab.symmetry;
+            setCurrentTab(symmetryPanel);
+        }
+        else if (source == cavesToggle) {
+            Globals.tab = Tab.caves;
+            setCurrentTab(cavesPanel);
+        }
+        
+        Analytics.getInstance().screenView().screenName(Globals.tab.toString()).postAsync();
+    }//GEN-LAST:event_tabToggleActionPerformed
+
+    private void setCurrentTab(JPanel panel) {
+        tabPanel.removeAll();
+        BorderLayout layout = (BorderLayout) tabPanel.getLayout();
+        
+        tabPanel.add(panel);
+        layout.addLayoutComponent(panel, BorderLayout.CENTER);
+        
+        tabPanel.repaint();
+    }
+    
+    private void floorToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorToggleActionPerformed
+        JToggleButton button = (JToggleButton) evt.getSource();
+        
+        String floorString = button.getText();
+        int floor = Integer.parseInt(floorString);
+        if (floor > 0) {
+            floor--;
+        }
+        
+        if (floor < 0) {
+            tabIconsPanel.remove(groundToggle);
+            tabIconsPanel.add(cavesToggle, 0);
+            if (Globals.tab == Tab.ground) {
+                Globals.tab = Tab.caves;
+                cavesToggle.setSelected(true);
+                setCurrentTab(cavesPanel);
+            }
+        }
+        else {
+            tabIconsPanel.remove(cavesToggle);
+            tabIconsPanel.add(groundToggle, 0);
+            if (Globals.tab == Tab.caves) {
+                Globals.tab = Tab.ground;
+                groundToggle.setSelected(true);
+                setCurrentTab(groundPanel);
+            }
+        }
+        
+        Globals.floor = floor;
+    }//GEN-LAST:event_floorToggleActionPerformed
     
     private void applyObjectsTreeFilter() {
         String toFind = objectsSearchBox.getText();
@@ -1692,32 +2216,65 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.ButtonGroup animalSexGroup;
     private javax.swing.ButtonGroup animalSizeGroup;
     private javax.swing.JPanel animalsPanel;
+    private javax.swing.JToggleButton animalsToggle;
     private javax.swing.JTree animalsTree;
     private javax.swing.JList bordersList;
     private javax.swing.JPanel bordersPanel;
     private javax.swing.JMenuItem bordersRemoveItem;
+    private javax.swing.JToggleButton bordersToggle;
     private javax.swing.JRadioButtonMenuItem bridges3dItem;
     private javax.swing.JRadioButtonMenuItem bridgesAllItem;
     private pl.wurmonline.deedplanner.forms.BridgesEditor bridgesPanel;
+    private javax.swing.JToggleButton bridgesToggle;
     private javax.swing.ButtonGroup bridgesVisibilityGroup;
     private javax.swing.JMenuItem bushesRemoveItem;
     private javax.swing.JPanel cavesPanel;
+    private javax.swing.JToggleButton cavesToggle;
     private javax.swing.JTree cavesTree;
     private javax.swing.JRadioButton championAnimalSizeRadio;
     private javax.swing.JRadioButton childAnimalSizeRadio;
-    private pl.wurmonline.deedplanner.forms.DiagonalPanel diagonalPanel1;
+    private pl.wurmonline.deedplanner.forms.DiagonalPanel diagonalPanel;
     private javax.swing.ButtonGroup elevationGroup;
     private javax.swing.JRadioButtonMenuItem elevationOffItem;
     private javax.swing.JRadioButtonMenuItem elevationOnItem;
     private javax.swing.JMenuItem exitItem;
     private javax.swing.JRadioButton femaleAnimalSexRadio;
+    private javax.swing.Box.Filler filler1;
+    private javax.swing.Box.Filler filler2;
+    private javax.swing.ButtonGroup floorGroup;
     private javax.swing.JComboBox floorOrientationBox;
+    private javax.swing.JPanel floorSelectionPanel;
+    private javax.swing.JToggleButton floorToggle1;
+    private javax.swing.JToggleButton floorToggle10;
+    private javax.swing.JToggleButton floorToggle11;
+    private javax.swing.JToggleButton floorToggle12;
+    private javax.swing.JToggleButton floorToggle13;
+    private javax.swing.JToggleButton floorToggle14;
+    private javax.swing.JToggleButton floorToggle15;
+    private javax.swing.JToggleButton floorToggle16;
+    private javax.swing.JToggleButton floorToggle2;
+    private javax.swing.JToggleButton floorToggle3;
+    private javax.swing.JToggleButton floorToggle4;
+    private javax.swing.JToggleButton floorToggle5;
+    private javax.swing.JToggleButton floorToggle6;
+    private javax.swing.JToggleButton floorToggle7;
+    private javax.swing.JToggleButton floorToggle8;
+    private javax.swing.JToggleButton floorToggle9;
+    private javax.swing.JToggleButton floorToggleNegative1;
+    private javax.swing.JToggleButton floorToggleNegative2;
+    private javax.swing.JToggleButton floorToggleNegative3;
+    private javax.swing.JToggleButton floorToggleNegative4;
+    private javax.swing.JToggleButton floorToggleNegative5;
+    private javax.swing.JToggleButton floorToggleNegative6;
     private javax.swing.JComboBox floorsModeCombo;
     private javax.swing.JPanel floorsPanel;
+    private javax.swing.JToggleButton floorsToggle;
     private javax.swing.JTree floorsTree;
     private javax.swing.JRadioButtonMenuItem fppViewItem;
+    private javax.swing.JToggleButton fppViewToggle;
     private javax.swing.JComboBox groundModeCombo;
     private javax.swing.JPanel groundPanel;
+    private javax.swing.JToggleButton groundToggle;
     private javax.swing.JTree groundsTree;
     private javax.swing.ButtonGroup heightEditGroup;
     private javax.swing.JSpinner heightLeftSpinner;
@@ -1726,7 +2283,9 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JRadioButton heightRadio;
     private javax.swing.JSpinner heightRightSpinner;
     public pl.wurmonline.deedplanner.forms.HeightShow heightShow;
+    private javax.swing.JToggleButton heightToggle;
     private javax.swing.JRadioButtonMenuItem isoViewItem;
+    private javax.swing.JToggleButton isoViewToggle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1735,7 +2294,6 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1768,29 +2326,36 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
-    private javax.swing.JSpinner jSpinner4;
     private pl.wurmonline.deedplanner.forms.LabelEditor labelsPanel;
+    private javax.swing.JToggleButton labelsToggle;
     private javax.swing.JLabel lmbSelectedGroundLabel;
     private javax.swing.JMenuItem loadItem;
     private javax.swing.JRadioButton maleAnimalSexRadio;
+    private javax.swing.JPanel mapHolderPanel;
     private pl.wurmonline.deedplanner.MapPanel mapPanel;
     private javax.swing.JMenuItem newMapItem;
     private javax.swing.JPanel objectsPanel;
     private javax.swing.JMenuItem objectsRemoveItem;
     private javax.swing.JTextField objectsSearchBox;
+    private javax.swing.JToggleButton objectsToggle;
     private javax.swing.JTree objectsTree;
     private javax.swing.JMenuItem redoItem;
     private javax.swing.JMenuItem resizeItem;
     private javax.swing.JLabel rmbSelectedGroundLabel;
     private javax.swing.JList roofsList;
     private javax.swing.JPanel roofsPanel;
+    private javax.swing.JToggleButton roofsToggle;
     private javax.swing.JMenuItem saveItem;
     private javax.swing.ButtonGroup seasonGroup;
+    private javax.swing.JPanel sideHolderPanel;
     private javax.swing.JPanel sidePanel;
     private javax.swing.JRadioButton sizeRadio;
     private javax.swing.JPanel statusBar;
     private pl.wurmonline.deedplanner.forms.SymmetryEditor symmetryPanel;
-    private javax.swing.JTabbedPane tabbedPane;
+    private javax.swing.JToggleButton symmetryToggle;
+    private javax.swing.ButtonGroup tabGroup;
+    private javax.swing.JPanel tabIconsPanel;
+    private javax.swing.JPanel tabPanel;
     public javax.swing.JLabel tileLabel;
     private javax.swing.JRadioButtonMenuItem trees3dItem;
     private javax.swing.JRadioButtonMenuItem treesAllItem;
@@ -1800,13 +2365,17 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JMenuItem undoItem;
     private javax.swing.JRadioButton unisexAnimalSexRadio;
     private javax.swing.JRadioButtonMenuItem upViewItem;
-    private javax.swing.ButtonGroup viewGroup;
+    private javax.swing.JToggleButton upViewToggle;
+    private javax.swing.ButtonGroup viewMenuGroup;
+    private javax.swing.ButtonGroup viewSidebarGroup;
     private javax.swing.JCheckBox wallReversedAutoBox;
     private javax.swing.JCheckBox wallReversedBox;
     private javax.swing.JMenuItem wallsFencesRemoveItem;
     private javax.swing.ButtonGroup wallsGroup;
     private javax.swing.JPanel wallsPanel;
+    private javax.swing.JToggleButton wallsToggle;
     private javax.swing.JTree wallsTree;
     private javax.swing.JRadioButtonMenuItem wurmianItem;
+    private javax.swing.JToggleButton wurmianViewToggle;
     // End of variables declaration//GEN-END:variables
 }
