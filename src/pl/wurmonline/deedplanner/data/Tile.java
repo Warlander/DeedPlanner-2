@@ -186,10 +186,7 @@ public final class Tile implements XMLSerializable {
             bridgePart.render(g, this);
         }
         
-        float lightModifier = Globals.camera.getLevelVisibility(Globals.floor);
-        if (lightModifier == 0) {
-            return;
-        }
+        float lightModifier = Globals.camera.getLevelVisibility(0);
         
         float heightR = 1;
         float heightG = 1;
@@ -214,7 +211,7 @@ public final class Tile implements XMLSerializable {
                 heightB = 0.8f;
             }
         }
-        if (lightModifier < 1 && renderColors) {
+        if (lightModifier < 1 || renderColors) {
             g.glColor3f(lightModifier * heightR, lightModifier * heightG, lightModifier * heightB);
         }
         
