@@ -62,7 +62,7 @@ public class LogicLoop extends TimerTask {
 
             Camera camera = panel.getCamera();
             camera.update(panel, mouse, keybindings);
-            if (panel.getCamera().getHoveredTile() != null) {
+            if (panel.getCamera().isEditing() && panel.getCamera().getHoveredTile() != null) {
                 switch (Globals.tab) {
                     case ground:
                         GroundUpdater.update(mouse, panel.getMap(), camera);

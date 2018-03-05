@@ -183,6 +183,36 @@ public class Planner extends javax.swing.JFrame {
         animalSexGroup = new javax.swing.ButtonGroup();
         tabGroup = new javax.swing.ButtonGroup();
         floorGroup = new javax.swing.ButtonGroup();
+        cavesToggle = new javax.swing.JToggleButton();
+        mapHolderPanel = new javax.swing.JPanel();
+        mapPanel = new pl.wurmonline.deedplanner.MapPanel();
+        statusBar = new javax.swing.JPanel();
+        tileLabel = new javax.swing.JLabel();
+        sideHolderPanel = new javax.swing.JPanel();
+        sidePanel = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        tabIconsPanel = new javax.swing.JPanel();
+        groundToggle = new javax.swing.JToggleButton();
+        heightToggle = new javax.swing.JToggleButton();
+        floorsToggle = new javax.swing.JToggleButton();
+        wallsToggle = new javax.swing.JToggleButton();
+        roofsToggle = new javax.swing.JToggleButton();
+        objectsToggle = new javax.swing.JToggleButton();
+        animalsToggle = new javax.swing.JToggleButton();
+        labelsToggle = new javax.swing.JToggleButton();
+        bordersToggle = new javax.swing.JToggleButton();
+        bridgesToggle = new javax.swing.JToggleButton();
+        symmetryToggle = new javax.swing.JToggleButton();
+        tabPanel = new javax.swing.JPanel();
+        groundPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        groundsTree = new javax.swing.JTree();
+        diagonalPanel = new DiagonalPanel(this);
+        groundModeCombo = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        lmbSelectedGroundLabel = new javax.swing.JLabel();
+        rmbSelectedGroundLabel = new javax.swing.JLabel();
         heightPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         heightLeftSpinner = new javax.swing.JSpinner();
@@ -238,36 +268,6 @@ public class Planner extends javax.swing.JFrame {
         cavesTree = new javax.swing.JTree();
         symmetryPanel = new pl.wurmonline.deedplanner.forms.SymmetryEditor();
         bridgesPanel = new BridgesEditor(this);
-        cavesToggle = new javax.swing.JToggleButton();
-        mapHolderPanel = new javax.swing.JPanel();
-        mapPanel = new pl.wurmonline.deedplanner.MapPanel();
-        statusBar = new javax.swing.JPanel();
-        tileLabel = new javax.swing.JLabel();
-        sideHolderPanel = new javax.swing.JPanel();
-        sidePanel = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        tabIconsPanel = new javax.swing.JPanel();
-        groundToggle = new javax.swing.JToggleButton();
-        heightToggle = new javax.swing.JToggleButton();
-        floorsToggle = new javax.swing.JToggleButton();
-        wallsToggle = new javax.swing.JToggleButton();
-        roofsToggle = new javax.swing.JToggleButton();
-        objectsToggle = new javax.swing.JToggleButton();
-        animalsToggle = new javax.swing.JToggleButton();
-        labelsToggle = new javax.swing.JToggleButton();
-        bordersToggle = new javax.swing.JToggleButton();
-        bridgesToggle = new javax.swing.JToggleButton();
-        symmetryToggle = new javax.swing.JToggleButton();
-        tabPanel = new javax.swing.JPanel();
-        groundPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        groundsTree = new javax.swing.JTree();
-        diagonalPanel = new DiagonalPanel(this);
-        groundModeCombo = new javax.swing.JComboBox();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        lmbSelectedGroundLabel = new javax.swing.JLabel();
-        rmbSelectedGroundLabel = new javax.swing.JLabel();
         floorSelectionPanel = new javax.swing.JPanel();
         upViewToggle = new javax.swing.JToggleButton();
         fppViewToggle = new javax.swing.JToggleButton();
@@ -340,471 +340,10 @@ public class Planner extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
-        jLabel1.setText(bundle.getString("Planner.jLabel1.text")); // NOI18N
-
-        heightLeftSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(5, null, null, 1));
-        heightLeftSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                heightLeftSpinnerStateChanged(evt);
-            }
-        });
-
-        heightRightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightRightSpinner.setModel(new javax.swing.SpinnerNumberModel(-5, null, null, 1));
-        heightRightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                heightRightSpinnerStateChanged(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel2.setText(bundle.getString("Planner.jLabel2.text")); // NOI18N
-
-        addHeightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
-        addHeightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                addHeightSpinnerStateChanged(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setText(bundle.getString("Planner.jLabel3.text")); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText(bundle.getString("Planner.jLabel4.text")); // NOI18N
-
-        heightList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "just to keep interface clean" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        heightList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        heightList.setFixedCellHeight(20);
-        heightList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                heightListValueChanged(evt);
-            }
-        });
-        jScrollPane2.setViewportView(heightList);
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText(bundle.getString("Planner.jLabel7.text")); // NOI18N
-
-        heightEditGroup.add(heightRadio);
-        heightRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        heightRadio.setSelected(true);
-        heightRadio.setText(bundle.getString("Planner.heightRadio.text")); // NOI18N
-        heightRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                heightRadioActionPerformed(evt);
-            }
-        });
-
-        heightEditGroup.add(sizeRadio);
-        sizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        sizeRadio.setText(bundle.getString("Planner.sizeRadio.text")); // NOI18N
-        sizeRadio.setEnabled(false);
-        sizeRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sizeRadioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout heightPanelLayout = new javax.swing.GroupLayout(heightPanel);
-        heightPanel.setLayout(heightPanelLayout);
-        heightPanelLayout.setHorizontalGroup(
-            heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
-            .addGroup(heightPanelLayout.createSequentialGroup()
-                .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(heightPanelLayout.createSequentialGroup()
-                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(heightPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(heightLeftSpinner))
-                            .addGroup(heightPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(heightRightSpinner))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, heightPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(heightPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                            .addGroup(heightPanelLayout.createSequentialGroup()
-                                .addComponent(heightRadio)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sizeRadio)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        heightPanelLayout.setVerticalGroup(
-            heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(heightPanelLayout.createSequentialGroup()
-                .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(heightPanelLayout.createSequentialGroup()
-                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(heightLeftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(heightRightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(heightRadio)
-                    .addComponent(sizeRadio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
-        );
-
-        floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
-        floorsTree.setRootVisible(false);
-        floorsTree.setShowsRootHandles(true);
-        floorsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                floorsTreeValueChanged(evt);
-            }
-        });
-        jScrollPane3.setViewportView(floorsTree);
-
-        floorsModeCombo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        floorsModeCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floorsModeComboActionPerformed(evt);
-            }
-        });
-
-        floorOrientationBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        floorOrientationBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Up", "Left", "Down", "Right" }));
-        floorOrientationBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                floorOrientationBoxActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel6.setText(bundle.getString("Planner.jLabel6.text")); // NOI18N
-
-        javax.swing.GroupLayout floorsPanelLayout = new javax.swing.GroupLayout(floorsPanel);
-        floorsPanel.setLayout(floorsPanelLayout);
-        floorsPanelLayout.setHorizontalGroup(
-            floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-            .addComponent(floorsModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(floorOrientationBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        floorsPanelLayout.setVerticalGroup(
-            floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
-                .addComponent(floorsModeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(floorOrientationBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
-        );
-
-        wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
-        wallsTree.setRootVisible(false);
-        wallsTree.setShowsRootHandles(true);
-        wallsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                wallsTreeValueChanged(evt);
-            }
-        });
-        jScrollPane4.setViewportView(wallsTree);
-
-        wallReversedBox.setText(bundle.getString("Planner.wallReversedBox.text")); // NOI18N
-        wallReversedBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wallReversedBoxActionPerformed(evt);
-            }
-        });
-
-        wallReversedAutoBox.setSelected(true);
-        wallReversedAutoBox.setText(bundle.getString("Planner.wallReversedAutoBox.text")); // NOI18N
-        wallReversedAutoBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                wallReversedAutoBoxActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout wallsPanelLayout = new javax.swing.GroupLayout(wallsPanel);
-        wallsPanel.setLayout(wallsPanelLayout);
-        wallsPanelLayout.setHorizontalGroup(
-            wallsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4)
-            .addGroup(wallsPanelLayout.createSequentialGroup()
-                .addComponent(wallReversedBox)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(wallReversedAutoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-        );
-        wallsPanelLayout.setVerticalGroup(
-            wallsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, wallsPanelLayout.createSequentialGroup()
-                .addComponent(wallReversedBox)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(wallReversedAutoBox)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE))
-        );
-
-        roofsList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        roofsList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Just to keep interface clean" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        roofsList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        roofsList.setFixedCellHeight(20);
-        roofsList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                roofsListValueChanged(evt);
-            }
-        });
-        jScrollPane5.setViewportView(roofsList);
-
-        javax.swing.GroupLayout roofsPanelLayout = new javax.swing.GroupLayout(roofsPanel);
-        roofsPanel.setLayout(roofsPanelLayout);
-        roofsPanelLayout.setHorizontalGroup(
-            roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-        );
-        roofsPanelLayout.setVerticalGroup(
-            roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
-        );
-
-        objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
-        objectsTree.setRootVisible(false);
-        objectsTree.setShowsRootHandles(true);
-        objectsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                objectsTreeValueChanged(evt);
-            }
-        });
-        jScrollPane6.setViewportView(objectsTree);
-
-        objectsSearchBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        objectsSearchBox.setText(bundle.getString("Planner.objectsSearchBox.text")); // NOI18N
-
-        jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel11.setText(bundle.getString("Planner.jLabel11.text")); // NOI18N
-
-        javax.swing.GroupLayout objectsPanelLayout = new javax.swing.GroupLayout(objectsPanel);
-        objectsPanel.setLayout(objectsPanelLayout);
-        objectsPanelLayout.setHorizontalGroup(
-            objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-            .addGroup(objectsPanelLayout.createSequentialGroup()
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(objectsSearchBox))
-        );
-        objectsPanelLayout.setVerticalGroup(
-            objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, objectsPanelLayout.createSequentialGroup()
-                .addGroup(objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(objectsSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE))
-        );
-
-        jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel12.setText(bundle.getString("Planner.jLabel12.text")); // NOI18N
-
-        animalSizeGroup.add(childAnimalSizeRadio);
-        childAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        childAnimalSizeRadio.setText(bundle.getString("Planner.childAnimalSizeRadio.text")); // NOI18N
-        childAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                animalSizeRadioActionPerformed(evt);
-            }
-        });
-
-        animalSizeGroup.add(adultAnimalSizeRadio);
-        adultAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        adultAnimalSizeRadio.setSelected(true);
-        adultAnimalSizeRadio.setText(bundle.getString("Planner.adultAnimalSizeRadio.text")); // NOI18N
-        adultAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                animalSizeRadioActionPerformed(evt);
-            }
-        });
-
-        animalSizeGroup.add(championAnimalSizeRadio);
-        championAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        championAnimalSizeRadio.setText(bundle.getString("Planner.championAnimalSizeRadio.text")); // NOI18N
-        championAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                animalSizeRadioActionPerformed(evt);
-            }
-        });
-
-        jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel13.setText(bundle.getString("Planner.jLabel13.text")); // NOI18N
-
-        animalSexGroup.add(maleAnimalSexRadio);
-        maleAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        maleAnimalSexRadio.setText(bundle.getString("Planner.maleAnimalSexRadio.text")); // NOI18N
-        maleAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                animalGenderRadioActionPerformed(evt);
-            }
-        });
-
-        animalSexGroup.add(unisexAnimalSexRadio);
-        unisexAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        unisexAnimalSexRadio.setSelected(true);
-        unisexAnimalSexRadio.setText(bundle.getString("Planner.unisexAnimalSexRadio.text")); // NOI18N
-        unisexAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                animalGenderRadioActionPerformed(evt);
-            }
-        });
-
-        animalSexGroup.add(femaleAnimalSexRadio);
-        femaleAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        femaleAnimalSexRadio.setText(bundle.getString("Planner.femaleAnimalSexRadio.text")); // NOI18N
-        femaleAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                animalGenderRadioActionPerformed(evt);
-            }
-        });
-
-        animalsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        animalsTree.setModel(new DefaultTreeModel(Data.animalsTree));
-        animalsTree.setRootVisible(false);
-        animalsTree.setShowsRootHandles(true);
-        animalsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                animalsTreeValueChanged(evt);
-            }
-        });
-        jScrollPane9.setViewportView(animalsTree);
-
-        javax.swing.GroupLayout animalsPanelLayout = new javax.swing.GroupLayout(animalsPanel);
-        animalsPanel.setLayout(animalsPanelLayout);
-        animalsPanelLayout.setHorizontalGroup(
-            animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(animalsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(childAnimalSizeRadio)
-                    .addComponent(adultAnimalSizeRadio)
-                    .addComponent(championAnimalSizeRadio))
-                .addGap(66, 66, 66)
-                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(unisexAnimalSexRadio)
-                    .addComponent(jLabel13)
-                    .addComponent(maleAnimalSexRadio)
-                    .addComponent(femaleAnimalSexRadio))
-                .addContainerGap(35, Short.MAX_VALUE))
-            .addComponent(jScrollPane9)
-        );
-        animalsPanelLayout.setVerticalGroup(
-            animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(animalsPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(childAnimalSizeRadio)
-                    .addComponent(unisexAnimalSexRadio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(adultAnimalSizeRadio)
-                    .addComponent(maleAnimalSexRadio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(championAnimalSizeRadio)
-                    .addComponent(femaleAnimalSexRadio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE))
-        );
-
-        bordersList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        bordersList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        bordersList.setFixedCellHeight(20);
-        bordersList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                bordersListValueChanged(evt);
-            }
-        });
-        jScrollPane7.setViewportView(bordersList);
-
-        javax.swing.GroupLayout bordersPanelLayout = new javax.swing.GroupLayout(bordersPanel);
-        bordersPanel.setLayout(bordersPanelLayout);
-        bordersPanelLayout.setHorizontalGroup(
-            bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-        );
-        bordersPanelLayout.setVerticalGroup(
-            bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
-        );
-
-        cavesTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cavesTree.setModel(new DefaultTreeModel(Data.cavesTree));
-        cavesTree.setRootVisible(false);
-        cavesTree.setShowsRootHandles(true);
-        cavesTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                cavesTreeValueChanged(evt);
-            }
-        });
-        jScrollPane8.setViewportView(cavesTree);
-
-        javax.swing.GroupLayout cavesPanelLayout = new javax.swing.GroupLayout(cavesPanel);
-        cavesPanel.setLayout(cavesPanelLayout);
-        cavesPanelLayout.setHorizontalGroup(
-            cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-        );
-        cavesPanelLayout.setVerticalGroup(
-            cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
-        );
-
         tabGroup.add(cavesToggle);
         cavesToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         cavesToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/007-cave.png"))); // NOI18N
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
         cavesToggle.setText(bundle.getString("Planner.cavesToggle.text")); // NOI18N
         cavesToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         cavesToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
@@ -1036,8 +575,9 @@ public class Planner extends javax.swing.JFrame {
         sidePanel.add(tabIconsPanel, java.awt.BorderLayout.NORTH);
 
         tabPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 3));
-        tabPanel.setLayout(new java.awt.BorderLayout());
+        tabPanel.setLayout(new java.awt.CardLayout());
 
+        groundPanel.setName("ground"); // NOI18N
         groundPanel.setPreferredSize(new java.awt.Dimension(320, 587));
 
         groundsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -1121,7 +661,509 @@ public class Planner extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
         );
 
-        tabPanel.add(groundPanel, java.awt.BorderLayout.CENTER);
+        tabPanel.add(groundPanel, "ground");
+
+        heightPanel.setName("height"); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1.setText(bundle.getString("Planner.jLabel1.text")); // NOI18N
+
+        heightLeftSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(5, null, null, 1));
+        heightLeftSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                heightLeftSpinnerStateChanged(evt);
+            }
+        });
+
+        heightRightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        heightRightSpinner.setModel(new javax.swing.SpinnerNumberModel(-5, null, null, 1));
+        heightRightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                heightRightSpinnerStateChanged(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2.setText(bundle.getString("Planner.jLabel2.text")); // NOI18N
+
+        addHeightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        addHeightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                addHeightSpinnerStateChanged(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setText(bundle.getString("Planner.jLabel3.text")); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText(bundle.getString("Planner.jLabel4.text")); // NOI18N
+
+        heightList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        heightList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "just to keep interface clean" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        heightList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        heightList.setFixedCellHeight(20);
+        heightList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                heightListValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(heightList);
+
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText(bundle.getString("Planner.jLabel7.text")); // NOI18N
+
+        heightEditGroup.add(heightRadio);
+        heightRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        heightRadio.setSelected(true);
+        heightRadio.setText(bundle.getString("Planner.heightRadio.text")); // NOI18N
+        heightRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heightRadioActionPerformed(evt);
+            }
+        });
+
+        heightEditGroup.add(sizeRadio);
+        sizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        sizeRadio.setText(bundle.getString("Planner.sizeRadio.text")); // NOI18N
+        sizeRadio.setEnabled(false);
+        sizeRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sizeRadioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout heightPanelLayout = new javax.swing.GroupLayout(heightPanel);
+        heightPanel.setLayout(heightPanelLayout);
+        heightPanelLayout.setHorizontalGroup(
+            heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2)
+            .addGroup(heightPanelLayout.createSequentialGroup()
+                .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(heightPanelLayout.createSequentialGroup()
+                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(heightPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(heightLeftSpinner))
+                            .addGroup(heightPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(heightRightSpinner))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, heightPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(heightPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                            .addGroup(heightPanelLayout.createSequentialGroup()
+                                .addComponent(heightRadio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sizeRadio)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        heightPanelLayout.setVerticalGroup(
+            heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(heightPanelLayout.createSequentialGroup()
+                .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(heightPanelLayout.createSequentialGroup()
+                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(heightLeftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(heightRightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(addHeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(heightShow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(heightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(heightRadio)
+                    .addComponent(sizeRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
+        );
+
+        tabPanel.add(heightPanel, "height");
+
+        floorsPanel.setName("floors"); // NOI18N
+
+        floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
+        floorsTree.setRootVisible(false);
+        floorsTree.setShowsRootHandles(true);
+        floorsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                floorsTreeValueChanged(evt);
+            }
+        });
+        jScrollPane3.setViewportView(floorsTree);
+
+        floorsModeCombo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorsModeCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorsModeComboActionPerformed(evt);
+            }
+        });
+
+        floorOrientationBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorOrientationBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Up", "Left", "Down", "Right" }));
+        floorOrientationBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                floorOrientationBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6.setText(bundle.getString("Planner.jLabel6.text")); // NOI18N
+
+        javax.swing.GroupLayout floorsPanelLayout = new javax.swing.GroupLayout(floorsPanel);
+        floorsPanel.setLayout(floorsPanelLayout);
+        floorsPanelLayout.setHorizontalGroup(
+            floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+            .addComponent(floorsModeCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(floorOrientationBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        floorsPanelLayout.setVerticalGroup(
+            floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, floorsPanelLayout.createSequentialGroup()
+                .addComponent(floorsModeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(floorsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(floorOrientationBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE))
+        );
+
+        tabPanel.add(floorsPanel, "floors");
+
+        wallsPanel.setName("walls"); // NOI18N
+
+        wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
+        wallsTree.setRootVisible(false);
+        wallsTree.setShowsRootHandles(true);
+        wallsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                wallsTreeValueChanged(evt);
+            }
+        });
+        jScrollPane4.setViewportView(wallsTree);
+
+        wallReversedBox.setText(bundle.getString("Planner.wallReversedBox.text")); // NOI18N
+        wallReversedBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wallReversedBoxActionPerformed(evt);
+            }
+        });
+
+        wallReversedAutoBox.setSelected(true);
+        wallReversedAutoBox.setText(bundle.getString("Planner.wallReversedAutoBox.text")); // NOI18N
+        wallReversedAutoBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wallReversedAutoBoxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout wallsPanelLayout = new javax.swing.GroupLayout(wallsPanel);
+        wallsPanel.setLayout(wallsPanelLayout);
+        wallsPanelLayout.setHorizontalGroup(
+            wallsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane4)
+            .addGroup(wallsPanelLayout.createSequentialGroup()
+                .addComponent(wallReversedBox)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(wallReversedAutoBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+        );
+        wallsPanelLayout.setVerticalGroup(
+            wallsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, wallsPanelLayout.createSequentialGroup()
+                .addComponent(wallReversedBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(wallReversedAutoBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE))
+        );
+
+        tabPanel.add(wallsPanel, "walls");
+
+        roofsPanel.setName("roofs"); // NOI18N
+
+        roofsList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        roofsList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Just to keep interface clean" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        roofsList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        roofsList.setFixedCellHeight(20);
+        roofsList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                roofsListValueChanged(evt);
+            }
+        });
+        jScrollPane5.setViewportView(roofsList);
+
+        javax.swing.GroupLayout roofsPanelLayout = new javax.swing.GroupLayout(roofsPanel);
+        roofsPanel.setLayout(roofsPanelLayout);
+        roofsPanelLayout.setHorizontalGroup(
+            roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+        );
+        roofsPanelLayout.setVerticalGroup(
+            roofsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+        );
+
+        tabPanel.add(roofsPanel, "roofs");
+
+        objectsPanel.setName("objects"); // NOI18N
+
+        objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
+        objectsTree.setRootVisible(false);
+        objectsTree.setShowsRootHandles(true);
+        objectsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                objectsTreeValueChanged(evt);
+            }
+        });
+        jScrollPane6.setViewportView(objectsTree);
+
+        objectsSearchBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        objectsSearchBox.setText(bundle.getString("Planner.objectsSearchBox.text")); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel11.setText(bundle.getString("Planner.jLabel11.text")); // NOI18N
+
+        javax.swing.GroupLayout objectsPanelLayout = new javax.swing.GroupLayout(objectsPanel);
+        objectsPanel.setLayout(objectsPanelLayout);
+        objectsPanelLayout.setHorizontalGroup(
+            objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+            .addGroup(objectsPanelLayout.createSequentialGroup()
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(objectsSearchBox))
+        );
+        objectsPanelLayout.setVerticalGroup(
+            objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, objectsPanelLayout.createSequentialGroup()
+                .addGroup(objectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(objectsSearchBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE))
+        );
+
+        tabPanel.add(objectsPanel, "objects");
+
+        animalsPanel.setName("animals"); // NOI18N
+
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel12.setText(bundle.getString("Planner.jLabel12.text")); // NOI18N
+
+        animalSizeGroup.add(childAnimalSizeRadio);
+        childAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        childAnimalSizeRadio.setText(bundle.getString("Planner.childAnimalSizeRadio.text")); // NOI18N
+        childAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalSizeRadioActionPerformed(evt);
+            }
+        });
+
+        animalSizeGroup.add(adultAnimalSizeRadio);
+        adultAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        adultAnimalSizeRadio.setSelected(true);
+        adultAnimalSizeRadio.setText(bundle.getString("Planner.adultAnimalSizeRadio.text")); // NOI18N
+        adultAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalSizeRadioActionPerformed(evt);
+            }
+        });
+
+        animalSizeGroup.add(championAnimalSizeRadio);
+        championAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        championAnimalSizeRadio.setText(bundle.getString("Planner.championAnimalSizeRadio.text")); // NOI18N
+        championAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalSizeRadioActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel13.setText(bundle.getString("Planner.jLabel13.text")); // NOI18N
+
+        animalSexGroup.add(maleAnimalSexRadio);
+        maleAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        maleAnimalSexRadio.setText(bundle.getString("Planner.maleAnimalSexRadio.text")); // NOI18N
+        maleAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalGenderRadioActionPerformed(evt);
+            }
+        });
+
+        animalSexGroup.add(unisexAnimalSexRadio);
+        unisexAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        unisexAnimalSexRadio.setSelected(true);
+        unisexAnimalSexRadio.setText(bundle.getString("Planner.unisexAnimalSexRadio.text")); // NOI18N
+        unisexAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalGenderRadioActionPerformed(evt);
+            }
+        });
+
+        animalSexGroup.add(femaleAnimalSexRadio);
+        femaleAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        femaleAnimalSexRadio.setText(bundle.getString("Planner.femaleAnimalSexRadio.text")); // NOI18N
+        femaleAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animalGenderRadioActionPerformed(evt);
+            }
+        });
+
+        animalsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        animalsTree.setModel(new DefaultTreeModel(Data.animalsTree));
+        animalsTree.setRootVisible(false);
+        animalsTree.setShowsRootHandles(true);
+        animalsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                animalsTreeValueChanged(evt);
+            }
+        });
+        jScrollPane9.setViewportView(animalsTree);
+
+        javax.swing.GroupLayout animalsPanelLayout = new javax.swing.GroupLayout(animalsPanel);
+        animalsPanel.setLayout(animalsPanelLayout);
+        animalsPanelLayout.setHorizontalGroup(
+            animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(animalsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(childAnimalSizeRadio)
+                    .addComponent(adultAnimalSizeRadio)
+                    .addComponent(championAnimalSizeRadio))
+                .addGap(66, 66, 66)
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(unisexAnimalSexRadio)
+                    .addComponent(jLabel13)
+                    .addComponent(maleAnimalSexRadio)
+                    .addComponent(femaleAnimalSexRadio))
+                .addContainerGap(35, Short.MAX_VALUE))
+            .addComponent(jScrollPane9)
+        );
+        animalsPanelLayout.setVerticalGroup(
+            animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(animalsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(childAnimalSizeRadio)
+                    .addComponent(unisexAnimalSexRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adultAnimalSizeRadio)
+                    .addComponent(maleAnimalSexRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(animalsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(championAnimalSizeRadio)
+                    .addComponent(femaleAnimalSexRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE))
+        );
+
+        tabPanel.add(animalsPanel, "animals");
+
+        labelsPanel.setName("labels"); // NOI18N
+        tabPanel.add(labelsPanel, "labels");
+
+        bordersPanel.setName("borders"); // NOI18N
+
+        bordersList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        bordersList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        bordersList.setFixedCellHeight(20);
+        bordersList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                bordersListValueChanged(evt);
+            }
+        });
+        jScrollPane7.setViewportView(bordersList);
+
+        javax.swing.GroupLayout bordersPanelLayout = new javax.swing.GroupLayout(bordersPanel);
+        bordersPanel.setLayout(bordersPanelLayout);
+        bordersPanelLayout.setHorizontalGroup(
+            bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+        );
+        bordersPanelLayout.setVerticalGroup(
+            bordersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+        );
+
+        tabPanel.add(bordersPanel, "borders");
+
+        cavesPanel.setName("caves"); // NOI18N
+
+        cavesTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        cavesTree.setModel(new DefaultTreeModel(Data.cavesTree));
+        cavesTree.setRootVisible(false);
+        cavesTree.setShowsRootHandles(true);
+        cavesTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                cavesTreeValueChanged(evt);
+            }
+        });
+        jScrollPane8.setViewportView(cavesTree);
+
+        javax.swing.GroupLayout cavesPanelLayout = new javax.swing.GroupLayout(cavesPanel);
+        cavesPanel.setLayout(cavesPanelLayout);
+        cavesPanelLayout.setHorizontalGroup(
+            cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+        );
+        cavesPanelLayout.setVerticalGroup(
+            cavesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+        );
+
+        tabPanel.add(cavesPanel, "caves");
+
+        symmetryPanel.setName("symmetry"); // NOI18N
+        tabPanel.add(symmetryPanel, "symmetry");
+
+        bridgesPanel.setName("bridges"); // NOI18N
+        tabPanel.add(bridgesPanel, "bridges");
 
         sidePanel.add(tabPanel, java.awt.BorderLayout.CENTER);
 
@@ -2121,11 +2163,9 @@ public class Planner extends javax.swing.JFrame {
     }//GEN-LAST:event_tabToggleActionPerformed
 
     private void setCurrentTab(JPanel panel) {
-        tabPanel.removeAll();
-        BorderLayout layout = (BorderLayout) tabPanel.getLayout();
+        CardLayout layout = (CardLayout) tabPanel.getLayout();
         
-        tabPanel.add(panel);
-        layout.addLayoutComponent(panel, BorderLayout.CENTER);
+        layout.show(tabPanel, panel.getName());
         
         tabPanel.repaint();
     }
