@@ -16,20 +16,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="innerPanel" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="newLabelButton" max="32767" attributes="0"/>
                   <Component id="calculateMapButton" alignment="0" max="32767" attributes="0"/>
                   <Component id="calculateTileButton" alignment="0" max="32767" attributes="0"/>
-                  <Component id="deleteBuildingButton" alignment="0" max="32767" attributes="0"/>
+                  <Component id="deleteBuildingButton" alignment="0" pref="160" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
+          <Component id="innerPanel" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -62,7 +59,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="labelColorShow" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="labelColorButton" pref="132" max="32767" attributes="0"/>
+                          <Component id="labelColorButton" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
