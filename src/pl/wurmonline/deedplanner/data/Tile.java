@@ -950,11 +950,35 @@ public final class Tile implements XMLSerializable {
         return (BorderData) entities.get(new EntityData(0, EntityType.VBORDER));
     }
     
-    public void setLabel(Label label) {
-        setLabel(label, true);
+    public void setFloorLabel(int floor, Label label) {
+        setFloorLabel(floor, label, true);
     }
     
-    void setLabel(Label label, boolean undo) {
+    void setFloorLabel(int floor, Label label, boolean undo) {
+        Tile oldTile = new Tile(this);
+        
+        EntityData entityData = new EntityData(floor, EntityType.LABEL);
+        if (label != null) {
+            entities.put(entityData, label);
+        }
+        else {
+            entities.remove(entityData);
+        }
+        
+        if (undo) {
+            map.addUndo(this, oldTile);
+        }
+    }
+    
+    public Label getFloorLabel(int floor) {
+        return (Label) entities.get(new EntityData(floor, EntityType.LABEL));
+    }
+    
+    public void setGlobalSurfaceLabel(Label label) {
+        setGlobalSurfaceLabel(label, true);
+    }
+    
+    void setGlobalSurfaceLabel(Label label, boolean undo) {
         Tile oldTile = new Tile(this);
         this.label = label;
         if (undo) {
@@ -962,15 +986,15 @@ public final class Tile implements XMLSerializable {
         }
     }
     
-    public Label getLabel() {
+    public Label getGlobalSurfaceLabel() {
         return label;
     }
     
-    public void setCaveLabel(Label caveLabel) {
-        setCaveLabel(caveLabel, true);
+    public void setGlobalCaveLabel(Label caveLabel) {
+        setGlobalCaveLabel(caveLabel, true);
     }
     
-    void setCaveLabel(Label caveLabel, boolean undo) {
+    void setGlobalCaveLabel(Label caveLabel, boolean undo) {
         Tile oldTile = new Tile(this);
         this.caveLabel = caveLabel;
         if (undo) {
@@ -978,7 +1002,7 @@ public final class Tile implements XMLSerializable {
         }
     }
     
-    public Label getCaveLabel() {
+    public Label getGlobalCaveLabel() {
         return caveLabel;
     }
     

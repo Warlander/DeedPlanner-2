@@ -204,7 +204,7 @@ public final class Map {
             byte[] textBytes = new byte[length];
             stream.read(textBytes);
             String text = new String(textBytes, "US-ASCII");
-            tile.setLabel(new Label(Font.decode("Arial-18"), text, new Color(0, 0, 0)), false);
+            tile.setGlobalSurfaceLabel(new Label(Font.decode("Arial-18"), text, new Color(0, 0, 0)), false);
             stream.skipBytes(3);
         }
         if (attributes==2 || attributes==3) {
@@ -407,7 +407,7 @@ public final class Map {
         
         final Font f = new Font(font, Font.PLAIN, size);
         final Color c = new Color(new java.awt.Color(rPaint, gPaint, bPaint, aPaint));
-        tiles[x][y].setLabel(new Label(f, text, c), false);
+        tiles[x][y].setGlobalSurfaceLabel(new Label(f, text, c), false);
     }
     
     // </editor-fold>
@@ -531,21 +531,23 @@ public final class Map {
             }            
             for (int i=startX; i<=endX; i++) {
                 for (int i2=startY; i2<=endY; i2++) {
-                    if (Globals.floor>=0) {
-                        if (tiles[i][i2].getLabel()!=null) {
-                            g.glPushMatrix();
-                                g.glTranslatef(i*4, i2*4, 0);
-                                tiles[i][i2].renderLabel(g);
-                            g.glPopMatrix();
-                        }
+                    if (tiles[i][i2].getFloorLabel(Globals.floor) != null) {
+                        g.glPushMatrix();
+                            g.glTranslatef(i*4, i2*4, 0);
+                            tiles[i][i2].getFloorLabel(Globals.floor).render(g, tiles[i][i2]);
+                        g.glPopMatrix();
                     }
-                    else {
-                        if (tiles[i][i2].getCaveLabel()!=null) {
-                            g.glPushMatrix();
-                                g.glTranslatef(i*4, i2*4, 0);
-                                tiles[i][i2].renderCaveLabel(g);
-                            g.glPopMatrix();
-                        }
+                    else if (Globals.floor >= 0 && tiles[i][i2].getGlobalSurfaceLabel()!=null) {
+                        g.glPushMatrix();
+                            g.glTranslatef(i*4, i2*4, 0);
+                            tiles[i][i2].renderLabel(g);
+                        g.glPopMatrix();
+                    }
+                    else if (Globals.floor < 0 && tiles[i][i2].getGlobalCaveLabel()!=null) {
+                        g.glPushMatrix();
+                            g.glTranslatef(i*4, i2*4, 0);
+                            tiles[i][i2].renderCaveLabel(g);
+                        g.glPopMatrix();
                     }
                 }
             }

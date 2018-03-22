@@ -2199,6 +2199,8 @@ public class Planner extends javax.swing.JFrame {
         }
         
         Globals.floor = floor;
+        
+        labelsPanel.updatePanel(TileSelection.getMapFragment());
     }//GEN-LAST:event_floorToggleActionPerformed
     
     private void applyObjectsTreeFilter() {

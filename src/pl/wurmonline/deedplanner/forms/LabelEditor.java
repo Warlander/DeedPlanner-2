@@ -1,8 +1,9 @@
 package pl.wurmonline.deedplanner.forms;
 
 import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.logic.TileSelection;
@@ -14,19 +15,37 @@ public class LabelEditor extends javax.swing.JPanel {
     private static final String MATERIALS_BUILDING = "Materials (building)";
     private static final String MATERIALS_SELECTION = "Materials (selection)";
     
+    private Label currentLabel;
+    
     public LabelEditor() {
         initComponents();
         
         int selectedFont = 0;
         DefaultComboBoxModel model = new DefaultComboBoxModel();
-        for (java.awt.Font f : GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts()) {
-            model.addElement(new FontWrapper(f));
-            if (f.getName().equals("Arial")) {
+        for (FontWrapper wrapper : FontWrapper.getWrappers()) {
+            model.addElement(wrapper);
+            if (wrapper.getFont().getName().equals("Arial")) {
                 selectedFont = model.getSize()-1;
             }
         }
         fontBox.setModel(model);
         fontBox.setSelectedIndex(selectedFont);
+        
+        labelTextField.getDocument().addDocumentListener(new DocumentListener() {
+            
+            public void insertUpdate(DocumentEvent e) {
+                updateLabel();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                updateLabel();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                updateLabel();
+            }
+            
+        });
         
         TileSelection.addTileListener((MapFragment frag) -> {
             updatePanel(frag);
@@ -34,9 +53,10 @@ public class LabelEditor extends javax.swing.JPanel {
         updatePanel(null);
     }
     
-    private void updatePanel(MapFragment frag) {
-        if (frag==null) {
-            newLabelButton.setEnabled(false);
+    public void updatePanel(MapFragment frag) {
+        if (frag == null) {
+            newTileLabelButton.setEnabled(false);
+            newLevelLabelButton.setEnabled(false);
             calculateTileButton.setEnabled(false);
             calculateMapButton.setEnabled(false);
             deleteBuildingButton.setEnabled(false);
@@ -48,26 +68,33 @@ public class LabelEditor extends javax.swing.JPanel {
         Tile singleTile = frag.getSingleTile();
         if (singleTile != null) {
             deleteBuildingButton.setEnabled(true);
-            newLabelButton.setEnabled(true);
+            newTileLabelButton.setEnabled(true);
+            newLevelLabelButton.setEnabled(true);
             calculateTileButton.setText(MATERIALS_BUILDING);
             Label label;
-            if (Globals.floor>=0) {
-                label = singleTile.getLabel();
+            if (singleTile.getFloorLabel(Globals.floor) != null) {
+                label = singleTile.getFloorLabel(Globals.floor);
+                labelDescLabel.setText("Current floor label");
+            }
+            else if (Globals.floor >= 0) {
+                label = singleTile.getGlobalSurfaceLabel();
+                labelDescLabel.setText("Surface label");
             }
             else {
-                label = singleTile.getCaveLabel();
+                label = singleTile.getGlobalCaveLabel();
+                labelDescLabel.setText("Cave label");
             }
-            if (label==null) {
-                newLabelButton.setText("Create label on tile");
+            
+            if (label == null) {
                 innerPanel.setVisible(false);
             }
             else {
-                newLabelButton.setText("Edit label on tile");
+                setGuiLabel(label);
                 innerPanel.setVisible(true);
             }
         }
         else {
-            newLabelButton.setEnabled(false);
+            newTileLabelButton.setEnabled(false);
             deleteBuildingButton.setEnabled(false);
             calculateTileButton.setText(MATERIALS_SELECTION);
         }
@@ -87,10 +114,12 @@ public class LabelEditor extends javax.swing.JPanel {
         fontBox = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         deleteLabel = new javax.swing.JButton();
-        newLabelButton = new javax.swing.JButton();
+        labelDescLabel = new javax.swing.JLabel();
+        newTileLabelButton = new javax.swing.JButton();
         calculateMapButton = new javax.swing.JButton();
         calculateTileButton = new javax.swing.JButton();
         deleteBuildingButton = new javax.swing.JButton();
+        newLevelLabelButton = new javax.swing.JButton();
 
         labelTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -124,9 +153,19 @@ public class LabelEditor extends javax.swing.JPanel {
 
         sizeSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         sizeSpinner.setModel(new javax.swing.SpinnerNumberModel(18, 8, null, 1));
+        sizeSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sizeSpinnerStateChanged(evt);
+            }
+        });
 
         fontBox.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         fontBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Arial" }));
+        fontBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fontBoxActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel7.setText(bundle.getString("LabelEditor.jLabel7.text_1")); // NOI18N
@@ -139,6 +178,10 @@ public class LabelEditor extends javax.swing.JPanel {
                 deleteLabelActionPerformed(evt);
             }
         });
+
+        labelDescLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        labelDescLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelDescLabel.setText(bundle.getString("LabelEditor.labelDescLabel.text_1")); // NOI18N
 
         javax.swing.GroupLayout innerPanelLayout = new javax.swing.GroupLayout(innerPanel);
         innerPanel.setLayout(innerPanelLayout);
@@ -157,16 +200,19 @@ public class LabelEditor extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(sizeSpinner))
                     .addComponent(fontBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deleteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(innerPanelLayout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(deleteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(labelDescLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         innerPanelLayout.setVerticalGroup(
             innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(innerPanelLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(labelDescLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(innerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,17 +226,17 @@ public class LabelEditor extends javax.swing.JPanel {
                 .addComponent(fontBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addComponent(deleteLabel)
                 .addContainerGap())
         );
 
-        newLabelButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        newLabelButton.setText(bundle.getString("LabelEditor.newLabelButton.text")); // NOI18N
-        newLabelButton.setToolTipText(bundle.getString("LabelEditor.newLabelButton.toolTipText")); // NOI18N
-        newLabelButton.addActionListener(new java.awt.event.ActionListener() {
+        newTileLabelButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        newTileLabelButton.setText(bundle.getString("LabelEditor.newTileLabelButton.text")); // NOI18N
+        newTileLabelButton.setToolTipText(bundle.getString("LabelEditor.newTileLabelButton.toolTipText")); // NOI18N
+        newTileLabelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newLabelButtonActionPerformed(evt);
+                newTileLabelButtonActionPerformed(evt);
             }
         });
 
@@ -222,19 +268,28 @@ public class LabelEditor extends javax.swing.JPanel {
             }
         });
 
+        newLevelLabelButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        newLevelLabelButton.setText(bundle.getString("LabelEditor.newLevelLabelButton.text")); // NOI18N
+        newLevelLabelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newLevelLabelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(innerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(newLabelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(newTileLabelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(calculateMapButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(calculateTileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deleteBuildingButton, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+                    .addComponent(deleteBuildingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(newLevelLabelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(innerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,33 +301,39 @@ public class LabelEditor extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deleteBuildingButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(newLabelButton)
+                .addComponent(newTileLabelButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newLevelLabelButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(innerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void newLabelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newLabelButtonActionPerformed
+    private void newTileLabelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTileLabelButtonActionPerformed
         Tile t = TileSelection.getSelectedTile();
         if (t!=null) {
             if (Globals.floor>=0) {
-                t.setLabel(createLabel());
+                t.setGlobalSurfaceLabel(createLabel());
             }
             else {
-                t.setCaveLabel(createLabel());
+                t.setGlobalCaveLabel(createLabel());
             }
         }
         updatePanel(TileSelection.getMapFragment());
-    }//GEN-LAST:event_newLabelButtonActionPerformed
+    }//GEN-LAST:event_newTileLabelButtonActionPerformed
 
     private void deleteLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteLabelActionPerformed
         Tile t = TileSelection.getSelectedTile();
-        if (t!=null) {
-            if (Globals.floor>=0) {
-                t.setLabel(null);
+        
+        if (t != null) {
+            if (t.getFloorLabel(Globals.floor) != null) {
+                t.setFloorLabel(Globals.floor, null);
+            }
+            else if (Globals.floor>=0) {
+                t.setGlobalSurfaceLabel(null);
             }
             else {
-                t.setCaveLabel(null);
+                t.setGlobalCaveLabel(null);
             }
         }
         updatePanel(TileSelection.getMapFragment());
@@ -280,6 +341,7 @@ public class LabelEditor extends javax.swing.JPanel {
 
     private void labelColorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labelColorButtonActionPerformed
         labelColorShow.setBackground(JColorChooser.showDialog(this, "Select label color", labelColorShow.getBackground()));
+        updateLabel();
     }//GEN-LAST:event_labelColorButtonActionPerformed
 
     private void calculateMapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateMapButtonActionPerformed
@@ -314,12 +376,58 @@ public class LabelEditor extends javax.swing.JPanel {
         singleTile.getMap().deleteBuildingOnTile(singleTile);
     }//GEN-LAST:event_deleteBuildingButtonActionPerformed
 
+    private void newLevelLabelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newLevelLabelButtonActionPerformed
+        Tile t = TileSelection.getSelectedTile();
+        
+        if (t != null) {
+            t.setFloorLabel(Globals.floor, createLabel());
+        }
+        
+        updatePanel(TileSelection.getMapFragment());
+    }//GEN-LAST:event_newLevelLabelButtonActionPerformed
+
+    private void sizeSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sizeSpinnerStateChanged
+        updateLabel();
+    }//GEN-LAST:event_sizeSpinnerStateChanged
+
+    private void fontBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fontBoxActionPerformed
+        updateLabel();
+    }//GEN-LAST:event_fontBoxActionPerformed
+
     private Label createLabel() {
         FontWrapper wrapper = (FontWrapper) fontBox.getSelectedItem();
         Font font = wrapper.font;
         int fontSize = (int) sizeSpinner.getValue();
         font = font.deriveFont((float)fontSize);
         return new Label(font, labelTextField.getText(), new Color(labelColorShow.getBackground()));
+    }
+    
+    private void setGuiLabel(Label label) {
+        labelTextField.setText(label.text);
+        labelColorShow.setBackground(label.color.toAWTColor());
+        sizeSpinner.setValue(label.font.getSize());
+        fontBox.setSelectedItem(FontWrapper.getWrapper(label.font));
+        
+        currentLabel = label;
+    }
+    
+    private void updateLabel() {
+        if (currentLabel == null) {
+            return;
+        }
+        
+        FontWrapper wrapper = (FontWrapper) fontBox.getSelectedItem();
+        Font font = wrapper.font;
+        int fontSize = (int) sizeSpinner.getValue();
+        font = font.deriveFont((float)fontSize);
+        
+        String text = labelTextField.getText();
+        
+        Color color = new Color(labelColorShow.getBackground());
+        
+        currentLabel.font = font;
+        currentLabel.text = text;
+        currentLabel.color = color;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -333,8 +441,10 @@ public class LabelEditor extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JButton labelColorButton;
     private javax.swing.JPanel labelColorShow;
+    private javax.swing.JLabel labelDescLabel;
     private javax.swing.JTextField labelTextField;
-    private javax.swing.JButton newLabelButton;
+    private javax.swing.JButton newLevelLabelButton;
+    private javax.swing.JButton newTileLabelButton;
     private javax.swing.JSpinner sizeSpinner;
     // End of variables declaration//GEN-END:variables
 }

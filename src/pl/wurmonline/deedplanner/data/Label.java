@@ -11,13 +11,13 @@ import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.util.jogl.Color;
 
-public class Label {
+public class Label implements TileEntity {
     
     private static final HashMap<Font, TextRenderer> renderersMap = new HashMap<>();
     
-    private final Font font;
-    private final String text;
-    private final Color color;
+    public Font font;
+    public String text;
+    public Color color;
     
     public Label(Element element) {
         this.text = element.getAttribute("text");
@@ -41,17 +41,17 @@ public class Label {
     
     public void render(GL2 g, Tile tile) {
         TextRenderer renderer = renderersMap.get(font);
-        if (renderer==null) {
+        if (renderer == null) {
             renderer = new TextRenderer(font);
             renderersMap.put(font, renderer);
         }
         Rectangle2D bounds = renderer.getBounds(text);
-        final float scale = Properties.scale*4f/(float)Globals.glWindowHeight;
+        final double scale = Properties.scale * 4.0 / Globals.glWindowHeight;
             g.glPushMatrix();
-                g.glTranslated(2-(bounds.getWidth()/2)*scale, 2-(bounds.getHeight()/2f)*scale, 0);
+                g.glTranslated(2.0 - (bounds.getWidth()/2.0) * scale, 2.0 - (bounds.getHeight()/2.0) * scale, 0);
                 renderer.setColor(color.toAWTColor());
                 renderer.begin3DRendering();
-                    renderer.draw3D(text, 0, 0, 0, scale);
+                    renderer.draw3D(text, 0, 0, 0, (float) scale);
                 renderer.end3DRendering();
             g.glPopMatrix();
         g.glEndList();
@@ -76,6 +76,14 @@ public class Label {
         
         color.serialize(doc, labelElement);
         root.appendChild(labelElement);
+    }
+
+    public Materials getMaterials() {
+        return null;
+    }
+
+    public TileEntity deepCopy() {
+        return new Label(font, text, color);
     }
 
 }
