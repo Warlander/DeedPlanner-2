@@ -95,6 +95,7 @@ public class LabelEditor extends javax.swing.JPanel {
         }
         else {
             newTileLabelButton.setEnabled(false);
+            newLevelLabelButton.setEnabled(false);
             deleteBuildingButton.setEnabled(false);
             calculateTileButton.setText(MATERIALS_SELECTION);
         }
@@ -403,12 +404,11 @@ public class LabelEditor extends javax.swing.JPanel {
     }
     
     private void setGuiLabel(Label label) {
+        currentLabel = label;
         labelTextField.setText(label.text);
         labelColorShow.setBackground(label.color.toAWTColor());
         sizeSpinner.setValue(label.font.getSize());
         fontBox.setSelectedItem(FontWrapper.getWrapper(label.font));
-        
-        currentLabel = label;
     }
     
     private void updateLabel() {
