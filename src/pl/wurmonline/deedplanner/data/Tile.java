@@ -53,11 +53,11 @@ public final class Tile implements XMLSerializable {
         }
         
         NodeList labels = tile.getElementsByTagName("label");
-        if (labels.getLength()!=0) {
+        if (labels.getLength() != 0 && labels.item(0).getParentNode() == tile) {
             label = new Label((Element) labels.item(0));
         }
         NodeList caveLabels = tile.getElementsByTagName("caveLabel");
-        if (caveLabels.getLength()!=0) {
+        if (caveLabels.getLength() != 0 && caveLabels.item(0).getParentNode() == tile) {
             caveLabel = new Label((Element) caveLabels.item(0));
         }
         
@@ -124,6 +124,9 @@ public final class Tile implements XMLSerializable {
                         break;
                     case "cave":
                         cave = CaveData.get(entity);
+                        break;
+                    case "label":
+                        entities.put(new EntityData(floor, EntityType.LABEL), new Label(entity));
                         break;
                 }
             }
@@ -512,6 +515,9 @@ public final class Tile implements XMLSerializable {
                     objectElement.setAttribute("position", objectData.getLocation().toString());
                     entity.serialize(doc, objectElement);
                     level.appendChild(objectElement);
+                    break;
+                case LABEL:
+                    entity.serialize(doc, level);
                     break;
             }
         }
