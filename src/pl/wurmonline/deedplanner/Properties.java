@@ -22,6 +22,7 @@ public class Properties {
     public static boolean colorblind = false;
     public static boolean showTip = false;
     public static boolean showImportWarning = true;
+    public static boolean leftSideInterface = false;
     
     public static int antialiasing = 2;
     

@@ -44,8 +44,15 @@ public class Planner extends javax.swing.JFrame {
         }
         setTitle(Constants.TITLE_STRING);
         SwingUtils.centerFrame(this);
-        mapPanel.grabFocus();
-        setVisible(true);
+        
+        if (Properties.leftSideInterface) {
+            Container contentPanel = getContentPane();
+            contentPanel.remove(sideHolderPanel);
+            contentPanel.add(sideHolderPanel, BorderLayout.WEST);
+            
+            sideHolderPanel.remove(floorSelectionPanel);
+            sideHolderPanel.add(floorSelectionPanel, BorderLayout.EAST);
+        }
         
         bridgesPanel.updateState();
         
@@ -150,6 +157,9 @@ public class Planner extends javax.swing.JFrame {
         rmbSelectedGroundLabel.setText(GroundUpdater.rmbData.name);
         rmbSelectedGroundLabel.setIcon(GroundUpdater.rmbData.getOrCreateIcon());
         
+        setVisible(true);
+        
+        mapPanel.grabFocus();
         mapPanel.getLoop().start(this);
         
         if (Properties.showTip) {
@@ -190,7 +200,7 @@ public class Planner extends javax.swing.JFrame {
         tileLabel = new javax.swing.JLabel();
         sideHolderPanel = new javax.swing.JPanel();
         sidePanel = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        donateLabel = new javax.swing.JLabel();
         tabIconsPanel = new javax.swing.JPanel();
         groundToggle = new javax.swing.JToggleButton();
         heightToggle = new javax.swing.JToggleButton();
@@ -402,17 +412,17 @@ public class Planner extends javax.swing.JFrame {
 
         sidePanel.setLayout(new java.awt.BorderLayout());
 
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/btn_donate_LG.gif"))); // NOI18N
-        jLabel8.setText(bundle.getString("Planner.jLabel8.text")); // NOI18N
-        jLabel8.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        donateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        donateLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/btn_donate_LG.gif"))); // NOI18N
+        donateLabel.setText(bundle.getString("Planner.donateLabel.text")); // NOI18N
+        donateLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        donateLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        donateLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                donateLabelMouseClicked(evt);
             }
         });
-        sidePanel.add(jLabel8, java.awt.BorderLayout.SOUTH);
+        sidePanel.add(donateLabel, java.awt.BorderLayout.SOUTH);
 
         tabIconsPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
         tabIconsPanel.setLayout(new java.awt.GridLayout(2, 6, 3, 3));
@@ -1971,13 +1981,13 @@ public class Planner extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_exitItemActionPerformed
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+    private void donateLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donateLabelMouseClicked
         try {
             Desktop.getDesktop().browse(new URI("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NYTYWR5MV2U68"));
         } catch (URISyntaxException | IOException ex) {
             Log.err(ex);
         }
-    }//GEN-LAST:event_jLabel8MouseClicked
+    }//GEN-LAST:event_donateLabelMouseClicked
 
     private void vegetationDisplayChanged(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vegetationDisplayChanged
         if (treesAllItem.isSelected()) {
@@ -2276,6 +2286,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JRadioButton championAnimalSizeRadio;
     private javax.swing.JRadioButton childAnimalSizeRadio;
     private pl.wurmonline.deedplanner.forms.DiagonalPanel diagonalPanel;
+    private javax.swing.JLabel donateLabel;
     private javax.swing.ButtonGroup elevationGroup;
     private javax.swing.JRadioButtonMenuItem elevationOffItem;
     private javax.swing.JRadioButtonMenuItem elevationOnItem;
@@ -2338,7 +2349,6 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;

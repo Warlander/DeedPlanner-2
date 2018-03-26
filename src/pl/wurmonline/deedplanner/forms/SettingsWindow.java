@@ -23,6 +23,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         importBox.setSelected(Properties.showImportWarning);
         scaleUpSelect.getModel().setValue(Properties.scale);
         updatesBox.setSelected(Properties.checkUpdates);
+        leftSideInterfaceBox.setSelected(Properties.leftSideInterface);
 
         mouseFractionFppSelect.getModel().setValue(Properties.mouseFractionFpp);
         cameraRotationFppSelect.getModel().setValue(Properties.cameraRotationFpp);
@@ -92,6 +93,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         tipBox = new javax.swing.JCheckBox();
         importBox = new javax.swing.JCheckBox();
         updatesBox = new javax.swing.JCheckBox();
+        leftSideInterfaceBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
@@ -203,6 +205,9 @@ public class SettingsWindow extends javax.swing.JFrame {
         updatesBox.setSelected(true);
         updatesBox.setText(bundle.getString("SettingsWindow.updatesBox.text")); // NOI18N
 
+        leftSideInterfaceBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        leftSideInterfaceBox.setText(bundle.getString("SettingsWindow.leftSideInterfaceBox.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,7 +251,7 @@ public class SettingsWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(logicFpsSelect)
@@ -264,8 +269,9 @@ public class SettingsWindow extends javax.swing.JFrame {
                             .addComponent(translationBox)
                             .addComponent(colorblindBox)
                             .addComponent(tipBox)
-                            .addComponent(importBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(updatesBox))
+                            .addComponent(importBox)
+                            .addComponent(updatesBox)
+                            .addComponent(leftSideInterfaceBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -338,10 +344,12 @@ public class SettingsWindow extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(translationBox)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(leftSideInterfaceBox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -357,6 +365,7 @@ public class SettingsWindow extends javax.swing.JFrame {
         Properties.mouseFractionUp = (double) mouseFractionUpSelect.getModel().getValue();
         Properties.scale = (int) scaleUpSelect.getModel().getValue();
         Properties.checkUpdates = updatesBox.isSelected();
+        Properties.leftSideInterface = leftSideInterfaceBox.isSelected();
         
         Properties.mouseFractionFpp = (double) mouseFractionFppSelect.getModel().getValue();
         Properties.cameraRotationFpp = (double) cameraRotationFppSelect.getModel().getValue();
@@ -399,6 +408,7 @@ public class SettingsWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JSpinner keyboardFractionUpSelect;
+    private javax.swing.JCheckBox leftSideInterfaceBox;
     private javax.swing.JSpinner logicFpsSelect;
     private javax.swing.JComboBox lookCombo;
     private javax.swing.JSpinner mod1FppSelect;
