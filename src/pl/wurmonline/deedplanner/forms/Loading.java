@@ -50,9 +50,9 @@ public class Loading extends javax.swing.JFrame {
                                           "the error in a program thread.",
                                           "DeedPlanner critical error",
                                           JOptionPane.ERROR_MESSAGE);
+            } finally {
+                dispose();
             }
-            
-            dispose();
         }).start();
     }
 
