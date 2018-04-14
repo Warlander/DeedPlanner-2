@@ -17,6 +17,7 @@ import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.graphics.CameraType;
+import pl.wurmonline.deedplanner.graphics.FPPCamera;
 import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import pl.wurmonline.deedplanner.logic.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;
@@ -1795,24 +1796,29 @@ public class Planner extends javax.swing.JFrame {
     }//GEN-LAST:event_redoItemActionPerformed
 
     private void viewSwitched(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewSwitched
+        boolean upCameraSwitch = evt.getSource() == upViewItem || evt.getSource() == upViewToggle;
+        boolean isoCameraSwitch = evt.getSource() == isoViewItem || evt.getSource() == isoViewToggle;
+        boolean fppCameraSwitch = evt.getSource() == fppViewItem || evt.getSource() == fppViewToggle;
+        boolean wurmianCameraSwitch = evt.getSource() == wurmianItem || evt.getSource() == wurmianViewToggle;
+        
         mapPanel.getLoop().syncAndExecute(() -> {
             CameraType cameraType;
-            if (evt.getSource() == upViewItem || evt.getSource() == upViewToggle) {
+            if (upCameraSwitch) {
                 cameraType = CameraType.TOP_VIEW;
                 upViewItem.setSelected(true);
                 upViewToggle.setSelected(true);
             }
-            else if (evt.getSource() == isoViewItem || evt.getSource() == isoViewToggle) {
+            else if (isoCameraSwitch) {
                 cameraType = CameraType.ISOMETRIC;
                 isoViewItem.setSelected(true);
                 isoViewToggle.setSelected(true);
             }
-            else if (evt.getSource() == fppViewItem || evt.getSource() == fppViewToggle) {
+            else if (fppCameraSwitch) {
                 cameraType = CameraType.SPECTATOR;
                 fppViewItem.setSelected(true);
                 fppViewToggle.setSelected(true);
             }
-            else if (evt.getSource() == wurmianItem || evt.getSource() == wurmianViewToggle) {
+            else if (wurmianCameraSwitch) {
                 cameraType = CameraType.SPECTATOR;
                 wurmianItem.setSelected(true);
                 wurmianViewToggle.setSelected(true);
@@ -1825,7 +1831,7 @@ public class Planner extends javax.swing.JFrame {
             final boolean editable = mapPanel.getCamera().isEditingCapable();
             sidePanel.setVisible(editable);
             statusBar.setVisible(editable);
-            Globals.fixedHeight = (evt.getSource()==wurmianItem);
+            Globals.fixedHeight = wurmianCameraSwitch;
         });
     }//GEN-LAST:event_viewSwitched
 
