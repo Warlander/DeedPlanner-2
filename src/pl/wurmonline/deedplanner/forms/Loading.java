@@ -45,6 +45,8 @@ public class Loading extends javax.swing.JFrame {
                                           "1. Program download is corrupted.\n" +
                                           "2. Program doesn't have permissions to read files inside \"Data\" folder.\n" +
                                           "3. Program objects definitions got incorrectly modified by user.\n" +
+                                          "4. Program is launched from outside of its own folder\n" +
+                                          "(for example, from cmd/bash console while not being in DeedPlanner dir)\n" +
                                           "If this message appears in other situations than mentioned,\n" +
                                           "please copy content of ErrorLog.txt file and report\n" +
                                           "the error in a program thread.",
