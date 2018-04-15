@@ -12,6 +12,10 @@ import pl.wurmonline.deedplanner.logic.TileFragment;
 
 public final class UpCamera implements Camera {
     
+    private static final float TILE_TO_SCREEN_RATIO = 4.0f;
+    private static final float SCREEN_TO_TILE_RATIO = 1.0f / TILE_TO_SCREEN_RATIO;
+    
+    
     private static final int OFFSCREEN_TILES_RENDERED = 3;
     
     public float x=0;
@@ -30,7 +34,8 @@ public final class UpCamera implements Camera {
         
         tileScaler = (float) panel.getWidth() / panel.getHeight();
         
-        float tileSize = (float) panel.getHeight() / Properties.scale / 4;
+        float screenTileSize = (float) panel.getHeight() / Properties.scale;
+        float tileSize = screenTileSize * SCREEN_TO_TILE_RATIO;
         float tileX = ((mouse.x + x * tileSize) / ((float) panel.getWidth() / Properties.scale / tileScaler));
         float tileY = (((panel.getHeight() - mouse.y) + y * tileSize) / ((float) panel.getHeight() / Properties.scale));
         
@@ -92,25 +97,41 @@ public final class UpCamera implements Camera {
             x -= keyboardFraction;
         }
         
-        if (y < 0) {
-            y = 0;
-        }
-        if (x < 0) {
+        float totalWidth = map.getWidth() * screenTileSize;
+        float totalHeight = map.getHeight() * screenTileSize;
+        boolean fitsHorizontally = totalWidth < panel.getWidth();
+        boolean fitsVertically = totalHeight < panel.getHeight();
+        
+        if (x < 0 && !fitsVertically) {
             x = 0;
         }
+        if (y < 0 && !fitsVertically) {
+            y = 0;
+        }
         
-        if (y > 4 * (map.getHeight() - Properties.scale)) {
+        if (x > 4 * (map.getWidth() - Properties.scale * tileScaler) && !fitsVertically) {
+            x = 4 * (map.getWidth() - Properties.scale * tileScaler);
+        }
+        if (y > 4 * (map.getHeight() - Properties.scale) && !fitsVertically) {
             y = 4 * (map.getHeight() - Properties.scale);
         }
-        if (x > 4 * (map.getWidth() - Properties.scale * tileScaler)) {
-            x = 4 * (map.getWidth() - Properties.scale * tileScaler);
+        
+        if (fitsHorizontally) {
+            float tilesOnScreen = panel.getWidth() / screenTileSize;
+            float unboundTiles = tilesOnScreen - map.getWidth();
+            x = -unboundTiles / 2 * TILE_TO_SCREEN_RATIO;
+        }
+        if (fitsVertically) {
+            float tilesOnScreen = panel.getHeight() / screenTileSize;
+            float unboundTiles = tilesOnScreen - map.getHeight();
+            y = -unboundTiles / 2 * TILE_TO_SCREEN_RATIO;
         }
     }
     
     public void set(GL2 g, MapPanel panel) {
         g.glMatrixMode(GL2.GL_PROJECTION);
         g.glLoadIdentity();
-        g.glOrtho(0, Properties.scale * 4f * (float)panel.getWidth() / (float)panel.getHeight(), 0, Properties.scale * 4, 0.001f, 8192);
+        g.glOrtho(0, Properties.scale * TILE_TO_SCREEN_RATIO * (float)panel.getWidth() / (float)panel.getHeight(), 0, Properties.scale * TILE_TO_SCREEN_RATIO, 0.001f, 8192);
         g.glTranslatef(-x, -y, -4000);
         g.glMatrixMode(GL2.GL_MODELVIEW);
         g.glLoadIdentity();
@@ -151,15 +172,15 @@ public final class UpCamera implements Camera {
     }
 
     public Vector2i getLowerRenderBounds() {
-        int currX = (int) (x / 4);
-        int currY = (int) (y / 4);
+        int currX = (int) (x * SCREEN_TO_TILE_RATIO);
+        int currY = (int) (y * SCREEN_TO_TILE_RATIO);
         
         return new Vector2i(currX - OFFSCREEN_TILES_RENDERED, currY - OFFSCREEN_TILES_RENDERED);
     }
 
     public Vector2i getUpperRenderBounds() {
-        int currX = (int) (x / 4);
-        int currY = (int) (y / 4);
+        int currX = (int) (x * SCREEN_TO_TILE_RATIO);
+        int currY = (int) (y * SCREEN_TO_TILE_RATIO);
         
         int upperXBound = currX + (int) (Properties.scale * tileScaler) + OFFSCREEN_TILES_RENDERED;
         int upperYBound = currY + Properties.scale + OFFSCREEN_TILES_RENDERED;
