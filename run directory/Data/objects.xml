@@ -6218,11 +6218,11 @@
 		</object>
 		
 		<object name="Axe display" shortname="displayAxe" type="normal">
-			<model location="Data/Objects/hangersSwords.wom"/>
+			<model location="Data/Objects/hangersAxes.wom"/>
 			<category>Displays</category>
 		</object>
 		<object name="Sword display" shortname="displaySword" type="normal">
-			<model location="Data/Objects/hangersAxes.wom"/>
+			<model location="Data/Objects/hangersSwords.wom"/>
 			<category>Displays</category>
 		</object>
 		
