@@ -3211,7 +3211,7 @@
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
-		<wall name="High iron fence" shortname="hiFence" scale="2" type="highfence">
+		<wall name="High iron fence" shortname="hiFence" scale="2" type="lowfence">
 			<model location="Data/Walls/HighIronFence.wom"/>
 			<color type="dec" r="1" g="0.5" b="0.5"/>
 			<materials>
@@ -3222,7 +3222,7 @@
 			<category>Fences</category>
 			<category>Materials/Iron</category>
 		</wall>
-		<wall name="High iron fence gate" shortname="hiFenceG" scale="2" type="highfence">
+		<wall name="High iron fence gate" shortname="hiFenceG" scale="2" type="lowfence">
 			<model location="Data/Walls/HighIronFenceGate_main.wom"/>
 			<color type="dec" r="1" g="0.5" b="0.5"/>
 			<materials>
