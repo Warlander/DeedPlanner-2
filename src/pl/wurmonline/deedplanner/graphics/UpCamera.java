@@ -47,6 +47,19 @@ public final class UpCamera implements Camera {
             keyboardFraction *= Properties.mod2Fpp;
         }
         
+        if (mouse.scrollDown || keybindings.pressed(Keybindings.UP_SCALE_MORE)) {
+            if (Properties.scale > 5) {
+                x += (tileX - x * tileSize / ((float) panel.getWidth() / Properties.scale / tileScaler)) * TILE_TO_SCREEN_RATIO / Properties.scale;
+                y += (tileY - y * tileSize / ((float) panel.getHeight() / Properties.scale)) * TILE_TO_SCREEN_RATIO / Properties.scale;
+                Properties.scale--;
+            }
+        }
+        else if (mouse.scrollUp || keybindings.pressed(Keybindings.UP_SCALE_LESS)) {
+            if (Properties.scale < 40) {
+                Properties.scale++;
+            }
+        }
+        
         int currX = (int) tileX;
         int currY = (int) tileY;
         
@@ -59,17 +72,6 @@ public final class UpCamera implements Camera {
         }
         else {
             tile = null;
-        }
-        
-        if (mouse.scrollDown || keybindings.pressed(Keybindings.UP_SCALE_MORE)) {
-            if (Properties.scale > 5) {
-                Properties.scale--;
-            }
-        }
-        else if (mouse.scrollUp || keybindings.pressed(Keybindings.UP_SCALE_LESS)) {
-            if (Properties.scale < 40) {
-                Properties.scale++;
-            }
         }
         
         if (mouse.pressed.middle) {
