@@ -115,6 +115,8 @@ public class SymmetryEditor extends javax.swing.JPanel {
         mirrorFloorsToggle = new javax.swing.JToggleButton();
         mirrorFloorsLabel = new javax.swing.JLabel();
 
+        symInnerPanel.setMaximumSize(new java.awt.Dimension(245, 380));
+
         borderLockingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         borderLockingLabel.setText("Border Locking");
 
@@ -403,27 +405,36 @@ public class SymmetryEditor extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(symInnerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(symInnerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(symInnerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addGap(0, 239, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void xLockToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xLockToggleActionPerformed
+    private void mirrorFloorsToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mirrorFloorsToggleActionPerformed
         javax.swing.JToggleButton toggleBtn =  (javax.swing.JToggleButton) evt.getSource();
-        Globals.xSymLock = toggleBtn.isSelected();
-        xLockToggle.setText(Globals.xSymLock ? "On" : "Off");
-    }//GEN-LAST:event_xLockToggleActionPerformed
+        Globals.mirrorFloors = toggleBtn.isSelected();
+        mirrorFloorsToggle.setText(Globals.mirrorFloors ? "On" : "Off");
+    }//GEN-LAST:event_mirrorFloorsToggleActionPerformed
 
     private void yLockToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yLockToggleActionPerformed
         javax.swing.JToggleButton toggleBtn =  (javax.swing.JToggleButton) evt.getSource();
         Globals.ySymLock = toggleBtn.isSelected();
         yLockToggle.setText(Globals.ySymLock ? "On" : "Off");
     }//GEN-LAST:event_yLockToggleActionPerformed
+
+    private void xLockToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xLockToggleActionPerformed
+        javax.swing.JToggleButton toggleBtn =  (javax.swing.JToggleButton) evt.getSource();
+        Globals.xSymLock = toggleBtn.isSelected();
+        xLockToggle.setText(Globals.xSymLock ? "On" : "Off");
+    }//GEN-LAST:event_xLockToggleActionPerformed
 
     private void clearAllBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllBtnActionPerformed
         Tile t = TileSelection.getSelectedTile();
@@ -433,8 +444,17 @@ public class SymmetryEditor extends javax.swing.JPanel {
             Globals.mirrorFloors = false;
             t.getMap().setSymmetry(new Symmetry());
         }
-        updatePanel(TileSelection.getMapFragment());        
+        updatePanel(TileSelection.getMapFragment());
     }//GEN-LAST:event_clearAllBtnActionPerformed
+
+    private void xyTileLockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xyTileLockBtnActionPerformed
+        Tile t = TileSelection.getSelectedTile();
+        if (t!=null) {
+            t.getMap().setSymmetry(new Symmetry(t.getX(), t.getY()));
+            Globals.xSymLock = Globals.ySymLock = true;
+        }
+        updatePanel(TileSelection.getMapFragment());
+    }//GEN-LAST:event_xyTileLockBtnActionPerformed
 
     private void yTileLockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yTileLockBtnActionPerformed
         Tile t = TileSelection.getSelectedTile();
@@ -456,14 +476,33 @@ public class SymmetryEditor extends javax.swing.JPanel {
         updatePanel(TileSelection.getMapFragment());
     }//GEN-LAST:event_xTileLockBtnActionPerformed
 
-    private void xyTileLockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xyTileLockBtnActionPerformed
-        Tile t = TileSelection.getSelectedTile();
-        if (t!=null) {
-            t.getMap().setSymmetry(new Symmetry(t.getX(), t.getY()));
-            Globals.xSymLock = Globals.ySymLock = true;
-        }
-        updatePanel(TileSelection.getMapFragment());
-    }//GEN-LAST:event_xyTileLockBtnActionPerformed
+    private void southToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_southToggleActionPerformed
+        this.d = SymmetryDirection.S;
+    }//GEN-LAST:event_southToggleActionPerformed
+
+    private void swToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swToggleActionPerformed
+        this.d = SymmetryDirection.SW;
+    }//GEN-LAST:event_swToggleActionPerformed
+
+    private void seToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seToggleActionPerformed
+        this.d = SymmetryDirection.SE;
+    }//GEN-LAST:event_seToggleActionPerformed
+
+    private void nwToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nwToggleActionPerformed
+        this.d = SymmetryDirection.NW;
+    }//GEN-LAST:event_nwToggleActionPerformed
+
+    private void neToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neToggleActionPerformed
+        this.d = SymmetryDirection.NE;
+    }//GEN-LAST:event_neToggleActionPerformed
+
+    private void eastToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eastToggleActionPerformed
+        this.d = SymmetryDirection.E;
+    }//GEN-LAST:event_eastToggleActionPerformed
+
+    private void westToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_westToggleActionPerformed
+        this.d = SymmetryDirection.W;
+    }//GEN-LAST:event_westToggleActionPerformed
 
     private void borderLockBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borderLockBtnActionPerformed
         Tile t = TileSelection.getSelectedTile();
@@ -472,64 +511,30 @@ public class SymmetryEditor extends javax.swing.JPanel {
             switch(d) {
                 case N:
                 case S:
-                    t.getMap().setSymmetry(new Symmetry(-1, t.getY(), d));
-                    Globals.ySymLock = true;
-                    break;
+                t.getMap().setSymmetry(new Symmetry(-1, t.getY(), d));
+                Globals.ySymLock = true;
+                break;
                 case E:
                 case W:
-                    t.getMap().setSymmetry(new Symmetry(t.getX(), -1, d));
-                    Globals.xSymLock = true;
-                    break;
+                t.getMap().setSymmetry(new Symmetry(t.getX(), -1, d));
+                Globals.xSymLock = true;
+                break;
                 case NE:
                 case SE:
                 case NW:
                 case SW:
-                    t.getMap().setSymmetry(new Symmetry(t.getX(), t.getY(), d));
-                    Globals.xSymLock = Globals.ySymLock = true;
-                    break;
+                t.getMap().setSymmetry(new Symmetry(t.getX(), t.getY(), d));
+                Globals.xSymLock = Globals.ySymLock = true;
+                break;
             }
         }
         updatePanel(TileSelection.getMapFragment());
-        
-    }//GEN-LAST:event_borderLockBtnActionPerformed
 
-    private void nwToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nwToggleActionPerformed
-        this.d = SymmetryDirection.NW;
-    }//GEN-LAST:event_nwToggleActionPerformed
+    }//GEN-LAST:event_borderLockBtnActionPerformed
 
     private void northToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_northToggleActionPerformed
         this.d = SymmetryDirection.N;
     }//GEN-LAST:event_northToggleActionPerformed
-
-    private void neToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_neToggleActionPerformed
-        this.d = SymmetryDirection.NE;
-    }//GEN-LAST:event_neToggleActionPerformed
-
-    private void westToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_westToggleActionPerformed
-        this.d = SymmetryDirection.W;
-    }//GEN-LAST:event_westToggleActionPerformed
-
-    private void eastToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eastToggleActionPerformed
-        this.d = SymmetryDirection.E;
-    }//GEN-LAST:event_eastToggleActionPerformed
-
-    private void swToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swToggleActionPerformed
-        this.d = SymmetryDirection.SW;
-    }//GEN-LAST:event_swToggleActionPerformed
-
-    private void southToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_southToggleActionPerformed
-        this.d = SymmetryDirection.S;
-    }//GEN-LAST:event_southToggleActionPerformed
-
-    private void seToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seToggleActionPerformed
-        this.d = SymmetryDirection.SE;
-    }//GEN-LAST:event_seToggleActionPerformed
-
-    private void mirrorFloorsToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mirrorFloorsToggleActionPerformed
-        javax.swing.JToggleButton toggleBtn =  (javax.swing.JToggleButton) evt.getSource();
-        Globals.mirrorFloors = toggleBtn.isSelected();
-        mirrorFloorsToggle.setText(Globals.mirrorFloors ? "On" : "Off");
-    }//GEN-LAST:event_mirrorFloorsToggleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
