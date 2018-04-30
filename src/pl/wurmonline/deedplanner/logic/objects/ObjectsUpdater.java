@@ -90,11 +90,12 @@ public class ObjectsUpdater {
         boolean corner = distToCorner < ObjectLocation.getCornerRadius();
         
         if (corner || (isObjectEditor() && objectsCurrentData.cornerOnly)) {
+            Tile hoveredTile = cam.getHoveredTile();
             if (xPos > 0.5f) {
-                tile = tile.getMap().getTile(tile, 1, 0);
+                tile = hoveredTile.getMap().getTile(hoveredTile, 1, 0);
             }
             if (yPos > 0.5f) {
-                tile = tile.getMap().getTile(tile, 0, 1);
+                tile = hoveredTile.getMap().getTile(hoveredTile, 0, 1);
             }
             
             return ObjectLocation.CORNER;
