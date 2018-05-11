@@ -68,6 +68,8 @@ public class Launcher {
                     "\n" +
                     "All data is anonymized before being sent.\n" +
                     "Gathered data is very important for application development - using this feature is mandatory for all application users.\n" +
+                    "Your data can be removed on demand by sending application developer a message with your tracking ID (in program properties file)\n" +
+                    "Collected data will be used for informative purposes only.\n" +
                     "Do you agree to these terms? Once agreed, this message will not appear again unless terms above will change.",
                     "DeedPlanner terms", JOptionPane.YES_NO_OPTION);
             if (selectedOption != JOptionPane.YES_OPTION) {
