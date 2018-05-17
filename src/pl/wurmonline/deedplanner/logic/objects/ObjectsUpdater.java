@@ -89,7 +89,7 @@ public class ObjectsUpdater {
         float distToCorner = (float) Math.sqrt(xDist * xDist + yDist * yDist);
         boolean corner = distToCorner < ObjectLocation.getCornerRadius();
         
-        if (corner || (isObjectEditor() && objectsCurrentData.cornerOnly)) {
+        if (corner || (isObjectEditor() && objectsCurrentData != null && objectsCurrentData.cornerOnly)) {
             Tile hoveredTile = cam.getHoveredTile();
             if (xPos > 0.5f) {
                 tile = hoveredTile.getMap().getTile(hoveredTile, 1, 0);
@@ -101,7 +101,7 @@ public class ObjectsUpdater {
             return ObjectLocation.CORNER;
         }
         
-        if (isObjectEditor() && objectsCurrentData.centerOnly) {
+        if (isObjectEditor() && objectsCurrentData != null && objectsCurrentData.centerOnly) {
             return ObjectLocation.MIDDLE_CENTER;
         }
         
