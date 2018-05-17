@@ -2196,6 +2196,7 @@ public class Planner extends javax.swing.JFrame {
         }
         
         if (floor < 0) {
+            sizeRadio.setEnabled(true);
             tabIconsPanel.remove(groundToggle);
             tabIconsPanel.add(cavesToggle, 0);
             if (Globals.tab == Tab.ground) {
@@ -2205,6 +2206,8 @@ public class Planner extends javax.swing.JFrame {
             }
         }
         else {
+            sizeRadio.setEnabled(false);
+            heightRadio.setSelected(true);
             tabIconsPanel.remove(cavesToggle);
             tabIconsPanel.add(groundToggle, 0);
             if (Globals.tab == Tab.caves) {
