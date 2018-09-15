@@ -490,9 +490,16 @@ public final class Map {
         if (camera.isEditingCapable()) {
             g.glDisable(GL2.GL_TEXTURE_2D);
             g.glDisable(GL2.GL_DEPTH_TEST);
+            
+            g.glDisable(GL2.GL_ALPHA_TEST);
+            g.glEnable(GL2.GL_BLEND);
+            g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
             if (Properties.showGrid) {
                 renderGrid(g, camera);
             }
+            g.glDisable(GL2.GL_BLEND);
+            g.glEnable(GL2.GL_ALPHA_TEST);
+            
             for (int i=startX; i<=endX; i++) {
                 for (int i2=startY; i2<=endY; i2++) {
                     g.glPushMatrix();
@@ -572,8 +579,10 @@ public final class Map {
         Vector2i startBounds = camera.getLowerRenderBounds();
         Vector2i endBounds = camera.getUpperRenderBounds();
         
+        float alpha = Math.max(0.2f, 1.0f - Properties.scale / 50.0f);
+        
         g.glUseProgram(0);
-        g.glColor3f(0.4f, 0.4f, 0.4f);
+        g.glColor4f(0.5f, 0.5f, 0.5f, alpha);
         for (int i = startBounds.x; i < endBounds.x; i++) {
             for (int i2 = startBounds.y; i2 < endBounds.y; i2++) {
                 if (i<0 || i2<0 || i>=width || i2>=height) {

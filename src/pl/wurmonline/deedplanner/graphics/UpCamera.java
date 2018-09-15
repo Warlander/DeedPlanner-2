@@ -55,7 +55,7 @@ public final class UpCamera implements Camera {
             }
         }
         else if (mouse.scrollUp || keybindings.pressed(Keybindings.UP_SCALE_LESS)) {
-            if (Properties.scale < 40) {
+            if (Properties.scale < 200) {
                 Properties.scale++;
             }
         }
