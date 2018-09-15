@@ -44,6 +44,9 @@ public class CaveData implements TileEntity {
         
         texture.bind(g);
         if (Globals.camera.getCameraType() == CameraType.TOP_VIEW && (!wall || show)) {
+            if (wall) {
+                g.glColor3f(0.8f, 0.8f, 0.8f);
+            }
             g.glBegin(GL2.GL_QUADS);
                 g.glTexCoord2f(0, 0);
                 g.glVertex3f(0, 0, h00);
@@ -54,6 +57,9 @@ public class CaveData implements TileEntity {
                 g.glTexCoord2f(0, 1);
                 g.glVertex3f(0, 4, h01);
             g.glEnd();
+            if (!wall) {
+                g.glColor3f(1f, 1f, 1f);
+            }
         }
         else if (Globals.camera.getCameraType() != CameraType.TOP_VIEW && !wall) {
             float ht00 = h00 + (tile.getCaveSize()) / Constants.HEIGHT_MOD;

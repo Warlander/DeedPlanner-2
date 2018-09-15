@@ -592,6 +592,19 @@ public final class Map {
                 if (tiles[i][i2].getVerticalWall(Globals.floor)!=null && tiles[i][i2].getVerticalFence(Globals.floor)!=null) {
                     g.glLineWidth(3);
                 }
+                if (Globals.floor < 0 && (i - 1 >= 0)) {
+                    boolean leftCaveWall = tiles[i-1][i2].getCaveEntity().wall;
+                    boolean rightCaveWall = tiles[i][i2].getCaveEntity().wall;
+                    
+                    if (leftCaveWall ^ rightCaveWall) {
+                        g.glLineWidth(3);
+                        g.glColor4f(0.75f, 0.75f, 0.75f, alpha);
+                    }
+                    else {
+                        g.glColor4f(0.5f, 0.5f, 0.5f, alpha);
+                    }
+                }
+                
                 g.glBegin(GL2.GL_LINES);
                     if (renderColors) {
                         applyColor(g, tiles[i][i2], false);
@@ -607,6 +620,19 @@ public final class Map {
                 if (tiles[i][i2].getHorizontalWall(Globals.floor)!=null && tiles[i][i2].getHorizontalFence(Globals.floor)!=null) {
                     g.glLineWidth(3);
                 }
+                if (Globals.floor < 0 && (i2 - 1 >= 0)) {
+                    boolean bottomCaveWall = tiles[i][i2-1].getCaveEntity().wall;
+                    boolean topCaveWall = tiles[i][i2].getCaveEntity().wall;
+                    
+                    if (bottomCaveWall ^ topCaveWall) {
+                        g.glLineWidth(3);
+                        g.glColor4f(0.75f, 0.75f, 0.75f, alpha);
+                    }
+                    else {
+                        g.glColor4f(0.5f, 0.5f, 0.5f, alpha);
+                    }
+                }
+                
                 g.glBegin(GL2.GL_LINES);
                     if (renderColors) {
                         applyColor(g, tiles[i][i2], false);

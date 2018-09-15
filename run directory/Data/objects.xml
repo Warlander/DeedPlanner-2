@@ -6394,7 +6394,6 @@
 	
 		<rock name="Stone wall" shortname="sw" type="wall" tex="Data/Caves/cave_512.png">
 			<category>Walls</category>
-			<hidden/>
 		</rock>
 		<rock name="Reinforced stone wall" shortname="rsw" type="wall" tex="Data/Caves/reinforcedcave_v1.png">
 			<category>Walls</category>
