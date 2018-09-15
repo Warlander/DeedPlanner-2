@@ -54,7 +54,7 @@ public final class IsometricCamera implements Camera {
         tileX = isoTileCoord.x;
         tileY = isoTileCoord.y;
         
-        System.out.println("CartM: " + cartTileCoord.toString(NumberFormat.getNumberInstance()) + "\t IsoM: " + isoTileCoord.toString(NumberFormat.getNumberInstance()));
+        //System.out.println("CartM: " + cartTileCoord.toString(NumberFormat.getNumberInstance()) + "\t IsoM: " + isoTileCoord.toString(NumberFormat.getNumberInstance()));
         
         double keyboardFraction = Properties.keyboardFractionUp;
         if (keybindings.hold(Keybindings.UP_SPEED_MOD1)) {
