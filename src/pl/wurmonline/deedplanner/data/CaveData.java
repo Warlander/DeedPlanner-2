@@ -43,7 +43,7 @@ public class CaveData implements TileEntity {
         float h01 = (tile.getMap().getTile(tile, 0, 1).getCaveHeight()) / Constants.HEIGHT_MOD;
         
         texture.bind(g);
-        if (Globals.camera.getCameraType() == CameraType.TOP_VIEW && (!wall || show)) {
+        if ((wall && show && Globals.camera.getCameraType() == CameraType.TOP_VIEW) || !wall) {
             if (wall) {
                 g.glColor3f(0.8f, 0.8f, 0.8f);
             }
@@ -61,7 +61,7 @@ public class CaveData implements TileEntity {
                 g.glColor3f(1f, 1f, 1f);
             }
         }
-        else if (Globals.camera.getCameraType() != CameraType.TOP_VIEW && !wall) {
+        if (Globals.camera.getCameraType() != CameraType.TOP_VIEW && !wall) {
             float ht00 = h00 + (tile.getCaveSize()) / Constants.HEIGHT_MOD;
             float ht10 = h10 + (tile.getMap().getTile(tile, 1, 0).getCaveSize()) / Constants.HEIGHT_MOD;
             float ht11 = h11 + (tile.getMap().getTile(tile, 1, 1).getCaveSize()) / Constants.HEIGHT_MOD;
