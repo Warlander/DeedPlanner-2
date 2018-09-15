@@ -57,7 +57,7 @@ public class CaveData implements TileEntity {
                 g.glTexCoord2f(0, 1);
                 g.glVertex3f(0, 4, h01);
             g.glEnd();
-            if (!wall) {
+            if (wall) {
                 g.glColor3f(1f, 1f, 1f);
             }
         }
