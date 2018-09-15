@@ -1140,17 +1140,20 @@ public final class Tile implements XMLSerializable {
     }
     
     public boolean isPassable(TileBorder border) {
+        boolean underground = Globals.floor < 0;
+        int checkedFloor = underground ? -1 : 0;
+        
         switch (border) {
             case SOUTH:
-                return getHorizontalWall(0)==null;
+                return getHorizontalWall(checkedFloor)==null;
             case NORTH:
                 return map.getTile(this, 0, 1)!=null &&
-                       map.getTile(this, 0, 1).getHorizontalWall(0)==null;
+                       map.getTile(this, 0, 1).getHorizontalWall(checkedFloor)==null;
             case WEST:
-                return getVerticalWall(0)==null;
+                return getVerticalWall(checkedFloor)==null;
             case EAST:
                 return map.getTile(this, 1, 0)!=null &&
-                       map.getTile(this, 1, 0).getVerticalWall(0)==null;
+                       map.getTile(this, 1, 0).getVerticalWall(checkedFloor)==null;
             default:
                 return false;
         }
