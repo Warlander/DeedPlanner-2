@@ -122,13 +122,19 @@ public class LabelEditor extends javax.swing.JPanel {
         deleteBuildingButton = new javax.swing.JButton();
         newLevelLabelButton = new javax.swing.JButton();
 
+        setFocusable(false);
+
+        innerPanel.setFocusable(false);
+
         labelTextField.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
         labelTextField.setText(bundle.getString("LabelEditor.labelTextField.text")); // NOI18N
+        labelTextField.setFocusable(false);
 
         labelColorShow.setBackground(new java.awt.Color(255, 255, 255));
         labelColorShow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        labelColorShow.setFocusable(false);
 
         javax.swing.GroupLayout labelColorShowLayout = new javax.swing.GroupLayout(labelColorShow);
         labelColorShow.setLayout(labelColorShowLayout);
@@ -143,6 +149,7 @@ public class LabelEditor extends javax.swing.JPanel {
 
         labelColorButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         labelColorButton.setText(bundle.getString("LabelEditor.labelColorButton.text")); // NOI18N
+        labelColorButton.setFocusable(false);
         labelColorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 labelColorButtonActionPerformed(evt);
@@ -151,9 +158,11 @@ public class LabelEditor extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText(bundle.getString("LabelEditor.jLabel6.text")); // NOI18N
+        jLabel6.setFocusable(false);
 
         sizeSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         sizeSpinner.setModel(new javax.swing.SpinnerNumberModel(18, 8, null, 1));
+        sizeSpinner.setFocusable(false);
         sizeSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sizeSpinnerStateChanged(evt);
@@ -162,6 +171,7 @@ public class LabelEditor extends javax.swing.JPanel {
 
         fontBox.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         fontBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Arial" }));
+        fontBox.setFocusable(false);
         fontBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fontBoxActionPerformed(evt);
@@ -170,10 +180,12 @@ public class LabelEditor extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel7.setText(bundle.getString("LabelEditor.jLabel7.text_1")); // NOI18N
+        jLabel7.setFocusable(false);
 
         deleteLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         deleteLabel.setForeground(new java.awt.Color(255, 0, 0));
         deleteLabel.setText(bundle.getString("LabelEditor.deleteLabel.text")); // NOI18N
+        deleteLabel.setFocusable(false);
         deleteLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteLabelActionPerformed(evt);
@@ -183,6 +195,7 @@ public class LabelEditor extends javax.swing.JPanel {
         labelDescLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         labelDescLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelDescLabel.setText(bundle.getString("LabelEditor.labelDescLabel.text_1")); // NOI18N
+        labelDescLabel.setFocusable(false);
 
         javax.swing.GroupLayout innerPanelLayout = new javax.swing.GroupLayout(innerPanel);
         innerPanel.setLayout(innerPanelLayout);
@@ -235,6 +248,7 @@ public class LabelEditor extends javax.swing.JPanel {
         newTileLabelButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         newTileLabelButton.setText(bundle.getString("LabelEditor.newTileLabelButton.text")); // NOI18N
         newTileLabelButton.setToolTipText(bundle.getString("LabelEditor.newTileLabelButton.toolTipText")); // NOI18N
+        newTileLabelButton.setFocusable(false);
         newTileLabelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newTileLabelButtonActionPerformed(evt);
@@ -244,6 +258,7 @@ public class LabelEditor extends javax.swing.JPanel {
         calculateMapButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         calculateMapButton.setText(bundle.getString("LabelEditor.calculateMapButton.text")); // NOI18N
         calculateMapButton.setToolTipText(bundle.getString("LabelEditor.calculateMapButton.toolTipText")); // NOI18N
+        calculateMapButton.setFocusable(false);
         calculateMapButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculateMapButtonActionPerformed(evt);
@@ -253,6 +268,7 @@ public class LabelEditor extends javax.swing.JPanel {
         calculateTileButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         calculateTileButton.setText(bundle.getString("LabelEditor.calculateTileButton.text")); // NOI18N
         calculateTileButton.setToolTipText(bundle.getString("LabelEditor.calculateTileButton.toolTipText")); // NOI18N
+        calculateTileButton.setFocusable(false);
         calculateTileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 calculateTileButtonActionPerformed(evt);
@@ -263,6 +279,7 @@ public class LabelEditor extends javax.swing.JPanel {
         deleteBuildingButton.setForeground(new java.awt.Color(255, 0, 0));
         deleteBuildingButton.setText(bundle.getString("LabelEditor.deleteBuildingButton.text")); // NOI18N
         deleteBuildingButton.setToolTipText(bundle.getString("LabelEditor.deleteBuildingButton.toolTipText")); // NOI18N
+        deleteBuildingButton.setFocusable(false);
         deleteBuildingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteBuildingButtonActionPerformed(evt);
@@ -271,6 +288,7 @@ public class LabelEditor extends javax.swing.JPanel {
 
         newLevelLabelButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         newLevelLabelButton.setText(bundle.getString("LabelEditor.newLevelLabelButton.text")); // NOI18N
+        newLevelLabelButton.setFocusable(false);
         newLevelLabelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newLevelLabelButtonActionPerformed(evt);

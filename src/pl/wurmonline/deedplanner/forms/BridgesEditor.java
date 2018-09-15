@@ -44,18 +44,24 @@ public class BridgesEditor extends javax.swing.JPanel {
         endTileButton = new javax.swing.JButton();
         destroyBridgeButton = new javax.swing.JButton();
 
+        setFocusable(false);
+
         jLabel1.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel1.setText("<html>Bridges creation instruction:<br>\n1. Select starting tile of bridge.<br>\n(the one you are standing on,<br>\ncurrent floor is important)<br><br>\n\n2. Click \"Select start tile\" button.<br><br>\n\n3. Repeat for end tile.<br><br>\n\n4. If everything is correct,<br>\nclick \"Create new bridge!\" button.<br><br>\n\n5. Follow instructions in new<br>\nwindow.<br>");
+        jLabel1.setFocusable(false);
 
         startTileLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         startTileLabel.setText("Start tile: none");
+        startTileLabel.setFocusable(false);
 
         endTileLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         endTileLabel.setText("End tile: none");
+        endTileLabel.setFocusable(false);
 
         createBridgeButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         createBridgeButton.setText("Create new bridge!");
         createBridgeButton.setEnabled(false);
+        createBridgeButton.setFocusable(false);
         createBridgeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createBridgeButtonActionPerformed(evt);
@@ -65,13 +71,16 @@ public class BridgesEditor extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Warnings");
+        jLabel4.setFocusable(false);
 
         warningsLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         warningsLabel.setText("No warnings");
         warningsLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        warningsLabel.setFocusable(false);
 
         startTileButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         startTileButton.setText("Select start tile");
+        startTileButton.setFocusable(false);
         startTileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startTileButtonActionPerformed(evt);
@@ -80,6 +89,7 @@ public class BridgesEditor extends javax.swing.JPanel {
 
         endTileButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         endTileButton.setText("Select end tile");
+        endTileButton.setFocusable(false);
         endTileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 endTileButtonActionPerformed(evt);
@@ -89,6 +99,7 @@ public class BridgesEditor extends javax.swing.JPanel {
         destroyBridgeButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         destroyBridgeButton.setText("Destroy bridge on start tile");
         destroyBridgeButton.setEnabled(false);
+        destroyBridgeButton.setFocusable(false);
         destroyBridgeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 destroyBridgeButtonActionPerformed(evt);

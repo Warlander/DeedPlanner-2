@@ -433,6 +433,7 @@ public class Planner extends javax.swing.JFrame {
         groundToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/017-flowers.png"))); // NOI18N
         groundToggle.setSelected(true);
         groundToggle.setText(bundle.getString("Planner.groundToggle.text")); // NOI18N
+        groundToggle.setFocusable(false);
         groundToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         groundToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         groundToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -447,6 +448,7 @@ public class Planner extends javax.swing.JFrame {
         heightToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         heightToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/013-mountain.png"))); // NOI18N
         heightToggle.setText(bundle.getString("Planner.heightToggle.text")); // NOI18N
+        heightToggle.setFocusable(false);
         heightToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         heightToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         heightToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -461,6 +463,7 @@ public class Planner extends javax.swing.JFrame {
         floorsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         floorsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/011-parquet.png"))); // NOI18N
         floorsToggle.setText(bundle.getString("Planner.floorsToggle.text")); // NOI18N
+        floorsToggle.setFocusable(false);
         floorsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         floorsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         floorsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -475,6 +478,7 @@ public class Planner extends javax.swing.JFrame {
         wallsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         wallsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/015-fence.png"))); // NOI18N
         wallsToggle.setText(bundle.getString("Planner.wallsToggle.text")); // NOI18N
+        wallsToggle.setFocusable(false);
         wallsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         wallsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         wallsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -489,6 +493,7 @@ public class Planner extends javax.swing.JFrame {
         roofsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         roofsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/016-roof.png"))); // NOI18N
         roofsToggle.setText(bundle.getString("Planner.roofsToggle.text")); // NOI18N
+        roofsToggle.setFocusable(false);
         roofsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         roofsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         roofsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -503,6 +508,7 @@ public class Planner extends javax.swing.JFrame {
         objectsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         objectsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/014-armchair.png"))); // NOI18N
         objectsToggle.setText(bundle.getString("Planner.objectsToggle.text")); // NOI18N
+        objectsToggle.setFocusable(false);
         objectsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         objectsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         objectsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -517,6 +523,7 @@ public class Planner extends javax.swing.JFrame {
         animalsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         animalsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/012-bird.png"))); // NOI18N
         animalsToggle.setText(bundle.getString("Planner.animalsToggle.text")); // NOI18N
+        animalsToggle.setFocusable(false);
         animalsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         animalsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         animalsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -531,6 +538,7 @@ public class Planner extends javax.swing.JFrame {
         labelsToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         labelsToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/009-price-tag.png"))); // NOI18N
         labelsToggle.setText(bundle.getString("Planner.labelsToggle.text")); // NOI18N
+        labelsToggle.setFocusable(false);
         labelsToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         labelsToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         labelsToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -545,6 +553,7 @@ public class Planner extends javax.swing.JFrame {
         bordersToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         bordersToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/006-broken-lines-square-border.png"))); // NOI18N
         bordersToggle.setText(bundle.getString("Planner.bordersToggle.text")); // NOI18N
+        bordersToggle.setFocusable(false);
         bordersToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bordersToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         bordersToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -559,6 +568,7 @@ public class Planner extends javax.swing.JFrame {
         bridgesToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         bridgesToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/010-bridge.png"))); // NOI18N
         bridgesToggle.setText(bundle.getString("Planner.bridgesToggle.text")); // NOI18N
+        bridgesToggle.setFocusable(false);
         bridgesToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         bridgesToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         bridgesToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -573,6 +583,7 @@ public class Planner extends javax.swing.JFrame {
         symmetryToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         symmetryToggle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/008-horizontal-symmetry.png"))); // NOI18N
         symmetryToggle.setText(bundle.getString("Planner.symmetryToggle.text")); // NOI18N
+        symmetryToggle.setFocusable(false);
         symmetryToggle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         symmetryToggle.setMargin(new java.awt.Insets(2, 0, 2, 0));
         symmetryToggle.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -586,14 +597,19 @@ public class Planner extends javax.swing.JFrame {
         sidePanel.add(tabIconsPanel, java.awt.BorderLayout.NORTH);
 
         tabPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 3, 0, 3));
+        tabPanel.setFocusable(false);
         tabPanel.setLayout(new java.awt.CardLayout());
 
+        groundPanel.setFocusable(false);
         groundPanel.setName("ground"); // NOI18N
         groundPanel.setPreferredSize(new java.awt.Dimension(320, 587));
+
+        jScrollPane1.setFocusable(false);
 
         groundsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         groundsTree.setModel(new DefaultTreeModel(Data.groundsTree));
         groundsTree.setCellRenderer(null);
+        groundsTree.setFocusable(false);
         groundsTree.setRootVisible(false);
         groundsTree.setShowsRootHandles(true);
         groundsTree.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -602,6 +618,8 @@ public class Planner extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(groundsTree);
+
+        diagonalPanel.setFocusable(false);
 
         javax.swing.GroupLayout diagonalPanelLayout = new javax.swing.GroupLayout(diagonalPanel);
         diagonalPanel.setLayout(diagonalPanelLayout);
@@ -615,6 +633,7 @@ public class Planner extends javax.swing.JFrame {
         );
 
         groundModeCombo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        groundModeCombo.setFocusable(false);
         groundModeCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groundModeComboActionPerformed(evt);
@@ -624,16 +643,20 @@ public class Planner extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/004-mouse-left-button.png"))); // NOI18N
         jLabel9.setText(bundle.getString("Planner.jLabel9.text")); // NOI18N
+        jLabel9.setFocusable(false);
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pl/wurmonline/deedplanner/forms/icons/005-mouse-right-button.png"))); // NOI18N
         jLabel10.setText(bundle.getString("Planner.jLabel10.text")); // NOI18N
+        jLabel10.setFocusable(false);
 
         lmbSelectedGroundLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lmbSelectedGroundLabel.setText(bundle.getString("Planner.lmbSelectedGroundLabel.text")); // NOI18N
+        lmbSelectedGroundLabel.setFocusable(false);
 
         rmbSelectedGroundLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         rmbSelectedGroundLabel.setText(bundle.getString("Planner.rmbSelectedGroundLabel.text")); // NOI18N
+        rmbSelectedGroundLabel.setFocusable(false);
 
         javax.swing.GroupLayout groundPanelLayout = new javax.swing.GroupLayout(groundPanel);
         groundPanel.setLayout(groundPanelLayout);
@@ -674,13 +697,16 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(groundPanel, "ground");
 
+        heightPanel.setFocusable(false);
         heightPanel.setName("height"); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText(bundle.getString("Planner.jLabel1.text")); // NOI18N
+        jLabel1.setFocusable(false);
 
         heightLeftSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         heightLeftSpinner.setModel(new javax.swing.SpinnerNumberModel(5, null, null, 1));
+        heightLeftSpinner.setFocusable(false);
         heightLeftSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 heightLeftSpinnerStateChanged(evt);
@@ -689,6 +715,7 @@ public class Planner extends javax.swing.JFrame {
 
         heightRightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         heightRightSpinner.setModel(new javax.swing.SpinnerNumberModel(-5, null, null, 1));
+        heightRightSpinner.setFocusable(false);
         heightRightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 heightRightSpinnerStateChanged(evt);
@@ -697,9 +724,11 @@ public class Planner extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText(bundle.getString("Planner.jLabel2.text")); // NOI18N
+        jLabel2.setFocusable(false);
 
         addHeightSpinner.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         addHeightSpinner.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        addHeightSpinner.setFocusable(false);
         addHeightSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 addHeightSpinnerStateChanged(evt);
@@ -708,10 +737,14 @@ public class Planner extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText(bundle.getString("Planner.jLabel3.text")); // NOI18N
+        jLabel3.setFocusable(false);
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText(bundle.getString("Planner.jLabel4.text")); // NOI18N
+        jLabel4.setFocusable(false);
+
+        jScrollPane2.setFocusable(false);
 
         heightList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         heightList.setModel(new javax.swing.AbstractListModel() {
@@ -721,6 +754,7 @@ public class Planner extends javax.swing.JFrame {
         });
         heightList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         heightList.setFixedCellHeight(20);
+        heightList.setFocusable(false);
         heightList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 heightListValueChanged(evt);
@@ -728,14 +762,18 @@ public class Planner extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(heightList);
 
+        heightShow.setFocusable(false);
+
         jLabel7.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText(bundle.getString("Planner.jLabel7.text")); // NOI18N
+        jLabel7.setFocusable(false);
 
         heightEditGroup.add(heightRadio);
         heightRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         heightRadio.setSelected(true);
         heightRadio.setText(bundle.getString("Planner.heightRadio.text")); // NOI18N
+        heightRadio.setFocusable(false);
         heightRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 heightRadioActionPerformed(evt);
@@ -746,6 +784,7 @@ public class Planner extends javax.swing.JFrame {
         sizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         sizeRadio.setText(bundle.getString("Planner.sizeRadio.text")); // NOI18N
         sizeRadio.setEnabled(false);
+        sizeRadio.setFocusable(false);
         sizeRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sizeRadioActionPerformed(evt);
@@ -818,10 +857,14 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(heightPanel, "height");
 
+        floorsPanel.setFocusable(false);
         floorsPanel.setName("floors"); // NOI18N
+
+        jScrollPane3.setFocusable(false);
 
         floorsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorsTree.setModel(new DefaultTreeModel(Data.floorsTree));
+        floorsTree.setFocusable(false);
         floorsTree.setRootVisible(false);
         floorsTree.setShowsRootHandles(true);
         floorsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
@@ -832,6 +875,7 @@ public class Planner extends javax.swing.JFrame {
         jScrollPane3.setViewportView(floorsTree);
 
         floorsModeCombo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        floorsModeCombo.setFocusable(false);
         floorsModeCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 floorsModeComboActionPerformed(evt);
@@ -840,6 +884,7 @@ public class Planner extends javax.swing.JFrame {
 
         floorOrientationBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorOrientationBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Up", "Left", "Down", "Right" }));
+        floorOrientationBox.setFocusable(false);
         floorOrientationBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 floorOrientationBoxActionPerformed(evt);
@@ -848,6 +893,7 @@ public class Planner extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel6.setText(bundle.getString("Planner.jLabel6.text")); // NOI18N
+        jLabel6.setFocusable(false);
 
         javax.swing.GroupLayout floorsPanelLayout = new javax.swing.GroupLayout(floorsPanel);
         floorsPanel.setLayout(floorsPanelLayout);
@@ -875,10 +921,14 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(floorsPanel, "floors");
 
+        wallsPanel.setFocusable(false);
         wallsPanel.setName("walls"); // NOI18N
+
+        jScrollPane4.setFocusable(false);
 
         wallsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         wallsTree.setModel(new DefaultTreeModel(Data.wallsTree));
+        wallsTree.setFocusable(false);
         wallsTree.setRootVisible(false);
         wallsTree.setShowsRootHandles(true);
         wallsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
@@ -889,6 +939,7 @@ public class Planner extends javax.swing.JFrame {
         jScrollPane4.setViewportView(wallsTree);
 
         wallReversedBox.setText(bundle.getString("Planner.wallReversedBox.text")); // NOI18N
+        wallReversedBox.setFocusable(false);
         wallReversedBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wallReversedBoxActionPerformed(evt);
@@ -897,6 +948,7 @@ public class Planner extends javax.swing.JFrame {
 
         wallReversedAutoBox.setSelected(true);
         wallReversedAutoBox.setText(bundle.getString("Planner.wallReversedAutoBox.text")); // NOI18N
+        wallReversedAutoBox.setFocusable(false);
         wallReversedAutoBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wallReversedAutoBoxActionPerformed(evt);
@@ -925,7 +977,10 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(wallsPanel, "walls");
 
+        roofsPanel.setFocusable(false);
         roofsPanel.setName("roofs"); // NOI18N
+
+        jScrollPane5.setFocusable(false);
 
         roofsList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         roofsList.setModel(new javax.swing.AbstractListModel() {
@@ -935,6 +990,7 @@ public class Planner extends javax.swing.JFrame {
         });
         roofsList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         roofsList.setFixedCellHeight(20);
+        roofsList.setFocusable(false);
         roofsList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 roofsListValueChanged(evt);
@@ -955,10 +1011,14 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(roofsPanel, "roofs");
 
+        objectsPanel.setFocusable(false);
         objectsPanel.setName("objects"); // NOI18N
+
+        jScrollPane6.setFocusable(false);
 
         objectsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsTree.setModel(new DefaultTreeModel(Data.objectsTree));
+        objectsTree.setFocusable(false);
         objectsTree.setRootVisible(false);
         objectsTree.setShowsRootHandles(true);
         objectsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
@@ -970,9 +1030,11 @@ public class Planner extends javax.swing.JFrame {
 
         objectsSearchBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsSearchBox.setText(bundle.getString("Planner.objectsSearchBox.text")); // NOI18N
+        objectsSearchBox.setFocusable(false);
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel11.setText(bundle.getString("Planner.jLabel11.text")); // NOI18N
+        jLabel11.setFocusable(false);
 
         javax.swing.GroupLayout objectsPanelLayout = new javax.swing.GroupLayout(objectsPanel);
         objectsPanel.setLayout(objectsPanelLayout);
@@ -996,14 +1058,17 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(objectsPanel, "objects");
 
+        animalsPanel.setFocusable(false);
         animalsPanel.setName("animals"); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel12.setText(bundle.getString("Planner.jLabel12.text")); // NOI18N
+        jLabel12.setFocusable(false);
 
         animalSizeGroup.add(childAnimalSizeRadio);
         childAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         childAnimalSizeRadio.setText(bundle.getString("Planner.childAnimalSizeRadio.text")); // NOI18N
+        childAnimalSizeRadio.setFocusable(false);
         childAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 animalSizeRadioActionPerformed(evt);
@@ -1014,6 +1079,7 @@ public class Planner extends javax.swing.JFrame {
         adultAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         adultAnimalSizeRadio.setSelected(true);
         adultAnimalSizeRadio.setText(bundle.getString("Planner.adultAnimalSizeRadio.text")); // NOI18N
+        adultAnimalSizeRadio.setFocusable(false);
         adultAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 animalSizeRadioActionPerformed(evt);
@@ -1023,6 +1089,7 @@ public class Planner extends javax.swing.JFrame {
         animalSizeGroup.add(championAnimalSizeRadio);
         championAnimalSizeRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         championAnimalSizeRadio.setText(bundle.getString("Planner.championAnimalSizeRadio.text")); // NOI18N
+        championAnimalSizeRadio.setFocusable(false);
         championAnimalSizeRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 animalSizeRadioActionPerformed(evt);
@@ -1031,10 +1098,12 @@ public class Planner extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel13.setText(bundle.getString("Planner.jLabel13.text")); // NOI18N
+        jLabel13.setFocusable(false);
 
         animalSexGroup.add(maleAnimalSexRadio);
         maleAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         maleAnimalSexRadio.setText(bundle.getString("Planner.maleAnimalSexRadio.text")); // NOI18N
+        maleAnimalSexRadio.setFocusable(false);
         maleAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 animalGenderRadioActionPerformed(evt);
@@ -1045,6 +1114,7 @@ public class Planner extends javax.swing.JFrame {
         unisexAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         unisexAnimalSexRadio.setSelected(true);
         unisexAnimalSexRadio.setText(bundle.getString("Planner.unisexAnimalSexRadio.text")); // NOI18N
+        unisexAnimalSexRadio.setFocusable(false);
         unisexAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 animalGenderRadioActionPerformed(evt);
@@ -1054,14 +1124,18 @@ public class Planner extends javax.swing.JFrame {
         animalSexGroup.add(femaleAnimalSexRadio);
         femaleAnimalSexRadio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         femaleAnimalSexRadio.setText(bundle.getString("Planner.femaleAnimalSexRadio.text")); // NOI18N
+        femaleAnimalSexRadio.setFocusable(false);
         femaleAnimalSexRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 animalGenderRadioActionPerformed(evt);
             }
         });
 
+        jScrollPane9.setFocusable(false);
+
         animalsTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         animalsTree.setModel(new DefaultTreeModel(Data.animalsTree));
+        animalsTree.setFocusable(false);
         animalsTree.setRootVisible(false);
         animalsTree.setShowsRootHandles(true);
         animalsTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
@@ -1116,14 +1190,19 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(animalsPanel, "animals");
 
+        labelsPanel.setFocusable(false);
         labelsPanel.setName("labels"); // NOI18N
         tabPanel.add(labelsPanel, "labels");
 
+        bordersPanel.setFocusable(false);
         bordersPanel.setName("borders"); // NOI18N
+
+        jScrollPane7.setFocusable(false);
 
         bordersList.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         bordersList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         bordersList.setFixedCellHeight(20);
+        bordersList.setFocusable(false);
         bordersList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 bordersListValueChanged(evt);
@@ -1144,10 +1223,14 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(bordersPanel, "borders");
 
+        cavesPanel.setFocusable(false);
         cavesPanel.setName("caves"); // NOI18N
+
+        jScrollPane8.setFocusable(false);
 
         cavesTree.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         cavesTree.setModel(new DefaultTreeModel(Data.cavesTree));
+        cavesTree.setFocusable(false);
         cavesTree.setRootVisible(false);
         cavesTree.setShowsRootHandles(true);
         cavesTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
@@ -1170,9 +1253,11 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(cavesPanel, "caves");
 
+        symmetryPanel.setFocusable(false);
         symmetryPanel.setName("symmetry"); // NOI18N
         tabPanel.add(symmetryPanel, "symmetry");
 
+        bridgesPanel.setFocusable(false);
         bridgesPanel.setName("bridges"); // NOI18N
         tabPanel.add(bridgesPanel, "bridges");
 
@@ -1181,6 +1266,7 @@ public class Planner extends javax.swing.JFrame {
         sideHolderPanel.add(sidePanel, java.awt.BorderLayout.CENTER);
 
         floorSelectionPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        floorSelectionPanel.setFocusable(false);
         floorSelectionPanel.setPreferredSize(new java.awt.Dimension(40, 734));
         floorSelectionPanel.setLayout(new javax.swing.BoxLayout(floorSelectionPanel, javax.swing.BoxLayout.PAGE_AXIS));
 
@@ -1188,6 +1274,7 @@ public class Planner extends javax.swing.JFrame {
         upViewToggle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         upViewToggle.setSelected(true);
         upViewToggle.setText(bundle.getString("Planner.upViewToggle.text")); // NOI18N
+        upViewToggle.setFocusable(false);
         upViewToggle.setMargin(new java.awt.Insets(2, 2, 2, 2));
         upViewToggle.setMaximumSize(new java.awt.Dimension(99, 23));
         upViewToggle.addActionListener(new java.awt.event.ActionListener() {
@@ -1200,6 +1287,7 @@ public class Planner extends javax.swing.JFrame {
         viewSidebarGroup.add(fppViewToggle);
         fppViewToggle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         fppViewToggle.setText(bundle.getString("Planner.fppViewToggle.text")); // NOI18N
+        fppViewToggle.setFocusable(false);
         fppViewToggle.setMargin(new java.awt.Insets(2, 2, 2, 2));
         fppViewToggle.setMaximumSize(new java.awt.Dimension(99, 23));
         fppViewToggle.addActionListener(new java.awt.event.ActionListener() {
@@ -1212,6 +1300,7 @@ public class Planner extends javax.swing.JFrame {
         viewSidebarGroup.add(isoViewToggle);
         isoViewToggle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         isoViewToggle.setText(bundle.getString("Planner.isoViewToggle.text")); // NOI18N
+        isoViewToggle.setFocusable(false);
         isoViewToggle.setMargin(new java.awt.Insets(2, 2, 2, 2));
         isoViewToggle.setMaximumSize(new java.awt.Dimension(99, 23));
         isoViewToggle.addActionListener(new java.awt.event.ActionListener() {
@@ -1224,6 +1313,7 @@ public class Planner extends javax.swing.JFrame {
         viewSidebarGroup.add(wurmianViewToggle);
         wurmianViewToggle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         wurmianViewToggle.setText(bundle.getString("Planner.wurmianViewToggle.text")); // NOI18N
+        wurmianViewToggle.setFocusable(false);
         wurmianViewToggle.setMargin(new java.awt.Insets(2, 2, 2, 2));
         wurmianViewToggle.setMaximumSize(new java.awt.Dimension(99, 23));
         wurmianViewToggle.addActionListener(new java.awt.event.ActionListener() {
@@ -1237,6 +1327,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle16);
         floorToggle16.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle16.setText(bundle.getString("Planner.floorToggle16.text")); // NOI18N
+        floorToggle16.setFocusable(false);
         floorToggle16.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle16.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle16.addActionListener(new java.awt.event.ActionListener() {
@@ -1249,6 +1340,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle15);
         floorToggle15.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle15.setText(bundle.getString("Planner.floorToggle15.text")); // NOI18N
+        floorToggle15.setFocusable(false);
         floorToggle15.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle15.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle15.addActionListener(new java.awt.event.ActionListener() {
@@ -1261,6 +1353,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle14);
         floorToggle14.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle14.setText(bundle.getString("Planner.floorToggle14.text")); // NOI18N
+        floorToggle14.setFocusable(false);
         floorToggle14.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle14.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle14.addActionListener(new java.awt.event.ActionListener() {
@@ -1273,6 +1366,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle13);
         floorToggle13.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle13.setText(bundle.getString("Planner.floorToggle13.text")); // NOI18N
+        floorToggle13.setFocusable(false);
         floorToggle13.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle13.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle13.addActionListener(new java.awt.event.ActionListener() {
@@ -1285,6 +1379,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle12);
         floorToggle12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle12.setText(bundle.getString("Planner.floorToggle12.text")); // NOI18N
+        floorToggle12.setFocusable(false);
         floorToggle12.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle12.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle12.addActionListener(new java.awt.event.ActionListener() {
@@ -1297,6 +1392,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle11);
         floorToggle11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle11.setText(bundle.getString("Planner.floorToggle11.text")); // NOI18N
+        floorToggle11.setFocusable(false);
         floorToggle11.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle11.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle11.addActionListener(new java.awt.event.ActionListener() {
@@ -1309,6 +1405,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle10);
         floorToggle10.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle10.setText(bundle.getString("Planner.floorToggle10.text")); // NOI18N
+        floorToggle10.setFocusable(false);
         floorToggle10.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle10.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle10.addActionListener(new java.awt.event.ActionListener() {
@@ -1321,6 +1418,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle9);
         floorToggle9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle9.setText(bundle.getString("Planner.floorToggle9.text")); // NOI18N
+        floorToggle9.setFocusable(false);
         floorToggle9.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle9.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle9.addActionListener(new java.awt.event.ActionListener() {
@@ -1333,6 +1431,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle8);
         floorToggle8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle8.setText(bundle.getString("Planner.floorToggle8.text")); // NOI18N
+        floorToggle8.setFocusable(false);
         floorToggle8.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle8.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle8.addActionListener(new java.awt.event.ActionListener() {
@@ -1345,6 +1444,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle7);
         floorToggle7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle7.setText(bundle.getString("Planner.floorToggle7.text")); // NOI18N
+        floorToggle7.setFocusable(false);
         floorToggle7.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle7.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle7.addActionListener(new java.awt.event.ActionListener() {
@@ -1357,6 +1457,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle6);
         floorToggle6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle6.setText(bundle.getString("Planner.floorToggle6.text")); // NOI18N
+        floorToggle6.setFocusable(false);
         floorToggle6.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle6.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle6.addActionListener(new java.awt.event.ActionListener() {
@@ -1369,6 +1470,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle5);
         floorToggle5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle5.setText(bundle.getString("Planner.floorToggle5.text")); // NOI18N
+        floorToggle5.setFocusable(false);
         floorToggle5.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle5.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle5.addActionListener(new java.awt.event.ActionListener() {
@@ -1381,6 +1483,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle4);
         floorToggle4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle4.setText(bundle.getString("Planner.floorToggle4.text")); // NOI18N
+        floorToggle4.setFocusable(false);
         floorToggle4.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle4.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle4.addActionListener(new java.awt.event.ActionListener() {
@@ -1393,6 +1496,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle3);
         floorToggle3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle3.setText(bundle.getString("Planner.floorToggle3.text")); // NOI18N
+        floorToggle3.setFocusable(false);
         floorToggle3.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle3.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle3.addActionListener(new java.awt.event.ActionListener() {
@@ -1405,6 +1509,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggle2);
         floorToggle2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle2.setText(bundle.getString("Planner.floorToggle2.text")); // NOI18N
+        floorToggle2.setFocusable(false);
         floorToggle2.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle2.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle2.addActionListener(new java.awt.event.ActionListener() {
@@ -1418,6 +1523,7 @@ public class Planner extends javax.swing.JFrame {
         floorToggle1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggle1.setSelected(true);
         floorToggle1.setText(bundle.getString("Planner.floorToggle1.text")); // NOI18N
+        floorToggle1.setFocusable(false);
         floorToggle1.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggle1.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggle1.addActionListener(new java.awt.event.ActionListener() {
@@ -1431,6 +1537,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggleNegative1);
         floorToggleNegative1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggleNegative1.setText(bundle.getString("Planner.floorToggleNegative1.text")); // NOI18N
+        floorToggleNegative1.setFocusable(false);
         floorToggleNegative1.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggleNegative1.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggleNegative1.addActionListener(new java.awt.event.ActionListener() {
@@ -1443,6 +1550,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggleNegative2);
         floorToggleNegative2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggleNegative2.setText(bundle.getString("Planner.floorToggleNegative2.text")); // NOI18N
+        floorToggleNegative2.setFocusable(false);
         floorToggleNegative2.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggleNegative2.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggleNegative2.addActionListener(new java.awt.event.ActionListener() {
@@ -1455,6 +1563,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggleNegative3);
         floorToggleNegative3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggleNegative3.setText(bundle.getString("Planner.floorToggleNegative3.text")); // NOI18N
+        floorToggleNegative3.setFocusable(false);
         floorToggleNegative3.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggleNegative3.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggleNegative3.addActionListener(new java.awt.event.ActionListener() {
@@ -1467,6 +1576,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggleNegative4);
         floorToggleNegative4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggleNegative4.setText(bundle.getString("Planner.floorToggleNegative4.text")); // NOI18N
+        floorToggleNegative4.setFocusable(false);
         floorToggleNegative4.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggleNegative4.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggleNegative4.addActionListener(new java.awt.event.ActionListener() {
@@ -1479,6 +1589,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggleNegative5);
         floorToggleNegative5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggleNegative5.setText(bundle.getString("Planner.floorToggleNegative5.text")); // NOI18N
+        floorToggleNegative5.setFocusable(false);
         floorToggleNegative5.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggleNegative5.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggleNegative5.addActionListener(new java.awt.event.ActionListener() {
@@ -1491,6 +1602,7 @@ public class Planner extends javax.swing.JFrame {
         floorGroup.add(floorToggleNegative6);
         floorToggleNegative6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         floorToggleNegative6.setText(bundle.getString("Planner.floorToggleNegative6.text")); // NOI18N
+        floorToggleNegative6.setFocusable(false);
         floorToggleNegative6.setMargin(new java.awt.Insets(2, 2, 2, 2));
         floorToggleNegative6.setMaximumSize(new java.awt.Dimension(99, 23));
         floorToggleNegative6.addActionListener(new java.awt.event.ActionListener() {

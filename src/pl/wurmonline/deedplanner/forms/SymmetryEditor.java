@@ -115,14 +115,21 @@ public class SymmetryEditor extends javax.swing.JPanel {
         mirrorFloorsToggle = new javax.swing.JToggleButton();
         mirrorFloorsLabel = new javax.swing.JLabel();
 
+        setFocusable(false);
+
+        symInnerPanel.setFocusable(false);
         symInnerPanel.setMaximumSize(new java.awt.Dimension(245, 380));
+
+        borderLockingPanel.setFocusable(false);
 
         borderLockingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         borderLockingLabel.setText("Border Locking");
+        borderLockingLabel.setFocusable(false);
 
         borderButtons.add(northToggle);
         northToggle.setText("N");
         northToggle.setEnabled(false);
+        northToggle.setFocusable(false);
         northToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 northToggleActionPerformed(evt);
@@ -131,6 +138,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
 
         borderLockBtn.setText("Lock");
         borderLockBtn.setEnabled(false);
+        borderLockBtn.setFocusable(false);
         borderLockBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 borderLockBtnActionPerformed(evt);
@@ -140,6 +148,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
         borderButtons.add(westToggle);
         westToggle.setText("W");
         westToggle.setEnabled(false);
+        westToggle.setFocusable(false);
         westToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 westToggleActionPerformed(evt);
@@ -149,6 +158,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
         borderButtons.add(eastToggle);
         eastToggle.setText("E");
         eastToggle.setEnabled(false);
+        eastToggle.setFocusable(false);
         eastToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eastToggleActionPerformed(evt);
@@ -158,6 +168,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
         borderButtons.add(neToggle);
         neToggle.setText("NE");
         neToggle.setEnabled(false);
+        neToggle.setFocusable(false);
         neToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 neToggleActionPerformed(evt);
@@ -167,6 +178,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
         borderButtons.add(nwToggle);
         nwToggle.setText("NW");
         nwToggle.setEnabled(false);
+        nwToggle.setFocusable(false);
         nwToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nwToggleActionPerformed(evt);
@@ -176,6 +188,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
         borderButtons.add(seToggle);
         seToggle.setText("SE");
         seToggle.setEnabled(false);
+        seToggle.setFocusable(false);
         seToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seToggleActionPerformed(evt);
@@ -185,6 +198,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
         borderButtons.add(swToggle);
         swToggle.setText("SW");
         swToggle.setEnabled(false);
+        swToggle.setFocusable(false);
         swToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swToggleActionPerformed(evt);
@@ -194,6 +208,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
         borderButtons.add(southToggle);
         southToggle.setText("S");
         southToggle.setEnabled(false);
+        southToggle.setFocusable(false);
         southToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 southToggleActionPerformed(evt);
@@ -244,10 +259,14 @@ public class SymmetryEditor extends javax.swing.JPanel {
                     .addComponent(southToggle)))
         );
 
+        tileLockingPanel.setFocusable(false);
+
         TileLockingLabel.setText("Tile Locking");
+        TileLockingLabel.setFocusable(false);
 
         xTileLockBtn.setText("Lock X");
         xTileLockBtn.setEnabled(false);
+        xTileLockBtn.setFocusable(false);
         xTileLockBtn.setPreferredSize(new java.awt.Dimension(81, 23));
         xTileLockBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,6 +276,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
 
         yTileLockBtn.setText("Lock Y");
         yTileLockBtn.setEnabled(false);
+        yTileLockBtn.setFocusable(false);
         yTileLockBtn.setPreferredSize(new java.awt.Dimension(81, 23));
         yTileLockBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,6 +286,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
 
         xyTileLockBtn.setText("Lock X & Y");
         xyTileLockBtn.setEnabled(false);
+        xyTileLockBtn.setFocusable(false);
         xyTileLockBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xyTileLockBtnActionPerformed(evt);
@@ -298,11 +319,15 @@ public class SymmetryEditor extends javax.swing.JPanel {
                 .addGap(0, 4, Short.MAX_VALUE))
         );
 
+        jPanel1.setFocusable(false);
+
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
         xLockStatus.setText(bundle.getString("Planner.xSymLockStatusLabel.text")); // NOI18N
+        xLockStatus.setFocusable(false);
 
         clearAllBtn.setText(bundle.getString("Planner.ySymLockClearBtn.text")); // NOI18N
         clearAllBtn.setEnabled(false);
+        clearAllBtn.setFocusable(false);
         clearAllBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearAllBtnActionPerformed(evt);
@@ -311,6 +336,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
 
         xLockToggle.setText(bundle.getString("Planner.xSymLockToggle.text")); // NOI18N
         xLockToggle.setEnabled(false);
+        xLockToggle.setFocusable(false);
         xLockToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 xLockToggleActionPerformed(evt);
@@ -318,9 +344,11 @@ public class SymmetryEditor extends javax.swing.JPanel {
         });
 
         yLockStatus.setText(bundle.getString("Planner.ySymLockStatusLabel.text")); // NOI18N
+        yLockStatus.setFocusable(false);
 
         yLockToggle.setText(bundle.getString("Planner.ySymLockToggle.text")); // NOI18N
         yLockToggle.setEnabled(false);
+        yLockToggle.setFocusable(false);
         yLockToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yLockToggleActionPerformed(evt);
@@ -329,6 +357,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
 
         mirrorFloorsToggle.setText("Off");
         mirrorFloorsToggle.setEnabled(false);
+        mirrorFloorsToggle.setFocusable(false);
         mirrorFloorsToggle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mirrorFloorsToggleActionPerformed(evt);
@@ -336,6 +365,7 @@ public class SymmetryEditor extends javax.swing.JPanel {
         });
 
         mirrorFloorsLabel.setText("Mirror Floors");
+        mirrorFloorsLabel.setFocusable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
