@@ -66,9 +66,6 @@ public final class SimpleTex implements Tex {
     
     private SimpleTex(File file) {
         this.file = file;
-        Log.out(this, "Texture data starts loading!");
-        
-        loadTextureData();
     }
     
     private SimpleTex(String file) {

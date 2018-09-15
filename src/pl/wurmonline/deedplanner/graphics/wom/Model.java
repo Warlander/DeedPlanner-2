@@ -130,10 +130,7 @@ public final class Model implements Renderable {
             Material material = loadMaterial(buffer);
             
             //we need to load material first in order to keep the proper buffer position
-            if (data.isNameContaining("BoundingBox") ||
-                data.isNameContaining("PickingBox") ||
-                (data.isNameContaining("lod") && !data.isNameContaining("lod0")) ||
-                !isMeshIncluded(data.getName())) {
+            if (data.isNameContaining("BoundingBox") || data.isNameContaining("PickingBox") || (data.isNameContaining("lod") && !data.isNameContaining("lod0")) || !isMeshIncluded(data.getName())) {
                 continue;
             }
             

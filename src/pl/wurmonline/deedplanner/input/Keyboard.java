@@ -1,8 +1,8 @@
 package pl.wurmonline.deedplanner.input;
 
+import java.awt.Container;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import javax.media.opengl.awt.GLJPanel;
 
 public final class Keyboard implements KeyListener {
     
@@ -14,7 +14,7 @@ public final class Keyboard implements KeyListener {
     
     final boolean[] keysDown = new boolean[CACHE_SIZE];
     
-    public Keyboard(GLJPanel panel) {
+    public Keyboard(Container panel) {
         panel.addKeyListener(this);
     }
     
