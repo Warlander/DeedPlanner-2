@@ -811,6 +811,11 @@ public final class Map {
     void setTile(Tile tile, int x, int y, boolean undo) {
         Tile oldTile = tiles[x][y];
         tiles[x][y] = tile;
+        for (int i = -1; i <= 1; i++) {
+            for (int i2 = -1; i2 <= 1; i2++) {
+                tiles[x+i][y+i2].getGround().markDirty();
+            }
+        }
         
         if (undo) {
             addUndo(tile, oldTile);
