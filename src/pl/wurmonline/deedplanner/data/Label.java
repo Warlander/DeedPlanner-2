@@ -47,14 +47,15 @@ public class Label implements TileEntity {
         }
         Rectangle2D bounds = renderer.getBounds(text);
         final double scale = Properties.scale * 4.0 / Globals.glWindowHeight;
-            g.glPushMatrix();
-                g.glTranslated(2.0 - (bounds.getWidth()/2.0) * scale, 2.0 - (bounds.getHeight()/2.0) * scale, 0);
-                renderer.setColor(color.toAWTColor());
-                renderer.begin3DRendering();
-                    renderer.draw3D(text, 0, 0, 0, (float) scale);
-                renderer.end3DRendering();
-            g.glPopMatrix();
-        g.glEndList();
+        
+        g.glPushMatrix();
+            g.glTranslated(2.0 - (bounds.getWidth()/2.0) * scale, 2.0 - (bounds.getHeight()/2.0) * scale, 0);
+            renderer.setColor(color.toAWTColor());
+            renderer.begin3DRendering();
+                renderer.draw3D(text, 0, 0, 0, (float) scale);
+            renderer.end3DRendering();
+            g.glColor3f(1, 1, 1);
+        g.glPopMatrix();
     }
     
     public void serialize(Document doc, Element root) {
