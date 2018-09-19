@@ -130,7 +130,6 @@ public class LabelEditor extends javax.swing.JPanel {
         labelTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("pl/wurmonline/deedplanner/forms/Bundle"); // NOI18N
         labelTextField.setText(bundle.getString("LabelEditor.labelTextField.text")); // NOI18N
-        labelTextField.setFocusable(false);
 
         labelColorShow.setBackground(new java.awt.Color(255, 255, 255));
         labelColorShow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

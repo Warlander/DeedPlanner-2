@@ -1030,7 +1030,6 @@ public class Planner extends javax.swing.JFrame {
 
         objectsSearchBox.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         objectsSearchBox.setText(bundle.getString("Planner.objectsSearchBox.text")); // NOI18N
-        objectsSearchBox.setFocusable(false);
 
         jLabel11.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel11.setText(bundle.getString("Planner.jLabel11.text")); // NOI18N
@@ -1190,7 +1189,6 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(animalsPanel, "animals");
 
-        labelsPanel.setFocusable(false);
         labelsPanel.setName("labels"); // NOI18N
         tabPanel.add(labelsPanel, "labels");
 
@@ -1253,11 +1251,9 @@ public class Planner extends javax.swing.JFrame {
 
         tabPanel.add(cavesPanel, "caves");
 
-        symmetryPanel.setFocusable(false);
         symmetryPanel.setName("symmetry"); // NOI18N
         tabPanel.add(symmetryPanel, "symmetry");
 
-        bridgesPanel.setFocusable(false);
         bridgesPanel.setName("bridges"); // NOI18N
         tabPanel.add(bridgesPanel, "bridges");
 

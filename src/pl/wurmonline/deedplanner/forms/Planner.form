@@ -1703,7 +1703,6 @@
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                           <ResourceString bundle="pl/wurmonline/deedplanner/forms/Bundle.properties" key="Planner.objectsSearchBox.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
-                        <Property name="focusable" type="boolean" value="false"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel11">
@@ -1941,7 +1940,6 @@
                 </Container>
                 <Component class="pl.wurmonline.deedplanner.forms.LabelEditor" name="labelsPanel">
                   <Properties>
-                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="name" type="java.lang.String" value="labels" noResource="true"/>
                   </Properties>
                   <Constraints>
@@ -2063,7 +2061,6 @@
                 </Container>
                 <Component class="pl.wurmonline.deedplanner.forms.SymmetryEditor" name="symmetryPanel">
                   <Properties>
-                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="name" type="java.lang.String" value="symmetry" noResource="true"/>
                   </Properties>
                   <Constraints>
@@ -2074,7 +2071,6 @@
                 </Component>
                 <Component class="pl.wurmonline.deedplanner.forms.BridgesEditor" name="bridgesPanel">
                   <Properties>
-                    <Property name="focusable" type="boolean" value="false"/>
                     <Property name="name" type="java.lang.String" value="bridges" noResource="true"/>
                   </Properties>
                   <AuxValues>
