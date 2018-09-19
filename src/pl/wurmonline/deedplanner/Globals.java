@@ -5,7 +5,6 @@ import pl.wurmonline.deedplanner.data.AnimalGender;
 import pl.wurmonline.deedplanner.data.EntityOrientation;
 import pl.wurmonline.deedplanner.data.RoadDirection;
 import pl.wurmonline.deedplanner.graphics.Camera;
-import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.logic.Tab;
 
 public class Globals {

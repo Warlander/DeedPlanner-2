@@ -1,7 +1,6 @@
 package pl.wurmonline.deedplanner.logic.objects;
 
 import java.awt.event.KeyEvent;
-import java.awt.geom.Point2D;
 import org.joml.Vector2d;
 import org.joml.Vector2f;
 import org.joml.Vector3d;
@@ -9,7 +8,6 @@ import pl.wurmonline.deedplanner.Constants;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.graphics.Camera;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Keyboard;
 import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.Tab;

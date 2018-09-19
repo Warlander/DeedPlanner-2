@@ -4,7 +4,6 @@ import javax.media.opengl.GL2;
 import org.w3c.dom.*;
 import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
-import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.graphics.shaders.Program;
 import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
 

@@ -3,7 +3,6 @@ package pl.wurmonline.deedplanner.logic.height;
 import pl.wurmonline.deedplanner.data.Map;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.graphics.Camera;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.SelectionType;
 import pl.wurmonline.deedplanner.logic.TileFragment;

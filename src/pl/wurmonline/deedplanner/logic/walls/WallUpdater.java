@@ -4,7 +4,6 @@ import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.graphics.Camera;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Mouse;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 

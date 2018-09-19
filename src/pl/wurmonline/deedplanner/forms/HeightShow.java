@@ -5,7 +5,6 @@ import javax.swing.JComponent;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.Tile;
 import pl.wurmonline.deedplanner.graphics.Camera;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.logic.TileFragment;
 import pl.wurmonline.deedplanner.util.SwingUtils;
 

@@ -17,7 +17,6 @@ import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.graphics.CameraType;
-import pl.wurmonline.deedplanner.graphics.FPPCamera;
 import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 import pl.wurmonline.deedplanner.logic.*;
 import pl.wurmonline.deedplanner.logic.borders.BorderUpdater;

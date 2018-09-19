@@ -24,7 +24,6 @@ import pl.wurmonline.deedplanner.data.bridges.Bridge;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.data.storage.WAKData;
 import pl.wurmonline.deedplanner.graphics.Camera;
-import pl.wurmonline.deedplanner.graphics.CameraType;
 import pl.wurmonline.deedplanner.graphics.shaders.Program;
 import pl.wurmonline.deedplanner.graphics.shaders.Shaders;
 import pl.wurmonline.deedplanner.logic.Tab;

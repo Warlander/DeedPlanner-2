@@ -3,7 +3,6 @@ package pl.wurmonline.deedplanner.logic.roofs;
 import pl.wurmonline.deedplanner.Globals;
 import pl.wurmonline.deedplanner.data.*;
 import pl.wurmonline.deedplanner.graphics.Camera;
-import pl.wurmonline.deedplanner.graphics.UpCamera;
 import pl.wurmonline.deedplanner.input.Mouse;
 
 public class RoofUpdater {

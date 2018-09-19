@@ -2,7 +2,6 @@ package pl.wurmonline.deedplanner.graphics;
 
 import com.jogamp.common.nio.Buffers;
 import java.nio.FloatBuffer;
-import java.text.NumberFormat;
 import javax.media.opengl.GL2;
 import org.joml.Vector2f;
 import org.joml.Vector2i;
