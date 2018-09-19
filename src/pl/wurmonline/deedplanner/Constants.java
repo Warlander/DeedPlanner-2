@@ -11,7 +11,7 @@ public class Constants {
     
     public static final float HEIGHT_MOD = 10f;
     
-    public static final String VERSION_STRING = "2.9.4";
+    public static final String VERSION_STRING = "2.9.5";
     public static final String TITLE_STRING = "DeedPlanner " + VERSION_STRING;
     
     public static final String TREE_TYPE = "tree";
