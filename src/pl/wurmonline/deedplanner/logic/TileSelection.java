@@ -18,11 +18,21 @@ public class TileSelection {
     private static final ArrayList<Consumer<MapFragment>> listeners = new ArrayList<>();
     
     public static void update(Mouse mouse, Keyboard keyboard, Map map, Camera cam, SelectionType selectionType) {
+        // any tile from current map should always be available from TileSelection
+        if (selectedTile == null || selectedTile.getMap() != map) {
+            selectedTile = map.getTile(0, 0);
+            fragment = new MapFragment(map, selectedTile.getX(), selectedTile.getY(), selectedTile.getX(), selectedTile.getY());
+            listeners.stream().forEach((listener) -> {
+                listener.accept(fragment);
+            });
+        }
+        
+        if (mouse.pressed.left || mouse.pressed.right) {
+            selectedTile = cam.getHoveredTile();
+        }
+        
         switch (selectionType) {
             case MULTIPLE:
-                if (mouse.pressed.left || mouse.pressed.right) {
-                    selectedTile = cam.getHoveredTile();
-                }
                 if (mouse.hold.left || mouse.hold.right) {
                     int minX = Math.min(selectedTile.getX(), cam.getHoveredTile().getX());
                     int maxX = Math.max(selectedTile.getX(), cam.getHoveredTile().getX());
@@ -43,13 +53,10 @@ public class TileSelection {
                 }
                 break;
             case SINGLE:
-                if (mouse.hold.left || mouse.hold.right) {
-                    selectedTile = cam.getHoveredTile();
-                    fragment = new MapFragment(map, selectedTile.getX(), selectedTile.getY(), selectedTile.getX(), selectedTile.getY());
-                    listeners.stream().forEach((listener) -> {
-                        listener.accept(fragment);
-                    });
-                }
+                fragment = new MapFragment(map, selectedTile.getX(), selectedTile.getY(), selectedTile.getX(), selectedTile.getY());
+                listeners.stream().forEach((listener) -> {
+                    listener.accept(fragment);
+                });
                 break;
         }
     }
