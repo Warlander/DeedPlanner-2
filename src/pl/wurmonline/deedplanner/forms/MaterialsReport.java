@@ -41,6 +41,7 @@ public class MaterialsReport extends javax.swing.JFrame {
         materialsField.setColumns(20);
         materialsField.setLineWrap(true);
         materialsField.setRows(5);
+        materialsField.setWrapStyleWord(true);
         jScrollPane1.setViewportView(materialsField);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
