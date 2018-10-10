@@ -296,4 +296,9 @@ public class HeightUpdater {
         
         return model;
     }
+    
+    public static HeightMode getCurrentMode() {
+        return currentMode;
+    }
+    
 }

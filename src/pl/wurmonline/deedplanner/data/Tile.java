@@ -8,8 +8,10 @@ import pl.wurmonline.deedplanner.*;
 import pl.wurmonline.deedplanner.data.bridges.BridgePart;
 import pl.wurmonline.deedplanner.data.storage.Data;
 import pl.wurmonline.deedplanner.graphics.CameraType;
+import pl.wurmonline.deedplanner.logic.SelectionType;
 import pl.wurmonline.deedplanner.logic.Tab;
 import pl.wurmonline.deedplanner.logic.TileFragment;
+import pl.wurmonline.deedplanner.logic.height.HeightUpdater;
 import pl.wurmonline.deedplanner.logic.symmetry.Symmetry;
 import pl.wurmonline.deedplanner.util.*;
 
@@ -405,7 +407,11 @@ public final class Tile implements XMLSerializable {
     }
     
     public void renderSelection(GL2 g) {
-        if ((Globals.tab == Tab.labels || Globals.tab == Tab.height || Globals.tab == Tab.symmetry || Globals.tab == Tab.bridges)) {
+        if (Globals.tab == Tab.labels
+                || (Globals.tab == Tab.height && HeightUpdater.getCurrentMode().getSelectionType() != SelectionType.NONE)
+                || Globals.tab == Tab.symmetry
+                || Globals.tab == Tab.bridges) {
+            
             g.glDisable(GL2.GL_ALPHA_TEST);
             g.glEnable(GL2.GL_BLEND);
             g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
