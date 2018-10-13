@@ -1968,14 +1968,17 @@ public class Planner extends javax.swing.JFrame {
 
     private void heightLeftSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_heightLeftSpinnerStateChanged
         HeightUpdater.setLeft = (int) heightLeftSpinner.getModel().getValue();
+        mapPanel.grabFocus();
     }//GEN-LAST:event_heightLeftSpinnerStateChanged
 
     private void heightRightSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_heightRightSpinnerStateChanged
         HeightUpdater.setRight = (int) heightRightSpinner.getModel().getValue();
+        mapPanel.grabFocus();
     }//GEN-LAST:event_heightRightSpinnerStateChanged
 
     private void addHeightSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_addHeightSpinnerStateChanged
         HeightUpdater.add = (int) addHeightSpinner.getModel().getValue();
+        mapPanel.grabFocus();
     }//GEN-LAST:event_addHeightSpinnerStateChanged
 
     private void floorsTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_floorsTreeValueChanged
