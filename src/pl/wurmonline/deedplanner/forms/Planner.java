@@ -333,6 +333,8 @@ public class Planner extends javax.swing.JFrame {
         fppViewItem = new javax.swing.JRadioButtonMenuItem();
         isoViewItem = new javax.swing.JRadioButtonMenuItem();
         wurmianItem = new javax.swing.JRadioButtonMenuItem();
+        jSeparator8 = new javax.swing.JPopupMenu.Separator();
+        showGridMenuCheckbox = new javax.swing.JCheckBoxMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenu3 = new javax.swing.JMenu();
         treesAllItem = new javax.swing.JRadioButtonMenuItem();
@@ -1764,6 +1766,16 @@ public class Planner extends javax.swing.JFrame {
             }
         });
         jMenu8.add(wurmianItem);
+        jMenu8.add(jSeparator8);
+
+        showGridMenuCheckbox.setSelected(true);
+        showGridMenuCheckbox.setText(bundle.getString("Planner.showGridMenuCheckbox.text")); // NOI18N
+        showGridMenuCheckbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showGridMenuCheckboxActionPerformed(evt);
+            }
+        });
+        jMenu8.add(showGridMenuCheckbox);
         jMenu8.add(jSeparator2);
 
         jMenu3.setText(bundle.getString("Planner.jMenu3.text")); // NOI18N
@@ -2328,6 +2340,10 @@ public class Planner extends javax.swing.JFrame {
         
         labelsPanel.updatePanel(TileSelection.getMapFragment());
     }//GEN-LAST:event_floorToggleActionPerformed
+
+    private void showGridMenuCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showGridMenuCheckboxActionPerformed
+        Globals.showGrid = showGridMenuCheckbox.isSelected();
+    }//GEN-LAST:event_showGridMenuCheckboxActionPerformed
     
     private void applyObjectsTreeFilter() {
         String toFind = objectsSearchBox.getText();
@@ -2494,6 +2510,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
+    private javax.swing.JPopupMenu.Separator jSeparator8;
     private pl.wurmonline.deedplanner.forms.LabelEditor labelsPanel;
     private javax.swing.JToggleButton labelsToggle;
     private javax.swing.JLabel lmbSelectedGroundLabel;
@@ -2515,6 +2532,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JToggleButton roofsToggle;
     private javax.swing.JMenuItem saveItem;
     private javax.swing.ButtonGroup seasonGroup;
+    private javax.swing.JCheckBoxMenuItem showGridMenuCheckbox;
     private javax.swing.JPanel sideHolderPanel;
     private javax.swing.JPanel sidePanel;
     private javax.swing.JRadioButton sizeRadio;

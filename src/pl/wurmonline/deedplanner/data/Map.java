@@ -493,7 +493,7 @@ public final class Map {
             g.glDisable(GL2.GL_ALPHA_TEST);
             g.glEnable(GL2.GL_BLEND);
             g.glBlendFunc(GL2.GL_SRC_ALPHA, GL2.GL_ONE_MINUS_SRC_ALPHA);
-            if (Properties.showGrid) {
+            if (Globals.showGrid) {
                 renderGrid(g, camera);
             }
             g.glDisable(GL2.GL_BLEND);

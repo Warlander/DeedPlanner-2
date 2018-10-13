@@ -17,7 +17,6 @@ public class Properties {
     public static String lookAndFeel = "PGS";
     public static String lastDir = HOME;
     
-    public static boolean showGrid = true;
     public static boolean useTranslation = false;
     public static boolean colorblind = false;
     public static boolean showTip = false;

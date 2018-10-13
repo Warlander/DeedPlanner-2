@@ -9,6 +9,8 @@ import pl.wurmonline.deedplanner.logic.Tab;
 
 public class Globals {
     
+    public static boolean showGrid = true;
+    
     public static boolean renderBridgesEditing = true;
     
     public static boolean renderTreesSpectating = true;
