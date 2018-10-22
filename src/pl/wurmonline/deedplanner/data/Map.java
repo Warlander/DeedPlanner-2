@@ -496,8 +496,6 @@ public final class Map {
             if (Globals.showGrid) {
                 renderGrid(g, camera);
             }
-            g.glDisable(GL2.GL_BLEND);
-            g.glEnable(GL2.GL_ALPHA_TEST);
             
             for (int i=startX; i<=endX; i++) {
                 for (int i2=startY; i2<=endY; i2++) {
@@ -507,6 +505,9 @@ public final class Map {
                     g.glPopMatrix();
                 }
             }
+            g.glDisable(GL2.GL_BLEND);
+            g.glEnable(GL2.GL_ALPHA_TEST);
+            
             for (int i=startX; i<=endX; i++) {
                 for (int i2=startY; i2<=endY; i2++) {
                     if (TileSelection.getMapFragment()!=null && TileSelection.getMapFragment().contains(tiles[i][i2])) {

@@ -27,13 +27,16 @@ public class BorderData implements TileEntity {
         this.color = color;
     }
 
+    public void render(GL2 g, Tile tile) {
+        drawFunction.accept(g);
+    }
+    
     public Materials getMaterials() {
         return null;
     }
-
-    public void render(GL2 g, Tile tile) {
-        color.use(g);
-        drawFunction.accept(g);
+    
+    public Color getColor() {
+        return color;
     }
 
     public BorderData deepCopy() {

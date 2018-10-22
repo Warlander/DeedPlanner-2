@@ -1,6 +1,6 @@
 package pl.wurmonline.deedplanner.data;
 
-import java.util.*;
+import java.util.HashMap;
 import java.util.Map.Entry;
 import javax.media.opengl.GL2;
 import org.w3c.dom.*;
@@ -351,6 +351,8 @@ public final class Tile implements XMLSerializable {
     }
     
     public void render2d(GL2 g) {
+        float alpha = Math.max(0.2f, 1.0f - Properties.scale / 50.0f);
+        
         for (Entry<EntityData, TileEntity> e : entities.entrySet()) {
             EntityData key = e.getKey();
             TileEntity entity = e.getValue();
@@ -360,16 +362,16 @@ public final class Tile implements XMLSerializable {
                         g.glRotatef(90, 0, 0, 1);
                         BorderData vBorder = (BorderData) entity;
                         if (Globals.camera.isEditing()) {
+                            g.glColor4f(vBorder.getColor().r, vBorder.getColor().g, vBorder.getColor().b, alpha);
                             vBorder.render(g, this);
                         }
-                        g.glColor3f(1, 1, 1);
                         break;
                     case HBORDER:
                         BorderData hBorder = (BorderData) entity;
                         if (Globals.camera.isEditing()) {
+                            g.glColor4f(hBorder.getColor().r, hBorder.getColor().g, hBorder.getColor().b, alpha);
                             hBorder.render(g, this);
                         }
-                        g.glColor3f(1, 1, 1);
                         break;
                 }
             g.glPopMatrix();
