@@ -3,8 +3,6 @@ package pl.wurmonline.deedplanner;
 import com.jogamp.opengl.GL;
 import java.io.*;
 import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;

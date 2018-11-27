@@ -25,6 +25,9 @@
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <finalName>${project.artifactId}</finalName>
+                </configuration>
                 <executions>
                     <execution>
                         <id>make-assembly</id>
@@ -86,46 +89,24 @@
                             </resources>           
                         </configuration>            
                     </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.akathist.maven.plugins.launch4j</groupId>
-                <artifactId>launch4j-maven-plugin</artifactId>
-                <version>1.7.24</version>
-                <executions>
                     <execution>
-                        <id>l4j-gui</id>
+                        <id>copy-resources-exe</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>launch4j</goal>
+                            <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <headerType>gui</headerType>
-                            <outfile>${project.build.directory}/${project.build.finalName}/DeedPlanner.exe</outfile>
-                            <jar>./${project.build.finalName}.jar</jar>
-                            <dontWrapJar>true</dontWrapJar>
-                            <errTitle>Error in launch4j plugin</errTitle>
-                            <classPath>
-                                <mainClass>${project.build.mainClass}</mainClass>
-                            </classPath>
-                            <icon>Data/Logos/logoMOrig.ico</icon>
-                            <jre>
-                                <path>./Runtime</path>
-                                <minVersion>1.6.0</minVersion>
-                            </jre>
-                            <versionInfo>
-                                <fileVersion>1.0.0.0</fileVersion>
-                                <txtFileVersion>1.0.0.0</txtFileVersion>
-                                <fileDescription>Deed planning tool for Wurm Online and Unlimited</fileDescription>
-                                <copyright>Copyright (c) 2018 </copyright>
-                                <companyName>Wurm Online Polska</companyName>
-                                <productVersion>${project.version}.0</productVersion>
-                                <txtProductVersion>${project.version}.0</txtProductVersion>
-                                <productName>DeedPlanner</productName>
-                                <internalName>DeedPlanner</internalName>
-                                <originalFilename>DeedPlanner.exe</originalFilename>
-                            </versionInfo>
-                        </configuration>
+                            <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
+                            <resources>          
+                                <resource>
+                                    <directory>.</directory>
+                                    <filtering>false</filtering>
+                                    <includes>
+                                        <include>DeedPlanner.exe</include>
+                                    </includes>
+                                </resource>
+                            </resources>           
+                        </configuration>            
                     </execution>
                 </executions>
             </plugin>
