@@ -5,11 +5,7 @@ Deed planner/house calculator for Wurm Online - public repository.
 
 Program official forum thread: http://forum.wurmonline.com/index.php?/topic/79352-deedplanner-3d-house-and-deed-planner/
 
-<b>To be able to compile and run this program from source, please follow these steps:</b><br>
-1. You can use any IDE, but GUI is made using NetBeans Swing GUI designer, so you need to use NetBeans if you want to make any changes in it. All other files can be easily modified using other IDE.<br>
-2. After cloning project, import all libraries from "lib" folder.<br>
-3. Set run directory to "run directory".<br>
-4. Everything ready to go! You should be able to compile the project now.<br>
+You should be able to compile the application using any IDE with Maven support, but to visually edit GUI's you should use the NetBeans.
 
 <b>Project goals:</b><br>
 1. Creation of the most advanced, professional-looking deed planner for Wurm Online and Wurm Unlimited<br>
