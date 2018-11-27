@@ -351,6 +351,7 @@ public class Planner extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        debugExceptionMenuItem = new javax.swing.JMenuItem();
 
         tabGroup.add(cavesToggle);
         cavesToggle.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
@@ -1885,6 +1886,14 @@ public class Planner extends javax.swing.JFrame {
         });
         jMenu6.add(jMenuItem9);
 
+        debugExceptionMenuItem.setText(bundle.getString("Planner.debugExceptionMenuItem.text")); // NOI18N
+        debugExceptionMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                debugExceptionMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu6.add(debugExceptionMenuItem);
+
         jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
@@ -2347,6 +2356,10 @@ public class Planner extends javax.swing.JFrame {
     private void showGridMenuCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showGridMenuCheckboxActionPerformed
         Globals.showGrid = showGridMenuCheckbox.isSelected();
     }//GEN-LAST:event_showGridMenuCheckboxActionPerformed
+
+    private void debugExceptionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debugExceptionMenuItemActionPerformed
+        throw new DeedPlannerRuntimeException("This is a test runtime exception.");
+    }//GEN-LAST:event_debugExceptionMenuItemActionPerformed
     
     private void applyObjectsTreeFilter() {
         String toFind = objectsSearchBox.getText();
@@ -2420,6 +2433,7 @@ public class Planner extends javax.swing.JFrame {
     private javax.swing.JTree cavesTree;
     private javax.swing.JRadioButton championAnimalSizeRadio;
     private javax.swing.JRadioButton childAnimalSizeRadio;
+    private javax.swing.JMenuItem debugExceptionMenuItem;
     private pl.wurmonline.deedplanner.forms.DiagonalPanel diagonalPanel;
     private javax.swing.JLabel donateLabel;
     private javax.swing.ButtonGroup elevationGroup;
