@@ -380,6 +380,7 @@ public final class DataLoader {
             ArrayList<String[]> categories = new ArrayList<>();
             boolean wall;
             boolean show = true;
+            boolean entrance = false;
             
             Node entity = entities.item(i);
             
@@ -388,6 +389,7 @@ public final class DataLoader {
             shortName = map.getNamedItem("shortname").getNodeValue();
             tex = SimpleTex.getTexture(map.getNamedItem("tex").getNodeValue());
             wall = map.getNamedItem("type").getNodeValue().equals("wall");
+            entrance = map.getNamedItem("type").getNodeValue().equals("entrance");
             
             NodeList list = entity.getChildNodes();
             
@@ -404,7 +406,7 @@ public final class DataLoader {
             }
             
             Data.verifyShortname(shortName);
-            CaveData data = new CaveData(tex, name, shortName, wall, show);
+            CaveData data = new CaveData(tex, name, shortName, wall, show, entrance);
             Log.out(DataLoader.class, "Cave data "+data+" loaded and ready to use!");
             Data.caves.put(shortName, data);
             addToCategories(Data.cavesTree, categories, data, name);

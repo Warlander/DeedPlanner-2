@@ -18,18 +18,20 @@ public class CaveData implements TileEntity {
     public final String shortName;
     public final boolean wall;
     public final boolean show;
+    public final boolean entrance;
     
     public static CaveData get(Element cave) {
         String shortName = cave.getAttribute("id");
         return Data.caves.get(shortName);
     }
     
-    public CaveData(SimpleTex texture, String name, String shortName, boolean wall, boolean show) {
+    public CaveData(SimpleTex texture, String name, String shortName, boolean wall, boolean show, boolean entrance) {
         this.texture = texture;
         this.name = name;
         this.shortName = shortName;
         this.wall = wall;
         this.show = show;
+        this.entrance = entrance;
     }
     
     public Materials getMaterials() {
@@ -42,7 +44,13 @@ public class CaveData implements TileEntity {
         float h11 = (tile.getMap().getTile(tile, 1, 1).getCaveHeight()) / Constants.HEIGHT_MOD;
         float h01 = (tile.getMap().getTile(tile, 0, 1).getCaveHeight()) / Constants.HEIGHT_MOD;
         
-        texture.bind(g);
+        if (!entrance || (entrance && Globals.camera.getCameraType() == CameraType.TOP_VIEW)) {
+            texture.bind(g);
+        }
+        else {
+            CEILING_TEXTURE.bind(g);
+        }
+        
         if ((wall && show && Globals.camera.getCameraType() == CameraType.TOP_VIEW) || !wall) {
             if (wall) {
                 g.glColor3f(0.8f, 0.8f, 0.8f);
@@ -66,7 +74,14 @@ public class CaveData implements TileEntity {
             float ht10 = h10 + (tile.getMap().getTile(tile, 1, 0).getCaveSize()) / Constants.HEIGHT_MOD;
             float ht11 = h11 + (tile.getMap().getTile(tile, 1, 1).getCaveSize()) / Constants.HEIGHT_MOD;
             float ht01 = h01 + (tile.getMap().getTile(tile, 0, 1).getCaveSize()) / Constants.HEIGHT_MOD;
-            CEILING_TEXTURE.bind(g);
+            
+            if (entrance) {
+                texture.bind(g);
+            }
+            else {
+                CEILING_TEXTURE.bind(g);
+            }
+            
             g.glBegin(GL2.GL_QUADS);
                 g.glTexCoord2f(0, 0);
                 g.glVertex3f(0, 0, ht00);
@@ -77,6 +92,7 @@ public class CaveData implements TileEntity {
                 g.glTexCoord2f(0, 1);
                 g.glVertex3f(0, 4, ht01);
             g.glEnd();
+            
             if (tile.getMap().getTile(tile, 0, 1).getCaveEntity().wall) {
                 tile.getMap().getTile(tile, 0, 1).getCaveEntity().texture.bind(g);
                 g.glBegin(GL2.GL_QUADS);
@@ -90,6 +106,7 @@ public class CaveData implements TileEntity {
                     g.glVertex3d(4, 4, h11);
                 g.glEnd();
             }
+            
             if (tile.getMap().getTile(tile, 0, -1)!=null && tile.getMap().getTile(tile, 0, -1).getCaveEntity().wall) {
                 tile.getMap().getTile(tile, 0, -1).getCaveEntity().texture.bind(g);
                 g.glBegin(GL2.GL_QUADS);
@@ -103,6 +120,7 @@ public class CaveData implements TileEntity {
                     g.glVertex3d(4, 0, h10);
                 g.glEnd();
             }
+            
             if (tile.getMap().getTile(tile, 1, 0).getCaveEntity().wall) {
                 tile.getMap().getTile(tile, 1, 0).getCaveEntity().texture.bind(g);
                 g.glBegin(GL2.GL_QUADS);
@@ -116,6 +134,7 @@ public class CaveData implements TileEntity {
                     g.glVertex3d(4, 4, h11);
                 g.glEnd();
             }
+            
             if (tile.getMap().getTile(tile, -1, 0)!=null && tile.getMap().getTile(tile, -1, 0).getCaveEntity().wall) {
                 tile.getMap().getTile(tile, -1, 0).getCaveEntity().texture.bind(g);
                 g.glBegin(GL2.GL_QUADS);

@@ -673,7 +673,7 @@ public final class Tile implements XMLSerializable {
     }
     
     void setCaveSize(int size, boolean undo) {
-        if (size<30 || size>300) {
+        if (size < 0 || size > 300) {
             return;
         }
         if (this.caveSize!=size) {

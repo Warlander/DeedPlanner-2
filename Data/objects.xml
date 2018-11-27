@@ -230,19 +230,19 @@
 			<category>Infected terrain</category>
 		</ground>
 		<ground name="Wooden cave door" shortname="wcaDoor">
-			<tex location="Data/GroundTextures/door-wood.png"/>
+			<tex location="Data/GroundTextures/minedoor_wooden.png"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Metal cave door" shortname="mcaDoor">
-			<tex location="Data/GroundTextures/door-metal.png"/>
+			<tex location="Data/GroundTextures/minedoor_steel.png"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Silver cave door" shortname="scaDoor">
-			<tex location="Data/GroundTextures/door-silver.png"/>
+			<tex location="Data/GroundTextures/minedoor_silver.png"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Golden cave door" shortname="gcaDoor">
-			<tex location="Data/GroundTextures/door-gold.png"/>
+			<tex location="Data/GroundTextures/minedoor_gold.png"/>
 			<category>Cave doors</category>
 		</ground>
 		
@@ -6511,6 +6511,19 @@
 		</rock>
 		<rock name="Planks" shortname="pl" type="floor" tex="Data/GroundTextures/planks.png">
 			<category>Floors/Decorative</category>
+		</rock>
+		
+		<rock name="Wooden cave door" shortname="wcaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_wooden.png">
+			<category>Entrances</category>
+		</rock>
+		<rock name="Metal cave door" shortname="mcaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_steel.png">
+			<category>Entrances</category>
+		</rock>
+		<rock name="Silver cave door" shortname="scaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_silver.png">
+			<category>Entrances</category>
+		</rock>
+		<rock name="Golden cave door" shortname="gcaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_gold.png">
+			<category>Entrances</category>
 		</rock>
 		
 	</caves>
