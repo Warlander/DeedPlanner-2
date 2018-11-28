@@ -99,11 +99,8 @@
                             <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
                             <resources>          
                                 <resource>
-                                    <directory>.</directory>
+                                    <directory>src/main/launcher</directory>
                                     <filtering>false</filtering>
-                                    <includes>
-                                        <include>DeedPlanner.exe</include>
-                                    </includes>
                                 </resource>
                             </resources>           
                         </configuration>            
