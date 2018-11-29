@@ -1,6 +1,5 @@
 package pl.wurmonline.deedplanner.graphics.shaders;
 
-import com.sun.scenario.effect.impl.BufferUtil;
 import java.nio.ByteBuffer;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
@@ -91,7 +90,7 @@ public final class Program {
     public int getInt(GL2GL3 g, String name) {
         bind(g);
         int location = getUniformLocation(g, name);
-        IntBuffer buffer = BufferUtil.newIntBuffer(1);
+        IntBuffer buffer = IntBuffer.allocate(1);
         g.glGetUniformiv(programId, location, buffer);
         return buffer.get();
     }
@@ -105,7 +104,7 @@ public final class Program {
     public float getFloat(GL2GL3 g, String name) {
         bind(g);
         int location = getUniformLocation(g, name);
-        FloatBuffer buffer = BufferUtil.newFloatBuffer(1);
+        FloatBuffer buffer = FloatBuffer.allocate(1);
         g.glGetUniformfv(programId, location, buffer);
         return buffer.get();
     }
@@ -119,7 +118,7 @@ public final class Program {
     public Vector3f getVector3f(GL2GL3 g, String name) {
         bind(g);
         int location = getUniformLocation(g, name);
-        FloatBuffer buffer = BufferUtil.newFloatBuffer(3);
+        FloatBuffer buffer = FloatBuffer.allocate(3);
         g.glGetUniformfv(programId, location, buffer);
         return new Vector3f(buffer.get(), buffer.get(), buffer.get());
     }
@@ -127,7 +126,7 @@ public final class Program {
     public void setMatrix4f(GL2GL3 g, String name, Matrix4f value) {
         bind(g);
         int location = getUniformLocation(g, name);
-        FloatBuffer buffer = BufferUtil.newFloatBuffer(16);
+        FloatBuffer buffer = FloatBuffer.allocate(16);
         value.get(buffer);
         g.glUniformMatrix4fv(location, 1, false, buffer);
     }
@@ -135,7 +134,7 @@ public final class Program {
     public Matrix4f getMatrix4f(GL2GL3 g, String name) {
         bind(g);
         int location = getUniformLocation(g, name);
-        FloatBuffer buffer = BufferUtil.newFloatBuffer(16);
+        FloatBuffer buffer = FloatBuffer.allocate(16);
         g.glGetUniformfv(programId, location, buffer);
         Matrix4f matrix = new Matrix4f(buffer);
         return matrix;
