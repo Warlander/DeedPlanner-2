@@ -110,7 +110,13 @@
         </plugins>
     </build>
     <dependencies>
-        <dependency>
+	<!-- https://mvnrepository.com/artifact/com.javafx/scenario -->
+	<dependency>
+	    <groupId>com.javafx</groupId>
+	    <artifactId>scenario</artifactId>
+	    <version>1.0.1</version>
+	</dependency>    
+	<dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20180813</version>
