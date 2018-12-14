@@ -5327,6 +5327,11 @@
 		
 		<object name="Bee hive" shortname="hive" type="normal">
 			<model location="Data/Objects/Hive.wom"/>
+			<materials>
+				Shafts = 4,
+				Planks = 11,
+				Small nails = 1
+			</materials>
 			<category>Misc</category>
 			<category>Materials/Wood</category>
 		</object>
@@ -5350,6 +5355,11 @@
 				Logs = 4,
 				Stone bricks = 11
 			</materials>
+			<category>Misc</category>
+			<category>Materials/Stone</category>
+		</object>
+		<object name="Large Epic portal" shortname="lePortal" type="normal">
+			<model location="Data/Objects/epicportallarge.wom"/>
 			<category>Misc</category>
 			<category>Materials/Stone</category>
 		</object>
