@@ -448,9 +448,10 @@
 			<model location="Data/Floors/spiralStaircase.wom"/>
 			<opening/>
 			<materials>
-				Planks = 15,
-				Shafts = 10,
-				Small nails = 1,
+				﻿Planks = 20,
+				Stone bricks = 20,
+				Mortar = 20,
+				Small nails = 2,
 				Large nails = 1
 			</materials>
 			<category>Staircases</category>
@@ -459,9 +460,11 @@
 			<model location="Data/Floors/spiralStaircaseB.wom"/>
 			<opening/>
 			<materials>
-				Planks = 15,
-				Shafts = 10,
-				Small nails = 1,
+				Planks = 20,
+				Stone bricks = 20,
+				Shafts = 15,
+				Mortar = 20,
+				Small nails = 5,
 				Large nails = 1
 			</materials>
 			<category>Staircases</category>
@@ -470,9 +473,10 @@
 			<model location="Data/Floors/spiralStaircaseCC.wom"/>
 			<opening/>
 			<materials>
-				Planks = 15,
-				Shafts = 10,
-				Small nails = 1,
+				Planks = 20,
+				Stone bricks = 20,
+				Mortar = 20,
+				Small nails = 2,
 				Large nails = 1
 			</materials>
 			<category>Staircases</category>
@@ -481,9 +485,11 @@
 			<model location="Data/Floors/spiralStaircaseBCC.wom"/>
 			<opening/>
 			<materials>
-				Planks = 15,
-				Shafts = 10,
-				Small nails = 1,
+				Planks = 20,
+				Stone bricks = 20,
+				Shafts = 15,
+				Mortar = 20,
+				Small nails = 5,
 				Large nails = 1
 			</materials>
 			<category>Staircases</category>
