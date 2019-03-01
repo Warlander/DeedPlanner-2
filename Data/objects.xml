@@ -3602,6 +3602,112 @@
 			<icon location="Data/Walls/Icons/MapleHedge_Low.png"/>
 			<category>Hedges</category>
 		</wall>
+		<wall name="Medium camellia hedge" shortname="mcHedge" scale="1" type="highfence">
+			<model location="Data/Walls/HedgeCamellia_Medium.wom">
+				<override mesh="camelliaMediumMesh" texture="Data/Walls/CamelliaHedge.png"/>
+			</model>
+			<color type="dec" r="0.6" g="0.6" b="0.6"/>
+			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Low camellia hedge" shortname="lcHedge" scale="1" type="highfence">
+			<model location="Data/Walls/HedgeCamellia_Low.wom">
+				<override mesh="camelliaLow1Mesh" texture="Data/Walls/CamelliaHedge.png"/>
+			</model>
+			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="High cedar hedge" shortname="hc2Hedge" scale="1" type="highfence">
+			<model location="Data/Walls/cedarHigh.wom">
+				<override mesh="cedarHedgeMesh" texture="Data/Walls/cedar.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="0.5"/>
+			<icon location="Data/Walls/Icons/Hedge01_High.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Medium cedar hedge" shortname="mc2Hedge" scale="1" type="highfence">
+			<model location="Data/Walls/cedarMedium.wom">
+				<override mesh="cedarHedgeMediumMesh" texture="Data/Walls/cedar.png"/>
+			</model>
+			<color type="dec" r="0.6" g="0.6" b="0.6"/>
+			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Low cedar hedge" shortname="lc2Hedge" scale="1" type="highfence">
+			<model location="Data/Walls/cedarLow.wom">
+				<override mesh="cedarHedgeLowMesh" texture="Data/Walls/cedar.png"/>
+			</model>
+			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="High oleander hedge" shortname="hoHedge" scale="1" type="highfence">
+			<model location="Data/Walls/oleanderHigh.wom">
+				<override mesh="oleanderHighMesh" texture="Data/Walls/Hedge_Oleander.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="0.5"/>
+			<icon location="Data/Walls/Icons/Hedge01_High.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Medium oleander hedge" shortname="moHedge" scale="1" type="highfence">
+			<model location="Data/Walls/oleanderMedium.wom">
+				<override mesh="oleanderMediumMesh" texture="Data/Walls/Hedge_Oleander.png"/>
+			</model>
+			<color type="dec" r="0.6" g="0.6" b="0.6"/>
+			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Low oleander hedge" shortname="loHedge" scale="1" type="highfence">
+			<model location="Data/Walls/oleanderLow.wom">
+				<override mesh="oleanderLowMesh" texture="Data/Walls/Hedge_Oleander.png"/>
+			</model>
+			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="High rose hedge" shortname="hrHedge" scale="1" type="highfence">
+			<model location="Data/Walls/HedgeRose_High.wom">
+				<override mesh="roseHedge_HighMesh" texture="Data/Walls/Hedge_Rose.png"/>
+			</model>
+			<color type="dec" r="0.5" g="0.5" b="0.5"/>
+			<icon location="Data/Walls/Icons/Hedge01_High.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Medium rose hedge" shortname="mrHedge" scale="1" type="highfence">
+			<model location="Data/Walls/HedgeRose_Mature.wom">
+				<override mesh="roseHedge_MatureMesh" texture="Data/Walls/Hedge_Rose.png"/>
+			</model>
+			<color type="dec" r="0.6" g="0.6" b="0.6"/>
+			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Low rose hedge" shortname="lrHedge" scale="1" type="highfence">
+			<model location="Data/Walls/HedgeRose_Young.wom">
+				<override mesh="roseHedge_YoungMesh" texture="Data/Walls/Hedge_Rose.png"/>
+			</model>
+			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="High thorn hedge" shortname="htHedge" scale="1" type="highfence">
+			<model location="Data/Walls/HedgeThorn_High.wom"/>
+			<color type="dec" r="0.5" g="0.5" b="0.5"/>
+			<icon location="Data/Walls/Icons/Hedge01_High.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Medium thorn hedge" shortname="mtHedge" scale="1" type="highfence">
+			<model location="Data/Walls/HedgeThorn_Medium.wom"/>
+			<color type="dec" r="0.6" g="0.6" b="0.6"/>
+			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
+			<category>Hedges</category>
+		</wall>
+		<wall name="Low thorn hedge" shortname="ltHedge" scale="1" type="highfence">
+			<model location="Data/Walls/HedgeThorn_Low.wom"/>
+			<color type="dec" r="0.7" g="0.7" b="0.7"/>
+			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
+			<category>Hedges</category>
+		</wall>
 		
 		<wall name="Blue flowerbed" shortname="bFlowerbed" scale="1" type="highfence">
 			<model location="Data/Walls/Flowerbed_blue.wom"/>
