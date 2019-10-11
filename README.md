@@ -1,6 +1,8 @@
 DeedPlanner 2
 ============
 
+**This is final version of DeedPlanner 2. DeedPlanner 3 - reworked and improved version of the program made using Unity game engine - is available here: https://github.com/Warlander/DeedPlanner-3**
+
 Deed planner/house calculator for Wurm Online - public repository.
 
 Program official forum thread: http://forum.wurmonline.com/index.php?/topic/79352-deedplanner-3d-house-and-deed-planner/
