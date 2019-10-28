@@ -29,6 +29,7 @@ public class GLInit {
         capabilities = new GLCapabilities(profile);
         capabilities.setHardwareAccelerated(true);
         capabilities.setDoubleBuffered(true);
+        capabilities.setDepthBits(32);
         if (Properties.antialiasing>0) {
             capabilities.setSampleBuffers(true);
             capabilities.setNumSamples(Properties.antialiasing);
