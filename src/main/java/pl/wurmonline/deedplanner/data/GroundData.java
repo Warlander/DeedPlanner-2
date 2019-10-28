@@ -2,14 +2,17 @@ package pl.wurmonline.deedplanner.data;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import net.npe.dds.DDSReader;
 import pl.wurmonline.deedplanner.Properties;
 import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
+import pl.wurmonline.deedplanner.util.Log;
 
 public final class GroundData {
 
@@ -34,16 +37,35 @@ public final class GroundData {
         if (Properties.iconSize==0) {
             return null;
         }
-        else if (icon==null) {
-            try {
-                Image img = resizeImage(ImageIO.read(tex2d.getFile()), Properties.iconSize, Properties.iconSize);
-                icon = new ImageIcon(img);
-            } catch (IOException ex) {
-                Logger.getLogger(GroundData.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        else if (icon == null) {
+            BufferedImage unscaledImage = loadUnscaledImage();
+            Image scaledImage = resizeImage(unscaledImage, Properties.iconSize, Properties.iconSize);
+            icon = new ImageIcon(scaledImage);
+            Log.out(this, "Icon loaded!");
         }
         
         return icon;
+    }
+    
+    private BufferedImage loadUnscaledImage() {
+        try (FileInputStream fis = new FileInputStream(tex2d.getFile())) {
+            if (tex2d.getFile().getName().endsWith(".dds")) {
+                byte[] buffer = new byte[fis.available()];
+                fis.read(buffer);
+                int[] pixels = DDSReader.read(buffer, DDSReader.ARGB, 0);
+                int width = DDSReader.getWidth(buffer);
+                int height = DDSReader.getHeight(buffer);
+                BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+                img.setRGB(0, 0, width, height, pixels, 0, width);
+                return img;
+            }
+            else {
+                return ImageIO.read(fis);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(GroundData.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
     
     private Image resizeImage(BufferedImage originalImage, int width, int height){
