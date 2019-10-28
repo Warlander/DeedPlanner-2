@@ -139,13 +139,15 @@ public final class SimpleTex implements Tex {
         
         try {
             texture = TextureIO.newTexture(g, textureData);
+            
             if (file.getName().endsWith(".dds")) {
                 texture.setMustFlipVertically(true);
             }
             texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_S, GL2.GL_REPEAT);
             texture.setTexParameteri(g, GL2.GL_TEXTURE_WRAP_T, GL2.GL_REPEAT);
             texture.setTexParameteri(g, GL2.GL_TEXTURE_MAG_FILTER, GL2.GL_LINEAR);
-            texture.setTexParameteri(g, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR_MIPMAP_NEAREST);
+            texture.setTexParameteri(g, GL2.GL_TEXTURE_MIN_FILTER, GL2.GL_LINEAR_MIPMAP_LINEAR);
+            g.glGenerateMipmap(GL2.GL_TEXTURE_2D);
             Log.out(this, "Texture loaded and ready to use!");
             
             textureData = null;
@@ -162,7 +164,7 @@ public final class SimpleTex implements Tex {
         loading = true;
         backgroundTextureLoader.submit(() -> {
             try {
-                textureData = TextureIO.newTextureData(GLInit.getProfile(), file, true, null);
+                textureData = TextureIO.newTextureData(GLInit.getProfile(), file, false, null);
                 Log.out(this, "Texture data loaded!");
             } catch (IOException ex) {
                 Log.err(ex);

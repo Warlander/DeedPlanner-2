@@ -52,37 +52,6 @@ public class Ground implements TileEntity {
         dir = ground.dir;
     }
     
-    public void render(GL2 g, Tile tile, int listID) {
-        GroundData.TextureType textureType = getValidGroundTextureType();
-        
-        data.getTexture(textureType).bind(g);
-        if (dir!=RoadDirection.CENTER) {
-            if (dir==RoadDirection.NE || dir==RoadDirection.NW) {
-                Tile nTile = tile.getMap().getTile(tile, 0, -1);
-                if(nTile != null)
-                    nTile.getGround().data.getTexture(textureType).bind(g, 1);
-            }
-            else {
-                Tile nTile = tile.getMap().getTile(tile, 0, 1);
-                if(nTile != null)
-                    nTile.getGround().data.getTexture(textureType).bind(g, 1);
-            }
-            
-            if (dir==RoadDirection.NW || dir==RoadDirection.SW) {
-                Tile nTile = tile.getMap().getTile(tile, 1, 0);
-                if(nTile != null)
-                    nTile.getGround().data.getTexture(textureType).bind(g, 2);
-            }
-            else {
-                Tile nTile = tile.getMap().getTile(tile, -1, 0);
-                if(nTile != null)
-                    nTile.getGround().data.getTexture(textureType).bind(g, 2);
-            }
-        }
-        g.glCallList(listID);
-        g.glColor3f(1, 1, 1);
-    }
-    
     public void render(GL2 g, Tile tile) {
         GroundData.TextureType textureType = getValidGroundTextureType();
         
