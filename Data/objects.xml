@@ -1,277 +1,277 @@
 <entities>
 	<grounds>
 		<ground name="Grass" shortname="gr">
-			<tex location="Data/GroundTextures/grass.jpg"/>
+			<tex location="Data/GroundTextures/grass.dds"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Dirt" shortname="di">
-			<tex location="Data/GroundTextures/dirt.jpg"/>
+			<tex location="Data/GroundTextures/dirt.dds"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Packed dirt" shortname="pd">
-			<tex location="Data/GroundTextures/packed-dirt.jpg"/>
+			<tex location="Data/GroundTextures/packed.dds"/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Sand" shortname="sa">
-			<tex location="Data/GroundTextures/sand.jpg"/>
+			<tex location="Data/GroundTextures/sand.dds"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Water" shortname="wa">
-			<tex location="Data/GroundTextures/water.png"/>
+			<tex location="Data/GroundTextures/water.dds"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Forest" shortname="fo">
-			<tex location="Data/GroundTextures/forest.jpg"/>
+			<tex location="Data/GroundTextures/forest.dds"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Marsh" shortname="ma">
-			<tex location="Data/GroundTextures/marsh.png"/>
+			<tex location="Data/GroundTextures/marsh.dds"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Steppe" shortname="st">
-			<tex location="Data/GroundTextures/steppe.jpg"/>
+			<tex location="Data/GroundTextures/steppe.dds"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Tundra" shortname="tu">
-			<tex location="Data/GroundTextures/tundra.png"/>
+			<tex location="Data/GroundTextures/tundra.dds"/>
 			<category>Natural terrain</category>
 		</ground>
 		<ground name="Field" shortname="fi">
-			<tex location="Data/GroundTextures/farm.jpg"/>
+			<tex location="Data/GroundTextures/farm.dds"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Barley Field" shortname="bafi">
 			<tex location="Data/GroundTextures/2d-crop-barley.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Cabbage Field" shortname="cafi">
 			<tex location="Data/GroundTextures/2d-crop-cabbage.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Carrot Field" shortname="carfi">
 			<tex location="Data/GroundTextures/2d-crop-carrot.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Corn Field" shortname="cornfi">
 			<tex location="Data/GroundTextures/2d-crop-corn.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Cotton Field" shortname="cottfi">
 			<tex location="Data/GroundTextures/2d-crop-cotton.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Cucumber Field" shortname="cufi">
 			<tex location="Data/GroundTextures/2d-crop-cucumber.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Garlic Field" shortname="gafi">
 			<tex location="Data/GroundTextures/2d-crop-garlic.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Lettuce Field" shortname="lefi">
 			<tex location="Data/GroundTextures/2d-crop-lettuce.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Oat Field" shortname="oafi">
 			<tex location="Data/GroundTextures/2d-crop-oat.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Onion Field" shortname="onfi">
 			<tex location="Data/GroundTextures/2d-crop-onion.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Peapod Field" shortname="pefi">
 			<tex location="Data/GroundTextures/2d-crop-peapod.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Potato Field" shortname="pofi">
 			<tex location="Data/GroundTextures/2d-crop-potato.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Pumpkin Field" shortname="pufi">
 			<tex location="Data/GroundTextures/2d-crop-pumpkin.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Reed Field" shortname="refi">
 			<tex location="Data/GroundTextures/2d-crop-wemp.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Rice Field" shortname="rifi">
 			<tex location="Data/GroundTextures/2d-crop-rice.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Rye Field" shortname="ryfi">
 			<tex location="Data/GroundTextures/2d-crop-rye.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Strawberry Field" shortname="stfi">
 			<tex location="Data/GroundTextures/2d-crop-strawberry.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Sugarbeet Field" shortname="sufi">
 			<tex location="Data/GroundTextures/2d-crop-sugarbeet.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Tomato Field" shortname="tofi">
 			<tex location="Data/GroundTextures/2d-crop-tomato.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Wemp Field" shortname="wefi">
 			<tex location="Data/GroundTextures/2d-crop-wemp.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Wheat Field" shortname="whfi">
 			<tex location="Data/GroundTextures/2d-crop-wheat.jpg" target="editmode"/>
-			<tex location="Data/GroundTextures/farm.jpg" target="previewmode"/>
+			<tex location="Data/GroundTextures/farm.dds" target="previewmode"/>
 			<category>Farm</category>
 		</ground>
 		<ground name="Gravel" shortname="gv">
-			<tex location="Data/GroundTextures/gravel.jpg"/>
+			<tex location="Data/GroundTextures/gravel.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Cobblestone" shortname="cs">
-			<tex location="Data/GroundTextures/cobble.png"/>
+			<tex location="Data/GroundTextures/cobble.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Rough cobblestone" shortname="rcs">
-			<tex location="Data/GroundTextures/cobble2.png"/>
+			<tex location="Data/GroundTextures/cobble2.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Round cobblestone" shortname="csr">
-			<tex location="Data/GroundTextures/cobble3.png"/>
+			<tex location="Data/GroundTextures/cobble3.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Stone slab" shortname="sl">
-			<tex location="Data/GroundTextures/slab.jpg"/>
+			<tex location="Data/GroundTextures/slab.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Marble slab" shortname="msl">
-			<tex location="Data/GroundTextures/marbleslab.jpg"/>
+			<tex location="Data/GroundTextures/marbleslab.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Marble brick" shortname="mb">
-			<tex location="Data/GroundTextures/marbleBricks.png"/>
+			<tex location="Data/GroundTextures/marbleBricks.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Slate slab" shortname="ssl2">
-			<tex location="Data/GroundTextures/slateTiles.png"/>
+			<tex location="Data/GroundTextures/slateTiles.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Slate brick" shortname="ssl">
-			<tex location="Data/GroundTextures/slateslab.jpg"/>
+			<tex location="Data/GroundTextures/slatebricks.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Sandstone slab" shortname="sas">
-			<tex location="Data/GroundTextures/sandstoneslab.png"/>
+			<tex location="Data/GroundTextures/sandstoneslab.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Sandstone brick" shortname="sab">
-			<tex location="Data/GroundTextures/sandstonebrick.png"/>
+			<tex location="Data/GroundTextures/sandstonebrick.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Pottery brick" shortname="pb">
-			<tex location="Data/GroundTextures/potterybrickpaving.png"/>
+			<tex location="Data/GroundTextures/potterybrickpaving.dds"/>
 			<diagonal/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Planks" shortname="pl">
-			<tex location="Data/GroundTextures/planks.png"/>
+			<tex location="Data/GroundTextures/planks.dds"/>
 			<category>Roads</category>
 		</ground>
 		<ground name="Enchanted forest" shortname="ef">
-			<tex location="Data/GroundTextures/enchantedforest.jpg"/>
+			<tex location="Data/GroundTextures/enchantedforest.dds"/>
 			<category>Enchanted terrain</category>
 		</ground>
 		<ground name="Enchanted grass" shortname="eg">
-			<tex location="Data/GroundTextures/enchantedgrass.jpg"/>
+			<tex location="Data/GroundTextures/enchantedgrass.dds"/>
 			<category>Enchanted terrain</category>
 		</ground>
 		<ground name="Lawn" shortname="lw">
-			<tex location="Data/GroundTextures/lawn.png"/>
+			<tex location="Data/GroundTextures/lawn.dds"/>
 			<category>Enchanted terrain</category>
 		</ground>
 		<ground name="Forest mycelium" shortname="fm">
-			<tex location="Data/GroundTextures/forest-Mycelium.jpg"/>
+			<tex location="Data/GroundTextures/forest-Mycelium.dds"/>
 			<category>Infected terrain</category>
 		</ground>
 		<ground name="Mycelium" shortname="my">
-			<tex location="Data/GroundTextures/mycelium.jpg"/>
+			<tex location="Data/GroundTextures/mycelium.dds"/>
 			<category>Infected terrain</category>
 		</ground>
 		<ground name="Wooden cave door" shortname="wcaDoor">
-			<tex location="Data/GroundTextures/minedoor_wooden.png"/>
+			<tex location="Data/GroundTextures/minedoor_wooden.dds"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Metal cave door" shortname="mcaDoor">
-			<tex location="Data/GroundTextures/minedoor_steel.png"/>
+			<tex location="Data/GroundTextures/minedoor_steel.dds"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Silver cave door" shortname="scaDoor">
-			<tex location="Data/GroundTextures/minedoor_silver.png"/>
+			<tex location="Data/GroundTextures/minedoor_silver.dds"/>
 			<category>Cave doors</category>
 		</ground>
 		<ground name="Golden cave door" shortname="gcaDoor">
-			<tex location="Data/GroundTextures/minedoor_gold.png"/>
+			<tex location="Data/GroundTextures/minedoor_gold.dds"/>
 			<category>Cave doors</category>
 		</ground>
 		
 		<ground name="Rock" shortname="ro">
-			<tex location="Data/GroundTextures/rock.jpg"/>
+			<tex location="Data/GroundTextures/rock.dds"/>
 			<category>Natural terrain/Mountain</category>
 		</ground>
 		<ground name="Cliff" shortname="cl">
-			<tex location="Data/GroundTextures/cliff.jpg"/>
+			<tex location="Data/GroundTextures/cliff.dds"/>
 			<category>Natural terrain/Mountain</category>
 		</ground>
 		<ground name="Lava" shortname="la">
-			<tex location="Data/GroundTextures/lava.jpg"/>
+			<tex location="Data/GroundTextures/lava.dds"/>
 			<category>Natural terrain/Mountain</category>
 		</ground>
 		<ground name="Clay" shortname="cy">
-			<tex location="Data/GroundTextures/clay.jpg"/>
+			<tex location="Data/GroundTextures/clay.dds"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 		<ground name="Moss" shortname="mo">
-			<tex location="Data/GroundTextures/moss.png"/>
+			<tex location="Data/GroundTextures/moss.dds"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 		<ground name="Peat" shortname="pe">
-			<tex location="Data/GroundTextures/peat.jpg"/>
+			<tex location="Data/GroundTextures/peat.dds"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 		<ground name="Tar" shortname="ta">
-			<tex location="Data/GroundTextures/tar.jpg"/>
+			<tex location="Data/GroundTextures/tar.dds"/>
 			<category>Natural terrain/Resources</category>
 		</ground>
 	</grounds>
@@ -2735,7 +2735,7 @@
 				Stone bricks = 15,
 				Iron fence bars = 2,
 				Small wheel = 2,
-				Cordage rope = 1
+				Cordage ropes = 1
 			</materials>
 			<icon location="Data/Walls/Icons/TallStoneWallPortCullis.png"/>
 			<category>Fences</category>
@@ -2750,7 +2750,7 @@
 				Slate bricks = 15,
 				Iron fence bars = 2,
 				Small wheel = 2,
-				Cordage rope = 1
+				Cordage ropes = 1
 			</materials>
 			<icon location="Data/Walls/Icons/slate/TallStoneWallPortCullis.png"/>
 			<category>Fences</category>
@@ -2765,7 +2765,7 @@
 				Marble bricks = 15,
 				Iron fence bars = 2,
 				Small wheel = 2,
-				Cordage rope = 1
+				Cordage ropes = 1
 			</materials>
 			<icon location="Data/Walls/Icons/marble/TallStoneWallPortCullis.png"/>
 			<category>Fences</category>
@@ -2780,7 +2780,7 @@
 				Sandstone bricks = 15,
 				Iron fence bars = 2,
 				Small wheel = 2,
-				Cordage rope = 1
+				Cordage ropes = 1
 			</materials>
 			<icon location="Data/Walls/Icons/sand/TallStoneWallPortCullis.png"/>
 			<category>Fences</category>
@@ -2795,7 +2795,7 @@
 				Pottery bricks = 15,
 				Iron fence bars = 2,
 				Small wheel = 2,
-				Cordage rope = 1
+				Cordage ropes = 1
 			</materials>
 			<icon location="Data/Walls/Icons/brick/TallStoneWallPortCullis.png"/>
 			<category>Fences</category>
@@ -2810,7 +2810,7 @@
 				Rounded stones = 15,
 				Iron fence bars = 2,
 				Small wheel = 2,
-				Cordage rope = 1
+				Cordage ropes = 1
 			</materials>
 			<icon location="Data/Walls/Icons/rounded/TallStoneWallPortCullis.png"/>
 			<category>Fences</category>
@@ -2825,7 +2825,7 @@
 				Stone bricks = 15,
 				Iron fence bars = 2,
 				Small wheel = 2,
-				Cordage rope = 1,
+				Cordage ropes = 1,
 				Clay = 10
 			</materials>
 			<icon location="Data/Walls/Icons/rend/TallStoneWallPortCullis.png"/>
@@ -3603,89 +3603,67 @@
 			<category>Hedges</category>
 		</wall>
 		<wall name="Medium camellia hedge" shortname="mcHedge" scale="1" type="highfence">
-			<model location="Data/Walls/HedgeCamellia_Medium.wom">
-				<override mesh="camelliaMediumMesh" texture="Data/Walls/CamelliaHedge.png"/>
-			</model>
+			<model location="Data/Walls/HedgeCamellia_Medium.wom"/>
 			<color type="dec" r="0.6" g="0.6" b="0.6"/>
 			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Low camellia hedge" shortname="lcHedge" scale="1" type="highfence">
-			<model location="Data/Walls/HedgeCamellia_Low.wom">
-				<override mesh="camelliaLow1Mesh" texture="Data/Walls/CamelliaHedge.png"/>
-			</model>
+			<model location="Data/Walls/HedgeCamellia_Low.wom"/>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
 			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="High cedar hedge" shortname="hc2Hedge" scale="1" type="highfence">
-			<model location="Data/Walls/cedarHigh.wom">
-				<override mesh="cedarHedgeMesh" texture="Data/Walls/cedar.png"/>
-			</model>
+			<model location="Data/Walls/cedarHigh.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="0.5"/>
 			<icon location="Data/Walls/Icons/Hedge01_High.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Medium cedar hedge" shortname="mc2Hedge" scale="1" type="highfence">
-			<model location="Data/Walls/cedarMedium.wom">
-				<override mesh="cedarHedgeMediumMesh" texture="Data/Walls/cedar.png"/>
-			</model>
+			<model location="Data/Walls/cedarMedium.wom"/>
 			<color type="dec" r="0.6" g="0.6" b="0.6"/>
 			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Low cedar hedge" shortname="lc2Hedge" scale="1" type="highfence">
-			<model location="Data/Walls/cedarLow.wom">
-				<override mesh="cedarHedgeLowMesh" texture="Data/Walls/cedar.png"/>
-			</model>
+			<model location="Data/Walls/cedarLow.wom"/>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
 			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="High oleander hedge" shortname="hoHedge" scale="1" type="highfence">
-			<model location="Data/Walls/oleanderHigh.wom">
-				<override mesh="oleanderHighMesh" texture="Data/Walls/Hedge_Oleander.png"/>
-			</model>
+			<model location="Data/Walls/oleanderHigh.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="0.5"/>
 			<icon location="Data/Walls/Icons/Hedge01_High.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Medium oleander hedge" shortname="moHedge" scale="1" type="highfence">
-			<model location="Data/Walls/oleanderMedium.wom">
-				<override mesh="oleanderMediumMesh" texture="Data/Walls/Hedge_Oleander.png"/>
-			</model>
+			<model location="Data/Walls/oleanderMedium.wom"/>
 			<color type="dec" r="0.6" g="0.6" b="0.6"/>
 			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Low oleander hedge" shortname="loHedge" scale="1" type="highfence">
-			<model location="Data/Walls/oleanderLow.wom">
-				<override mesh="oleanderLowMesh" texture="Data/Walls/Hedge_Oleander.png"/>
-			</model>
+			<model location="Data/Walls/oleanderLow.wom"/>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
 			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="High rose hedge" shortname="hrHedge" scale="1" type="highfence">
-			<model location="Data/Walls/HedgeRose_High.wom">
-				<override mesh="roseHedge_HighMesh" texture="Data/Walls/Hedge_Rose.png"/>
-			</model>
+			<model location="Data/Walls/HedgeRose_High.wom"/>
 			<color type="dec" r="0.5" g="0.5" b="0.5"/>
 			<icon location="Data/Walls/Icons/Hedge01_High.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Medium rose hedge" shortname="mrHedge" scale="1" type="highfence">
-			<model location="Data/Walls/HedgeRose_Mature.wom">
-				<override mesh="roseHedge_MatureMesh" texture="Data/Walls/Hedge_Rose.png"/>
-			</model>
+			<model location="Data/Walls/HedgeRose_Mature.wom"/>
 			<color type="dec" r="0.6" g="0.6" b="0.6"/>
 			<icon location="Data/Walls/Icons/Hedge01_Medium.png"/>
 			<category>Hedges</category>
 		</wall>
 		<wall name="Low rose hedge" shortname="lrHedge" scale="1" type="highfence">
-			<model location="Data/Walls/HedgeRose_Young.wom">
-				<override mesh="roseHedge_YoungMesh" texture="Data/Walls/Hedge_Rose.png"/>
-			</model>
+			<model location="Data/Walls/HedgeRose_Young.wom"/>
 			<color type="dec" r="0.7" g="0.7" b="0.7"/>
 			<icon location="Data/Walls/Icons/Hedge01_Low.png"/>
 			<category>Hedges</category>
@@ -3844,6 +3822,43 @@
 			<category>Containers/Barrels</category>
 			<category>Materials/Wood</category>
 		</object>
+		
+		<object name="Small barrel rack (empty)" shortname="barRackE" type="normal">
+			<model location="Data/Objects/barrelRackEmpty.wom"/>
+			<materials>
+				Large nails = 1,
+				Wooden beams = 2
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Small barrel rack" shortname="barRack" type="normal">
+			<model location="Data/Objects/barrelRack.wom"/>
+			<materials>
+				Large nails = 1,
+				Wooden beams = 2
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Wine barrel rack (empty)" shortname="wineRackE" type="normal">
+			<model location="Data/Objects/wineRackEmpty.wom"/>
+			<materials>
+				Large nails = 1,
+				Wooden beams = 2
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Wine barrel rack" shortname="wineRack" type="normal">
+			<model location="Data/Objects/wineRack.wom"/>
+			<materials>
+				Large nails = 1,
+				Wooden beams = 2
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
 		<object name="Amphora rack" shortname="aRack" type="normal">
 			<model location="Data/Objects/shelfAmphora.wom"/>
 			<materials>
@@ -3938,6 +3953,26 @@
 		</object>
 		<object name="Polearms rack (full)" shortname="pRackF" type="normal">
 			<model location="Data/Objects/spearrackfull.wom"/>
+			<materials>
+				Planks = 10,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Fishing rod rack (empty)" shortname="fRackE" type="normal">
+			<model location="Data/Objects/spearrackempty.wom"/>
+			<materials>
+				Planks = 10,
+				Small nails = 1,
+				Pegs = 7
+			</materials>
+			<category>Containers/Racks and Stands</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Fishing rod rack (full)" shortname="fRackF" type="normal">
+			<model location="Data/Objects/rodRack_Full.wom"/>
 			<materials>
 				Planks = 10,
 				Small nails = 1,
@@ -4068,6 +4103,17 @@
 			<category>Containers</category>
 			<category>Materials/Wood</category>
 		</object>
+		<object name="Cupboard" shortname="cupboard" type="normal">
+			<model location="Data/Objects/Cupboard_main.wom"/>
+			<materials>
+				Planks = 5,
+				Small nails = 3,
+				Shafts = 2,
+				Tar = 2
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
 		<object name="Alchemist's cupboard" shortname="aCupboard" type="normal">
 			<model location="Data/Objects/alchemyCupboard.wom"/>
 			<materials>
@@ -4103,6 +4149,27 @@
 			</materials>
 			<category>Containers</category>
 			<category>Materials/Wood</category>
+		</object>
+		<object name="Chicken coop" shortname="coop" type="normal">
+			<model location="Data/Objects/CoopNoEggs.wom"/>
+			<materials>
+				Planks = 30,
+				Small nails = 1,
+				Large nails = 5,
+				Shafts = 8
+			</materials>
+			<category>Containers</category>
+			<category>Materials/Wood</category>
+		</object>
+		<object name="Small Amphora" shortname="ampSmall" type="normal">
+			<model location="Data/Objects/Amphora02.wom"/>
+			<category>Containers</category>
+			<category>Materials/Pottery</category>
+		</object>
+		<object name="Large Amphora" shortname="ampLarge" type="normal">
+			<model location="Data/Objects/Amphora01.wom"/>
+			<category>Containers</category>
+			<category>Materials/Pottery</category>
 		</object>
 		
 		<object name="Gold altar" shortname="gAltar" type="normal">
@@ -4143,7 +4210,7 @@
 			<category>Materials/Wood</category>
 		</object>
 		
-		<object name="Camellia" shortname="cam" type="bush">
+		<object name="Camellia bush" shortname="cam" type="bush">
 			<model location="Data/Objects/camellia.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
@@ -4151,7 +4218,7 @@
 			<model location="Data/Objects/grapebush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Lavender" shortname="laven" type="bush">
+		<object name="Lavender bush" shortname="laven" type="bush">
 			<model location="Data/Objects/lavenderBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
@@ -4159,210 +4226,301 @@
 			<model location="Data/Objects/rose.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Oleander" shortname="olea" type="bush">
+		<object name="Oleander bush" shortname="olea" type="bush">
 			<model location="Data/Objects/oleanderBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Thorn" shortname="thorn" type="bush">
+		<object name="Thorn bush" shortname="thorn" type="bush">
 			<model location="Data/Objects/thornbush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Blueberry" shortname="blueberry" type="bush">
+		<object name="Blueberry bush" shortname="blueberry" type="bush">
 			<model location="Data/Objects/blueberryBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Hazel" shortname="hazel" type="bush">
+		<object name="Hazel bush" shortname="hazel" type="bush">
 			<model location="Data/Objects/hazelBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Lingonberry" shortname="lingonberry" type="bush">
+		<object name="Lingonberry bush" shortname="lingonberry" type="bush">
 			<model location="Data/Objects/lingonberryBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
-		<object name="Raspberry" shortname="raspberry" type="bush">
+		<object name="Raspberry bush" shortname="raspberry" type="bush">
 			<model location="Data/Objects/raspberryBush.wom" scale="3"/>
 			<category>Bushes</category>
 		</object>
 		
-		<object name="Willow (small)" shortname="willS" type="tree">
+		<object name="Willow tree (small)" shortname="willS" type="tree">
 			<model location="Data/Objects/willowTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Willow" shortname="will" type="tree">
+		<object name="Willow tree" shortname="will" type="tree">
 			<model location="Data/Objects/willowTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Willow (big)" shortname="willB" type="tree">
+		<object name="Willow tree (big)" shortname="willB" type="tree">
 			<model location="Data/Objects/willowTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Pine (small)" shortname="pineS" type="tree">
+		<object name="Pine tree (small)" shortname="pineS" type="tree">
 			<model location="Data/Objects/pineTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Pine" shortname="pine" type="tree">
+		<object name="Pine tree" shortname="pine" type="tree">
 			<model location="Data/Objects/pineTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Pine (big)" shortname="pineB" type="tree">
+		<object name="Pine tree (big)" shortname="pineB" type="tree">
 			<model location="Data/Objects/pineTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Oak (small)" shortname="oakS" type="tree">
+		<object name="Oak tree (small)" shortname="oakS" type="tree">
 			<model location="Data/Objects/oakTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Oak" shortname="oak" type="tree">
+		<object name="Oak tree" shortname="oak" type="tree">
 			<model location="Data/Objects/oakTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Oak (big)" shortname="oakB" type="tree">
+		<object name="Oak tree (big)" shortname="oakB" type="tree">
 			<model location="Data/Objects/oakTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Maple (small)" shortname="mapleS" type="tree">
+		<object name="Maple tree (small)" shortname="mapleS" type="tree">
 			<model location="Data/Objects/mapleTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Maple" shortname="maple" type="tree">
+		<object name="Maple tree" shortname="maple" type="tree">
 			<model location="Data/Objects/mapleTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Maple (big)" shortname="mapleB" type="tree">
+		<object name="Maple tree (big)" shortname="mapleB" type="tree">
 			<model location="Data/Objects/mapleTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Cedar (small)" shortname="cedarS" type="tree">
+		<object name="Cedar tree (small)" shortname="cedarS" type="tree">
 			<model location="Data/Objects/cedarTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Cedar" shortname="cedar" type="tree">
+		<object name="Cedar tree" shortname="cedar" type="tree">
 			<model location="Data/Objects/cedarTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Cedar (big)" shortname="cedarB" type="tree">
+		<object name="Cedar tree (big)" shortname="cedarB" type="tree">
 			<model location="Data/Objects/cedarTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Birch (small)" shortname="birchS" type="tree">
+		<object name="Birch tree (small)" shortname="birchS" type="tree">
 			<model location="Data/Objects/birchTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Birch" shortname="birch" type="tree">
+		<object name="Birch tree" shortname="birch" type="tree">
 			<model location="Data/Objects/birchTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Birch (big)" shortname="birchB" type="tree">
+		<object name="Birch tree (big)" shortname="birchB" type="tree">
 			<model location="Data/Objects/birchTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Walnut (small)" shortname="walnutS" type="tree">
+		<object name="Walnut tree (small)" shortname="walnutS" type="tree">
 			<model location="Data/Objects/walnutTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Walnut" shortname="walnut" type="tree">
+		<object name="Walnut tree" shortname="walnut" type="tree">
 			<model location="Data/Objects/walnutTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Walnut (big)" shortname="walnutB" type="tree">
+		<object name="Walnut tree (big)" shortname="walnutB" type="tree">
 			<model location="Data/Objects/walnutTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Linden (small)" shortname="lindenS" type="tree">
+		<object name="Linden tree (small)" shortname="lindenS" type="tree">
 			<model location="Data/Objects/lindenTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Linden" shortname="linden" type="tree">
+		<object name="Linden tree" shortname="linden" type="tree">
 			<model location="Data/Objects/lindenTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Linden (big)" shortname="lindenB" type="tree">
+		<object name="Linden tree (big)" shortname="lindenB" type="tree">
 			<model location="Data/Objects/lindenTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Fir (small)" shortname="firS" type="tree">
+		<object name="Fir tree (small)" shortname="firS" type="tree">
 			<model location="Data/Objects/firTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Fir" shortname="fir" type="tree">
+		<object name="Fir tree" shortname="fir" type="tree">
 			<model location="Data/Objects/firTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Fir (big)" shortname="firB" type="tree">
+		<object name="Fir tree (big)" shortname="firB" type="tree">
 			<model location="Data/Objects/firTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Chestnut (small)" shortname="chestnutS" type="tree">
+		<object name="Chestnut tree (small)" shortname="chestnutS" type="tree">
 			<model location="Data/Objects/chestnutTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Chestnut" shortname="chestnut" type="tree">
+		<object name="Chestnut tree" shortname="chestnut" type="tree">
 			<model location="Data/Objects/chestnutTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Chestnut (big)" shortname="chestnutB" type="tree">
+		<object name="Chestnut tree (big)" shortname="chestnutB" type="tree">
 			<model location="Data/Objects/chestnutTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Apple (small)" shortname="appS" type="tree">
+		<object name="Apple tree (small)" shortname="appS" type="tree">
 			<model location="Data/Objects/AppleTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Apple" shortname="app" type="tree">
+		<object name="Apple tree" shortname="app" type="tree">
 			<model location="Data/Objects/AppleTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Apple (big)" shortname="appB" type="tree">
+		<object name="Apple tree (big)" shortname="appB" type="tree">
 			<model location="Data/Objects/AppleTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Cherry (small)" shortname="cherryS" type="tree">
+		<object name="Cherry tree (small)" shortname="cherryS" type="tree">
 			<model location="Data/Objects/CherryTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Cherry" shortname="cherry" type="tree">
+		<object name="Cherry tree" shortname="cherry" type="tree">
 			<model location="Data/Objects/CherryTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Cherry (big)" shortname="cherryB" type="tree">
+		<object name="Cherry tree (big)" shortname="cherryB" type="tree">
 			<model location="Data/Objects/CherryTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Lemon (small)" shortname="lemonS" type="tree">
+		<object name="Lemon tree (small)" shortname="lemonS" type="tree">
 			<model location="Data/Objects/LemonTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Lemon" shortname="lemon" type="tree">
+		<object name="Lemon tree" shortname="lemon" type="tree">
 			<model location="Data/Objects/LemonTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Lemon (big)" shortname="lemonB" type="tree">
+		<object name="Lemon tree (big)" shortname="lemonB" type="tree">
 			<model location="Data/Objects/LemonTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Olive (small)" shortname="oliveS" type="tree">
+		<object name="Olive tree (small)" shortname="oliveS" type="tree">
 			<model location="Data/Objects/OliveTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Olive" shortname="olive" type="tree">
+		<object name="Olive tree" shortname="olive" type="tree">
 			<model location="Data/Objects/OliveTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Olive (big)" shortname="oliveB" type="tree">
+		<object name="Olive tree (big)" shortname="oliveB" type="tree">
 			<model location="Data/Objects/OliveTree.wom" scale="16"/>
 			<category>Trees</category>
 		</object>
-		<object name="Orange (small)" shortname="orangeS" type="tree">
+		<object name="Orange tree (small)" shortname="orangeS" type="tree">
 			<model location="Data/Objects/orangeTree.wom" scale="4"/>
 			<category>Trees</category>
 		</object>
-		<object name="Orange" shortname="orange" type="tree">
+		<object name="Orange tree" shortname="orange" type="tree">
 			<model location="Data/Objects/orangeTree.wom" scale="8"/>
 			<category>Trees</category>
 		</object>
-		<object name="Orange (big)" shortname="orangeB" type="tree">
+		<object name="Orange tree (big)" shortname="orangeB" type="tree">
 			<model location="Data/Objects/orangeTree.wom" scale="16"/>
 			<category>Trees</category>
+		</object>
+		
+		<object name="Coral tree (small)" shortname="coralS" type="tree">
+			<model location="Data/Objects/Jackal/Trees/coralTree.wom" scale="4"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Coral tree" shortname="coral" type="tree">
+			<model location="Data/Objects/Jackal/Trees/coralTree.wom" scale="8"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Coral tree (big)" shortname="coralB" type="tree">
+			<model location="Data/Objects/Jackal/Trees/coralTree.wom" scale="16"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Desolate tree (small)" shortname="desoS" type="tree">
+			<model location="Data/Objects/Jackal/Trees/desolateTree.wom" scale="4"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Desolate tree" shortname="deso" type="tree">
+			<model location="Data/Objects/Jackal/Trees/desolateTree.wom" scale="8"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Desolate tree (big)" shortname="desoB" type="tree">
+			<model location="Data/Objects/Jackal/Trees/desolateTree.wom" scale="16"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Frond tree (small)" shortname="frondS" type="tree">
+			<model location="Data/Objects/Jackal/Trees/frondTree.wom" scale="4"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Frond tree" shortname="frond" type="tree">
+			<model location="Data/Objects/Jackal/Trees/frondTree.wom" scale="8"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Frond tree (big)" shortname="frondB" type="tree">
+			<model location="Data/Objects/Jackal/Trees/frondTree.wom" scale="16"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Rock tree (small)" shortname="rocktS" type="tree">
+			<model location="Data/Objects/Jackal/Trees/rockTree.wom" scale="4"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Rock tree" shortname="rockt" type="tree">
+			<model location="Data/Objects/Jackal/Trees/rockTree.wom" scale="8"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Rock tree (big)" shortname="rocktB" type="tree">
+			<model location="Data/Objects/Jackal/Trees/rockTree.wom" scale="16"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Spiky tree (small)" shortname="spikyS" type="tree">
+			<model location="Data/Objects/Jackal/Trees/spikyTree.wom" scale="4"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Spiky tree" shortname="spiky" type="tree">
+			<model location="Data/Objects/Jackal/Trees/spikyTree.wom" scale="8"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Spiky tree (big)" shortname="spikyB" type="tree">
+			<model location="Data/Objects/Jackal/Trees/spikyTree.wom" scale="16"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Tulip tree (small)" shortname="tulipS" type="tree">
+			<model location="Data/Objects/Jackal/Trees/tulipTree.wom" scale="4"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Tulip tree" shortname="tulip" type="tree">
+			<model location="Data/Objects/Jackal/Trees/tulipTree.wom" scale="8"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Tulip tree (big)" shortname="tulipB" type="tree">
+			<model location="Data/Objects/Jackal/Trees/tulipTree.wom" scale="16"/>
+			<category>Trees/Jackal</category>
+			<category>Jackal</category>
 		</object>
 		
 		<object name="Fountain" shortname="foun" type="normal">
@@ -4426,36 +4584,66 @@
 			<category>Statues/HOTA</category>
 		</object>
 		
-		<object name="Eagle statue" shortname="eaglearch" type="normal">
+		<object name="Statue of eagle" shortname="eaglearch" type="normal">
 			<model location="Data/Objects/eagleStatue.wom"/>
 			<category>Statues/Archaeology</category>
 		</object>
-		<object name="Hatchling statue" shortname="hatchlingarch" type="normal">
+		<object name="Statue of drake" shortname="hatchlingarch" type="normal">
 			<model location="Data/Objects/hatchlingStatue.wom"/>
 			<category>Statues/Archaeology</category>
 		</object>
-		<object name="Hell horse statue" shortname="hellhorsearch" type="normal">
+		<object name="Statue of hell horse" shortname="hellhorsearch" type="normal">
 			<model location="Data/Objects/hellHorseStatue.wom"/>
 			<category>Statues/Archaeology</category>
 		</object>
-		<object name="Worg statue" shortname="worgarch" type="normal">
+		<object name="Statue of worg" shortname="worgarch" type="normal">
 			<model location="Data/Objects/worgStatue.wom"/>
 			<category>Statues/Archaeology</category>
 		</object>
-		<object name="Fo statue" shortname="foarch" type="normal">
+		<object name="Statue of Fo" shortname="foarch" type="normal">
 			<model location="Data/Objects/foStatue.wom"/>
 			<category>Statues/Archaeology</category>
 		</object>
-		<object name="Libila statue" shortname="libilaarch" type="normal">
+		<object name="Statue of Libila" shortname="libilaarch" type="normal">
 			<model location="Data/Objects/libilaStatue.wom"/>
 			<category>Statues/Archaeology</category>
 		</object>
-		<object name="Magranon statue" shortname="magarch" type="normal">
+		<object name="Statue of Magranon" shortname="magarch" type="normal">
 			<model location="Data/Objects/magStatue.wom"/>
 			<category>Statues/Archaeology</category>
 		</object>
-		<object name="Vynora statue" shortname="vynarch" type="normal">
+		<object name="Statue of Vynora" shortname="vynarch" type="normal">
 			<model location="Data/Objects/vynStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Statue of guard" shortname="guardarch" type="normal">
+			<model location="Data/Objects/guardStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Statue of kyklops" shortname="kyklopsarch" type="normal">
+			<model location="Data/Objects/kyklopsStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Statue of lava fiend" shortname="fiendarch" type="normal">
+			<model location="Data/Objects/fiendStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Statue of mountain lion" shortname="lionarch" type="normal">
+			<model location="Data/Objects/lionStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Statue of rift beast" shortname="beastarch" type="normal">
+			<model location="Data/Objects/beastStatue.wom"/>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Statue of Tich (metal)" shortname="ticharch" type="normal">
+			<model location="Data/Objects/statuePifa.wom">
+				<override mesh="statuePifaMesh" texture="Data/Objects/pifaStatueMetal.dds"/>
+			</model>
+			<category>Statues/Archaeology</category>
+		</object>
+		<object name="Statue of unicorn" shortname="uniarch" type="normal">
+			<model location="Data/Objects/unicornStatue.wom"/>
 			<category>Statues/Archaeology</category>
 		</object>
 		
@@ -4494,12 +4682,38 @@
 			<category>Statues</category>
 			<category>Materials/Stone</category>
 		</object>
+		<object name="Statue of Tich (stone)" shortname="statTich" type="normal">
+			<model location="Data/Objects/statuePifa.wom"/>
+			<category>Statues</category>
+			<category>Materials/Stone</category>
+		</object>
 		
 		<object name="Freedom wagon" shortname="wagonFree" type="normal">
 			<model location="Data/Objects/Wagon_main.wom">
 				<override mesh="TentMesh" texture="Data/Objects/wagon_cloth_free.dds"/>
 			</model>
 			<category>Vehicles/Wagons</category>
+		</object>
+		<object name="Jenn-Kellon wagon" shortname="wagonJK" type="normal">
+			<model location="Data/Objects/Wagon_main.wom">
+				<override mesh="TentMesh" texture="Data/Objects/wagon_cloth_jenn.dds"/>
+			</model>
+			<category>Vehicles/Wagons</category>
+			<category>Kingdoms/Jenn-Kellon</category>
+		</object>
+		<object name="Horde of The Summoned wagon" shortname="wagonHoTS" type="normal">
+			<model location="Data/Objects/Wagon_main.wom">
+				<override mesh="TentMesh" texture="Data/Objects/wagon_cloth_hots.dds"/>
+			</model>
+			<category>Vehicles/Wagons</category>
+			<category>Kingdoms/Horde of The Summoned</category>
+		</object>
+		<object name="Mol-Rehan wagon" shortname="wagonMR" type="normal">
+			<model location="Data/Objects/Wagon_main.wom">
+				<override mesh="TentMesh" texture="Data/Objects/wagon_cloth_molr.dds"/>
+			</model>
+			<category>Vehicles/Wagons</category>
+			<category>Kingdoms/Mol-Rehan</category>
 		</object>
 		
 		<object name="Small cart" shortname="sCart" type="normal">
@@ -4617,7 +4831,12 @@
 		</object>
 		<object name="Archery tower" shortname="archGT" type="centered">
 			<model location="Data/Objects/archeryTower.wom"/>
-			
+			<materials>
+				Logs = 20,
+				Wooden beams = 20,
+				Planks = 201,
+				Large nails = 7
+			</materials>
 			<category>Towers</category>
 			<category>Materials/Stone</category>
 		</object>
@@ -4847,7 +5066,7 @@
 			</materials>
 			<category>Fires</category>
 		</object>
-		<object name="Fireplace" shortname="fPlace" type="normal">
+		<object name="Open fireplace" shortname="fPlace" type="normal">
 			<model location="Data/Objects/Fireplace.wom"/>
 			<materials>
 				Planks = 2,
@@ -4954,6 +5173,10 @@
 		</object>
 		<object name="Marble brazier pillar" shortname="mBrazier" type="normal">
 			<model location="Data/Objects/BrazierPillar.wom"/>
+			<materials>
+				Mortar = 50,
+				Marble bricks = 50
+			</materials>
 			<category>Braziers</category>
 		</object>
 
@@ -5030,82 +5253,135 @@
 		</object>
 		
 		<object name="Tapestry stand" shortname="tStand" type="normal">
-			<model location="Data/Objects/tapestry_stand.wom"/>
+			<model location="Data/Objects/Tapestries/tapestry_stand.wom"/>
 			<materials>
-				Tapestry stand = 1
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2
+			</materials>
+			<category>Tapestries</category>
+		</object>
+		<object name="Tapestry of Ehizellbob" shortname="tEhizellbob" type="normal">
+			<model location="Data/Objects/Tapestries/tapestry2.wom"/>
+			<materials>
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
+				Square piece of wool cloth = 8,
+				Yarn = 6
+			</materials>
+			<category>Tapestries</category>
+		</object>
+		<object name="Tapestry of Evening" shortname="tEvening" type="normal">
+			<model location="Data/Objects/Tapestries/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestries/TapestryEve.dds"/>
+			</model>
+			<materials>
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
+				Square piece of wool cloth = 8,
+				Yarn = 6
 			</materials>
 			<category>Tapestries</category>
 		</object>
 		<object name="Tapestry of Faeldray" shortname="tFaeldray" type="normal">
-			<model location="Data/Objects/tapestry.wom">
-				<override mesh="tapestryMeshMesh" texture="Data/Objects/TapestryComp1.png"/>
+			<model location="Data/Objects/Tapestries/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestries/TapestryComp1.dds"/>
 			</model>
 			<materials>
-				Tapestry stand = 1,
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
+				Square piece of wool cloth = 8,
+				Yarn = 6
+			</materials>
+			<category>Tapestries</category>
+		</object>
+		<object name="Tapestry of Mclavin" shortname="tMclavin" type="normal">
+			<model location="Data/Objects/Tapestries/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestries/TapestryMc.dds"/>
+			</model>
+			<materials>
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
 				Square piece of wool cloth = 8,
 				Yarn = 6
 			</materials>
 			<category>Tapestries</category>
 		</object>
 		<object name="Green tapestry" shortname="tGreen" type="normal">
-			<model location="Data/Objects/tapestry.wom"/>
+			<model location="Data/Objects/Tapestries/tapestry.wom"/>
 			<materials>
-				Tapestry stand = 1,
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
 				Square piece of wool cloth = 8,
 				Yarn = 6
 			</materials>
 			<category>Tapestries</category>
 		</object>
 		<object name="Beige tapestry" shortname="tBeige" type="normal">
-			<model location="Data/Objects/tapestry.wom">
-				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry2.png"/>
+			<model location="Data/Objects/Tapestries/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestries/Tapestry2.dds"/>
 			</model>
 			<materials>
-				Tapestry stand = 1,
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
 				Square piece of wool cloth = 8,
 				Yarn = 6
 			</materials>
 			<category>Tapestries</category>
 		</object>
 		<object name="Orange tapestry" shortname="tOrange" type="normal">
-			<model location="Data/Objects/tapestry.wom">
-				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry3.png"/>
+			<model location="Data/Objects/Tapestries/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestries/Tapestry3.dds"/>
 			</model>
 			<materials>
-				Tapestry stand = 1,
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
 				Square piece of wool cloth = 8,
 				Yarn = 6
 			</materials>
 			<category>Tapestries</category>
 		</object>
 		<object name="Cavalry motif tapestry" shortname="tCavalry" type="normal">
-			<model location="Data/Objects/tapestry.wom">
-				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry4.png"/>
+			<model location="Data/Objects/Tapestries/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestries/Tapestry4.dds"/>
 			</model>
 			<materials>
-				Tapestry stand = 1,
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
 				Square piece of wool cloth = 8,
 				Yarn = 6
 			</materials>
 			<category>Tapestries</category>
 		</object>
 		<object name="Festivities motif tapestry" shortname="tFestivities" type="normal">
-			<model location="Data/Objects/tapestry.wom">
-				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry5.png"/>
+			<model location="Data/Objects/Tapestries/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestries/Tapestry5.dds"/>
 			</model>
 			<materials>
-				Tapestry stand = 1,
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
 				Square piece of wool cloth = 8,
 				Yarn = 6
 			</materials>
 			<category>Tapestries</category>
 		</object>
 		<object name="Battle of Kyara tapestry" shortname="tKyara" type="normal">
-			<model location="Data/Objects/tapestry.wom">
-				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestry6.png"/>
+			<model location="Data/Objects/Tapestries/tapestry.wom">
+				<override mesh="tapestryMeshMesh" texture="Data/Objects/Tapestries/Tapestry6.dds"/>
 			</model>
 			<materials>
-				Tapestry stand = 1,
+				Planks = 1,
+				Shafts = 4,
+				Small nails = 2,
 				Square piece of wool cloth = 8,
 				Yarn = 6
 			</materials>
@@ -5113,7 +5389,7 @@
 		</object>
 
 		<object name="Freedom tall banner" shortname="tbFree" type="normal">
-			<model location="Data/Objects/freedom_tall_banner.wom"/>
+			<model location="Data/Objects/TallBanners/freedom_tall_banner.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -5121,8 +5397,8 @@
 			<category>Banners/Tall Banners</category>
 			<category>Kingdoms/Freedom</category>
 		</object>
-		<object name="JK tall banner" shortname="tbJK" type="normal">
-			<model location="Data/Objects/jk_tall_banner.wom"/>
+		<object name="Jenn-Kellon tall banner" shortname="tbJK" type="normal">
+			<model location="Data/Objects/TallBanners/jk_tall_banner.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -5130,8 +5406,8 @@
 			<category>Banners/Tall Banners</category>
 			<category>Kingdoms/Jenn-Kellon</category>
 		</object>
-		<object name="HoTS tall banner" shortname="tbHoTS" type="normal">
-			<model location="Data/Objects/hots_tall_banner.wom"/>
+		<object name="Horde of the Summoned tall banner" shortname="tbHoTS" type="normal">
+			<model location="Data/Objects/TallBanners/hots_tall_banner.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -5139,8 +5415,8 @@
 			<category>Banners/Tall Banners</category>
 			<category>Kingdoms/Horde of The Summoned</category>
 		</object>
-		<object name="MR tall banner" shortname="tbMR" type="normal">
-			<model location="Data/Objects/mr_tall_banner.wom"/>
+		<object name="Mol-Rehan tall banner" shortname="tbMR" type="normal">
+			<model location="Data/Objects/TallBanners/mr_tall_banner.wom"/>
 			<materials>
 				Shaft = 1,
 				Square piece of cloth = 1
@@ -5148,9 +5424,9 @@
 			<category>Banners/Tall Banners</category>
 			<category>Kingdoms/Mol-Rehan</category>
 		</object>
-		<object name="TRR tall banner" shortname="tbTRR" type="normal">
-			<model location="Data/Objects/jk_tall_banner.wom">
-				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/Tall_Banner_TRR.png"/>
+		<object name="The Roman Republic tall banner" shortname="tbTRR" type="normal">
+			<model location="Data/Objects/TallBanners/jk_tall_banner.wom">
+				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/TallBanners/Tall_Banner_TRR.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5159,9 +5435,9 @@
 			<category>Banners/Tall Banners</category>
 			<category>Kingdoms/The Roman Republic</category>
 		</object>
-		<object name="BL tall banner" shortname="tbBL" type="normal">
-			<model location="Data/Objects/hots_tall_banner.wom">
-				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/tall_Banner_blac.png"/>
+		<object name="Black Legion tall banner" shortname="tbBL" type="normal">
+			<model location="Data/Objects/TallBanners/hots_tall_banner.wom">
+				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/TallBanners/tall_Banner_blac.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5171,8 +5447,8 @@
 			<category>Kingdoms/Black Legion</category>
 		</object>
 		<object name="Ebonaura tall banner" shortname="tbEbon" type="normal">
-			<model location="Data/Objects/hots_tall_banner.wom">
-				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/tall_Banner_ebon.png"/>
+			<model location="Data/Objects/TallBanners/hots_tall_banner.wom">
+				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/TallBanners/tall_Banner_ebon.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5181,9 +5457,9 @@
 			<category>Banners/Tall Banners</category>
 			<category>Kingdoms/Ebonaura</category>
 		</object>
-		<object name="EMR tall banner" shortname="tbEMR" type="normal">
-			<model location="Data/Objects/mr_tall_banner.wom">
-				<override mesh="mr_tall_BannerMesh" texture="Data/Objects/tall_Banner_empi.png"/>
+		<object name="Empire of Mol Rehan tall banner" shortname="tbEMR" type="normal">
+			<model location="Data/Objects/TallBanners/mr_tall_banner.wom">
+				<override mesh="mr_tall_BannerMesh" texture="Data/Objects/TallBanners/tall_Banner_empi.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5192,9 +5468,9 @@
 			<category>Banners/Tall Banners</category>
 			<category>Kingdoms/Empire of MR</category>
 		</object>
-		<object name="JK PMK tall banner" shortname="tbJKPMK" type="normal">
-			<model location="Data/Objects/jk_tall_banner.wom">
-				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/tall_Banner_zjen.png"/>
+		<object name="Jenn-Kellon PMK tall banner" shortname="tbJKPMK" type="normal">
+			<model location="Data/Objects/TallBanners/jk_tall_banner.wom">
+				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/TallBanners/tall_Banner_zjen.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5203,9 +5479,9 @@
 			<category>Banners/Tall Banners</category>
 			<category>Kingdoms/Jenn-Kellon PMK</category>
 		</object>
-		<object name="VD tall banner" shortname="tbVD" type="normal">
-			<model location="Data/Objects/jk_tall_banner.wom">
-				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/tall_Banner_valh.png"/>
+		<object name="Valhalla Descendants tall banner" shortname="tbVD" type="normal">
+			<model location="Data/Objects/TallBanners/jk_tall_banner.wom">
+				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/TallBanners/tall_Banner_yval.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5214,10 +5490,119 @@
 			<category>Banners/Tall Banners</category>
 			<category>Kingdoms/Valhalla Descendants</category>
 		</object>
+		<object name="Valhalla Descendants tall banner (old)" shortname="tbVDold" type="normal">
+			<model location="Data/Objects/TallBanners/jk_tall_banner.wom">
+				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/TallBanners/tall_Banner_valh.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Valhalla Descendants</category>
+		</object>
+		<object name="Legion of Anubis tall banner" shortname="tbLA" type="normal">
+			<model location="Data/Objects/TallBanners/hots_tall_banner.wom">
+				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/TallBanners/tall_banner_legi.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Legion of Anubis</category>
+		</object>
+		<object name="Apocalypse Order tall banner" shortname="tbAO" type="normal">
+			<model location="Data/Objects/TallBanners/hots_tall_banner.wom">
+				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/TallBanners/tall_banner_apoc.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Apocalypse Order</category>
+		</object>
+		<object name="The Crusaders tall banner" shortname="tbTC" type="normal">
+			<model location="Data/Objects/TallBanners/mr_tall_banner.wom">
+				<override mesh="mr_tall_BannerMesh" texture="Data/Objects/TallBanners/tall_banner_crus.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/The Crusaders</category>
+		</object>
+		<object name="Dreadnaught Dynasty tall banner" shortname="tbDD" type="normal">
+			<model location="Data/Objects/TallBanners/hots_tall_banner.wom">
+				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/TallBanners/tall_banner_drea.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Dreadnaught Dynasty</category>
+		</object>
+		<object name="Crow Kingdom tall banner" shortname="tbCK" type="normal">
+			<model location="Data/Objects/TallBanners/mr_tall_banner.wom">
+				<override mesh="mr_tall_BannerMesh" texture="Data/Objects/TallBanners/tall_banner_crow.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Crow Kingdom</category>
+		</object>
+		<object name="Wurm University tall banner" shortname="tbWU" type="normal">
+			<model location="Data/Objects/TallBanners/jk_tall_banner.wom">
+				<override mesh="jk_tall_BannerMesh" texture="Data/Objects/TallBanners/tall_banner_wurm.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Wurm University</category>
+		</object>
+		<object name="Macedon tall banner" shortname="tbMace" type="normal">
+			<model location="Data/Objects/TallBanners/hots_tall_banner.wom">
+				<override mesh="hots_tall_bannerMesh" texture="Data/Objects/TallBanners/tall_banner_mace.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Macedon</category>
+		</object>
+		<object name="Pandemonium tall banner" shortname="tbPand" type="normal">
+			<model location="Data/Objects/TallBanners/mr_tall_banner.wom">
+				<override mesh="mr_tall_BannerMesh" texture="Data/Objects/TallBanners/tall_banner_pand.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners/Tall Banners</category>
+			<category>Kingdoms/Pandemonium</category>
+		</object>
 		
+		<object name="Blank banner" shortname="bBlank" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/Banner5.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+		</object>
 		<object name="Freedom banner" shortname="bFree" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner4.png"/>
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/Banner4.png"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5226,9 +5611,9 @@
 			<category>Banners</category>
 			<category>Kingdoms/Freedom</category>
 		</object>
-		<object name="JK banner" shortname="bJK" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner3.png"/>
+		<object name="Jenn-Kellon banner" shortname="bJK" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/Banner3.png"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5237,9 +5622,9 @@
 			<category>Banners</category>
 			<category>Kingdoms/Jenn-Kellon</category>
 		</object>
-		<object name="HoTS banner" shortname="bHoTS" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner2.png"/>
+		<object name="Horde of the Summoned banner" shortname="bHoTS" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/Banner2.png"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5248,9 +5633,9 @@
 			<category>Banners</category>
 			<category>Kingdoms/Horde of The Summoned</category>
 		</object>
-		<object name="MR banner" shortname="bMR" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner.png"/>
+		<object name="Mol-Rehan banner" shortname="bMR" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/Banner.png"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5259,9 +5644,9 @@
 			<category>Banners</category>
 			<category>Kingdoms/Mol-Rehan</category>
 		</object>
-		<object name="TRR banner" shortname="bTRR" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/Banner_TRR.png"/>
+		<object name="The Roman Republic banner" shortname="bTRR" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/Banner_TRR.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5270,9 +5655,9 @@
 			<category>Banners</category>
 			<category>Kingdoms/The Roman Republic</category>
 		</object>
-		<object name="BL banner" shortname="bBL" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/blac_banner.png"/>
+		<object name="Black Legion banner" shortname="bBL" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/blac_banner.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5282,8 +5667,8 @@
 			<category>Kingdoms/Black Legion</category>
 		</object>
 		<object name="Ebonaura banner" shortname="bEbon" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/ebon_banner.png"/>
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/ebon_banner.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5292,9 +5677,9 @@
 			<category>Banners</category>
 			<category>Kingdoms/Ebonaura</category>
 		</object>
-		<object name="EMR banner" shortname="bEMR" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/empi_banner.png"/>
+		<object name="Empire of Mol Rehan banner" shortname="bEMR" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/empi_banner.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5303,9 +5688,9 @@
 			<category>Banners</category>
 			<category>Kingdoms/Empire of MR</category>
 		</object>
-		<object name="JK PMK banner" shortname="bJKPMK" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/jenn_banner.png"/>
+		<object name="Jenn-Kellon PMK banner" shortname="bJKPMK" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/jenn_banner.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5314,9 +5699,9 @@
 			<category>Banners</category>
 			<category>Kingdoms/Jenn-Kellon PMK</category>
 		</object>
-		<object name="VD banner" shortname="bVD" type="normal">
-			<model location="Data/Objects/Banner_main.wom">
-				<override mesh="Cloth1Mesh" texture="Data/Objects/valh_banner.png"/>
+		<object name="Valhalla Descendants banner" shortname="bVD" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/yval_banner.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5325,10 +5710,141 @@
 			<category>Banners</category>
 			<category>Kingdoms/Valhalla Descendants</category>
 		</object>
+		<object name="Valhalla Descendants banner (old)" shortname="bVDold" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/valh_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Valhalla Descendants</category>
+		</object>
+		<object name="Legion of Anubis banner" shortname="bLA" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/anub_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Legion of Anubis</category>
+		</object>
+		<object name="Apocalypse Order banner" shortname="bAO" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/apoc_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Apocalypse Order</category>
+		</object>
+		<object name="The Crusaders banner" shortname="bTC" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/crus_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/The Crusaders</category>
+		</object>
+		<object name="Dreadnaught Dynasty banner" shortname="bDD" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/drea_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Dreadnaught Dynasty</category>
+		</object>
+		<object name="Crow Kingdom banner" shortname="bCK" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/crow_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Crow Kingdom</category>
+		</object>
+		<object name="Wurm University banner" shortname="bWU" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/banner_wurm.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Wurm University</category>
+		</object>
+		<object name="Teutonic Knights banner" shortname="bTK" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/fluf_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Teutonic Knights</category>
+		</object>
+		<object name="Kingdom of Sol banner" shortname="bKoS" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/kos_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Kingdom of Sol</category>
+		</object>
+		<object name="Macedon banner" shortname="bMace" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/mace_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Macedon</category>
+		</object>
+		<object name="Pandemonium banner" shortname="bPand" type="normal">
+			<model location="Data/Objects/Banners/Banner_main.wom">
+				<override mesh="Cloth1Mesh" texture="Data/Objects/Banners/pand_banner.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Banners</category>
+			<category>Kingdoms/Pandemonium</category>
+		</object>
 
+		<object name="Blank flag" shortname="fBlank" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/Flag5.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+		</object>
 		<object name="Freedom flag" shortname="fFree" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag4.png"/>
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/Flag4.png"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5337,9 +5853,9 @@
 			<category>Flags</category>
 			<category>Kingdoms/Freedom</category>
 		</object>
-		<object name="JK flag" shortname="fJK" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag3.png"/>
+		<object name="Jenn-Kellon flag" shortname="fJK" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/Flag3.png"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5348,9 +5864,9 @@
 			<category>Flags</category>
 			<category>Kingdoms/Jenn-Kellon</category>
 		</object>
-		<object name="HoTS flag" shortname="fHoTS" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag2.png"/>
+		<object name="Horde of the Summoned flag" shortname="fHoTS" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/Flag2.png"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5359,9 +5875,9 @@
 			<category>Flags</category>
 			<category>Kingdoms/Horde of The Summoned</category>
 		</object>
-		<object name="MR flag" shortname="fMR" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag.png"/>
+		<object name="Mol-Rehan flag" shortname="fMR" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/Flag.png"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5370,9 +5886,9 @@
 			<category>Flags</category>
 			<category>Kingdoms/Mol-Rehan</category>
 		</object>
-		<object name="TRR flag" shortname="fTRR" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/Flag_TRR.png"/>
+		<object name="The Roman Republic flag" shortname="fTRR" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/Flag_TRR.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5381,9 +5897,9 @@
 			<category>Flags</category>
 			<category>Kingdoms/The Roman Republic</category>
 		</object>
-		<object name="BL flag" shortname="fBL" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/blac_flag.png"/>
+		<object name="Black Legion flag" shortname="fBL" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/blac_flag.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5393,8 +5909,8 @@
 			<category>Kingdoms/Black Legion</category>
 		</object>
 		<object name="Ebonaura flag" shortname="fEbon" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/ebon_flag.png"/>
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/ebon_flag.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5403,9 +5919,9 @@
 			<category>Flags</category>
 			<category>Kingdoms/Ebonaura</category>
 		</object>
-		<object name="EMR flag" shortname="fEMR" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/empi_flag.png"/>
+		<object name="Empire of Mol Rehan flag" shortname="fEMR" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/empi_flag.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5414,9 +5930,9 @@
 			<category>Flags</category>
 			<category>Kingdoms/Empire of MR</category>
 		</object>
-		<object name="JK PMK flag" shortname="fJKPMK" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/jenn_flag.png"/>
+		<object name="Jenn-Kellon PMK flag" shortname="fJKPMK" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/jenn_flag.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5425,9 +5941,9 @@
 			<category>Flags</category>
 			<category>Kingdoms/Jenn-Kellon PMK</category>
 		</object>
-		<object name="VD flag" shortname="fVD" type="normal">
-			<model location="Data/Objects/Flag_main.wom">
-				<override mesh="Flag_flagMesh" texture="Data/Objects/valh_flag.png"/>
+		<object name="Valhalla Descendants flag" shortname="fVD" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/yval_flag.dds"/>
 			</model>
 			<materials>
 				Shaft = 1,
@@ -5435,6 +5951,127 @@
 			</materials>
 			<category>Flags</category>
 			<category>Kingdoms/Valhalla Descendants</category>
+		</object>
+		<object name="Valhalla Descendants flag (old)" shortname="fVDold" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/valh_flag.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Valhalla Descendants</category>
+		</object>
+		<object name="Legion of Anubis flag" shortname="fLA" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/anub_flag.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Legion of Anubis</category>
+		</object>
+		<object name="Apocalypse Order flag" shortname="fAO" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/apoc_flag.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Apocalypse Order</category>
+		</object>
+		<object name="The Crusaders flag" shortname="fTC" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/crus_flag.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/The Crusaders</category>
+		</object>
+		<object name="Dreadnaught Dynasty flag" shortname="fDD" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/drea_flag.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Dreadnaught Dynasty</category>
+		</object>
+		<object name="Crow Kingdom flag" shortname="fCK" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/flag_crow.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Crow Kingdom</category>
+		</object>
+		<object name="Wurm University flag" shortname="fWU" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/flag_wurm.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Wurm University</category>
+		</object>
+		<object name="Teutonic Knights flag" shortname="fTK" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/fluf_flag.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Teutonic Knights</category>
+		</object>
+		<object name="Kingdom of Sol flag" shortname="fKoS" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/kos_flag.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Kingdom of Sol</category>
+		</object>
+		<object name="Macedon flag" shortname="fMace" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/mace_flag.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Macedon</category>
+		</object>
+		<object name="Pandemonium flag" shortname="fPand" type="normal">
+			<model location="Data/Objects/Flags/Flag_main.wom">
+				<override mesh="Flag_flagMesh" texture="Data/Objects/Flags/pand_flag.dds"/>
+			</model>
+			<materials>
+				Shaft = 1,
+				Square piece of cloth = 1
+			</materials>
+			<category>Flags</category>
+			<category>Kingdoms/Pandemonium</category>
 		</object>
 		
 		<object name="Bee hive" shortname="hive" type="normal">
@@ -5589,6 +6226,35 @@
 			<model location="Data/Objects/dragonSkull_green.wom"/>
 			<category>Misc</category>
 		</object>
+		<object name="Beacon of Freedom" shortname="freedomBeacon" type="centered">
+			<model location="Data/Objects/Jackal/BeaconFreedom.wom"/>
+			<materials>
+				Marble bricks = 10,
+				Mortar = 5,
+				Planks = 5,
+				Small nails = 2,
+				Square pieces of cloth = 5
+			</materials>
+			<category>Misc</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Beacon of Jackal" shortname="jackalBeacon" type="centered">
+			<model location="Data/Objects/Jackal/beaconJackal.wom"/>
+			<category>Misc</category>
+			<category>Jackal</category>
+		</object>
+		<object name="Jackal lodestone" shortname="jackalLode" type="normal">
+			<model location="Data/Objects/Jackal/Lodestone.wom"/>
+			<materials>
+				Stone bricks = 6,
+				Mortar = 6,
+				Rift wood = 10,
+				Rift crystals = 10,
+				Rift stones = 10
+			</materials>
+			<category>Misc</category>
+			<category>Jackal</category>
+		</object>
 		
 		<object name="Forge" shortname="forge" type="normal">
 			<model location="Data/Objects/forge.wom"/>
@@ -5722,36 +6388,90 @@
 		
 		<object name="Marble Planter (empty)" shortname="marbplantempty" type="normal">
 			<model location="Data/Objects/marblePlanter_empty.wom"/>
-			<category>Decoration</category>
+			<category>Decoration/Marble Planters</category>
 		</object>
 		<object name="Marble Planter (blue flowers)" shortname="marbplantblue" type="normal">
-			<model location="Data/Objects/marblePlanter.wom"/>
-			<category>Decoration</category>
+			<model location="Data/Objects/marblePlanter.wom">
+				<override mesh="FlowersMesh" texture="Data/Objects/flower_blue.png"/>
+			</model>
+			<category>Decoration/Marble Planters</category>
 		</object>
 		<object name="Marble Planter (dotted flowers)" shortname="marbplantdotted" type="normal">
-			<model location="Data/Objects/marblePlanter.wom"/>
-			<category>Decoration</category>
+			<model location="Data/Objects/marblePlanter.wom">
+				<override mesh="FlowersMesh" texture="Data/Objects/flower_dotted.png"/>
+			</model>
+			<category>Decoration/Marble Planters</category>
 		</object>
 		<object name="Marble Planter (greenish flowers)" shortname="marbplantgreen" type="normal">
-			<model location="Data/Objects/marblePlanter.wom"/>
-			<category>Decoration</category>
+			<model location="Data/Objects/marblePlanter.wom">
+				<override mesh="FlowersMesh" texture="Data/Objects/flower_greenish.png"/>
+			</model>
+			<category>Decoration/Marble Planters</category>
 		</object>
 		<object name="Marble Planter (orange flowers)" shortname="marbplantorange" type="normal">
-			<model location="Data/Objects/marblePlanter.wom"/>
-			<category>Decoration</category>
+			<model location="Data/Objects/marblePlanter.wom">
+				<override mesh="FlowersMesh" texture="Data/Objects/flower_orange.png"/>
+			</model>
+			<category>Decoration/Marble Planters</category>
 		</object>
 		<object name="Marble Planter (purple flowers)" shortname="marbplantpurple" type="normal">
-			<model location="Data/Objects/marblePlanter.wom"/>
-			<category>Decoration</category>
+			<model location="Data/Objects/marblePlanter.wom">
+				<override mesh="FlowersMesh" texture="Data/Objects/flower_purple.png"/>
+			</model>
+			<category>Decoration/Marble Planters</category>
 		</object>
 		<object name="Marble Planter (white flowers)" shortname="marbplantwhite" type="normal">
-			<model location="Data/Objects/marblePlanter.wom"/>
-			<category>Decoration</category>
+			<model location="Data/Objects/marblePlanter.wom">
+				<override mesh="FlowersMesh" texture="Data/Objects/flower_white.png"/>
+			</model>
+			<category>Decoration/Marble Planters</category>
 		</object>
 		<object name="Marble Planter (yellow flowers)" shortname="marbplantyellow" type="normal">
-			<model location="Data/Objects/marblePlanter.wom"/>
-			<category>Decoration</category>
+			<model location="Data/Objects/marblePlanter.wom">
+				<override mesh="FlowersMesh" texture="Data/Objects/flower_yellow.png"/>
+			</model>
+			<category>Decoration/Marble Planters</category>
 		</object>
+		
+		<object name="Flowerpot (clay)" shortname="flowerpotClay" type="normal">
+			<model location="Data/Objects/FlowerPots/FlowerpotClay.wom"/>
+			<category>Decoration/Flowerpots</category>
+		</object>
+		<object name="Flowerpot (empty)" shortname="flowerpotEmpty" type="normal">
+			<model location="Data/Objects/FlowerPots/FlowerpotClay.wom">
+				<override mesh="FlowerpotClayMesh" texture="Data/Objects/FlowerPots/Flowerpot_burned.dds"/>
+			</model>
+			<category>Decoration/Flowerpots</category>
+		</object>
+		<object name="Flowerpot (blue flowers)" shortname="flowerpotBlue" type="normal">
+			<model location="Data/Objects/FlowerPots/Flowerpot_blue.wom"/>
+			<category>Decoration/Flowerpots</category>
+		</object>
+		<object name="Flowerpot (dotted flowers)" shortname="flowerpotDotted" type="normal">
+			<model location="Data/Objects/FlowerPots/Flowerpot_dotted.wom"/>
+			<category>Decoration/Flowerpots</category>
+		</object>
+		<object name="Flowerpot (greenish flowers)" shortname="flowerpotGreen" type="normal">
+			<model location="Data/Objects/FlowerPots/Flowerpot_greenish.wom"/>
+			<category>Decoration/Flowerpots</category>
+		</object>
+		<object name="Flowerpot (orange flowers)" shortname="flowerpotOrange" type="normal">
+			<model location="Data/Objects/FlowerPots/Flowerpot_orange.wom"/>
+			<category>Decoration/Flowerpots</category>
+		</object>
+		<object name="Flowerpot (purple flowers)" shortname="flowerpotPurple" type="normal">
+			<model location="Data/Objects/FlowerPots/Flowerpot_purple.wom"/>
+			<category>Decoration/Flowerpots</category>
+		</object>
+		<object name="Flowerpot (white flowers)" shortname="flowerpotWhite" type="normal">
+			<model location="Data/Objects/FlowerPots/Flowerpot_white.wom"/>
+			<category>Decoration/Flowerpots</category>
+		</object>
+		<object name="Flowerpot (yellow flowers)" shortname="flowerpotYellow" type="normal">
+			<model location="Data/Objects/FlowerPots/Flowerpot_yellow.wom"/>
+			<category>Decoration/Flowerpots</category>
+		</object>
+		
 		<object name="Spirit castle" shortname="spiritcastle" type="normal">
 			<model location="Data/Objects/spiritCastle.wom"/>
 			<category>Mailboxes</category>
@@ -6218,7 +6938,7 @@
 			<category>Ships</category>
 		</object>
 		<object name="Caravel" shortname="boatCara" type="floating">
-			<model location="Data/Objects/caravel.wom"/>
+			<model location="Data/Objects/Caravel.wom"/>
 			<category>Ships</category>
 		</object>
 		
@@ -6514,49 +7234,49 @@
 		
 	<caves>
 	
-		<rock name="Stone wall" shortname="sw" type="wall" tex="Data/Caves/cave_512.png">
+		<rock name="Stone wall" shortname="sw" type="wall" tex="Data/Caves/cave512.dds">
 			<category>Walls</category>
 		</rock>
-		<rock name="Reinforced stone wall" shortname="rsw" type="wall" tex="Data/Caves/reinforcedcave_v1.png">
+		<rock name="Reinforced stone wall" shortname="rsw" type="wall" tex="Data/Caves/reinforcedcave_v1.dds">
 			<category>Walls</category>
 		</rock>
-		<rock name="Iron vein" shortname="iv" type="wall" tex="Data/Caves/ironvein_512.png">
-			<category>Walls</category>
-			<category>Veins</category>
-		</rock>
-		<rock name="Copper vein" shortname="cv" type="wall" tex="Data/Caves/coppervein_512.png">
+		<rock name="Iron vein" shortname="iv" type="wall" tex="Data/Caves/ironvein_512.dds">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
-		<rock name="Tin vein" shortname="tv" type="wall" tex="Data/Caves/tinvein_512.png">
+		<rock name="Copper vein" shortname="cv" type="wall" tex="Data/Caves/coppervein_512.dds">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
-		<rock name="Zinc vein" shortname="zv" type="wall" tex="Data/Caves/zincvein_512.png">
+		<rock name="Tin vein" shortname="tv" type="wall" tex="Data/Caves/tinvein_512.dds">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
-		<rock name="Lead vein" shortname="lv" type="wall" tex="Data/Caves/leadvein_512.png">
+		<rock name="Zinc vein" shortname="zv" type="wall" tex="Data/Caves/zincvein_512.dds">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
-		<rock name="Silver vein" shortname="sv" type="wall" tex="Data/Caves/silvervein_512.png">
+		<rock name="Lead vein" shortname="lv" type="wall" tex="Data/Caves/leadvein_512.dds">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
-		<rock name="Gold vein" shortname="gv" type="wall" tex="Data/Caves/goldvein_512.png">
+		<rock name="Silver vein" shortname="sv" type="wall" tex="Data/Caves/silvervein_512.dds">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
-		<rock name="Slate vein" shortname="slv" type="wall" tex="Data/Caves/slatevein_512.png">
+		<rock name="Gold vein" shortname="gv" type="wall" tex="Data/Caves/goldvein_512.dds">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
-		<rock name="Marble vein" shortname="mv" type="wall" tex="Data/Caves/marblevein_512.png">
+		<rock name="Slate vein" shortname="slv" type="wall" tex="Data/Caves/slatevein_512.dds">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
-		<rock name="Sandstone vein" shortname="ssv" type="wall" tex="Data/Caves/sandstonevein.png">
+		<rock name="Marble vein" shortname="mv" type="wall" tex="Data/Caves/marblevein_512.dds">
+			<category>Walls</category>
+			<category>Veins</category>
+		</rock>
+		<rock name="Sandstone vein" shortname="ssv" type="wall" tex="Data/Caves/sandstonevein.dds">
 			<category>Walls</category>
 			<category>Veins</category>
 		</rock>
@@ -6589,62 +7309,62 @@
 			<category>Walls/Decorative</category>
 		</rock>
 		
-		<rock name="Stone floor" shortname="sfl" type="floor" tex="Data/Caves/cave_512.png">
+		<rock name="Stone floor" shortname="sfl" type="floor" tex="Data/Caves/cave512.dds">
 			<category>Floors</category>
 		</rock>
 		<rock name="Reinforced stone floor" shortname="rsfl" type="floor" tex="Data/Caves/reinforcedcaveFloor_v1.dds">
 			<category>Floors</category>
 		</rock>
-		<rock name="Gravel" shortname="grav" type="floor" tex="Data/GroundTextures/gravel.jpg">
+		<rock name="Gravel" shortname="grav" type="floor" tex="Data/GroundTextures/gravel.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Cobblestone" shortname="cs" type="floor" tex="Data/GroundTextures/cobble.png">
+		<rock name="Cobblestone" shortname="cs" type="floor" tex="Data/GroundTextures/cobble.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Rough cobblestone" shortname="rcs" type="floor" tex="Data/GroundTextures/cobble2.png">
+		<rock name="Rough cobblestone" shortname="rcs" type="floor" tex="Data/GroundTextures/cobble2.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Round cobblestone" shortname="csr" type="floor" tex="Data/GroundTextures/cobble3.png">
+		<rock name="Round cobblestone" shortname="csr" type="floor" tex="Data/GroundTextures/cobble3.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Stone slab" shortname="sl" type="floor" tex="Data/GroundTextures/slab.jpg">
+		<rock name="Stone slab" shortname="sl" type="floor" tex="Data/GroundTextures/slab.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Marble slab" shortname="msl" type="floor" tex="Data/GroundTextures/marbleslab.jpg">
+		<rock name="Marble slab" shortname="msl" type="floor" tex="Data/GroundTextures/marbleslab.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Marble brick" shortname="mb" type="floor" tex="Data/GroundTextures/marbleBricks.png">
+		<rock name="Marble brick" shortname="mb" type="floor" tex="Data/GroundTextures/marbleBricks.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Slate slab" shortname="ssl2" type="floor" tex="Data/GroundTextures/slateTiles.png">
+		<rock name="Slate slab" shortname="ssl2" type="floor" tex="Data/GroundTextures/slateTiles.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Slate brick" shortname="ssl" type="floor" tex="Data/GroundTextures/slateslab.jpg">
+		<rock name="Slate brick" shortname="ssl" type="floor" tex="Data/GroundTextures/slateslab.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Sandstone slab" shortname="sas" type="floor" tex="Data/GroundTextures/sandstoneslab.png">
+		<rock name="Sandstone slab" shortname="sas" type="floor" tex="Data/GroundTextures/sandstoneslab.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Sandstone brick" shortname="sab" type="floor" tex="Data/GroundTextures/sandstonebrick.png">
+		<rock name="Sandstone brick" shortname="sab" type="floor" tex="Data/GroundTextures/sandstonebrick.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Pottery brick" shortname="pb" type="floor" tex="Data/GroundTextures/potterybrickpaving.png">
+		<rock name="Pottery brick" shortname="pb" type="floor" tex="Data/GroundTextures/potterybrickpaving.dds">
 			<category>Floors/Decorative</category>
 		</rock>
-		<rock name="Planks" shortname="pl" type="floor" tex="Data/GroundTextures/planks.png">
+		<rock name="Planks" shortname="pl" type="floor" tex="Data/GroundTextures/planks.dds">
 			<category>Floors/Decorative</category>
 		</rock>
 		
-		<rock name="Wooden cave door" shortname="wcaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_wooden.png">
+		<rock name="Wooden cave door" shortname="wcaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_wooden.dds">
 			<category>Entrances</category>
 		</rock>
-		<rock name="Metal cave door" shortname="mcaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_steel.png">
+		<rock name="Metal cave door" shortname="mcaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_steel.dds">
 			<category>Entrances</category>
 		</rock>
-		<rock name="Silver cave door" shortname="scaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_silver.png">
+		<rock name="Silver cave door" shortname="scaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_silver.dds">
 			<category>Entrances</category>
 		</rock>
-		<rock name="Golden cave door" shortname="gcaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_gold.png">
+		<rock name="Golden cave door" shortname="gcaDoorC" type="entrance" tex="Data/GroundTextures/minedoor_gold.dds">
 			<category>Entrances</category>
 		</rock>
 		

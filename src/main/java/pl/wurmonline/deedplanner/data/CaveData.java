@@ -11,7 +11,7 @@ import pl.wurmonline.deedplanner.graphics.texture.SimpleTex;
 
 public class CaveData implements TileEntity {
 
-    private static final SimpleTex CEILING_TEXTURE = SimpleTex.getTexture("Data/Caves/cave_512.png");
+    private static final SimpleTex CEILING_TEXTURE = SimpleTex.getTexture("Data/Caves/cave512.dds");
     
     public final SimpleTex texture;
     public final String name;
